@@ -55,7 +55,7 @@ from engine.script import cave_coverage     # noqa: E402  Sections ∪ caves ∪
 from text.script import vmflow  # noqa: E402
 
 VM_BANK_LO, VM_BANK_HI = 0x08016000, 0x080A8C00
-from font.generated.glyph_map import GLYPH_MAP  # noqa: E402
+from font.atlas import GLYPH_MAP  # noqa: E402
 from text.script.tools.scan_text_banks import score_text  # noqa: E402
 from text.script.tools.audit_text_coverage import claimed_spans, KNOWN  # noqa: E402
 

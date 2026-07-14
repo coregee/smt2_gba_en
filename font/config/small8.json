@@ -1,0 +1,39 @@
+{
+  "file": "small8.fnt",
+  "format": "gba-4bpp-8x8-with-widths",
+  "source_cell": 256,
+  "copied_cells": 224,
+  "font_file": {
+    "source": "../source/Galmuri7.ttf",
+    "size": 7,
+    "body": 2,
+    "baseline_row": 8,
+    "descender_baseline_row": 7,
+    "descenders": "gjpqy,"
+  },
+  "atlas": {
+    "columns": 32,
+    "scale": 4
+  },
+  "replacements": [
+    {
+      "start": 9,
+      "characters": "0123456789"
+    },
+    {
+      "start": 23,
+      "characters": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    },
+    {
+      "map": {
+        "6": "-",
+        "7": ".",
+        "211": "'"
+      }
+    },
+    {
+      "start": 224,
+      "characters": "abcdefghijklmnopqrstuvwxyz"
+    }
+  ]
+}

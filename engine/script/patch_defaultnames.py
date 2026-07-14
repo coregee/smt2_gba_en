@@ -43,8 +43,7 @@ except ModuleNotFoundError:
     from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
 
 from engine.script import rommap
-from font.script import sheet8, ttf_raster
-from paths import ProjectPaths
+from font.script.repack import build_small_font
 
 UPPER_IDX = 0x17                                  # charset index of 'A' (B..Z follow)
 LOWER_TOKENS = list(range(0x00FE, 0x0118))        # glyph tokens a..z (contiguous, verified)
@@ -77,8 +76,6 @@ def encode_name(name):
     return bytes(out)
 
 
-THIN_FACE_CELL0 = 0x100         # small-sheet cell of charset idx 0 in the original mapping
-GALMURI7 = ProjectPaths.discover().font_source_root / "Galmuri7.ttf"
 CAVE_SRC = Path(__file__).with_name("cave_name8vwf.c")
 
 # Party_BuildMemberNameTiles 0x080C6E78: bl cave after the push (r4-r7/lr saved), then jump
@@ -108,44 +105,6 @@ SAVE_CAVE_ASM = """
 """
 
 
-def _g7_cell(font, ch):
-    """Rasterize ch into an 8x8 thin-sheet cell from Galmuri7 (body value 2, baseline on
-    row 8 to match the ROM thin-face caps; g/j/p/q/y/comma descenders squash one row)."""
-    bl = 7 if ch in "gjpqy," else 8
-    return sheet8.encode_cell(ttf_raster.char_grid(font, ch, 8, 8, baseline_row=bl, left=0, body=2))
-
-
-def build_smallsheet_ext(p):
-    """Thin-face copy indexed by charset index (idx 0x00-0xDF) + lowercase at 0xE0-0xF9,
-    followed by the 8px VWF width table (one byte per index: ink + 1px gap, blank = 4).
-
-    The Latin glyphs the party/save name drawers actually use are all rasterized from
-    **Galmuri7** for one cohesive 8px face (user-chosen 2026-06-13) — caps (idx 0x17-0x30),
-    digits (0x09-0x12), the demon-name cave's punctuation ('-' 0x06, '.' 0x07, ''' 0xD3),
-    and lowercase (0xE0-0xF9). The remaining copied cells stay the ROM thin face (kana, for
-    untranslated names)."""
-    blob = bytearray(p.read(rommap.ROM_BASE + sheet8.cell_offset(THIN_FACE_CELL0), 0xE0 * sheet8.CELL))
-    font = ttf_raster.load(str(GALMURI7), 7)
-
-    def put(idx, ch):
-        blob[idx * sheet8.CELL:(idx + 1) * sheet8.CELL] = _g7_cell(font, ch)
-
-    for d in range(10):
-        put(0x09 + d, chr(ord("0") + d))             # digits 0-9
-    for i in range(26):
-        put(UPPER_IDX + i, chr(ord("A") + i))        # caps A-Z (idx 0x17-0x30)
-    put(0x06, "-"); put(0x07, "."); put(0xD3, "'")   # the demon-name cave's punctuation cells
-    for i in range(26):
-        blob += _g7_cell(font, chr(ord("a") + i))    # lowercase a-z at idx 0xE0-0xF9
-    n_cells = len(blob) // sheet8.CELL
-    assert len(blob) == rommap.SMALLSHEET_EXT_WIDTHS - rommap.SMALLSHEET_EXT
-    for idx in range(n_cells):
-        g = sheet8.decode_cell(blob[idx * sheet8.CELL:(idx + 1) * sheet8.CELL])
-        ink = [c for c in range(8) if any(row[c] for row in g)]
-        blob.append(min(ink[-1] + 2, 8) if ink else 4)
-    return bytes(blob)
-
-
 def apply(p):
     # extended charset: base 224 entries + a-z at idx 0xE0, placed in the far data block
     base = bytearray(p.read(rommap.NAME_CHARSET_TABLE, rommap.NAME_CHARSET_COUNT * 2))
@@ -163,7 +122,7 @@ def apply(p):
 
     # relocated 8px thin face for the index-direct drawers (p.patch guards the 0xFF free
     # space; p.data can't host it — its zero-assert rejects 0xFF padding)
-    sheet = build_smallsheet_ext(p)
+    sheet = build_small_font(p.rom)
     assert len(sheet) <= rommap.SMALLSHEET_EXT_SIZE
     p.patch(rommap.SMALLSHEET_EXT, "ff" * len(sheet), sheet, name="smallsheet ext (8px thin + lowercase)")
     thin_old = struct.pack("<I", rommap.ROM_BASE + sheet8.cell_offset(THIN_FACE_CELL0)).hex()

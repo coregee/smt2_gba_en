@@ -22,7 +22,7 @@ try:
 except ModuleNotFoundError:
     from _boot import REVIEW
 
-from font.generated.glyph_map import GLYPH_MAP  # noqa: E402
+from font.atlas import GLYPH_MAP  # noqa: E402
 from text.script import tr  # noqa: E402
 
 TR = tr.TR

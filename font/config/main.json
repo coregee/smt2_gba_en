@@ -1,0 +1,53 @@
+{
+  "file": "main.fnt",
+  "format": "gba-banked-2bpp-16x16",
+  "glyph_count": 4608,
+  "atlas": {
+    "file": "../atlas/main.json",
+    "columns": 32,
+    "scale": 2
+  },
+  "font_file": {
+    "source": "../source/HelvetiPixel.ttf",
+    "size": 15,
+    "baseline_row": 12,
+    "left": 2,
+    "body": 2,
+    "shadow": 3,
+    "substitutions": {
+      "\u2026": "..."
+    }
+  },
+  "blank_glyphs": ["0x00BC"],
+  "replacements": [
+    {
+      "start": "0x00CC",
+      "characters": "0123456789"
+    },
+    {
+      "start": "0x00DD",
+      "characters": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    },
+    {
+      "start": "0x00FE",
+      "characters": "abcdefghijklmnopqrstuvwxyz"
+    },
+    {
+      "map": {
+        "0x00BD": "!",
+        "0x00BE": "\"",
+        "0x00BF": "/",
+        "0x00C0": "'",
+        "0x00C1": "\u2026",
+        "0x00C4": "(",
+        "0x00C5": ")",
+        "0x00C8": ",",
+        "0x00C9": "-",
+        "0x00CA": ".",
+        "0x00D6": ":",
+        "0x00D7": ";",
+        "0x00DB": "?"
+      }
+    }
+  ]
+}

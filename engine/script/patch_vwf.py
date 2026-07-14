@@ -21,14 +21,13 @@ try:
 except ModuleNotFoundError:
     from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
 
-from font.script.render_glyph import render_glyph_pixels, glyph_src_offset  # noqa: E402
-from engine.script.patch_font import encode_glyph                              # noqa: E402
-from font.script.custom_glyphs import PUNCT  # noqa: E402  derived punct slots
-import json
+from font.atlas import GLYPH_MAP, replacement_characters  # noqa: E402
+from font.script.font_codec import (  # noqa: E402
+    decode_main_glyph,
+    encode_main_record,
+    main_glyph_offset,
+)
 from engine.script import rommap                                                    # noqa: E402
-from paths import ProjectPaths
-
-DATA = ProjectPaths.discover().font_config_root
 B = rommap.ROM_BASE
 
 CAVE_ADDR = 0x081A6DB4          # 0xFF gap, in bl range of the patch site
@@ -59,14 +58,12 @@ def ink_cols(g):
 
 def english_codes(rom):
     """codes (0xBC..0x117) whose glyph is an ASCII letter/digit/space/punct."""
-    m = {int(k, 16): v for k, v in
-         json.loads((DATA / "glyph_map_data.json").read_text(encoding="utf-8")).items()}
     out = set()
-    for code, ch in m.items():
+    for code, ch in GLYPH_MAP.items():
         if 0x00BC <= code <= 0x0117 and (ch.isascii() and (ch.isalnum() or not ch.isspace())):
             out.add(code)
     out.add(0x00BC)   # space
-    out |= set(PUNCT)  # derived half-width punctuation (incl. non-ASCII … the isascii filter skips)
+    out |= set(replacement_characters())
     return out
 
 
@@ -84,7 +81,7 @@ def apply(p):
     adv = {}
     aligned = 0
     for code in sorted(eng):
-        g = render_glyph_pixels(rom, code)
+        g = decode_main_glyph(rom, code)
         cols = ink_cols(g)
         if not cols:                       # blank (space)
             adv[code] = 5
@@ -97,10 +94,10 @@ def apply(p):
             for y in range(16):
                 for x in range(16 - left):
                     ng[y][x] = g[y][x + left]
-            tltr, blbr = encode_glyph(ng)
-            off = glyph_src_offset(rom, code)
-            rom[off:off + 0x20] = tltr
-            rom[off + 0x200:off + 0x220] = blbr
+            record = encode_main_record(ng)
+            off = main_glyph_offset(rom, code)
+            rom[off:off + 0x20] = record[:0x20]
+            rom[off + 0x200:off + 0x220] = record[0x20:]
             aligned += 1
 
     # ---- width table (default 13; English -> trimmed advance) ----

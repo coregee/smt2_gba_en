@@ -16,7 +16,7 @@ try:
 except ModuleNotFoundError:
     from _boot import PATHS, ROM
 
-from font.generated.glyph_map import GLYPH_MAP  # noqa: E402
+from font.atlas import GLYPH_MAP  # noqa: E402
 
 ROM_BASE = 0x08000000
 

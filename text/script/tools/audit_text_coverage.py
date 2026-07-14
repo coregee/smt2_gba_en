@@ -32,7 +32,7 @@ except ModuleNotFoundError:
     from _boot import REVIEW, ROM
 
 from text.script import sections, tr  # noqa: E402
-from font.generated.glyph_map import GLYPH_MAP  # noqa: E402
+from font.atlas import GLYPH_MAP  # noqa: E402
 from text.script.tools.scan_text_banks import score_text  # noqa: E402
 
 ROM_BASE = 0x08000000

@@ -98,8 +98,8 @@ class ProjectPaths:
         return self.font_root / "config"
 
     @property
-    def font_generated_root(self) -> Path:
-        return self.font_root / "generated"
+    def font_atlas_root(self) -> Path:
+        return self.font_root / "atlas"
 
     @property
     def font_script_root(self) -> Path:
@@ -110,12 +110,8 @@ class ProjectPaths:
         return self.font_root / "source"
 
     @property
-    def font_tools_root(self) -> Path:
-        return self.font_root / "tools"
-
-    @property
-    def font_review_root(self) -> Path:
-        return self.font_root / "review"
+    def font_build_root(self) -> Path:
+        return self.rom_root / "font"
 
     @property
     def graphics_root(self) -> Path:

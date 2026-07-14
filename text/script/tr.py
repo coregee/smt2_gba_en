@@ -36,14 +36,12 @@ from paths import ProjectPaths
 _PATHS = ProjectPaths.discover()
 ROOT = _PATHS.project_root
 
-from font.script.custom_glyphs import custom_chars  # noqa: E402
-from font.generated.glyph_map import GLYPH_MAP  # noqa: E402
+from font.atlas import GLYPH_MAP, character_codes  # noqa: E402
 from engine.script import rommap    # noqa: E402
 from text.script import sections    # noqa: E402  the section manifest (single registry)
 from text.script import scriptrefs  # noqa: E402  used by 3 pack phases
 
 DATA = _PATHS.text_config_root
-FONT_CONFIG = _PATHS.font_config_root
 TR = _PATHS.corpus_root
 ROM_BASE = rommap.ROM_BASE
 u16 = lambda rom, a: int.from_bytes(rom[a - ROM_BASE:a - ROM_BASE + 2], "little")
@@ -181,13 +179,9 @@ def aliasify(s):
     return s
 
 
-CHAR2CODE = {}
-for k, v in sorted(json.loads((FONT_CONFIG / "glyph_map_data.json").read_text(encoding="utf-8")).items(),
-                   key=lambda kv: int(kv[0], 16)):
-    CHAR2CODE.setdefault(v, int(k, 16))
-CHAR2CODE.update(custom_chars())
+CHAR2CODE = character_codes()
 # Canonical half-width ASCII slots win for letters/digits (ascii+0x9C upper/digit, +0x9D lower).
-# The base font has a stray 'S' at 0x00CB (= '/'+0x9C) that custom_glyphs overwrites with '/', so
+# The base font has a stray 'S' at 0x00CB (= '/'+0x9C), so
 # encoding 'S' to its lowest map code (0x00CB) printed '/'; pin letters/digits to the real slots.
 for _ch in "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ":
     CHAR2CODE[_ch] = ord(_ch) + 0x9C

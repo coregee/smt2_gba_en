@@ -11,7 +11,6 @@ Usage:
     python text/script/tools/inject_text.py            # default: load-screen test
     python text/script/tools/inject_text.py 0x08123E22 "Load OK! 123?" 28
 """
-import json
 import sys
 from pathlib import Path
 
@@ -20,19 +19,12 @@ try:
 except ModuleNotFoundError:
     from _boot import PATHS
 
-from font.script.custom_glyphs import custom_chars  # noqa: E402
+from font.atlas import GLYPH_MAP, character_codes  # noqa: E402
 
 ROM_IN = PATHS.build_path("smt2-en-font.gba")
-CONFIG = PATHS.font_config_root
 ROM_BASE = 0x08000000
 
-# char -> code: invert the map (lowest code per char = canonical), then our punctuation
-CHAR2CODE = {}
-for k, v in sorted(json.loads((CONFIG / "glyph_map_data.json").read_text(encoding="utf-8")).items(),
-                   key=lambda kv: int(kv[0], 16)):
-    CHAR2CODE.setdefault(v, int(k, 16))
-CHAR2CODE.update(custom_chars())
-CHAR2CODE[" "] = 0x00BC          # authored half-width space
+CHAR2CODE = character_codes()
 
 
 def encode(text: str, fill_to: int | None = None) -> bytes:
@@ -72,7 +64,6 @@ def main():
     ROM_IN.write_bytes(rom)
 
     # verify: decode it back with the runtime map
-    from font.generated.glyph_map import GLYPH_MAP
     codes = [int.from_bytes(blob[i:i + 2], "little") for i in range(0, len(blob), 2)]
     codes = [c for c in codes if c != 0]          # drop terminator if present
     decoded = "".join(" " if c == 0x00BC else GLYPH_MAP.get(c, f"<{c:04X}>") for c in codes)

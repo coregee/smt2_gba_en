@@ -20,14 +20,14 @@ except ModuleNotFoundError:
     from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
 
 from engine.script import rommap
-from font.script.render_glyph import glyph_src_offset
+from font.script.font_codec import main_glyph_offset
 
 
 def apply(p):
     n = 0
     for code in range(rommap.ENG_LO, rommap.ENG_HI):          # 0xBC..0x117 (English glyph codes)
-        src = glyph_src_offset(bytes(p.rom), code)
-        dst = glyph_src_offset(bytes(p.rom), code + 0x200)    # parallel name-variant bank
+        src = main_glyph_offset(p.rom, code)
+        dst = main_glyph_offset(p.rom, code + 0x200)    # parallel name-variant bank
         p.rom[dst:dst + 0x20] = p.rom[src:src + 0x20]                    # TL/TR (top strip)
         p.rom[dst + 0x200:dst + 0x220] = p.rom[src + 0x200:src + 0x220]  # BL/BR (bottom strip)
         n += 1
