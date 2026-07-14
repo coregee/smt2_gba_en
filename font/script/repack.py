@@ -24,6 +24,7 @@ from font.script.font_codec import (
     encode_small_cell,
     inject_main_file,
     main_file_from_rom,
+    main_glyph_offset,
     render_atlas,
     small_cell_offset,
 )
@@ -111,13 +112,19 @@ def build_main_font(rom: bytes | bytearray) -> bytes:
     font = ImageFont.truetype(str(source), options["size"])
     replacements = replacement_characters()
 
+    physical_aliases: dict[int, list[int]] = {}
+    for code in range(glyph_count):
+        physical_aliases.setdefault(main_glyph_offset(rom, code), []).append(code)
+
+    def put(code: int, record: bytes) -> None:
+        for alias in physical_aliases[main_glyph_offset(rom, code)]:
+            output[alias * MAIN_RECORD_SIZE:(alias + 1) * MAIN_RECORD_SIZE] = record
+
     for code in map(_code, config["blank_glyphs"]):
-        output[code * MAIN_RECORD_SIZE:(code + 1) * MAIN_RECORD_SIZE] = encode_main_record(
-            [[0] * 16 for _ in range(16)]
-        )
+        put(code, encode_main_record([[0] * 16 for _ in range(16)]))
     for code, character in replacements.items():
         grid = _render_main_character(font, character, options)
-        output[code * MAIN_RECORD_SIZE:(code + 1) * MAIN_RECORD_SIZE] = encode_main_record(grid)
+        put(code, encode_main_record(grid))
     return bytes(output)
 
 

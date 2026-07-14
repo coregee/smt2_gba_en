@@ -44,6 +44,7 @@ except ModuleNotFoundError:
 
 from engine.script import rommap
 from font.script.repack import build_small_font
+from font.script.font_codec import small_cell_offset
 
 UPPER_IDX = 0x17                                  # charset index of 'A' (B..Z follow)
 LOWER_TOKENS = list(range(0x00FE, 0x0118))        # glyph tokens a..z (contiguous, verified)
@@ -125,7 +126,7 @@ def apply(p):
     sheet = build_small_font(p.rom)
     assert len(sheet) <= rommap.SMALLSHEET_EXT_SIZE
     p.patch(rommap.SMALLSHEET_EXT, "ff" * len(sheet), sheet, name="smallsheet ext (8px thin + lowercase)")
-    thin_old = struct.pack("<I", rommap.ROM_BASE + sheet8.cell_offset(THIN_FACE_CELL0)).hex()
+    thin_old = struct.pack("<I", rommap.ROM_BASE + small_cell_offset(0x100)).hex()
     thin_new = struct.pack("<I", rommap.SMALLSHEET_EXT)
     for ref in rommap.SMALLSHEET_THIN_REFS:
         p.patch(ref, thin_old, thin_new, name=f"thin-face ref @{ref:08X}")

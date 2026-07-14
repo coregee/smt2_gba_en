@@ -1,26 +1,45 @@
 # Font
 
-The GBA font pipeline is split by ownership:
+The font build follows the same extract/atlas/repack model as Devil Summoner while preserving the
+GBA ROM's native layouts.
 
-- `config/` contains the curated `glyph_map_data.json` source of truth.
-- `source/` contains licensed font files and provenance.
-- `generated/` contains reproducible maps, OCR/context tables, and width tables.
-- `script/` contains renderers, codecs, generators, and preview tools.
-- `tools/` contains optional OCR, context, and interactive review utilities.
-- `review/` is the gitignored workspace for generated review pages and OCR batches.
+| Path | Purpose |
+| --- | --- |
+| `atlas/main.json` | Reviewed glyph-code atlas used directly by text encoders and decoders. |
+| `config/main.json` | Main 16x16 font format, source face, raster settings, and replacement ranges. |
+| `config/small8.json` | Relocated 8x8 name font, replacement ranges, and width-table settings. |
+| `source/` | Licensed source fonts and provenance. |
+| `script/font_codec.py` | Native 2bpp/4bpp codecs and bank-table injection. |
+| `script/extract.py` | Render original and replacement atlas sheets. |
+| `script/repack.py` | Build and validate injectable font files. |
 
-The ROM build consumes `config/`, `source/`, and the Python helpers directly. The checked-in
-generated tables support extraction, review, and diagnostics; `patch_vwf.py` measures its runtime
-table from the patched ROM so a stale `glyph_widths.bin` cannot alter a production build.
+## Font files
+
+`main.fnt` is a canonical code-indexed view of the ROM's scattered font banks. Each of its 4,608
+records is one 16x16 glyph: top-left, top-right, bottom-left, and bottom-right 2bpp tiles. Injection
+resolves every record back through the ROM's font-bank table. The repacker also keeps the stock
+bank-1/bank-2 physical aliases synchronized.
+
+`small8.fnt` contains the relocated 8x8 name cells followed by one VWF advance byte per cell. The
+font stage rasterizes its Latin cells; `patch_defaultnames.py` only injects the finished file and
+installs the runtime hooks.
+
+The normal repository build writes both files under `rom/font/` and creates ignored comparison
+sheets at `font/atlas/main_{original,replaced}.png` and
+`font/atlas/small8_{original,replaced}.png`. The ROM build injects the same in-memory font data, so
+the preview and shipped paths cannot diverge.
+
+## Commands
 
 Run from the repository root:
 
 ```sh
-python font/script/build_glyph_map.py
-python font/script/build_width_table.py
-python font/script/render_glyph.py 017b
-python -m font.tools.build_review_html
+python font/script/extract.py
+python font/script/repack.py
+python font/script/repack.py --check
+python build.py --profile full --check
 ```
 
-OCR commands require a local Python 3.11 `.venv-ocr/`; it is intentionally not part of the
-repository.
+`--check` rebuilds both fonts, verifies main-font ROM injection round-trips, and writes nothing.
+The later VWF stage still measures advances from the injected main glyphs, preserving the runtime
+contract that stale generated width tables cannot affect a build.

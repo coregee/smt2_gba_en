@@ -242,8 +242,10 @@ def encode(s):
         else:
             c = CHAR2CODE.get(s[i])
             if c is None:
-                raise ValueError(f"no glyph for {s[i]!r} (add to custom_glyphs.PUNCT, "
-                                 f"deriving from a base-font code, or to a half-width VWF slot)")
+                raise ValueError(
+                    f"no glyph for {s[i]!r} (add it to font/atlas/main.json and, "
+                    f"for a new Latin cell, font/config/main.json)"
+                )
             out += c.to_bytes(2, "little")
             i += 1
     return bytes(out)

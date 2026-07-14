@@ -13,18 +13,15 @@ into r0 (r1 stays buf). The following `mov r2,#0x49; mov r3,#0x8b; bl 0x080ac8d0
 draws "Hits" VWF at col2 via the menu-label hook (patch_menu). col1's 攻撃 -> "Atk" and
 the residual 回/数 cells are handled in menu_status.json. Run AFTER patch_menu.py.
 """
-import json
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
     from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
 
-from font.script.custom_glyphs import custom_chars  # noqa: E402
-from paths import ProjectPaths
+from font.atlas import character_codes  # noqa: E402
 from engine.script import rommap                                     # noqa: E402
 from engine.script.cave_builders import sidecar_cave            # noqa: E402
 
-DATA = ProjectPaths.discover().font_config_root
 B = rommap.ROM_BASE
 
 HOOK = 0x080CCB20          # FUN_080ccab4: col2 攻 draw `add r0,r5,#0; add r1,r6,#0` (28 1c 31 1c)
@@ -34,11 +31,7 @@ HITS = "Hits"
 
 
 def char2code():
-    m = {}
-    for k, v in json.loads((DATA / "glyph_map_data.json").read_text(encoding="utf-8")).items():
-        m.setdefault(v, int(k, 16))
-    m.update(custom_chars())
-    return m
+    return character_codes()
 
 
 def apply(p):

@@ -27,16 +27,11 @@ menu_status.json (status screen) so the same labels read identically everywhere.
 
 Run AFTER patch_menu.py (needs its Font_DrawGlyph string-pointer hook).
 """
-import json
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
     from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
-from paths import ProjectPaths
-
-DATA = ProjectPaths.discover().font_config_root
-
-from font.script.custom_glyphs import custom_chars  # noqa: E402
+from font.atlas import character_codes  # noqa: E402
 from engine.script import rommap  # noqa: E402
 from engine.script.cave_builders import sidecar_cave  # noqa: E402
 
@@ -114,11 +109,7 @@ HITS_HOOK_OLD = bytes.fromhex("301c211c")   # add r0,r6,#0 ; add r1,r4,#0
 
 
 def _char2code():
-    m = {}
-    for k, v in json.loads((DATA / "glyph_map_data.json").read_text(encoding="utf-8")).items():
-        m.setdefault(v, int(k, 16))
-    m.update(custom_chars())
-    return m
+    return character_codes()
 
 
 def _encode(c2c, s):

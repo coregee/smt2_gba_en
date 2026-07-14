@@ -75,8 +75,12 @@ def character_codes() -> dict[str, int]:
     result: dict[str, int] = {}
     for code, character in sorted(GLYPH_MAP.items()):
         result.setdefault(character, code)
+    # The legacy encoder only overrode authored punctuation here. Letter and
+    # digit callers retain their established lowest-code behaviour; the main
+    # text codec pins its canonical ASCII runs separately.
     for code, character in replacement_characters().items():
-        result[character] = code
+        if not character.isalnum():
+            result[character] = code
     result[" "] = 0x00BC
     return result
 

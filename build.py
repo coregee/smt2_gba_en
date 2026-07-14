@@ -16,6 +16,7 @@ if __package__ in (None, ""):
 
 from paths import ProjectPaths
 from profiles import BuildProfile, load_profiles, profile_by_name
+from font.script.repack import build_fonts
 
 
 def _load_builder(paths: ProjectPaths, profile: BuildProfile) -> ModuleType:
@@ -59,6 +60,12 @@ def run_build(profile: BuildProfile, *, check: bool = False) -> tuple[bytes, obj
     if not paths.source_rom.is_file():
         raise FileNotFoundError(f"source ROM not found: {paths.source_rom}")
 
+    fonts = build_fonts(paths.source_rom.read_bytes(), write=not check)
+    action = "validated" if check else "built"
+    print(
+        f"fonts {action}: "
+        + ", ".join(f"{name}={len(data)} bytes" for name, data in fonts.items())
+    )
     builder = _load_builder(paths, profile)
     if check:
         patcher = builder.build_patcher()

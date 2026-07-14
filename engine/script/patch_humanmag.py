@@ -12,18 +12,15 @@ cave that loads a real "Mag" string pointer. 魔 then no longer depends on 命 (
 translate) and both magic rows render "Mag" + their per-row suffix (威->Pwr / 効->Eff, set in
 menu_status.json). Run AFTER patch_menu.py (the menu hook draws the pointer string).
 """
-import json
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
     from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
 
-from font.script.custom_glyphs import custom_chars  # noqa: E402
-from paths import ProjectPaths
+from font.atlas import character_codes  # noqa: E402
 from engine.script import rommap                                     # noqa: E402
 from engine.script.cave_builders import sidecar_cave            # noqa: E402
 
-DATA = ProjectPaths.discover().font_config_root
 B = rommap.ROM_BASE
 
 HOOK = 0x080CBBDE          # FUN_080cbb34: `sub r6,#0x3b; add r0,r6,#0` (3b 3e 30 1c)
@@ -33,11 +30,7 @@ MAG = "Mag"
 
 
 def char2code():
-    m = {}
-    for k, v in json.loads((DATA / "glyph_map_data.json").read_text(encoding="utf-8")).items():
-        m.setdefault(v, int(k, 16))
-    m.update(custom_chars())
-    return m
+    return character_codes()
 
 
 def apply(p):

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Overwrite a message in the ROM with English text (for in-game font testing).
 
-Encodes an ASCII string to the game's u16 glyph codes (ASCII letters/digits from
-the map, authored punctuation from custom_glyphs, space -> 0x00BC) and writes it
+Encodes an ASCII string to the game's u16 glyph codes (ASCII letters/digits and
+authored punctuation from the font atlas, space -> 0x00BC) and writes it
 in place + a 0x0000 terminator, refusing to exceed the original message's byte
 span. Patches rom/smt2-en-font.gba (which already has the injected font) so the
 result has both the font and the test text.

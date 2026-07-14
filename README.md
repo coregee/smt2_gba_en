@@ -26,7 +26,7 @@ The normal build writes `rom/smt2-en.gba`; its pre-pack intermediate is
 ## Layout
 
 - `text/` owns the editable corpus, codec, section registry, audits, and reference material.
-- `font/` owns font sources, generated tables, renderers, and OCR/review tooling.
+- `font/` owns the curated glyph atlas, declarative font configs, source faces, codecs, and repacker.
 - `graphics/` owns editable baked-text assets and their codecs.
 - `engine/` owns ROM patches, code caves, and the final ROM assembly pipeline.
 - `rom/` is the local-only input/output directory.

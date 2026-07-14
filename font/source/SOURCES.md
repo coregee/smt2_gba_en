@@ -14,15 +14,5 @@ git-ignored.
 - **Galmuri7** — by Quiple (OFL, see `OFL.txt`). The **8px small-sheet Latin face** (party-
   panel / save-screen demon+party names), rasterized by `patch_defaultnames.py`.
 
-## Staged but unused
-
-- **Galmuri11 / Galmuri14** — by Quiple (OFL). Kept from earlier staging; not currently
-  injected. `preview_font_swap.py` defaults to Galmuri11 for its stock-vs-candidate preview.
-
-## Other candidates evaluated (downloaded, then removed)
-
-HelvetiPixel was chosen from a 15-font comparison (PixelMplus 10/12, Silkscreen, Cozette,
-Pixellari, m5x7, and the pentacom BitFontMaker2 pack — BitCasual/CursivePixel/justabit/
-KarenBook/OldWizard/OrdinaryBasis/PixelMordred/Quintet/TimesNewPixel). Those TTFs were
-deleted after the decision. To re-evaluate, re-download the candidates and use
-`font/script/preview_font_swap.py` to rebuild the comparison.
+Earlier candidate fonts and comparison tooling were removed after HelvetiPixel and Galmuri7 were
+selected. They are not inputs to the reproducible build.

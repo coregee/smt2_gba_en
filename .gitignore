@@ -28,9 +28,9 @@ env/
 /ghidra-project/
 *.gpr.lock
 
-# Generated font/OCR review workspace (keep its documentation)
-/font/review/*
-!/font/review/README.md
+# Generated font atlas previews
+/font/atlas/*_original.png
+/font/atlas/*_replaced.png
 
 # Editor and operating-system files
 .vscode/
