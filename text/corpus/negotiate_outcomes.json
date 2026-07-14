@@ -1,0 +1,74 @@
+[
+ {
+  "ptrs": [
+   "08032C60"
+  ],
+  "addrs": [
+   "080A0FEE"
+  ],
+  "max": 42,
+  "term": "",
+  "original": "{PAGE}{DEMON_NAME}は{n}{GIMMEL}に{n}□づけしようとした{WAIT}{PAGE}{EFFECT:1400}しかし　強烈なヒジテツをくらい{n}倒れた{WAIT}{PAGE}{RET:0000}",
+  "replace": "{PAGE}{DEMON_NAME} tried to steal a kiss from{n}{GIMMEL}!{WAIT}{PAGE}{EFFECT:1400}But it got a brutal dissing and keeled over in shame!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032C64"
+  ],
+  "addrs": [
+   "080A1044"
+  ],
+  "max": 15,
+  "term": "0000",
+  "original": "{PAGE}{DEMON_NAME}は{n}{ALEPH}に□づけをした{WAIT}{PAGE}{FUSEOUT}",
+  "replace": "{PAGE}{DEMON_NAME} kissed{n}{ALEPH}!{WAIT}{PAGE}{FUSEOUT}"
+ },
+ {
+  "ptrs": [
+   "08032C68"
+  ],
+  "addrs": [
+   "080A1112"
+  ],
+  "max": 17,
+  "term": "",
+  "original": "{PAGE}{ALEPH}達は{n}{NUMBER}EXP手に入れた{WAIT}{PAGE}{RET:0000}",
+  "replace": "{PAGE}{ALEPH}'s party got {NUMBER} EXP.{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032C6C"
+  ],
+  "addrs": [
+   "080A1136"
+  ],
+  "max": 11,
+  "term": "",
+  "original": "{PAGE}回復した・・・{WAIT}{PAGE}{RET:0000}",
+  "replace": "{PAGE}Recovered...{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032C70"
+  ],
+  "addrs": [
+   "080A114E"
+  ],
+  "max": 14,
+  "term": "",
+  "original": "{PAGE}誰のまねをしますか？{EFFECT:ca00}{RET:0000}",
+  "replace": "{PAGE}Whom will you imitate?{EFFECT:ca00}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032C74"
+  ],
+  "addrs": [
+   "080A116C"
+  ],
+  "max": 17,
+  "term": "",
+  "original": "{PAGE}ものまねできる悪魔がいない{WAIT}{PAGE}{RET:0000}",
+  "replace": "{PAGE}No demons to imitate!{WAIT}{PAGE}{RET:0000}"
+ }
+]

@@ -1,0 +1,198 @@
+[
+ {
+  "ptrs": [
+   "084F1D5C",
+   "084F1D6C"
+  ],
+  "addrs": [
+   "084F1A40",
+   "084F1A92"
+  ],
+  "max": 18,
+  "term": "0000",
+  "original": "通常の速度でメッセージを{n}表示します",
+  "replace": "Display messages at normal speed."
+ },
+ {
+  "ptrs": [
+   "084F1D60",
+   "084F1D70"
+  ],
+  "addrs": [
+   "084F1A66",
+   "084F1AB8"
+  ],
+  "max": 21,
+  "term": "0000",
+  "original": "文字ウェイトなしで{n}メッセージを表示します",
+  "replace": "Display messages with no delay."
+ },
+ {
+  "ptrs": [
+   "084F1D7C"
+  ],
+  "addrs": [
+   "084F1AE4"
+  ],
+  "max": 13,
+  "term": "0000",
+  "original": "攻撃エフェクトを表示します",
+  "replace": "Show attack effects."
+ },
+ {
+  "ptrs": [
+   "084F1D80"
+  ],
+  "addrs": [
+   "084F1B00"
+  ],
+  "max": 19,
+  "term": "0000",
+  "original": "攻撃エフェクトの表示を{n}OFFにします",
+  "replace": "Skip attack effects."
+ },
+ {
+  "ptrs": [
+   "084F1D8C"
+  ],
+  "addrs": [
+   "084F1B28"
+  ],
+  "max": 23,
+  "term": "0000",
+  "original": "剣・銃・通常攻撃のみ{n}前回の行動を繰り返します",
+  "replace": "Repeat the last action.{n}Only Sword/Gun/Regular Attacks."
+ },
+ {
+  "ptrs": [
+   "084F1D90"
+  ],
+  "addrs": [
+   "084F1B58"
+  ],
+  "max": 30,
+  "term": "0000",
+  "original": "前回の行動を繰り返します{n}アイテムやMPがなくなると通常攻撃",
+  "replace": "Repeat the last action.{n}Attack when out of items/MP."
+ },
+ {
+  "ptrs": [
+   "084F1D94"
+  ],
+  "addrs": [
+   "084F1B96"
+  ],
+  "max": 28,
+  "term": "0000",
+  "original": "前回の行動を繰り返します{n}アイテムやMPがなくなると防御",
+  "replace": "Repeat the last action.{n}Defend when out of items/MP."
+ },
+ {
+  "ptrs": [
+   "084F1D9C"
+  ],
+  "addrs": [
+   "084F1BD0"
+  ],
+  "max": 15,
+  "term": "0000",
+  "original": "画面上を北に固定して表示します",
+  "replace": "The map will face towards North."
+ },
+ {
+  "ptrs": [
+   "084F1DA0"
+  ],
+  "addrs": [
+   "084F1BF0"
+  ],
+  "max": 14,
+  "term": "0000",
+  "original": "進行方向を上にして表示します",
+  "replace": "The map will match your facing."
+ },
+ {
+  "ptrs": [
+   "084F1DAC"
+  ],
+  "addrs": [
+   "084F1C0E"
+  ],
+  "max": 17,
+  "term": "0000",
+  "original": "アイテムを使用して{n}自動回復します",
+  "replace": "Auto-heal using items."
+ },
+ {
+  "ptrs": [
+   "084F1DB0"
+  ],
+  "addrs": [
+   "084F1C32"
+  ],
+  "max": 17,
+  "term": "0000",
+  "original": "魔法のみを使用して{n}自動回復します",
+  "replace": "Auto-heal using magic only."
+ },
+ {
+  "ptrs": [
+   "084F1DCC"
+  ],
+  "addrs": [
+   "084F1C56"
+  ],
+  "max": 28,
+  "term": "0000",
+  "original": "CONFIG設定を終了し{n}システムメニュー画面に戻ります",
+  "replace": "Exit config and return{n}to the system menu."
+ },
+ {
+  "ptrs": [
+   "084F1DD0"
+  ],
+  "addrs": [
+   "084F1C90"
+  ],
+  "max": 24,
+  "term": "0000",
+  "original": "CONFIG設定を終了し{n}タイトル画面に戻ります",
+  "replace": "Exit config and return{n}to the title screen."
+ },
+ {
+  "ptrs": [
+   "084F1DBC"
+  ],
+  "addrs": [
+   "084F1CC2"
+  ],
+  "max": 24,
+  "term": "0000",
+  "original": "ゲームボーイアドバンス用に{n}カラーを最適化します",
+  "replace": "Optimize colors for the{n}Game Boy Advance."
+ },
+ {
+  "ptrs": [
+   "084F1DC0"
+  ],
+  "addrs": [
+   "084F1CF4"
+  ],
+  "max": 26,
+  "term": "0000",
+  "original": "ゲームボーイアドバンスSP用に{n}カラーを最適化します",
+  "replace": "Optimize colors for the{n}Game Boy Advance SP."
+ },
+ {
+  "ptrs": [
+   "084F1DC4"
+  ],
+  "addrs": [
+   "084F1D2A"
+  ],
+  "max": 24,
+  "term": "0000",
+  "original": "ゲームボーイプレーヤー用に{n}カラーを最適化します",
+  "replace": "Optimize colors for the{n}Game Boy Player."
+ }
+]

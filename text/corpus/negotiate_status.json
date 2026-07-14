@@ -1,0 +1,439 @@
+[
+ {
+  "ptrs": [
+   "08032C54"
+  ],
+  "addrs": [
+   "080A0BC6"
+  ],
+  "max": 17,
+  "term": "0000",
+  "original": "{PAGE}{ALEPH}は{n}”{ITEM_NAME}”を{n}手に入れた{WAIT}{PAGE}{RET}",
+  "replace": "{PAGE}{ALEPH} got {ITEM_NAME}.{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032BBC"
+  ],
+  "addrs": [
+   "080A0C2E"
+  ],
+  "max": 11,
+  "term": "0000",
+  "original": "すでに効いている{WAIT}{PAGE}{RET}",
+  "replace": "Already in effect.{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032BC0"
+  ],
+  "addrs": [
+   "080A0C46"
+  ],
+  "max": 14,
+  "term": "0000",
+  "original": "しかし　効果がなかった{WAIT}{PAGE}{RET}",
+  "replace": "But there was no effect.{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032BC4"
+  ],
+  "addrs": [
+   "080A0C64"
+  ],
+  "max": 10,
+  "term": "0000",
+  "original": "{ACTOR_NAME}は　倒された{WAIT}{PAGE}{RET}",
+  "replace": "{ACTOR_NAME} was defeated!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032BC8"
+  ],
+  "addrs": [
+   "080A0C7A"
+  ],
+  "max": 8,
+  "term": "0000",
+  "original": "{ACTOR_NAME}を倒した{WAIT}{PAGE}{RET}",
+  "replace": "Defeated {ACTOR_NAME}!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032BCC",
+   "08032BD0"
+  ],
+  "addrs": [
+   "080A0C8C"
+  ],
+  "max": 15,
+  "term": "0000",
+  "original": "{ACTOR_NAME}は{n}アンデッドにされた{WAIT}{PAGE}{RET}",
+  "replace": "{ACTOR_NAME} was turned Undead!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032BD4"
+  ],
+  "addrs": [
+   "080A0CAC"
+  ],
+  "max": 11,
+  "term": "0000",
+  "original": "{ACTOR_NAME}は{n}石にされた{WAIT}{PAGE}{RET}",
+  "replace": "{ACTOR_NAME} turned to stone!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032BD8"
+  ],
+  "addrs": [
+   "080A0CC4"
+  ],
+  "max": 9,
+  "term": "0000",
+  "original": "{ACTOR_NAME}を石にした{WAIT}{PAGE}{RET}",
+  "replace": "You turned {ACTOR_NAME} to stone!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032BDC"
+  ],
+  "addrs": [
+   "080A0CD8"
+  ],
+  "max": 12,
+  "term": "0000",
+  "original": "{ACTOR_NAME}は{n}体が麻痺した{WAIT}{PAGE}{RET}",
+  "replace": "{ACTOR_NAME} is paralyzed!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032BE0"
+  ],
+  "addrs": [
+   "080A0CF2"
+  ],
+  "max": 11,
+  "term": "0000",
+  "original": "{ACTOR_NAME}を{n}麻痺させた{WAIT}{PAGE}{RET}",
+  "replace": "Paralyzed {ACTOR_NAME}!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032BE4",
+   "08032BE8"
+  ],
+  "addrs": [
+   "080A0D0A"
+  ],
+  "max": 14,
+  "term": "0000",
+  "original": "{ACTOR_NAME}は{n}ハエにかえられた{WAIT}{PAGE}{RET}",
+  "replace": "{ACTOR_NAME} was turned into a fly!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032BEC",
+   "08032BF0"
+  ],
+  "addrs": [
+   "080A0D28"
+  ],
+  "max": 14,
+  "term": "0000",
+  "original": "{ACTOR_NAME}は{n}こうもりになった{WAIT}{PAGE}{RET}",
+  "replace": "{ACTOR_NAME} was turned into a bat!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032BF4"
+  ],
+  "addrs": [
+   "080A0D46"
+  ],
+  "max": 11,
+  "term": "0000",
+  "original": "{ACTOR_NAME}は{n}虜になった{WAIT}{PAGE}{RET}",
+  "replace": "{ACTOR_NAME} was enthralled!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032BF8"
+  ],
+  "addrs": [
+   "080A0D5E"
+  ],
+  "max": 10,
+  "term": "0000",
+  "original": "{ACTOR_NAME}を{n}虜にした{WAIT}{PAGE}{RET}",
+  "replace": "Charmed {ACTOR_NAME}!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032BFC"
+  ],
+  "addrs": [
+   "080A0D74"
+  ],
+  "max": 11,
+  "term": "0000",
+  "original": "{ACTOR_NAME}は{n}凍りついた{WAIT}{PAGE}{RET}",
+  "replace": "{ACTOR_NAME} froze over!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032C00"
+  ],
+  "addrs": [
+   "080A0D8C"
+  ],
+  "max": 12,
+  "term": "0000",
+  "original": "{ACTOR_NAME}を{n}凍りつかせた{WAIT}{PAGE}{RET}",
+  "replace": "You froze {ACTOR_NAME}!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032C04"
+  ],
+  "addrs": [
+   "080A0DA6"
+  ],
+  "max": 10,
+  "term": "0000",
+  "original": "{ACTOR_NAME}は{n}感電した{WAIT}{PAGE}{RET}",
+  "replace": "{ACTOR_NAME} was shocked!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032C08"
+  ],
+  "addrs": [
+   "080A0DBC"
+  ],
+  "max": 11,
+  "term": "0000",
+  "original": "{ACTOR_NAME}を{n}感電させた{WAIT}{PAGE}{RET}",
+  "replace": "You shocked {ACTOR_NAME}!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032C0C"
+  ],
+  "addrs": [
+   "080A0DD4"
+  ],
+  "max": 13,
+  "term": "0000",
+  "original": "{ACTOR_NAME}は{n}眠ってしまった{WAIT}{PAGE}{RET}",
+  "replace": "{ACTOR_NAME} fell asleep.{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032C10"
+  ],
+  "addrs": [
+   "080A0DF0"
+  ],
+  "max": 10,
+  "term": "0000",
+  "original": "{ACTOR_NAME}を{n}眠らせた{WAIT}{PAGE}{RET}",
+  "replace": "Put {ACTOR_NAME} to sleep!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032C14"
+  ],
+  "addrs": [
+   "080A0E06"
+  ],
+  "max": 13,
+  "term": "0000",
+  "original": "{ACTOR_NAME}は{n}金縛りになった{WAIT}{PAGE}{RET}",
+  "replace": "{ACTOR_NAME} was bound!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032C18"
+  ],
+  "addrs": [
+   "080A0E22"
+  ],
+  "max": 12,
+  "term": "0000",
+  "original": "{ACTOR_NAME}を{n}金縛りにした{WAIT}{PAGE}{RET}",
+  "replace": "You bound {ACTOR_NAME}!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032C1C"
+  ],
+  "addrs": [
+   "080A0E3C"
+  ],
+  "max": 13,
+  "term": "0000",
+  "original": "{ACTOR_NAME}は{n}おかしくなった{WAIT}{PAGE}{RET}",
+  "replace": "{ACTOR_NAME} started acting funny!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032C20"
+  ],
+  "addrs": [
+   "080A0E58"
+  ],
+  "max": 11,
+  "term": "0000",
+  "original": "{ACTOR_NAME}を{n}くるわせた{WAIT}{PAGE}{RET}",
+  "replace": "Drove {ACTOR_NAME} insane!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032C24"
+  ],
+  "addrs": [
+   "080A0E70"
+  ],
+  "max": 14,
+  "term": "0000",
+  "original": "{ACTOR_NAME}は{n}幸せにつつまれた{WAIT}{PAGE}{RET}",
+  "replace": "{ACTOR_NAME} was enveloped by happiness!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032C28"
+  ],
+  "addrs": [
+   "080A0E8E"
+  ],
+  "max": 14,
+  "term": "0000",
+  "original": "{ACTOR_NAME}を{n}幸せにしてあげた{WAIT}{PAGE}{RET}",
+  "replace": "Made {ACTOR_NAME} feel happy!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032C2C"
+  ],
+  "addrs": [
+   "080A0EAC"
+  ],
+  "max": 13,
+  "term": "0000",
+  "original": "{ACTOR_NAME}は{n}毒におかされた{WAIT}{PAGE}{RET}",
+  "replace": "{ACTOR_NAME} was afflicted with poison!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032C30"
+  ],
+  "addrs": [
+   "080A0EC8"
+  ],
+  "max": 12,
+  "term": "0000",
+  "original": "{ACTOR_NAME}を{n}毒で弱らせた{WAIT}{PAGE}{RET}",
+  "replace": "You poisoned {ACTOR_NAME}!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032C34"
+  ],
+  "addrs": [
+   "080A0EE2"
+  ],
+  "max": 14,
+  "term": "0000",
+  "original": "{ACTOR_NAME}は{n}魔法を封じられた{WAIT}{PAGE}{RET}",
+  "replace": "{ACTOR_NAME}'s magic was sealed!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032C38"
+  ],
+  "addrs": [
+   "080A0F00"
+  ],
+  "max": 12,
+  "term": "0000",
+  "original": "{ACTOR_NAME}の{n}魔法を封じた{WAIT}{PAGE}{RET}",
+  "replace": "Sealed {ACTOR_NAME}'s magic!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032C3C",
+   "08032C40",
+   "08032C44"
+  ],
+  "addrs": [
+   "080A0F1A"
+  ],
+  "max": 14,
+  "term": "0000",
+  "original": "{ACTOR_NAME}は{n}力が抜けていった{WAIT}{PAGE}{RET}",
+  "replace": "{ACTOR_NAME}'s power drained!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032C48"
+  ],
+  "addrs": [
+   "080A0F38"
+  ],
+  "max": 15,
+  "term": "0000",
+  "original": "{PAGE}{ALEPH}達は{n}ћ{NUMBER}手に入れた{WAIT}{PAGE}{RET}",
+  "replace": "{PAGE}{ALEPH}'s party got ћ{NUMBER}!{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032C4C"
+  ],
+  "addrs": [
+   "080A0F58"
+  ],
+  "max": 17,
+  "term": "0000",
+  "original": "{PAGE}{ALEPH}達は{n}{NUMBER}MAG手に入れた{WAIT}{PAGE}{RET}",
+  "replace": "{PAGE}{ALEPH}'s party got {NUMBER} MAG.{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032C50"
+  ],
+  "addrs": [
+   "080A0F7C"
+  ],
+  "max": 14,
+  "term": "0000",
+  "original": "{PAGE}{DEMON_NAME}は{n}{ITEM_NAME}を使った{EFFECT}_{WAIT}{PAGE}{RET}",
+  "replace": "{PAGE}{DEMON_NAME} used {ITEM_NAME}.{EFFECT:1100}{WAIT}{PAGE}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032C58"
+  ],
+  "addrs": [
+   "080A0F9A"
+  ],
+  "max": 21,
+  "term": "0000",
+  "original": "{EFFECT}<0012>{DELAY}｝{EFFECT}〇{PAGE}{ALEPH}は{n}{DEMON_NAME}に殴られた{WAIT}{PAGE}{EFFECT}〆{RET}",
+  "replace": "{EFFECT:1200}{DELAY:3000}{EFFECT:1a00}{PAGE}{ALEPH} was struck by {DEMON_NAME}!{WAIT}{PAGE}{EFFECT:1900}{RET:0000}"
+ },
+ {
+  "ptrs": [
+   "08032C5C"
+  ],
+  "addrs": [
+   "080A0FC6"
+  ],
+  "max": 19,
+  "term": "0000",
+  "original": "{PAGE}{DEMON_NAME}は{n}何か　投げてよこした{WAIT}{PAGE}{EFFECT}<0013>{RET}",
+  "replace": "{PAGE}{DEMON_NAME} threw something on the ground in front of you.{WAIT}{PAGE}{EFFECT:1300}{RET:0000}"
+ }
+]

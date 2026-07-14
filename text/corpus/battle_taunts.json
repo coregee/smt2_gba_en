@@ -1,0 +1,218 @@
+[
+  {
+    "ptrs": ["08032CD8"],
+    "addrs": ["080A1190"],
+    "max": 28,
+    "term": "",
+    "original": "{PAGE}ふふふ　ここでは　命など{n}わたげの様に　かるい！{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}Hehehe... Down here, a life weighs less than a feather!{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032CDC"],
+    "addrs": ["080A11CA"],
+    "max": 23,
+    "term": "",
+    "original": "{PAGE}今日も　この俺の手は{n}血で染まるのか！{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}Will these hands of mine be stained once more with blood?{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032CE0"],
+    "addrs": ["080A11FA"],
+    "max": 31,
+    "term": "",
+    "original": "{PAGE}アンタの中にすくう魔が{n}オイラを狂気に　かりたてるぅ！{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}The demon nested within you... it's driving me crazy!{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032CE4"],
+    "addrs": ["080A123A"],
+    "max": 9,
+    "term": "",
+    "original": "{PAGE}弱肉強食！{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}The weak should fear the strong!{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032CE8"],
+    "addrs": ["080A124E"],
+    "max": 19,
+    "term": "",
+    "original": "{PAGE}神の前に　この犠牲を捧げます！{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}I offer this sacrifice up before God!{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032CEC", "08032CF0"],
+    "addrs": ["080A1276"],
+    "max": 13,
+    "term": "",
+    "original": "{PAGE}血だ！　血を捧げよ{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}Blood! Offer up your blood!{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032CF4"],
+    "addrs": ["080A1292"],
+    "max": 18,
+    "term": "",
+    "original": "{PAGE}わらわは　お前様のもの………{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}I belong to thee, master...{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032CF8"],
+    "addrs": ["080A12B8"],
+    "max": 13,
+    "term": "",
+    "original": "{PAGE}私　あなたの奴隷よ{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}I'm your slave.{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032CFC"],
+    "addrs": ["080A12D4"],
+    "max": 16,
+    "term": "",
+    "original": "{PAGE}あたし　あなたのモノよ！{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}I'm all yours!{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032D00", "08032D04"],
+    "addrs": ["080A12F6"],
+    "max": 25,
+    "term": "",
+    "original": "{PAGE}{RACE_NAME}{DEMON_NAME}である{n}{EFFECT:1b00}この私を　さし置くとは！！{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}I am {RACE_NAME} {DEMON_NAME}! {EFFECT:1b00}, how dare you ignore the likes of me!!{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032D08"],
+    "addrs": ["080A132A"],
+    "max": 20,
+    "term": "",
+    "original": "{PAGE}危険分子！{n}ただちに除去します！{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}Threat detected! Removing it at once!{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032D14"],
+    "addrs": ["080A1354"],
+    "max": 9,
+    "term": "",
+    "original": "{PAGE}うごおおお{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}Ugooooh!{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032D18"],
+    "addrs": ["080A1368"],
+    "max": 9,
+    "term": "",
+    "original": "{PAGE}うらめしい{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}You wretched...{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032D1C"],
+    "addrs": ["080A137C"],
+    "max": 8,
+    "term": "",
+    "original": "{PAGE}あついい{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}So hooot!{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032D20"],
+    "addrs": ["080A138E"],
+    "max": 8,
+    "term": "",
+    "original": "{PAGE}ひもじい{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}So hungryyy...{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032D24"],
+    "addrs": ["080A13A0"],
+    "max": 9,
+    "term": "",
+    "original": "{PAGE}抹殺せよ！{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}Exterminate!{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032D28"],
+    "addrs": ["080A13B4"],
+    "max": 12,
+    "term": "",
+    "original": "{PAGE}ギギギッギ………{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}Gigigigi...{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032D2C"],
+    "addrs": ["080A13CE"],
+    "max": 15,
+    "term": "",
+    "original": "{PAGE}ガシャン！　ガシャン！{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}*Clank*! *Clank*!{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032D30"],
+    "addrs": ["080A13EE"],
+    "max": 13,
+    "term": "",
+    "original": "{PAGE}BAW！　WOW！{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}Bow! Wow!{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032D34"],
+    "addrs": ["080A140A"],
+    "max": 13,
+    "term": "",
+    "original": "{PAGE}ず…ず…ず…ずうー{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}*Slither*... *slither*...{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032D38"],
+    "addrs": ["080A1426"],
+    "max": 27,
+    "term": "",
+    "original": "{PAGE}オレは　本当のお前だ！{n}お前は　ここで消えろ！{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}I'm the real you! You can just disappear!{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032D3C"],
+    "addrs": ["080A145E"],
+    "max": 9,
+    "term": "",
+    "original": "{PAGE}ひいひい！{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}Eee! Eeeek!{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032D40"],
+    "addrs": ["080A1472"],
+    "max": 12,
+    "term": "",
+    "original": "{PAGE}ザワ……ザワ……{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}*Rustle*... *rustle*...{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032D44"],
+    "addrs": ["080A148C"],
+    "max": 12,
+    "term": "",
+    "original": "{PAGE}グアオオオオオ！{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}Graoooooh!{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032D0C"],
+    "addrs": ["080A14A6"],
+    "max": 18,
+    "term": "",
+    "original": "{PAGE}お前も死んで　仲魔になろれ！{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}You die too... and join usss...{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032D10"],
+    "addrs": ["080A14CC"],
+    "max": 18,
+    "term": "",
+    "original": "{PAGE}あんたも　ナカマにおなりィ！{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}Won't you join us, dearie?{WAIT}{PAGE}{RET:0000}"
+  },
+  {
+    "ptrs": ["08032D48"],
+    "addrs": ["080A14F2"],
+    "max": 9,
+    "term": "",
+    "original": "{PAGE}・・・・・{WAIT}{PAGE}{RET:0000}",
+    "replace": "{PAGE}......{WAIT}{PAGE}{RET:0000}"
+  }
+]

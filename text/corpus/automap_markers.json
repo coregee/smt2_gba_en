@@ -1,0 +1,152 @@
+[
+ {
+  "addr": "08162B0C",
+  "ptrs": [
+   "080B5530"
+  ],
+  "max": 7,
+  "term": "0000",
+  "original": "NO　DATA",
+  "replace": "(No data)"
+ },
+ {
+  "addr": "08162B1C",
+  "ptrs": [
+   "080B5314"
+  ],
+  "max": 11,
+  "term": "0000",
+  "original": "マーカーをセットします",
+  "replace": "Set a marker."
+ },
+ {
+  "addr": "08162B34",
+  "ptrs": [
+   "080B5390"
+  ],
+  "max": 16,
+  "term": "0000",
+  "original": "マーカーの種類を選択してください",
+  "replace": "Select a marker type."
+ },
+ {
+  "addr": "08162B56",
+  "ptrs": [
+   "080B532C"
+  ],
+  "max": 15,
+  "term": "0000",
+  "original": "この場所にはセットできません！",
+  "replace": "Cannot set one here!"
+ },
+ {
+  "addr": "08162B76",
+  "ptrs": [
+   "080B54FC"
+  ],
+  "max": 11,
+  "term": "0000",
+  "original": "このマーカーを消します",
+  "replace": "Erase this marker."
+ },
+ {
+  "addr": "08162B8E",
+  "ptrs": [
+   "080B53CC"
+  ],
+  "max": 6,
+  "term": "0000",
+  "original": "通常の用途に",
+  "replace": "For general"
+ },
+ {
+  "addr": "08162B9C",
+  "ptrs": [
+   "080B53D0"
+  ],
+  "max": 5,
+  "term": "0000",
+  "original": "使用します",
+  "replace": "purposes."
+ },
+ {
+  "addr": "08162BA8",
+  "ptrs": [
+   "080B53EC"
+  ],
+  "max": 10,
+  "term": "0000",
+  "original": "イベント発生ポイント",
+  "replace": "For event"
+ },
+ {
+  "addr": "08162BBE",
+  "ptrs": [
+   "080B53F0"
+  ],
+  "max": 8,
+  "term": "0000",
+  "original": "などに使用します",
+  "replace": "points, etc."
+ },
+ {
+  "addr": "08162BD0",
+  "ptrs": [
+   "080B540C"
+  ],
+  "max": 9,
+  "term": "0000",
+  "original": "宝箱などの設置場所",
+  "replace": "For treasure"
+ },
+ {
+  "addr": "08162BE4",
+  "ptrs": [
+   "080B5410"
+  ],
+  "max": 8,
+  "term": "0000",
+  "original": "などに使用します",
+  "replace": "chests, etc."
+ },
+ {
+  "addr": "08162BF6",
+  "ptrs": [
+   "080B543C"
+  ],
+  "max": 7,
+  "term": "0000",
+  "original": "ボス部屋などに",
+  "replace": "For boss"
+ },
+ {
+  "addr": "08162C06",
+  "ptrs": [
+   "080B5440"
+  ],
+  "max": 5,
+  "term": "0000",
+  "original": "使用します",
+  "replace": "rooms, etc."
+ },
+ {
+  "addr": "08162C12",
+  "ptrs": [
+   "080B5474"
+  ],
+  "max": 9,
+  "term": "0000",
+  "original": "その他状況に応じて",
+  "replace": "For other kinds"
+ },
+ {
+  "addr": "08162C26",
+  "ptrs": [
+   "080B5478"
+  ],
+  "max": 5,
+  "term": "0000",
+  "original": "使用します",
+  "replace": "of situations."
+ }
+]

@@ -1,0 +1,74 @@
+[
+ {
+  "ptrs": [
+   "0819853C"
+  ],
+  "addrs": [
+   "08002F3E"
+  ],
+  "max": 48,
+  "term": "0301",
+  "original": "入室チェックを行います{n}{DELAY}□入室チェック終了{n}{WAIT}{PAGE}あなたは力が足りません{n}ドアは開けられません{WAIT}",
+  "replace": "Performing entry check{n}{DELAY}□Entrance check complete{n}{WAIT}{PAGE}You do not have enough Strength. Entry refused.{WAIT}"
+ },
+ {
+  "ptrs": [
+   "08198540"
+  ],
+  "addrs": [
+   "08002FA0"
+  ],
+  "max": 49,
+  "term": "0301",
+  "original": "入室チェックを行います{n}{DELAY}□入室チェック終了{n}{WAIT}{PAGE}あなたは知恵が足りません{n}ドアは開けられません{WAIT}",
+  "replace": "Performing entry check{n}{DELAY}□Entrance check complete{n}{WAIT}{PAGE}You do not have enough Intelligence. Entry refused.{WAIT}"
+ },
+ {
+  "ptrs": [
+   "08198544"
+  ],
+  "addrs": [
+   "08003004"
+  ],
+  "max": 49,
+  "term": "0301",
+  "original": "入室チェックを行います{n}{DELAY}□入室チェック終了{n}{WAIT}{PAGE}あなたは魔力が足りません{n}ドアは開けられません{WAIT}",
+  "replace": "Performing entry check{n}{DELAY}□Entrance check complete{n}{WAIT}{PAGE}You do not have enough Magic. Entry refused.{WAIT}"
+ },
+ {
+  "ptrs": [
+   "08198548"
+  ],
+  "addrs": [
+   "08003068"
+  ],
+  "max": 49,
+  "term": "0301",
+  "original": "入室チェックを行います{n}{DELAY}□入室チェック終了{n}{WAIT}{PAGE}あなたは体力が足りません{n}ドアは開けられません{WAIT}",
+  "replace": "Performing entry check{n}{DELAY}□Entrance check complete{n}{WAIT}{PAGE}You do not have enough Vitality. Entry refused.{WAIT}"
+ },
+ {
+  "ptrs": [
+   "0819854C"
+  ],
+  "addrs": [
+   "080030CC"
+  ],
+  "max": 49,
+  "term": "0301",
+  "original": "入室チェックを行います{n}{DELAY}□入室チェック終了{n}{WAIT}{PAGE}あなたは速さが足りません{n}ドアは開けられません{WAIT}",
+  "replace": "Performing entry check{n}{DELAY}□Entrance check complete{n}{WAIT}{PAGE}You do not have enough Agility. Entry refused.{WAIT}"
+ },
+ {
+  "ptrs": [
+   "08198550"
+  ],
+  "addrs": [
+   "08003130"
+  ],
+  "max": 48,
+  "term": "0301",
+  "original": "入室チェックを行います{n}{DELAY}□入室チェック終了{n}{WAIT}{PAGE}あなたは運が足りません{n}ドアは開けられません{WAIT}",
+  "replace": "Performing entry check{n}{DELAY}□Entrance check complete{n}{WAIT}{PAGE}You do not have enough Luck. Entry refused.{WAIT}"
+ }
+]

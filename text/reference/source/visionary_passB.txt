@@ -1,0 +1,501 @@
+Decided on a whim to translate the Visionary Items from the GBA version of Shin Megami Tensei. There might be some translation errors, as usual; if you find them, please let me know! All Hero, Heroine, etc. names chosen by the original player [Hero = Futsuo, Law Hero = Yoshio, Chaos Hero = Waruo, Heroine = Heroine (…changed by me for convenience’s sake), Law Hero’s girlfriend = Hiroko, Hero’s mother = Mum]
+
+    Cracked Cup 
+
+Yoshio: What is it? Suddenly smiling like that.
+Hiroko: It will soon be half a year since we started dating. Meeting you has made my life so happy.
+Yoshio: A guy like me who’s always so serious…
+Hiroko: You really don’t get it, do you. You’re very popular with girls.
+Yoshio: Eh?
+Hiroko: Well, it’s good that you don’t notice it…I just want to be with you forever.
+Yoshio: Yeah, me too. It’s just that…
+Hiroko: Just what?
+Yoshio: Lately, I’ve been having a strange dream. At first I thought it was only a dream…but seeing the same dream so many times makes me feel there’s something I have to do…
+Hiroko: ….
+Yoshio: Strange things happening somewhere…the world crumbling…
+Hiroko: Don’t say such scary things.
+Yoshio: Oh, sorry, sorry. I worried you.
+
+    Silver Holy Grail
+
+Yoshio: What…is this place…I…That’s right, the Black Baron’s attack…I don’t even feel pain anymore…I died, didn’t I…Guiding weak people…the days spent fighting together with Futsuo and the others…were they all in vain…
+Voice: This is not true.
+Yoshio: ?! …who is it?
+Voice: I am the Archangel Gabriel. Together with God, I have watched over your hardships. Don’t you want another chance? Working as God’s messenger, guiding people, becoming a leader.
+Yoshio: I…
+Gabriel: That is so. You will become the one to open the door to the Thousand Year Kingdom. This is God’s next plan: reviving you. I want you to to carry out one
+Yoshio: Understood! D-definitely entrust me with that role!
+
+    Cracked glasses
+
+Waruo: Damn it…damn it…Why is it only me…I only answered him cause he said what he wanted…I got beat up by everyone…I can’t do anything if I’ve got no friends…damn…
+
+No, I’m different…I can do it alone…I won’t lose in any fight, to anyone…But I’m bad at karate and boxing…No, I understand what’s going on now…It’s power. To survive, never to lose..The times when people you can trust won’t exist anymore are coming…
+
+I want power…damn it…I won’t lose…If there’s power…I won’t lose to anyone…I want to become stronger…Stronger…
+
+    People’s Flag
+
+Yama: Are you Waruo? You stirred up trouble with my forces, didn’t you?
+Waruo: ….
+Yama: Besides charges of assault, you are also suspected of killing four demons…It has been decided that you are guilty.
+Waruo: Don’t screw with me! I was just walking and got attacked by your guys.
+Yoshio: Although that person has got a human body…You! Are you not human? There is the presence of a demon overflowing from that person’s body. But the heart is that of a human…What is the meaning of this…Are you telling me you took in a demon without a contract while having a human body? This is a sin worthy of certain death!
+Waruo: Heh, it’s because of the times we’re living in. I fused with a demon to survive. I want power, no matter what…I want power that won’t let me lose to anyone.
+Yama: Hmmmm…All these wrongdoings are certainly considered serious crimes, but…As you said, doing this in order to avoid the fire that has befallen us…Also, that insatiable thirst for power is praiseworthy. Certainly suitable for my troops. You said your name was Waruo. Don’t you want to become part of my…part of the forces of Chaos?
+Waruo: Yeah, no, I won’t become anyone’s subordinate.
+Yama: Hmm…Naturally, there will be some instructions coming from us, but you will be the one to freely choose the means. And you will act in any way you see fit. Moreover, if there are times you may want assistance, please feel free to use my troops. So, how does this sound?
+Waruo: Power I can use however I want, huh…I’ll probably be able to become stronger…
+
+    A Fragment of the Gaian Idol
+
+Gaian Founder: Oh, we have been waiting for you, lord Waruo.
+Waruo: You had something to say to me?
+Gaian Founder: We are all deeply thankful for lord Waruo’s previous efforts. Therefore, we would also like to offer some help to you.
+Waruo: Huh?
+Gaian Founder: We have found you a partner.
+Waruo: Partner? I don’t really want one but….
+Gaian Founder: Her name is Rie. She is proficient in various magic arts.
+Rie: …
+Waruo: Eh? That girl? O-oh, yes, I see…
+Gaian Founder: Rie, you should greet lord Waruo too.
+Rie: …pleased to meet you…
+Waruo: Ah…um…y-yeah, pleased to meet you…
+Gaian Founder: From here on, I hope that lord Waruo will be even more active…
+
+    Children’s Book
+
+Little girl: Oh? Yoshio, you’re reading a book again?
+Yoshio: Yeah. This book is interesting.
+Little girl: Is it a book about God?
+Yoshio: Yeah. It’s a story about a person called the Messiah. An old story though. Many people were fighting and this troubled the weak ones. But then, there appeared a Messiah who saved them.
+Little girl: Was that God?
+Yoshio: Weeeell. He was different from God. He was a person who was doing his best for God.
+Little girl: Hmmm. I don’t really get it. See you!
+Yoshio: No one understands, huh. Oh well! I think it’s interesting. Even now, there are so many weak people. It’d nice if prayers brought them help. I want to be like that too.
+
+    Bloody Apron
+
+>door bell rings
+
+Mum: Coming!
+Voice: Excuse me, I’d like to ask you something.
+Mum: Yes?
+Voice: Lately, the number of missing people around here has increased. I would like to investigate something.
+Mum: ….and who might you be?
+Voice: Aah, I apologise. I’m with the police.
+Mum: ….
+Voice: Can you open the door just a bit?
+Mum: …everything is all right here. Please go back.
+Voice: Um…This is the police, please open the door.
+Mum: We are just a mother and child who are living in peace. Please leave.
+Voice: …is your son Futsuo?
+
+>mum panics and opens the door
+>BAM!
+
+Mum: What happened to Futsuo? Mr. policeman!
+Policeman: Aah, finally. Lately, people have been very wary. Not like before.
+Mum: ?
+Policeman: I only saw a bit of what you were thinking about…
+Mum: Aaaah!!
+Ama-no-kusagami: I’ll send you now to a place where you won’t have to worry anymore…hehehe…
+Mum: Ohh…Futsuo…
+
+    Misty Shaker
+
+Bartender: Miss, you…
+Heroine: Please don’t hide. I know that this place…
+Bartender: Uh-oh, your voice is loud. I know about your power. Both your magic and your precognition abilities are the real deal. But, you know…it’s only been a short time since we started moving. We don’t really have someone we can properly call a leader. We’re just a group of people hated by Gotou and the Americans.
+Heroine: Yes. That is why, if my power could offer you even a little help…
+Bartender: No, no. If you join the Resistance and take a wrong step, your life will be in danger. We want your power, but exchanging it for a young girl’s life isn’t something we can accept…
+Heroine: Please have faith in my powers. Terrible things are going to happen soon. Until then…Until then, there are things I have to do. So please…
+Bartender: If it’s you, then you’ll probably be able to gather everyone and become their leader. But, you know…
+
+    White Girl’s Cameo
+
+Voice: Wake up.
+Past Heroine: ….
+Voice: Wake up.
+Heroine: …uh…yeah…
+Voice: Is your mission over?
+Heroine: I…I helped Futsuo as much as I could…
+Voice: Futsuo is waiting for your come-back at the interstice of time. Thirty years have passed since then.
+Heroine: I’m so glad…I managed to save him…My role will end here…
+Voice: Wrong!
+Heroine: And you are?
+Future Heroine: It’s me. I am you and you are me.
+Past Heroine: I died…
+Future Heroine: No. I have finally found you. You understand, right? I am your reincarnation. But I lack your knowledge, wisdom and experience. I want power to help Futsuo. Please, give the me from the present what the me from the past had! Please return her heart to me!
+Different voice: It is fate that the existences of you two overlap. It is dangerous to turn two hearts into one but I will help you. Before long, Futsuo will join you two as well. You two…No, he will come to help you.
+
+    Top Secret Search Instructions
+
+>JSDF interrogation
+
+Hiroko: What is it?
+
+>looks like each girl’s name is being verified
+>it’s finally Hiroko’s turn
+
+Personnel: Your name?
+Hiroko: It’s Hiroko.
+Personnel: Hm? Hiroko, you say. All right, come here for a moment.
+Hiroko: Huh? W-wait. What did I..
+Personnel: We’re in a state of emergency. There’s something we want to investigate. We might as well arrest you, you know!
+Hiroko: N-no, wait…Yoshio is waiting for me in Shinjuku…
+Personnel: Anyway, the Shinjuku district is now under blockade. Hey! “Stay still” Huh? …This girl is close in age to the person Commandant Gotou said we should keep under surveillance. We should probably send her to the Roppongi Institute rather than the Ichigaya Garrison. …all right. We’re escorting you to Roppongi. Be careful everyone, if she’s the real one, she might use some weird techniques!
+Hiroko: Yoshio told me that something…Don’t tell me, is this it? No, h-help me!
+
+    Jade Ring
+
+Red Count: This is good…For our darling Alice’s sake, this city will be bustling with life again. You, resurrected beings. In a short while, your figures will turn back to the way they looked before. You will live happily in this city of Roppongi.
+Hiroko: I-I…Shining…What’s going on?
+Red Count: Hm! You still have memories even though you’re a Bodyconian? What is…I seems that something is protecting you. …what could it be…
+Hiroko: Ah! I-I…this figure…What happened? Disgusting…I died? Even though my body crumbled, even though I can see my bones, I don’t feel any pain…
+Red Count: Your body is that of a Bodyconian, but…I just don’t understand…Can’t be helped! Lock her up!
+Hiroko: I, I…What happened to me…help me…Yoshio…
+
+    Butterfly Knife
+
+>right after the Great Destruction
+
+Ozawa: Ouch, it hurts, it hurts…What happened right now…That damn Gotou, he messed up, didn’t he… Huh? What’s this? The thing this guy is carrying…Looks like something stronger than the Demon Summoning Program I’ve got…Oh well, he’s dead, he won’t need it anymore. How about I get this for myself. He hehe…. I’ll be able to summon more demons now…Hehehe….
+
+>ten years after the Great Destruction
+>in a certain building’s office
+
+Yakuza: What the hell are you! Waaah!
+Boss: What’s going on? You’re noisy…
+Ozawa: G’day, boss. I’m Ozawa.
+Boss: Hooh. So you’re Ozawa. Seems like you’ve been causing quite a ruckus on my turf.
+Ozawa: Yeah. And it will end today.
+Boss: Huh? Are you leaving?
+Ozawa: Heheh…Sorry, but starting today, this is my turf.
+Boss: What are you saying, you bastard! Don’t you fuck with me. Oi, get him!
+Ozawa: Heh. Should I call for reinforcemnts too? Well then, demons, come on!
+Boss: Ah, you can summon demons! Gah, aaagh….
+Ozawa: Hehehe….Shinjuku is mine now…I won’t give my Shinjuku to anyone. Money, people, everything is mine now. Hahahaha…
+
+    JSDF Corps Chapter
+
+>loud knocking
+
+Chief of staff: Huh? Enter…what happened! What happened to you people! Colonel Gotou! Answer me!
+Gotou: Chief…I apologise, but starting today, all the troops stationed here in Ichigaya will be commanded by me.
+Chief: Wh-what! Is this a rebellion? Colonel Gotou!
+Gotou: Please call it whatever you like. We cannot wait any loner. Many young people agree with me.
+Chief: Can’t wait? Is it about the demons? Besides, the police is working too. Do you know the words “civilian control”? No matter what happens, if the JSDF receives orders from the Administration, we will have to obey them at all costs.
+Gotou: Do you even understand that Japan is heading towards ruin?
+Chief: ?
+Gotou: I…have acquired this kind of power.
+
+>summons Nue
+
+Chief: Wa-wah! D-demons…
+Gotou: That is right. I have acquired the power to summon demons.
+
+>returns Nue
+
+Gotou: The information on how to use demons…America is afraid of demons. I know that they’re going to fire ICBM here in Tokyo.
+Chief: N-no, that can’t be…According to the 1970 Security Treaty, America is clearly our ally!
+Gotou: You’re still saying that! The times have changed!
+Chief: But, the civilian control…
+Gotou: I will protect Japan using my methods, my means, my power! Oi! Take the chief.
+Soldier: Yes!
+Gotou: …With these hands…I will protect everyone from America’s attack with these hands. I won’t let them be toyed with by a single god…
+
+    30W Megaphone
+
+Gotou: Ladies and gentlemen! We have finally obtained the right to command! At present, the ones who do not know our real purpose will probably call us the rebel army! However, we do know! This is a fight for justice!
+
+Not long ago, I proclaimed martial law! Our present objective is, as I have stated countless times, to stop America’s genocide! However! We are aiming even further than that!
+
+We have been ruined by the Western civilisation. Our ancient spirit has been lost. Our culture has been lost. What will we leave to the Japan of the future? Let our hammer fall on the Western civilisation! Can’t the people of Japan and the people of the world coexist and build a proper civilisation!
+
+The enemy are the Western gods who only think of making us work until our eyes turn blind! But we also have friends! The free willed gods of ancient times called demons!
+
+Ladies and gentlemen! Do not fear demons! Only the ancient gods coexist with humans and respect their will! The Western gods only think of enslaving humans! We have a noble mission! Our true objective is to build an ideal land for everybody!
+
+    The Tooth Marks on a Certain Ball
+
+>elementary school fifth grade Futsuo
+
+Mum: Futsuo! Futsuo! Come quick!
+….
+Mum: I got him from Mr.Nakajima.
+….
+Mum: Yes…If you’re happy, mother is happy too. Didn’t you say a while ago that you wanted a pet? Hm? Name? It seems his name is Pascal. An unusual name…Go ahead, call him.
+….
+Pascal: Woof!
+Mum: (seeing gloomy Futsuo act like this… I’m really glad we’ve got Pascal now.)
+Pascal: Bow! Woof!
+
+    Pascal’s Collar
+
+>after the Great Destruction
+
+Pascal: Grr…Futsuo’s scent isn’t here either. He was just a human, perhaps he wasn’t able to escape that Great Destruction…Grr..
+
+>several years later
+
+Echidna: My sweet Kerberos, come here.
+Pascal: Grr…
+Echidna: What is it? Don’t you want to come to me?
+Pascal: I now have a different master.
+Echidna: What are you saying. Am I not your mother? …A different master, you say. Isn’t that master of yours with you now?
+Pascal: …I’m looking for him…
+Echidna: Stop looking for a master you can’t find. Wouldn’t it be better if you worked by my side? I’m participating in the construction of the kingdom of Chaos. There, all beings with power will be free. Help me, or…Are you saying you will not listen to your mother?
+Pascal: I’m sorry…
+Echidna: Uugh….You’ll keep saying that even in this situation? You..!
+Pascal: Guh…gu…Gaaah…
+Echidna: Hehehe, let’s see how my poison erases the memories of your master.
+Pascal: Gah…Futsuo…
+Echidna: Soon, soon those unnecessary memories of yours will be deleted…To me…Having you guard the gates would be a good idea. Hehehe….
+
+    The Snake Bracelet
+
+Louis Cypher: I thought of asking you..How is he?
+Yuriko: …he is still a child…
+Louis: Hm…Certainly…You’re dissatisfied, aren’t you? I personally believe he is promising.
+Yuriko: It would be good if he could actually be seduced, but…
+Louis: Heh…
+Yuriko: His name is?
+Louis: Futsuo.
+Yuriko: Are my methods all right?
+Louis: Yeah, do what you want. If he’ll be by our side in the end…I don’t mind what you do.
+Yuriko: Then first, inside the dream…
+Louis: I have high expectations of you, but…Humans are strange. There’s a lot to them that can’t be decided just by gambling or seduction. Taking that into account, the Messians are easier to handle. They have a one-track mind and it makes them all the more docile.
+Yuriko: What about that boy?
+Louis: Hmm. His soul hasn’t matured yet…I wonder which way he’ll take…I want to hope for good news, but anything can happen. At any rate, I’m looking forward to your results.
+Yuriko: Yes…
+
+    The Drop of a Black Moon
+
+Louis: Slowly giving up, aren’t you?
+Yuriko: ….
+Louis: You understand too. He’s not someone to make into your partner with your power.
+Yuriko: Just a bit more time…
+Louis: How long? How long will you have to wait to get him on our side?
+Yuriko: …
+Louis: You’ve noticed too, right? His beliefs are not yet firm, but…He’s got a strange stubbornness. Will you get Waruo?
+Yuriko: !
+Louis: Waruo is still promising. He believes in real power more than Futsuo does.
+Yuriko: …
+Louis: Not everything can go the way you want it to. Go to Waruo.
+Yuriko: …yes…
+
+    Bouquet of lilies
+
+Lilith: Do you understand what I want? My desire…better said, the ideal of Chaos is the unity of humans and demons.
+
+Humans were born under a single god. They were born to be made to serve God. But that definitely doesn’t bring happiness. There is no freedom in that. I was the wife of the first man, but we were separated by the one god who hated the excessive freedom of man…
+
+Us demons separated from God a long, long time ago. The relationship between demons and God was incompatible. If God wanted to bind the humans he made  for himself forever, we will live in freedom with humans and have their offspring. They will not be bound to gods. A symbol of a free future. I wanted to have such a child…Where did it all go wrong?
+
+    U.S. Flag
+
+Thorman: …yes, your Excellency. Japan is already…
+President: Hm…Can’t our stationed troops do anything?
+Thorman: The Far East forces are definitely strong, but the number of demons is increasing. No matter how many fish in the sea we stab, their numbers will not decrease.
+President: Hmm…
+Thorman: Order wasn’t restored simply through the invocation of martial law by people. I believe the presence of a high-ranking demon was also necessary.
+President: Demons who take advantage of the chaos and rule over humans…The purification of Tokyo you were talking about is unavoidable, isn’t it? Righteousness is an indispensable part when it comes to maintaining order.
+Thorman: Even if you remove the spoiled part of a whole, it will get spoiled again. Would it not be better to conduct now a major purification and lead the remaining humans?
+President: All right, you have permission to fire the ICBM. Will you be all right?
+Thorman: Yes. I have a plan.
+President: You won’t fall even if you’re struck by Thor’s lightining, right…Hahaha.
+
+
+
+    Goki’s Nails
+
+>666 AD, in the Mountains of Ikoma
+
+En no Ozuno: Hm, who’s there?
+Oni: I see a bodhisattva of this world.
+En: I am an ascetic. Are you sure you haven’t got the wrong person?
+Oni: I took on the appearance of an oni, but I am actually a descendant of Tajikarao. Cutting any relationships with humans will stop you from losing your supernatural powers.
+En: Hm, you’re right…So, what do you need?
+Oni: My wife is waiting here. The two of us have been trying to be of service to someone for a long time. Yesterday, Tajikarao stood at our bedside and told us that today a bodhisattva will appear, so we should accompany him…
+En: Hmm..this is interesting.
+Oni: Please let the two of us serve you for eternity.
+En: I see…This is the will of an ancient god. What are your names?
+Oni: We have no names, for we do not interact with humans.
+En: Then from now on, in order to achieve virtue, you will be named Zenki…In order to achieve great things, your wife will be named Goki. Zenki, please walk in front of me, while Goki walks behind me. If we have power, we will be able to head to a place where people’s powers do not reach…
+
+    The Bodhisattva Statue of the King of Kongokai
+
+En no Ozuno: Do you believe that the hearts of people are infinite? Even if they are infinite, then we will have to find a way for the bodies to become infinite as well, right?
+
+To begin with, humans are limited existences. It is impossible to fit infinite things into a finite vessel. Training is nothing but a way to discipline that finite vessel. If you want to discipline your heart, you will have to discipline your body first. Training both your finite body and your infinite heart at the same time is a way of making them larger.
+
+Day after day, every single day, running about the mountain road will train the body naturally. At the same time, on the other hand, if you want to discipline your heart, take notice of all your surroundings.
+
+The grass on the earth, the trees around you, the mountains soaring in the distance, the clouds floating in the sky, the drifting wind, the vibrating ground –  keep disciplining yourself until you become one with them.
+
+It is definitely impossible to turn finite things infinite. However, it is not impossible to approach infinity.
+
+    Pure Black Scriptures
+
+Louis Cypher: Law and Chaos, principle and confusion. Law is a thing constricted by order, while chaos a thing released from this very order. The beings who disturbed order were banished and came to be known as demons. Then, is law in the right? Is chaos in the right? What is righteousness in the first place?
+
+People…What do the hearts of people truly want? An incomplete order? An incomplete chaos? If that is not allowed, which one would they choose? What was the world of humans like before we arrived? Were they happy with order?
+
+There is a word such as subtle pleasure, but is that a different thing from order? If they believe in their own hearts, whom are humans closer to, gods or demons? Your heart knows the best. So? Which one is it? Hehehe….
+
+    Hierarchy of Morals
+
+Taijorokun: Oh…Both Law and Chaos are extremes. And that is precisely because they were born from extremes. They cannot draw back and think for a moment. It is good that their hopes run high, but don’t they go too high? Everything should come in moderation.
+
+There are also people who believe my ideas are sly and cowardly, but spreading them amongst great numbers of men is different from having them stream from above to below. You can say that learning the good points of the thoughts of Law and Chaos is, in a way, the most dangerous way of living.
+
+Power, influence is what gathers at the extremes. Nevertheless, isn’t going right between that a difficult thing to do? Let me see just how much it is…
+
+    Black Leather Eye Mask
+
+Private Guard: Mr.Ozawa, I have brought him here.
+Ozawa: Ah, good job. This man, huh…He’s called the Soul Diver. …all right, return to your position.
+Guard: Yes sir.
+Soul Diver: H-how can I help you?
+Ozawa: It looks like you can fiddle with the inside of people’s heads…You’re a dangerous guy…
+Soul Diver: M-my power is for healing people…
+Ozawa: …if I leave you alone, you’ll get involved with Shinjuku’s order.
+Soul Diver: ….
+Ozawa: Finishing you off here would be fine, but…what should I do…
+Soul Diver: …Understood. I’ll listen to what you have to say. There’s something you want me to do, right?
+Ozawa: You can get into people’s heads, right? Then make me feel better.
+Soul Diver: ?
+Ozawa: That’s right…Dreams…Enter my dreams and show me something that will make me feel good.
+Soul Diver: Wha…but that’s…
+Ozawa: You saying you can’t do it?
+Soul Diver: Oh, no, it’s not that…It’s just that tampering with dreams is very dangerous…and very tiring…
+Ozawa: It’s fine if you can do it. Come on, do it. If you try to do something strange, I’ll have the private guard kill you. Yeah…Start with me getting Tokyo and end it with me getting Japan. Have the entire world prostrate before me in the dream. People all over the world will listen to my commands…I’m counting on you from this day on. Hah..haha…
+Soul Diver: ….
+
+    The Red-Haired Doll
+
+Red Count: Hm? Who is it?
+Alice: Good day, Uncle Red.
+Red Count: Oh, Alice, you’re here. But, you see, Uncle is busy right now. Can you wait for a bit?
+Alice: Eh? But isn’t Uncle always playing with Alice? Hey, Uncle Red, play with me~
+Red Count: Uh…Troublesome…Oh, right, Alice. Is there anything you wish for?
+Alice: Eh…Um…A doll!
+Red Count: Ooh, I see. What kind of doll would you like now?
+Alice: Hmm, you see. One with red hair!
+Red Count: Nice, nice. Wait a little, all right?
+
+>five minutes later
+
+Red Count: Here you go, Alice. What do you think?
+Alice: Oooh, a red-haired doll! Thank you, Uncle Red.
+Red Count: She didn’t ask for anything weird. I’m so glad…We have a lot of red-haired zombies anyway…I can just shrink them with magic and they’re ready. And Alice will stay so cute for eternity…
+
+    Candlestick
+
+Alice: Hey, hey, Uncle Black. There’s something Alice wants.
+Black Count: Hmm? What is it?
+Alice: Well, you see, Alice wants a big house. A house with lots of windows!
+Black Count: A-Alice…I can’t do that…Didn’t I tell you that if you’re touched by the sun you’ll get a serious disease? Forgive me this time.
+Alice: Eh…Then, you see, ummm, Alice wants a mother and a father.
+Black Count: A-Alice…That’s…That’s not something Uncle can do.
+Alice: Eh…Should I ask Uncle Red then?
+Black Count: Doing that is…Uncle Red can’t do anything about that either…
+Alice: Ugh…Boring…Alice is going to play in the town.
+Black Count: I have no intention of giving her such memories, but…Even though she’s just a child, sometimes human memories go beyond a demon’s powers…What’s the meaning of this…Alice isn’t supposed to change, but…
+
+    Red Alice Band
+
+Belial: T-this is beautiful…A human child…
+Nebiros: I’ll soon be able to resurrect her, but only as a zombie.
+Belial: Ah, I don’t mind that. Such a perfect beauty…
+Nebiros: Here, open your eyes…
+Alice: Uh…uuum…W-where am I?
+Belial: T-this is…
+Nebiros: This is Alice’s house. Don’t you remember?
+Alice: U, uh..Who are you?
+Belial: I am…the Red Count.
+Nebiros: I am the Black Count.
+Alice: Red…Uncle. Black…Uncle.
+Nebiros: Yeah, that’s good.
+Alice: What…happened to me?
+Nebiros: Alice slept a lot because of her illness. You have finally gotten better, but you still can’t go out. The doctor said you don’t…remember a thing…
+Belial: It’s all right for now…For now…
+Alice: I can’t…remember…
+Belial: Your uncles here will play with you whenever you want!
+Alice: Y-yes. Thank you, Uncle. I…friends…
+
+>Alice closes her eyes
+
+Belial: What happened? Did she die again?
+Nebiros: It’s because I gave her false memories. It’s better to just let her sleep a little. If she makes any sudden moves, her body will crumble.
+Belial: Oh, oh, I see. She said “friends” just a moment before falling asleep.
+Nebiros: Memories from her time as a human. What is going on…
+Belial: Well, doesn’t matter. Let’s resurrect a lot of zombies. We’ll need them to give our cute Alice a lot of friends.
+Nebiros: I see. We’ve got to do our best for Alice’s sake…
+
+    Grade Book
+
+>Yama’s courtroom
+
+Yama: …that person restricted the freedom of other beings and clearly injured them. Therefore, he is condemned to five years of hard labour. Take him.
+
+Next. Hm…The murder of a demon…
+
+Messian Believer: What’s wrong about a demon who made enemies out of humans?
+Yama: Ho…Are you saying that killing is all right if he’s a demon?
+Messian Believer: That is what God said.
+Yama: Demons are living beings as well. Crushing their rights like that is unforgivable. Therefore, you are condemned to capital punishment. Take him.
+
+Why does this have to happen day after day. I have to continue giving judgement, don’t I…Messian belivers just won’t decrease. On the contrary, their numbers keep growing every day. Just what’s going on…All right! Next!
+
+    The Messian Broadcast Script
+
+Messian Believer: Good morning, everyone. It is time for “Good morning, Messiah”. Today too we will offer our prayers to God all day long. Let us live. God is watching over us. He will definitely not abandon us. The ones who believe will be saved.
+
+The second verse from the third chapter of the Messian Scripture speaks about how God offered His hand to His believers, got rid of diseases and erased pain. Now, we are being troubled by the underlings of the demons. However, we have God. Do not feel uneasy. Do not fall into despair.
+
+Humans are at their very nature weak beings. The ones who live only relying on others’ strength are old people, women and children. Don’t they have to survive? Yes, they do. But there is no future in a ruined world. The eighth verse from the fourth chapter of the Messian Scripture speaks about the food that poured out of God’s hand and the children who became healthy by eating it.
+
+As long as they believe in God and rely on His will, even the weak ones will be able to face a bright future. Now then, let us all offer a prayer to God. Believing and praying to the Lord’s will…
+
+    The Navagraha Netsuke
+
+Taira no Masakado: Listen to me, everyone. We are all warriors. It is our duty to protect our lands and govern them both as samurai and as lords.
+
+Above us stands the Imperial Court. But what has the Imperial Court done for us? They play kemari every day in the distant land of the capital. They only think about gathering taxes from our lands in order to play every day, even though we spend days after days fighting in order to protect our soil. The drought has continued these past few years and the people of Kantou still had to to struggle with taxes. Even so, didn’t the Imperial Court increase the taxes so they could have a good life?
+
+I believe we don’t need things like the Imperial Court. I came here today to name myself Emperor. Kantou belongs to its warriors. We will not indulge the Imperial Court anymore. We will lead Kantou with our own hands and with our own power!
+
+    Kokejizou
+
+>middle of the tenth century
+
+Noble: Why did you fail?
+Douma Houshi: ….
+Noble: As you said, gratitude must be earned.
+Douma Houshi: Of course. I proceeded according to the plan…
+Noble: Ooh! Then why did you fail? It was your responsibility. He was supposed to be dead.
+Douma Houshi: …perhaps…Seimei…
+Noble: What did you say!
+Douma Houshi: I performed my techniques, did the ceremony, but someone interfered. Someone who can defeat my shikigami…I can’t think of anyone besides Seimei…
+Noble: ….
+Douma Houshi: Forget this ever happened!
+Noble: W-what! T-that’s…
+Douma Houshi: I’m returning your money! …or do you want me to fight him?
+Noble: N-no…that is…If you don’t win, then this world…
+Douma Houshi: If we start using our techniques, it will turn into a fight for our lives. My life is more dear to me than money, so the only thing I can do is pull back. One day, the Abe no Seimei I despise so much will…
+
+    Seimei’s Chinese Bellflower Amulet
+
+Ashiya Douman: Hehehe…I finally did it…
+
+One thousand years, huh…I foresaw that a new Onmyoudou would appear together with a new age and sealed my heart, but…My wish has finally come true. It’s wonderful that this body has been resurrected.
+
+The Demon Summoning Program…A technique that surpasses the spells of my age.
+
+Well then. The one I despise is Seimei, but has he reincarnated…?
+
+There are too many things I do not know. First I have to carefully gather my strength…Occupy this world and then paint it into the colours of Hell…
+
+Hehehehe….

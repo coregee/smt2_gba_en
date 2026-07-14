@@ -1,0 +1,142 @@
+[
+ {
+  "addr": "0819873C",
+  "ptrs": [
+   "080BEB34"
+  ],
+  "max": 5,
+  "term": "0000",
+  "original": "は倒された",
+  "replace": " was{n}defeated!"
+ },
+ {
+  "addr": "08198748",
+  "ptrs": [
+   "080BEB3C"
+  ],
+  "max": 10,
+  "term": "0000",
+  "original": "はアンデッドにされた",
+  "replace": " was turned Undead!"
+ },
+ {
+  "addr": "0819875E",
+  "ptrs": [
+   "080BEB44"
+  ],
+  "max": 6,
+  "term": "0000",
+  "original": "は石にされた",
+  "replace": " turned to stone!"
+ },
+ {
+  "addr": "0819876C",
+  "ptrs": [
+   "080BEB4C"
+  ],
+  "max": 9,
+  "term": "0000",
+  "original": "はからだがまひした",
+  "replace": "'s body was paralyzed!"
+ },
+ {
+  "addr": "08198780",
+  "ptrs": [
+   "080BEB54"
+  ],
+  "max": 9,
+  "term": "0000",
+  "original": "はハエにかえられた",
+  "replace": " was turned into a fly!"
+ },
+ {
+  "addr": "08198794",
+  "ptrs": [
+   "080BEB5C"
+  ],
+  "max": 9,
+  "term": "0000",
+  "original": "はこうもりになった",
+  "replace": " was turned into a bat!"
+ },
+ {
+  "addr": "081987A8",
+  "ptrs": [
+   "080BEB64"
+  ],
+  "max": 8,
+  "term": "0000",
+  "original": "はとりこになった",
+  "replace": " was enthralled!"
+ },
+ {
+  "addr": "081987BA",
+  "ptrs": [
+   "080BEB6C"
+  ],
+  "max": 6,
+  "term": "0000",
+  "original": "は凍りついた",
+  "replace": " froze over!"
+ },
+ {
+  "addr": "081987C8",
+  "ptrs": [
+   "080BEB74"
+  ],
+  "max": 5,
+  "term": "0000",
+  "original": "は感電した",
+  "replace": " was shocked!"
+ },
+ {
+  "addr": "081987D4",
+  "ptrs": [
+   "080BEB7C"
+  ],
+  "max": 8,
+  "term": "0000",
+  "original": "は眠ってしまった",
+  "replace": "Fell asleep!"
+ },
+ {
+  "addr": "081987E6",
+  "ptrs": [
+   "080BEB84"
+  ],
+  "max": 10,
+  "term": "0000",
+  "original": "はかなしばりになった",
+  "replace": " was bound!"
+ },
+ {
+  "addr": "081987FC",
+  "ptrs": [
+   "080BEB8C"
+  ],
+  "max": 8,
+  "term": "0000",
+  "original": "はおかしくなった",
+  "replace": " started acting funny!"
+ },
+ {
+  "addr": "0819880E",
+  "ptrs": [
+   "080BEB94"
+  ],
+  "max": 9,
+  "term": "0000",
+  "original": "は幸せにつつまれた",
+  "replace": " was enveloped by happiness!"
+ },
+ {
+  "addr": "08198822",
+  "ptrs": [
+   "080BEB9C"
+  ],
+  "max": 8,
+  "term": "0000",
+  "original": "は毒におかされた",
+  "replace": " was afflicted with poison!"
+ }
+]

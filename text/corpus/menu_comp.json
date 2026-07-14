@@ -1,0 +1,107 @@
+[
+ {
+  "addr": "081230DC",
+  "term": "0000",
+  "original": "これでよろしいですか？",
+  "replace": "Is this OK?",
+  "sentinel": true
+ },
+ {
+  "addr": "08123DF0",
+  "term": "0000",
+  "original": "誰のステータスを見ますか？",
+  "replace": "Whose status?",
+  "sentinel": true
+ },
+ {
+  "addr": "081240A0",
+  "term": "0000",
+  "original": "どの悪魔を呼び出しますか？",
+  "replace": "Summon which demon?",
+  "sentinel": true
+ },
+ {
+  "addr": "081240BC",
+  "term": "0000",
+  "original": "どこに呼び出しますか？",
+  "replace": "Summon where?",
+  "sentinel": true
+ },
+ {
+  "addr": "081240F0",
+  "term": "0000",
+  "original": "呼び出せる仲魔はいません",
+  "replace": "No demons to summon.",
+  "sentinel": true
+ },
+ {
+  "addr": "0812410A",
+  "term": "0000",
+  "original": "シングルバトルでは{n}仲魔を呼び出せない",
+  "replace": "Can't summon in{n}a single battle",
+  "sentinel": true
+ },
+ {
+  "addr": "08124154",
+  "term": "0000",
+  "original": "どの悪魔を戻しますか？",
+  "replace": "Return which demon?",
+  "sentinel": true
+ },
+ {
+  "addr": "0812416C",
+  "term": "0000",
+  "original": "戻せる仲魔はいません",
+  "replace": "No demons to return.",
+  "sentinel": true
+ },
+ {
+  "addr": "08124198",
+  "term": "0000",
+  "original": "位置替えをしてください",
+  "replace": "Please reposition",
+  "sentinel": true
+ },
+ {
+  "addr": "081241E0",
+  "term": "0000",
+  "original": "HPが足りない",
+  "replace": "Not enough HP",
+  "sentinel": true
+ },
+ {
+  "addr": "081242CE",
+  "term": "0000",
+  "original": "どちらをアナライズしますか？",
+  "replace": "Analyze which?",
+  "sentinel": true
+ },
+ {
+  "addr": "08124364",
+  "term": "0000",
+  "original": "どの悪魔と別れますか？",
+  "replace": "Part with which demon?",
+  "sentinel": true
+ },
+ {
+  "addr": "0812439A",
+  "term": "0000",
+  "original": "外せる仲魔はいません",
+  "replace": "No demons to part with",
+  "sentinel": true
+ },
+ {
+  "addr": "081244BA",
+  "term": "0000",
+  "original": "整頓中…",
+  "replace": "Organizing...",
+  "sentinel": true
+ },
+ {
+  "addr": "081244C4",
+  "term": "0000",
+  "original": "整頓終了",
+  "replace": "Done organizing",
+  "sentinel": true
+ }
+]

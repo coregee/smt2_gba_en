@@ -1,0 +1,202 @@
+[
+  {
+    "addr": "080033FC",
+    "ptrs": ["08164E88"],
+    "max": 26,
+    "term": "0301",
+    "original": "しまった！　トラップだ！{n}{ALEPH}達は{n}ダメージを受けた{WAIT}",
+    "replace": "Shoot! It's a trap!{n}{ALEPH} took damage.{WAIT}"
+  },
+  {
+    "addr": "0800338A",
+    "ptrs": ["08164D24"],
+    "max": 10,
+    "term": "0301",
+    "original": "箱はからっぽだった{WAIT}",
+    "replace": "The box was empty.{WAIT}"
+  },
+  {
+    "addr": "08002E2C",
+    "ptrs": ["08198330"],
+    "max": 20,
+    "term": "0301",
+    "original": "声：IDコードを{n}　　入力してください{WAIT}",
+    "replace": "Voice: Enter ID code.{WAIT}"
+  },
+  {
+    "addr": "08002E56",
+    "ptrs": ["081983D4"],
+    "max": 20,
+    "term": "0301",
+    "original": "IDコード確認しました{n}ドアを開きます{WAIT}",
+    "replace": "ID code confirmed.{n}Opening the door.{WAIT}"
+  },
+  {
+    "addr": "08002E80",
+    "ptrs": ["08198418"],
+    "max": 27,
+    "term": "0301",
+    "original": "IDコードが違います{WAIT}{PAGE}もう1度　入力しますか？{SUBMENU:b82e0008}",
+    "replace": "Incorrect ID code.{WAIT}{PAGE}Will you try again?{SUBMENU:b82e0008}"
+  },
+  {
+    "addr": "08002EBA",
+    "ptrs": ["08198474"],
+    "max": 33,
+    "term": "0301",
+    "original": "IDコードが違います{WAIT}{PAGE}もう入力できません{n}ドアは開けられません{WAIT}",
+    "replace": "Incorrect ID code.{WAIT}{PAGE}Too many tries.{n}Entry refused.{WAIT}"
+  },
+  {
+    "addr": "08002EFE",
+    "ptrs": ["080BE944", "080BE9C8"],
+    "max": 31,
+    "term": "0301",
+    "original": "入室チェックを行います{n}{DELAY}□入室チェック終了{n}ドアを開きます{WAIT}",
+    "replace": "Performing entrance check...{n}{DELAY}Entrance check complete.{n}Opening the door.{WAIT}"
+  },
+  {
+    "addr": "08003192",
+    "ptrs": ["080BE9E0"],
+    "max": 49,
+    "term": "0301",
+    "original": "入室チェックを行います{n}{DELAY}□入室チェック終了{n}{WAIT}{PAGE}あなたは　属性が違うため{n}ドアは開けられません{WAIT}",
+    "replace": "Performing entrance check...{n}{DELAY}Entrance check complete.{n}{WAIT}{PAGE}Your alignment does not match.{n}Entry refused.{WAIT}"
+  },
+  {
+    "addr": "08003432",
+    "ptrs": ["080B8820", "080B8F90"],
+    "max": 15,
+    "term": "0301",
+    "original": "{ALEPH}は{n}{NUMBER}のダメージを{n}受けた{WAIT}",
+    "replace": "{ALEPH} took {NUMBER} damage!{WAIT}"
+  },
+  {
+    "addr": "08003452",
+    "ptrs": ["080B8828", "080B8F98"],
+    "max": 15,
+    "term": "0301",
+    "original": "{GIMMEL}は{n}{NUMBER}のダメージを{n}受けた{WAIT}",
+    "replace": "{GIMMEL} took {NUMBER} damage!{WAIT}"
+  },
+  {
+    "addr": "08003472",
+    "ptrs": ["080B8830", "080B8FA0"],
+    "max": 15,
+    "term": "0301",
+    "original": "{HIROKO}は{n}{NUMBER}のダメージを{n}受けた{WAIT}",
+    "replace": "{HIROKO} took {NUMBER} damage!{WAIT}"
+  },
+  {
+    "addr": "08003492",
+    "ptrs": ["080B8840", "080B8FB0"],
+    "max": 15,
+    "term": "0301",
+    "original": "{ZAYIN}は{n}{NUMBER}のダメージを{n}受けた{WAIT}",
+    "replace": "{ZAYIN} took {NUMBER} damage!{WAIT}"
+  },
+  {
+    "addr": "080034B2",
+    "ptrs": ["080B8868", "080B8FD8"],
+    "max": 15,
+    "term": "0301",
+    "original": "{DEMON_NAME}は{n}{NUMBER}のダメージを{n}受けた{WAIT}",
+    "replace": "{DEMON_NAME} took {NUMBER} damage!{WAIT}"
+  },
+  {
+    "addr": "080034EA",
+    "ptrs": ["080B8EF8"],
+    "max": 11,
+    "term": "0301",
+    "original": "{ALEPH}は{n}毒におかされた{WAIT}",
+    "replace": "{ALEPH} was poisoned!{WAIT}"
+  },
+  {
+    "addr": "08198834",
+    "ptrs": ["080BEBB4"],
+    "max": 9,
+    "term": "0000",
+    "original": "は魔法を封じられた",
+    "replace": "'s magic was sealed!"
+  },
+  {
+    "addr": "0800334A",
+    "ptrs": ["08164BFC"],
+    "max": 18,
+    "term": "0301",
+    "original": "＞箱を見つけた　開けますか？{n}{SUBMENU:70330008}",
+    "replace": "＞You've found a box. Open it?{n}{SUBMENU:70330008}"
+  },
+  {
+    "addr": "08003372",
+    "ptrs": ["08164CE8"],
+    "max": 11,
+    "term": "0301",
+    "original": "{ALEPH}は{n}箱をあきらめた{WAIT}",
+    "replace": "{ALEPH} left the box alone.{WAIT}"
+  },
+  {
+    "addr": "080033A0",
+    "ptrs": ["080B8574"],
+    "max": 12,
+    "term": "0301",
+    "original": "{ITEMPARAM:0000}{PARTY_NAME}は{n}{ITEM_NAME}をみつけた{WAIT}",
+    "replace": "{ITEMPARAM:0000}{PARTY_NAME} found {ITEM_NAME}!{WAIT}"
+  },
+  {
+    "addr": "080033BA",
+    "ptrs": ["080B8654"],
+    "max": 13,
+    "term": "0301",
+    "original": "{PARTY_NAME}は{n}{NUMBER}のお金をみつけた{WAIT}",
+    "replace": "{PARTY_NAME} found {NUMBER} Macca!{WAIT}"
+  },
+  {
+    "addr": "080033D6",
+    "ptrs": ["080B8620"],
+    "max": 18,
+    "term": "0301",
+    "original": "{PARTY_NAME}は{n}{NUMBER}のマグネタイトを{n}みつけた{WAIT}",
+    "replace": "{PARTY_NAME} found {NUMBER} Magnetite!{WAIT}"
+  },
+  {
+    "addr": "08003502",
+    "ptrs": ["080B8520"],
+    "max": 35,
+    "term": "0301",
+    "original": "{PARTY_NAME}は{n}{ITEM_NAME}をみつけた{WAIT}{PAGE}しかし　持ちきれないので{n}{PARTY_NAME}は{n}{ITEM_NAME}をあきらめた{WAIT}",
+    "replace": "{PARTY_NAME} found {ITEM_NAME}!{WAIT}{PAGE}But couldn't carry it,{n}so {PARTY_NAME} didn't take {ITEM_NAME}.{WAIT}"
+  },
+  {
+    "addr": "0800354A",
+    "ptrs": ["0812A4D8"],
+    "max": 5,
+    "term": "0301",
+    "original": "と別れます",
+    "replace": " will be released."
+  },
+  {
+    "addr": "08003556",
+    "ptrs": ["0812A4DC"],
+    "max": 8,
+    "term": "0301",
+    "original": "よろしいですか？",
+    "replace": "Is this all right?"
+  },
+  {
+    "addr": "08003568",
+    "ptrs": ["0812A508"],
+    "max": 10,
+    "term": "0301",
+    "original": "この仲魔ははずせない",
+    "replace": "This minion can't be removed."
+  },
+  {
+    "addr": "08003320",
+    "ptrs": ["083BAA64", "084B4F0C"],
+    "max": 7,
+    "term": "0301",
+    "original": "　おかされた{WAIT}",
+    "replace": "　was afflicted with poison!{WAIT}"
+  }
+]

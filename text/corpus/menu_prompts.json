@@ -1,0 +1,42 @@
+[
+ {
+  "addr": "084F09B0",
+  "ptrs": [
+   "080CDEE4"
+  ],
+  "max": 11,
+  "term": "0301",
+  "original": "呪いで装備が外れない！",
+  "replace": "Equipment is cursed!"
+ },
+ {
+  "addr": "084F0CA0",
+  "ptrs": [
+   "080CE560"
+  ],
+  "max": 12,
+  "term": "0000",
+  "original": "これで{n}よろしいですか？",
+  "replace": "Is this OK?"
+ },
+ {
+  "addr": "0800980C",
+  "ptrs": [
+   "080E1B88"
+  ],
+  "max": 11,
+  "term": "0301",
+  "original": "これでよろしいですか？",
+  "replace": "Is this OK?"
+ },
+ {
+  "addr": "087F2D50",
+  "ptrs": [
+   "0815CA78"
+  ],
+  "max": 64,
+  "term": "0301",
+  "original": "ゲームクリアデータをセーブすると{n}クリア情報を引きついで{n}新しくゲームを始める事が出来ます{n}ゲームクリアデータをセーブしますか？",
+  "replace": "Saving clear data lets you{n}carry it over into a{n}new game.{n}Save clear data?"
+ }
+]

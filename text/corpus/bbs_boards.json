@@ -1,0 +1,302 @@
+[
+ {
+  "ptrs": [
+   "08581598"
+  ],
+  "addrs": [
+   "08009010"
+  ],
+  "max": 23,
+  "term": "0301",
+  "original": "どのボードを読みますか？＞1{n}No.1「交換」",
+  "replace": "Which board will you read?＞1{n}No.1 \"Trade\""
+ },
+ {
+  "ptrs": [
+   "0858159C"
+  ],
+  "addrs": [
+   "08009040"
+  ],
+  "max": 23,
+  "term": "0301",
+  "original": "どのボードを読みますか？＞2{n}No.2「交換」",
+  "replace": "Which board will you read?＞2{n}No.2 \"Trade\""
+ },
+ {
+  "ptrs": [
+   "085815A0"
+  ],
+  "addrs": [
+   "08009070"
+  ],
+  "max": 23,
+  "term": "0301",
+  "original": "どのボードを読みますか？＞3{n}No.3「交換」",
+  "replace": "Which board will you read?＞3{n}No.3 \"Trade\""
+ },
+ {
+  "ptrs": [
+   "085815A4"
+  ],
+  "addrs": [
+   "080090A0"
+  ],
+  "max": 23,
+  "term": "0301",
+  "original": "どのボードを読みますか？＞4{n}No.4「交換」",
+  "replace": "Which board will you read?＞4{n}No.4 \"Trade\""
+ },
+ {
+  "ptrs": [
+   "085815A8"
+  ],
+  "addrs": [
+   "080090D0"
+  ],
+  "max": 23,
+  "term": "0301",
+  "original": "どのボードを読みますか？＞5{n}No.5「交換」",
+  "replace": "Which board will you read?＞5{n}No.5 \"Trade\""
+ },
+ {
+  "ptrs": [
+   "085815AC"
+  ],
+  "addrs": [
+   "08009100"
+  ],
+  "max": 25,
+  "term": "0301",
+  "original": "どのボードを読みますか？＞1{n}No.1「悪魔辞典」",
+  "replace": "Which board will you read?＞1{n}No.1 \"Demon Dictionary\""
+ },
+ {
+  "ptrs": [
+   "085815B0"
+  ],
+  "addrs": [
+   "08009134"
+  ],
+  "max": 25,
+  "term": "0301",
+  "original": "どのボードを読みますか？＞2{n}No.2「悪魔辞典」",
+  "replace": "Which board will you read?＞2{n}No.2 \"Demon Dictionary\""
+ },
+ {
+  "ptrs": [
+   "085815B4"
+  ],
+  "addrs": [
+   "08009168"
+  ],
+  "max": 25,
+  "term": "0301",
+  "original": "どのボードを読みますか？＞3{n}No.3「悪魔辞典」",
+  "replace": "Which board will you read?＞3{n}No.3 \"Demon Dictionary\""
+ },
+ {
+  "ptrs": [
+   "085815B8"
+  ],
+  "addrs": [
+   "0800919C"
+  ],
+  "max": 25,
+  "term": "0301",
+  "original": "どのボードを読みますか？＞4{n}No.4「悪魔辞典」",
+  "replace": "Which board will you read?＞4{n}No.4 \"Demon Dictionary\""
+ },
+ {
+  "ptrs": [
+   "085815BC"
+  ],
+  "addrs": [
+   "080091D0"
+  ],
+  "max": 25,
+  "term": "0301",
+  "original": "どのボードを読みますか？＞5{n}No.5「悪魔辞典」",
+  "replace": "Which board will you read?＞5{n}No.5 \"Demon Dictionary\""
+ },
+ {
+  "ptrs": [
+   "085815C0"
+  ],
+  "addrs": [
+   "08009204"
+  ],
+  "max": 24,
+  "term": "0301",
+  "original": "どのボードを読みますか？＞1{n}No.1「映像館」",
+  "replace": "Which board will you read?＞1{n}No.1 \"Video Hall\""
+ },
+ {
+  "ptrs": [
+   "085815C4"
+  ],
+  "addrs": [
+   "08009236"
+  ],
+  "max": 24,
+  "term": "0301",
+  "original": "どのボードを読みますか？＞2{n}No.2「映像館」",
+  "replace": "Which board will you read?＞2{n}No.2 \"Video Hall\""
+ },
+ {
+  "ptrs": [
+   "085815C8"
+  ],
+  "addrs": [
+   "08009268"
+  ],
+  "max": 24,
+  "term": "0301",
+  "original": "どのボードを読みますか？＞3{n}No.3「映像館」",
+  "replace": "Which board will you read?＞3{n}No.3 \"Video Hall\""
+ },
+ {
+  "ptrs": [
+   "085815CC"
+  ],
+  "addrs": [
+   "0800929A"
+  ],
+  "max": 24,
+  "term": "0301",
+  "original": "どのボードを読みますか？＞4{n}No.4「映像館」",
+  "replace": "Which board will you read?＞4{n}No.4 \"Video Hall\""
+ },
+ {
+  "ptrs": [
+   "085815D0"
+  ],
+  "addrs": [
+   "080092CC"
+  ],
+  "max": 24,
+  "term": "0301",
+  "original": "どのボードを読みますか？＞5{n}No.5「映像館」",
+  "replace": "Which board will you read?＞5{n}No.5 \"Video Hall\""
+ },
+ {
+  "ptrs": [
+   "085815D4"
+  ],
+  "addrs": [
+   "080092FE"
+  ],
+  "max": 24,
+  "term": "0301",
+  "original": "どのボードを読みますか？＞1{n}No.1「音楽館」",
+  "replace": "Which board will you read?＞1{n}No.1 \"Music Hall\""
+ },
+ {
+  "ptrs": [
+   "085815D8"
+  ],
+  "addrs": [
+   "08009330"
+  ],
+  "max": 24,
+  "term": "0301",
+  "original": "どのボードを読みますか？＞2{n}No.2「音楽館」",
+  "replace": "Which board will you read?＞2{n}No.2 \"Music Hall\""
+ },
+ {
+  "ptrs": [
+   "085815DC"
+  ],
+  "addrs": [
+   "08009362"
+  ],
+  "max": 24,
+  "term": "0301",
+  "original": "どのボードを読みますか？＞3{n}No.3「音楽館」",
+  "replace": "Which board will you read?＞3{n}No.3 \"Music Hall\""
+ },
+ {
+  "ptrs": [
+   "085815E0"
+  ],
+  "addrs": [
+   "08009394"
+  ],
+  "max": 24,
+  "term": "0301",
+  "original": "どのボードを読みますか？＞4{n}No.4「音楽館」",
+  "replace": "Which board will you read?＞4{n}No.4 \"Music Hall\""
+ },
+ {
+  "ptrs": [
+   "085815E4"
+  ],
+  "addrs": [
+   "080093C6"
+  ],
+  "max": 24,
+  "term": "0301",
+  "original": "どのボードを読みますか？＞5{n}No.5「音楽館」",
+  "replace": "Which board will you read?＞5{n}No.5 \"Music Hall\""
+ },
+ {
+  "ptrs": [
+   "085815E8"
+  ],
+  "addrs": [
+   "080093F8"
+  ],
+  "max": 23,
+  "term": "0301",
+  "original": "どのボードを読みますか？＞1{n}No.1「終了」",
+  "replace": "Which board will you read?＞1{n}No.1 \"Exit\""
+ },
+ {
+  "ptrs": [
+   "085815EC"
+  ],
+  "addrs": [
+   "08009428"
+  ],
+  "max": 23,
+  "term": "0301",
+  "original": "どのボードを読みますか？＞2{n}No.2「終了」",
+  "replace": "Which board will you read?＞2{n}No.2 \"Exit\""
+ },
+ {
+  "ptrs": [
+   "085815F0"
+  ],
+  "addrs": [
+   "08009458"
+  ],
+  "max": 23,
+  "term": "0301",
+  "original": "どのボードを読みますか？＞3{n}No.3「終了」",
+  "replace": "Which board will you read?＞3{n}No.3 \"Exit\""
+ },
+ {
+  "ptrs": [
+   "085815F4"
+  ],
+  "addrs": [
+   "08009488"
+  ],
+  "max": 23,
+  "term": "0301",
+  "original": "どのボードを読みますか？＞4{n}No.4「終了」",
+  "replace": "Which board will you read?＞4{n}No.4 \"Exit\""
+ },
+ {
+  "ptrs": [
+   "085815F8"
+  ],
+  "addrs": [
+   "080094B8"
+  ],
+  "max": 23,
+  "term": "0301",
+  "original": "どのボードを読みますか？＞5{n}No.5「終了」",
+  "replace": "Which board will you read?＞5{n}No.5 \"Exit\""
+ }
+]

@@ -1,0 +1,154 @@
+[
+ {
+  "ptrs": [
+   "087F02C8"
+  ],
+  "addrs": [
+   "0815BBD4"
+  ],
+  "max": 18,
+  "term": "0301",
+  "original": "ワシは{RACE_NAME}　{DEMON_NAME}{n}今後とも　よろしく{n}{WAIT}",
+  "replace": "I am {RACE_NAME} {DEMON_NAME}. I am at your service.{WAIT}"
+ },
+ {
+  "ptrs": [
+   "087F02CC"
+  ],
+  "addrs": [
+   "0815BBFA"
+  ],
+  "max": 24,
+  "term": "0301",
+  "original": "俺サマは{RACE_NAME}　{DEMON_NAME}だ{n}ま　今後とも　よろしく頼む{n}{WAIT}",
+  "replace": "I'm {RACE_NAME} {DEMON_NAME}. Well, I'm at your service, I guess.{WAIT}"
+ },
+ {
+  "ptrs": [
+   "087F02D0"
+  ],
+  "addrs": [
+   "0815BC2C"
+  ],
+  "max": 28,
+  "term": "0301",
+  "original": "オイラ{n}{RACE_NAME}　{DEMON_NAME}だぽーん！{n}今後とも　よろよろぴーー！{n}{WAIT}",
+  "replace": "I'm {RACE_NAME} {DEMON_NAME}, oh yeah! Ima at your service!{WAIT}"
+ },
+ {
+  "ptrs": [
+   "087F02D4"
+  ],
+  "addrs": [
+   "0815BC66"
+  ],
+  "max": 18,
+  "term": "0301",
+  "original": "ワレハ{RACE_NAME}　{DEMON_NAME}{n}コンゴトモヨロシク{n}{WAIT}",
+  "replace": "I AM {RACE_NAME} {DEMON_NAME}. I AM AT YOUR SERVICE!{WAIT}"
+ },
+ {
+  "ptrs": [
+   "084F3838",
+   "084F383C",
+   "084F3840",
+   "084F3844",
+   "084F3848",
+   "084F384C",
+   "084F3850",
+   "084F3854",
+   "084F3858",
+   "084F385C",
+   "084F3860",
+   "084F3864",
+   "084F3868",
+   "084F386C",
+   "084F3870",
+   "084F3874",
+   "084F3878",
+   "084F387C",
+   "087F02D8"
+  ],
+  "addrs": [
+   "0815BC8C"
+  ],
+  "max": 28,
+  "term": "0301",
+  "original": "私は{RACE_NAME}　{DEMON_NAME}{n}貴方に忠誠をちかい{n}守護をにないましょう{n}{WAIT}",
+  "replace": "I am {RACE_NAME} {DEMON_NAME}. I pledge my loyalty to you as your guardian.{WAIT}"
+ },
+ {
+  "ptrs": [
+   "087F02DC"
+  ],
+  "addrs": [
+   "0815BCC6"
+  ],
+  "max": 19,
+  "term": "0301",
+  "original": "私は{RACE_NAME}　{DEMON_NAME}{n}貴方に忠誠をちかおう！{n}{WAIT}",
+  "replace": "I am {RACE_NAME} {DEMON_NAME}. I pledge you my loyalty!{n}{WAIT}"
+ },
+ {
+  "ptrs": [
+   "087F02E0"
+  ],
+  "addrs": [
+   "0815BCEE"
+  ],
+  "max": 18,
+  "term": "0301",
+  "original": "我は{DEMON_NAME}　{RACE_NAME}の者{n}今後ともよろしく{n}{WAIT}",
+  "replace": "I am {DEMON_NAME}, one of the {RACE_NAME}. I am at your service.{n}{WAIT}"
+ },
+ {
+  "ptrs": [
+   "087F02E4"
+  ],
+  "addrs": [
+   "0815BD14"
+  ],
+  "max": 20,
+  "term": "0301",
+  "original": "私は{RACE_NAME}　{DEMON_NAME}{n}今後ともよろしく頼むぞよ{n}{WAIT}",
+  "replace": "I am {RACE_NAME} {DEMON_NAME}. I serve you now.{n}{WAIT}"
+ },
+ {
+  "ptrs": [
+   "087F02E8"
+  ],
+  "addrs": [
+   "0815BD3E"
+  ],
+  "max": 19,
+  "term": "0301",
+  "original": "私は{RACE_NAME}　{DEMON_NAME}{n}今後ともよろしく頼むわ{n}{WAIT}",
+  "replace": "I am {RACE_NAME} {DEMON_NAME}. I'm happy to serve you.{n}{WAIT}"
+ },
+ {
+  "ptrs": [
+   "087F02EC"
+  ],
+  "addrs": [
+   "0815BD66"
+  ],
+  "max": 18,
+  "term": "0301",
+  "original": "あたし　{RACE_NAME}　{DEMON_NAME}！{n}優しくしてね★{n}{WAIT}",
+  "replace": "I'm {RACE_NAME} {DEMON_NAME}! Be gentle!{n}{WAIT}"
+ },
+ {
+  "ptrs": [
+   "087F02F0",
+   "087F02F4"
+  ],
+  "addrs": [
+   "0815BD8C",
+   "0815BDC4"
+  ],
+  "max": 27,
+  "term": "0301",
+  "original": "私は長らく　{DEMON_NAME}を{n}やっている者だ！{n}よろしくたのむ{n}{WAIT}",
+  "replace": "I have been a {DEMON_NAME} for a long time! I am at your service!{n}{WAIT}"
+ }
+]

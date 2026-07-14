@@ -1,0 +1,1874 @@
+[
+ {
+  "addr": "08198B88",
+  "max": 7,
+  "term": "0000",
+  "original": "アタックナイフ",
+  "replace": "Attack Knife",
+  "item_table": true,
+  "id": 0
+ },
+ {
+  "addr": "08198BAC",
+  "max": 7,
+  "term": "0000",
+  "original": "スパイクロッド",
+  "replace": "Spiked Rod",
+  "item_table": true,
+  "id": 1
+ },
+ {
+  "addr": "08198BD0",
+  "max": 7,
+  "term": "0000",
+  "original": "クィーンビュー",
+  "replace": "Queen Beaut",
+  "item_table": true,
+  "id": 2
+ },
+ {
+  "addr": "08198BF4",
+  "max": 7,
+  "term": "0000",
+  "original": "バトルハンマー",
+  "replace": "Battle Hammer",
+  "item_table": true,
+  "id": 3
+ },
+ {
+  "addr": "08198C18",
+  "max": 7,
+  "term": "0000",
+  "original": "ボロックナイフ",
+  "replace": "Bollock Knife",
+  "item_table": true,
+  "id": 4
+ },
+ {
+  "addr": "08198C3C",
+  "max": 7,
+  "term": "0000",
+  "original": "スライサー",
+  "replace": "Slicer",
+  "item_table": true,
+  "id": 5
+ },
+ {
+  "addr": "08198C60",
+  "max": 7,
+  "term": "0000",
+  "original": "さそりムチ",
+  "replace": "Scorpion Whip",
+  "item_table": true,
+  "id": 6
+ },
+ {
+  "addr": "08198C84",
+  "max": 7,
+  "term": "0000",
+  "original": "コルセック",
+  "replace": "Corseque",
+  "item_table": true,
+  "id": 7
+ },
+ {
+  "addr": "08198CA8",
+  "max": 7,
+  "term": "0000",
+  "original": "ギロチンアクス",
+  "replace": "Guillotine Axe",
+  "item_table": true,
+  "id": 8
+ },
+ {
+  "addr": "08198CCC",
+  "max": 7,
+  "term": "0000",
+  "original": "備前の短刀",
+  "replace": "Bizen Tanto",
+  "item_table": true,
+  "id": 9
+ },
+ {
+  "addr": "08198CF0",
+  "max": 7,
+  "term": "0000",
+  "original": "ジェットボーラ",
+  "replace": "Jet Bola",
+  "item_table": true,
+  "id": 10
+ },
+ {
+  "addr": "08198D14",
+  "max": 7,
+  "term": "0000",
+  "original": "アセイミナイフ",
+  "replace": "Athame Knife",
+  "item_table": true,
+  "id": 11
+ },
+ {
+  "addr": "08198D38",
+  "max": 7,
+  "term": "0000",
+  "original": "ヒートグレイブ",
+  "replace": "Heat Glaive",
+  "item_table": true,
+  "id": 12
+ },
+ {
+  "addr": "08198D5C",
+  "max": 7,
+  "term": "0000",
+  "original": "ハラキリセイバ",
+  "replace": "Harakiri Saber",
+  "item_table": true,
+  "id": 13
+ },
+ {
+  "addr": "08198D80",
+  "max": 7,
+  "term": "0000",
+  "original": "シャドウニード",
+  "replace": "Shadow Needle",
+  "item_table": true,
+  "id": 14
+ },
+ {
+  "addr": "08198DA4",
+  "max": 7,
+  "term": "0000",
+  "original": "檜の木剣",
+  "replace": "Cypress Bokken",
+  "item_table": true,
+  "id": 15
+ },
+ {
+  "addr": "08198DC8",
+  "max": 7,
+  "term": "0000",
+  "original": "ヘッドバッシャ",
+  "replace": "Head Basher",
+  "item_table": true,
+  "id": 16
+ },
+ {
+  "addr": "08198DEC",
+  "max": 7,
+  "term": "0000",
+  "original": "バキュームアク",
+  "replace": "Vacuum Axe",
+  "item_table": true,
+  "id": 17
+ },
+ {
+  "addr": "08198E10",
+  "max": 7,
+  "term": "0000",
+  "original": "チェーンソー",
+  "replace": "Chainsaw",
+  "item_table": true,
+  "id": 18
+ },
+ {
+  "addr": "08198E34",
+  "max": 7,
+  "term": "0000",
+  "original": "スクリューラン",
+  "replace": "Screw Lance",
+  "item_table": true,
+  "id": 19
+ },
+ {
+  "addr": "08198E58",
+  "max": 7,
+  "term": "0000",
+  "original": "光の小太刀",
+  "replace": "Light Kodachi",
+  "item_table": true,
+  "id": 20
+ },
+ {
+  "addr": "08198E7C",
+  "max": 7,
+  "term": "0000",
+  "original": "紅蓮のムチ",
+  "replace": "Crimson Whip",
+  "item_table": true,
+  "id": 21
+ },
+ {
+  "addr": "08198EA0",
+  "max": 7,
+  "term": "0000",
+  "original": "ロケットハンマ",
+  "replace": "Rocket Hammer",
+  "item_table": true,
+  "id": 22
+ },
+ {
+  "addr": "08198EC4",
+  "max": 7,
+  "term": "0000",
+  "original": "呪いの歯車",
+  "replace": "Cursed Gear",
+  "item_table": true,
+  "id": 23
+ },
+ {
+  "addr": "08198EE8",
+  "max": 7,
+  "term": "0000",
+  "original": "雷電のムチ",
+  "replace": "Thunder Whip",
+  "item_table": true,
+  "id": 24
+ },
+ {
+  "addr": "08198F0C",
+  "max": 7,
+  "term": "0000",
+  "original": "真紅の長巻",
+  "replace": "Crimson Nagamaki",
+  "item_table": true,
+  "id": 25
+ },
+ {
+  "addr": "08198F30",
+  "max": 7,
+  "term": "0000",
+  "original": "グラマラスアク",
+  "replace": "Glamorous Axe",
+  "item_table": true,
+  "id": 26
+ },
+ {
+  "addr": "08198F54",
+  "max": 7,
+  "term": "0000",
+  "original": "スキップハンマ",
+  "replace": "Skip Hammer",
+  "item_table": true,
+  "id": 27
+ },
+ {
+  "addr": "08198F78",
+  "max": 7,
+  "term": "0000",
+  "original": "プラズマソード",
+  "replace": "Plasma Sword",
+  "item_table": true,
+  "id": 28
+ },
+ {
+  "addr": "08198F9C",
+  "max": 7,
+  "term": "0000",
+  "original": "アクアフレイル",
+  "replace": "Aqua Flail",
+  "item_table": true,
+  "id": 29
+ },
+ {
+  "addr": "08198FC0",
+  "max": 7,
+  "term": "0000",
+  "original": "め組の纏",
+  "replace": "Megumi Matoi",
+  "item_table": true,
+  "id": 30
+ },
+ {
+  "addr": "08198FE4",
+  "max": 7,
+  "term": "0000",
+  "original": "独鈷杵",
+  "replace": "Tokko Vajra",
+  "item_table": true,
+  "id": 31
+ },
+ {
+  "addr": "08199008",
+  "max": 7,
+  "term": "0000",
+  "original": "ソニックブレー",
+  "replace": "Sonic Blade",
+  "item_table": true,
+  "id": 32
+ },
+ {
+  "addr": "0819902C",
+  "max": 7,
+  "term": "0000",
+  "original": "サウザンニード",
+  "replace": "Thousand Needle",
+  "item_table": true,
+  "id": 33
+ },
+ {
+  "addr": "08199050",
+  "max": 7,
+  "term": "0000",
+  "original": "バイタルランス",
+  "replace": "Vital Lance",
+  "item_table": true,
+  "id": 34
+ },
+ {
+  "addr": "08199074",
+  "max": 7,
+  "term": "0000",
+  "original": "飛行三鈷",
+  "replace": "Flying Vajra",
+  "item_table": true,
+  "id": 35
+ },
+ {
+  "addr": "08199098",
+  "max": 7,
+  "term": "0000",
+  "original": "日輪の小太刀",
+  "replace": "Sun Kodachi",
+  "item_table": true,
+  "id": 36
+ },
+ {
+  "addr": "081990BC",
+  "max": 7,
+  "term": "0000",
+  "original": "スクレップ",
+  "replace": "Scrap",
+  "item_table": true,
+  "id": 37
+ },
+ {
+  "addr": "081990E0",
+  "max": 7,
+  "term": "0000",
+  "original": "道連れの斧",
+  "replace": "Reaper's Axe",
+  "item_table": true,
+  "id": 38
+ },
+ {
+  "addr": "08199104",
+  "max": 7,
+  "term": "0000",
+  "original": "カロンの杖",
+  "replace": "Charon's Staff",
+  "item_table": true,
+  "id": 39
+ },
+ {
+  "addr": "08199128",
+  "max": 7,
+  "term": "0000",
+  "original": "アンクーの鎌",
+  "replace": "Ankou's Scythe",
+  "item_table": true,
+  "id": 40
+ },
+ {
+  "addr": "0819914C",
+  "max": 7,
+  "term": "0000",
+  "original": "首狩りスプーン",
+  "replace": "Headhunt Spoon",
+  "item_table": true,
+  "id": 41
+ },
+ {
+  "addr": "08199170",
+  "max": 7,
+  "term": "0000",
+  "original": "九尾のムチ",
+  "replace": "Nine-Tail Whip",
+  "item_table": true,
+  "id": 42
+ },
+ {
+  "addr": "08199194",
+  "max": 7,
+  "term": "0000",
+  "original": "アンスウェラー",
+  "replace": "Answerer",
+  "item_table": true,
+  "id": 43
+ },
+ {
+  "addr": "081991B8",
+  "max": 7,
+  "term": "0000",
+  "original": "バルハラソード",
+  "replace": "Valhalla Sword",
+  "item_table": true,
+  "id": 44
+ },
+ {
+  "addr": "081991DC",
+  "max": 7,
+  "term": "0000",
+  "original": "マグマの槍",
+  "replace": "Magma Spear",
+  "item_table": true,
+  "id": 45
+ },
+ {
+  "addr": "08199200",
+  "max": 7,
+  "term": "0000",
+  "original": "カドウケス",
+  "replace": "Caduceus",
+  "item_table": true,
+  "id": 46
+ },
+ {
+  "addr": "08199224",
+  "max": 7,
+  "term": "0000",
+  "original": "魔浄扇",
+  "replace": "Purify Fan",
+  "item_table": true,
+  "id": 47
+ },
+ {
+  "addr": "08199248",
+  "max": 7,
+  "term": "0000",
+  "original": "ロンギヌス",
+  "replace": "Longinus",
+  "item_table": true,
+  "id": 48
+ },
+ {
+  "addr": "0819926C",
+  "max": 7,
+  "term": "0000",
+  "original": "ファーガスの剣",
+  "replace": "Fergus's Sword",
+  "item_table": true,
+  "id": 49
+ },
+ {
+  "addr": "08199290",
+  "max": 7,
+  "term": "0000",
+  "original": "ロータスワンド",
+  "replace": "Lotus Wand",
+  "item_table": true,
+  "id": 50
+ },
+ {
+  "addr": "081992B4",
+  "max": 7,
+  "term": "0000",
+  "original": "妖刀ニヒル",
+  "replace": "Nihil Blade",
+  "item_table": true,
+  "id": 51
+ },
+ {
+  "addr": "081992D8",
+  "max": 7,
+  "term": "0000",
+  "original": "ルナブレード",
+  "replace": "Luna Blade",
+  "item_table": true,
+  "id": 52
+ },
+ {
+  "addr": "081992FC",
+  "max": 7,
+  "term": "0000",
+  "original": "ソルブレード",
+  "replace": "Sol Blade",
+  "item_table": true,
+  "id": 53
+ },
+ {
+  "addr": "08199320",
+  "max": 7,
+  "term": "0000",
+  "original": "獅子の軍扇",
+  "replace": "Lion War Fan",
+  "item_table": true,
+  "id": 54
+ },
+ {
+  "addr": "08199344",
+  "max": 7,
+  "term": "0000",
+  "original": "偃月刀",
+  "replace": "Crescent Blade",
+  "item_table": true,
+  "id": 55
+ },
+ {
+  "addr": "08199368",
+  "max": 7,
+  "term": "0000",
+  "original": "クチナワの剣",
+  "replace": "Kuchinawa Sword",
+  "item_table": true,
+  "id": 56
+ },
+ {
+  "addr": "0819938C",
+  "max": 7,
+  "term": "0000",
+  "original": "方天画戟",
+  "replace": "Sky Halberd",
+  "item_table": true,
+  "id": 57
+ },
+ {
+  "addr": "081993B0",
+  "max": 7,
+  "term": "0000",
+  "original": "デスブリンガー",
+  "replace": "Deathbringer",
+  "item_table": true,
+  "id": 58
+ },
+ {
+  "addr": "081993D4",
+  "max": 7,
+  "term": "0000",
+  "original": "ブリューナク",
+  "replace": "Brionac",
+  "item_table": true,
+  "id": 59
+ },
+ {
+  "addr": "081993F8",
+  "max": 7,
+  "term": "0000",
+  "original": "ゲイボルク",
+  "replace": "Gae Bolg",
+  "item_table": true,
+  "id": 60
+ },
+ {
+  "addr": "0819941C",
+  "max": 7,
+  "term": "0000",
+  "original": "グレイプニル",
+  "replace": "Gleipnir",
+  "item_table": true,
+  "id": 61
+ },
+ {
+  "addr": "08199440",
+  "max": 7,
+  "term": "0000",
+  "original": "ダグザの棍棒",
+  "replace": "Dagda's Club",
+  "item_table": true,
+  "id": 62
+ },
+ {
+  "addr": "08199464",
+  "max": 7,
+  "term": "0000",
+  "original": "ズフタフの槍",
+  "replace": "Zuhtaf Spear",
+  "item_table": true,
+  "id": 63
+ },
+ {
+  "addr": "08199488",
+  "max": 7,
+  "term": "0000",
+  "original": "練気の剣",
+  "replace": "Chi Sword",
+  "item_table": true,
+  "id": 64
+ },
+ {
+  "addr": "081994AC",
+  "max": 7,
+  "term": "0000",
+  "original": "小狐丸",
+  "replace": "Kogitsune-Maru",
+  "item_table": true,
+  "id": 65
+ },
+ {
+  "addr": "081994D0",
+  "max": 7,
+  "term": "0000",
+  "original": "風神剣",
+  "replace": "Fujin Sword",
+  "item_table": true,
+  "id": 66
+ },
+ {
+  "addr": "081994F4",
+  "max": 7,
+  "term": "0000",
+  "original": "雷神剣",
+  "replace": "Raijin Sword",
+  "item_table": true,
+  "id": 67
+ },
+ {
+  "addr": "08199518",
+  "max": 7,
+  "term": "0000",
+  "original": "備前長船",
+  "replace": "Bizen Osafune",
+  "item_table": true,
+  "id": 68
+ },
+ {
+  "addr": "0819953C",
+  "max": 7,
+  "term": "0000",
+  "original": "銘刀虎徹",
+  "replace": "Kotetsu Blade",
+  "item_table": true,
+  "id": 69
+ },
+ {
+  "addr": "08199560",
+  "max": 7,
+  "term": "0000",
+  "original": "関の兼定",
+  "replace": "Seki Kanesada",
+  "item_table": true,
+  "id": 70
+ },
+ {
+  "addr": "08199584",
+  "max": 7,
+  "term": "0000",
+  "original": "般若長光",
+  "replace": "Hannya Nagamitsu",
+  "item_table": true,
+  "id": 71
+ },
+ {
+  "addr": "081995A8",
+  "max": 7,
+  "term": "0000",
+  "original": "妖刀村正",
+  "replace": "Muramasa",
+  "item_table": true,
+  "id": 72
+ },
+ {
+  "addr": "081995CC",
+  "max": 7,
+  "term": "0000",
+  "original": "無想正宗",
+  "replace": "Muso-Masamune",
+  "item_table": true,
+  "id": 73
+ },
+ {
+  "addr": "081995F0",
+  "max": 7,
+  "term": "0000",
+  "original": "乾雲丸",
+  "replace": "Kenun-Maru",
+  "item_table": true,
+  "id": 74
+ },
+ {
+  "addr": "08199614",
+  "max": 7,
+  "term": "0000",
+  "original": "坤竜丸",
+  "replace": "Konryu-Maru",
+  "item_table": true,
+  "id": 75
+ },
+ {
+  "addr": "08199638",
+  "max": 7,
+  "term": "0000",
+  "original": "八束の剣",
+  "replace": "Yatsuka Sword",
+  "item_table": true,
+  "id": 76
+ },
+ {
+  "addr": "0819965C",
+  "max": 7,
+  "term": "0000",
+  "original": "天叢雲",
+  "replace": "Murakumo",
+  "item_table": true,
+  "id": 77
+ },
+ {
+  "addr": "08199680",
+  "max": 7,
+  "term": "0000",
+  "original": "天沼矛",
+  "replace": "Amenonuhoko",
+  "item_table": true,
+  "id": 78
+ },
+ {
+  "addr": "081996A4",
+  "max": 7,
+  "term": "0000",
+  "original": "ヒノカグツチ",
+  "replace": "Hinokagutsuchi",
+  "item_table": true,
+  "id": 79
+ },
+ {
+  "addr": "081996C8",
+  "max": 7,
+  "term": "0000",
+  "original": "老気の杖",
+  "replace": "Aging Staff",
+  "item_table": true,
+  "id": 80
+ },
+ {
+  "addr": "081996EC",
+  "max": 7,
+  "term": "0000",
+  "original": "囚気の杖",
+  "replace": "Captive Staff",
+  "item_table": true,
+  "id": 81
+ },
+ {
+  "addr": "08199710",
+  "max": 7,
+  "term": "0000",
+  "original": "死気の杖",
+  "replace": "Death Staff",
+  "item_table": true,
+  "id": 82
+ },
+ {
+  "addr": "08199734",
+  "max": 7,
+  "term": "0000",
+  "original": "相気の杖",
+  "replace": "Aspect Staff",
+  "item_table": true,
+  "id": 83
+ },
+ {
+  "addr": "08199758",
+  "max": 7,
+  "term": "0000",
+  "original": "旺気の杖",
+  "replace": "Prime Staff",
+  "item_table": true,
+  "id": 84
+ },
+ {
+  "addr": "0819977C",
+  "max": 7,
+  "term": "0000",
+  "original": "天御剣",
+  "replace": "Heaven's Sword",
+  "item_table": true,
+  "id": 85
+ },
+ {
+  "addr": "081997A0",
+  "max": 7,
+  "term": "0000",
+  "original": "将門の刀",
+  "replace": "Masakado's Sword",
+  "item_table": true,
+  "id": 86
+ },
+ {
+  "addr": "081997C4",
+  "max": 7,
+  "term": "0000",
+  "original": "倶利伽羅の剣",
+  "replace": "Kurikara Sword",
+  "item_table": true,
+  "id": 87
+ },
+ {
+  "addr": "081997E8",
+  "max": 7,
+  "term": "0000",
+  "original": "ベレッタ92F",
+  "replace": "Beretta 92F",
+  "item_table": true,
+  "id": 88
+ },
+ {
+  "addr": "0819980C",
+  "max": 7,
+  "term": "0000",
+  "original": "デザートイーグ",
+  "replace": "Desert Eagle",
+  "item_table": true,
+  "id": 89
+ },
+ {
+  "addr": "08199830",
+  "max": 7,
+  "term": "0000",
+  "original": "ミラクルグロッ",
+  "replace": "Miracle Glock",
+  "item_table": true,
+  "id": 90
+ },
+ {
+  "addr": "08199854",
+  "max": 7,
+  "term": "0000",
+  "original": "ゴンズピストル",
+  "replace": "Gonz Pistol",
+  "item_table": true,
+  "id": 91
+ },
+ {
+  "addr": "08199878",
+  "max": 7,
+  "term": "0000",
+  "original": "ドミネーター",
+  "replace": "Dominator",
+  "item_table": true,
+  "id": 92
+ },
+ {
+  "addr": "0819989C",
+  "max": 7,
+  "term": "0000",
+  "original": "ジャイロジェッ",
+  "replace": "Gyro Jet",
+  "item_table": true,
+  "id": 93
+ },
+ {
+  "addr": "081998C0",
+  "max": 7,
+  "term": "0000",
+  "original": "M16ライフル",
+  "replace": "M16 Rifle",
+  "item_table": true,
+  "id": 94
+ },
+ {
+  "addr": "081998E4",
+  "max": 7,
+  "term": "0000",
+  "original": "スマイルステア",
+  "replace": "Smile Steyr",
+  "item_table": true,
+  "id": 95
+ },
+ {
+  "addr": "08199908",
+  "max": 7,
+  "term": "0000",
+  "original": "M249ミニミ",
+  "replace": "M249 Minimi",
+  "item_table": true,
+  "id": 96
+ },
+ {
+  "addr": "0819992C",
+  "max": 7,
+  "term": "0000",
+  "original": "SPAS12",
+  "replace": "SPAS12",
+  "item_table": true,
+  "id": 97
+ },
+ {
+  "addr": "08199950",
+  "max": 7,
+  "term": "0000",
+  "original": "鬼雷砲",
+  "replace": "Oni Cannon",
+  "item_table": true,
+  "id": 98
+ },
+ {
+  "addr": "08199974",
+  "max": 7,
+  "term": "0000",
+  "original": "死神コルト",
+  "replace": "Reaper Colt",
+  "item_table": true,
+  "id": 99
+ },
+ {
+  "addr": "08199998",
+  "max": 7,
+  "term": "0000",
+  "original": "バレットM90",
+  "replace": "Barrett M90",
+  "item_table": true,
+  "id": 100
+ },
+ {
+  "addr": "081999BC",
+  "max": 7,
+  "term": "0000",
+  "original": "黄金銃",
+  "replace": "Golden Gun",
+  "item_table": true,
+  "id": 101
+ },
+ {
+  "addr": "081999E0",
+  "max": 7,
+  "term": "0000",
+  "original": "M134バルカ",
+  "replace": "M134 Vulcan",
+  "item_table": true,
+  "id": 102
+ },
+ {
+  "addr": "08199A04",
+  "max": 7,
+  "term": "0000",
+  "original": "ギガスマッシャ",
+  "replace": "Gigasmasher",
+  "item_table": true,
+  "id": 103
+ },
+ {
+  "addr": "08199A28",
+  "max": 7,
+  "term": "0000",
+  "original": "国友の銃",
+  "replace": "Kunitomo Gun",
+  "item_table": true,
+  "id": 104
+ },
+ {
+  "addr": "08199A4C",
+  "max": 7,
+  "term": "0000",
+  "original": "レールガン",
+  "replace": "Railgun",
+  "item_table": true,
+  "id": 105
+ },
+ {
+  "addr": "08199A70",
+  "max": 7,
+  "term": "0000",
+  "original": "ボドリビン",
+  "replace": "Bodribin",
+  "item_table": true,
+  "id": 106
+ },
+ {
+  "addr": "08199A94",
+  "max": 7,
+  "term": "0000",
+  "original": "ブラスターガン",
+  "replace": "Blaster Gun",
+  "item_table": true,
+  "id": 107
+ },
+ {
+  "addr": "08199AB8",
+  "max": 7,
+  "term": "0000",
+  "original": "ランダルカスタ",
+  "replace": "Randall Custom",
+  "item_table": true,
+  "id": 108
+ },
+ {
+  "addr": "08199ADC",
+  "max": 7,
+  "term": "0000",
+  "original": "メギドファイア",
+  "replace": "Megido Fire",
+  "item_table": true,
+  "id": 109
+ },
+ {
+  "addr": "08199B00",
+  "max": 7,
+  "term": "0000",
+  "original": "ピースメーカー",
+  "replace": "Peacemaker",
+  "item_table": true,
+  "id": 110
+ },
+ {
+  "addr": "08199B24",
+  "max": 7,
+  "term": "0000",
+  "original": "ブラフマースト",
+  "replace": "Brahmastra",
+  "item_table": true,
+  "id": 111
+ },
+ {
+  "addr": "08199B48",
+  "max": 7,
+  "term": "0000",
+  "original": "通常弾",
+  "replace": "Normal Round",
+  "item_table": true,
+  "id": 112
+ },
+ {
+  "addr": "08199B6C",
+  "max": 7,
+  "term": "0000",
+  "original": "毒針弾",
+  "replace": "Poison Round",
+  "item_table": true,
+  "id": 113
+ },
+ {
+  "addr": "08199B90",
+  "max": 7,
+  "term": "0000",
+  "original": "ショットシェル",
+  "replace": "Shotshell",
+  "item_table": true,
+  "id": 114
+ },
+ {
+  "addr": "08199BB4",
+  "max": 7,
+  "term": "0000",
+  "original": "ランディショッ",
+  "replace": "Randi Shot",
+  "item_table": true,
+  "id": 115
+ },
+ {
+  "addr": "08199BD8",
+  "max": 7,
+  "term": "0000",
+  "original": "神経弾",
+  "replace": "Nerve Round",
+  "item_table": true,
+  "id": 116
+ },
+ {
+  "addr": "08199BFC",
+  "max": 7,
+  "term": "0000",
+  "original": "呪いの弾丸",
+  "replace": "Cursed Bullet",
+  "item_table": true,
+  "id": 117
+ },
+ {
+  "addr": "08199C20",
+  "max": 7,
+  "term": "0000",
+  "original": "カップキラー",
+  "replace": "Cop Killer",
+  "item_table": true,
+  "id": 118
+ },
+ {
+  "addr": "08199C44",
+  "max": 7,
+  "term": "0000",
+  "original": "聖なる弾丸",
+  "replace": "Holy Bullet",
+  "item_table": true,
+  "id": 119
+ },
+ {
+  "addr": "08199C68",
+  "max": 7,
+  "term": "0000",
+  "original": "魔封じの弾",
+  "replace": "Seal Round",
+  "item_table": true,
+  "id": 120
+ },
+ {
+  "addr": "08199C8C",
+  "max": 7,
+  "term": "0000",
+  "original": "プルトニウム弾",
+  "replace": "Plutonium Round",
+  "item_table": true,
+  "id": 121
+ },
+ {
+  "addr": "08199CB0",
+  "max": 7,
+  "term": "0000",
+  "original": "カーボライナー",
+  "replace": "Carbo Liner",
+  "item_table": true,
+  "id": 122
+ },
+ {
+  "addr": "08199CD4",
+  "max": 7,
+  "term": "0000",
+  "original": "コロナショット",
+  "replace": "Corona Shot",
+  "item_table": true,
+  "id": 123
+ },
+ {
+  "addr": "08199CF8",
+  "max": 7,
+  "term": "0000",
+  "original": "光の弾丸",
+  "replace": "Light Bullet",
+  "item_table": true,
+  "id": 124
+ },
+ {
+  "addr": "08199D1C",
+  "max": 7,
+  "term": "0000",
+  "original": "闇の弾丸",
+  "replace": "Dark Bullet",
+  "item_table": true,
+  "id": 125
+ },
+ {
+  "addr": "08199D40",
+  "max": 7,
+  "term": "0000",
+  "original": "腐食の弾",
+  "replace": "Corrosive Round",
+  "item_table": true,
+  "id": 126
+ },
+ {
+  "addr": "08199D64",
+  "max": 7,
+  "term": "0000",
+  "original": "ドクロの弾丸",
+  "replace": "Skull Bullet",
+  "item_table": true,
+  "id": 127
+ },
+ {
+  "addr": "08199D88",
+  "max": 7,
+  "term": "0000",
+  "original": "ヘッドギア",
+  "replace": "Headgear",
+  "item_table": true,
+  "id": 128
+ },
+ {
+  "addr": "08199DAC",
+  "max": 7,
+  "term": "0000",
+  "original": "フリッツヘルム",
+  "replace": "Fritz Helm",
+  "item_table": true,
+  "id": 129
+ },
+ {
+  "addr": "08199DD0",
+  "max": 7,
+  "term": "0000",
+  "original": "ナップガード",
+  "replace": "Nap Guard",
+  "item_table": true,
+  "id": 130
+ },
+ {
+  "addr": "08199DF4",
+  "max": 7,
+  "term": "0000",
+  "original": "メタルターバン",
+  "replace": "Metal Turban",
+  "item_table": true,
+  "id": 131
+ },
+ {
+  "addr": "08199E18",
+  "max": 7,
+  "term": "0000",
+  "original": "アイアンバニー",
+  "replace": "Iron Bunny",
+  "item_table": true,
+  "id": 132
+ },
+ {
+  "addr": "08199E3C",
+  "max": 7,
+  "term": "0000",
+  "original": "フロッグヘルム",
+  "replace": "Frog Helm",
+  "item_table": true,
+  "id": 133
+ },
+ {
+  "addr": "08199E60",
+  "max": 7,
+  "term": "0000",
+  "original": "ドルフィンヘル",
+  "replace": "Dolphin Helm",
+  "item_table": true,
+  "id": 134
+ },
+ {
+  "addr": "08199E84",
+  "max": 7,
+  "term": "0000",
+  "original": "ピンポンハット",
+  "replace": "Ping-Pong Hat",
+  "item_table": true,
+  "id": 135
+ },
+ {
+  "addr": "08199EA8",
+  "max": 7,
+  "term": "0000",
+  "original": "アイアンフェイ",
+  "replace": "Iron Face",
+  "item_table": true,
+  "id": 136
+ },
+ {
+  "addr": "08199ECC",
+  "max": 7,
+  "term": "0000",
+  "original": "ドラゴンヘルム",
+  "replace": "Dragon Helm",
+  "item_table": true,
+  "id": 137
+ },
+ {
+  "addr": "08199EF0",
+  "max": 7,
+  "term": "0000",
+  "original": "暁の兜",
+  "replace": "Dawn Helm",
+  "item_table": true,
+  "id": 138
+ },
+ {
+  "addr": "08199F14",
+  "max": 7,
+  "term": "0000",
+  "original": "不知火の兜",
+  "replace": "Shiranui Helm",
+  "item_table": true,
+  "id": 139
+ },
+ {
+  "addr": "08199F38",
+  "max": 7,
+  "term": "0000",
+  "original": "パンツァーヘル",
+  "replace": "Panzer Helm",
+  "item_table": true,
+  "id": 140
+ },
+ {
+  "addr": "08199F5C",
+  "max": 7,
+  "term": "0000",
+  "original": "ヤクトヘルム",
+  "replace": "Jagd Helm",
+  "item_table": true,
+  "id": 141
+ },
+ {
+  "addr": "08199F80",
+  "max": 7,
+  "term": "0000",
+  "original": "シュツルムヘル",
+  "replace": "Sturm Helm",
+  "item_table": true,
+  "id": 142
+ },
+ {
+  "addr": "08199FA4",
+  "max": 7,
+  "term": "0000",
+  "original": "天魔の兜",
+  "replace": "Tenma Helm",
+  "item_table": true,
+  "id": 143
+ },
+ {
+  "addr": "08199FC8",
+  "max": 7,
+  "term": "0000",
+  "original": "将門の兜",
+  "replace": "Masakado Helm",
+  "item_table": true,
+  "id": 144
+ },
+ {
+  "addr": "08199FEC",
+  "max": 7,
+  "term": "0000",
+  "original": "ジパニウムヘル",
+  "replace": "Zipang Helm",
+  "item_table": true,
+  "id": 145
+ },
+ {
+  "addr": "0819A010",
+  "max": 7,
+  "term": "0000",
+  "original": "ジーザスヘルム",
+  "replace": "Jesus Helm",
+  "item_table": true,
+  "id": 146
+ },
+ {
+  "addr": "0819A034",
+  "max": 7,
+  "term": "0000",
+  "original": "ホゥアコン",
+  "replace": "Faucon",
+  "item_table": true,
+  "id": 147
+ },
+ {
+  "addr": "0819A058",
+  "max": 7,
+  "term": "0000",
+  "original": "サバイバルベス",
+  "replace": "Survival Vest",
+  "item_table": true,
+  "id": 148
+ },
+ {
+  "addr": "0819A07C",
+  "max": 7,
+  "term": "0000",
+  "original": "アミーゴポンチ",
+  "replace": "Amigo Poncho",
+  "item_table": true,
+  "id": 149
+ },
+ {
+  "addr": "0819A0A0",
+  "max": 7,
+  "term": "0000",
+  "original": "ハイレグアーマ",
+  "replace": "Highleg Armor",
+  "item_table": true,
+  "id": 150
+ },
+ {
+  "addr": "0819A0C4",
+  "max": 7,
+  "term": "0000",
+  "original": "カイザーアーマ",
+  "replace": "Kaiser Armor",
+  "item_table": true,
+  "id": 151
+ },
+ {
+  "addr": "0819A0E8",
+  "max": 7,
+  "term": "0000",
+  "original": "日輪の鎧",
+  "replace": "Sun Armor",
+  "item_table": true,
+  "id": 152
+ },
+ {
+  "addr": "0819A10C",
+  "max": 7,
+  "term": "0000",
+  "original": "唐獅子の法被",
+  "replace": "Lion Happi",
+  "item_table": true,
+  "id": 153
+ },
+ {
+  "addr": "0819A130",
+  "max": 7,
+  "term": "0000",
+  "original": "しんがりの鎧",
+  "replace": "Rearguard Armor",
+  "item_table": true,
+  "id": 154
+ },
+ {
+  "addr": "0819A154",
+  "max": 7,
+  "term": "0000",
+  "original": "ドクロの稽古着",
+  "replace": "Skull Gi",
+  "item_table": true,
+  "id": 155
+ },
+ {
+  "addr": "0819A178",
+  "max": 7,
+  "term": "0000",
+  "original": "テトラジャマー",
+  "replace": "Tetrajammer",
+  "item_table": true,
+  "id": 156
+ },
+ {
+  "addr": "0819A19C",
+  "max": 7,
+  "term": "0000",
+  "original": "ドラゴンメイル",
+  "replace": "Dragon Mail",
+  "item_table": true,
+  "id": 157
+ },
+ {
+  "addr": "0819A1C0",
+  "max": 7,
+  "term": "0000",
+  "original": "暁の鎧",
+  "replace": "Dawn Armor",
+  "item_table": true,
+  "id": 158
+ },
+ {
+  "addr": "0819A1E4",
+  "max": 7,
+  "term": "0000",
+  "original": "火達磨の鎧",
+  "replace": "Flame Armor",
+  "item_table": true,
+  "id": 159
+ },
+ {
+  "addr": "0819A208",
+  "max": 7,
+  "term": "0000",
+  "original": "パンツァースー",
+  "replace": "Panzer Suit",
+  "item_table": true,
+  "id": 160
+ },
+ {
+  "addr": "0819A22C",
+  "max": 7,
+  "term": "0000",
+  "original": "ヤクトアーマー",
+  "replace": "Jagd Armor",
+  "item_table": true,
+  "id": 161
+ },
+ {
+  "addr": "0819A250",
+  "max": 7,
+  "term": "0000",
+  "original": "シュツルムスー",
+  "replace": "Sturm Suit",
+  "item_table": true,
+  "id": 162
+ },
+ {
+  "addr": "0819A274",
+  "max": 7,
+  "term": "0000",
+  "original": "天魔の鎧",
+  "replace": "Tenma Armor",
+  "item_table": true,
+  "id": 163
+ },
+ {
+  "addr": "0819A298",
+  "max": 7,
+  "term": "0000",
+  "original": "将門の鎧",
+  "replace": "Masakado Armor",
+  "item_table": true,
+  "id": 164
+ },
+ {
+  "addr": "0819A2BC",
+  "max": 7,
+  "term": "0000",
+  "original": "ジパニウムスー",
+  "replace": "Zipang Suit",
+  "item_table": true,
+  "id": 165
+ },
+ {
+  "addr": "0819A2E0",
+  "max": 7,
+  "term": "0000",
+  "original": "ジーザスアーマ",
+  "replace": "Jesus Armor",
+  "item_table": true,
+  "id": 166
+ },
+ {
+  "addr": "0819A304",
+  "max": 7,
+  "term": "0000",
+  "original": "タップスアン",
+  "replace": "Tapsuan",
+  "item_table": true,
+  "id": 167
+ },
+ {
+  "addr": "0819A328",
+  "max": 7,
+  "term": "0000",
+  "original": "レザーグラブ",
+  "replace": "Leather Glove",
+  "item_table": true,
+  "id": 168
+ },
+ {
+  "addr": "0819A34C",
+  "max": 7,
+  "term": "0000",
+  "original": "スターグローブ",
+  "replace": "Star Glove",
+  "item_table": true,
+  "id": 169
+ },
+ {
+  "addr": "0819A370",
+  "max": 7,
+  "term": "0000",
+  "original": "リベットナック",
+  "replace": "Rivet Knuckle",
+  "item_table": true,
+  "id": 170
+ },
+ {
+  "addr": "0819A394",
+  "max": 7,
+  "term": "0000",
+  "original": "ジャミングアー",
+  "replace": "Jamming Arm",
+  "item_table": true,
+  "id": 171
+ },
+ {
+  "addr": "0819A3B8",
+  "max": 7,
+  "term": "0000",
+  "original": "アームブリッジ",
+  "replace": "Arm Bridge",
+  "item_table": true,
+  "id": 172
+ },
+ {
+  "addr": "0819A3DC",
+  "max": 7,
+  "term": "0000",
+  "original": "旋風の篭手",
+  "replace": "Gale Gauntlet",
+  "item_table": true,
+  "id": 173
+ },
+ {
+  "addr": "0819A400",
+  "max": 7,
+  "term": "0000",
+  "original": "太刀割りの篭手",
+  "replace": "Swordbreak Glove",
+  "item_table": true,
+  "id": 174
+ },
+ {
+  "addr": "0819A424",
+  "max": 7,
+  "term": "0000",
+  "original": "力王の篭手",
+  "replace": "Power Gauntlet",
+  "item_table": true,
+  "id": 175
+ },
+ {
+  "addr": "0819A448",
+  "max": 7,
+  "term": "0000",
+  "original": "復讐の篭手",
+  "replace": "Revenge Gauntlet",
+  "item_table": true,
+  "id": 176
+ },
+ {
+  "addr": "0819A46C",
+  "max": 7,
+  "term": "0000",
+  "original": "ドラウプニル",
+  "replace": "Draupnir",
+  "item_table": true,
+  "id": 177
+ },
+ {
+  "addr": "0819A490",
+  "max": 7,
+  "term": "0000",
+  "original": "暁の篭手",
+  "replace": "Dawn Gauntlet",
+  "item_table": true,
+  "id": 178
+ },
+ {
+  "addr": "0819A4B4",
+  "max": 7,
+  "term": "0000",
+  "original": "灼熱の篭手",
+  "replace": "Blazing Gauntlet",
+  "item_table": true,
+  "id": 179
+ },
+ {
+  "addr": "0819A4D8",
+  "max": 7,
+  "term": "0000",
+  "original": "パンツァフィス",
+  "replace": "Panzer Fist",
+  "item_table": true,
+  "id": 180
+ },
+ {
+  "addr": "0819A4FC",
+  "max": 7,
+  "term": "0000",
+  "original": "ヤクトグラブ",
+  "replace": "Jagd Glove",
+  "item_table": true,
+  "id": 181
+ },
+ {
+  "addr": "0819A520",
+  "max": 7,
+  "term": "0000",
+  "original": "シュツルムグラ",
+  "replace": "Sturm Glove",
+  "item_table": true,
+  "id": 182
+ },
+ {
+  "addr": "0819A544",
+  "max": 7,
+  "term": "0000",
+  "original": "天魔の篭手",
+  "replace": "Tenma Gauntlet",
+  "item_table": true,
+  "id": 183
+ },
+ {
+  "addr": "0819A568",
+  "max": 7,
+  "term": "0000",
+  "original": "将門の篭手",
+  "replace": "Masakado Gauntlet",
+  "item_table": true,
+  "id": 184
+ },
+ {
+  "addr": "0819A58C",
+  "max": 7,
+  "term": "0000",
+  "original": "ジパニウムグラ",
+  "replace": "Zipang Glove",
+  "item_table": true,
+  "id": 185
+ },
+ {
+  "addr": "0819A5B0",
+  "max": 7,
+  "term": "0000",
+  "original": "ジーザスグラブ",
+  "replace": "Jesus Glove",
+  "item_table": true,
+  "id": 186
+ },
+ {
+  "addr": "0819A5D4",
+  "max": 7,
+  "term": "0000",
+  "original": "パーホゥラット",
+  "replace": "Pahourat",
+  "item_table": true,
+  "id": 187
+ },
+ {
+  "addr": "0819A5F8",
+  "max": 7,
+  "term": "0000",
+  "original": "レザーブーツ",
+  "replace": "Leather Boots",
+  "item_table": true,
+  "id": 188
+ },
+ {
+  "addr": "0819A61C",
+  "max": 7,
+  "term": "0000",
+  "original": "レッガースラム",
+  "replace": "Leggerslam",
+  "item_table": true,
+  "id": 189
+ },
+ {
+  "addr": "0819A640",
+  "max": 7,
+  "term": "0000",
+  "original": "ハッピーサンダ",
+  "replace": "Happy Sandals",
+  "item_table": true,
+  "id": 190
+ },
+ {
+  "addr": "0819A664",
+  "max": 7,
+  "term": "0000",
+  "original": "チタニウムブー",
+  "replace": "Titanium Boots",
+  "item_table": true,
+  "id": 191
+ },
+ {
+  "addr": "0819A688",
+  "max": 7,
+  "term": "0000",
+  "original": "ダンシングヒー",
+  "replace": "Dancing Heels",
+  "item_table": true,
+  "id": 192
+ },
+ {
+  "addr": "0819A6AC",
+  "max": 7,
+  "term": "0000",
+  "original": "エアロジェット",
+  "replace": "Aero Jet",
+  "item_table": true,
+  "id": 193
+ },
+ {
+  "addr": "0819A6D0",
+  "max": 7,
+  "term": "0000",
+  "original": "三日月の具足",
+  "replace": "Crescent Greaves",
+  "item_table": true,
+  "id": 194
+ },
+ {
+  "addr": "0819A6F4",
+  "max": 7,
+  "term": "0000",
+  "original": "クライムシュー",
+  "replace": "Climb Shoes",
+  "item_table": true,
+  "id": 195
+ },
+ {
+  "addr": "0819A718",
+  "max": 7,
+  "term": "0000",
+  "original": "鈴鳴の具足",
+  "replace": "Bell Greaves",
+  "item_table": true,
+  "id": 196
+ },
+ {
+  "addr": "0819A73C",
+  "max": 7,
+  "term": "0000",
+  "original": "ドラゴンブーツ",
+  "replace": "Dragon Boots",
+  "item_table": true,
+  "id": 197
+ },
+ {
+  "addr": "0819A760",
+  "max": 7,
+  "term": "0000",
+  "original": "暁の具足",
+  "replace": "Dawn Greaves",
+  "item_table": true,
+  "id": 198
+ },
+ {
+  "addr": "0819A784",
+  "max": 7,
+  "term": "0000",
+  "original": "烈火の具足",
+  "replace": "Blaze Greaves",
+  "item_table": true,
+  "id": 199
+ },
+ {
+  "addr": "0819A7A8",
+  "max": 7,
+  "term": "0000",
+  "original": "パンツァーレッ",
+  "replace": "Panzer Leg",
+  "item_table": true,
+  "id": 200
+ },
+ {
+  "addr": "0819A7CC",
+  "max": 7,
+  "term": "0000",
+  "original": "ヤクトレッグ",
+  "replace": "Jagd Leg",
+  "item_table": true,
+  "id": 201
+ },
+ {
+  "addr": "0819A7F0",
+  "max": 7,
+  "term": "0000",
+  "original": "シュツルムレッ",
+  "replace": "Sturm Leg",
+  "item_table": true,
+  "id": 202
+ },
+ {
+  "addr": "0819A814",
+  "max": 7,
+  "term": "0000",
+  "original": "天魔の具足",
+  "replace": "Tenma Greaves",
+  "item_table": true,
+  "id": 203
+ },
+ {
+  "addr": "0819A838",
+  "max": 7,
+  "term": "0000",
+  "original": "将門の具足",
+  "replace": "Masakado Greaves",
+  "item_table": true,
+  "id": 204
+ },
+ {
+  "addr": "0819A85C",
+  "max": 7,
+  "term": "0000",
+  "original": "ジパニウムレッ",
+  "replace": "Zipang Leg",
+  "item_table": true,
+  "id": 205
+ },
+ {
+  "addr": "0819A880",
+  "max": 7,
+  "term": "0000",
+  "original": "ジーザスレッグ",
+  "replace": "Jesus Leg",
+  "item_table": true,
+  "id": 206
+ },
+ {
+  "addr": "0819A8A4",
+  "max": 7,
+  "term": "0000",
+  "original": "カムライターオ",
+  "replace": "Kamuraitao",
+  "item_table": true,
+  "id": 207
+ }
+]

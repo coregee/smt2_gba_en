@@ -1,0 +1,50 @@
+[
+ {
+  "ptrs": [
+   "0858329C"
+  ],
+  "addrs": [
+   "080095D0"
+  ],
+  "max": 16,
+  "term": "0301",
+  "original": "DICREAD＞S{n}「送り戻し」",
+  "replace": "DICREAD＞S{n} \"Send Back\""
+ },
+ {
+  "ptrs": [
+   "085832A0"
+  ],
+  "addrs": [
+   "080095F2"
+  ],
+  "max": 16,
+  "term": "0301",
+  "original": "DICREAD＞F{n}「悪魔検索」",
+  "replace": "DICREAD＞F{n} \"Find Demon\""
+ },
+ {
+  "ptrs": [
+   "085832A4"
+  ],
+  "addrs": [
+   "08009614"
+  ],
+  "max": 17,
+  "term": "0301",
+  "original": "DICREAD＞N{n}「悪魔データ」",
+  "replace": "DICREAD＞D{n} \"Demon Data\""
+ },
+ {
+  "ptrs": [
+   "085832A8"
+  ],
+  "addrs": [
+   "08009638"
+  ],
+  "max": 16,
+  "term": "0301",
+  "original": "DICREAD＞E{n}「前に戻る」",
+  "replace": "DICREAD＞B{n} \"Go Back\""
+ }
+]

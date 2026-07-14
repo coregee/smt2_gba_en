@@ -1,0 +1,202 @@
+[
+ {
+  "addr": "08009B00",
+  "ptrs": [
+   "085861DC"
+  ],
+  "max": 2,
+  "term": "0301",
+  "original": "ジム",
+  "replace": "Gym"
+ },
+ {
+  "addr": "08009B06",
+  "ptrs": [
+   "085861E4"
+  ],
+  "max": 10,
+  "term": "0301",
+  "original": "ヴァーチャルバトラー",
+  "replace": "Virtual Battler"
+ },
+ {
+  "addr": "08009B26",
+  "ptrs": [
+   "085861F4"
+  ],
+  "max": 8,
+  "term": "0301",
+  "original": "3D：ヴァルハラ",
+  "replace": "3D: Valhalla"
+ },
+ {
+  "addr": "08009B48",
+  "ptrs": [
+   "08586204"
+  ],
+  "max": 8,
+  "term": "0301",
+  "original": "2D：フィールド",
+  "replace": "2D: Field"
+ },
+ {
+  "addr": "08009B5A",
+  "ptrs": [
+   "0858620C"
+  ],
+  "max": 3,
+  "term": "0301",
+  "original": "敵遭遇",
+  "replace": "Encounter"
+ },
+ {
+  "addr": "08009B62",
+  "ptrs": [
+   "08586214"
+  ],
+  "max": 2,
+  "term": "0301",
+  "original": "戦闘",
+  "replace": "Battle"
+ },
+ {
+  "addr": "08009B68",
+  "ptrs": [
+   "0858621C"
+  ],
+  "max": 8,
+  "term": "0301",
+  "original": "Level　Up",
+  "replace": "Level Up"
+ },
+ {
+  "addr": "08009B7A",
+  "ptrs": [
+   "08586224"
+  ],
+  "max": 4,
+  "term": "0301",
+  "original": "記憶回復",
+  "replace": "Memory"
+ },
+ {
+  "addr": "08009B84",
+  "ptrs": [
+   "0858622C"
+  ],
+  "max": 7,
+  "term": "0301",
+  "original": "3D：センター",
+  "replace": "3D: Center"
+ },
+ {
+  "addr": "08009B9C",
+  "ptrs": [
+   "0858623C"
+  ],
+  "max": 4,
+  "term": "0301",
+  "original": "邪教の館",
+  "replace": "Cathedral"
+ },
+ {
+  "addr": "08009BA6",
+  "ptrs": [
+   "08586244"
+  ],
+  "max": 4,
+  "term": "0301",
+  "original": "悪魔合体",
+  "replace": "Demon Fusion"
+ },
+ {
+  "addr": "08009BB0",
+  "ptrs": [
+   "0858624C"
+  ],
+  "max": 8,
+  "term": "0301",
+  "original": "2D：セイレーン",
+  "replace": "2D: Siren"
+ },
+ {
+  "addr": "08009BC2",
+  "ptrs": [
+   "08586254"
+  ],
+  "max": 7,
+  "term": "0301",
+  "original": "3D：地下世界",
+  "replace": "3D: Underworld"
+ },
+ {
+  "addr": "08009BD2",
+  "ptrs": [
+   "0858625C"
+  ],
+  "max": 5,
+  "term": "0301",
+  "original": "中ボス戦闘",
+  "replace": "Mid-Boss Battle"
+ },
+ {
+  "addr": "08009BEA",
+  "ptrs": [
+   "0858626C"
+  ],
+  "max": 3,
+  "term": "0301",
+  "original": "カジノ",
+  "replace": "Casino"
+ },
+ {
+  "addr": "08009C10",
+  "ptrs": [
+   "08586284"
+  ],
+  "max": 5,
+  "term": "0301",
+  "original": "2D：魔界",
+  "replace": "2D: Makai"
+ },
+ {
+  "addr": "08009C1C",
+  "ptrs": [
+   "0858628C"
+  ],
+  "max": 5,
+  "term": "0301",
+  "original": "3D：魔界",
+  "replace": "3D: Makai"
+ },
+ {
+  "addr": "08009C28",
+  "ptrs": [
+   "08586294"
+  ],
+  "max": 4,
+  "term": "0301",
+  "original": "ヒロイン",
+  "replace": "Heroine"
+ },
+ {
+  "addr": "08009C32",
+  "ptrs": [
+   "0858629C"
+  ],
+  "max": 5,
+  "term": "0301",
+  "original": "大ボス戦闘",
+  "replace": "Big-Boss Battle"
+ },
+ {
+  "addr": "08009C3E",
+  "ptrs": [
+   "085862A4"
+  ],
+  "max": 7,
+  "term": "0301",
+  "original": "ゲームオーバー",
+  "replace": "Game Over"
+ }
+]

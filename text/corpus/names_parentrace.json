@@ -1,0 +1,92 @@
+[
+ {
+  "id": 0,
+  "original": "神族",
+  "replace": "Gods",
+  "term": ""
+ },
+ {
+  "id": 1,
+  "original": "鬼神族",
+  "replace": "Guardians",
+  "term": ""
+ },
+ {
+  "id": 2,
+  "original": "魔族",
+  "replace": "Magica",
+  "term": ""
+ },
+ {
+  "id": 3,
+  "original": "飛天",
+  "replace": "Aerials",
+  "term": ""
+ },
+ {
+  "id": 4,
+  "original": "竜族",
+  "replace": "Dragons",
+  "term": ""
+ },
+ {
+  "id": 5,
+  "original": "鳥族",
+  "replace": "Birds",
+  "term": ""
+ },
+ {
+  "id": 6,
+  "original": "獣族",
+  "replace": "Beasts",
+  "term": ""
+ },
+ {
+  "id": 7,
+  "original": "鬼族",
+  "replace": "Demoniacs",
+  "term": ""
+ },
+ {
+  "id": 8,
+  "original": "精霊",
+  "replace": "Elementals",
+  "term": ""
+ },
+ {
+  "id": 9,
+  "original": "邪霊",
+  "replace": "Evil Spirits",
+  "term": ""
+ },
+ {
+  "id": 10,
+  "original": "外道",
+  "replace": "Fouls",
+  "term": ""
+ },
+ {
+  "id": 11,
+  "original": "人",
+  "replace": "Humans",
+  "term": ""
+ },
+ {
+  "id": 12,
+  "original": "マシン",
+  "replace": "Machines",
+  "term": ""
+ },
+ {
+  "id": 13,
+  "original": "樹霊",
+  "replace": "Vegetation",
+  "term": ""
+ },
+ {
+  "id": 14,
+  "original": "魔人",
+  "replace": "Fiends",
+  "term": ""
+ }
+]

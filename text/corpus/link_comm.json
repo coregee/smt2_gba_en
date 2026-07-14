@@ -1,0 +1,170 @@
+[
+ {
+  "ptrs": [
+   "0858B250"
+  ],
+  "addrs": [
+   "08009824"
+  ],
+  "max": 34,
+  "term": "0301",
+  "original": "通信の準備ができていません{n}通信<0727>境を確認して{n}再度実行してください",
+  "replace": "Connection is not ready{n}Check your link cable{n}and try again"
+ },
+ {
+  "ptrs": [
+   "0858B254"
+  ],
+  "addrs": [
+   "0800986A"
+  ],
+  "max": 20,
+  "term": "0301",
+  "original": "ERROR！{n}通信エラーが発生しました！",
+  "replace": "ERROR!{n}Communication error!"
+ },
+ {
+  "ptrs": [
+   "0858B258"
+  ],
+  "addrs": [
+   "08009894"
+  ],
+  "max": 14,
+  "term": "0301",
+  "original": "数が多いので交換できません！",
+  "replace": "Too many to trade!"
+ },
+ {
+  "ptrs": [
+   "0858B25C"
+  ],
+  "addrs": [
+   "080098B2"
+  ],
+  "max": 15,
+  "term": "0301",
+  "original": "通信相手にキャンセルされました",
+  "replace": "Your partner cancelled"
+ },
+ {
+  "ptrs": [
+   "0858B278"
+  ],
+  "addrs": [
+   "080098D2"
+  ],
+  "max": 9,
+  "term": "0301",
+  "original": "キャンセルしました",
+  "replace": "Cancelled"
+ },
+ {
+  "ptrs": [
+   "0858B260"
+  ],
+  "addrs": [
+   "080098E6"
+  ],
+  "max": 28,
+  "term": "0301",
+  "original": "ERROR！{n}交換する金額が多すぎるため{n}交換できません",
+  "replace": "ERROR!{n}That much Macca cannot{n}be traded"
+ },
+ {
+  "ptrs": [
+   "0858B264"
+  ],
+  "addrs": [
+   "08009920"
+  ],
+  "max": 28,
+  "term": "0301",
+  "original": "ERROR！{n}交換するマグが多すぎるため{n}交換できません",
+  "replace": "ERROR!{n}That much MAG cannot{n}be traded"
+ },
+ {
+  "ptrs": [
+   "0858B268"
+  ],
+  "addrs": [
+   "0800995A"
+  ],
+  "max": 31,
+  "term": "0301",
+  "original": "ERROR！{n}交換するアイテム数が多すぎるため{n}交換できません",
+  "replace": "ERROR!{n}That many items cannot{n}be traded"
+ },
+ {
+  "ptrs": [
+   "0858B26C"
+  ],
+  "addrs": [
+   "0800999A"
+  ],
+  "max": 31,
+  "term": "0301",
+  "original": "ERROR！{n}交換する悪魔がすでに存在するため{n}交換できません",
+  "replace": "ERROR!{n}You already have that demon{n}so it cannot be traded"
+ },
+ {
+  "ptrs": [
+   "0858B270"
+  ],
+  "addrs": [
+   "080099DA"
+  ],
+  "max": 27,
+  "term": "0301",
+  "original": "交換できませんでした{n}それぞれの項目を確認してください",
+  "replace": "The trade failed{n}Please check each entry"
+ },
+ {
+  "ptrs": [
+   "0858B274"
+  ],
+  "addrs": [
+   "08009A12"
+  ],
+  "max": 27,
+  "term": "0301",
+  "original": "ERROR！{n}仲魔の悪魔が多すぎるため{n}交換できません",
+  "replace": "ERROR!{n}Too many demon allies{n}to trade"
+ },
+ {
+  "ptrs": [
+   "0858B27C"
+  ],
+  "addrs": [
+   "08009A4A"
+  ],
+  "max": 24,
+  "term": "0301",
+  "original": "通貨が違うため{n}1マッカを￥12.5と換算します",
+  "replace": "Currencies differ:{n}1 Macca converts to ￥12.5"
+ },
+ {
+  "ptrs": [
+   "0858B280"
+  ],
+  "addrs": [
+   "08009A7C"
+  ],
+  "max": 28,
+  "term": "0301",
+  "original": "ERROR！{n}悪魔のレベルが高すぎるため{n}交換できません",
+  "replace": "ERROR!{n}That demon's level is{n}too high to trade"
+ },
+ {
+  "ptrs": [
+   "0858B284"
+  ],
+  "addrs": [
+   "08009AB6"
+  ],
+  "max": 25,
+  "term": "0301",
+  "original": "ERROR！{n}交換できない悪魔が{n}選択されています",
+  "replace": "ERROR!{n}That demon cannot{n}be traded"
+ }
+]

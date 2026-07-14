@@ -1,0 +1,51 @@
+# Python bytecode and tool caches
+__pycache__/
+*.py[cod]
+*.pyc.*
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local Python environments
+.venv/
+.venv-ocr/
+venv/
+env/
+
+# Copyrighted source ROMs, patched ROMs, and emulator data
+/rom/
+*.gba
+*.sav
+*.ss[0-9]
+*.sgm
+
+# Build output
+/build/
+
+# Local reverse-engineering workspace
+/ghidra-project/
+*.gpr.lock
+
+# Generated font/OCR review workspace (keep its documentation)
+/font/review/*
+!/font/review/README.md
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+
+# Temporary and diagnostic output
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+*.rej

@@ -1,0 +1,127 @@
+[
+ {
+  "addr": "081245B4",
+  "ptrs": [
+   "080ED110"
+  ],
+  "max": 14,
+  "term": "0000",
+  "original": "{ACTOR_NAME}は{n}{DEMON_NAME}の前より{n}立ち去った",
+  "replace": "{ACTOR_NAME} walked away{n}from the {DEMON_NAME}"
+ },
+ {
+  "addr": "081245D2",
+  "ptrs": [
+   "080ED148"
+  ],
+  "max": 8,
+  "term": "0000",
+  "original": "は{n}去っていった",
+  "replace": " walked away"
+ },
+ {
+  "addr": "081245F6",
+  "ptrs": [
+   "080ED12C",
+   "080ED164"
+  ],
+  "max": 8,
+  "term": "0000",
+  "original": "は{n}逃げていった",
+  "replace": " fled"
+ },
+ {
+  "addr": "08124608",
+  "ptrs": [
+   "080ED0E8"
+  ],
+  "max": 8,
+  "term": "0000",
+  "original": "は{n}仲魔を呼んだ",
+  "replace": " called for allies"
+ },
+ {
+  "addr": "0812461A",
+  "ptrs": [
+   "080ED18C",
+   "080ED1C0"
+  ],
+  "max": 8,
+  "term": "0000",
+  "original": "は{n}仲魔になった",
+  "replace": " joined the party"
+ },
+ {
+  "addr": "0812463A",
+  "ptrs": [
+   "080ED0CC"
+  ],
+  "max": 9,
+  "term": "0000",
+  "original": "にふいをつかれた！",
+  "replace": " took you by surprise!"
+ },
+ {
+  "addr": "0812464E",
+  "ptrs": [
+   "080ED0B0"
+  ],
+  "max": 13,
+  "term": "0301",
+  "original": "{ACTOR_NAME}は悪魔のふいをついた！{WAIT}",
+  "replace": "{ACTOR_NAME} took the demons{n}by surprise!{WAIT}"
+ },
+ {
+  "addr": "0812466C",
+  "ptrs": [
+   "080ED0A0",
+   "080EC478"
+  ],
+  "max": 5,
+  "term": "0000",
+  "original": "はやる気だ",
+  "replace": " is eager to fight"
+ },
+ {
+  "addr": "081267A6",
+  "ptrs": [
+   "080EC138"
+  ],
+  "max": 9,
+  "term": "0301",
+  "original": "{RACE_NAME}{n}{DEMON_NAME}が{NUMBER}体でた！",
+  "replace": "{RACE_NAME} {DEMON_NAME} appeared!{n}{NUMBER} in all!"
+ },
+ {
+  "addr": "081267BA",
+  "ptrs": [
+   "080EC0F4"
+  ],
+  "max": 18,
+  "term": "0301",
+  "original": "{RACE_NAME}{n}{DEMON_NAME}が{NUMBER}体と{n}{RACE_NAME}{n}{DEMON_NAME}が{NUMBER}体がでた！",
+  "replace": "{RACE_NAME} {DEMON_NAME} x{NUMBER} and{n}{RACE_NAME} {DEMON_NAME} x{NUMBER} appeared!"
+ },
+ {
+  "addr": "081267E0",
+  "ptrs": [
+   "080EC0C4"
+  ],
+  "max": 9,
+  "term": "0301",
+  "original": "箱から{DEMON_NAME}が出てきた",
+  "replace": "{DEMON_NAME} came out{n}of the box!"
+ },
+ {
+  "addr": "086BE5DA",
+  "ptrs": [
+   "080E5FC8",
+   "080EC280",
+   "080EC2CC"
+  ],
+  "max": 7,
+  "term": "0000",
+  "original": "どうしますか？",
+  "replace": "What will you do?"
+ }
+]

@@ -1,0 +1,737 @@
+[
+ {
+  "addr": "08123BE4",
+  "max": 10,
+  "term": "0000",
+  "original": "0123456789",
+  "replace": null
+ },
+ {
+  "addr": "08123BFA",
+  "max": 8,
+  "term": "0000",
+  "original": "装備していません",
+  "replace": "Nothing equipped."
+ },
+ {
+  "addr": "08123C0C",
+  "max": 14,
+  "term": "0000",
+  "original": "使えるアイテムは持っていない",
+  "replace": "You don't have any usable items."
+ },
+ {
+  "addr": "08123C2A",
+  "max": 10,
+  "term": "0000",
+  "original": "は特技を持っていない",
+  "replace": " has no special skills."
+ },
+ {
+  "addr": "08123C40",
+  "max": 14,
+  "term": "0000",
+  "original": "いま使える魔法は覚えていない",
+  "replace": "You haven't learned any usable magic."
+ },
+ {
+  "addr": "08123C5E",
+  "max": 7,
+  "term": "0000",
+  "original": "MPが足りない",
+  "replace": "Not enough MP."
+ },
+ {
+  "addr": "08123C6E",
+  "max": 9,
+  "term": "0000",
+  "original": "COMPが使えない",
+  "replace": "The COMP cannot be used."
+ },
+ {
+  "addr": "08123C82",
+  "max": 11,
+  "term": "0000",
+  "original": "呼び出せる仲魔はいない",
+  "replace": "No demons can be summoned."
+ },
+ {
+  "addr": "08123C9A",
+  "max": 10,
+  "term": "0000",
+  "original": "COMPを使用します",
+  "replace": "Use the COMP."
+ },
+ {
+  "addr": "08123CB0",
+  "max": 8,
+  "term": "0000",
+  "original": "魔法を使用します",
+  "replace": "Use magic."
+ },
+ {
+  "addr": "08123CC2",
+  "max": 17,
+  "term": "0000",
+  "original": "アイテム使用／整頓／並び替え／廃棄",
+  "replace": "Use/organize/sort/discard items."
+ },
+ {
+  "addr": "08123CE6",
+  "max": 8,
+  "term": "0000",
+  "original": "装備を変更します",
+  "replace": "Change equipment."
+ },
+ {
+  "addr": "08123CF8",
+  "max": 13,
+  "term": "0000",
+  "original": "詳細ステータスを表示します",
+  "replace": "Display detailed status information."
+ },
+ {
+  "addr": "08123D14",
+  "max": 8,
+  "term": "0000",
+  "original": "隊列を変更します",
+  "replace": "Change the formation."
+ },
+ {
+  "addr": "08123D26",
+  "max": 14,
+  "term": "0000",
+  "original": "COMP内の仲魔を召喚します",
+  "replace": "Summon a demon from the COMP."
+ },
+ {
+  "addr": "08123D44",
+  "max": 13,
+  "term": "0000",
+  "original": "仲魔をCOMP内に戻します",
+  "replace": "Return a demon to the COMP."
+ },
+ {
+  "addr": "08123D60",
+  "max": 14,
+  "term": "0000",
+  "original": "仲魔をパーティーから外します",
+  "replace": "Remove a demon from the party."
+ },
+ {
+  "addr": "08123D7E",
+  "max": 19,
+  "term": "0000",
+  "original": "今まで行った場所のMAPを{n}表示します",
+  "replace": "Display the map of places you've been to so far."
+ },
+ {
+  "addr": "08123DA6",
+  "max": 20,
+  "term": "0000",
+  "original": "パーティー全員の回復を{n}自動的に行います",
+  "replace": "Automatically heal all party members."
+ },
+ {
+  "addr": "08123DD0",
+  "max": 15,
+  "term": "0000",
+  "original": "今までに倒した悪魔を分析します",
+  "replace": "Analyze the demons you have defeated so far."
+ },
+ {
+  "addr": "08123E0C",
+  "max": 10,
+  "term": "0000",
+  "original": "中断セーブを行います",
+  "replace": "Perform a quick save."
+ },
+ {
+  "addr": "08123E22",
+  "max": 13,
+  "term": "0000",
+  "original": "セーブデータをロードします",
+  "replace": "Load save data."
+ },
+ {
+  "addr": "08123E3E",
+  "max": 12,
+  "term": "0000",
+  "original": "設定メニューを起動します",
+  "replace": "Open settings menu."
+ },
+ {
+  "addr": "08123E58",
+  "max": 12,
+  "term": "0000",
+  "original": "種族別に並べて表示します",
+  "replace": "Sort by race."
+ },
+ {
+  "addr": "08123E72",
+  "max": 17,
+  "term": "0000",
+  "original": "悪魔名の50音順に並べて表示します",
+  "replace": "Sort by name."
+ },
+ {
+  "addr": "08123E96",
+  "max": 13,
+  "term": "0000",
+  "original": "レベル順に並べて表示します",
+  "replace": "Sort by level."
+ },
+ {
+  "addr": "08123EB2",
+  "max": 12,
+  "term": "0000",
+  "original": "属性別に並べて表示します",
+  "replace": "Sort by alignment."
+ },
+ {
+  "addr": "08123ECC",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　魔神",
+  "replace": "Deity"
+ },
+ {
+  "addr": "08123ED8",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　女神",
+  "replace": "Megami"
+ },
+ {
+  "addr": "08123EE4",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　天魔",
+  "replace": "Tenma"
+ },
+ {
+  "addr": "08123EF0",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　鬼神",
+  "replace": "Kishin"
+ },
+ {
+  "addr": "08123EFC",
+  "max": 5,
+  "term": "0000",
+  "original": "　　セラフ",
+  "replace": "Seraph"
+ },
+ {
+  "addr": "08123F08",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　天使",
+  "replace": "Divine"
+ },
+ {
+  "addr": "08123F14",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　竜神",
+  "replace": "Dragon"
+ },
+ {
+  "addr": "08123F20",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　霊鳥",
+  "replace": "Avian"
+ },
+ {
+  "addr": "08123F2C",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　神獣",
+  "replace": "Avatar"
+ },
+ {
+  "addr": "08123F38",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　聖獣",
+  "replace": "Holy"
+ },
+ {
+  "addr": "08123F44",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　精霊",
+  "replace": "Element"
+ },
+ {
+  "addr": "08123F50",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　鬼女",
+  "replace": "Femme"
+ },
+ {
+  "addr": "08123F5C",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　妖魔",
+  "replace": "Yoma"
+ },
+ {
+  "addr": "08123F68",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　夜魔",
+  "replace": "Night"
+ },
+ {
+  "addr": "08123F74",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　妖精",
+  "replace": "Fairy"
+ },
+ {
+  "addr": "08123F80",
+  "max": 5,
+  "term": "0000",
+  "original": "　　堕天使",
+  "replace": "Fallen"
+ },
+ {
+  "addr": "08123F8C",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　竜王",
+  "replace": "Snake"
+ },
+ {
+  "addr": "08123F98",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　妖鳥",
+  "replace": "Flight"
+ },
+ {
+  "addr": "08123FA4",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　魔獣",
+  "replace": "Beast"
+ },
+ {
+  "addr": "08123FB0",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　闘鬼",
+  "replace": "Oni"
+ },
+ {
+  "addr": "08123FBC",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　妖鬼",
+  "replace": "Brute"
+ },
+ {
+  "addr": "08123FC8",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　地霊",
+  "replace": "Jirae"
+ },
+ {
+  "addr": "08123FD4",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　獣人",
+  "replace": "Therian"
+ },
+ {
+  "addr": "08123FE0",
+  "max": 5,
+  "term": "0000",
+  "original": "メシア教徒",
+  "replace": "Messian"
+ },
+ {
+  "addr": "08123FEC",
+  "max": 5,
+  "term": "0000",
+  "original": "ガイア教徒",
+  "replace": "Gaean"
+ },
+ {
+  "addr": "08123FF8",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　邪神",
+  "replace": "Vile"
+ },
+ {
+  "addr": "08124004",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　魔王",
+  "replace": "Tyrant"
+ },
+ {
+  "addr": "08124010",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　邪竜",
+  "replace": "Drake"
+ },
+ {
+  "addr": "0812401C",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　兇鳥",
+  "replace": "Raptor"
+ },
+ {
+  "addr": "08124028",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　妖獣",
+  "replace": "Wilder"
+ },
+ {
+  "addr": "08124034",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　邪鬼",
+  "replace": "Jaki"
+ },
+ {
+  "addr": "08124040",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　幽鬼",
+  "replace": "Haunt"
+ },
+ {
+  "addr": "0812404C",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　悪霊",
+  "replace": "Spirit"
+ },
+ {
+  "addr": "08124058",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　屍鬼",
+  "replace": "Undead"
+ },
+ {
+  "addr": "08124064",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　外道",
+  "replace": "Foul"
+ },
+ {
+  "addr": "08124070",
+  "max": 5,
+  "term": "0000",
+  "original": "　　マシン",
+  "replace": "Machine"
+ },
+ {
+  "addr": "0812407C",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　　犬",
+  "replace": "Dog"
+ },
+ {
+  "addr": "08124088",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　超人",
+  "replace": "Superhuman"
+ },
+ {
+  "addr": "08124094",
+  "max": 5,
+  "term": "0000",
+  "original": "　　　　剣",
+  "replace": "Sword"
+ },
+ {
+  "addr": "081240D4",
+  "max": 13,
+  "term": "0000",
+  "original": "誰と替えて呼び出しますか？",
+  "replace": "Summon in place of whom?"
+ },
+ {
+  "addr": "08124132",
+  "max": 6,
+  "term": "0000",
+  "original": "を呼び出した",
+  "replace": " was summoned!"
+ },
+ {
+  "addr": "08124140",
+  "max": 9,
+  "term": "0000",
+  "original": "マッカが足りません",
+  "replace": "Not enough Macca."
+ },
+ {
+  "addr": "08124182",
+  "max": 10,
+  "term": "0000",
+  "original": "は{n}COMPに戻った",
+  "replace": " returned{n}to the COMP."
+ },
+ {
+  "addr": "081241B0",
+  "max": 15,
+  "term": "0000",
+  "original": "しかし　魔法は封じ込まれている",
+  "replace": "But magic is sealed!"
+ },
+ {
+  "addr": "081241D0",
+  "max": 7,
+  "term": "0000",
+  "original": "MPが足りない",
+  "replace": "Not enough MP."
+ },
+ {
+  "addr": "081241F0",
+  "max": 7,
+  "term": "0000",
+  "original": "は{n}跳ね返した",
+  "replace": " repelled it!"
+ },
+ {
+  "addr": "08124200",
+  "max": 11,
+  "term": "0000",
+  "original": "しまった　跳ね返された",
+  "replace": "Oh no! It was repelled!"
+ },
+ {
+  "addr": "08124218",
+  "max": 13,
+  "term": "0000",
+  "original": "おっと！　はずしてしまった",
+  "replace": "Whoops! The attack missed!"
+ },
+ {
+  "addr": "08124234",
+  "max": 9,
+  "term": "0000",
+  "original": "おっと！{n}は平気だ",
+  "replace": "Whew! {=feff} is OK!"
+ },
+ {
+  "addr": "08124248",
+  "max": 13,
+  "term": "0000",
+  "original": "しかし{n}が身代わりになった",
+  "replace": null
+ },
+ {
+  "addr": "08124264",
+  "max": 5,
+  "term": "0000",
+  "original": "は力尽きた",
+  "replace": " has fallen!"
+ },
+ {
+  "addr": "08124270",
+  "max": 9,
+  "term": "0000",
+  "original": "悪魔{n}体をしとめた",
+  "replace": "Defeated {=feff} x{=ffff}!"
+ },
+ {
+  "addr": "08124284",
+  "max": 4,
+  "term": "0000",
+  "original": "を倒した",
+  "replace": "was defeated!"
+ },
+ {
+  "addr": "08124298",
+  "max": 7,
+  "term": "0000",
+  "original": "のEXPを得た",
+  "replace": "{=feff} gained {=ffff} EXP"
+ },
+ {
+  "addr": "081242A8",
+  "max": 10,
+  "term": "0000",
+  "original": "ぜんぜん効いていない",
+  "replace": "It had no effect at all!"
+ },
+ {
+  "addr": "081242BE",
+  "max": 7,
+  "term": "0000",
+  "original": "には　効かない",
+  "replace": " is unaffected!"
+ },
+ {
+  "addr": "081242EC",
+  "max": 7,
+  "term": "0000",
+  "original": "必殺の一撃！！",
+  "replace": "A lethal blow!!"
+ },
+ {
+  "addr": "081242FC",
+  "max": 7,
+  "term": "0000",
+  "original": "会心の一撃！！",
+  "replace": "A critical hit!!"
+ },
+ {
+  "addr": "0812430C",
+  "max": 4,
+  "term": "0000",
+  "original": "を覚えた",
+  "replace": " was learned!"
+ },
+ {
+  "addr": "08124316",
+  "max": 8,
+  "term": "0000",
+  "original": "すでに効いている",
+  "replace": "It's already in effect."
+ },
+ {
+  "addr": "08124328",
+  "max": 16,
+  "term": "0000",
+  "original": "これ以上　修復悪魔は呼び出せない",
+  "replace": "No more demons can be summoned."
+ },
+ {
+  "addr": "0812434A",
+  "max": 12,
+  "term": "0000",
+  "original": "、{n}の{n}レベルが上がった",
+  "replace": "{=0000}'s level went up!"
+ },
+ {
+  "addr": "0812437C",
+  "max": 14,
+  "term": "0000",
+  "original": "と別れます{n}よろしいですか？",
+  "replace": " will be removed.{n}Are you sure?"
+ },
+ {
+  "addr": "081243B0",
+  "max": 10,
+  "term": "0000",
+  "original": "の死体を{n}捨てました",
+  "replace": "'s corpse was{n}discarded."
+ },
+ {
+  "addr": "081243C6",
+  "max": 6,
+  "term": "0000",
+  "original": "と別れました",
+  "replace": " was dismissed."
+ },
+ {
+  "addr": "081243F2",
+  "max": 11,
+  "term": "0000",
+  "original": "の{n}マッカを手に入れた",
+  "replace": "Gained {=ffff} Macca"
+ },
+ {
+  "addr": "0812440E",
+  "max": 11,
+  "term": "0000",
+  "original": "の{n}マグネタイトを得た",
+  "replace": "Gained {=ffff} Magnetite"
+ },
+ {
+  "addr": "0812442A",
+  "max": 8,
+  "term": "0000",
+  "original": "個の魔石を拾った",
+  "replace": "Obtained Life Stone x{=ffff}"
+ },
+ {
+  "addr": "08124440",
+  "max": 8,
+  "term": "0000",
+  "original": "個の宝玉を拾った",
+  "replace": "Obtained Bead x{=ffff}"
+ },
+ {
+  "addr": "08124456",
+  "max": 4,
+  "term": "0000",
+  "original": "を拾った",
+  "replace": "Obtained {=feff}"
+ },
+ {
+  "addr": "08124460",
+  "max": 10,
+  "term": "0000",
+  "original": "アイテムを使用します",
+  "replace": "Use an item."
+ },
+ {
+  "addr": "08124476",
+  "max": 10,
+  "term": "0000",
+  "original": "アイテムを整頓します",
+  "replace": "Organize items."
+ },
+ {
+  "addr": "0812448C",
+  "max": 11,
+  "term": "0000",
+  "original": "アイテムを並び変えます",
+  "replace": "Sort items."
+ },
+ {
+  "addr": "081244A4",
+  "max": 10,
+  "term": "0000",
+  "original": "アイテムを廃棄します",
+  "replace": "Discard items."
+ },
+ {
+  "addr": "08124516",
+  "max": 14,
+  "term": "0000",
+  "original": "を捨てます{n}よろしいですか？",
+  "replace": " will be discarded.{n}Are you sure?"
+ },
+ {
+  "addr": "08124562",
+  "max": 6,
+  "term": "0000",
+  "original": "攻撃できない",
+  "replace": "Cannot attack!"
+ },
+ {
+  "addr": "081245E4",
+  "max": 8,
+  "term": "0000",
+  "original": "は{n}去っていった",
+  "replace": " has departed..."
+ },
+ {
+  "addr": "0812462C",
+  "max": 6,
+  "term": "0000",
+  "original": "は{ACTOR_NAME}に従った",
+  "replace": " obeyed {ACTOR_NAME}!"
+ }
+]

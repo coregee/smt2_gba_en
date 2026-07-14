@@ -1,0 +1,2382 @@
+[
+  {
+    "ids": [36],
+    "addr": "08124678",
+    "term": "0301",
+    "original": "回復",
+    "replace": "Heal"
+  },
+  {
+    "ids": [37],
+    "addr": "0812467E",
+    "term": "0301",
+    "original": "異常治療",
+    "replace": "Cure Status"
+  },
+  {
+    "ids": [38],
+    "addr": "08124688",
+    "term": "0301",
+    "original": "復活",
+    "replace": "Revive"
+  },
+  {
+    "ids": [39],
+    "addr": "0812468E",
+    "term": "0301",
+    "original": "解呪",
+    "replace": "Break Curse"
+  },
+  {
+    "ids": [40],
+    "addr": "08124694",
+    "term": "0301",
+    "original": "アイテムを買う",
+    "replace": "Buy Item"
+  },
+  {
+    "ids": [41],
+    "addr": "081246A4",
+    "term": "0301",
+    "original": "記録",
+    "replace": "Save"
+  },
+  {
+    "ids": [42],
+    "addr": "081246AA",
+    "term": "0301",
+    "original": "転送",
+    "replace": "Teleport"
+  },
+  {
+    "ids": [43],
+    "addr": "081246B0",
+    "term": "0301",
+    "original": "2身合体",
+    "replace": "Standard Fusion"
+  },
+  {
+    "ids": [44],
+    "addr": "081246BA",
+    "term": "0301",
+    "original": "3身合体",
+    "replace": "Triple Fusion"
+  },
+  {
+    "ids": [45],
+    "addr": "081246C4",
+    "term": "0301",
+    "original": "ステイタスを見る",
+    "replace": "View Status"
+  },
+  {
+    "ids": [46],
+    "addr": "081246D6",
+    "term": "0301",
+    "original": "コンピュータ",
+    "replace": "Computer"
+  },
+  {
+    "ids": [47],
+    "addr": "081246E4",
+    "term": "0301",
+    "original": "部屋を出る",
+    "replace": "Leave Room"
+  },
+  {
+    "ids": [48],
+    "addr": "081246F0",
+    "term": "0301",
+    "original": "自分の部屋に行く",
+    "replace": "Go to Your Room"
+  },
+  {
+    "ids": [49],
+    "addr": "08124702",
+    "term": "0301",
+    "original": "睡眠をとる",
+    "replace": "Rest"
+  },
+  {
+    "ids": [50],
+    "addr": "0812470E",
+    "term": "0301",
+    "original": "外に出かける",
+    "replace": "Go Out"
+  },
+  {
+    "ids": [51],
+    "addr": "0812471C",
+    "term": "0301",
+    "original": "少女を助けにいく",
+    "replace": "Help the Girl"
+  },
+  {
+    "ids": [52],
+    "addr": "0812472E",
+    "term": "0301",
+    "original": "オザワの隠れ家へ行く",
+    "replace": "To Ozawa's Hideout"
+  },
+  {
+    "ids": [53],
+    "addr": "08124744",
+    "term": "0301",
+    "original": "売る",
+    "replace": "Sell"
+  },
+  {
+    "ids": [54],
+    "addr": "0812474A",
+    "term": "0301",
+    "original": "店を出る",
+    "replace": "Leave Shop"
+  },
+  {
+    "ids": [55],
+    "addr": "08124754",
+    "term": "0301",
+    "original": "掛け軸　　　　￥　10000",
+    "replace": "Scroll ￥10000"
+  },
+  {
+    "ids": [56],
+    "addr": "08124772",
+    "term": "0301",
+    "original": "水墨画　　　　￥　12800",
+    "replace": "Ink Painting ￥12800"
+  },
+  {
+    "ids": [57],
+    "addr": "08124790",
+    "term": "0301",
+    "original": "石灯篭　　　　￥　25000",
+    "replace": "Stone Lantern ￥25000"
+  },
+  {
+    "ids": [58],
+    "addr": "081247AE",
+    "term": "0301",
+    "original": "黄金の仏像　　￥　43000",
+    "replace": "Gold Buddha ￥43000"
+  },
+  {
+    "ids": [59],
+    "addr": "081247CC",
+    "term": "0301",
+    "original": "アイテムと交換",
+    "replace": "Trade for Item"
+  },
+  {
+    "ids": [60],
+    "addr": "081247DC",
+    "term": "0301",
+    "original": "精霊と交換",
+    "replace": "Trade for Elemental"
+  },
+  {
+    "ids": [61],
+    "addr": "081247E8",
+    "term": "0301",
+    "original": "外に出る",
+    "replace": "Go Outside"
+  },
+  {
+    "ids": [62],
+    "addr": "081247F2",
+    "term": "0301",
+    "original": "買うのをやめる",
+    "replace": "Cancel"
+  },
+  {
+    "ids": [63],
+    "addr": "08124802",
+    "term": "0301",
+    "original": "剣と合体",
+    "replace": "Sword Fusion"
+  },
+  {
+    "ids": [64],
+    "addr": "0812480C",
+    "term": "0301",
+    "original": "ファイル1",
+    "replace": "File 1"
+  },
+  {
+    "ids": [65],
+    "addr": "08124818",
+    "term": "0301",
+    "original": "ファイル2",
+    "replace": "File 2"
+  },
+  {
+    "ids": [66, 73],
+    "addr": "08124824",
+    "term": "0301",
+    "original": "やめる",
+    "replace": "Cancel"
+  },
+  {
+    "ids": [67],
+    "addr": "0812482C",
+    "term": "0301",
+    "original": "左の箱",
+    "replace": "Left Box"
+  },
+  {
+    "ids": [68],
+    "addr": "08124834",
+    "term": "0301",
+    "original": "真中の箱",
+    "replace": "Middle Box"
+  },
+  {
+    "ids": [69],
+    "addr": "0812483E",
+    "term": "0301",
+    "original": "右の箱",
+    "replace": "Right Box"
+  },
+  {
+    "ids": [70],
+    "addr": "08124846",
+    "term": "0301",
+    "original": "説明を聞く",
+    "replace": "Describe"
+  },
+  {
+    "ids": [71],
+    "addr": "08124852",
+    "term": "0301",
+    "original": "武器から並べる",
+    "replace": "Sort by Weapon"
+  },
+  {
+    "ids": [72],
+    "addr": "08124862",
+    "term": "0301",
+    "original": "アイテムから並べる",
+    "replace": "Sort by Item"
+  },
+  {
+    "ids": [74],
+    "addr": "0812487E",
+    "term": "0301",
+    "original": "全回復",
+    "replace": "Full Heal"
+  },
+  {
+    "ids": [75],
+    "addr": "08124886",
+    "term": "0301",
+    "original": "デビルバンク",
+    "replace": "Demon Bank"
+  },
+  {
+    "ids": [82],
+    "addr": "08124894",
+    "term": "0301",
+    "original": "COMP作動",
+    "replace": "COMP Active"
+  },
+  {
+    "ids": [83],
+    "addr": "081248A2",
+    "term": "0301",
+    "original": "COMPを{n}使える状態ではありません{WAIT}",
+    "replace": "You are in no condition to use your COMP.{WAIT}"
+  },
+  {
+    "ids": [84],
+    "addr": "081248CA",
+    "term": "0301",
+    "original": "コンピュータシステムエラー{WAIT}",
+    "replace": "Computer system error{WAIT}"
+  },
+  {
+    "ids": [85],
+    "addr": "081248E8",
+    "term": "0301",
+    "original": "ここではCOMPを使用できません{WAIT}",
+    "replace": "You can't use the COMP here.{WAIT}"
+  },
+  {
+    "ids": [86],
+    "addr": "08124926",
+    "term": "0301",
+    "original": "{PAGE}どうしますか？{n}　使う{n}　装備する{n}　捨てる",
+    "replace": "{PAGE}What will you do?{n} Use{n} Equip{n} Discard"
+  },
+  {
+    "ids": [87],
+    "addr": "08124956",
+    "term": "0301",
+    "original": "マッパーの効果がなくなった{WAIT}",
+    "replace": "Mapper's effects wore off.{WAIT}"
+  },
+  {
+    "ids": [88],
+    "addr": "08124974",
+    "term": "0301",
+    "original": "コアシールドの効果がなくなった{WAIT}",
+    "replace": "Core Shield's effects wore off.{WAIT}"
+  },
+  {
+    "ids": [89],
+    "addr": "08124996",
+    "term": "0301",
+    "original": "アムレットの効果がなくなった{WAIT}",
+    "replace": "Amulet's effects wore off.{WAIT}"
+  },
+  {
+    "ids": [90],
+    "addr": "081249B6",
+    "term": "0301",
+    "original": "誰にしますか？",
+    "replace": "Use on whom?"
+  },
+  {
+    "ids": [91],
+    "addr": "081249C6",
+    "term": "0301",
+    "original": "ここでは使用できない{WAIT}",
+    "replace": "You can't use that here.{WAIT}"
+  },
+  {
+    "ids": [92],
+    "addr": "081249DE",
+    "term": "0301",
+    "original": "仲魔を呼び出す",
+    "replace": "Summon Demon"
+  },
+  {
+    "ids": [93],
+    "addr": "081249EE",
+    "term": "0301",
+    "original": "仲魔を戻す",
+    "replace": "Return Demon"
+  },
+  {
+    "ids": [94],
+    "addr": "081249FA",
+    "term": "0301",
+    "original": "仲魔をはずす",
+    "replace": "Dismiss Demon"
+  },
+  {
+    "ids": [95],
+    "addr": "08124A08",
+    "term": "0301",
+    "original": "位置替えをする",
+    "replace": "Rearrange Party"
+  },
+  {
+    "ids": [96],
+    "addr": "08124A18",
+    "term": "0301",
+    "original": "オートマッピング",
+    "replace": "Auto-Mapping"
+  },
+  {
+    "ids": [97],
+    "addr": "08124A2A",
+    "term": "0301",
+    "original": "デビルアナライズ",
+    "replace": "Devil Analyze"
+  },
+  {
+    "ids": [98],
+    "addr": "08124A3C",
+    "term": "0301",
+    "original": "{PAGE}NO　DATA{WAIT}",
+    "replace": "{PAGE}(No Data){WAIT}"
+  },
+  {
+    "ids": [99],
+    "addr": "08124A50",
+    "term": "0301",
+    "original": "NO　DATA{WAIT}",
+    "replace": "(No Data){WAIT}"
+  },
+  {
+    "ids": [100],
+    "addr": "08124A62",
+    "term": "0301",
+    "original": "アナライズできる悪魔はいません{WAIT}",
+    "replace": "No demons to analyze.{WAIT}"
+  },
+  {
+    "ids": [101],
+    "addr": "08124A84",
+    "term": "0301",
+    "original": "{PAGE}位置替えをしてください",
+    "replace": "{PAGE}Please finish repositioning everyone."
+  },
+  {
+    "ids": [102],
+    "addr": "08124A9E",
+    "term": "0301",
+    "original": "{PAGE}誰を呼び出しますか？",
+    "replace": "{PAGE}Summon who?"
+  },
+  {
+    "ids": [103],
+    "addr": "08124AB6",
+    "term": "0301",
+    "original": "{PAGE}誰を戻しますか？",
+    "replace": "{PAGE}Return whom?"
+  },
+  {
+    "ids": [104],
+    "addr": "08124ACA",
+    "term": "0301",
+    "original": "{PAGE}誰をはずしますか？",
+    "replace": "{PAGE}Whom will you dismiss?"
+  },
+  {
+    "ids": [105],
+    "addr": "08124AE0",
+    "term": "0301",
+    "original": "{PAGE}どこに呼び出しますか？",
+    "replace": "{PAGE}Where will you summon?"
+  },
+  {
+    "ids": [106],
+    "addr": "08124AFA",
+    "term": "0301",
+    "original": "{PAGE}誰と替えて呼び出しますか？",
+    "replace": "{PAGE}Whom will you swap with?"
+  },
+  {
+    "ids": [107],
+    "addr": "08124B18",
+    "term": "0301",
+    "original": "{PAGE}呼び出せる仲魔はいない{WAIT}",
+    "replace": "{PAGE}No demons to summon.{WAIT}"
+  },
+  {
+    "ids": [108],
+    "addr": "08124B34",
+    "term": "0301",
+    "original": "{PAGE}戻せる仲魔はいない{WAIT}",
+    "replace": "{PAGE}No minions to return.{WAIT}"
+  },
+  {
+    "ids": [109],
+    "addr": "08124B4C",
+    "term": "0301",
+    "original": "{PAGE}はずせる仲魔はいない{WAIT}",
+    "replace": "{PAGE}No minions to dismiss.{WAIT}"
+  },
+  {
+    "ids": [110],
+    "addr": "08124B66",
+    "term": "0301",
+    "original": "{PAGE}この仲魔ははずせない{WAIT}",
+    "replace": "{PAGE}You cannot dismiss that minion.{WAIT}"
+  },
+  {
+    "ids": [111],
+    "addr": "08124B80",
+    "term": "0301",
+    "original": "{PAGE}{ACTOR_NAME}を{n}はずしますよろしいですか？{SUBMENU}<4BA8>愚",
+    "replace": "{PAGE}Dismiss {ACTOR_NAME}?{n}Is this all right?{SUBMENU}{=a84b}{=1208}"
+  },
+  {
+    "ids": [113],
+    "addr": "08124BAA",
+    "term": "0301",
+    "original": "{PAGE}位置替えできない{WAIT}",
+    "replace": "{PAGE}Cannot reposition.{WAIT}"
+  },
+  {
+    "ids": [114],
+    "addr": "08124BC0",
+    "term": "0301",
+    "original": "{PAGE}持っていない{WAIT}",
+    "replace": "{PAGE}You don't have any.{WAIT}"
+  },
+  {
+    "ids": [115],
+    "addr": "08124BD2",
+    "term": "0301",
+    "original": "使えるアイテムは持っていません{WAIT}",
+    "replace": "No usable items.{WAIT}"
+  },
+  {
+    "ids": [116],
+    "addr": "08124C60",
+    "term": "0301",
+    "original": "誰も使えない{WAIT}",
+    "replace": "No one can use it.{WAIT}"
+  },
+  {
+    "ids": [117],
+    "addr": "08124C8A",
+    "term": "0301",
+    "original": "{PAGE}装備できるアイテムは{n}持っていない{WAIT}",
+    "replace": "{PAGE}No equippable items.{WAIT}"
+  },
+  {
+    "ids": [118],
+    "addr": "08124CB2",
+    "term": "0301",
+    "original": "{PAGE}誰に装備しますか？",
+    "replace": "{PAGE}Equip on whom?"
+  },
+  {
+    "ids": [119],
+    "addr": "08124CC8",
+    "term": "0301",
+    "original": "{PAGE}どのアイテムを使いますか？",
+    "replace": "{PAGE}Which item will you use?"
+  },
+  {
+    "ids": [120],
+    "addr": "08124CE6",
+    "term": "0301",
+    "original": "{PAGE}どのアイテムを捨てますか？",
+    "replace": "{PAGE}Discard which item?"
+  },
+  {
+    "ids": [121],
+    "addr": "08124D04",
+    "term": "0301",
+    "original": "{PAGE}アイテムがいっぱいです{n}なにか捨ててください{WAIT}",
+    "replace": "{PAGE}You have too many items.{n}Please discard something.{WAIT}"
+  },
+  {
+    "ids": [122],
+    "addr": "08124D36",
+    "term": "0301",
+    "original": "{PAGE}{ITEM_NAME}を捨てます{n}よろしいですか？{SUBMENU}<4D5C>愚",
+    "replace": "{PAGE}Discard {ITEM_NAME}?{n}Is this all right?{SUBMENU}{=5c4d}{=1208}"
+  },
+  {
+    "ids": [124],
+    "addr": "08124D5E",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}{ITEM_NAME}を使った{WAIT}",
+    "replace": "{ACTOR_NAME} used {ITEM_NAME}.{WAIT}"
+  },
+  {
+    "ids": [125],
+    "addr": "08124D72",
+    "term": "0301",
+    "original": "{PAGE}誰に使いますか？",
+    "replace": "{PAGE}Whom will you use it on?"
+  },
+  {
+    "ids": [126],
+    "addr": "08124D86",
+    "term": "0301",
+    "original": "しかし効果がなかった{WAIT}",
+    "replace": "But there was no effect.{WAIT}"
+  },
+  {
+    "ids": [127],
+    "addr": "08124D9E",
+    "term": "0301",
+    "original": "{PAGE}{ACTOR_NAME}の{n}HPがあっがた！！{WAIT}",
+    "replace": "{PAGE}{ACTOR_NAME}'s HP went up!{WAIT}"
+  },
+  {
+    "ids": [128],
+    "addr": "08124DBC",
+    "term": "0301",
+    "original": "階段をのぼりますか？{SUBMENU}<4DF0>愚",
+    "replace": "Climb the stairs?{SUBMENU}{=f04d}{=1208}"
+  },
+  {
+    "ids": [129],
+    "addr": "08124DD8",
+    "term": "0301",
+    "original": "階段をおりますか？{SUBMENU}<4DF0>愚",
+    "replace": "Descend the stairs?{SUBMENU}{=f04d}{=1208}"
+  },
+  {
+    "ids": [131],
+    "addr": "08124DF2",
+    "term": "0301",
+    "original": "出□があります{n}外へ出ますか？{SUBMENU}<4DF0>愚",
+    "replace": "There is an exit.{n}Go outside?{SUBMENU}{=f04d}{=1208}"
+  },
+  {
+    "ids": [132],
+    "addr": "08124E18",
+    "term": "0301",
+    "original": "宝箱があります{n}あけますか？{SUBMENU}<4DF0>愚",
+    "replace": "There is a chest.{n}Open it?{SUBMENU}{=f04d}{=1208}"
+  },
+  {
+    "ids": [133],
+    "addr": "08124E3C",
+    "term": "0301",
+    "original": "{PAGE}{PARTY_NAME}は{n}宝箱をあきらめた{WAIT}",
+    "replace": "{PAGE}{PARTY_NAME} left the box alone.{WAIT}"
+  },
+  {
+    "ids": [134],
+    "addr": "08124E58",
+    "term": "0301",
+    "original": "{PARTY_NAME}は{n}{ITEM_NAME}をみつけた{WAIT}",
+    "replace": "{PARTY_NAME} found {ITEM_NAME}.{WAIT}"
+  },
+  {
+    "ids": [135],
+    "addr": "08124E6E",
+    "term": "0301",
+    "original": "{PARTY_NAME}は{n}{NUMBER}のお金をみつけた{WAIT}",
+    "replace": "{PARTY_NAME} found {NUMBER} macca.{WAIT}"
+  },
+  {
+    "ids": [136],
+    "addr": "08124E8A",
+    "term": "0301",
+    "original": "{PARTY_NAME}は{n}{NUMBER}のマグネタイトをみつけた{WAIT}",
+    "replace": "{PARTY_NAME} found {NUMBER} magnetite.{WAIT}"
+  },
+  {
+    "ids": [137],
+    "addr": "08124EAE",
+    "term": "0301",
+    "original": "{PARTY_NAME}は罠にかかった{WAIT}",
+    "replace": "{PARTY_NAME} sprang a trap.{WAIT}"
+  },
+  {
+    "ids": [138],
+    "addr": "08124EC2",
+    "term": "0301",
+    "original": "すでに中身はからっぽだ{WAIT}",
+    "replace": "The box was empty.{WAIT}"
+  },
+  {
+    "ids": [139],
+    "addr": "08124EDC",
+    "term": "0301",
+    "original": "しかし中身はからっぽだった{WAIT}",
+    "replace": "But the box was empty.{WAIT}"
+  },
+  {
+    "ids": [140],
+    "addr": "08124EFA",
+    "term": "0301",
+    "original": "{PAGE}誰も魔法を使えない{WAIT}",
+    "replace": "{PAGE}They're in no condition to be casting spells.{WAIT}"
+  },
+  {
+    "ids": [141],
+    "addr": "08124F12",
+    "term": "0301",
+    "original": "{PAGE}誰の魔法を使いますか？",
+    "replace": "{PAGE}Whose magic?"
+  },
+  {
+    "ids": [142],
+    "addr": "08124F2C",
+    "term": "0301",
+    "original": "{PAGE}どの魔法を使いますか？",
+    "replace": "{PAGE}What magic?"
+  },
+  {
+    "ids": [143],
+    "addr": "08124F46",
+    "term": "0301",
+    "original": "使える魔法がありません{WAIT}",
+    "replace": "No usable magic.{WAIT}"
+  },
+  {
+    "ids": [144],
+    "addr": "08124F60",
+    "term": "0301",
+    "original": "魔法を使える状態ではありません{WAIT}",
+    "replace": "They're in no condition to be casting spells.{WAIT}"
+  },
+  {
+    "ids": [145],
+    "addr": "08124F9C",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は魔法をとなえた{WAIT}",
+    "replace": "{ACTOR_NAME} cast a spell.{WAIT}"
+  },
+  {
+    "ids": [146],
+    "addr": "08124FB2",
+    "term": "0301",
+    "original": "パーティがいっぱいで呼べない{WAIT}",
+    "replace": "The party is full.{WAIT}"
+  },
+  {
+    "ids": [147],
+    "addr": "08124FD2",
+    "term": "0301",
+    "original": "だれもわるくない{WAIT}",
+    "replace": "Nobody was hurt.{WAIT}"
+  },
+  {
+    "ids": [148, 290, 803, 805],
+    "addr": "08124FE6",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は回復した{WAIT}",
+    "replace": "{ACTOR_NAME} was healed.{WAIT}"
+  },
+  {
+    "ids": [149],
+    "addr": "08124FF6",
+    "term": "0301",
+    "original": "失敗してしまった！！{WAIT}",
+    "replace": "Didn't work!{WAIT}"
+  },
+  {
+    "ids": [150],
+    "addr": "0812500E",
+    "term": "0301",
+    "original": "すでに効いている{WAIT}",
+    "replace": "Already in effect.{WAIT}"
+  },
+  {
+    "ids": [151],
+    "addr": "08125022",
+    "term": "0301",
+    "original": "{PAGE}MPがたりない{WAIT}",
+    "replace": "{PAGE}Not enough MP.{WAIT}"
+  },
+  {
+    "ids": [152],
+    "addr": "08125036",
+    "term": "0301",
+    "original": "しまったMPがない{WAIT}",
+    "replace": "Oh no, you're out of MP!{WAIT}"
+  },
+  {
+    "ids": [153],
+    "addr": "0812504C",
+    "term": "0301",
+    "original": "マグネタイトがなくなった{WAIT}",
+    "replace": "Ran out of magnetite.{WAIT}"
+  },
+  {
+    "ids": [154],
+    "addr": "08125068",
+    "term": "0301",
+    "original": "{PAGE}お金がたりません{WAIT}",
+    "replace": "{PAGE}Not enough money.{WAIT}"
+  },
+  {
+    "ids": [155],
+    "addr": "0812507E",
+    "term": "0301",
+    "original": "{PAGE}属性が違うので呼び出せない{WAIT}",
+    "replace": "{PAGE}Your alignments are opposed, so you cannot summon this demon.{WAIT}"
+  },
+  {
+    "ids": [187],
+    "addr": "0812509E",
+    "term": "0301",
+    "original": "{ACTOR_NAME}から{n}MPを吸い取った{WAIT}",
+    "replace": "{ACTOR_NAME}'s MP was drained.{WAIT}"
+  },
+  {
+    "ids": [188],
+    "addr": "081250BA",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}MPを吸い取られた{WAIT}",
+    "replace": "{ACTOR_NAME}'s MP was drained.{WAIT}"
+  },
+  {
+    "ids": [189],
+    "addr": "081250D6",
+    "term": "0301",
+    "original": "悪魔たちの{n}攻撃力を下げた{WAIT}",
+    "replace": "Lowered the demons' physical attack!{WAIT}"
+  },
+  {
+    "ids": [190],
+    "addr": "081250F4",
+    "term": "0301",
+    "original": "{PARTY_NAME}の{n}攻撃力が下がった{WAIT}",
+    "replace": "{PARTY_NAME}'s physical attack decreased!{WAIT}"
+  },
+  {
+    "ids": [191],
+    "addr": "0812510E",
+    "term": "0301",
+    "original": "悪魔たちの{n}防御力を下げた{WAIT}",
+    "replace": "Lowered the demons' defense!{WAIT}"
+  },
+  {
+    "ids": [192],
+    "addr": "0812512C",
+    "term": "0301",
+    "original": "{PARTY_NAME}の{n}防御力が下がった{WAIT}",
+    "replace": "{PARTY_NAME}'s defense decreased!{WAIT}"
+  },
+  {
+    "ids": [193],
+    "addr": "08125146",
+    "term": "0301",
+    "original": "悪魔たちの{n}命中力を下げた{WAIT}",
+    "replace": "Lowered the demons' accuracy!{WAIT}"
+  },
+  {
+    "ids": [194],
+    "addr": "08125164",
+    "term": "0301",
+    "original": "{PARTY_NAME}の{n}命中力が下がった{WAIT}",
+    "replace": "{PARTY_NAME}'s accuracy decreased!{WAIT}"
+  },
+  {
+    "ids": [195],
+    "addr": "08125232",
+    "term": "0301",
+    "original": "{PARTY_NAME}の{n}攻撃力を上げた{WAIT}",
+    "replace": "{PARTY_NAME}'s physical attack increased!{WAIT}"
+  },
+  {
+    "ids": [196],
+    "addr": "0812524A",
+    "term": "0301",
+    "original": "悪魔たちの{n}攻撃力が上がった{WAIT}",
+    "replace": "The demons' physical attack increased!{WAIT}"
+  },
+  {
+    "ids": [197],
+    "addr": "0812526A",
+    "term": "0301",
+    "original": "{PARTY_NAME}の{n}防御力を上げた{WAIT}",
+    "replace": "{PARTY_NAME}'s defense increased!{WAIT}"
+  },
+  {
+    "ids": [198],
+    "addr": "08125282",
+    "term": "0301",
+    "original": "悪魔たちの防御力が上がった{WAIT}",
+    "replace": "The demons' defense increased!{WAIT}"
+  },
+  {
+    "ids": [199],
+    "addr": "081252A0",
+    "term": "0301",
+    "original": "{PARTY_NAME}の{n}命中力を上げた{WAIT}",
+    "replace": "{PARTY_NAME}'s accuracy increased!{WAIT}"
+  },
+  {
+    "ids": [200],
+    "addr": "081252B8",
+    "term": "0301",
+    "original": "悪魔たちの命中力が上がった{WAIT}",
+    "replace": "The demons' accuracy increased!{WAIT}"
+  },
+  {
+    "ids": [201],
+    "addr": "081252D6",
+    "term": "0301",
+    "original": "{PARTY_NAME}の{n}魔力を上げた{WAIT}",
+    "replace": "{PARTY_NAME}'s magic attack increased!{WAIT}"
+  },
+  {
+    "ids": [202],
+    "addr": "081252EC",
+    "term": "0301",
+    "original": "悪魔たちの魔力が上がった{WAIT}",
+    "replace": "The demons' magic attack increased!{WAIT}"
+  },
+  {
+    "ids": [203],
+    "addr": "08125308",
+    "term": "0301",
+    "original": "{PARTY_NAME}に結界を{n}張った{WAIT}",
+    "replace": "A force field formed around {PARTY_NAME}!{WAIT}"
+  },
+  {
+    "ids": [204],
+    "addr": "0812531E",
+    "term": "0301",
+    "original": "悪魔たちは結界を張った{WAIT}",
+    "replace": "A force field formed around the demons!{WAIT}"
+  },
+  {
+    "ids": [205],
+    "addr": "08125338",
+    "term": "0301",
+    "original": "{PARTY_NAME}に{n}シールドを張った{WAIT}",
+    "replace": "A shield formed around {PARTY_NAME}!{WAIT}"
+  },
+  {
+    "ids": [206],
+    "addr": "08125352",
+    "term": "0301",
+    "original": "悪魔たちはシールドを張った{WAIT}",
+    "replace": "A shield formed around the demons!{WAIT}"
+  },
+  {
+    "ids": [207],
+    "addr": "08125370",
+    "term": "0301",
+    "original": "{PARTY_NAME}に{n}バリアを張った{WAIT}",
+    "replace": "A barrier formed around {PARTY_NAME}!{WAIT}"
+  },
+  {
+    "ids": [208],
+    "addr": "08125388",
+    "term": "0301",
+    "original": "悪魔たちはバリアを張った{WAIT}",
+    "replace": "A barrier formed around the demons!{WAIT}"
+  },
+  {
+    "ids": [209, 210, 211, 212, 213, 214],
+    "addr": "081253A4",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}回復した{WAIT}",
+    "replace": "{ACTOR_NAME} was healed!{WAIT}"
+  },
+  {
+    "ids": [215, 217, 301, 302],
+    "addr": "081253B6",
+    "term": "0301",
+    "original": "{PARTY_NAME}は{n}回復した{WAIT}",
+    "replace": "{PARTY_NAME} was healed!{WAIT}"
+  },
+  {
+    "ids": [216, 218],
+    "addr": "081253C8",
+    "term": "0301",
+    "original": "{ACTOR_NAME}たちは{n}回復した{WAIT}",
+    "replace": "{ACTOR_NAME}'s party were healed!{WAIT}"
+  },
+  {
+    "ids": [219, 220],
+    "addr": "08125406",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}われにかえった{WAIT}",
+    "replace": "{ACTOR_NAME} came to their senses.{WAIT}"
+  },
+  {
+    "ids": [221],
+    "addr": "0812541E",
+    "term": "0301",
+    "original": "{PARTY_NAME}は{n}われにかえった{WAIT}",
+    "replace": "{PARTY_NAME} came to their senses.{WAIT}"
+  },
+  {
+    "ids": [222],
+    "addr": "08125436",
+    "term": "0301",
+    "original": "{ACTOR_NAME}たちは{n}われにかえった{WAIT}",
+    "replace": "{ACTOR_NAME}'s party came to their senses.{WAIT}"
+  },
+  {
+    "ids": [223, 224],
+    "addr": "08125452",
+    "term": "0301",
+    "original": "{ACTOR_NAME}から{n}毒がきえた{WAIT}",
+    "replace": "The poison disappeared from {ACTOR_NAME}!{WAIT}"
+  },
+  {
+    "ids": [225, 226],
+    "addr": "08125468",
+    "term": "0301",
+    "original": "{ACTOR_NAME}の{n}マヒがなおった{WAIT}",
+    "replace": "{ACTOR_NAME}'s paralysis was cured.{WAIT}"
+  },
+  {
+    "ids": [227, 228],
+    "addr": "08125480",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}石から戻った{WAIT}",
+    "replace": "{ACTOR_NAME}'s petrification was cured!{WAIT}"
+  },
+  {
+    "ids": [229, 292],
+    "addr": "08125496",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}息をふきかえした{WAIT}",
+    "replace": "{ACTOR_NAME} was resuscitated.{WAIT}"
+  },
+  {
+    "ids": [230],
+    "addr": "081254B0",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}復活した{WAIT}",
+    "replace": "{ACTOR_NAME} was revived!{WAIT}"
+  },
+  {
+    "ids": [231],
+    "addr": "081254C2",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}10MPあたえた{WAIT}",
+    "replace": "{ACTOR_NAME} donated 10 MP.{WAIT}"
+  },
+  {
+    "ids": [232],
+    "addr": "081254DC",
+    "term": "0301",
+    "original": "{PARTY_NAME}は{n}姿を消した{WAIT}",
+    "replace": "{PARTY_NAME} vanished.{WAIT}"
+  },
+  {
+    "ids": [233],
+    "addr": "081254F0",
+    "term": "0301",
+    "original": "{ACTOR_NAME}を{n}召喚した{WAIT}",
+    "replace": "Summoned {ACTOR_NAME}!{WAIT}"
+  },
+  {
+    "ids": [281],
+    "addr": "08125502",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}力が抜けていった{WAIT}",
+    "replace": "{ACTOR_NAME}'s power was drained!{WAIT}"
+  },
+  {
+    "ids": [282],
+    "addr": "0812551C",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}HPを吸い取られた{WAIT}",
+    "replace": "{ACTOR_NAME}'s HP was drained.{WAIT}"
+  },
+  {
+    "ids": [283],
+    "addr": "08125538",
+    "term": "0301",
+    "original": "{ACTOR_NAME}の{n}HPを吸い取った{WAIT}",
+    "replace": "{ACTOR_NAME}'s HP was drained.{WAIT}"
+  },
+  {
+    "ids": [284],
+    "addr": "08125552",
+    "term": "0301",
+    "original": "しかし誰もこなかった{WAIT}",
+    "replace": "But no one came.{WAIT}"
+  },
+  {
+    "ids": [285],
+    "addr": "0812556A",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}{NUMBER}のダメージを受けた{WAIT}",
+    "replace": "{ACTOR_NAME} took {NUMBER} damage!{WAIT}"
+  },
+  {
+    "ids": [286, 341],
+    "addr": "08125588",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は力つきた{WAIT}",
+    "replace": "{ACTOR_NAME} exhausted all their strength.{WAIT}"
+  },
+  {
+    "ids": [287],
+    "addr": "08125598",
+    "term": "0301",
+    "original": "{ACTOR_NAME}の{n}HPが回復した{WAIT}",
+    "replace": "{ACTOR_NAME}'s HP was healed!{WAIT}"
+  },
+  {
+    "ids": [288, 807],
+    "addr": "081255B0",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}元気がでてきた{WAIT}",
+    "replace": "{ACTOR_NAME} came out energetically!{WAIT}"
+  },
+  {
+    "ids": [289],
+    "addr": "081255C8",
+    "term": "0301",
+    "original": "{ACTOR_NAME}の{n}HPがいっぱいになった{WAIT}",
+    "replace": "{ACTOR_NAME}'s HP is full.{WAIT}"
+  },
+  {
+    "ids": [291],
+    "addr": "081255F8",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は全快した{WAIT}",
+    "replace": "{ACTOR_NAME} was fully healed!{WAIT}"
+  },
+  {
+    "ids": [293],
+    "addr": "08125622",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}復活をとげた{WAIT}",
+    "replace": "{ACTOR_NAME} was revived.{WAIT}"
+  },
+  {
+    "ids": [294],
+    "addr": "08125638",
+    "term": "0301",
+    "original": "{PARTY_NAME}の{n}MPが回復した{WAIT}",
+    "replace": "{PARTY_NAME}'s MP was healed!{WAIT}"
+  },
+  {
+    "ids": [295],
+    "addr": "08125650",
+    "term": "0301",
+    "original": "{ACTOR_NAME}の{n}力が上がった{WAIT}",
+    "replace": "{ACTOR_NAME}'s Power went up!{WAIT}"
+  },
+  {
+    "ids": [296],
+    "addr": "08125666",
+    "term": "0301",
+    "original": "{ACTOR_NAME}の{n}知恵が上がった{WAIT}",
+    "replace": "{ACTOR_NAME}'s Intelligence went up!{WAIT}"
+  },
+  {
+    "ids": [297],
+    "addr": "0812567E",
+    "term": "0301",
+    "original": "{ACTOR_NAME}の{n}魔力が上がった{WAIT}",
+    "replace": "{ACTOR_NAME}'s Magic went up!{WAIT}"
+  },
+  {
+    "ids": [298],
+    "addr": "08125696",
+    "term": "0301",
+    "original": "{ACTOR_NAME}の{n}体力が上がった{WAIT}",
+    "replace": "{ACTOR_NAME}'s Vitality went up!{WAIT}"
+  },
+  {
+    "ids": [299],
+    "addr": "081256AE",
+    "term": "0301",
+    "original": "{ACTOR_NAME}の{n}速さが上がった{WAIT}",
+    "replace": "{ACTOR_NAME}'s Agility went up!{WAIT}"
+  },
+  {
+    "ids": [300],
+    "addr": "081256C6",
+    "term": "0301",
+    "original": "{ACTOR_NAME}の{n}運が上がった{WAIT}",
+    "replace": "{ACTOR_NAME}'s Luck went up!{WAIT}"
+  },
+  {
+    "ids": [303],
+    "addr": "081256EE",
+    "term": "0301",
+    "original": "{PARTY_NAME}は{n}魔法のバリアを張った{WAIT}",
+    "replace": "A barrier formed around {PARTY_NAME}!{WAIT}"
+  },
+  {
+    "ids": [304],
+    "addr": "0812570C",
+    "term": "0301",
+    "original": "{PARTY_NAME}は{n}{ITEM_NAME}に守られている{WAIT}",
+    "replace": "{PARTY_NAME} is defended by {ITEM_NAME}.{WAIT}"
+  },
+  {
+    "ids": [305],
+    "addr": "08125726",
+    "term": "0301",
+    "original": "{PARTY_NAME}は{n}{ITEM_NAME}に守られた{WAIT}",
+    "replace": "{PARTY_NAME} was defended by {ITEM_NAME}.{WAIT}"
+  },
+  {
+    "ids": [306],
+    "addr": "0812573C",
+    "term": "0301",
+    "original": "{PARTY_NAME}を{n}{ITEM_NAME}が守っている{WAIT}",
+    "replace": "{ITEM_NAME} is protecting {PARTY_NAME}.{WAIT}"
+  },
+  {
+    "ids": [307, 808],
+    "addr": "08125754",
+    "term": "0301",
+    "original": "{PARTY_NAME}は{n}{ITEM_NAME}につつまれた{WAIT}",
+    "replace": "{PARTY_NAME} was engulfed by {ITEM_NAME}!{WAIT}"
+  },
+  {
+    "ids": [308],
+    "addr": "0812576E",
+    "term": "0301",
+    "original": "{PARTY_NAME}は{n}{ITEM_NAME}に見守られた{WAIT}",
+    "replace": "{PARTY_NAME} was watched over by {ITEM_NAME}.{WAIT}"
+  },
+  {
+    "ids": [309],
+    "addr": "08125786",
+    "term": "0301",
+    "original": "{PARTY_NAME}は{n}{ITEM_NAME}を張った{WAIT}",
+    "replace": "{PARTY_NAME} raised {ITEM_NAME}.{WAIT}"
+  },
+  {
+    "ids": [310],
+    "addr": "0812579A",
+    "term": "0301",
+    "original": "{ACTOR_NAME}を{n}{ITEM_NAME}に封じこめた{WAIT}",
+    "replace": "{ACTOR_NAME} was sealed within {ITEM_NAME}.{WAIT}"
+  },
+  {
+    "ids": [311],
+    "addr": "081257B2",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}立ち去った{WAIT}",
+    "replace": "{ACTOR_NAME} left.{WAIT}"
+  },
+  {
+    "ids": [312, 369],
+    "addr": "08125884",
+    "term": "0301",
+    "original": "しかし{ITEM_NAME}が{n}身代わりになった{WAIT}",
+    "replace": "But {ITEM_NAME} took the blow!{WAIT}"
+  },
+  {
+    "ids": [313],
+    "addr": "0812454E",
+    "term": "0301",
+    "original": "{ACTOR_NAME}が{n}一体増えた{WAIT}",
+    "replace": "{ACTOR_NAME} multiplied.{WAIT}"
+  },
+  {
+    "ids": [315],
+    "addr": "081261C6",
+    "term": "0301",
+    "original": "{PAGE}{RACE_NAME}{DEMON_NAME}がでた！{DEMON_NAME}が{NUMBER}体いる！",
+    "replace": "{PAGE}{RACE_NAME} {DEMON_NAME} appeared!{n}{NUMBER} {DEMON_NAME} in all!"
+  },
+  {
+    "ids": [316],
+    "addr": "081261D4",
+    "term": "0301",
+    "original": "{DEMON_NAME}が{NUMBER}体いる！",
+    "replace": "{NUMBER} {DEMON_NAME} here!"
+  },
+  {
+    "ids": [317],
+    "addr": "081261E4",
+    "term": "0301",
+    "original": "{DEMON_NAME2}が{NUMBER}体いる！",
+    "replace": "{NUMBER} {DEMON_NAME2} here!"
+  },
+  {
+    "ids": [318],
+    "addr": "081261F4",
+    "term": "0301",
+    "original": "{PAGE}{DEMON_NAME}と{n}{DEMON_NAME2}がでた！",
+    "replace": "{DEMON_NAME} and {DEMON_NAME2} appeared!"
+  },
+  {
+    "ids": [319],
+    "addr": "08126208",
+    "term": "0301",
+    "original": "{DEMON_NAME}と{n}{DEMON_NAME2}がいる！",
+    "replace": "{DEMON_NAME} and {DEMON_NAME2} are here!"
+  },
+  {
+    "ids": [320],
+    "addr": "0812621A",
+    "term": "0301",
+    "original": "{DEMON_NAME}が数体",
+    "replace": "Several {DEMON_NAME}."
+  },
+  {
+    "ids": [321],
+    "addr": "08126224",
+    "term": "0301",
+    "original": "どうしますか？",
+    "replace": "What will you do?"
+  },
+  {
+    "ids": [322],
+    "addr": "08126234",
+    "term": "0301",
+    "original": "{DEMON_NAME2}が{NUMBER}体",
+    "replace": "{NUMBER} {DEMON_NAME2}."
+  },
+  {
+    "ids": [323],
+    "addr": "0812623E",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}どうしますか？",
+    "replace": "What will {ACTOR_NAME} do?"
+  },
+  {
+    "ids": [324],
+    "addr": "08126254",
+    "term": "0301",
+    "original": "{PARTY_NAME}は逃げだした・{SLOW}{SLOW}{SLOW}・{SLOW}{SLOW}{SLOW}・{SLOW}{SLOW}{SLOW}・{SLOW}{SLOW}{SLOW}・{SLOW}{SLOW}・{SLOW}{SLOW}・{SLOW}{SLOW}・{SLOW}{SLOW}・{SLOW}{SLOW}・{SLOW}・{SLOW}・{SLOW}・{n}逃げのびた{WAIT}",
+    "replace": "{=1a03} tried to escape.{SLOW}{SLOW}.{SLOW}{SLOW}.{SLOW}{SLOW}.{SLOW}.{SLOW}.{SLOW}{n}.{SLOW}.{SLOW}.{SLOW}and got away!{WAIT}"
+  },
+  {
+    "ids": [325],
+    "addr": "081262BE",
+    "term": "0301",
+    "original": "{PARTY_NAME}は逃げだした・{SLOW}{SLOW}{SLOW}・{SLOW}{SLOW}{SLOW}・{SLOW}{SLOW}{SLOW}・{SLOW}{SLOW}{SLOW}・{SLOW}{SLOW}・{SLOW}{SLOW}・{SLOW}{SLOW}・{SLOW}{SLOW}・{SLOW}{SLOW}・{SLOW}・{SLOW}・{SLOW}・{n}こけた{WAIT}",
+    "replace": "{=1a03} tried to escape.{SLOW}{SLOW}.{SLOW}{SLOW}.{SLOW}{SLOW}.{SLOW}.{SLOW}.{SLOW}{n}.{SLOW}.{SLOW}.{SLOW}but failed!{WAIT}"
+  },
+  {
+    "ids": [326],
+    "addr": "08126324",
+    "term": "0301",
+    "original": "しまった！！{n}うしろが壁で逃げられない{WAIT}",
+    "replace": "Oh no! There's a wall behind you, you can't escape!{WAIT}"
+  },
+  {
+    "ids": [327],
+    "addr": "0812634E",
+    "term": "0301",
+    "original": "{PARTY_NAME}は{n}悪魔に話しかけた{WAIT}",
+    "replace": "{PARTY_NAME} spoke to the demon.{WAIT}"
+  },
+  {
+    "ids": [328],
+    "addr": "08126368",
+    "term": "0301",
+    "original": "みんな一生懸命闘っている",
+    "replace": "Everyone is fighting hard."
+  },
+  {
+    "ids": [329],
+    "addr": "08126382",
+    "term": "0301",
+    "original": "どちらに攻撃しますか？",
+    "replace": "Which will you attack?"
+  },
+  {
+    "ids": [330],
+    "addr": "0812639A",
+    "term": "0301",
+    "original": "これでよろしいですか？",
+    "replace": "Is this all right?"
+  },
+  {
+    "ids": [331],
+    "addr": "081263B2",
+    "term": "0301",
+    "original": "{ACTOR_NAME}の攻撃{WAIT}",
+    "replace": "{ACTOR_NAME} attacks!{WAIT}"
+  },
+  {
+    "ids": [332],
+    "addr": "081263BE",
+    "term": "0301",
+    "original": "しまった！かわされた{WAIT}",
+    "replace": "Damn! They dodged!{WAIT}"
+  },
+  {
+    "ids": [333],
+    "addr": "081263D6",
+    "term": "0301",
+    "original": "やった！{n}{ACTOR_NAME}はかわした{WAIT}",
+    "replace": "All right! {ACTOR_NAME} dodged!{WAIT}"
+  },
+  {
+    "ids": [334],
+    "addr": "081263F0",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{NUMBER}のダメージを受けた{WAIT}",
+    "replace": "{ACTOR_NAME} took {NUMBER} damage!{WAIT}"
+  },
+  {
+    "ids": [335],
+    "addr": "0812640C",
+    "term": "0301",
+    "original": "{ACTOR_NAME}に{n}{NUMBER}のダメージを与えた{WAIT}",
+    "replace": "{ACTOR_NAME} dealt {NUMBER} damage.{WAIT}"
+  },
+  {
+    "ids": [336],
+    "addr": "0812642A",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}魔法をとなえた{SLOW}しかし魔法は封じこまれていた{WAIT}",
+    "replace": "{ACTOR_NAME} cast a spell{SLOW}, but its magic power was sealed!{WAIT}"
+  },
+  {
+    "ids": [337],
+    "addr": "08126460",
+    "term": "0301",
+    "original": "おっとはずしてしまった{WAIT}",
+    "replace": "Oops, missed!{WAIT}"
+  },
+  {
+    "ids": [338],
+    "addr": "0812647A",
+    "term": "0301",
+    "original": "おっと{ACTOR_NAME}は{n}平気だ{WAIT}",
+    "replace": "Oh, {ACTOR_NAME} is OK!{WAIT}"
+  },
+  {
+    "ids": [339],
+    "addr": "08126490",
+    "term": "0301",
+    "original": "ぜんぜん効いていない{WAIT}",
+    "replace": "It doesn't work at all!{WAIT}"
+  },
+  {
+    "ids": [340],
+    "addr": "081264A8",
+    "term": "0301",
+    "original": "{ACTOR_NAME}には効かない{WAIT}",
+    "replace": "It doesn't work on {ACTOR_NAME}!{WAIT}"
+  },
+  {
+    "ids": [342],
+    "addr": "081264CA",
+    "term": "0301",
+    "original": "{ACTOR_NAME}{NUMBER}体を{n}しとめた{WAIT}",
+    "replace": "Defeated {NUMBER} {ACTOR_NAME}.{WAIT}"
+  },
+  {
+    "ids": [343],
+    "addr": "081264E0",
+    "term": "0301",
+    "original": "{RACE_NAME}{DEMON_NAME}を倒した",
+    "replace": "Defeated {RACE_NAME} {DEMON_NAME}!"
+  },
+  {
+    "ids": [344],
+    "addr": "081264EE",
+    "term": "0301",
+    "original": "悪魔を倒した",
+    "replace": "Defeated the demons!"
+  },
+  {
+    "ids": [345],
+    "addr": "081264FC",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{NUMBER}のEXPを得た{WAIT}",
+    "replace": "{ACTOR_NAME} gained {NUMBER} EXP!{WAIT}"
+  },
+  {
+    "ids": [346],
+    "addr": "08126514",
+    "term": "0301",
+    "original": "{NUMBER}のお金を手に入れた{WAIT}",
+    "replace": "Obtained {NUMBER} macca.{WAIT}"
+  },
+  {
+    "ids": [347],
+    "addr": "0812652C",
+    "term": "0301",
+    "original": "{NUMBER}のマグネタイトを得た{WAIT}",
+    "replace": "Obtained {NUMBER} magnetite.{WAIT}"
+  },
+  {
+    "ids": [348],
+    "addr": "08126546",
+    "term": "0301",
+    "original": "{NUMBER}個の魔石を拾った{WAIT}",
+    "replace": "Found {NUMBER} gems!{WAIT}"
+  },
+  {
+    "ids": [349],
+    "addr": "0812655C",
+    "term": "0301",
+    "original": "{NUMBER}個の宝玉を拾った{WAIT}",
+    "replace": "Found {NUMBER} jewels!{WAIT}"
+  },
+  {
+    "ids": [350],
+    "addr": "08126572",
+    "term": "0301",
+    "original": "{ITEM_NAME}を拾った{WAIT}",
+    "replace": "Found {ITEM_NAME}!{WAIT}"
+  },
+  {
+    "ids": [351],
+    "addr": "08126580",
+    "term": "0301",
+    "original": "{ACTOR_NAME}の{n}レベルが上がった！！{WAIT}",
+    "replace": "{ACTOR_NAME}'s level went up!{WAIT}"
+  },
+  {
+    "ids": [352],
+    "addr": "0812659E",
+    "term": "0301",
+    "original": "戦闘状態でそれどころではない{WAIT}",
+    "replace": "You're in battle and can't talk!{WAIT}"
+  },
+  {
+    "ids": [353],
+    "addr": "081265E6",
+    "term": "0301",
+    "original": "話せる状態ではない{WAIT}",
+    "replace": "You're in no condition to talk!{WAIT}"
+  },
+  {
+    "ids": [354],
+    "addr": "081265FC",
+    "term": "0301",
+    "original": "装備していません{WAIT}",
+    "replace": "Not equipped.{WAIT}"
+  },
+  {
+    "ids": [355],
+    "addr": "08126610",
+    "term": "0301",
+    "original": "弾が装備されていません{WAIT}",
+    "replace": "No bullets are equipped.{WAIT}"
+  },
+  {
+    "ids": [356],
+    "addr": "0812662A",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}COMPに戻った{WAIT}",
+    "replace": "{ACTOR_NAME} returned to the COMP.{WAIT}"
+  },
+  {
+    "ids": [357],
+    "addr": "08126644",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}特技をもっていない{WAIT}",
+    "replace": "{ACTOR_NAME} has no skills.{WAIT}"
+  },
+  {
+    "ids": [358],
+    "addr": "08126660",
+    "term": "0301",
+    "original": "{PARTY_NAME}は{n}悪魔の不意をついた{WAIT}",
+    "replace": "{PARTY_NAME} took the demons by surprise!{WAIT}"
+  },
+  {
+    "ids": [359],
+    "addr": "0812667C",
+    "term": "0301",
+    "original": "悪魔が突然襲いかかってきた{WAIT}",
+    "replace": "The demons suddenly attacked!{WAIT}"
+  },
+  {
+    "ids": [360],
+    "addr": "0812669A",
+    "term": "0301",
+    "original": "{ACTOR_NAME}のガンが火を噴いた{WAIT}",
+    "replace": "{ACTOR_NAME}'s gun blazed!{WAIT}"
+  },
+  {
+    "ids": [361],
+    "addr": "081266B2",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}斬りかかった{WAIT}",
+    "replace": "{ACTOR_NAME} slashed!{WAIT}"
+  },
+  {
+    "ids": [362],
+    "addr": "081266C8",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}位置替えをした{WAIT}",
+    "replace": "{ACTOR_NAME} repositioned.{WAIT}"
+  },
+  {
+    "ids": [363],
+    "addr": "081266E0",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}仲魔を呼んだ{WAIT}",
+    "replace": "{ACTOR_NAME} summoned a minion.{WAIT}"
+  },
+  {
+    "ids": [364],
+    "addr": "081266F6",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}仲魔を戻した{WAIT}",
+    "replace": "{ACTOR_NAME} returned their minion.{WAIT}"
+  },
+  {
+    "ids": [365],
+    "addr": "0812670C",
+    "term": "0301",
+    "original": "{PARTY_NAME}は{n}後ろから襲われた{WAIT}",
+    "replace": "{PARTY_NAME} was attacked from behind.{WAIT}"
+  },
+  {
+    "ids": [366],
+    "addr": "08126726",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は跳ね返した{WAIT}",
+    "replace": "{ACTOR_NAME} reflected the attack!{WAIT}"
+  },
+  {
+    "ids": [367],
+    "addr": "08126738",
+    "term": "0301",
+    "original": "しまった跳ね返された{WAIT}",
+    "replace": "Oh no, it was reflected!{WAIT}"
+  },
+  {
+    "ids": [368],
+    "addr": "08126750",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}魔法を覚えた{WAIT}",
+    "replace": "{ACTOR_NAME} learned magic.{WAIT}"
+  },
+  {
+    "ids": [370],
+    "addr": "08126786",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は幸せだ{WAIT}",
+    "replace": "{ACTOR_NAME} is happy!{WAIT}"
+  },
+  {
+    "ids": [371],
+    "addr": "08126794",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は身を守った{WAIT}",
+    "replace": "{ACTOR_NAME} is guarding.{WAIT}"
+  },
+  {
+    "ids": [804],
+    "addr": "081257D6",
+    "term": "0301",
+    "original": "悪魔たちはスライムになった{WAIT}",
+    "replace": "The demons became slimes!{WAIT}"
+  },
+  {
+    "ids": [806],
+    "addr": "08125804",
+    "term": "0301",
+    "original": "{PARTY_NAME}は{n}霞につつまれた{WAIT}",
+    "replace": "{PARTY_NAME} was engulfed in mist!{WAIT}"
+  },
+  {
+    "ids": [809],
+    "addr": "0812584C",
+    "term": "0301",
+    "original": "あたりを見渡すことができた{WAIT}",
+    "replace": "The surrounding area revealed itself.{WAIT}"
+  },
+  {
+    "ids": [810],
+    "addr": "0812586A",
+    "term": "0301",
+    "original": "無し箱から{DEMON_NAME}が出てきた{WAIT}",
+    "replace": "{DEMON_NAME} came out of the box!{WAIT}"
+  },
+  {
+    "ids": [811],
+    "addr": "0812586E",
+    "term": "0301",
+    "original": "箱から{DEMON_NAME}が出てきた{WAIT}",
+    "replace": "{DEMON_NAME} came out of the box!{WAIT}"
+  },
+  {
+    "ids": [812],
+    "addr": "0812517E",
+    "term": "0301",
+    "original": "悪魔たちの{n}カジャの力を消した{WAIT}",
+    "replace": "Dispersed the demons' Kaja power!{WAIT}"
+  },
+  {
+    "ids": [813],
+    "addr": "081251A0",
+    "term": "0301",
+    "original": "{PARTY_NAME}の{n}カジャの力が消された{WAIT}",
+    "replace": "{PARTY_NAME}'s Kaja power was dispersed.{WAIT}"
+  },
+  {
+    "ids": [814],
+    "addr": "081251BE",
+    "term": "0301",
+    "original": "{PARTY_NAME}は{n}失った力を回復した{WAIT}",
+    "replace": "{PARTY_NAME} regained lost power!{WAIT}"
+  },
+  {
+    "ids": [815],
+    "addr": "081251DA",
+    "term": "0301",
+    "original": "悪魔たちは{n}失った力を回復した{WAIT}",
+    "replace": "The demons regained their lost power!{WAIT}"
+  },
+  {
+    "ids": [816],
+    "addr": "081251FC",
+    "term": "0301",
+    "original": "悪魔たちの{n}前に霧をはった{WAIT}",
+    "replace": "Mist formed in front of the demons!{WAIT}"
+  },
+  {
+    "ids": [817],
+    "addr": "0812521A",
+    "term": "0301",
+    "original": "{PARTY_NAME}の{n}前に霧をはった{WAIT}",
+    "replace": "Mist formed in front of {PARTY_NAME}!{WAIT}"
+  },
+  {
+    "ids": [818, 819, 820],
+    "addr": "081258A4",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}にらんだ{WAIT}",
+    "replace": "{ACTOR_NAME} glared!{WAIT}"
+  },
+  {
+    "ids": [821],
+    "addr": "081258B6",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}呪いをかけた{WAIT}",
+    "replace": "{ACTOR_NAME} cast a curse!{WAIT}"
+  },
+  {
+    "ids": [822],
+    "addr": "081258CC",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}踊りだした{WAIT}",
+    "replace": "{ACTOR_NAME} started to dance!{WAIT}"
+  },
+  {
+    "ids": [823],
+    "addr": "081258E0",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}ステップをふんだ{WAIT}",
+    "replace": "{ACTOR_NAME} bust a move!{WAIT}"
+  },
+  {
+    "ids": [824],
+    "addr": "081258FA",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}幸福の歌を歌った{WAIT}",
+    "replace": "{ACTOR_NAME} sang a song of good fortune!{WAIT}"
+  },
+  {
+    "ids": [825],
+    "addr": "08125914",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}子守歌を歌った{WAIT}",
+    "replace": "{ACTOR_NAME} sang a lullaby!{WAIT}"
+  },
+  {
+    "ids": [826, 827],
+    "addr": "0812592C",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}おたけびをあげた{WAIT}",
+    "replace": "{ACTOR_NAME} let out a battle cry!{WAIT}"
+  },
+  {
+    "ids": [828],
+    "addr": "08125946",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}かみついた{WAIT}",
+    "replace": "{ACTOR_NAME} chomped down!{WAIT}"
+  },
+  {
+    "ids": [829],
+    "addr": "0812595A",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}炎をはいた{WAIT}",
+    "replace": "{ACTOR_NAME} breathed fire!{WAIT}"
+  },
+  {
+    "ids": [830],
+    "addr": "0812596E",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}凍える息をはいた{WAIT}",
+    "replace": "{ACTOR_NAME} breathed icy breath!{WAIT}"
+  },
+  {
+    "ids": [831],
+    "addr": "08125988",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}毒ガスをはいた{WAIT}",
+    "replace": "{ACTOR_NAME} breathed poison gas!{WAIT}"
+  },
+  {
+    "ids": [832],
+    "addr": "081259A0",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}電撃を放った{WAIT}",
+    "replace": "{ACTOR_NAME} released a surge of electricity!{WAIT}"
+  },
+  {
+    "ids": [833],
+    "addr": "081259B6",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}氷をふらせた{WAIT}",
+    "replace": "{ACTOR_NAME} fired ice!{WAIT}"
+  },
+  {
+    "ids": [834],
+    "addr": "081259CC",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}息をふきかけた{WAIT}",
+    "replace": "{ACTOR_NAME} blew forcefully!{WAIT}"
+  },
+  {
+    "ids": [835],
+    "addr": "081259E4",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}白く光りはじめた{WAIT}",
+    "replace": "{ACTOR_NAME} started to glow with a white light!{WAIT}"
+  },
+  {
+    "ids": [836],
+    "addr": "081259FE",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}黒く輝き始めた{WAIT}",
+    "replace": "{ACTOR_NAME} shimmered with a black light!{WAIT}"
+  },
+  {
+    "ids": [837, 849],
+    "addr": "08125A16",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}声をはりあげた{WAIT}",
+    "replace": "{ACTOR_NAME}'s voice was raised!{WAIT}"
+  },
+  {
+    "ids": [838, 848],
+    "addr": "08125A2E",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}くちづけをした{WAIT}",
+    "replace": "{ACTOR_NAME} kissed its target!{WAIT}"
+  },
+  {
+    "ids": [839],
+    "addr": "08125A46",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}ほほえんだ{WAIT}",
+    "replace": "{ACTOR_NAME} smiled!{WAIT}"
+  },
+  {
+    "ids": [840, 841, 842],
+    "addr": "08125A5A",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}息をはいた{WAIT}",
+    "replace": "{ACTOR_NAME} inhaled deeply!{WAIT}"
+  },
+  {
+    "ids": [843],
+    "addr": "08125A6E",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}水の壁をはった{WAIT}",
+    "replace": "{ACTOR_NAME} created a wall of water!{WAIT}"
+  },
+  {
+    "ids": [844],
+    "addr": "08125A86",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}炎の壁をはった{WAIT}",
+    "replace": "{ACTOR_NAME} created a wall of fire!{WAIT}"
+  },
+  {
+    "ids": [845],
+    "addr": "08125A9E",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}震えはじめた{WAIT}",
+    "replace": "{ACTOR_NAME} started shaking!{WAIT}"
+  },
+  {
+    "ids": [846],
+    "addr": "08125AB4",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}祈りはじめた{WAIT}",
+    "replace": "{ACTOR_NAME} started praying!{WAIT}"
+  },
+  {
+    "ids": [847],
+    "addr": "08125ACA",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}体をさわった{WAIT}",
+    "replace": "{ACTOR_NAME} touched its target's body!{WAIT}"
+  },
+  {
+    "ids": [850],
+    "addr": "08125AE0",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}両手を合わせた{WAIT}",
+    "replace": "{ACTOR_NAME} wrung its hands together!{WAIT}"
+  },
+  {
+    "ids": [851],
+    "addr": "08125AF8",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}空にむかってさけんだ{WAIT}",
+    "replace": "{ACTOR_NAME} let out a skyward cry!{WAIT}"
+  },
+  {
+    "ids": [852, 857],
+    "addr": "08125B16",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}声をあげた{WAIT}",
+    "replace": "{ACTOR_NAME} let out its voice!{WAIT}"
+  },
+  {
+    "ids": [853],
+    "addr": "08125B2A",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}誰かの名前を呼んだ{WAIT}",
+    "replace": "{ACTOR_NAME} called someone's name!{WAIT}"
+  },
+  {
+    "ids": [854],
+    "addr": "08125B46",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}目から雷を放った{WAIT}",
+    "replace": "{ACTOR_NAME} shot lightning from its eyes!{WAIT}"
+  },
+  {
+    "ids": [855],
+    "addr": "08125B60",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}光を集めた{WAIT}",
+    "replace": "{ACTOR_NAME} gathered light!{WAIT}"
+  },
+  {
+    "ids": [856],
+    "addr": "08125B74",
+    "term": "0301",
+    "original": "サタンは{ACTOR_NAME}を{n}指さした{WAIT}",
+    "replace": "Satan pointed at {ACTOR_NAME}!{WAIT}"
+  },
+  {
+    "ids": [858, 859, 860, 861, 862],
+    "addr": "08125B8E",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}かぶりついた{WAIT}",
+    "replace": "{ACTOR_NAME} bit down on its target!{WAIT}"
+  },
+  {
+    "ids": [863, 864, 865],
+    "addr": "08125BA4",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}ひっかいた{WAIT}",
+    "replace": "{ACTOR_NAME} scratched at its target!{WAIT}"
+  },
+  {
+    "ids": [866, 867],
+    "addr": "08125BB8",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}針を飛ばした{WAIT}",
+    "replace": "{ACTOR_NAME} launched needles!{WAIT}"
+  },
+  {
+    "ids": [868],
+    "addr": "08125BCE",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}身体をまきつけた{WAIT}",
+    "replace": "{ACTOR_NAME} wrapped around its target!{WAIT}"
+  },
+  {
+    "ids": [869],
+    "addr": "08125BE8",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}のどをついた{WAIT}",
+    "replace": "{ACTOR_NAME} went for the throat!{WAIT}"
+  },
+  {
+    "ids": [870],
+    "addr": "08125BFE",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}スイッチをおした{WAIT}",
+    "replace": "{ACTOR_NAME} flipped a switch!{WAIT}"
+  },
+  {
+    "ids": [871],
+    "addr": "08125C18",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}羽根をひろげた{WAIT}",
+    "replace": "{ACTOR_NAME} spread its wings!{WAIT}"
+  },
+  {
+    "ids": [872],
+    "addr": "08125C30",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}拳をふり回してきた{WAIT}",
+    "replace": "{ACTOR_NAME} swung its fists around!{WAIT}"
+  },
+  {
+    "ids": [873, 874],
+    "addr": "08125C4C",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}力をためた{WAIT}",
+    "replace": "{ACTOR_NAME} gathered its strength!{WAIT}"
+  },
+  {
+    "ids": [875],
+    "addr": "08125C60",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}とうめいの液体をはいた{WAIT}",
+    "replace": "{ACTOR_NAME} spewed a clear ooze.{WAIT}"
+  },
+  {
+    "ids": [876],
+    "addr": "08125C80",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}白いけむりをふきだした{WAIT}",
+    "replace": "{ACTOR_NAME} spewed a white smoke!{WAIT}"
+  },
+  {
+    "ids": [877],
+    "addr": "08125CA0",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}羽根をはばたかせた{WAIT}",
+    "replace": "{ACTOR_NAME} flapped its wings!{WAIT}"
+  },
+  {
+    "ids": [878],
+    "addr": "08125CBC",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}無数の針を飛ばした{WAIT}",
+    "replace": "{ACTOR_NAME} launched a hail of needles!{WAIT}"
+  },
+  {
+    "ids": [879],
+    "addr": "08125CD8",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}体当たりした{WAIT}",
+    "replace": "{ACTOR_NAME} threw itself at its target!{WAIT}"
+  },
+  {
+    "ids": [880],
+    "addr": "08125CEE",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}暴れだした{WAIT}",
+    "replace": "{ACTOR_NAME} went on a rampage!{WAIT}"
+  },
+  {
+    "ids": [881],
+    "addr": "08125D02",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}のしかかった{WAIT}",
+    "replace": "{ACTOR_NAME} jumped on its target!{WAIT}"
+  },
+  {
+    "ids": [882],
+    "addr": "08125D18",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}しっぽをふった{WAIT}",
+    "replace": "{ACTOR_NAME} wagged its tail!{WAIT}"
+  },
+  {
+    "ids": [883],
+    "addr": "08125D30",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}かけ声をかけた{WAIT}",
+    "replace": "{ACTOR_NAME} let out a yell!{WAIT}"
+  },
+  {
+    "ids": [884, 885, 886],
+    "addr": "08125D48",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}なぐりかかった{WAIT}",
+    "replace": "{ACTOR_NAME} punched!{WAIT}"
+  },
+  {
+    "ids": [887],
+    "addr": "08125D60",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}衝撃波を撃った{WAIT}",
+    "replace": "{ACTOR_NAME} let out a shockwave!{WAIT}"
+  },
+  {
+    "ids": [888, 889, 890],
+    "addr": "08125D78",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}けりかかった{WAIT}",
+    "replace": "{ACTOR_NAME} kicked!{WAIT}"
+  },
+  {
+    "ids": [891, 892, 893],
+    "addr": "08125D8E",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}銃を撃った{WAIT}",
+    "replace": "{ACTOR_NAME} fired its gun!{WAIT}"
+  },
+  {
+    "ids": [894, 895, 896, 899, 900, 901],
+    "addr": "08125DA2",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}剣をふりかざした{WAIT}",
+    "replace": "{ACTOR_NAME} raised its sword!{WAIT}"
+  },
+  {
+    "ids": [897, 898],
+    "addr": "08125DBC",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}飛びかかった{WAIT}",
+    "replace": "{ACTOR_NAME} flew at its target!{WAIT}"
+  },
+  {
+    "ids": [902],
+    "addr": "08125DD2",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}マグネタイトを食べた{WAIT}",
+    "replace": "{ACTOR_NAME} consumed Magnetite!{WAIT}"
+  },
+  {
+    "ids": [903],
+    "addr": "08125DF0",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}仲間をかばった{WAIT}",
+    "replace": "{ACTOR_NAME} defended its ally!{WAIT}"
+  },
+  {
+    "ids": [904],
+    "addr": "08125E08",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}仲間にくっついた{WAIT}",
+    "replace": "{ACTOR_NAME} clung to an ally!{WAIT}"
+  },
+  {
+    "ids": [905],
+    "addr": "08125E22",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}爆発した{WAIT}",
+    "replace": "{ACTOR_NAME} exploded!{WAIT}"
+  },
+  {
+    "ids": [906],
+    "addr": "08125E34",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}吸いついた{WAIT}",
+    "replace": "{ACTOR_NAME} latched onto its target!{WAIT}"
+  },
+  {
+    "ids": [907],
+    "addr": "08125E48",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}両手で輪をかいた{WAIT}",
+    "replace": "{ACTOR_NAME} made a ring with its arms!{WAIT}"
+  },
+  {
+    "ids": [908],
+    "addr": "08125E62",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}ちょっと休んだ{WAIT}",
+    "replace": "{ACTOR_NAME} rested for a moment!{WAIT}"
+  },
+  {
+    "ids": [909],
+    "addr": "08125E7A",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}つえをふった{WAIT}",
+    "replace": "{ACTOR_NAME} waved its staff!{WAIT}"
+  },
+  {
+    "ids": [910],
+    "addr": "08125E90",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}体を大きくゆらした{WAIT}",
+    "replace": "{ACTOR_NAME} shook violently!{WAIT}"
+  },
+  {
+    "ids": [911],
+    "addr": "08125EAC",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}身がまえた{WAIT}",
+    "replace": "{ACTOR_NAME} assumed a battle stance!{WAIT}"
+  },
+  {
+    "ids": [912],
+    "addr": "08125EC0",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}逃げ出した{WAIT}",
+    "replace": "{ACTOR_NAME} ran away!{WAIT}"
+  },
+  {
+    "ids": [913],
+    "addr": "08125ED4",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}仲間を呼んだ{WAIT}",
+    "replace": "{ACTOR_NAME} called an ally!{WAIT}"
+  },
+  {
+    "ids": [914],
+    "addr": "08124C70",
+    "term": "0301",
+    "original": "アイテムは使用できない{WAIT}",
+    "replace": "Cannot use items.{WAIT}"
+  },
+  {
+    "ids": [915],
+    "addr": "0812490C",
+    "term": "0301",
+    "original": "COMPは　使えません{WAIT}",
+    "replace": "Can't use the COMP.{WAIT}"
+  },
+  {
+    "ids": [916],
+    "addr": "08125EEA",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}倒された{WAIT}",
+    "replace": "{ACTOR_NAME} was defeated!{WAIT}"
+  },
+  {
+    "ids": [917],
+    "addr": "08125EFC",
+    "term": "0301",
+    "original": "{ACTOR_NAME}を{n}倒した{WAIT}",
+    "replace": "Defeated {ACTOR_NAME}!{WAIT}"
+  },
+  {
+    "ids": [918],
+    "addr": "08125F0C",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}アンデッドに　された{WAIT}",
+    "replace": "{ACTOR_NAME} was turned Undead!{WAIT}"
+  },
+  {
+    "ids": [919],
+    "addr": "08125F2A",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}アンデッドにされた{WAIT}",
+    "replace": "{ACTOR_NAME} was turned Undead!{WAIT}"
+  },
+  {
+    "ids": [920],
+    "addr": "08125F46",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}石にされた{WAIT}",
+    "replace": "{ACTOR_NAME} turned to stone!{WAIT}"
+  },
+  {
+    "ids": [921],
+    "addr": "08125F5A",
+    "term": "0301",
+    "original": "{ACTOR_NAME}を{n}石にした{WAIT}",
+    "replace": "Turned {ACTOR_NAME} to stone!{WAIT}"
+  },
+  {
+    "ids": [922],
+    "addr": "08125F6C",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}体が麻痺した{WAIT}",
+    "replace": "{ACTOR_NAME} was paralyzed.{WAIT}"
+  },
+  {
+    "ids": [923],
+    "addr": "08125F82",
+    "term": "0301",
+    "original": "{ACTOR_NAME}を{n}麻痺させた{WAIT}",
+    "replace": "Paralyzed {ACTOR_NAME}.{WAIT}"
+  },
+  {
+    "ids": [924, 925],
+    "addr": "08125F96",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}ハエにかえられた{WAIT}",
+    "replace": "{ACTOR_NAME} was turned into a fly!{WAIT}"
+  },
+  {
+    "ids": [926, 927],
+    "addr": "08125FCA",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}こうもりになった{WAIT}",
+    "replace": "{ACTOR_NAME} was turned into a bat!{WAIT}"
+  },
+  {
+    "ids": [928],
+    "addr": "08125FFE",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}とりこになった{WAIT}",
+    "replace": "{ACTOR_NAME} was enthralled!{WAIT}"
+  },
+  {
+    "ids": [929],
+    "addr": "08126016",
+    "term": "0301",
+    "original": "{ACTOR_NAME}を{n}とりこにした{WAIT}",
+    "replace": "Enthralled {ACTOR_NAME}!{WAIT}"
+  },
+  {
+    "ids": [930],
+    "addr": "0812602C",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}凍りついた{WAIT}",
+    "replace": "{ACTOR_NAME} was frozen!{WAIT}"
+  },
+  {
+    "ids": [931],
+    "addr": "08126040",
+    "term": "0301",
+    "original": "{ACTOR_NAME}を{n}凍りつかせた{WAIT}",
+    "replace": "Froze {ACTOR_NAME}!{WAIT}"
+  },
+  {
+    "ids": [932],
+    "addr": "08126056",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}感電した{WAIT}",
+    "replace": "{ACTOR_NAME} was shocked!{WAIT}"
+  },
+  {
+    "ids": [933],
+    "addr": "08126068",
+    "term": "0301",
+    "original": "{ACTOR_NAME}を{n}感電させた{WAIT}",
+    "replace": "Shocked {ACTOR_NAME}!{WAIT}"
+  },
+  {
+    "ids": [934],
+    "addr": "0812607C",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}眠ってしまった{WAIT}",
+    "replace": "{ACTOR_NAME} fell asleep!{WAIT}"
+  },
+  {
+    "ids": [935],
+    "addr": "08126094",
+    "term": "0301",
+    "original": "{ACTOR_NAME}を{n}眠らせた{WAIT}",
+    "replace": "Put {ACTOR_NAME} to sleep!{WAIT}"
+  },
+  {
+    "ids": [936],
+    "addr": "081260A6",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}金縛りになった{WAIT}",
+    "replace": "{ACTOR_NAME} was bound!{WAIT}"
+  },
+  {
+    "ids": [937],
+    "addr": "081260BE",
+    "term": "0301",
+    "original": "{ACTOR_NAME}を{n}金縛りにした{WAIT}",
+    "replace": "You bound {ACTOR_NAME}!{WAIT}"
+  },
+  {
+    "ids": [938],
+    "addr": "081260D4",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}おかしくなった{WAIT}",
+    "replace": "{ACTOR_NAME} started acting funny!{WAIT}"
+  },
+  {
+    "ids": [939],
+    "addr": "081260EC",
+    "term": "0301",
+    "original": "{ACTOR_NAME}を{n}狂わせた{WAIT}",
+    "replace": "Drove {ACTOR_NAME} mad.{WAIT}"
+  },
+  {
+    "ids": [940],
+    "addr": "081260FE",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}幸せにつつまれた{WAIT}",
+    "replace": "{ACTOR_NAME} was afflicted with bliss!{WAIT}"
+  },
+  {
+    "ids": [941],
+    "addr": "08126118",
+    "term": "0301",
+    "original": "{ACTOR_NAME}を{n}幸せにしてあげた{WAIT}",
+    "replace": "Afflicted {ACTOR_NAME} with bliss!{WAIT}"
+  },
+  {
+    "ids": [942],
+    "addr": "08126132",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}毒におかされた{WAIT}",
+    "replace": "{ACTOR_NAME} was afflicted with poison!{WAIT}"
+  },
+  {
+    "ids": [943],
+    "addr": "0812614A",
+    "term": "0301",
+    "original": "{ACTOR_NAME}を{n}毒で弱らせた{WAIT}",
+    "replace": "Poisoned {ACTOR_NAME}!{WAIT}"
+  },
+  {
+    "ids": [944],
+    "addr": "08126160",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}魔法を封じられた{WAIT}",
+    "replace": "{ACTOR_NAME}'s magic was sealed.{WAIT}"
+  },
+  {
+    "ids": [945],
+    "addr": "0812617A",
+    "term": "0301",
+    "original": "{ACTOR_NAME}の{n}魔法を封じた{WAIT}",
+    "replace": "Sealed {ACTOR_NAME}'s magic!{WAIT}"
+  },
+  {
+    "ids": [946, 947],
+    "addr": "08126190",
+    "term": "0301",
+    "original": "{ACTOR_NAME}は{n}力がぬけていった{WAIT}",
+    "replace": "{ACTOR_NAME}'s power was drained!{WAIT}"
+  }
+]

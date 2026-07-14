@@ -1,0 +1,206 @@
+[
+ {
+  "addr": "0815BE50",
+  "ptrs": [
+   "0815545C"
+  ],
+  "max": 11,
+  "term": "0301",
+  "original": "まず1体目はどれじゃ？",
+  "replace": "Which will be first?"
+ },
+ {
+  "addr": "0815BE68",
+  "ptrs": [
+   "08155478"
+  ],
+  "max": 10,
+  "term": "0301",
+  "original": "2体目はどいつじゃ？",
+  "replace": "And second?"
+ },
+ {
+  "addr": "0815BE7E",
+  "ptrs": [
+   "081554B4"
+  ],
+  "max": 9,
+  "term": "0301",
+  "original": "3体目はだれじゃ？",
+  "replace": "And third?"
+ },
+ {
+  "addr": "0815BE92",
+  "ptrs": [
+   "08155464"
+  ],
+  "max": 9,
+  "term": "0301",
+  "original": "1本目はどれじゃ？",
+  "replace": "Which will be first?"
+ },
+ {
+  "addr": "0815BEA6",
+  "ptrs": [
+   "0815548C"
+  ],
+  "max": 11,
+  "term": "0301",
+  "original": "では2本目はなんじゃ？",
+  "replace": "And the second?"
+ },
+ {
+  "addr": "0815BEBE",
+  "ptrs": [
+   "08155494",
+   "08155508"
+  ],
+  "max": 10,
+  "term": "0301",
+  "original": "では仲魔はだれじゃ？",
+  "replace": "And which demon?"
+ },
+ {
+  "addr": "0815BED4",
+  "ptrs": [
+   "080CE95C"
+  ],
+  "max": 8,
+  "term": "0301",
+  "original": "これでいいかね？",
+  "replace": "Is this correct?"
+ },
+ {
+  "addr": "0815BEFA",
+  "ptrs": [
+   "080CEA30"
+  ],
+  "max": 9,
+  "term": "0301",
+  "original": "では　合体させるぞ",
+  "replace": "Then... let the fusion begin."
+ },
+ {
+  "addr": "0815BF0E",
+  "ptrs": [
+   "080CE8DC"
+  ],
+  "max": 19,
+  "term": "0301",
+  "original": "残念だが…お前のレベルでは{n}あつかえん",
+  "replace": "A pity... At your level,{n}you can't handle this one."
+ },
+ {
+  "addr": "0815BF36",
+  "ptrs": [
+   "080CE9C4"
+  ],
+  "max": 9,
+  "term": "0301",
+  "original": "属性が違うがよいか",
+  "replace": "The alignments differ. Proceed?"
+ },
+ {
+  "addr": "0815BF4A",
+  "ptrs": [
+   "080CE8D0"
+  ],
+  "max": 11,
+  "term": "0301",
+  "original": "同じ仲魔がおるようだな",
+  "replace": "You already seem to have this demon."
+ },
+ {
+  "addr": "0815BF62",
+  "ptrs": [
+   "080CE8FC"
+  ],
+  "max": 12,
+  "term": "0301",
+  "original": "アイテムがいっぱいじゃ…",
+  "replace": "Your inventory is full..."
+ },
+ {
+  "addr": "0815BF7C",
+  "ptrs": [
+   "080CE920"
+  ],
+  "max": 10,
+  "term": "0301",
+  "original": "仲魔がいっぱいじゃ…",
+  "replace": "Your COMP is full..."
+ },
+ {
+  "addr": "0815BB90",
+  "ptrs": [
+   "08157A30"
+  ],
+  "max": 33,
+  "term": "0301",
+  "original": "しまった！　事故が起こった！{n}すまない　予定の悪魔が出来なかった{n}",
+  "replace": "Oh my! There's been an accident!{n}I couldn't fuse the demon you desired.{n}"
+ },
+ {
+  "addr": "0815C0DE",
+  "ptrs": [
+   "080D4938"
+  ],
+  "max": 24,
+  "term": "0301",
+  "original": "還元成功！{n}メモリーチップを　{NUMBER}枚{n}手に入れた{WAIT}",
+  "replace": "Return complete!{n}{NUMBER} Memory Chips{n}obtained.{WAIT}"
+ },
+ {
+  "addr": "0815C110",
+  "ptrs": [
+   "080D4950"
+  ],
+  "max": 22,
+  "term": "0301",
+  "original": "還元失敗！！{n}メモリーチップを失った・・・{WAIT}",
+  "replace": "Return failed!{n}The Memory Chips were lost...{WAIT}"
+ },
+ {
+  "addr": "0815BDFC",
+  "ptrs": [
+   "087F0300"
+  ],
+  "max": 13,
+  "term": "0301",
+  "original": "我は　平将門なるぞ・・・{WAIT}",
+  "replace": "I am Taira no Masakado...{WAIT}"
+ },
+ {
+  "addr": "0815BE18",
+  "ptrs": [
+   "087F0304"
+  ],
+  "max": 27,
+  "term": "0301",
+  "original": "オッオレ……{RACE_NAME}…{DEMON_NAME}{n}オッオレ…なかまよっよろひく……{WAIT}",
+  "replace": "I-I'm... {RACE_NAME} {DEMON_NAME}...{n}Pleased to m-meet you......{WAIT}"
+ },
+ {
+  "addr": "087E1C48",
+  "ptrs": [
+   "087E2628",
+   "087E2728",
+   "087E2AF0",
+   "087E2BF0"
+  ],
+  "max": 15,
+  "term": "0301",
+  "original": "合体させる仲魔がおらんようだな",
+  "replace": "It seems you have no allies to fuse."
+ },
+ {
+  "addr": "0878EF04",
+  "ptrs": [
+   "08133228"
+  ],
+  "max": 4,
+  "term": "0301",
+  "original": "ブレンド",
+  "replace": "Blend"
+ }
+]

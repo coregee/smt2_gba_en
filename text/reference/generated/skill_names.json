@@ -1,0 +1,1392 @@
+[
+ {
+  "category": "Fire",
+  "Japanese": "アギ",
+  "Power": "23",
+  "Effect": "Light fire damage to a single foe.",
+  "Cost": "3 MP",
+  "name": "Agi"
+ },
+ {
+  "category": "Fire",
+  "Japanese": "アギラオ",
+  "Power": "64",
+  "Effect": "Medium fire damage to a single foe.",
+  "Cost": "7 MP",
+  "name": "Agilao"
+ },
+ {
+  "category": "Fire",
+  "Japanese": "マハラギ",
+  "Power": "19",
+  "Effect": "Light fire damage to a group of foes.",
+  "Cost": "5 MP",
+  "name": "Maragi"
+ },
+ {
+  "category": "Fire",
+  "Japanese": "マハラギオン",
+  "Power": "50",
+  "Effect": "Medium fire damage to a group of foes.",
+  "Cost": "9 MP",
+  "name": "Maragion"
+ },
+ {
+  "category": "Ice",
+  "Japanese": "ブフ",
+  "Power": "15",
+  "Effect": "Light ice damage to a single foe.",
+  "Cost": "3 MP",
+  "name": "Bufu"
+ },
+ {
+  "category": "Ice",
+  "Japanese": "ブフーラ",
+  "Power": "40",
+  "Effect": "Medium ice damage to a single foe.",
+  "Cost": "8 MP",
+  "name": "Bufula"
+ },
+ {
+  "category": "Ice",
+  "Japanese": "マハーブフ",
+  "Power": "12",
+  "Effect": "Light ice damage to a group of foes.",
+  "Cost": "6 MP",
+  "name": "Mabufu"
+ },
+ {
+  "category": "Ice",
+  "Japanese": "マハブフーラ",
+  "Power": "32",
+  "Effect": "Medium ice damage to a group of foes.",
+  "Cost": "11 MP",
+  "name": "Mabufula"
+ },
+ {
+  "category": "Elec",
+  "Japanese": "ジオ",
+  "Power": "19",
+  "Effect": "Light electrical damage to a single foe.",
+  "Cost": "4 MP",
+  "name": "Zio"
+ },
+ {
+  "category": "Elec",
+  "Japanese": "ジオンガ",
+  "Power": "55",
+  "Effect": "Medium electrical damage to a single foe.",
+  "Cost": "9 MP",
+  "name": "Zionga"
+ },
+ {
+  "category": "Elec",
+  "Japanese": "マハジオ",
+  "Power": "16",
+  "Effect": "Light electrical damage to a group of foes.",
+  "Cost": "7 MP",
+  "name": "Mazio"
+ },
+ {
+  "category": "Elec",
+  "Japanese": "マハジオンガ",
+  "Power": "41",
+  "Effect": "Medium electrical damage to a group of foes.",
+  "Cost": "12 MP",
+  "name": "Mazionga"
+ },
+ {
+  "category": "Force",
+  "Japanese": "ザン",
+  "Power": "18",
+  "Effect": "Light force damage to a single foe.",
+  "Cost": "2 MP",
+  "name": "Zan"
+ },
+ {
+  "category": "Force",
+  "Japanese": "ザンマ",
+  "Power": "50",
+  "Effect": "Medium force damage to a single foe.",
+  "Cost": "5 MP",
+  "name": "Zanma"
+ },
+ {
+  "category": "Force",
+  "Japanese": "マハザン",
+  "Power": "14",
+  "Effect": "Light force damage to a group of foes.",
+  "Cost": "4 MP",
+  "name": "Mazan"
+ },
+ {
+  "category": "Force",
+  "Japanese": "マハザンマ",
+  "Power": "38",
+  "Effect": "Medium force damage to a group of foes.",
+  "Cost": "7 MP",
+  "name": "Mazanma"
+ },
+ {
+  "category": "Expel",
+  "Japanese": "ハンマ",
+  "Power": "16",
+  "Effect": "Chance of inflicting instant death, two foes.",
+  "Cost": "5 MP",
+  "name": "Hama"
+ },
+ {
+  "category": "Expel",
+  "Japanese": "マハンマ",
+  "Power": "12",
+  "Effect": "Chance to inflicting instant death, all foes.",
+  "Cost": "10 MP",
+  "name": "Mahama"
+ },
+ {
+  "category": "Curse",
+  "Japanese": "ムド",
+  "Power": "16",
+  "Effect": "Chance of inflicting instant death, two foes.",
+  "Cost": "3 MP",
+  "name": "Mudo"
+ },
+ {
+  "category": "Curse",
+  "Japanese": "ムドオン",
+  "Power": "12",
+  "Effect": "Chance of inflicting instant death, 3-5 foes.",
+  "Cost": "9 MP",
+  "name": "Mudoon"
+ },
+ {
+  "category": "Almighty",
+  "Japanese": "メギド",
+  "Power": "70",
+  "Effect": "Medium Almighty damage to all foes.",
+  "Cost": "15 MP",
+  "name": "Megido"
+ },
+ {
+  "category": "Almighty",
+  "Japanese": "メギドラオン",
+  "Power": "100",
+  "Effect": "Heavy Almighty damage to all foes.",
+  "Cost": "30 MP",
+  "name": "Megidolaon"
+ },
+ {
+  "category": "Ailment",
+  "Japanese": "テンタラフー",
+  "Power": "44",
+  "Effect": "Small Nerve damage, inflicts Panic ailment, all foes.",
+  "Cost": "14 MP",
+  "Inheritance": "Nerve 1",
+  "name": "Tentarafoo"
+ },
+ {
+  "category": "Ailment",
+  "Japanese": "ドルミナー",
+  "Power": "20",
+  "Effect": "Inflicts Sleep ailment, 1-3 foes.",
+  "Cost": "3 MP",
+  "Inheritance": "Nerve 2",
+  "name": "Dormina"
+ },
+ {
+  "category": "Ailment",
+  "Japanese": "シバブー",
+  "Power": "28",
+  "Effect": "Inflicts Bind ailment, 1-3 foes.",
+  "Cost": "3 MP",
+  "Inheritance": "Bind 1",
+  "name": "Shibaboo"
+ },
+ {
+  "category": "Ailment",
+  "Japanese": "プリンパ",
+  "Power": "22",
+  "Effect": "Inflicts Panic ailment, 1-3 foes.",
+  "Cost": "2 MP",
+  "Inheritance": "Ailment 1",
+  "name": "Pulinpa"
+ },
+ {
+  "category": "Ailment",
+  "Japanese": "ハピルマ",
+  "Power": "18",
+  "Effect": "Inflicts Happy ailment, 1-3 foes.",
+  "Cost": "2 MP",
+  "Inheritance": "Ailment 2",
+  "name": "Hapilma"
+ },
+ {
+  "category": "Ailment",
+  "Japanese": "マリンカリン",
+  "Power": "24",
+  "Effect": "Inflicts Charm ailment, one foe.",
+  "Cost": "6 MP",
+  "Inheritance": "Ailment 3",
+  "name": "Marin Karin"
+ },
+ {
+  "category": "Ailment",
+  "Japanese": "マカジャマ",
+  "Power": "12",
+  "Effect": "Inflicts Close ailment, 1-3 foes.",
+  "Cost": "4 MP",
+  "Inheritance": "Ailment 4",
+  "name": "Makajam"
+ },
+ {
+  "category": "Healing",
+  "Japanese": "ディア",
+  "Effect": "Recovers a small amount of HP, one ally.",
+  "Cost": "2 MP",
+  "name": "Dia"
+ },
+ {
+  "category": "Healing",
+  "Japanese": "メディア",
+  "Effect": "Recovers a small amount of HP, all allies.",
+  "Cost": "6 MP",
+  "name": "Media"
+ },
+ {
+  "category": "Healing",
+  "Japanese": "ディアラマ",
+  "Effect": "Recovers a large amount of HP, one ally.",
+  "Cost": "4 MP",
+  "name": "Diarama"
+ },
+ {
+  "category": "Healing",
+  "Japanese": "メディラマ",
+  "Effect": "Recovers a large amount of HP, all allies.",
+  "Cost": "10 MP",
+  "name": "Mediarama"
+ },
+ {
+  "category": "Healing",
+  "Japanese": "ディアラハン",
+  "Effect": "Recovers the maximum amount of HP, one ally.",
+  "Cost": "8 MP",
+  "name": "Diarahan"
+ },
+ {
+  "category": "Healing",
+  "Japanese": "メディアラハン",
+  "Effect": "Recovers the maximum amount of HP, all allies.",
+  "Cost": "14 MP",
+  "name": "Mediarahan"
+ },
+ {
+  "category": "Healing",
+  "Japanese": "リカーム",
+  "Effect": "Revives with 1/4 HP, one ally.",
+  "Cost": "12 MP",
+  "name": "Recarm"
+ },
+ {
+  "category": "Healing",
+  "Japanese": "サマリカーム",
+  "Effect": "Revives with full HP, one ally.",
+  "Cost": "24 MP",
+  "name": "Samarecarm"
+ },
+ {
+  "category": "Healing",
+  "Japanese": "リカームドラ",
+  "Effect": "Sacrifices an ally's life to recover full HP, all allies.",
+  "Cost": "8 MP",
+  "name": "Recarmdra"
+ },
+ {
+  "category": "Recovery",
+  "Japanese": "ポズムディ",
+  "Effect": "Removes Poison ailment, one ally.",
+  "Cost": "4 MP",
+  "name": "Posumudi"
+ },
+ {
+  "category": "Recovery",
+  "Japanese": "パララディ",
+  "Effect": "Removes Paralysis ailment, one ally.",
+  "Cost": "6 MP",
+  "name": "Paraladi"
+ },
+ {
+  "category": "Recovery",
+  "Japanese": "ペトラディ",
+  "Effect": "Removes Stone ailment, one ally.",
+  "Cost": "12 MP",
+  "name": "Petradi"
+ },
+ {
+  "category": "Recovery",
+  "Japanese": "パトラ",
+  "Effect": "Removes all abnormal status, one ally.",
+  "Cost": "2 MP",
+  "name": "Patra"
+ },
+ {
+  "category": "Recovery",
+  "Japanese": "ペンパトラ",
+  "Effect": "Removes all abnormal status, all allies.",
+  "Cost": "4 MP",
+  "name": "Penpatra"
+ },
+ {
+  "category": "Buff/Debuff",
+  "Japanese": "タルカジャ",
+  "Effect": "Increases attack, all allies.",
+  "Cost": "4 MP",
+  "name": "Tarukaja"
+ },
+ {
+  "category": "Buff/Debuff",
+  "Japanese": "タルンダ",
+  "Effect": "Decreases attack, all foes.",
+  "Cost": "4 MP",
+  "name": "Tarunda"
+ },
+ {
+  "category": "Buff/Debuff",
+  "Japanese": "ラクカジャ",
+  "Effect": "Increase defense, all allies.",
+  "Cost": "4 MP",
+  "name": "Rakukaja"
+ },
+ {
+  "category": "Buff/Debuff",
+  "Japanese": "ラクンダ",
+  "Effect": "Decreases defense, all foes.",
+  "Cost": "4 MP",
+  "name": "Rakunda"
+ },
+ {
+  "category": "Buff/Debuff",
+  "Japanese": "スクカジャ",
+  "Effect": "Increases hit/evade, all allies.",
+  "Cost": "2 MP",
+  "name": "Sukukaja"
+ },
+ {
+  "category": "Buff/Debuff",
+  "Japanese": "スクンダ",
+  "Effect": "Decreases hit/evade, all foes.",
+  "Cost": "2 MP",
+  "name": "Sukunda"
+ },
+ {
+  "category": "Buff/Debuff",
+  "Japanese": "マカカジャ",
+  "Effect": "Increases magic power, all allies.",
+  "Cost": "4 MP",
+  "name": "Makakaja"
+ },
+ {
+  "category": "Buff/Debuff",
+  "Japanese": "デカジャ",
+  "Effect": "Removes all buffs, all foes.",
+  "Cost": "10 MP",
+  "name": "Dekaja"
+ },
+ {
+  "category": "Buff/Debuff",
+  "Japanese": "リカジャ",
+  "Effect": "Removes all debuffs, all allies.",
+  "Cost": "5 MP",
+  "name": "Rikaja"
+ },
+ {
+  "category": "Buff/Debuff",
+  "Japanese": "テトラジャ",
+  "Effect": "Shields against Expel, Curse, and Energy Drain for one turn, all allies.",
+  "Cost": "5 MP",
+  "name": "Tetraja"
+ },
+ {
+  "category": "Buff/Debuff",
+  "Japanese": "テトラカーン",
+  "Effect": "Shields against Physical attacks for one turn, all allies.",
+  "Cost": "6 MP",
+  "name": "Tetrakarn"
+ },
+ {
+  "category": "Buff/Debuff",
+  "Japanese": "マカラカーン",
+  "Effect": "Shields against Magical attacks for one turn, all allies.",
+  "Cost": "6 MP",
+  "name": "Makarakarn"
+ },
+ {
+  "category": "Buff/Debuff",
+  "Japanese": "テトラ",
+  "Effect": "Seals Skills, all foes.",
+  "Cost": "8 MP",
+  "name": "Tetra"
+ },
+ {
+  "category": "Other",
+  "Japanese": "マッパー",
+  "Effect": "Displays a mini-map on the screen.",
+  "Cost": "2 MP",
+  "name": "Mapper"
+ },
+ {
+  "category": "Other",
+  "Japanese": "トラエスト",
+  "Effect": "Escape to the entrance of the dungeon.",
+  "Cost": "6 MP",
+  "name": "Traesto"
+ },
+ {
+  "category": "Other",
+  "Japanese": "トラポート",
+  "Effect": "Warps to the last save point.",
+  "Cost": "6 MP",
+  "name": "Traport"
+ },
+ {
+  "category": "Other",
+  "Japanese": "トラフーリ",
+  "Effect": "Guaranteed escape from normal battles.",
+  "Cost": "2 MP",
+  "name": "Trafuri"
+ },
+ {
+  "category": "Other",
+  "Japanese": "エストマ",
+  "Effect": "Avoid weak enemy encounters for one full moon cycle.",
+  "Cost": "6 MP",
+  "name": "Estoma"
+ },
+ {
+  "category": "Other",
+  "Japanese": "サバトマ",
+  "Effect": "Demon summons another allied demon.",
+  "Cost": "8 MP",
+  "name": "Sabatoma"
+ },
+ {
+  "category": "Other",
+  "Japanese": "ネクロマ",
+  "Effect": "Revives an ally as undead for one battle.",
+  "Cost": "20 MP",
+  "name": "Necroma"
+ },
+ {
+  "category": "Inheritance",
+  "Skill": "Recarmdora",
+  "name": "1"
+ },
+ {
+  "category": "Inheritance",
+  "Skill": "Samarecarm",
+  "name": "2"
+ },
+ {
+  "category": "Inheritance",
+  "Skill": "Recarm",
+  "name": "3"
+ },
+ {
+  "category": "Inheritance",
+  "Skill": "Petradi",
+  "name": "4"
+ },
+ {
+  "category": "Inheritance",
+  "Skill": "Paraladi",
+  "name": "5"
+ },
+ {
+  "category": "Inheritance",
+  "Skill": "Posumudi",
+  "name": "6"
+ },
+ {
+  "category": "Inheritance",
+  "Skill": "Pen Patra",
+  "name": "7"
+ },
+ {
+  "category": "Inheritance",
+  "Skill": "Patra",
+  "name": "8"
+ },
+ {
+  "category": "Inheritance",
+  "Skill": "Mediarahan",
+  "name": "9"
+ },
+ {
+  "category": "Inheritance",
+  "Skill": "Mediarama",
+  "name": "10"
+ },
+ {
+  "category": "Inheritance",
+  "Skill": "Media",
+  "name": "11"
+ },
+ {
+  "category": "Inheritance",
+  "Skill": "Diarahan",
+  "name": "12"
+ },
+ {
+  "category": "Inheritance",
+  "Skill": "Diarama",
+  "name": "13"
+ },
+ {
+  "category": "Inheritance",
+  "Skill": "Dia",
+  "name": "14"
+ },
+ {
+  "category": "Inheritance",
+  "Skill": "Tetrakarn",
+  "name": "15"
+ },
+ {
+  "category": "Inheritance",
+  "Skill": "Makarakarn",
+  "name": "16"
+ },
+ {
+  "category": "Inheritance",
+  "Skill": "Tetraja",
+  "name": "17"
+ },
+ {
+  "category": "Inheritance",
+  "Skill": "Makakaja",
+  "name": "18"
+ },
+ {
+  "category": "Inheritance",
+  "Skill": "Sukukaja",
+  "name": "19"
+ },
+ {
+  "category": "Inheritance",
+  "Skill": "Rakukaja",
+  "name": "20"
+ },
+ {
+  "category": "Inheritance",
+  "Skill": "Tarukaja",
+  "name": "21"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "回転斬り",
+  "Power": "40",
+  "Effect": "Medium Sword damage to 2-3 foes. Damage increases with user's HP.",
+  "HP Cost": "10%",
+  "name": "Spin Slash"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "ヒートウェイブ",
+  "Power": "50",
+  "Effect": "Medium Sword damage to 2-3 foes. Damage increases with user's HP.",
+  "HP Cost": "10%",
+  "name": "Heat Wave"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "達磨返し",
+  "Power": "100",
+  "Effect": "Heavy Sword damage to one foe.",
+  "HP Cost": "20%",
+  "name": "Dharma Kaeshi"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "ヘルファング",
+  "Power": "100",
+  "Effect": "Heavy Sword damage to one foe.",
+  "HP Cost": "10%",
+  "name": "Hell Fang"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "冥界破",
+  "Power": "80",
+  "Effect": "Heavy Sword damage to 1-3 foes. Damage increases with user's HP",
+  "HP Cost": "20%",
+  "name": "Hades Blast"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "デスバウンド",
+  "Power": "100",
+  "Effect": "Heavy Sword damage to 1-2 foes. Damage increases with user's HP.",
+  "HP Cost": "20%",
+  "name": "Deathbound"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "狙い撃ち",
+  "Power": "10",
+  "Effect": "Light gun attack to one foe.",
+  "HP Cost": "2%",
+  "name": "Aim"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "連射撃ち",
+  "Power": "20",
+  "Effect": "Light gun attack to 2-4 foes.",
+  "HP Cost": "4%",
+  "name": "Autofire"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "散弾撃ち",
+  "Power": "18",
+  "Effect": "Light gun attack to all foes.",
+  "HP Cost": "8%",
+  "name": "Shrapnel"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "噛みつき",
+  "Power": "10",
+  "Effect": "Light Rush damage to one foe.",
+  "HP Cost": "3%",
+  "name": "Feral Bite"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "毒噛みつき",
+  "Power": "10",
+  "Effect": "Light Rush damage to one foe. Inflicts Poison.",
+  "HP Cost": "3%",
+  "name": "Venom Bite"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "麻痺噛みつき",
+  "Power": "20",
+  "Effect": "Light Rush damage to one foe. Inflicts Bind.",
+  "HP Cost": "5%",
+  "name": "Stun Bite"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "石化噛みつき",
+  "Power": "20",
+  "Effect": "Light Rush damage to one foe. Inflicts Stone.",
+  "HP Cost": "5%",
+  "name": "Stone Bite"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "魅惑噛みつき",
+  "Power": "10",
+  "Effect": "Light Rush damage to one foe. Inflicts Charm.",
+  "HP Cost": "3%",
+  "name": "Charm Bite"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "巻きつき",
+  "Power": "12",
+  "Effect": "Light Rush damage to one foe. Inflicts Bind.",
+  "HP Cost": "8%",
+  "name": "Constrict"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "地獄突き",
+  "Power": "12",
+  "Effect": "Light Rush damage to one foe. Inflicts Close.",
+  "HP Cost": "8%",
+  "name": "Hell Thrust"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "なぎ払い",
+  "Power": "5",
+  "Effect": "Light Rush damage to all foes.",
+  "HP Cost": "15%",
+  "name": "Cleave"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "暴れまわり",
+  "Power": "15",
+  "Effect": "Light Rush damage to all foes.",
+  "HP Cost": "15%",
+  "name": "Berserk"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "押し潰し",
+  "Power": "30",
+  "Effect": "Medium Rush damage to one foe.",
+  "HP Cost": "12%",
+  "name": "Squash"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "体当たり",
+  "Power": "50",
+  "Effect": "Medium Rush damage to one foe. Low accuracy.",
+  "HP Cost": "12%",
+  "name": "Tackle"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "ショータイム",
+  "Power": "10",
+  "Effect": "Light Rush damage to one foe and user.",
+  "HP Cost": "5%",
+  "name": "Showtime"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "引っかき",
+  "Power": "15",
+  "Effect": "Light Punch attack to 2 foes.",
+  "HP Cost": "5%",
+  "name": "Feral Claw"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "毒引っかき",
+  "Power": "15",
+  "Effect": "Light Punch attack to 2 foes. Inflicts Poison.",
+  "HP Cost": "5%",
+  "name": "Venom Claw"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "麻痺引っかき",
+  "Power": "15",
+  "Effect": "Light Punch attack to 2 foes. Inflicts Bind.",
+  "HP Cost": "5%",
+  "name": "Stun Claw"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "殴る",
+  "Power": "5",
+  "Effect": "Light Punch attack to one foe.",
+  "HP Cost": "3%",
+  "name": "Punch"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "裏拳",
+  "Power": "10",
+  "Effect": "Medium Punch attack to one foe.",
+  "HP Cost": "6%",
+  "name": "Backfist"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "乱れ打ち",
+  "Power": "10",
+  "Effect": "Light Punch attack to all foes. Inflicts Close.",
+  "HP Cost": "6%",
+  "name": "Iron Punch"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "鉄拳パンチ",
+  "Power": "15",
+  "Effect": "Light Punch attack to 1-3 foes.",
+  "HP Cost": "10%",
+  "name": "Tekken Punch"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "風神撃",
+  "Power": "15",
+  "Effect": "Light Punch attack to one foe. Inflicts freeze.",
+  "HP Cost": "10%",
+  "name": "Fujin Attack"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "雷神撃",
+  "Power": "15",
+  "Effect": "Light Punch attack to one foe. Inflicts shock.",
+  "HP Cost": "10%",
+  "name": "Raijin Attack"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "アカシャアーツ",
+  "Power": "20",
+  "Effect": "Medium Punch attack to all foes.",
+  "HP Cost": "9%",
+  "name": "Akasha Arts"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "菩薩掌",
+  "Power": "100",
+  "Effect": "Heavy Punch attack to one foe. Damage increases with user's HP.",
+  "HP Cost": "10%",
+  "name": "Bodhisattva's Palm"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "蹴り",
+  "Power": "6",
+  "Effect": "Light Kick attack to one foe.",
+  "HP Cost": "4%",
+  "name": "Kick"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "回し蹴り",
+  "Power": "12",
+  "Effect": "Medium Kick attack to one foe.",
+  "HP Cost": "8%",
+  "name": "Roundhouse Kick"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "飛び蹴り",
+  "Power": "20",
+  "Effect": "Medium Kick attack to 1-3 foes.",
+  "HP Cost": "12%",
+  "name": "Jump Kick"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "雷霆蹴り",
+  "Power": "100",
+  "Effect": "Heavy Kick attack to 2 foes. Damage increases with user's HP.",
+  "HP Cost": "20%",
+  "name": "Thunder Kick"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "毒針",
+  "Power": "10",
+  "Effect": "Light Flying attack to one foe. Inflicts Poison.",
+  "HP Cost": "5%",
+  "name": "Toxic Sting"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "麻痺針",
+  "Power": "8",
+  "Effect": "Light Flying attack to one foe. Inflicts Bind.",
+  "HP Cost": "8%",
+  "name": "Stun Needle"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "九十九針",
+  "Power": "8",
+  "Effect": "Light Flying attack to 3-5 foes.",
+  "HP Cost": "10%",
+  "name": "Needle Rush"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "羽ばたき",
+  "Power": "5",
+  "Effect": "Light Flying attack to all foes.",
+  "HP Cost": "10%",
+  "name": "Wing Flap"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "誘惑の霧",
+  "Power": "1",
+  "Effect": "Light Flying attack to all foes. Inflicts Charm.",
+  "HP Cost": "1%",
+  "name": "Fog of Temptation"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "消化液",
+  "Power": "5",
+  "Effect": "Light Flying attack to one foe. Inflicts Poison.",
+  "HP Cost": "5%",
+  "name": "Acid"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "天羽の舞い",
+  "Power": "20",
+  "Effect": "Medium Flying attack to one foe. Inflicts Paralysis.",
+  "HP Cost": "10%",
+  "name": "Amaha Dance"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "スキャニング",
+  "Power": "20",
+  "Effect": "Medium Flying attack to 2 foes. Inflicts Paralysis.",
+  "HP Cost": "8%",
+  "name": "Scan"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "吸い付き",
+  "Power": "10",
+  "Effect": "Inflicts light damage to an enemy, user takes half inflicted damage.",
+  "HP Cost": "5%",
+  "name": "Suck"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "玉砕破",
+  "Power": "15",
+  "Effect": "Damage all enemies. Foes lose MP equal to half the amount of damage taken.",
+  "HP Cost": "8%",
+  "name": "Sacrifice"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "真空投げ",
+  "Power": "15",
+  "Effect": "Damages one foe, with a chance to end combat.",
+  "HP Cost": "10%",
+  "name": "Vacuum Throw"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "山津波",
+  "Power": "60",
+  "Effect": "Heavy damage to all foes.",
+  "HP Cost": "10%",
+  "name": "Landslide"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "自爆",
+  "Power": "-",
+  "Effect": "User Sacrifices self to deal heavy damage to foes.",
+  "HP Cost": "50%",
+  "name": "Self-Destruct"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "身代わり",
+  "Power": "-",
+  "Effect": "User takes all attacks aimed at target.",
+  "HP Cost": "10%",
+  "name": "Scapegoat"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "休む",
+  "Power": "-",
+  "Effect": "Restores HP equivalent to three times the cost for activating this skill.",
+  "HP Cost": "5%",
+  "name": "Rest"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "吸収",
+  "Power": "-",
+  "Effect": "User fuses with one ally, adding HP and MP together. (Enemy only)",
+  "HP Cost": "20%",
+  "name": "Absorption"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "コバラスキマロ",
+  "Power": "-",
+  "Effect": "Cuts the player's Magnetite by half. (Enemy only)",
+  "HP Cost": "-",
+  "name": "Cobra Schemer"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "守る",
+  "Power": "-",
+  "Effect": "User takes half damage for the rest of the turn. (Enemy only)",
+  "HP Cost": "-",
+  "name": "Guard"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "逃げる",
+  "Power": "-",
+  "Effect": "Run away. (Enemy only)",
+  "HP Cost": "-",
+  "name": "Escape"
+ },
+ {
+  "category": "Physical",
+  "Japanese": "仲間を呼ぶ",
+  "Power": "-",
+  "Effect": "Summon allies (Enemy only)",
+  "HP Cost": "-",
+  "name": "Call Ally"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "ファイアブレス",
+  "Power": "60",
+  "Effect": "Medium Fire damage to 1-3 foes.",
+  "MP Cost": "8",
+  "Element": "Fire",
+  "name": "Fire Breath"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "アイスブレス",
+  "Power": "38",
+  "Effect": "Light Ice damage to 1-3 foes.",
+  "MP Cost": "8",
+  "Element": "Ice",
+  "name": "Ice Breath"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "アイスバウンド",
+  "Power": "50",
+  "Effect": "Medium Ice damage to all foes.",
+  "MP Cost": "5",
+  "Element": "Ice",
+  "name": "Ice Bound"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "電撃",
+  "Power": "44",
+  "Effect": "Medium Electrical damage to 1-3 foes.",
+  "MP Cost": "6",
+  "Element": "Elec",
+  "name": "Shock"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "天罰",
+  "Power": "39",
+  "Effect": "Damages all participants in battle - foes lose 1/4 HP, user loses 1/8 HP. Ignores resistances.",
+  "MP Cost": "80",
+  "Element": "Force",
+  "name": "Holy Wrath"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "デスタッチ",
+  "Power": "30",
+  "Effect": "Absorbs the enemy's HP.",
+  "MP Cost": "4",
+  "Element": "Magical",
+  "name": "Deathtouch"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "ハッピーダンス",
+  "Power": "22",
+  "Effect": "Inflicts Happy ailment to all foes.",
+  "MP Cost": "4",
+  "Element": "Magical",
+  "name": "Happy Dance"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "セクシーダンス",
+  "Power": "12",
+  "Effect": "Inflicts Charm ailment to all foes.",
+  "MP Cost": "6",
+  "Element": "Magical",
+  "name": "Sexy Dance"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "愚者の声",
+  "Power": "27",
+  "Effect": "Inflicts Close ailment to all foes.",
+  "MP Cost": "6",
+  "Element": "Magical",
+  "name": "Fool's Voice"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "毒ガスブレス",
+  "Power": "32",
+  "Effect": "Inflicts Poison ailment to 1-2 foes.",
+  "MP Cost": "7",
+  "Element": "Magical",
+  "name": "Poison Breath"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "ポイズンミスト",
+  "Power": "48",
+  "Effect": "Inflicts Poison ailment to all foes.",
+  "MP Cost": "8",
+  "Element": "Magical",
+  "name": "Poison Mist"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "聖なる光",
+  "Power": "70",
+  "Effect": "Inflicts Charm ailment to all foes.",
+  "MP Cost": "6",
+  "Element": "Magical",
+  "name": "Holy Light"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "悪しき輝き",
+  "Power": "80",
+  "Effect": "Inflicts Charm ailment to all foes.",
+  "MP Cost": "6",
+  "Element": "Magical",
+  "name": "Evil Shine"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "バインドボイス",
+  "Power": "9",
+  "Effect": "Inflicts Bind ailment to all foes.",
+  "MP Cost": "8",
+  "Element": "Bind",
+  "name": "Bind Voice"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "パニックボイス",
+  "Power": "10",
+  "Effect": "Inflicts Panic ailment to all foes.",
+  "MP Cost": "2",
+  "Element": "Bind",
+  "name": "Panic Voice"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "怪音波",
+  "Power": "15",
+  "Effect": "Inflicts Panic ailment to all foes.",
+  "MP Cost": "5",
+  "Element": "Bind",
+  "name": "Sonic Wave"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "幸せの歌",
+  "Power": "14",
+  "Effect": "Inflicts Happy ailment to all foes.",
+  "MP Cost": "4",
+  "Element": "Nerve",
+  "name": "Joy Song"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "子守歌",
+  "Power": "23",
+  "Effect": "Inflicts Sleep ailment to all foes.",
+  "MP Cost": "6",
+  "Element": "Nerve",
+  "name": "Lullaby"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "フォッグブレス",
+  "Power": "10",
+  "Effect": "Decreases all foes' evasion sharply. *",
+  "MP Cost": "8",
+  "Element": "Nerve",
+  "name": "Fog Breath"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "パララアイ",
+  "Power": "12",
+  "Effect": "Inflicts Paralysis ailment to one foe.",
+  "MP Cost": "2",
+  "Element": "Curse",
+  "name": "Paral Eyes"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "ペトラアイ",
+  "Power": "10",
+  "Effect": "Inflicts Stone ailment to one foe.",
+  "MP Cost": "4",
+  "Element": "Curse",
+  "name": "Petra Eyes"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "ヘルズアイ",
+  "Power": "12",
+  "Effect": "Instant death to a single foe.",
+  "MP Cost": "8",
+  "Element": "Curse",
+  "name": "Hell's Eye"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "バエルの呪い",
+  "Power": "6",
+  "Effect": "Inflicts Fly ailment to one foe.",
+  "MP Cost": "8",
+  "Element": "Curse",
+  "name": "Bael's Curse"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "吸血",
+  "Power": "10",
+  "Effect": "Inflicts Bat ailment to one foe.",
+  "MP Cost": "7",
+  "Element": "Curse",
+  "name": "Life Drain"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "悪魔のキス",
+  "Power": "20",
+  "Effect": "Energy Drain attack. Lowers the level of humanoid enemies.",
+  "MP Cost": "-",
+  "Element": "Energy Drain",
+  "name": "Devil's Kiss (Male)"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "悪魔のキス",
+  "Power": "22",
+  "Effect": "Energy Drain attack. Lowers the level of humanoid enemies.",
+  "MP Cost": "-",
+  "Element": "Energy Drain",
+  "name": "Devil's Kiss (Female)"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "デビルスマイル",
+  "Power": "18",
+  "Effect": "Energy Drain attack. Lowers the level of humanoid enemies.",
+  "MP Cost": "-",
+  "Element": "Energy Drain",
+  "name": "Devil's Smile"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "パワーブレス",
+  "Power": "-",
+  "Effect": "Raises all allies' attack and evasion. *",
+  "MP Cost": "12",
+  "Element": "Almighty",
+  "name": "Power Breath"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "ダークブレス",
+  "Power": "-",
+  "Effect": "Raises all allies' defense and magic. *",
+  "MP Cost": "12",
+  "Element": "Almighty",
+  "name": "Dark Breath"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "炎の壁",
+  "Power": "-",
+  "Effect": "Nullifies Fire attacks for one turn.",
+  "MP Cost": "4",
+  "Element": "Almighty",
+  "name": "Fire Wall"
+ },
+ {
+  "category": "Magic",
+  "Japanese": "水の壁",
+  "Power": "-",
+  "Effect": "Nullifies Ice attacks for one turn.",
+  "MP Cost": "4",
+  "Element": "Almighty",
+  "name": "Water Wall"
+ },
+ {
+  "category": "Boss Only",
+  "Japanese": "逆回転",
+  "Power": "-",
+  "Effect": "Restart the battle from the beginning. 1/64 chance of failure, killing the caster.",
+  "MP Cost": "5",
+  "Element": "Magical",
+  "name": "Backspin"
+ },
+ {
+  "category": "Boss Only",
+  "Japanese": "遠吠え",
+  "Power": "-",
+  "Effect": "Advances the Moon 8 phases. 1/4 chance of failure.",
+  "MP Cost": "2",
+  "Element": "Magical",
+  "name": "Howl"
+ },
+ {
+  "category": "Boss Only",
+  "Japanese": "破魔の雷光",
+  "Power": "60",
+  "Effect": "Enemy front row loses 1/2 max HP, back row loses 1/4 max HP. Ignores resistances.",
+  "MP Cost": "8",
+  "Element": "Elec",
+  "name": "Violet Flash"
+ },
+ {
+  "category": "Boss Only",
+  "Japanese": "ゴッドボイス（偽）",
+  "Power": "69",
+  "Effect": "Inflicts Bind on the enemy with the lowest Intelligence. Ignores resistances.",
+  "MP Cost": "10",
+  "Element": "Force",
+  "name": "Mouth of God (False)"
+ },
+ {
+  "category": "Boss Only",
+  "Japanese": "ツァバトの声",
+  "Power": "72",
+  "Effect": "Inflicts Bind on the enemy with the lowest Strength. Ignores resistances.",
+  "MP Cost": "6",
+  "Element": "Bind",
+  "name": "Sabaoth's Voice"
+ },
+ {
+  "category": "Boss Only",
+  "Japanese": "シャダイの目",
+  "Power": "76",
+  "Effect": "Inflicts Paralysis on the enemy with the lowest Agility. Ignores resistances.",
+  "MP Cost": "4",
+  "Element": "Elec",
+  "name": "Shaddai's Eye"
+ },
+ {
+  "category": "Boss Only",
+  "Japanese": "エロヒムの光",
+  "Power": "78",
+  "Effect": "Inflicts Stone on the enemy with the lowest Luck. Ignores resistances.",
+  "MP Cost": "3",
+  "Element": "Death",
+  "name": "Elohim's Light"
+ },
+ {
+  "category": "Boss Only",
+  "Japanese": "神の裁き",
+  "Power": "80",
+  "Effect": "Instantly kills the character in position 1. Ignores resistances.",
+  "MP Cost": "15",
+  "Element": "Expel",
+  "name": "God's Judgement"
+ },
+ {
+  "category": "Boss Only",
+  "Japanese": "ゴッドボイス（真）",
+  "Power": "96",
+  "Effect": "Inflicts Death on the enemy with the lowest Intelligence. Ignores resistances.",
+  "MP Cost": "10",
+  "Element": "Force",
+  "name": "Mouth of God (True)"
+ }
+]

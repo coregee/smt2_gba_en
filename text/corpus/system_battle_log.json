@@ -1,0 +1,723 @@
+[
+ {
+  "addr": "08123052",
+  "max": 7,
+  "term": "0000",
+  "original": "は斬りかかった",
+  "replace": null
+ },
+ {
+  "addr": "08123062",
+  "max": 10,
+  "term": "0000",
+  "original": "のガンが{n}火を吹いた",
+  "replace": null
+ },
+ {
+  "addr": "08123078",
+  "max": 6,
+  "term": "0000",
+  "original": "は　を唱えた",
+  "replace": null
+ },
+ {
+  "addr": "08123086",
+  "max": 8,
+  "term": "0000",
+  "original": "おっと　は平気だ",
+  "replace": null
+ },
+ {
+  "addr": "08123098",
+  "max": 7,
+  "term": "0000",
+  "original": "金縛りになった",
+  "replace": "Bound!"
+ },
+ {
+  "addr": "081230A8",
+  "max": 10,
+  "term": "0000",
+  "original": "しまった！かわされた",
+  "replace": "Evaded!"
+ },
+ {
+  "addr": "081230BE",
+  "max": 10,
+  "term": "0000",
+  "original": "やった！{n}はかわした",
+  "replace": "Yes!{n}{=feff} dodged!"
+ },
+ {
+  "addr": "081230D4",
+  "max": 3,
+  "term": "0000",
+  "original": "の攻撃",
+  "replace": null
+ },
+ {
+  "addr": "081230F4",
+  "max": 11,
+  "term": "0000",
+  "original": "に{n}のダメージを与えた",
+  "replace": null
+ },
+ {
+  "addr": "0812310C",
+  "max": 11,
+  "term": "0000",
+  "original": "は{n}のダメージを受けた",
+  "replace": " took{n}{=ffff} damage"
+ },
+ {
+  "addr": "08123124",
+  "max": 6,
+  "term": "0000",
+  "original": "悪魔を倒した",
+  "replace": "Defeated the demons!{n}"
+ },
+ {
+  "addr": "08123132",
+  "max": 6,
+  "term": "0000",
+  "original": "体をしとめた",
+  "replace": null
+ },
+ {
+  "addr": "08123140",
+  "max": 4,
+  "term": "0000",
+  "original": "を倒した",
+  "replace": null
+ },
+ {
+  "addr": "0812314A",
+  "max": 10,
+  "term": "0000",
+  "original": "のマッカを手に入れた",
+  "replace": null
+ },
+ {
+  "addr": "08123160",
+  "max": 7,
+  "term": "0000",
+  "original": "のEXPを得た",
+  "replace": null
+ },
+ {
+  "addr": "08123170",
+  "max": 9,
+  "term": "0000",
+  "original": "のレベルが上がった",
+  "replace": null
+ },
+ {
+  "addr": "08123184",
+  "max": 18,
+  "term": "0000",
+  "original": "達は逃げ出した・・・・・・・・・・・",
+  "replace": null
+ },
+ {
+  "addr": "081231AA",
+  "max": 6,
+  "term": "0000",
+  "original": "・逃げのびた",
+  "replace": null
+ },
+ {
+  "addr": "081231B8",
+  "max": 4,
+  "term": "0000",
+  "original": "・こけた",
+  "replace": null
+ },
+ {
+  "addr": "081231C2",
+  "max": 8,
+  "term": "0000",
+  "original": "戦闘を開始します",
+  "replace": "Begin the battle."
+ },
+ {
+  "addr": "081231D4",
+  "max": 8,
+  "term": "0000",
+  "original": "悪魔と会話します",
+  "replace": "Talk to the demons."
+ },
+ {
+  "addr": "081231E6",
+  "max": 10,
+  "term": "0000",
+  "original": "戦闘から逃げ出します",
+  "replace": "Flee from the battle."
+ },
+ {
+  "addr": "081231FC",
+  "max": 12,
+  "term": "0000",
+  "original": "オートバトルを開始します",
+  "replace": "Begin auto-battle."
+ },
+ {
+  "addr": "08123216",
+  "max": 7,
+  "term": "0000",
+  "original": "剣で攻撃します",
+  "replace": "Attack with your sword."
+ },
+ {
+  "addr": "08123226",
+  "max": 7,
+  "term": "0000",
+  "original": "銃で攻撃します",
+  "replace": "Attack with your gun."
+ },
+ {
+  "addr": "08123236",
+  "max": 8,
+  "term": "0000",
+  "original": "魔法を使用します",
+  "replace": "Use magic."
+ },
+ {
+  "addr": "08123248",
+  "max": 10,
+  "term": "0000",
+  "original": "アイテムを使用します",
+  "replace": "Use an item."
+ },
+ {
+  "addr": "0812325E",
+  "max": 5,
+  "term": "0000",
+  "original": "防御します",
+  "replace": "Guard"
+ },
+ {
+  "addr": "08123278",
+  "max": 10,
+  "term": "0000",
+  "original": "仲魔を1体召喚します",
+  "replace": "Summon a demon."
+ },
+ {
+  "addr": "0812328E",
+  "max": 15,
+  "term": "0000",
+  "original": "今までに倒した悪魔を分析します",
+  "replace": "Analyze the demons you have defeated so far."
+ },
+ {
+  "addr": "081232C2",
+  "max": 8,
+  "term": "0000",
+  "original": "通常攻撃をします",
+  "replace": "Use a normal attack."
+ },
+ {
+  "addr": "081232D4",
+  "max": 8,
+  "term": "0000",
+  "original": "特殊攻撃をします",
+  "replace": "Use a special attack."
+ },
+ {
+  "addr": "081232E6",
+  "max": 13,
+  "term": "0000",
+  "original": "仲魔がCOMP内に戻ります",
+  "replace": "The demon returns to the COMP."
+ },
+ {
+  "addr": "08123302",
+  "max": 7,
+  "term": "0000",
+  "original": "NO　DATA",
+  "replace": "NO DATA"
+ },
+ {
+  "addr": "08123312",
+  "max": 15,
+  "term": "0000",
+  "original": "攻撃エフェクトの設定を行います",
+  "replace": "Attack effect settings"
+ },
+ {
+  "addr": "08123332",
+  "max": 17,
+  "term": "0000",
+  "original": "戦闘メッセージスピードを設定します",
+  "replace": "Set the battle message speed"
+ },
+ {
+  "addr": "08123356",
+  "max": 14,
+  "term": "0000",
+  "original": "オートバトルの設定を行います",
+  "replace": "Auto-battle settings"
+ },
+ {
+  "addr": "0812338E",
+  "max": 13,
+  "term": "0000",
+  "original": "攻撃エフェクトを表示します",
+  "replace": "Show attack effects"
+ },
+ {
+  "addr": "081233AA",
+  "max": 19,
+  "term": "0000",
+  "original": "攻撃エフェクトの表示を{n}OFFにします",
+  "replace": "Turn attack effect{n}display off"
+ },
+ {
+  "addr": "081233F4",
+  "max": 17,
+  "term": "0000",
+  "original": "通常の速度でメッセージを表示します",
+  "replace": "Display messages at{n}normal speed"
+ },
+ {
+  "addr": "08123418",
+  "max": 21,
+  "term": "0000",
+  "original": "文字ウェイトなしで{n}メッセージを表示します",
+  "replace": "Display messages with{n}no text delay"
+ },
+ {
+  "addr": "0812345E",
+  "max": 23,
+  "term": "0000",
+  "original": "剣・銃・通常攻撃のみ{n}前回の行動を繰り返します",
+  "replace": "Repeat the last action{n}(sword/gun/attack only)"
+ },
+ {
+  "addr": "0812348E",
+  "max": 35,
+  "term": "0000",
+  "original": "前回の行動を繰り返します{n}アイテムやMPがなくなると{n}通常攻撃をします",
+  "replace": "Repeat the last action;{n}attack when out of items/MP"
+ },
+ {
+  "addr": "081234D6",
+  "max": 32,
+  "term": "0000",
+  "original": "前回の行動を繰り返します{n}アイテムやMPがなくなると{n}防御します",
+  "replace": "Repeat the last action;{n}defend when out of items/MP"
+ },
+ {
+  "addr": "08123518",
+  "max": 14,
+  "term": "0000",
+  "original": "使えるアイテムは持っていない",
+  "replace": null
+ },
+ {
+  "addr": "08123536",
+  "max": 12,
+  "term": "0000",
+  "original": "みんな一生懸命戦っている",
+  "replace": null
+ },
+ {
+  "addr": "08123550",
+  "max": 17,
+  "term": "0000",
+  "original": "リョウあああああ達悪魔に話しかけた",
+  "replace": null
+ },
+ {
+  "addr": "08123574",
+  "max": 13,
+  "term": "0000",
+  "original": "悪魔が突然襲いかかってきた",
+  "replace": null
+ },
+ {
+  "addr": "08123590",
+  "max": 2,
+  "term": "0000",
+  "original": "神霊",
+  "replace": null
+ },
+ {
+  "addr": "08123596",
+  "max": 3,
+  "term": "0000",
+  "original": "大天使",
+  "replace": null
+ },
+ {
+  "addr": "0812359E",
+  "max": 3,
+  "term": "0000",
+  "original": "天津神",
+  "replace": null
+ },
+ {
+  "addr": "081235A6",
+  "max": 2,
+  "term": "0000",
+  "original": "霊鳥",
+  "replace": null
+ },
+ {
+  "addr": "081235AC",
+  "max": 2,
+  "term": "0000",
+  "original": "女神",
+  "replace": null
+ },
+ {
+  "addr": "081235B2",
+  "max": 2,
+  "term": "0000",
+  "original": "魔神",
+  "replace": null
+ },
+ {
+  "addr": "081235B8",
+  "max": 2,
+  "term": "0000",
+  "original": "神獣",
+  "replace": null
+ },
+ {
+  "addr": "081235BE",
+  "max": 2,
+  "term": "0000",
+  "original": "聖獣",
+  "replace": null
+ },
+ {
+  "addr": "081235C4",
+  "max": 2,
+  "term": "0000",
+  "original": "精霊",
+  "replace": null
+ },
+ {
+  "addr": "081235CA",
+  "max": 3,
+  "term": "0000",
+  "original": "破壊神",
+  "replace": null
+ },
+ {
+  "addr": "081235D2",
+  "max": 2,
+  "term": "0000",
+  "original": "竜神",
+  "replace": null
+ },
+ {
+  "addr": "081235D8",
+  "max": 3,
+  "term": "0000",
+  "original": "地母神",
+  "replace": null
+ },
+ {
+  "addr": "081235E0",
+  "max": 3,
+  "term": "0000",
+  "original": "国津神",
+  "replace": null
+ },
+ {
+  "addr": "081235E8",
+  "max": 2,
+  "term": "0000",
+  "original": "天使",
+  "replace": null
+ },
+ {
+  "addr": "081235EE",
+  "max": 2,
+  "term": "0000",
+  "original": "妖鳥",
+  "replace": null
+ },
+ {
+  "addr": "081235F4",
+  "max": 3,
+  "term": "0000",
+  "original": "メシア",
+  "replace": null
+ },
+ {
+  "addr": "081235FC",
+  "max": 2,
+  "term": "0000",
+  "original": "竜王",
+  "replace": null
+ },
+ {
+  "addr": "08123602",
+  "max": 2,
+  "term": "0000",
+  "original": "妖魔",
+  "replace": null
+ },
+ {
+  "addr": "08123608",
+  "max": 2,
+  "term": "0000",
+  "original": "魔獣",
+  "replace": null
+ },
+ {
+  "addr": "0812360E",
+  "max": 2,
+  "term": "0000",
+  "original": "夜魔",
+  "replace": null
+ },
+ {
+  "addr": "08123614",
+  "max": 2,
+  "term": "0000",
+  "original": "地霊",
+  "replace": null
+ },
+ {
+  "addr": "0812361A",
+  "max": 2,
+  "term": "0000",
+  "original": "妖精",
+  "replace": null
+ },
+ {
+  "addr": "08123620",
+  "max": 5,
+  "term": "0000",
+  "original": "デモノイド",
+  "replace": null
+ },
+ {
+  "addr": "0812362C",
+  "max": 3,
+  "term": "0000",
+  "original": "堕天使",
+  "replace": null
+ },
+ {
+  "addr": "08123634",
+  "max": 2,
+  "term": "0000",
+  "original": "妖鬼",
+  "replace": null
+ },
+ {
+  "addr": "0812363A",
+  "max": 2,
+  "term": "0000",
+  "original": "鬼女",
+  "replace": null
+ },
+ {
+  "addr": "08123640",
+  "max": 3,
+  "term": "0000",
+  "original": "ガイア",
+  "replace": null
+ },
+ {
+  "addr": "08123648",
+  "max": 2,
+  "term": "0000",
+  "original": "邪神",
+  "replace": null
+ },
+ {
+  "addr": "0812364E",
+  "max": 2,
+  "term": "0000",
+  "original": "兇鳥",
+  "replace": null
+ },
+ {
+  "addr": "08123654",
+  "max": 3,
+  "term": "0000",
+  "original": "マシン",
+  "replace": null
+ },
+ {
+  "addr": "0812365C",
+  "max": 4,
+  "term": "0000",
+  "original": "ワクチン",
+  "replace": null
+ },
+ {
+  "addr": "08123666",
+  "max": 2,
+  "term": "0000",
+  "original": "邪鬼",
+  "replace": null
+ },
+ {
+  "addr": "0812366C",
+  "max": 2,
+  "term": "0000",
+  "original": "妖獣",
+  "replace": null
+ },
+ {
+  "addr": "08123672",
+  "max": 2,
+  "term": "0000",
+  "original": "妖樹",
+  "replace": null
+ },
+ {
+  "addr": "08123678",
+  "max": 2,
+  "term": "0000",
+  "original": "屍鬼",
+  "replace": null
+ },
+ {
+  "addr": "0812367E",
+  "max": 2,
+  "term": "0000",
+  "original": "魔王",
+  "replace": null
+ },
+ {
+  "addr": "08123684",
+  "max": 2,
+  "term": "0000",
+  "original": "邪竜",
+  "replace": null
+ },
+ {
+  "addr": "0812368A",
+  "max": 2,
+  "term": "0000",
+  "original": "幽鬼",
+  "replace": null
+ },
+ {
+  "addr": "08123690",
+  "max": 2,
+  "term": "0000",
+  "original": "悪霊",
+  "replace": null
+ },
+ {
+  "addr": "08123696",
+  "max": 2,
+  "term": "0000",
+  "original": "外道",
+  "replace": null
+ },
+ {
+  "addr": "0812369C",
+  "max": 4,
+  "term": "0000",
+  "original": "ウィルス",
+  "replace": null
+ },
+ {
+  "addr": "081236A6",
+  "max": 2,
+  "term": "0000",
+  "original": "戦士",
+  "replace": null
+ },
+ {
+  "addr": "081236AC",
+  "max": 2,
+  "term": "0000",
+  "original": "神将",
+  "replace": null
+ },
+ {
+  "addr": "081236B2",
+  "max": 2,
+  "term": "0000",
+  "original": "魔人",
+  "replace": null
+ },
+ {
+  "addr": "081243D4",
+  "max": 12,
+  "term": "0301",
+  "original": "駄目だ　話にならない！{WAIT}",
+  "replace": "Hopeless!{WAIT}"
+ },
+ {
+  "addr": "081244CE",
+  "max": 17,
+  "term": "0301",
+  "original": "×移動元のアイテムを選んで下さい{WAIT}",
+  "replace": "Move which item?{WAIT}"
+ },
+ {
+  "addr": "081244F2",
+  "max": 16,
+  "term": "0301",
+  "original": "移動先のアイテムを選んで下さい{WAIT}",
+  "replace": "Move it where?{WAIT}"
+ },
+ {
+  "addr": "08124534",
+  "max": 12,
+  "term": "0301",
+  "original": "しかし　効果は無かった{WAIT}",
+  "replace": "No effect.{WAIT}"
+ },
+ {
+  "addr": "08124570",
+  "max": 16,
+  "term": "0301",
+  "original": "どのEXTRAを使用しますか？{WAIT}",
+  "replace": "Which EXTRA?{WAIT}"
+ },
+ {
+  "addr": "08124592",
+  "max": 16,
+  "term": "0301",
+  "original": "しかし　魔法は封じこまれている{WAIT}",
+  "replace": "Magic is sealed{WAIT}"
+ },
+ {
+  "addr": "08124BF4",
+  "max": 21,
+  "term": "0301",
+  "original": "並び替えられる{n}アイテムは持っていません{WAIT}",
+  "replace": "Nothing to{n}rearrange{WAIT}"
+ },
+ {
+  "addr": "08124C20",
+  "max": 11,
+  "term": "0301",
+  "original": "アイテムがありません{WAIT}",
+  "replace": "No items!{WAIT}"
+ },
+ {
+  "addr": "08124C38",
+  "max": 19,
+  "term": "0301",
+  "original": "捨てられる{n}アイテムは持っていません{WAIT}",
+  "replace": "Nothing to{n}discard{WAIT}"
+ },
+ {
+  "addr": "08124F82",
+  "max": 12,
+  "term": "0301",
+  "original": "ここでは使用できません{WAIT}",
+  "replace": "Not here!{WAIT}"
+ },
+ {
+  "addr": "081265BE",
+  "max": 19,
+  "term": "0301",
+  "original": "戦闘状態で{n}それどころではありません{WAIT}",
+  "replace": "No time for that!{WAIT}"
+ }
+]

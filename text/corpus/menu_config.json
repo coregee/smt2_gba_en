@@ -1,0 +1,37 @@
+[
+ {
+  "addr": "0812326A",
+  "term": "0000",
+  "original": "COMP作動",
+  "replace": "Activate COMP",
+  "sentinel": true
+ },
+ {
+  "addr": "081232AE",
+  "term": "0000",
+  "original": "戦闘設定を行います",
+  "replace": "Battle settings",
+  "sentinel": true
+ },
+ {
+  "addr": "08123374",
+  "term": "0000",
+  "original": "エフェクト設定を行います",
+  "replace": "Effect settings",
+  "sentinel": true
+ },
+ {
+  "addr": "081233D2",
+  "term": "0000",
+  "original": "メッセージスピード設定を行います",
+  "replace": "Message speed",
+  "sentinel": true
+ },
+ {
+  "addr": "08123444",
+  "term": "0000",
+  "original": "オート戦闘設定を行います",
+  "replace": "Auto-battle settings",
+  "sentinel": true
+ }
+]

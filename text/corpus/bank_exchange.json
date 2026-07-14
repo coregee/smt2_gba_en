@@ -1,0 +1,62 @@
+[
+ {
+  "ptrs": [
+   "08589CA8"
+  ],
+  "addrs": [
+   "0800975E"
+  ],
+  "max": 16,
+  "term": "0301",
+  "original": "EXCHANGE＞ћ{n}「マッカ」",
+  "replace": "EXCHANGE＞ћ{n} \"Macca\""
+ },
+ {
+  "ptrs": [
+   "08589CAC"
+  ],
+  "addrs": [
+   "08009780"
+  ],
+  "max": 19,
+  "term": "0301",
+  "original": "EXCHANGE＞M{n}「マグネタイト」",
+  "replace": "EXCHANGE＞M{n} \"Magnetite\""
+ },
+ {
+  "ptrs": [
+   "08589CB0"
+  ],
+  "addrs": [
+   "080097A8"
+  ],
+  "max": 17,
+  "term": "0301",
+  "original": "EXCHANGE＞I{n}「アイテム」",
+  "replace": "EXCHANGE＞I{n} \"Item\""
+ },
+ {
+  "ptrs": [
+   "08589CB4"
+  ],
+  "addrs": [
+   "080097CC"
+  ],
+  "max": 15,
+  "term": "0301",
+  "original": "EXCHANGE＞D{n}「悪魔」",
+  "replace": "EXCHANGE＞I{n} \"Demon\""
+ },
+ {
+  "ptrs": [
+   "08589CB8"
+  ],
+  "addrs": [
+   "080097EC"
+  ],
+  "max": 15,
+  "term": "0301",
+  "original": "EXCHANGE＞T{n}「交換」",
+  "replace": "EXCHANGE＞T{n} \"Trade\""
+ }
+]

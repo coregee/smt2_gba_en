@@ -1,0 +1,578 @@
+[
+ {
+  "kind": "label",
+  "y": 28,
+  "slots": [
+   [
+    "080CC478",
+    164
+   ],
+   [
+    "080CC480",
+    176
+   ]
+  ],
+  "original": "攻撃",
+  "replace": "Attack",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 41,
+  "slots": [
+   [
+    "080CC484",
+    164
+   ],
+   [
+    "080CC488",
+    176
+   ]
+  ],
+  "original": "命中",
+  "replace": "Accuracy",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 54,
+  "slots": [
+   [
+    "080CC48C",
+    164
+   ],
+   [
+    "080CC490",
+    176
+   ]
+  ],
+  "original": "防御",
+  "replace": "Defense",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 67,
+  "slots": [
+   [
+    "080CC494",
+    164
+   ],
+   [
+    "080CC498",
+    176
+   ]
+  ],
+  "original": "回避",
+  "replace": "Evasion",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 80,
+  "slots": [
+   [
+    "080CC49C",
+    164
+   ]
+  ],
+  "original": "魔",
+  "replace": "Mag",
+  "note": "Shared 'ma' kanji for multiple rows.",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 80,
+  "slots": [
+   [
+    "080CC4A0",
+    176
+   ]
+  ],
+  "original": "法",
+  "replace": " ",
+  "note": "Shared 'ho' kanji for multiple rows; we blank it.",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 80,
+  "slots": [
+   [
+    "080CC4A4",
+    188
+   ]
+  ],
+  "original": "威",
+  "replace": "Pwr",
+  "note": "Magic power suffix.",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 80,
+  "slots": [
+   [
+    "080CC4A8",
+    200
+   ]
+  ],
+  "original": "力",
+  "replace": " ",
+  "note": "Magic power suffix; 2nd char blanked.",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 93,
+  "slots": [
+   [
+    "080CC4AC",
+    188
+   ]
+  ],
+  "original": "効",
+  "replace": "Efc",
+  "note": "Magic effect suffix.",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 93,
+  "slots": [
+   [
+    "080CC4B0",
+    200
+   ]
+  ],
+  "original": "果",
+  "replace": " ",
+  "note": "Magic effect suffix; 2nd char blanked.",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 138,
+  "slots": [
+   [
+    "080CC828",
+    7
+   ]
+  ],
+  "original": "力",
+  "replace": "St",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 138,
+  "slots": [
+   [
+    "080CC830",
+    86
+   ]
+  ],
+  "original": "知",
+  "replace": "In",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 138,
+  "slots": [
+   [
+    "080CC834",
+    160
+   ]
+  ],
+  "original": "魔",
+  "replace": "Ma",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 152,
+  "slots": [
+   [
+    "080CC838",
+    7
+   ]
+  ],
+  "original": "体",
+  "replace": "Vi",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 152,
+  "slots": [
+   [
+    "080CC83C",
+    84
+   ]
+  ],
+  "original": "速",
+  "replace": "Ag",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 152,
+  "slots": [
+   [
+    "080CC840",
+    161
+   ]
+  ],
+  "original": "運",
+  "replace": "Lu",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 28,
+  "slots": [
+   [
+    "080CBC54",
+    178
+   ],
+   [
+    "080CBC5C",
+    190
+   ]
+  ],
+  "original": "攻撃",
+  "replace": "Atk",
+  "note": "Weapon attack label; shortened for display.",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 41,
+  "slots": [
+   [
+    "080CBC60",
+    178
+   ],
+   [
+    "080CBC64",
+    190
+   ]
+  ],
+  "original": "命中",
+  "replace": "Acc",
+  "note": "Weapon accuracy label; shortened for display.",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 80,
+  "slots": [
+   [
+    "080CBC68",
+    164
+   ],
+   [
+    "080CBC6C",
+    176
+   ]
+  ],
+  "original": "防御",
+  "replace": "Defense",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 93,
+  "slots": [
+   [
+    "080CBC70",
+    164
+   ],
+   [
+    "080CBC74",
+    176
+   ]
+  ],
+  "original": "回避",
+  "replace": "Evasion",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 106,
+  "slots": [
+   [
+    "080CBC78",
+    176
+   ]
+  ],
+  "original": "法",
+  "replace": " ",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 106,
+  "slots": [
+   [
+    "080CBC7C",
+    188
+   ]
+  ],
+  "original": "威",
+  "replace": "Pwr",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 106,
+  "slots": [
+   [
+    "080CBC80",
+    200
+   ]
+  ],
+  "original": "力",
+  "replace": " ",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 119,
+  "slots": [
+   [
+    "080CBC84",
+    188
+   ]
+  ],
+  "original": "効",
+  "replace": "Efc",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 119,
+  "slots": [
+   [
+    "080CBC88",
+    200
+   ]
+  ],
+  "original": "果",
+  "replace": " ",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 139,
+  "slots": [
+   [
+    "080CCBB0",
+    9
+   ],
+   [
+    "080CCBB8",
+    21
+   ]
+  ],
+  "original": "攻撃",
+  "replace": "Atk",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 152,
+  "slots": [
+   [
+    "080CCBBC",
+    9
+   ],
+   [
+    "080CCBC0",
+    21
+   ]
+  ],
+  "original": "命中",
+  "replace": "Acc",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 139,
+  "slots": [
+   [
+    "080CCBC4",
+    97
+   ],
+   [
+    "080CCBC8",
+    109
+   ]
+  ],
+  "original": "回数",
+  "replace": "",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 152,
+  "slots": [
+   [
+    "080CCBCC",
+    73
+   ],
+   [
+    "080CCBD0",
+    85
+   ],
+   [
+    "080CCBD4",
+    97
+   ],
+   [
+    "080CCBD8",
+    109
+   ]
+  ],
+  "original": "追加効果",
+  "replace": "Effect",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 152,
+  "slots": [
+   [
+    "080CCC40",
+    73
+   ],
+   [
+    "080CCC44",
+    85
+   ],
+   [
+    "080CCC48",
+    97
+   ],
+   [
+    "080CCC4C",
+    109
+   ]
+  ],
+  "original": "追加効果",
+  "replace": "Effect",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 139,
+  "slots": [
+   [
+    "080CCC50",
+    178
+   ],
+   [
+    "080CCC58",
+    190
+   ]
+  ],
+  "original": "属性",
+  "replace": "Use",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 139,
+  "slots": [
+   [
+    "080CCD2C",
+    9
+   ],
+   [
+    "080CCD34",
+    21
+   ]
+  ],
+  "original": "防御",
+  "replace": "Def",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 152,
+  "slots": [
+   [
+    "080CCD38",
+    9
+   ],
+   [
+    "080CCD3C",
+    21
+   ]
+  ],
+  "original": "回避",
+  "replace": "Eva",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 139,
+  "slots": [
+   [
+    "080CCD40",
+    73
+   ],
+   [
+    "080CCD44",
+    85
+   ]
+  ],
+  "original": "相性",
+  "replace": "Type",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 152,
+  "slots": [
+   [
+    "080CCD48",
+    73
+   ],
+   [
+    "080CCD4C",
+    85
+   ],
+   [
+    "080CCD50",
+    97
+   ],
+   [
+    "080CCD54",
+    109
+   ]
+  ],
+  "original": "追加効果",
+  "replace": "Effect",
+  "term": ""
+ },
+ {
+  "kind": "label",
+  "y": 139,
+  "slots": [
+   [
+    "080CCD58",
+    179
+   ],
+   [
+    "080CCD44",
+    190
+   ]
+  ],
+  "original": "属性",
+  "replace": "Use",
+  "term": ""
+ }
+]

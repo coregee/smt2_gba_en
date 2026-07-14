@@ -1,0 +1,527 @@
+[
+  {
+    "role": "prompt",
+    "style": "plain",
+    "addr": "081236BC",
+    "original": "[name]はどうしますか",
+    "replace": "What will [name] do?",
+    "term": ""
+  },
+  {
+    "role": "gun_fire",
+    "style": "plain",
+    "addr": "081236DE",
+    "original": "[name]のガンが{n}火を吹いた",
+    "replace": "[name]'s gun spat fire.",
+    "term": ""
+  },
+  {
+    "role": "attack",
+    "style": "plain",
+    "addr": "081236F4",
+    "original": "[name]の攻撃",
+    "replace": "[name] attacks.",
+    "term": ""
+  },
+  {
+    "role": "item_used",
+    "style": "wedge",
+    "addr": "081236FC",
+    "original": "[name]は[item]を使った",
+    "replace": "[name] used [item].",
+    "term": ""
+  },
+  {
+    "role": "skill_cast",
+    "style": "wedge",
+    "addr": "08123708",
+    "original": "[name]は[skill]を唱えた",
+    "replace": "[name] cast [skill].",
+    "term": ""
+  },
+  {
+    "role": "summoned",
+    "style": "plain",
+    "addr": "08123714",
+    "original": "[name]を呼び出した",
+    "replace": "Summoned [name].",
+    "term": ""
+  },
+  {
+    "role": "protected",
+    "style": "plain",
+    "addr": "08123722",
+    "original": "[name]は身を守った",
+    "replace": "[name] protected itself.",
+    "term": ""
+  },
+  {
+    "role": "returned_comp",
+    "style": "plain",
+    "addr": "08123730",
+    "original": "[name]を{n}COMPに戻した",
+    "replace": "[name] returned to the COMP.",
+    "term": ""
+  },
+  {
+    "role": "eyes_glowed",
+    "style": "plain",
+    "addr": "08123746",
+    "original": "[name]の目が光った",
+    "replace": "[name]'s eyes glowed.",
+    "term": ""
+  },
+  {
+    "role": "glared",
+    "style": "plain",
+    "addr": "08123754",
+    "original": "[name]はにらみを効かせた",
+    "replace": "[name] glared menacingly.",
+    "term": ""
+  },
+  {
+    "role": "death_spell",
+    "style": "plain",
+    "addr": "08123768",
+    "original": "[name]は死への呪文を唱えた",
+    "replace": "[name] cast a deadly spell.",
+    "term": ""
+  },
+  {
+    "role": "spell_cast",
+    "style": "plain",
+    "addr": "0812377E",
+    "original": "[name]は呪文を唱えた",
+    "replace": "[name] cast a spell.",
+    "term": ""
+  },
+  {
+    "role": "bael_curse",
+    "style": "plain",
+    "addr": "0812378E",
+    "original": "[name]はパエルの呪いをかけた",
+    "replace": "[name] cast Bael's curse.",
+    "term": ""
+  },
+  {
+    "role": "danced_seduce",
+    "style": "plain",
+    "addr": "081237A6",
+    "original": "[name]は悩ましく踊った",
+    "replace": "[name] danced seductively.",
+    "term": ""
+  },
+  {
+    "role": "took_step",
+    "style": "plain",
+    "addr": "081237B8",
+    "original": "[name]はステップを踏んだ",
+    "replace": "[name] bust a move.",
+    "term": ""
+  },
+  {
+    "role": "danced_gently",
+    "style": "plain",
+    "addr": "081237CC",
+    "original": "[name]は優しく踊った",
+    "replace": "[name] danced gently.",
+    "term": ""
+  },
+  {
+    "role": "lullaby",
+    "style": "plain",
+    "addr": "081237DC",
+    "original": "[name]は子守り歌を歌った",
+    "replace": "[name] sang a lullaby.",
+    "term": ""
+  },
+  {
+    "role": "muttered",
+    "style": "plain",
+    "addr": "081237F0",
+    "original": "[name]は何やらつぶやいた",
+    "replace": "[name] muttered something.",
+    "term": ""
+  },
+  {
+    "addr": "08123804",
+    "original": "[name]は<1200>り声をあげた",
+    "replace": "[name] let out a roar.",
+    "term": ""
+  },
+  {
+    "addr": "08123816",
+    "original": "[name]は甘い□づけをした",
+    "replace": "[name] gave a sweet kiss.",
+    "term": ""
+  },
+  {
+    "addr": "0812382A",
+    "original": "[name]はニヤリと笑った",
+    "replace": "[name] grinned.",
+    "term": ""
+  },
+  {
+    "addr": "0812383C",
+    "original": "[name]は炎を吐いた",
+    "replace": "[name] breathed fire.",
+    "term": ""
+  },
+  {
+    "addr": "0812384A",
+    "original": "[name]は冷気を吹きかけた",
+    "replace": "[name] breathed icy air.",
+    "term": ""
+  },
+  {
+    "addr": "0812385E",
+    "original": "[name]は毒ガスを吹いた",
+    "replace": "[name] spewed poison gas.",
+    "term": ""
+  },
+  {
+    "addr": "08123870",
+    "original": "[name]は霧を吐いた",
+    "replace": "[name] breathed mist.",
+    "term": ""
+  },
+  {
+    "addr": "0812387E",
+    "original": "[name]は炎を飛ばした",
+    "replace": "[name] hurled flame.",
+    "term": ""
+  },
+  {
+    "addr": "0812388E",
+    "original": "[name]の電撃が走った",
+    "replace": "[name]'s lightning struck.",
+    "term": ""
+  },
+  {
+    "addr": "0812389E",
+    "original": "[name]の冷たい手がふれた",
+    "replace": "[name]'s cold hand reached out.",
+    "term": ""
+  },
+  {
+    "addr": "081238B2",
+    "original": "[name]は水の壁をはった",
+    "replace": "[name] raised a wall of water.",
+    "term": ""
+  },
+  {
+    "addr": "081238C4",
+    "original": "[name]は炎の壁をはった",
+    "replace": "[name] raised a wall of fire.",
+    "term": ""
+  },
+  {
+    "addr": "081238D6",
+    "original": "[name]の噛み付き攻撃",
+    "replace": "[name] bit down.",
+    "term": ""
+  },
+  {
+    "addr": "081238E6",
+    "original": "[name]は優しく微笑んだ",
+    "replace": "[name] smiled gently.",
+    "term": ""
+  },
+  {
+    "addr": "081238F8",
+    "original": "[name]の引っかき攻撃",
+    "replace": "[name] scratched with its claws.",
+    "term": ""
+  },
+  {
+    "addr": "08123908",
+    "original": "[name]は毒針を飛ばした",
+    "replace": "[name] flung poison needles.",
+    "term": ""
+  },
+  {
+    "addr": "0812391A",
+    "original": "[name]は羽ばたいた",
+    "replace": "[name] flapped its wings.",
+    "term": ""
+  },
+  {
+    "addr": "08123928",
+    "original": "[name]はたくさんの針を飛ばした",
+    "replace": "[name] flung countless needles.",
+    "term": ""
+  },
+  {
+    "addr": "08123942",
+    "original": "[name]は体当たりをくらわした",
+    "replace": "[name] slammed their body down.",
+    "term": ""
+  },
+  {
+    "addr": "0812395A",
+    "original": "[name]は体を巻きつけた",
+    "replace": "[name] wrapped around its target.",
+    "term": ""
+  },
+  {
+    "addr": "0812396C",
+    "original": "[name]は暴れた",
+    "replace": "[name] went berserk.",
+    "term": ""
+  },
+  {
+    "addr": "08123976",
+    "original": "[name]は体をぶつけた",
+    "replace": "[name] tackled its target.",
+    "term": ""
+  },
+  {
+    "addr": "08123986",
+    "original": "[name]の必殺攻撃",
+    "replace": "[name]'s deadly blow!",
+    "term": ""
+  },
+  {
+    "addr": "08123992",
+    "original": "[name]が尻尾をふった",
+    "replace": "[name] swung its tail.",
+    "term": ""
+  },
+  {
+    "addr": "081239A2",
+    "original": "[name]の会心攻撃",
+    "replace": "[name]'s critical hit!",
+    "term": ""
+  },
+  {
+    "addr": "081239AE",
+    "original": "[name]は突然爆発した",
+    "replace": "[name] suddenly exploded.",
+    "term": ""
+  },
+  {
+    "addr": "081239BE",
+    "original": "[name]は身構えた",
+    "replace": "[name] braced itself.",
+    "term": ""
+  },
+  {
+    "addr": "081239CA",
+    "original": "[name]は身をまもった",
+    "replace": "[name] defended.",
+    "term": ""
+  },
+  {
+    "addr": "081239DA",
+    "original": "[name]はそそくさと逃げ出した",
+    "replace": "[name] hastily fled.",
+    "term": ""
+  },
+  {
+    "addr": "081239F2",
+    "original": "[name]は仲間に声をかけた",
+    "replace": "[name] called for allies.",
+    "term": ""
+  },
+  {
+    "addr": "08123A06",
+    "original": "[name]は呪い殺された",
+    "replace": "[name] succumbed to the curse.",
+    "term": ""
+  },
+  {
+    "addr": "08123A16",
+    "original": "[name]を呪い殺した",
+    "replace": "Cursed [name] to death.",
+    "term": ""
+  },
+  {
+    "addr": "08123A24",
+    "original": "[name]は石にされた",
+    "replace": "[name] was petrified.",
+    "term": ""
+  },
+  {
+    "addr": "08123A32",
+    "original": "[name]を石にした",
+    "replace": "Petrified [name].",
+    "term": ""
+  },
+  {
+    "addr": "08123A3E",
+    "original": "[name]は体が麻痺した",
+    "replace": "[name]'s body was paralyzed.",
+    "term": ""
+  },
+  {
+    "addr": "08123A4E",
+    "original": "[name]を麻痺させた",
+    "replace": "Paralyzed [name].",
+    "term": ""
+  },
+  {
+    "addr": "08123A5C",
+    "original": "[name]は毒に犯された",
+    "replace": "[name] was poisoned.",
+    "term": ""
+  },
+  {
+    "addr": "08123A6C",
+    "original": "[name]を毒で弱らせた",
+    "replace": "Poisoned [name].",
+    "term": ""
+  },
+  {
+    "addr": "08123A7C",
+    "original": "[name]<1200>はハエに変えられた",
+    "replace": "[name] was turned into a fly.",
+    "term": ""
+  },
+  {
+    "addr": "08123A7E",
+    "standalone": true,
+    "original": "[name]はハエに変えられた",
+    "replace": "Turned [name] into a fly.",
+    "term": ""
+  },
+  {
+    "addr": "08123052",
+    "standalone": true,
+    "original": "[name]は斬りかかった",
+    "replace": "[name] slashed.",
+    "term": ""
+  },
+  {
+    "addr": "08123A92",
+    "original": "[name]は蛙に変えられた",
+    "replace": "[name] was turned into a frog.",
+    "term": ""
+  },
+  {
+    "addr": "08123AA4",
+    "original": "[name]",
+    "replace": "[name]",
+    "term": ""
+  },
+  {
+    "addr": "08123AA6",
+    "original": "[name]は呪われた",
+    "replace": "[name] was cursed.",
+    "term": ""
+  },
+  {
+    "addr": "08123AB2",
+    "original": "[name]は虜にされた",
+    "replace": "[name] was charmed.",
+    "term": ""
+  },
+  {
+    "addr": "08123AC0",
+    "original": "[name]を虜にした",
+    "replace": "Charmed [name].",
+    "term": ""
+  },
+  {
+    "addr": "08123ACC",
+    "original": "[name]は眠ってしまった",
+    "replace": "[name] fell asleep.",
+    "term": ""
+  },
+  {
+    "addr": "08123ADE",
+    "original": "[name]を眠らせた",
+    "replace": "Put [name] to sleep.",
+    "term": ""
+  },
+  {
+    "addr": "08123AEA",
+    "original": "[name]は金縛りになった",
+    "replace": "[name] was bound.",
+    "term": ""
+  },
+  {
+    "addr": "08123AFC",
+    "original": "[name]を金縛りにした",
+    "replace": "Bound [name].",
+    "term": ""
+  },
+  {
+    "addr": "08123B0C",
+    "original": "[name]は凍りついた",
+    "replace": "[name] froze solid.",
+    "term": ""
+  },
+  {
+    "addr": "08123B1A",
+    "original": "[name]を凍りつかせた",
+    "replace": "Froze [name] solid.",
+    "term": ""
+  },
+  {
+    "addr": "08123B2A",
+    "original": "[name]は感電した",
+    "replace": "[name] was shocked.",
+    "term": ""
+  },
+  {
+    "addr": "08123B36",
+    "original": "[name]を感電させた",
+    "replace": "Shocked [name].",
+    "term": ""
+  },
+  {
+    "addr": "08123B44",
+    "original": "[name]は魔法を封じられた",
+    "replace": "[name]'s magic was sealed.",
+    "term": ""
+  },
+  {
+    "addr": "08123B58",
+    "original": "[name]の魔法を封じた",
+    "replace": "Sealed [name]'s magic.",
+    "term": ""
+  },
+  {
+    "addr": "08123B68",
+    "original": "[name]はちょっとおかしくなった",
+    "replace": "[name] went slightly mad.",
+    "term": ""
+  },
+  {
+    "addr": "08123B82",
+    "original": "[name]を狂わせた",
+    "replace": "Drove [name] mad.",
+    "term": ""
+  },
+  {
+    "addr": "08123B8E",
+    "original": "[name]は幸せにつつまれた",
+    "replace": "[name] was overcome with bliss.",
+    "term": ""
+  },
+  {
+    "addr": "08123BA2",
+    "original": "[name]を幸せにしてあげた",
+    "replace": "Inflicted [name] with bliss.",
+    "term": ""
+  },
+  {
+    "addr": "08123BB6",
+    "original": "[name]は倒された",
+    "replace": "[name] was defeated.",
+    "term": ""
+  },
+  {
+    "addr": "08123BC2",
+    "original": "[name]を倒した",
+    "replace": "Defeated [name].",
+    "term": ""
+  },
+  {
+    "addr": "08123BCC",
+    "role": "damage_dealt",
+    "original": "[name]に{n}[damage]のダメージを与えた",
+    "replace": "[name] took [damage] damage.",
+    "term": ""
+  }
+]

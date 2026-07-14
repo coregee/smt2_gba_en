@@ -1,0 +1,156 @@
+[
+ {
+  "addr": "084F1DDC",
+  "ptrs": [
+   "084F2734"
+  ],
+  "max": 18,
+  "term": "0301",
+  "original": "セーブするファイルを選択してください",
+  "replace": "Choose a file to save to"
+ },
+ {
+  "addr": "084F1E02",
+  "ptrs": [
+   "084F2258"
+  ],
+  "max": 18,
+  "term": "0301",
+  "original": "ロードするファイルを選択してください",
+  "replace": "Choose a file to load"
+ },
+ {
+  "addr": "084F1E28",
+  "ptrs": [
+   "084F263C"
+  ],
+  "max": 10,
+  "term": "0301",
+  "original": "セーブが終了しました",
+  "replace": "Save complete"
+ },
+ {
+  "addr": "084F1E3E",
+  "ptrs": [],
+  "max": 52,
+  "term": "0301",
+  "original": "それでは電源を切っておやすみください{n}おやすみのあいだ{n}悪魔に肉体を乗っ取られぬよう{n}お気をつけて・・・",
+  "replace": "Power off and rest…{n}Don't let demons{n}take your body…"
+ },
+ {
+  "addr": "084F1EA8",
+  "ptrs": [
+   "084F27B8"
+  ],
+  "max": 50,
+  "term": "0301",
+  "original": "このファイルには<075E>にデータがあります{n}上書きすると以前のデータは{n}消えてしまいます{n}よろしいですか？",
+  "replace": "This file already has data{n}Overwriting will erase it{n}Are you sure?"
+ },
+ {
+  "addr": "084F1F0E",
+  "ptrs": [],
+  "max": 7,
+  "term": "0301",
+  "original": "中断しますか？",
+  "replace": "Power off and rest…{n}Don't let demons{n}take your body…"
+ },
+ {
+  "addr": "084F1F20",
+  "ptrs": [],
+  "max": 45,
+  "term": "0301",
+  "original": "に中断データがあります{n}上書きすると以前の中断データは{n}消えてしまいます{n}よろしいですか？",
+  "replace": "Power off and rest…{n}Don't let demons{n}take your body…"
+ },
+ {
+  "addr": "084F1F7C",
+  "ptrs": [
+   "080D0A54"
+  ],
+  "max": 21,
+  "term": "0301",
+  "original": "ファイル1をロードします{n}よろしいですか？",
+  "replace": "Load File 1?{n}Are you sure?"
+ },
+ {
+  "addr": "084F1FA8",
+  "ptrs": [
+   "080D0A5C"
+  ],
+  "max": 21,
+  "term": "0301",
+  "original": "ファイル2をロードします{n}よろしいですか？",
+  "replace": "Load File 2?{n}Are you sure?"
+ },
+ {
+  "addr": "084F1FD4",
+  "ptrs": [
+   "080D0A70"
+  ],
+  "max": 21,
+  "term": "0301",
+  "original": "ファイル3をロードします{n}よろしいですか？",
+  "replace": "Load File 3?{n}Are you sure?"
+ },
+ {
+  "addr": "084F2000",
+  "ptrs": [
+   "084F2408"
+  ],
+  "max": 26,
+  "term": "0301",
+  "original": "再開すると中断データは消去されます{n}よろしいですか？",
+  "replace": "Resuming erases the suspend{n}data. Are you sure?"
+ },
+ {
+  "addr": "084F2036",
+  "ptrs": [],
+  "max": 10,
+  "term": "0301",
+  "original": "ゲームを続けますか？",
+  "replace": "Power off and rest…{n}Don't let demons{n}take your body…"
+ },
+ {
+  "addr": "084F204C",
+  "ptrs": [
+   "084F2548"
+  ],
+  "max": 10,
+  "term": "0301",
+  "original": "中断セーブしますか？",
+  "replace": "Make a suspend save?"
+ },
+ {
+  "addr": "084F2062",
+  "ptrs": [
+   "084F2688",
+   "084F28BC"
+  ],
+  "max": 10,
+  "term": "0301",
+  "original": "セーブに失敗しました",
+  "replace": "Save failed"
+ },
+ {
+  "addr": "084F2078",
+  "ptrs": [
+   "084F236C",
+   "084F24B8"
+  ],
+  "max": 10,
+  "term": "0301",
+  "original": "ロードに失敗しました",
+  "replace": "Load failed"
+ },
+ {
+  "addr": "084F208E",
+  "ptrs": [
+   "084F2868"
+  ],
+  "max": 10,
+  "term": "0301",
+  "original": "セーブが終了しました",
+  "replace": "Save complete"
+ }
+]

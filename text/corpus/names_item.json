@@ -1,0 +1,1951 @@
+[
+ {
+  "id": 208,
+  "name": {
+   "addr": "0819A8C0",
+   "max": 7,
+   "term": "0000",
+   "original": "マハジオストー",
+   "replace": "Mazio Stone",
+   "item_table": true,
+   "id": 208
+  },
+  "desc": {
+   "ptr": "0819A8D0",
+   "addr": "08003580",
+   "term": "0301",
+   "original": "マハジオの力を持つ秘石",
+   "replace": "A mysterious stone with the power of Mazio."
+  }
+ },
+ {
+  "id": 209,
+  "name": {
+   "addr": "0819A8E0",
+   "max": 7,
+   "term": "0000",
+   "original": "マハブフストー",
+   "replace": "Mabufu Stone",
+   "item_table": true,
+   "id": 209
+  },
+  "desc": {
+   "ptr": "0819A8F0",
+   "addr": "08003598",
+   "term": "0301",
+   "original": "マハーブフの力を持つ秘石",
+   "replace": "A mysterious stone with the power of Mabufu."
+  }
+ },
+ {
+  "id": 210,
+  "name": {
+   "addr": "0819A900",
+   "max": 7,
+   "term": "0000",
+   "original": "マハラギストー",
+   "replace": "Maragi Stone",
+   "item_table": true,
+   "id": 210
+  },
+  "desc": {
+   "ptr": "0819A910",
+   "addr": "080035B2",
+   "term": "0301",
+   "original": "マハラギの力を持つ秘石",
+   "replace": "A mysterious stone with the power of Maragi."
+  }
+ },
+ {
+  "id": 211,
+  "name": {
+   "addr": "0819A920",
+   "max": 7,
+   "term": "0000",
+   "original": "スパイラルボム",
+   "replace": "Spiral Bomb",
+   "item_table": true,
+   "id": 211
+  },
+  "desc": {
+   "ptr": "0819A930",
+   "addr": "080035CA",
+   "term": "0301",
+   "original": "敵数体を{n}SLEEP状態にする",
+   "replace": "Inflicts Sleep on several foes."
+  }
+ },
+ {
+  "id": 212,
+  "name": {
+   "addr": "0819A940",
+   "max": 7,
+   "term": "0000",
+   "original": "パンチガン",
+   "replace": "Punch Gun",
+   "item_table": true,
+   "id": 212
+  },
+  "desc": {
+   "ptr": "0819A950",
+   "addr": "080035EA",
+   "term": "0301",
+   "original": "敵1体を弾き飛ばし{n}戦闘から強制離脱させる",
+   "replace": "Blasts one foe away, removing it from battle."
+  }
+ },
+ {
+  "id": 213,
+  "name": {
+   "addr": "0819A960",
+   "max": 7,
+   "term": "0000",
+   "original": "蟲毒皿",
+   "replace": "Kodoku Serving",
+   "item_table": true,
+   "id": 213
+  },
+  "desc": {
+   "ptr": "0819A970",
+   "addr": "08003616",
+   "term": "0301",
+   "original": "敵2体を呪殺する",
+   "replace": "Kills two foes with curse."
+  }
+ },
+ {
+  "id": 214,
+  "name": {
+   "addr": "0819A980",
+   "max": 7,
+   "term": "0000",
+   "original": "施餓鬼米",
+   "replace": "Segaki Rice",
+   "item_table": true,
+   "id": 214
+  },
+  "desc": {
+   "ptr": "0819A990",
+   "addr": "08003628",
+   "term": "0301",
+   "original": "破魔の力で{n}敵2体を昇天させる",
+   "replace": "Kills two foes with light."
+  }
+ },
+ {
+  "id": 215,
+  "name": {
+   "addr": "0819A9A0",
+   "max": 7,
+   "term": "0000",
+   "original": "秘孔針",
+   "replace": "Deadly Needle",
+   "item_table": true,
+   "id": 215
+  },
+  "desc": {
+   "ptr": "0819A9B0",
+   "addr": "08003648",
+   "term": "0301",
+   "original": "敵数体を呪殺する",
+   "replace": "Kills several foes with curse."
+  }
+ },
+ {
+  "id": 216,
+  "name": {
+   "addr": "0819A9C0",
+   "max": 7,
+   "term": "0000",
+   "original": "破魔矢",
+   "replace": "Expel Arrow",
+   "item_table": true,
+   "id": 216
+  },
+  "desc": {
+   "ptr": "0819A9D0",
+   "addr": "0800365A",
+   "term": "0301",
+   "original": "敵全体に万能属性の{n}ダメージを与える",
+   "replace": "Deals Almighty damage to all foes."
+  }
+ },
+ {
+  "id": 217,
+  "name": {
+   "addr": "0819A9E0",
+   "max": 7,
+   "term": "0000",
+   "original": "毒矢",
+   "replace": "Poison Arrow",
+   "item_table": true,
+   "id": 217
+  },
+  "desc": {
+   "ptr": "0819A9F0",
+   "addr": "08003680",
+   "term": "0301",
+   "original": "敵全体を{n}POISON状態にする",
+   "replace": "Inflicts Poison on all foes."
+  }
+ },
+ {
+  "id": 218,
+  "name": {
+   "addr": "0819AA00",
+   "max": 7,
+   "term": "0000",
+   "original": "傷薬",
+   "replace": "Medicine",
+   "item_table": true,
+   "id": 218
+  },
+  "desc": {
+   "ptr": "0819AA10",
+   "addr": "080036A2",
+   "term": "0301",
+   "original": "味方1人のHPを{n}少し回復する",
+   "replace": "Recovers a small amount of HP for one ally."
+  }
+ },
+ {
+  "id": 219,
+  "name": {
+   "addr": "0819AA20",
+   "max": 7,
+   "term": "0000",
+   "original": "宝玉",
+   "replace": "Bead",
+   "item_table": true,
+   "id": 219
+  },
+  "desc": {
+   "ptr": "0819AA30",
+   "addr": "080036C2",
+   "term": "0301",
+   "original": "味方1人のHPを{n}完全に回復する",
+   "replace": "Fully recovers HP for one ally."
+  }
+ },
+ {
+  "id": 220,
+  "name": {
+   "addr": "0819AA40",
+   "max": 7,
+   "term": "0000",
+   "original": "ディストーン",
+   "replace": "Dis-Stone",
+   "item_table": true,
+   "id": 220
+  },
+  "desc": {
+   "ptr": "0819AA50",
+   "addr": "080036E4",
+   "term": "0301",
+   "original": "味方1人の{n}STONE状態を{n}回復する",
+   "replace": "Recovers Stone status for one ally."
+  }
+ },
+ {
+  "id": 221,
+  "name": {
+   "addr": "0819AA60",
+   "max": 7,
+   "term": "0000",
+   "original": "ディスパライズ",
+   "replace": "Dis-Stun",
+   "item_table": true,
+   "id": 221
+  },
+  "desc": {
+   "ptr": "0819AA70",
+   "addr": "0800370C",
+   "term": "0301",
+   "original": "味方1人の{n}PALYZE状態を{n}回復する",
+   "replace": "Recovers Paralyze status for one ally."
+  }
+ },
+ {
+  "id": 222,
+  "name": {
+   "addr": "0819AA80",
+   "max": 7,
+   "term": "0000",
+   "original": "ディスポイズン",
+   "replace": "Dis-Poison",
+   "item_table": true,
+   "id": 222
+  },
+  "desc": {
+   "ptr": "0819AA90",
+   "addr": "08003736",
+   "term": "0301",
+   "original": "味方1人の{n}POISON状態を{n}回復する",
+   "replace": "Recovers Poison status for one ally."
+  }
+ },
+ {
+  "id": 223,
+  "name": {
+   "addr": "0819AAA0",
+   "max": 7,
+   "term": "0000",
+   "original": "地返しの玉",
+   "replace": "Revival Bead",
+   "item_table": true,
+   "id": 223
+  },
+  "desc": {
+   "ptr": "0819AAB0",
+   "addr": "08003760",
+   "term": "0301",
+   "original": "味方1人のDYING・{n}DEADをHP1／4の{n}状態で回復する",
+   "replace": "Recovers HP to 1/4 for one Dying/Dead ally."
+  }
+ },
+ {
+  "id": 224,
+  "name": {
+   "addr": "0819AAC0",
+   "max": 7,
+   "term": "0000",
+   "original": "阿弥陀数珠",
+   "replace": "Amidabu Beads",
+   "item_table": true,
+   "id": 224
+  },
+  "desc": {
+   "ptr": "0819AAD0",
+   "addr": "080037A0",
+   "term": "0301",
+   "original": "人間の属性がLAW以外の時{n}エナジードレインを{n}回避する",
+   "replace": "Prevents Energy Drain for a human that is not Law-aligned."
+  }
+ },
+ {
+  "id": 225,
+  "name": {
+   "addr": "0819AAE0",
+   "max": 7,
+   "term": "0000",
+   "original": "リアクトシート",
+   "replace": "React Sheet",
+   "item_table": true,
+   "id": 225
+  },
+  "desc": {
+   "ptr": "0819AAF0",
+   "addr": "080037DA",
+   "term": "0301",
+   "original": "COMPを使用せずに{n}仲魔を1体召喚できる",
+   "replace": "Summons one ally without using the COMP."
+  }
+ },
+ {
+  "id": 226,
+  "name": {
+   "addr": "0819AB00",
+   "max": 7,
+   "term": "0000",
+   "original": "封魔の鈴",
+   "replace": "Repulse Bell",
+   "item_table": true,
+   "id": 226
+  },
+  "desc": {
+   "ptr": "0819AB10",
+   "addr": "08003806",
+   "term": "0301",
+   "original": "自分よりレベルの低い{n}敵の出現を抑える",
+   "replace": "Prevents encounters with enemies lower level than you."
+  }
+ },
+ {
+  "id": 227,
+  "name": {
+   "addr": "0819AB20",
+   "max": 7,
+   "term": "0000",
+   "original": "聖者の笛",
+   "replace": "Saint Flute",
+   "item_table": true,
+   "id": 227
+  },
+  "desc": {
+   "ptr": "0819AB30",
+   "addr": "0800382E",
+   "term": "0301",
+   "original": "DARK悪魔の物理攻撃を{n}1ターンの間反射させる",
+   "replace": "Reflects Dark demons' physical attacks for 1 turn."
+  }
+ },
+ {
+  "id": 228,
+  "name": {
+   "addr": "0819AB40",
+   "max": 7,
+   "term": "0000",
+   "original": "ヒランヤ",
+   "replace": "Hiranya",
+   "item_table": true,
+   "id": 228
+  },
+  "desc": {
+   "ptr": "0819AB50",
+   "addr": "08003860",
+   "term": "0301",
+   "original": "味方1人の{n}HP・MPを回復する",
+   "replace": "Recovers HP and MP for one ally."
+  }
+ },
+ {
+  "id": 229,
+  "name": {
+   "addr": "0819AB60",
+   "max": 7,
+   "term": "0000",
+   "original": "魔石",
+   "replace": "Life Stone",
+   "item_table": true,
+   "id": 229
+  },
+  "desc": {
+   "ptr": "0819AB70",
+   "addr": "08003882",
+   "term": "0301",
+   "original": "味方1人のHPを{n}MAX値の25%程度{n}回復する",
+   "replace": "Recovers about 25% of one ally's max HP."
+  }
+ },
+ {
+  "id": 230,
+  "name": {
+   "addr": "0819AB80",
+   "max": 7,
+   "term": "0000",
+   "original": "マッスルドリン",
+   "replace": "Muscle Drink",
+   "item_table": true,
+   "id": 230
+  },
+  "desc": {
+   "ptr": "0819AB90",
+   "addr": "080038B4",
+   "term": "0301",
+   "original": "味方1人のHPを{n}大きく回復するが{n}副作用も…？",
+   "replace": "Greatly recovers one ally's HP, but may have side effects..."
+  }
+ },
+ {
+  "id": 231,
+  "name": {
+   "addr": "0819ABA0",
+   "max": 7,
+   "term": "0000",
+   "original": "ソーマ",
+   "replace": "Soma",
+   "item_table": true,
+   "id": 231
+  },
+  "desc": {
+   "ptr": "0819ABB0",
+   "addr": "080038E6",
+   "term": "0301",
+   "original": "味方1人の{n}HP・MPをMAXにし{n}ステータス異常を回復する",
+   "replace": "Maxes one ally's HP/MP and cures all ailments."
+  }
+ },
+ {
+  "id": 232,
+  "name": {
+   "addr": "0819ABC0",
+   "max": 7,
+   "term": "0000",
+   "original": "金丹",
+   "replace": "Kintan",
+   "item_table": true,
+   "id": 232
+  },
+  "desc": {
+   "ptr": "0819ABD0",
+   "addr": "08003924",
+   "term": "0301",
+   "original": "味方1人のDYING・{n}DEADをHP1／8の{n}状態で回復する",
+   "replace": "Recovers HP to 1/8 for one Dying/Dead ally."
+  }
+ },
+ {
+  "id": 233,
+  "name": {
+   "addr": "0819ABE0",
+   "max": 7,
+   "term": "0000",
+   "original": "反魂香",
+   "replace": "Balm of Life",
+   "item_table": true,
+   "id": 233
+  },
+  "desc": {
+   "ptr": "0819ABF0",
+   "addr": "08003964",
+   "term": "0301",
+   "original": "味方1人のDYING・{n}DEADをHPMAXの{n}状態で回復する",
+   "replace": "Recovers HP to MAX for one Dying/Dead ally."
+  }
+ },
+ {
+  "id": 234,
+  "name": {
+   "addr": "0819AC00",
+   "max": 7,
+   "term": "0000",
+   "original": "運の香",
+   "replace": "Luck Incense",
+   "item_table": true,
+   "id": 234
+  },
+  "desc": {
+   "ptr": "0819AC10",
+   "addr": "080039A4",
+   "term": "0301",
+   "original": "HPを完全に回復し{n}運のポイントが1上がる",
+   "replace": "Fully recovers HP and raises Luck by 1."
+  }
+ },
+ {
+  "id": 235,
+  "name": {
+   "addr": "0819AC20",
+   "max": 7,
+   "term": "0000",
+   "original": "体力の香",
+   "replace": "Vitality Incense",
+   "item_table": true,
+   "id": 235
+  },
+  "desc": {
+   "ptr": "0819AC30",
+   "addr": "080039D0",
+   "term": "0301",
+   "original": "HPを完全に回復し{n}体力のポイントが1上がる",
+   "replace": "Fully recovers HP and raises Vitality by 1."
+  }
+ },
+ {
+  "id": 236,
+  "name": {
+   "addr": "0819AC40",
+   "max": 7,
+   "term": "0000",
+   "original": "知恵の香",
+   "replace": "Intelligence Incense",
+   "item_table": true,
+   "id": 236
+  },
+  "desc": {
+   "ptr": "0819AC50",
+   "addr": "080039FE",
+   "term": "0301",
+   "original": "HPを完全に回復し{n}知恵のポイントが1上がる",
+   "replace": "Fully recovers HP and raises Intelligence by 1."
+  }
+ },
+ {
+  "id": 237,
+  "name": {
+   "addr": "0819AC60",
+   "max": 7,
+   "term": "0000",
+   "original": "力の香",
+   "replace": "Strength Incense",
+   "item_table": true,
+   "id": 237
+  },
+  "desc": {
+   "ptr": "0819AC70",
+   "addr": "08003A2C",
+   "term": "0301",
+   "original": "HPを完全に回復し{n}力のポイントが1上がる",
+   "replace": "Fully recovers HP and raises Strength by 1."
+  }
+ },
+ {
+  "id": 238,
+  "name": {
+   "addr": "0819AC80",
+   "max": 7,
+   "term": "0000",
+   "original": "速さの香",
+   "replace": "Agility Incense",
+   "item_table": true,
+   "id": 238
+  },
+  "desc": {
+   "ptr": "0819AC90",
+   "addr": "08003A58",
+   "term": "0301",
+   "original": "HPを完全に回復し{n}速さのポイントが1上がる",
+   "replace": "Fully recovers HP and raises Agility by 1."
+  }
+ },
+ {
+  "id": 239,
+  "name": {
+   "addr": "0819ACA0",
+   "max": 7,
+   "term": "0000",
+   "original": "魔力の香",
+   "replace": "Magic Incense",
+   "item_table": true,
+   "id": 239
+  },
+  "desc": {
+   "ptr": "0819ACB0",
+   "addr": "08003A86",
+   "term": "0301",
+   "original": "HPを完全に回復し{n}魔力のポイントが1上がる",
+   "replace": "Fully recovers HP and raises Magic by 1."
+  }
+ },
+ {
+  "id": 240,
+  "name": {
+   "addr": "0819ACC0",
+   "max": 7,
+   "term": "0000",
+   "original": "青巻紙",
+   "replace": "Blue Scroll",
+   "item_table": true,
+   "id": 240
+  },
+  "desc": {
+   "ptr": "0819ACD0",
+   "addr": "08003AB4",
+   "term": "0301",
+   "original": "4種類の回復魔法のうち{n}いずれかの効果が{n}ランダムで発生",
+   "replace": "Randomly casts one of four healing spells."
+  }
+ },
+ {
+  "id": 241,
+  "name": {
+   "addr": "0819ACE0",
+   "max": 7,
+   "term": "0000",
+   "original": "阿修羅の掌",
+   "replace": "Asura's Palm",
+   "item_table": true,
+   "id": 241
+  },
+  "desc": {
+   "ptr": "0819ACF0",
+   "addr": "08003AEE",
+   "term": "0301",
+   "original": "CHAOS属性の者を回復{n}するが　他属性の者には{n}ダメージを与える",
+   "replace": "Heals Chaos allies but harms other alignments."
+  }
+ },
+ {
+  "id": 242,
+  "name": {
+   "addr": "0819AD00",
+   "max": 7,
+   "term": "0000",
+   "original": "エンゼルヘアー",
+   "replace": "Angel Hair",
+   "item_table": true,
+   "id": 242
+  },
+  "desc": {
+   "ptr": "0819AD10",
+   "addr": "08003B32",
+   "term": "0301",
+   "original": "LAW属性の者を回復するが{n}他属性の者にはダメージを{n}与える",
+   "replace": "Heals Law allies but harms other alignments."
+  }
+ },
+ {
+  "id": 243,
+  "name": {
+   "addr": "0819AD20",
+   "max": 7,
+   "term": "0000",
+   "original": "如来像",
+   "replace": "Nyorai Statue",
+   "item_table": true,
+   "id": 243
+  },
+  "desc": {
+   "ptr": "0819AD30",
+   "addr": "08003B70",
+   "term": "0301",
+   "original": "LAW属性以外の者の{n}HPが0になると{n}自動的に回復する",
+   "replace": "Auto-revives a non-Law ally when HP hits 0."
+  }
+ },
+ {
+  "id": 244,
+  "name": {
+   "addr": "0819AD40",
+   "max": 7,
+   "term": "0000",
+   "original": "ロザリオ",
+   "replace": "Rosary",
+   "item_table": true,
+   "id": 244
+  },
+  "desc": {
+   "ptr": "0819AD50",
+   "addr": "08003BAA",
+   "term": "0301",
+   "original": "LAW属性の者の{n}エナジードレインを防ぎ{n}HPが0になるとHP回復",
+   "replace": "Prevents Energy Drain for a Law ally; revives at 0 HP."
+  }
+ },
+ {
+  "id": 245,
+  "name": {
+   "addr": "0819AD60",
+   "max": 7,
+   "term": "0000",
+   "original": "溶魔の玉",
+   "replace": "Demon-melting Bead",
+   "item_table": true,
+   "id": 245
+  },
+  "desc": {
+   "ptr": "0819AD70",
+   "addr": "08003BEE",
+   "term": "0301",
+   "original": "敵全体を1／4の確率で{n}スライムに変える",
+   "replace": "1/4 chance to turn all foes into slimes."
+  }
+ },
+ {
+  "id": 246,
+  "name": {
+   "addr": "0819AD80",
+   "max": 7,
+   "term": "0000",
+   "original": "ハイパードロッ",
+   "replace": "Hyper Drop",
+   "item_table": true,
+   "id": 246
+  },
+  "desc": {
+   "ptr": "0819AD90",
+   "addr": "08003C18",
+   "term": "0301",
+   "original": "味方1人のHPを{n}著しく回復するが{n}副作用も…？",
+   "replace": "Greatly recovers one ally's HP, but may have side effects..."
+  }
+ },
+ {
+  "id": 247,
+  "name": {
+   "addr": "0819ADA0",
+   "max": 7,
+   "term": "0000",
+   "original": "コアシールド",
+   "replace": "Core Shield",
+   "item_table": true,
+   "id": 247
+  },
+  "desc": {
+   "ptr": "0819ADB0",
+   "addr": "08003C4A",
+   "term": "0301",
+   "original": "次の満月まで{n}ダメージゾーンを{n}無効化する",
+   "replace": "Nullifies damage zones until the next full moon."
+  }
+ },
+ {
+  "id": 248,
+  "name": {
+   "addr": "0819ADC0",
+   "max": 7,
+   "term": "0000",
+   "original": "赤巻紙",
+   "replace": "Red Scroll",
+   "item_table": true,
+   "id": 248
+  },
+  "desc": {
+   "ptr": "0819ADD0",
+   "addr": "08003C76",
+   "term": "0301",
+   "original": "4種類の攻撃魔法のうち{n}いずれかの効果が{n}ランダムで発生",
+   "replace": "Randomly casts one of four attack spells."
+  }
+ },
+ {
+  "id": 249,
+  "name": {
+   "addr": "0819ADE0",
+   "max": 7,
+   "term": "0000",
+   "original": "バルーンシール",
+   "replace": "Balloon Shield",
+   "item_table": true,
+   "id": 249
+  },
+  "desc": {
+   "ptr": "0819ADF0",
+   "addr": "08003CB0",
+   "term": "0301",
+   "original": "敵の全攻撃を{n}1回無効化する",
+   "replace": "Nullifies all enemy attacks once."
+  }
+ },
+ {
+  "id": 250,
+  "name": {
+   "addr": "0819AE00",
+   "max": 7,
+   "term": "0000",
+   "original": "霞の壷",
+   "replace": "Haze Pot",
+   "item_table": true,
+   "id": 250
+  },
+  "desc": {
+   "ptr": "0819AE10",
+   "addr": "08003CCE",
+   "term": "0301",
+   "original": "次の満月まで{n}敵との戦闘で{n}先制攻撃が出来る",
+   "replace": "Strike first in battles until the next full moon."
+  }
+ },
+ {
+  "id": 251,
+  "name": {
+   "addr": "0819AE20",
+   "max": 7,
+   "term": "0000",
+   "original": "青銅の箱",
+   "replace": "Bronze Box",
+   "item_table": true,
+   "id": 251
+  },
+  "desc": {
+   "ptr": "0819AE30",
+   "addr": "08003CFC",
+   "term": "0301",
+   "original": "デビルアナライズに{n}登録されている悪魔を{n}1体出現させる",
+   "replace": "Summons a demon listed in Devil Analyze."
+  }
+ },
+ {
+  "id": 252,
+  "name": {
+   "addr": "0819AE40",
+   "max": 7,
+   "term": "0000",
+   "original": "見渡しの鐘",
+   "replace": "Survey Bell",
+   "item_table": true,
+   "id": 252
+  },
+  "desc": {
+   "ptr": "0819AE50",
+   "addr": "08003D36",
+   "term": "0301",
+   "original": "現在位置から5×5マスの{n}未歩行地をオートマップに{n}書き込む",
+   "replace": "Maps a 5x5 area of unexplored tiles around you."
+  }
+ },
+ {
+  "id": 253,
+  "name": {
+   "addr": "0819AE60",
+   "max": 7,
+   "term": "0000",
+   "original": "アミュレット",
+   "replace": "Amulet",
+   "item_table": true,
+   "id": 253
+  },
+  "desc": {
+   "ptr": "0819AE70",
+   "addr": "08003D74",
+   "term": "0301",
+   "original": "現在いる階層の{n}ダメージゾーンを{n}無効化する",
+   "replace": "Nullifies damage zones on this floor."
+  }
+ },
+ {
+  "id": 254,
+  "name": {
+   "addr": "0819AE80",
+   "max": 7,
+   "term": "0000",
+   "original": "メタルカード",
+   "replace": "Metal Card",
+   "item_table": true,
+   "id": 254
+  },
+  "desc": {
+   "ptr": "0819AE90",
+   "addr": "08003DA2",
+   "term": "0301",
+   "original": "コードブレイカーを{n}プレイするのに{n}必要なカード",
+   "replace": "A card needed to play Code Breaker."
+  }
+ },
+ {
+  "id": 256,
+  "name": {
+   "addr": "0819AEC0",
+   "max": 7,
+   "term": "0000",
+   "original": "招待状",
+   "replace": "Invitation Letter",
+   "item_table": true,
+   "id": 256
+  }
+ },
+ {
+  "id": 257,
+  "name": {
+   "addr": "0819AEE0",
+   "max": 7,
+   "term": "0000",
+   "original": "市民IDカード",
+   "replace": "Resident ID",
+   "item_table": true,
+   "id": 257
+  }
+ },
+ {
+  "id": 258,
+  "name": {
+   "addr": "0819AF00",
+   "max": 7,
+   "term": "0000",
+   "original": "笑う人形",
+   "replace": "Laughing Doll",
+   "item_table": true,
+   "id": 258
+  }
+ },
+ {
+  "id": 259,
+  "name": {
+   "addr": "0819AF20",
+   "max": 7,
+   "term": "0000",
+   "original": "泣く人形",
+   "replace": "Crying Doll",
+   "item_table": true,
+   "id": 259
+  }
+ },
+ {
+  "id": 260,
+  "name": {
+   "addr": "0819AF40",
+   "max": 7,
+   "term": "0000",
+   "original": "怒る人形",
+   "replace": "Angry Doll",
+   "item_table": true,
+   "id": 260
+  }
+ },
+ {
+  "id": 261,
+  "name": {
+   "addr": "0819AF60",
+   "max": 7,
+   "term": "0000",
+   "original": "踊る人形",
+   "replace": "Dancing Doll",
+   "item_table": true,
+   "id": 261
+  }
+ },
+ {
+  "id": 262,
+  "name": {
+   "addr": "0819AF80",
+   "max": 7,
+   "term": "0000",
+   "original": "眠る人形",
+   "replace": "Sleeping Doll",
+   "item_table": true,
+   "id": 262
+  }
+ },
+ {
+  "id": 263,
+  "name": {
+   "addr": "0819AFA0",
+   "max": 7,
+   "term": "0000",
+   "original": "目加田のメモ",
+   "replace": "Mekata's Memo",
+   "item_table": true,
+   "id": 263
+  }
+ },
+ {
+  "id": 264,
+  "name": {
+   "addr": "0819AFC0",
+   "max": 7,
+   "term": "0000",
+   "original": "浮気草の露",
+   "replace": "Herb Dew",
+   "item_table": true,
+   "id": 264
+  }
+ },
+ {
+  "id": 265,
+  "name": {
+   "addr": "0819AFE0",
+   "max": 7,
+   "term": "0000",
+   "original": "将門の身体",
+   "replace": "Masakado's Body",
+   "item_table": true,
+   "id": 265
+  }
+ },
+ {
+  "id": 266,
+  "name": {
+   "addr": "0819B000",
+   "max": 7,
+   "term": "0000",
+   "original": "公の首",
+   "replace": "Lord's Head",
+   "item_table": true,
+   "id": 266
+  }
+ },
+ {
+  "id": 267,
+  "name": {
+   "addr": "0819B020",
+   "max": 7,
+   "term": "0000",
+   "original": "公の胴",
+   "replace": "Lord's Torso",
+   "item_table": true,
+   "id": 267
+  }
+ },
+ {
+  "id": 268,
+  "name": {
+   "addr": "0819B040",
+   "max": 7,
+   "term": "0000",
+   "original": "公の右腕",
+   "replace": "Lord's Right Arm",
+   "item_table": true,
+   "id": 268
+  }
+ },
+ {
+  "id": 269,
+  "name": {
+   "addr": "0819B060",
+   "max": 7,
+   "term": "0000",
+   "original": "公の左腕",
+   "replace": "Lord's Left Arm",
+   "item_table": true,
+   "id": 269
+  }
+ },
+ {
+  "id": 270,
+  "name": {
+   "addr": "0819B080",
+   "max": 7,
+   "term": "0000",
+   "original": "公の右脚",
+   "replace": "Lord's Right Leg",
+   "item_table": true,
+   "id": 270
+  }
+ },
+ {
+  "id": 271,
+  "name": {
+   "addr": "0819B0A0",
+   "max": 7,
+   "term": "0000",
+   "original": "公の左脚",
+   "replace": "Lord's Left Leg",
+   "item_table": true,
+   "id": 271
+  }
+ },
+ {
+  "id": 272,
+  "name": {
+   "addr": "0819B0C0",
+   "max": 7,
+   "term": "0000",
+   "original": "太陽のピラー",
+   "replace": "Sun Pillar",
+   "item_table": true,
+   "id": 272
+  }
+ },
+ {
+  "id": 273,
+  "name": {
+   "addr": "0819B0E0",
+   "max": 7,
+   "term": "0000",
+   "original": "月のピラー",
+   "replace": "Moon Pillar",
+   "item_table": true,
+   "id": 273
+  }
+ },
+ {
+  "id": 274,
+  "name": {
+   "addr": "0819B100",
+   "max": 7,
+   "term": "0000",
+   "original": "火星のピラー",
+   "replace": "Mars Pillar",
+   "item_table": true,
+   "id": 274
+  }
+ },
+ {
+  "id": 275,
+  "name": {
+   "addr": "0819B120",
+   "max": 7,
+   "term": "0000",
+   "original": "水星のピラー",
+   "replace": "Mercury Pillar",
+   "item_table": true,
+   "id": 275
+  }
+ },
+ {
+  "id": 276,
+  "name": {
+   "addr": "0819B140",
+   "max": 7,
+   "term": "0000",
+   "original": "木星のピラー",
+   "replace": "Jupiter Pillar",
+   "item_table": true,
+   "id": 276
+  }
+ },
+ {
+  "id": 277,
+  "name": {
+   "addr": "0819B160",
+   "max": 7,
+   "term": "0000",
+   "original": "金星のピラー",
+   "replace": "Venus Pillar",
+   "item_table": true,
+   "id": 277
+  }
+ },
+ {
+  "id": 278,
+  "name": {
+   "addr": "0819B180",
+   "max": 7,
+   "term": "0000",
+   "original": "土星のピラー",
+   "replace": "Saturn Pillar",
+   "item_table": true,
+   "id": 278
+  }
+ },
+ {
+  "id": 279,
+  "name": {
+   "addr": "0819B1A0",
+   "max": 7,
+   "term": "0000",
+   "original": "将門の刀",
+   "replace": "Masakado's Sword",
+   "item_table": true,
+   "id": 279
+  }
+ },
+ {
+  "id": 280,
+  "name": {
+   "addr": "0819B1C0",
+   "max": 7,
+   "term": "0000",
+   "original": "アインの鍵",
+   "replace": "Ayin Key",
+   "item_table": true,
+   "id": 280
+  }
+ },
+ {
+  "id": 281,
+  "name": {
+   "addr": "0819B1E0",
+   "max": 7,
+   "term": "0000",
+   "original": "ラメドの鍵",
+   "replace": "Lamed Key",
+   "item_table": true,
+   "id": 281
+  }
+ },
+ {
+  "id": 282,
+  "name": {
+   "addr": "0819B200",
+   "max": 7,
+   "term": "0000",
+   "original": "MAGプレッサ",
+   "replace": "MAG Presser",
+   "item_table": true,
+   "id": 282
+  }
+ },
+ {
+  "id": 283,
+  "name": {
+   "addr": "0819B220",
+   "max": 7,
+   "term": "0000",
+   "original": "羽衣",
+   "replace": "Feather Robe",
+   "item_table": true,
+   "id": 283
+  }
+ },
+ {
+  "id": 284,
+  "name": {
+   "addr": "0819B240",
+   "max": 7,
+   "term": "0000",
+   "original": "ヒヒイロカネ",
+   "replace": "Hihiirokane",
+   "item_table": true,
+   "id": 284
+  }
+ },
+ {
+  "id": 287,
+  "name": {
+   "addr": "0819B2A0",
+   "max": 7,
+   "term": "0000",
+   "original": "メモリーチップ",
+   "replace": "Memory Chip",
+   "item_table": true,
+   "id": 287
+  }
+ },
+ {
+  "id": 288,
+  "name": {
+   "addr": "0819B2C0",
+   "max": 7,
+   "term": "0000",
+   "original": "アメジスト",
+   "replace": "Amethyst",
+   "item_table": true,
+   "id": 288
+  }
+ },
+ {
+  "id": 289,
+  "name": {
+   "addr": "0819B2E0",
+   "max": 7,
+   "term": "0000",
+   "original": "アクアマリン",
+   "replace": "Aquamarine",
+   "item_table": true,
+   "id": 289
+  }
+ },
+ {
+  "id": 290,
+  "name": {
+   "addr": "0819B300",
+   "max": 7,
+   "term": "0000",
+   "original": "エメラルド",
+   "replace": "Emerald",
+   "item_table": true,
+   "id": 290
+  }
+ },
+ {
+  "id": 291,
+  "name": {
+   "addr": "0819B320",
+   "max": 7,
+   "term": "0000",
+   "original": "オニキス",
+   "replace": "Onyx",
+   "item_table": true,
+   "id": 291
+  }
+ },
+ {
+  "id": 292,
+  "name": {
+   "addr": "0819B340",
+   "max": 7,
+   "term": "0000",
+   "original": "オパール",
+   "replace": "Opal",
+   "item_table": true,
+   "id": 292
+  }
+ },
+ {
+  "id": 293,
+  "name": {
+   "addr": "0819B360",
+   "max": 7,
+   "term": "0000",
+   "original": "ガーネット",
+   "replace": "Garnet",
+   "item_table": true,
+   "id": 293
+  }
+ },
+ {
+  "id": 294,
+  "name": {
+   "addr": "0819B380",
+   "max": 7,
+   "term": "0000",
+   "original": "サファイア",
+   "replace": "Sapphire",
+   "item_table": true,
+   "id": 294
+  }
+ },
+ {
+  "id": 295,
+  "name": {
+   "addr": "0819B3A0",
+   "max": 7,
+   "term": "0000",
+   "original": "ダイアモンド",
+   "replace": "Diamond",
+   "item_table": true,
+   "id": 295
+  }
+ },
+ {
+  "id": 296,
+  "name": {
+   "addr": "0819B3C0",
+   "max": 7,
+   "term": "0000",
+   "original": "ターコイズ",
+   "replace": "Turquoise",
+   "item_table": true,
+   "id": 296
+  }
+ },
+ {
+  "id": 297,
+  "name": {
+   "addr": "0819B3E0",
+   "max": 7,
+   "term": "0000",
+   "original": "トパーズ",
+   "replace": "Topaz",
+   "item_table": true,
+   "id": 297
+  }
+ },
+ {
+  "id": 298,
+  "name": {
+   "addr": "0819B400",
+   "max": 7,
+   "term": "0000",
+   "original": "パール",
+   "replace": "Pearl",
+   "item_table": true,
+   "id": 298
+  }
+ },
+ {
+  "id": 299,
+  "name": {
+   "addr": "0819B420",
+   "max": 7,
+   "term": "0000",
+   "original": "ルビー",
+   "replace": "Ruby",
+   "item_table": true,
+   "id": 299
+  }
+ },
+ {
+  "id": 300,
+  "name": {
+   "addr": "0819B440",
+   "max": 7,
+   "term": "0000",
+   "original": "フォトフレーム",
+   "replace": "Photo Frame",
+   "item_table": true,
+   "id": 300
+  }
+ },
+ {
+  "id": 301,
+  "name": {
+   "addr": "0819B460",
+   "max": 7,
+   "term": "0000",
+   "original": "編みかけの靴下",
+   "replace": "Half-Knit Sock",
+   "item_table": true,
+   "id": 301
+  }
+ },
+ {
+  "id": 302,
+  "name": {
+   "addr": "0819B480",
+   "max": 7,
+   "term": "0000",
+   "original": "脳波測定チップ",
+   "replace": "Brainwave Chip",
+   "item_table": true,
+   "id": 302
+  }
+ },
+ {
+  "id": 303,
+  "name": {
+   "addr": "0819B4A0",
+   "max": 7,
+   "term": "0000",
+   "original": "金翼のハープ",
+   "replace": "Gold Wing Harp",
+   "item_table": true,
+   "id": 303
+  }
+ },
+ {
+  "id": 304,
+  "name": {
+   "addr": "0819B4C0",
+   "max": 7,
+   "term": "0000",
+   "original": "第13次報告書",
+   "replace": "13th Report",
+   "item_table": true,
+   "id": 304
+  }
+ },
+ {
+  "id": 305,
+  "name": {
+   "addr": "0819B4E0",
+   "max": 7,
+   "term": "0000",
+   "original": "石化牢の欠片",
+   "replace": "Stone Cell Shard",
+   "item_table": true,
+   "id": 305
+  }
+ },
+ {
+  "id": 306,
+  "name": {
+   "addr": "0819B500",
+   "max": 7,
+   "term": "0000",
+   "original": "練習用木剣",
+   "replace": "Practice Sword",
+   "item_table": true,
+   "id": 306
+  }
+ },
+ {
+  "id": 307,
+  "name": {
+   "addr": "0819B520",
+   "max": 7,
+   "term": "0000",
+   "original": "0番預言ファイ",
+   "replace": "Prophecy File 0",
+   "item_table": true,
+   "id": 307
+  }
+ },
+ {
+  "id": 308,
+  "name": {
+   "addr": "0819B540",
+   "max": 7,
+   "term": "0000",
+   "original": "割れたバイザー",
+   "replace": "Cracked Visor",
+   "item_table": true,
+   "id": 308
+  }
+ },
+ {
+  "id": 309,
+  "name": {
+   "addr": "0819B560",
+   "max": 7,
+   "term": "0000",
+   "original": "月桂樹の一葉",
+   "replace": "Laurel Leaf",
+   "item_table": true,
+   "id": 309
+  }
+ },
+ {
+  "id": 310,
+  "name": {
+   "addr": "0819B580",
+   "max": 7,
+   "term": "0000",
+   "original": "欠番1",
+   "replace": "Unused No.1",
+   "item_table": true,
+   "id": 310
+  }
+ },
+ {
+  "id": 311,
+  "name": {
+   "addr": "0819B5A0",
+   "max": 7,
+   "term": "0000",
+   "original": "銀のロザリオ",
+   "replace": "Silver Rosary",
+   "item_table": true,
+   "id": 311
+  }
+ },
+ {
+  "id": 312,
+  "name": {
+   "addr": "0819B5C0",
+   "max": 7,
+   "term": "0000",
+   "original": "黒檀の杖",
+   "replace": "Ebony Staff",
+   "item_table": true,
+   "id": 312
+  }
+ },
+ {
+  "id": 313,
+  "name": {
+   "addr": "0819B5E0",
+   "max": 7,
+   "term": "0000",
+   "original": "割れたフラスコ",
+   "replace": "Cracked Flask",
+   "item_table": true,
+   "id": 313
+  }
+ },
+ {
+  "id": 314,
+  "name": {
+   "addr": "0819B600",
+   "max": 7,
+   "term": "0000",
+   "original": "壊れたPDA",
+   "replace": "Broken PDA",
+   "item_table": true,
+   "id": 314
+  }
+ },
+ {
+  "id": 315,
+  "name": {
+   "addr": "0819B620",
+   "max": 7,
+   "term": "0000",
+   "original": "白衣の切れ端",
+   "replace": "Lab Coat Scrap",
+   "item_table": true,
+   "id": 315
+  }
+ },
+ {
+  "id": 316,
+  "name": {
+   "addr": "0819B640",
+   "max": 7,
+   "term": "0000",
+   "original": "虫喰いのグリモ",
+   "replace": "Worm-Eaten Grimoire",
+   "item_table": true,
+   "id": 316
+  }
+ },
+ {
+  "id": 317,
+  "name": {
+   "addr": "0819B660",
+   "max": 7,
+   "term": "0000",
+   "original": "銀のネクタイピ",
+   "replace": "Silver Tie Pin",
+   "item_table": true,
+   "id": 317
+  }
+ },
+ {
+  "id": 318,
+  "name": {
+   "addr": "0819B680",
+   "max": 7,
+   "term": "0000",
+   "original": "欠けた双刀",
+   "replace": "Chipped Twin Sword",
+   "item_table": true,
+   "id": 318
+  }
+ },
+ {
+  "id": 319,
+  "name": {
+   "addr": "0819B6A0",
+   "max": 7,
+   "term": "0000",
+   "original": "優勝トロフィー",
+   "replace": "Victory Trophy",
+   "item_table": true,
+   "id": 319
+  }
+ },
+ {
+  "id": 320,
+  "name": {
+   "addr": "0819B6C0",
+   "max": 7,
+   "term": "0000",
+   "original": "ルビーピアス",
+   "replace": "Ruby Earring",
+   "item_table": true,
+   "id": 320
+  }
+ },
+ {
+  "id": 321,
+  "name": {
+   "addr": "0819B6E0",
+   "max": 7,
+   "term": "0000",
+   "original": "金のロケット",
+   "replace": "Gold Locket",
+   "item_table": true,
+   "id": 321
+  }
+ },
+ {
+  "id": 322,
+  "name": {
+   "addr": "0819B700",
+   "max": 7,
+   "term": "0000",
+   "original": "希望の首飾り",
+   "replace": "Hope Necklace",
+   "item_table": true,
+   "id": 322
+  }
+ },
+ {
+  "id": 323,
+  "name": {
+   "addr": "0819B720",
+   "max": 7,
+   "term": "0000",
+   "original": "裂けたマント",
+   "replace": "Torn Cape",
+   "item_table": true,
+   "id": 323
+  }
+ },
+ {
+  "id": 324,
+  "name": {
+   "addr": "0819B740",
+   "max": 7,
+   "term": "0000",
+   "original": "黒翼の竪琴",
+   "replace": "Black Wing Lyre",
+   "item_table": true,
+   "id": 324
+  }
+ },
+ {
+  "id": 325,
+  "name": {
+   "addr": "0819B760",
+   "max": 7,
+   "term": "0000",
+   "original": "黄昏のハーモニ",
+   "replace": "Dusk Harmonica",
+   "item_table": true,
+   "id": 325
+  }
+ },
+ {
+  "id": 326,
+  "name": {
+   "addr": "0819B780",
+   "max": 7,
+   "term": "0000",
+   "original": "蓮阿弥の根付",
+   "replace": "Ren'ami Netsuke",
+   "item_table": true,
+   "id": 326
+  }
+ },
+ {
+  "id": 327,
+  "name": {
+   "addr": "0819B7A0",
+   "max": 7,
+   "term": "0000",
+   "original": "黄金のリンゴの",
+   "replace": "Golden Apple Seed",
+   "item_table": true,
+   "id": 327
+  }
+ },
+ {
+  "id": 328,
+  "name": {
+   "addr": "0819B7C0",
+   "max": 7,
+   "term": "0000",
+   "original": "八尺瓊勾玉",
+   "replace": "Yasakani Magatama",
+   "item_table": true,
+   "id": 328
+  }
+ },
+ {
+  "id": 329,
+  "name": {
+   "addr": "0819B7E0",
+   "max": 7,
+   "term": "0000",
+   "original": "葦の葉の船",
+   "replace": "Reed Leaf Boat",
+   "item_table": true,
+   "id": 329
+  }
+ },
+ {
+  "id": 330,
+  "name": {
+   "addr": "0819B800",
+   "max": 7,
+   "term": "0000",
+   "original": "魂の天秤",
+   "replace": "Soul Scales",
+   "item_table": true,
+   "id": 330
+  }
+ },
+ {
+  "id": 331,
+  "name": {
+   "addr": "0819B820",
+   "max": 7,
+   "term": "0000",
+   "original": "漆黒の燭台",
+   "replace": "Black Candelabra",
+   "item_table": true,
+   "id": 331
+  }
+ },
+ {
+  "id": 332,
+  "name": {
+   "addr": "0819B840",
+   "max": 7,
+   "term": "0000",
+   "original": "メシア教祭式服",
+   "replace": "Messian Vestment",
+   "item_table": true,
+   "id": 332
+  }
+ },
+ {
+  "id": 333,
+  "name": {
+   "addr": "0819B860",
+   "max": 7,
+   "term": "0000",
+   "original": "孔雀明王経法",
+   "replace": "Mahamayuri Sutra",
+   "item_table": true,
+   "id": 333
+  }
+ },
+ {
+  "id": 334,
+  "name": {
+   "addr": "0819B880",
+   "max": 7,
+   "term": "0000",
+   "original": "滄海の滴",
+   "replace": "Ocean Drop",
+   "item_table": true,
+   "id": 334
+  }
+ },
+ {
+  "id": 335,
+  "name": {
+   "addr": "0819B8A0",
+   "max": 7,
+   "term": "0000",
+   "original": "真紅の人形",
+   "replace": "Crimson Doll",
+   "item_table": true,
+   "id": 335
+  }
+ },
+ {
+  "id": 336,
+  "name": {
+   "addr": "0819B8C0",
+   "max": 7,
+   "term": "0000",
+   "original": "菩提樹の葉",
+   "replace": "Bodhi Leaf",
+   "item_table": true,
+   "id": 336
+  }
+ },
+ {
+  "id": 337,
+  "name": {
+   "addr": "0819B8E0",
+   "max": 7,
+   "term": "0000",
+   "original": "鋼の<11E3>",
+   "replace": "Steel Locust",
+   "item_table": true,
+   "id": 337
+  }
+ },
+ {
+  "id": 338,
+  "name": {
+   "addr": "0819B900",
+   "max": 7,
+   "term": "0000",
+   "original": "欠番2",
+   "replace": "Unused 2",
+   "item_table": true,
+   "id": 338
+  }
+ },
+ {
+  "id": 339,
+  "name": {
+   "addr": "0819B920",
+   "max": 7,
+   "term": "0000",
+   "original": "銅のサークレッ",
+   "replace": "Copper Circlet",
+   "item_table": true,
+   "id": 339
+  }
+ },
+ {
+  "id": 340,
+  "name": {
+   "addr": "0819B940",
+   "max": 7,
+   "term": "0000",
+   "original": "血色の弾丸",
+   "replace": "Blood Bullet",
+   "item_table": true,
+   "id": 340
+  }
+ },
+ {
+  "id": 341,
+  "name": {
+   "addr": "0819B960",
+   "max": 7,
+   "term": "0000",
+   "original": "百合のコサージ",
+   "replace": "Lily Corsage",
+   "item_table": true,
+   "id": 341
+  }
+ },
+ {
+  "id": 342,
+  "name": {
+   "addr": "0819B980",
+   "max": 7,
+   "term": "0000",
+   "original": "欠番3",
+   "replace": "Unused 3",
+   "item_table": true,
+   "id": 342
+  }
+ },
+ {
+  "id": 343,
+  "name": {
+   "addr": "0819B9A0",
+   "max": 7,
+   "term": "0000",
+   "original": "王者のサングラ",
+   "replace": "Champion Shades",
+   "item_table": true,
+   "id": 343
+  }
+ },
+ {
+  "id": 344,
+  "name": {
+   "addr": "0819B9C0",
+   "max": 7,
+   "term": "0000",
+   "original": "氷の王冠",
+   "replace": "Ice Crown",
+   "item_table": true,
+   "id": 344
+  }
+ },
+ {
+  "id": 345,
+  "name": {
+   "addr": "0819B9E0",
+   "max": 7,
+   "term": "0000",
+   "original": "闘技場開設記念",
+   "replace": "Arena Medal",
+   "item_table": true,
+   "id": 345
+  }
+ }
+]

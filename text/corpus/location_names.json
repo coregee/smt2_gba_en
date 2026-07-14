@@ -1,0 +1,3642 @@
+[
+  {
+    "addr": "080A548C",
+    "max": 16,
+    "term": "",
+    "original": "未登録",
+    "replace": "Unregistered"
+  },
+  {
+    "addr": "080A54AC",
+    "max": 16,
+    "term": "",
+    "original": "ヴァルハラ－スラム　B1",
+    "replace": "Valhalla Slums B1"
+  },
+  {
+    "addr": "080A54CC",
+    "max": 16,
+    "term": "",
+    "original": "ヴァルハラ－スラム　1F",
+    "replace": "Valhalla Slums 1F"
+  },
+  {
+    "addr": "080A54EC",
+    "max": 16,
+    "term": "",
+    "original": "大手ジム",
+    "replace": "Main Gym"
+  },
+  {
+    "addr": "080A550C",
+    "max": 16,
+    "term": "",
+    "original": "ヴァルハラ－ダウンタウン",
+    "replace": "Valhalla Downtown"
+  },
+  {
+    "addr": "080A552C",
+    "max": 16,
+    "term": "",
+    "original": "ヴァルハラ－地下通路　B2",
+    "replace": "Valhalla Passage B2"
+  },
+  {
+    "addr": "080A554C",
+    "max": 16,
+    "term": "",
+    "original": "ヴァルハラ－スラム　1F",
+    "replace": "Valhalla Slums 1F"
+  },
+  {
+    "addr": "080A556C",
+    "max": 16,
+    "term": "",
+    "original": "ヴァルハラ－スラム　1F",
+    "replace": "Valhalla Slums 1F"
+  },
+  {
+    "addr": "080A558C",
+    "max": 16,
+    "term": "",
+    "original": "ヴァルハラ－ダウンタウン",
+    "replace": "Valhalla Downtown"
+  },
+  {
+    "addr": "080A55AC",
+    "max": 16,
+    "term": "",
+    "original": "ホドの街",
+    "replace": "Hod"
+  },
+  {
+    "addr": "080A55CC",
+    "max": 16,
+    "term": "",
+    "original": "ホドの街",
+    "replace": "Hod"
+  },
+  {
+    "addr": "080A55EC",
+    "max": 16,
+    "term": "",
+    "original": "ヴァルハラ－スラム　1F",
+    "replace": "Valhalla Slums 1F"
+  },
+  {
+    "addr": "080A560C",
+    "max": 16,
+    "term": "",
+    "original": "ヴァルハラ－ダウンタウン",
+    "replace": "Valhalla Downtown"
+  },
+  {
+    "addr": "080A562C",
+    "max": 16,
+    "term": "",
+    "original": "ホドの街",
+    "replace": "Hod"
+  },
+  {
+    "addr": "080A564C",
+    "max": 16,
+    "term": "",
+    "original": "ホドの街",
+    "replace": "Hod"
+  },
+  {
+    "addr": "080A566C",
+    "max": 16,
+    "term": "",
+    "original": "ヴァルハラ－スラム　1F",
+    "replace": "Valhalla Slums 1F"
+  },
+  {
+    "addr": "080A568C",
+    "max": 16,
+    "term": "",
+    "original": "ヴァルハラ－ターミナル",
+    "replace": "Valhalla Terminal"
+  },
+  {
+    "addr": "080A56AC",
+    "max": 16,
+    "term": "",
+    "original": "コロシアム",
+    "replace": "Colosseum"
+  },
+  {
+    "addr": "080A56CC",
+    "max": 16,
+    "term": "",
+    "original": "コロシアム",
+    "replace": "Colosseum"
+  },
+  {
+    "addr": "080A56EC",
+    "max": 16,
+    "term": "",
+    "original": "マダムの館",
+    "replace": "Madam's Manor"
+  },
+  {
+    "addr": "080A570C",
+    "max": 16,
+    "term": "",
+    "original": "マダムの館",
+    "replace": "Madam's Manor"
+  },
+  {
+    "addr": "080A572C",
+    "max": 16,
+    "term": "",
+    "original": "コロシアム",
+    "replace": "Colosseum"
+  },
+  {
+    "addr": "080A574C",
+    "max": 16,
+    "term": "",
+    "original": "コロシアム",
+    "replace": "Colosseum"
+  },
+  {
+    "addr": "080A576C",
+    "max": 16,
+    "term": "",
+    "original": "ヴァーチャル空間",
+    "replace": "Virtual Space"
+  },
+  {
+    "addr": "080A578C",
+    "max": 16,
+    "term": "",
+    "original": "ヴァーチャル空間",
+    "replace": "Virtual Space"
+  },
+  {
+    "addr": "080A57AC",
+    "max": 16,
+    "term": "",
+    "original": "コロシアム",
+    "replace": "Colosseum"
+  },
+  {
+    "addr": "080A57CC",
+    "max": 16,
+    "term": "",
+    "original": "アルカディア　住居",
+    "replace": "Arcadia Housing"
+  },
+  {
+    "addr": "080A57EC",
+    "max": 16,
+    "term": "",
+    "original": "アルカディア　住居",
+    "replace": "Arcadia Housing"
+  },
+  {
+    "addr": "080A580C",
+    "max": 16,
+    "term": "",
+    "original": "アルカディア　住居",
+    "replace": "Arcadia Housing"
+  },
+  {
+    "addr": "080A582C",
+    "max": 16,
+    "term": "",
+    "original": "アルカディア　住居",
+    "replace": "Arcadia Housing"
+  },
+  {
+    "addr": "080A584C",
+    "max": 16,
+    "term": "",
+    "original": "アルカディア　1F",
+    "replace": "Arcadia 1F"
+  },
+  {
+    "addr": "080A586C",
+    "max": 16,
+    "term": "",
+    "original": "アルカディア　2F",
+    "replace": "Arcadia 2F"
+  },
+  {
+    "addr": "080A588C",
+    "max": 16,
+    "term": "",
+    "original": "アルカディア　3F",
+    "replace": "Arcadia 3F"
+  },
+  {
+    "addr": "080A58AC",
+    "max": 16,
+    "term": "",
+    "original": "アルカディア　4F",
+    "replace": "Arcadia 4F"
+  },
+  {
+    "addr": "080A58CC",
+    "max": 16,
+    "term": "",
+    "original": "アルカディア　5F",
+    "replace": "Arcadia 5F"
+  },
+  {
+    "addr": "080A58EC",
+    "max": 16,
+    "term": "",
+    "original": "大教会　1F",
+    "replace": "Cathedral 1F"
+  },
+  {
+    "addr": "080A590C",
+    "max": 16,
+    "term": "",
+    "original": "大教会　1F",
+    "replace": "Cathedral 1F"
+  },
+  {
+    "addr": "080A592C",
+    "max": 16,
+    "term": "",
+    "original": "ヴァーチャル空間",
+    "replace": "Virtual Space"
+  },
+  {
+    "addr": "080A594C",
+    "max": 16,
+    "term": "",
+    "original": "ヴァーチャル空間",
+    "replace": "Virtual Space"
+  },
+  {
+    "addr": "080A596C",
+    "max": 16,
+    "term": "",
+    "original": "大教会　1F",
+    "replace": "Cathedral 1F"
+  },
+  {
+    "addr": "080A598C",
+    "max": 16,
+    "term": "",
+    "original": "大教会　1F",
+    "replace": "Cathedral 1F"
+  },
+  {
+    "addr": "080A59AC",
+    "max": 16,
+    "term": "",
+    "original": "大教会　2F",
+    "replace": "Cathedral 2F"
+  },
+  {
+    "addr": "080A59CC",
+    "max": 16,
+    "term": "",
+    "original": "大教会　2F",
+    "replace": "Cathedral 2F"
+  },
+  {
+    "addr": "080A59EC",
+    "max": 16,
+    "term": "",
+    "original": "大教会　3F",
+    "replace": "Cathedral 3F"
+  },
+  {
+    "addr": "080A5A0C",
+    "max": 16,
+    "term": "",
+    "original": "大教会　3F",
+    "replace": "Cathedral 3F"
+  },
+  {
+    "addr": "080A5A2C",
+    "max": 16,
+    "term": "",
+    "original": "大教会　2F",
+    "replace": "Cathedral 2F"
+  },
+  {
+    "addr": "080A5A4C",
+    "max": 16,
+    "term": "",
+    "original": "大教会　2F",
+    "replace": "Cathedral 2F"
+  },
+  {
+    "addr": "080A5A6C",
+    "max": 16,
+    "term": "",
+    "original": "大教会　3F",
+    "replace": "Cathedral 3F"
+  },
+  {
+    "addr": "080A5A8C",
+    "max": 16,
+    "term": "",
+    "original": "大教会　3F",
+    "replace": "Cathedral 3F"
+  },
+  {
+    "addr": "080A5AAC",
+    "max": 16,
+    "term": "",
+    "original": "大教会　B60",
+    "replace": "Cathedral B60"
+  },
+  {
+    "addr": "080A5ACC",
+    "max": 16,
+    "term": "",
+    "original": "ホーリータウン",
+    "replace": "Holytown"
+  },
+  {
+    "addr": "080A5AEC",
+    "max": 16,
+    "term": "",
+    "original": "ヴァーチャル空間",
+    "replace": "Virtual Space"
+  },
+  {
+    "addr": "080A5B0C",
+    "max": 16,
+    "term": "",
+    "original": "発掘現場　1F",
+    "replace": "Excavation Site 1F"
+  },
+  {
+    "addr": "080A5B2C",
+    "max": 16,
+    "term": "",
+    "original": "ホーリータウン",
+    "replace": "Holytown"
+  },
+  {
+    "addr": "080A5B4C",
+    "max": 16,
+    "term": "",
+    "original": "ホーリータウン",
+    "replace": "Holytown"
+  },
+  {
+    "addr": "080A5B6C",
+    "max": 16,
+    "term": "",
+    "original": "ヴァーチャル空間",
+    "replace": "Virtual Space"
+  },
+  {
+    "addr": "080A5B8C",
+    "max": 16,
+    "term": "",
+    "original": "発掘現場　B1",
+    "replace": "Excavation Site B1"
+  },
+  {
+    "addr": "080A5BAC",
+    "max": 16,
+    "term": "",
+    "original": "発掘現場　B2",
+    "replace": "Excavation Site B2"
+  },
+  {
+    "addr": "080A5BCC",
+    "max": 16,
+    "term": "",
+    "original": "発掘現場　B2",
+    "replace": "Excavation Site B2"
+  },
+  {
+    "addr": "080A5BEC",
+    "max": 16,
+    "term": "",
+    "original": "発掘現場　B1",
+    "replace": "Excavation Site B1"
+  },
+  {
+    "addr": "080A5C0C",
+    "max": 16,
+    "term": "",
+    "original": "発掘現場　B1",
+    "replace": "Excavation Site B1"
+  },
+  {
+    "addr": "080A5C2C",
+    "max": 16,
+    "term": "",
+    "original": "発掘現場　B2",
+    "replace": "Excavation Site B2"
+  },
+  {
+    "addr": "080A5C4C",
+    "max": 16,
+    "term": "",
+    "original": "発掘現場　B2",
+    "replace": "Excavation Site B2"
+  },
+  {
+    "addr": "080A5C6C",
+    "max": 16,
+    "term": "",
+    "original": "発掘現場　B3",
+    "replace": "Excavation Site B3"
+  },
+  {
+    "addr": "080A5C8C",
+    "max": 16,
+    "term": "",
+    "original": "発掘現場　B3",
+    "replace": "Excavation Site B3"
+  },
+  {
+    "addr": "080A5CAC",
+    "max": 16,
+    "term": "",
+    "original": "収容所　1F",
+    "replace": "Prison 1F"
+  },
+  {
+    "addr": "080A5CCC",
+    "max": 16,
+    "term": "",
+    "original": "収容所　1F",
+    "replace": "Prison 1F"
+  },
+  {
+    "addr": "080A5CEC",
+    "max": 16,
+    "term": "",
+    "original": "収容所　1F",
+    "replace": "Prison 1F"
+  },
+  {
+    "addr": "080A5D0C",
+    "max": 16,
+    "term": "",
+    "original": "労働者の寮",
+    "replace": "Workers' Quarters"
+  },
+  {
+    "addr": "080A5D2C",
+    "max": 16,
+    "term": "",
+    "original": "収容所　1F",
+    "replace": "Prison 1F"
+  },
+  {
+    "addr": "080A5D4C",
+    "max": 16,
+    "term": "",
+    "original": "アルカディア－ターミナル",
+    "replace": "Arcadia Terminal"
+  },
+  {
+    "addr": "080A5D6C",
+    "max": 16,
+    "term": "",
+    "original": "ファクトリー－ターミナル",
+    "replace": "Factory Terminal"
+  },
+  {
+    "addr": "080A5D8C",
+    "max": 16,
+    "term": "",
+    "original": "ファクトリー－タウン",
+    "replace": "Factory Town"
+  },
+  {
+    "addr": "080A5DAC",
+    "max": 16,
+    "term": "",
+    "original": "収容所　1F",
+    "replace": "Prison 1F"
+  },
+  {
+    "addr": "080A5DCC",
+    "max": 16,
+    "term": "",
+    "original": "ヴァルハラ－地下通路　B7",
+    "replace": "Valhalla Pass B7"
+  },
+  {
+    "addr": "080A5DEC",
+    "max": 16,
+    "term": "",
+    "original": "発掘現場　最下層",
+    "replace": "Excavation Site Bottom"
+  },
+  {
+    "addr": "080A5E0C",
+    "max": 16,
+    "term": "",
+    "original": "ファクトリー－タウン",
+    "replace": "Factory Town"
+  },
+  {
+    "addr": "080A5E2C",
+    "max": 16,
+    "term": "",
+    "original": "収容所　B1",
+    "replace": "Prison B1"
+  },
+  {
+    "addr": "080A5E4C",
+    "max": 16,
+    "term": "",
+    "original": "収容所　B1",
+    "replace": "Prison B1"
+  },
+  {
+    "addr": "080A5E6C",
+    "max": 16,
+    "term": "",
+    "original": "収容所　B1",
+    "replace": "Prison B1"
+  },
+  {
+    "addr": "080A5E8C",
+    "max": 16,
+    "term": "",
+    "original": "ファクトリー－タウン",
+    "replace": "Factory Town"
+  },
+  {
+    "addr": "080A5EAC",
+    "max": 16,
+    "term": "",
+    "original": "監視塔　1F",
+    "replace": "Watchtower 1F"
+  },
+  {
+    "addr": "080A5ECC",
+    "max": 16,
+    "term": "",
+    "original": "監視塔　2F",
+    "replace": "Watchtower 2F"
+  },
+  {
+    "addr": "080A5EEC",
+    "max": 16,
+    "term": "",
+    "original": "監視塔　3F",
+    "replace": "Watchtower 3F"
+  },
+  {
+    "addr": "080A5F0C",
+    "max": 16,
+    "term": "",
+    "original": "監視塔　4F",
+    "replace": "Watchtower 4F"
+  },
+  {
+    "addr": "080A5F2C",
+    "max": 16,
+    "term": "",
+    "original": "監視塔　5F",
+    "replace": "Watchtower 5F"
+  },
+  {
+    "addr": "080A5F4C",
+    "max": 16,
+    "term": "",
+    "original": "監視塔　6F",
+    "replace": "Watchtower 6F"
+  },
+  {
+    "addr": "080A5F6C",
+    "max": 16,
+    "term": "",
+    "original": "監視塔　7F",
+    "replace": "Watchtower 7F"
+  },
+  {
+    "addr": "080A5F8C",
+    "max": 16,
+    "term": "",
+    "original": "監視塔　8F",
+    "replace": "Watchtower 8F"
+  },
+  {
+    "addr": "080A5FAC",
+    "max": 16,
+    "term": "",
+    "original": "監視塔　9F",
+    "replace": "Watchtower 9F"
+  },
+  {
+    "addr": "080A5FCC",
+    "max": 16,
+    "term": "",
+    "original": "監視塔　10F",
+    "replace": "Watchtower 10F"
+  },
+  {
+    "addr": "080A5FEC",
+    "max": 16,
+    "term": "",
+    "original": "監視塔　13F",
+    "replace": "Watchtower 13F"
+  },
+  {
+    "addr": "080A600C",
+    "max": 16,
+    "term": "",
+    "original": "監視塔　13F",
+    "replace": "Watchtower 13F"
+  },
+  {
+    "addr": "080A602C",
+    "max": 16,
+    "term": "",
+    "original": "監視塔　11F",
+    "replace": "Watchtower 11F"
+  },
+  {
+    "addr": "080A604C",
+    "max": 16,
+    "term": "",
+    "original": "監視塔　12F",
+    "replace": "Watchtower 12F"
+  },
+  {
+    "addr": "080A606C",
+    "max": 16,
+    "term": "",
+    "original": "監視塔　13F",
+    "replace": "Watchtower 13F"
+  },
+  {
+    "addr": "080A608C",
+    "max": 16,
+    "term": "",
+    "original": "監視塔　13F",
+    "replace": "Watchtower 13F"
+  },
+  {
+    "addr": "080A60AC",
+    "max": 16,
+    "term": "",
+    "original": "ヴァーチャル空間",
+    "replace": "Virtual Space"
+  },
+  {
+    "addr": "080A60CC",
+    "max": 16,
+    "term": "",
+    "original": "ヴァーチャル空間",
+    "replace": "Virtual Space"
+  },
+  {
+    "addr": "080A60EC",
+    "max": 16,
+    "term": "",
+    "original": "ヴァーチャル空間",
+    "replace": "Virtual Space"
+  },
+  {
+    "addr": "080A610C",
+    "max": 16,
+    "term": "",
+    "original": "ヴァーチャル空間",
+    "replace": "Virtual Space"
+  },
+  {
+    "addr": "080A612C",
+    "max": 16,
+    "term": "",
+    "original": "センター　20F",
+    "replace": "Center 20F"
+  },
+  {
+    "addr": "080A614C",
+    "max": 16,
+    "term": "",
+    "original": "センター　20F",
+    "replace": "Center 20F"
+  },
+  {
+    "addr": "080A616C",
+    "max": 16,
+    "term": "",
+    "original": "センター　20F",
+    "replace": "Center 20F"
+  },
+  {
+    "addr": "080A618C",
+    "max": 16,
+    "term": "",
+    "original": "ヴァーチャル空間",
+    "replace": "Virtual Space"
+  },
+  {
+    "addr": "080A61AC",
+    "max": 16,
+    "term": "",
+    "original": "センター　20F",
+    "replace": "Center 20F"
+  },
+  {
+    "addr": "080A61CC",
+    "max": 16,
+    "term": "",
+    "original": "センター　20F",
+    "replace": "Center 20F"
+  },
+  {
+    "addr": "080A61EC",
+    "max": 16,
+    "term": "",
+    "original": "センター　20F",
+    "replace": "Center 20F"
+  },
+  {
+    "addr": "080A620C",
+    "max": 16,
+    "term": "",
+    "original": "ヴァーチャル空間",
+    "replace": "Virtual Space"
+  },
+  {
+    "addr": "080A622C",
+    "max": 16,
+    "term": "",
+    "original": "センター　20F",
+    "replace": "Center 20F"
+  },
+  {
+    "addr": "080A624C",
+    "max": 16,
+    "term": "",
+    "original": "センター　20F",
+    "replace": "Center 20F"
+  },
+  {
+    "addr": "080A626C",
+    "max": 16,
+    "term": "",
+    "original": "センター　20F",
+    "replace": "Center 20F"
+  },
+  {
+    "addr": "080A628C",
+    "max": 16,
+    "term": "",
+    "original": "ヴァーチャル空間",
+    "replace": "Virtual Space"
+  },
+  {
+    "addr": "080A62AC",
+    "max": 16,
+    "term": "",
+    "original": "ヴァーチャル空間",
+    "replace": "Virtual Space"
+  },
+  {
+    "addr": "080A62CC",
+    "max": 16,
+    "term": "",
+    "original": "ヴァーチャル空間",
+    "replace": "Virtual Space"
+  },
+  {
+    "addr": "080A62EC",
+    "max": 16,
+    "term": "",
+    "original": "ヴァーチャル空間",
+    "replace": "Virtual Space"
+  },
+  {
+    "addr": "080A630C",
+    "max": 16,
+    "term": "",
+    "original": "ヴァーチャル空間",
+    "replace": "Virtual Space"
+  },
+  {
+    "addr": "080A632C",
+    "max": 16,
+    "term": "",
+    "original": "センター　21F",
+    "replace": "Center 21F"
+  },
+  {
+    "addr": "080A634C",
+    "max": 16,
+    "term": "",
+    "original": "センター　21F",
+    "replace": "Center 21F"
+  },
+  {
+    "addr": "080A636C",
+    "max": 16,
+    "term": "",
+    "original": "センター　21F",
+    "replace": "Center 21F"
+  },
+  {
+    "addr": "080A638C",
+    "max": 16,
+    "term": "",
+    "original": "NEW　GAME",
+    "replace": "NEW GAME"
+  },
+  {
+    "addr": "080A63AC",
+    "max": 16,
+    "term": "",
+    "original": "センター　21F",
+    "replace": "Center 21F"
+  },
+  {
+    "addr": "080A63CC",
+    "max": 16,
+    "term": "",
+    "original": "センター　21F",
+    "replace": "Center 21F"
+  },
+  {
+    "addr": "080A63EC",
+    "max": 16,
+    "term": "",
+    "original": "センター　21F",
+    "replace": "Center 21F"
+  },
+  {
+    "addr": "080A642C",
+    "max": 16,
+    "term": "",
+    "original": "センター　21F",
+    "replace": "Center 21F"
+  },
+  {
+    "addr": "080A644C",
+    "max": 16,
+    "term": "",
+    "original": "センター　21F",
+    "replace": "Center 21F"
+  },
+  {
+    "addr": "080A646C",
+    "max": 16,
+    "term": "",
+    "original": "センター　21F",
+    "replace": "Center 21F"
+  },
+  {
+    "addr": "080A64AC",
+    "max": 16,
+    "term": "",
+    "original": "センター　22F",
+    "replace": "Center 22F"
+  },
+  {
+    "addr": "080A64CC",
+    "max": 16,
+    "term": "",
+    "original": "センター　22F",
+    "replace": "Center 22F"
+  },
+  {
+    "addr": "080A64EC",
+    "max": 16,
+    "term": "",
+    "original": "センター　22F",
+    "replace": "Center 22F"
+  },
+  {
+    "addr": "080A650C",
+    "max": 16,
+    "term": "",
+    "original": "旧ヒガシシンジュク　3F",
+    "replace": "Old East Shinjuku 3F"
+  },
+  {
+    "addr": "080A652C",
+    "max": 16,
+    "term": "",
+    "original": "センター　22F",
+    "replace": "Center 22F"
+  },
+  {
+    "addr": "080A654C",
+    "max": 16,
+    "term": "",
+    "original": "センター　22F",
+    "replace": "Center 22F"
+  },
+  {
+    "addr": "080A656C",
+    "max": 16,
+    "term": "",
+    "original": "センター　22F",
+    "replace": "Center 22F"
+  },
+  {
+    "addr": "080A658C",
+    "max": 16,
+    "term": "",
+    "original": "旧ヒガシシンジュク　3F",
+    "replace": "Old East Shinjuku 3F"
+  },
+  {
+    "addr": "080A65AC",
+    "max": 16,
+    "term": "",
+    "original": "センター　22F",
+    "replace": "Center 22F"
+  },
+  {
+    "addr": "080A65CC",
+    "max": 16,
+    "term": "",
+    "original": "センター　22F",
+    "replace": "Center 22F"
+  },
+  {
+    "addr": "080A65EC",
+    "max": 16,
+    "term": "",
+    "original": "センター　22F",
+    "replace": "Center 22F"
+  },
+  {
+    "addr": "080A660C",
+    "max": 16,
+    "term": "",
+    "original": "旧ヒガシシンジュク　1F",
+    "replace": "Old East Shinjuku 1F"
+  },
+  {
+    "addr": "080A662C",
+    "max": 16,
+    "term": "",
+    "original": "旧ヒガシシンジュク　2F",
+    "replace": "Old East Shinjuku 2F"
+  },
+  {
+    "addr": "080A664C",
+    "max": 16,
+    "term": "",
+    "original": "旧ヒガシシンジュク　2F",
+    "replace": "Old East Shinjuku 2F"
+  },
+  {
+    "addr": "080A666C",
+    "max": 16,
+    "term": "",
+    "original": "旧ヒガシシンジュク　2F",
+    "replace": "Old East Shinjuku 2F"
+  },
+  {
+    "addr": "080A668C",
+    "max": 16,
+    "term": "",
+    "original": "旧ヒガシシンジュク　1F",
+    "replace": "Old East Shinjuku 1F"
+  },
+  {
+    "addr": "080A66AC",
+    "max": 16,
+    "term": "",
+    "original": "ホーリータウン〜センター間通路",
+    "replace": "Holytown-Center"
+  },
+  {
+    "addr": "080A66CC",
+    "max": 16,
+    "term": "",
+    "original": "ホーリータウン〜センター間通路",
+    "replace": "Holytown-Center"
+  },
+  {
+    "addr": "080A66EC",
+    "max": 16,
+    "term": "",
+    "original": "ヴァルハラ〜センター間通路",
+    "replace": "Valhalla-Center"
+  },
+  {
+    "addr": "080A670C",
+    "max": 16,
+    "term": "",
+    "original": "ヴァルハラ〜センター間通路",
+    "replace": "Valhalla-Center"
+  },
+  {
+    "addr": "080A672C",
+    "max": 16,
+    "term": "",
+    "original": "ホーリータウン〜センター間通路",
+    "replace": "Holytown-Center"
+  },
+  {
+    "addr": "080A674C",
+    "max": 16,
+    "term": "",
+    "original": "ホーリータウン〜センター間通路",
+    "replace": "Holytown-Center"
+  },
+  {
+    "addr": "080A676C",
+    "max": 16,
+    "term": "",
+    "original": "ヴァルハラ〜センター間通路",
+    "replace": "Valhalla-Center"
+  },
+  {
+    "addr": "080A678C",
+    "max": 16,
+    "term": "",
+    "original": "ヴァルハラ〜センター間通路",
+    "replace": "Valhalla-Center"
+  },
+  {
+    "addr": "080A67AC",
+    "max": 16,
+    "term": "",
+    "original": "ファクトリー〜センター間通路",
+    "replace": "Factory-Center"
+  },
+  {
+    "addr": "080A67CC",
+    "max": 16,
+    "term": "",
+    "original": "ファクトリー〜センター間通路",
+    "replace": "Factory-Center"
+  },
+  {
+    "addr": "080A67EC",
+    "max": 16,
+    "term": "",
+    "original": "アルカディア〜センター間通路",
+    "replace": "Arcadia-Center"
+  },
+  {
+    "addr": "080A680C",
+    "max": 16,
+    "term": "",
+    "original": "アルカディア〜センター間通路",
+    "replace": "Arcadia-Center"
+  },
+  {
+    "addr": "080A682C",
+    "max": 16,
+    "term": "",
+    "original": "ファクトリー〜センター間通路",
+    "replace": "Factory-Center"
+  },
+  {
+    "addr": "080A684C",
+    "max": 16,
+    "term": "",
+    "original": "ファクトリー〜センター間通路",
+    "replace": "Factory-Center"
+  },
+  {
+    "addr": "080A686C",
+    "max": 16,
+    "term": "",
+    "original": "アルカディア〜センター間通路",
+    "replace": "Arcadia-Center"
+  },
+  {
+    "addr": "080A688C",
+    "max": 16,
+    "term": "",
+    "original": "アルカディア〜センター間通路",
+    "replace": "Arcadia-Center"
+  },
+  {
+    "addr": "080A68AC",
+    "max": 16,
+    "term": "",
+    "original": "旧スイドウバシ",
+    "replace": "Old Suidobashi"
+  },
+  {
+    "addr": "080A68CC",
+    "max": 16,
+    "term": "",
+    "original": "旧スイドウバシ",
+    "replace": "Old Suidobashi"
+  },
+  {
+    "addr": "080A68EC",
+    "max": 16,
+    "term": "",
+    "original": "旧スイドウバシ",
+    "replace": "Old Suidobashi"
+  },
+  {
+    "addr": "080A690C",
+    "max": 16,
+    "term": "",
+    "original": "旧スイドウバシ",
+    "replace": "Old Suidobashi"
+  },
+  {
+    "addr": "080A692C",
+    "max": 16,
+    "term": "",
+    "original": "旧スイドウバシ",
+    "replace": "Old Suidobashi"
+  },
+  {
+    "addr": "080A694C",
+    "max": 16,
+    "term": "",
+    "original": "旧スイドウバシ",
+    "replace": "Old Suidobashi"
+  },
+  {
+    "addr": "080A696C",
+    "max": 16,
+    "term": "",
+    "original": "旧スイドウバシ",
+    "replace": "Old Suidobashi"
+  },
+  {
+    "addr": "080A698C",
+    "max": 16,
+    "term": "",
+    "original": "旧スイドウバシ",
+    "replace": "Old Suidobashi"
+  },
+  {
+    "addr": "080A69AC",
+    "max": 16,
+    "term": "",
+    "original": "旧スイドウバシ",
+    "replace": "Old Suidobashi"
+  },
+  {
+    "addr": "080A69CC",
+    "max": 16,
+    "term": "",
+    "original": "旧スイドウバシ",
+    "replace": "Old Suidobashi"
+  },
+  {
+    "addr": "080A69EC",
+    "max": 16,
+    "term": "",
+    "original": "旧スイドウバシ",
+    "replace": "Old Suidobashi"
+  },
+  {
+    "addr": "080A6A0C",
+    "max": 16,
+    "term": "",
+    "original": "旧スイドウバシ",
+    "replace": "Old Suidobashi"
+  },
+  {
+    "addr": "080A6A2C",
+    "max": 16,
+    "term": "",
+    "original": "旧スイドウバシ",
+    "replace": "Old Suidobashi"
+  },
+  {
+    "addr": "080A6A4C",
+    "max": 16,
+    "term": "",
+    "original": "旧スイドウバシ",
+    "replace": "Old Suidobashi"
+  },
+  {
+    "addr": "080A6A6C",
+    "max": 16,
+    "term": "",
+    "original": "旧スイドウバシ",
+    "replace": "Old Suidobashi"
+  },
+  {
+    "addr": "080A6A8C",
+    "max": 16,
+    "term": "",
+    "original": "旧スイドウバシ",
+    "replace": "Old Suidobashi"
+  },
+  {
+    "addr": "080A6AAC",
+    "max": 16,
+    "term": "",
+    "original": "旧シンジュク　1F",
+    "replace": "Old Shinjuku 1F"
+  },
+  {
+    "addr": "080A6ACC",
+    "max": 16,
+    "term": "",
+    "original": "旧シンジュク　1F",
+    "replace": "Old Shinjuku 1F"
+  },
+  {
+    "addr": "080A6AEC",
+    "max": 16,
+    "term": "",
+    "original": "旧シンジュク　1F",
+    "replace": "Old Shinjuku 1F"
+  },
+  {
+    "addr": "080A6B0C",
+    "max": 16,
+    "term": "",
+    "original": "旧シンジュク　B2",
+    "replace": "Old Shinjuku B2"
+  },
+  {
+    "addr": "080A6B2C",
+    "max": 16,
+    "term": "",
+    "original": "旧シンジュク　1F",
+    "replace": "Old Shinjuku 1F"
+  },
+  {
+    "addr": "080A6B4C",
+    "max": 16,
+    "term": "",
+    "original": "旧シンジュク　1F",
+    "replace": "Old Shinjuku 1F"
+  },
+  {
+    "addr": "080A6B6C",
+    "max": 16,
+    "term": "",
+    "original": "旧シンジュク　1F",
+    "replace": "Old Shinjuku 1F"
+  },
+  {
+    "addr": "080A6B8C",
+    "max": 16,
+    "term": "",
+    "original": "旧シンジュク　B3",
+    "replace": "Old Shinjuku B3"
+  },
+  {
+    "addr": "080A6BAC",
+    "max": 16,
+    "term": "",
+    "original": "旧シンジュク　1F",
+    "replace": "Old Shinjuku 1F"
+  },
+  {
+    "addr": "080A6BCC",
+    "max": 16,
+    "term": "",
+    "original": "旧シンジュク　1F",
+    "replace": "Old Shinjuku 1F"
+  },
+  {
+    "addr": "080A6BEC",
+    "max": 16,
+    "term": "",
+    "original": "旧シンジュク　1F",
+    "replace": "Old Shinjuku 1F"
+  },
+  {
+    "addr": "080A6C0C",
+    "max": 16,
+    "term": "",
+    "original": "旧シンジュク　B3",
+    "replace": "Old Shinjuku B3"
+  },
+  {
+    "addr": "080A6C2C",
+    "max": 16,
+    "term": "",
+    "original": "旧シンジュク　B1",
+    "replace": "Old Shinjuku B1"
+  },
+  {
+    "addr": "080A6C4C",
+    "max": 16,
+    "term": "",
+    "original": "旧シンジュク　B1",
+    "replace": "Old Shinjuku B1"
+  },
+  {
+    "addr": "080A6C6C",
+    "max": 16,
+    "term": "",
+    "original": "旧シンジュク　B1",
+    "replace": "Old Shinjuku B1"
+  },
+  {
+    "addr": "080A6C8C",
+    "max": 16,
+    "term": "",
+    "original": "旧シンジュク　B3",
+    "replace": "Old Shinjuku B3"
+  },
+  {
+    "addr": "080A6CAC",
+    "max": 16,
+    "term": "",
+    "original": "旧アカサカ　1F",
+    "replace": "Old Akasaka 1F"
+  },
+  {
+    "addr": "080A6CCC",
+    "max": 16,
+    "term": "",
+    "original": "旧アカサカ　1F",
+    "replace": "Old Akasaka 1F"
+  },
+  {
+    "addr": "080A6CEC",
+    "max": 16,
+    "term": "",
+    "original": "旧アカサカ　1F",
+    "replace": "Old Akasaka 1F"
+  },
+  {
+    "addr": "080A6D0C",
+    "max": 16,
+    "term": "",
+    "original": "旧アカサカ　B3",
+    "replace": "Old Akasaka B3"
+  },
+  {
+    "addr": "080A6D2C",
+    "max": 16,
+    "term": "",
+    "original": "旧アカサカ　1F",
+    "replace": "Old Akasaka 1F"
+  },
+  {
+    "addr": "080A6D4C",
+    "max": 16,
+    "term": "",
+    "original": "旧アカサカ　1F",
+    "replace": "Old Akasaka 1F"
+  },
+  {
+    "addr": "080A6D6C",
+    "max": 16,
+    "term": "",
+    "original": "旧アカサカ　1F",
+    "replace": "Old Akasaka 1F"
+  },
+  {
+    "addr": "080A6D8C",
+    "max": 16,
+    "term": "",
+    "original": "旧アカサカ　1F",
+    "replace": "Old Akasaka 1F"
+  },
+  {
+    "addr": "080A6DAC",
+    "max": 16,
+    "term": "",
+    "original": "旧アカサカ　1F",
+    "replace": "Old Akasaka 1F"
+  },
+  {
+    "addr": "080A6DCC",
+    "max": 16,
+    "term": "",
+    "original": "旧アカサカ　1F",
+    "replace": "Old Akasaka 1F"
+  },
+  {
+    "addr": "080A6DEC",
+    "max": 16,
+    "term": "",
+    "original": "旧アカサカ　1F",
+    "replace": "Old Akasaka 1F"
+  },
+  {
+    "addr": "080A6E0C",
+    "max": 16,
+    "term": "",
+    "original": "旧アカサカ　B2",
+    "replace": "Old Akasaka B2"
+  },
+  {
+    "addr": "080A6E2C",
+    "max": 16,
+    "term": "",
+    "original": "旧アカサカ　B4",
+    "replace": "Old Akasaka B4"
+  },
+  {
+    "addr": "080A6E4C",
+    "max": 16,
+    "term": "",
+    "original": "旧アカサカ　B4",
+    "replace": "Old Akasaka B4"
+  },
+  {
+    "addr": "080A6E6C",
+    "max": 16,
+    "term": "",
+    "original": "旧アカサカ　B4",
+    "replace": "Old Akasaka B4"
+  },
+  {
+    "addr": "080A6E8C",
+    "max": 16,
+    "term": "",
+    "original": "旧アカサカ　B4",
+    "replace": "Old Akasaka B4"
+  },
+  {
+    "addr": "080A6EAC",
+    "max": 16,
+    "term": "",
+    "original": "旧ロッポンギ　1F",
+    "replace": "Old Roppongi 1F"
+  },
+  {
+    "addr": "080A6ECC",
+    "max": 16,
+    "term": "",
+    "original": "旧ロッポンギ　1F",
+    "replace": "Old Roppongi 1F"
+  },
+  {
+    "addr": "080A6EEC",
+    "max": 16,
+    "term": "",
+    "original": "旧ロッポンギ　B1",
+    "replace": "Old Roppongi B1"
+  },
+  {
+    "addr": "080A6F0C",
+    "max": 16,
+    "term": "",
+    "original": "旧ロッポンギ　B1",
+    "replace": "Old Roppongi B1"
+  },
+  {
+    "addr": "080A6F2C",
+    "max": 16,
+    "term": "",
+    "original": "旧ロッポンギ　1F",
+    "replace": "Old Roppongi 1F"
+  },
+  {
+    "addr": "080A6F4C",
+    "max": 16,
+    "term": "",
+    "original": "旧ロッポンギ　1F",
+    "replace": "Old Roppongi 1F"
+  },
+  {
+    "addr": "080A6F6C",
+    "max": 16,
+    "term": "",
+    "original": "旧ロッポンギ　B2",
+    "replace": "Old Roppongi B2"
+  },
+  {
+    "addr": "080A6F8C",
+    "max": 16,
+    "term": "",
+    "original": "旧ロッポンギ　B2",
+    "replace": "Old Roppongi B2"
+  },
+  {
+    "addr": "080A6FAC",
+    "max": 16,
+    "term": "",
+    "original": "旧ロッポンギ　1F",
+    "replace": "Old Roppongi 1F"
+  },
+  {
+    "addr": "080A6FCC",
+    "max": 16,
+    "term": "",
+    "original": "旧ロッポンギ　1F",
+    "replace": "Old Roppongi 1F"
+  },
+  {
+    "addr": "080A6FEC",
+    "max": 16,
+    "term": "",
+    "original": "旧ロッポンギ　B2",
+    "replace": "Old Roppongi B2"
+  },
+  {
+    "addr": "080A700C",
+    "max": 16,
+    "term": "",
+    "original": "旧ロッポンギ　B2",
+    "replace": "Old Roppongi B2"
+  },
+  {
+    "addr": "080A702C",
+    "max": 16,
+    "term": "",
+    "original": "旧ロッポンギ　1F",
+    "replace": "Old Roppongi 1F"
+  },
+  {
+    "addr": "080A704C",
+    "max": 16,
+    "term": "",
+    "original": "旧ロッポンギ　1F",
+    "replace": "Old Roppongi 1F"
+  },
+  {
+    "addr": "080A706C",
+    "max": 16,
+    "term": "",
+    "original": "旧ロッポンギ　B1",
+    "replace": "Old Roppongi B1"
+  },
+  {
+    "addr": "080A708C",
+    "max": 16,
+    "term": "",
+    "original": "旧ロッポンギ　B1",
+    "replace": "Old Roppongi B1"
+  },
+  {
+    "addr": "080A70AC",
+    "max": 16,
+    "term": "",
+    "original": "旧シブヤ　1F",
+    "replace": "Old Shibuya 1F"
+  },
+  {
+    "addr": "080A70CC",
+    "max": 16,
+    "term": "",
+    "original": "旧シブヤ　1F",
+    "replace": "Old Shibuya 1F"
+  },
+  {
+    "addr": "080A70EC",
+    "max": 16,
+    "term": "",
+    "original": "旧シブヤ　3F",
+    "replace": "Old Shibuya 3F"
+  },
+  {
+    "addr": "080A710C",
+    "max": 16,
+    "term": "",
+    "original": "旧シブヤ　2F",
+    "replace": "Old Shibuya 2F"
+  },
+  {
+    "addr": "080A712C",
+    "max": 16,
+    "term": "",
+    "original": "旧シブヤ　1F",
+    "replace": "Old Shibuya 1F"
+  },
+  {
+    "addr": "080A714C",
+    "max": 16,
+    "term": "",
+    "original": "旧シブヤ　1F",
+    "replace": "Old Shibuya 1F"
+  },
+  {
+    "addr": "080A716C",
+    "max": 16,
+    "term": "",
+    "original": "旧シブヤ　2F",
+    "replace": "Old Shibuya 2F"
+  },
+  {
+    "addr": "080A718C",
+    "max": 16,
+    "term": "",
+    "original": "旧シブヤ　2F",
+    "replace": "Old Shibuya 2F"
+  },
+  {
+    "addr": "080A71AC",
+    "max": 16,
+    "term": "",
+    "original": "旧オオテマチ",
+    "replace": "Old Otemachi"
+  },
+  {
+    "addr": "080A71CC",
+    "max": 16,
+    "term": "",
+    "original": "旧オオテマチ",
+    "replace": "Old Otemachi"
+  },
+  {
+    "addr": "080A71EC",
+    "max": 16,
+    "term": "",
+    "original": "旧オオテマチ",
+    "replace": "Old Otemachi"
+  },
+  {
+    "addr": "080A720C",
+    "max": 16,
+    "term": "",
+    "original": "旧オオテマチ",
+    "replace": "Old Otemachi"
+  },
+  {
+    "addr": "080A722C",
+    "max": 16,
+    "term": "",
+    "original": "旧オオテマチ",
+    "replace": "Old Otemachi"
+  },
+  {
+    "addr": "080A724C",
+    "max": 16,
+    "term": "",
+    "original": "旧オオテマチ",
+    "replace": "Old Otemachi"
+  },
+  {
+    "addr": "080A726C",
+    "max": 16,
+    "term": "",
+    "original": "旧オオテマチ",
+    "replace": "Old Otemachi"
+  },
+  {
+    "addr": "080A728C",
+    "max": 16,
+    "term": "",
+    "original": "旧オオテマチ",
+    "replace": "Old Otemachi"
+  },
+  {
+    "addr": "080A72AC",
+    "max": 16,
+    "term": "",
+    "original": "ティフェレトの街",
+    "replace": "Tiphereth"
+  },
+  {
+    "addr": "080A72CC",
+    "max": 16,
+    "term": "",
+    "original": "ティフェレトの街",
+    "replace": "Tiphereth"
+  },
+  {
+    "addr": "080A72EC",
+    "max": 16,
+    "term": "",
+    "original": "ティフェレトの街",
+    "replace": "Tiphereth"
+  },
+  {
+    "addr": "080A730C",
+    "max": 16,
+    "term": "",
+    "original": "ティフェレトの街",
+    "replace": "Tiphereth"
+  },
+  {
+    "addr": "080A732C",
+    "max": 16,
+    "term": "",
+    "original": "ティフェレトの街",
+    "replace": "Tiphereth"
+  },
+  {
+    "addr": "080A734C",
+    "max": 16,
+    "term": "",
+    "original": "ティフェレトの街",
+    "replace": "Tiphereth"
+  },
+  {
+    "addr": "080A736C",
+    "max": 16,
+    "term": "",
+    "original": "ティフェレトの街",
+    "replace": "Tiphereth"
+  },
+  {
+    "addr": "080A738C",
+    "max": 16,
+    "term": "",
+    "original": "ティフェレトの街",
+    "replace": "Tiphereth"
+  },
+  {
+    "addr": "080A73AC",
+    "max": 16,
+    "term": "",
+    "original": "旧オオテマチ",
+    "replace": "Old Otemachi"
+  },
+  {
+    "addr": "080A73CC",
+    "max": 16,
+    "term": "",
+    "original": "旧オオテマチ",
+    "replace": "Old Otemachi"
+  },
+  {
+    "addr": "080A742C",
+    "max": 16,
+    "term": "",
+    "original": "旧オオテマチ",
+    "replace": "Old Otemachi"
+  },
+  {
+    "addr": "080A744C",
+    "max": 16,
+    "term": "",
+    "original": "旧オオテマチ",
+    "replace": "Old Otemachi"
+  },
+  {
+    "addr": "080A74AC",
+    "max": 16,
+    "term": "",
+    "original": "旧コウジマチ　1F",
+    "replace": "Old Kojimachi 1F"
+  },
+  {
+    "addr": "080A74CC",
+    "max": 16,
+    "term": "",
+    "original": "旧コウジマチ　1F",
+    "replace": "Old Kojimachi 1F"
+  },
+  {
+    "addr": "080A74EC",
+    "max": 16,
+    "term": "",
+    "original": "旧コウジマチ　2F",
+    "replace": "Old Kojimachi 2F"
+  },
+  {
+    "addr": "080A750C",
+    "max": 16,
+    "term": "",
+    "original": "旧コウジマチ　2F",
+    "replace": "Old Kojimachi 2F"
+  },
+  {
+    "addr": "080A752C",
+    "max": 16,
+    "term": "",
+    "original": "旧コウジマチ　1F",
+    "replace": "Old Kojimachi 1F"
+  },
+  {
+    "addr": "080A754C",
+    "max": 16,
+    "term": "",
+    "original": "旧コウジマチ　1F",
+    "replace": "Old Kojimachi 1F"
+  },
+  {
+    "addr": "080A756C",
+    "max": 16,
+    "term": "",
+    "original": "旧コウジマチ　2F",
+    "replace": "Old Kojimachi 2F"
+  },
+  {
+    "addr": "080A758C",
+    "max": 16,
+    "term": "",
+    "original": "旧コウジマチ　2F",
+    "replace": "Old Kojimachi 2F"
+  },
+  {
+    "addr": "080A75AC",
+    "max": 16,
+    "term": "",
+    "original": "旧コウジマチ　3F",
+    "replace": "Old Kojimachi 3F"
+  },
+  {
+    "addr": "080A75CC",
+    "max": 16,
+    "term": "",
+    "original": "旧コウジマチ　3F",
+    "replace": "Old Kojimachi 3F"
+  },
+  {
+    "addr": "080A75EC",
+    "max": 16,
+    "term": "",
+    "original": "旧コウジマチ　4F",
+    "replace": "Old Kojimachi 4F"
+  },
+  {
+    "addr": "080A760C",
+    "max": 16,
+    "term": "",
+    "original": "旧コウジマチ　4F",
+    "replace": "Old Kojimachi 4F"
+  },
+  {
+    "addr": "080A762C",
+    "max": 16,
+    "term": "",
+    "original": "旧コウジマチ　3F",
+    "replace": "Old Kojimachi 3F"
+  },
+  {
+    "addr": "080A764C",
+    "max": 16,
+    "term": "",
+    "original": "旧コウジマチ　3F",
+    "replace": "Old Kojimachi 3F"
+  },
+  {
+    "addr": "080A766C",
+    "max": 16,
+    "term": "",
+    "original": "旧コウジマチ　4F",
+    "replace": "Old Kojimachi 4F"
+  },
+  {
+    "addr": "080A768C",
+    "max": 16,
+    "term": "",
+    "original": "旧コウジマチ　4F",
+    "replace": "Old Kojimachi 4F"
+  },
+  {
+    "addr": "080A76AC",
+    "max": 16,
+    "term": "",
+    "original": "封印の岩戸　1F",
+    "replace": "Sealed Gate 1F"
+  },
+  {
+    "addr": "080A76CC",
+    "max": 16,
+    "term": "",
+    "original": "封印の岩戸　B1",
+    "replace": "Sealed Gate B1"
+  },
+  {
+    "addr": "080A76EC",
+    "max": 16,
+    "term": "",
+    "original": "封印の岩戸　B2",
+    "replace": "Sealed Gate B2"
+  },
+  {
+    "addr": "080A770C",
+    "max": 16,
+    "term": "",
+    "original": "封印の岩戸　B3",
+    "replace": "Sealed Gate B3"
+  },
+  {
+    "addr": "080A772C",
+    "max": 16,
+    "term": "",
+    "original": "封印の岩戸　B4",
+    "replace": "Sealed Gate B4"
+  },
+  {
+    "addr": "080A774C",
+    "max": 16,
+    "term": "",
+    "original": "封印の岩戸　B4",
+    "replace": "Sealed Gate B4"
+  },
+  {
+    "addr": "080A776C",
+    "max": 16,
+    "term": "",
+    "original": "封印の岩戸　B4",
+    "replace": "Sealed Gate B4"
+  },
+  {
+    "addr": "080A778C",
+    "max": 16,
+    "term": "",
+    "original": "イェソドの街",
+    "replace": "Yesod"
+  },
+  {
+    "addr": "080A77AC",
+    "max": 16,
+    "term": "",
+    "original": "封印の岩戸　B4",
+    "replace": "Sealed Gate B4"
+  },
+  {
+    "addr": "080A77CC",
+    "max": 16,
+    "term": "",
+    "original": "封印の岩戸　B4",
+    "replace": "Sealed Gate B4"
+  },
+  {
+    "addr": "080A77EC",
+    "max": 16,
+    "term": "",
+    "original": "封印の岩戸　B4",
+    "replace": "Sealed Gate B4"
+  },
+  {
+    "addr": "080A780C",
+    "max": 16,
+    "term": "",
+    "original": "イェソドの街",
+    "replace": "Yesod"
+  },
+  {
+    "addr": "080A782C",
+    "max": 16,
+    "term": "",
+    "original": "封印の岩戸　B4",
+    "replace": "Sealed Gate B4"
+  },
+  {
+    "addr": "080A784C",
+    "max": 16,
+    "term": "",
+    "original": "封印の岩戸　B4",
+    "replace": "Sealed Gate B4"
+  },
+  {
+    "addr": "080A786C",
+    "max": 16,
+    "term": "",
+    "original": "封印の岩戸　B4",
+    "replace": "Sealed Gate B4"
+  },
+  {
+    "addr": "080A788C",
+    "max": 16,
+    "term": "",
+    "original": "イェソドの街",
+    "replace": "Yesod"
+  },
+  {
+    "addr": "080A78AC",
+    "max": 16,
+    "term": "",
+    "original": "ヴァーチャル空間",
+    "replace": "Virtual Space"
+  },
+  {
+    "addr": "080A78CC",
+    "max": 16,
+    "term": "",
+    "original": "ヴァーチャル空間",
+    "replace": "Virtual Space"
+  },
+  {
+    "addr": "080A78EC",
+    "max": 16,
+    "term": "",
+    "original": "ヴァーチャル空間",
+    "replace": "Virtual Space"
+  },
+  {
+    "addr": "080A790C",
+    "max": 16,
+    "term": "",
+    "original": "ヴァーチャル空間",
+    "replace": "Virtual Space"
+  },
+  {
+    "addr": "080A792C",
+    "max": 16,
+    "term": "",
+    "original": "ヴァルハラ－ダウンタウン",
+    "replace": "Valhalla Downtown"
+  },
+  {
+    "addr": "080A794C",
+    "max": 16,
+    "term": "",
+    "original": "ホーリータウン",
+    "replace": "Holytown"
+  },
+  {
+    "addr": "080A796C",
+    "max": 16,
+    "term": "",
+    "original": "ティフェレトの街",
+    "replace": "Tiphereth"
+  },
+  {
+    "addr": "080A798C",
+    "max": 16,
+    "term": "",
+    "original": "アルカディア　住居",
+    "replace": "Arcadia Housing"
+  },
+  {
+    "addr": "080A79AC",
+    "max": 16,
+    "term": "",
+    "original": "ヴァルハラ－ダウンタウン",
+    "replace": "Valhalla Downtown"
+  },
+  {
+    "addr": "080A79CC",
+    "max": 16,
+    "term": "",
+    "original": "ホーリータウン",
+    "replace": "Holytown"
+  },
+  {
+    "addr": "080A79EC",
+    "max": 16,
+    "term": "",
+    "original": "旧ロッポンギ",
+    "replace": "Old Roppongi"
+  },
+  {
+    "addr": "080A7A0C",
+    "max": 16,
+    "term": "",
+    "original": "ティフェレトの街",
+    "replace": "Tiphereth"
+  },
+  {
+    "addr": "080A7A2C",
+    "max": 16,
+    "term": "",
+    "original": "ヴァーチャル空間",
+    "replace": "Virtual Space"
+  },
+  {
+    "addr": "080A7A4C",
+    "max": 16,
+    "term": "",
+    "original": "ネツァクの街",
+    "replace": "Netzach"
+  },
+  {
+    "addr": "080A7A6C",
+    "max": 16,
+    "term": "",
+    "original": "ネツァクの街",
+    "replace": "Netzach"
+  },
+  {
+    "addr": "080A7A8C",
+    "max": 16,
+    "term": "",
+    "original": "ネツァクの街",
+    "replace": "Netzach"
+  },
+  {
+    "addr": "080A7AAC",
+    "max": 16,
+    "term": "",
+    "original": "イェツラー回廊　B1",
+    "replace": "Yetzirah Path B1"
+  },
+  {
+    "addr": "080A7ACC",
+    "max": 16,
+    "term": "",
+    "original": "イェツラー回廊　B1",
+    "replace": "Yetzirah Path B1"
+  },
+  {
+    "addr": "080A7AEC",
+    "max": 16,
+    "term": "",
+    "original": "イェツラー回廊　B2",
+    "replace": "Yetzirah Path B2"
+  },
+  {
+    "addr": "080A7B0C",
+    "max": 16,
+    "term": "",
+    "original": "イェツラー回廊　B1",
+    "replace": "Yetzirah Path B1"
+  },
+  {
+    "addr": "080A7B2C",
+    "max": 16,
+    "term": "",
+    "original": "イェツラー回廊　B2",
+    "replace": "Yetzirah Path B2"
+  },
+  {
+    "addr": "080A7B4C",
+    "max": 16,
+    "term": "",
+    "original": "イェツラー回廊　B2",
+    "replace": "Yetzirah Path B2"
+  },
+  {
+    "addr": "080A7B6C",
+    "max": 16,
+    "term": "",
+    "original": "イェツラー回廊　B2",
+    "replace": "Yetzirah Path B2"
+  },
+  {
+    "addr": "080A7B8C",
+    "max": 16,
+    "term": "",
+    "original": "イェツラー回廊　B1",
+    "replace": "Yetzirah Path B1"
+  },
+  {
+    "addr": "080A7BAC",
+    "max": 16,
+    "term": "",
+    "original": "イェツラー回廊　B1",
+    "replace": "Yetzirah Path B1"
+  },
+  {
+    "addr": "080A7BCC",
+    "max": 16,
+    "term": "",
+    "original": "イェツラー回廊　B2",
+    "replace": "Yetzirah Path B2"
+  },
+  {
+    "addr": "080A7BEC",
+    "max": 16,
+    "term": "",
+    "original": "イェツラー回廊　B2",
+    "replace": "Yetzirah Path B2"
+  },
+  {
+    "addr": "080A7C0C",
+    "max": 16,
+    "term": "",
+    "original": "イェツラー回廊　B2",
+    "replace": "Yetzirah Path B2"
+  },
+  {
+    "addr": "080A7C2C",
+    "max": 16,
+    "term": "",
+    "original": "イェツラー回廊　B1",
+    "replace": "Yetzirah Path B1"
+  },
+  {
+    "addr": "080A7C4C",
+    "max": 16,
+    "term": "",
+    "original": "イェツラー回廊　B2",
+    "replace": "Yetzirah Path B2"
+  },
+  {
+    "addr": "080A7C6C",
+    "max": 16,
+    "term": "",
+    "original": "イェツラー回廊　B1",
+    "replace": "Yetzirah Path B1"
+  },
+  {
+    "addr": "080A7C8C",
+    "max": 16,
+    "term": "",
+    "original": "イェツラー回廊　B1",
+    "replace": "Yetzirah Path B1"
+  },
+  {
+    "addr": "080A7CAC",
+    "max": 16,
+    "term": "",
+    "original": "アバドン体内",
+    "replace": "Inside Abaddon"
+  },
+  {
+    "addr": "080A7CCC",
+    "max": 16,
+    "term": "",
+    "original": "アバドン体内",
+    "replace": "Inside Abaddon"
+  },
+  {
+    "addr": "080A7CEC",
+    "max": 16,
+    "term": "",
+    "original": "アバドン体内",
+    "replace": "Inside Abaddon"
+  },
+  {
+    "addr": "080A7D0C",
+    "max": 16,
+    "term": "",
+    "original": "アバドン体内",
+    "replace": "Inside Abaddon"
+  },
+  {
+    "addr": "080A7D2C",
+    "max": 16,
+    "term": "",
+    "original": "アバドン体内",
+    "replace": "Inside Abaddon"
+  },
+  {
+    "addr": "080A7D4C",
+    "max": 16,
+    "term": "",
+    "original": "アバドン体内",
+    "replace": "Inside Abaddon"
+  },
+  {
+    "addr": "080A7D6C",
+    "max": 16,
+    "term": "",
+    "original": "アバドン体内",
+    "replace": "Inside Abaddon"
+  },
+  {
+    "addr": "080A7D8C",
+    "max": 16,
+    "term": "",
+    "original": "アバドン体内",
+    "replace": "Inside Abaddon"
+  },
+  {
+    "addr": "080A7DAC",
+    "max": 16,
+    "term": "",
+    "original": "アバドン体内",
+    "replace": "Inside Abaddon"
+  },
+  {
+    "addr": "080A7DCC",
+    "max": 16,
+    "term": "",
+    "original": "アバドン体内",
+    "replace": "Inside Abaddon"
+  },
+  {
+    "addr": "080A7DEC",
+    "max": 16,
+    "term": "",
+    "original": "アバドン体内",
+    "replace": "Inside Abaddon"
+  },
+  {
+    "addr": "080A7E0C",
+    "max": 16,
+    "term": "",
+    "original": "アバドン体内",
+    "replace": "Inside Abaddon"
+  },
+  {
+    "addr": "080A7E2C",
+    "max": 16,
+    "term": "",
+    "original": "アバドン体内",
+    "replace": "Inside Abaddon"
+  },
+  {
+    "addr": "080A7E4C",
+    "max": 16,
+    "term": "",
+    "original": "アバドン体内",
+    "replace": "Inside Abaddon"
+  },
+  {
+    "addr": "080A7E6C",
+    "max": 16,
+    "term": "",
+    "original": "アバドン体内",
+    "replace": "Inside Abaddon"
+  },
+  {
+    "addr": "080A7E8C",
+    "max": 16,
+    "term": "",
+    "original": "アバドン体内",
+    "replace": "Inside Abaddon"
+  },
+  {
+    "addr": "080A7EAC",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　2F",
+    "replace": "Kether Castle 2F"
+  },
+  {
+    "addr": "080A7ECC",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　1F",
+    "replace": "Kether Castle 1F"
+  },
+  {
+    "addr": "080A7EEC",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　1F",
+    "replace": "Kether Castle 1F"
+  },
+  {
+    "addr": "080A7F0C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　2F",
+    "replace": "Kether Castle 2F"
+  },
+  {
+    "addr": "080A7F2C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　1F",
+    "replace": "Kether Castle 1F"
+  },
+  {
+    "addr": "080A7F4C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　1F",
+    "replace": "Kether Castle 1F"
+  },
+  {
+    "addr": "080A7F6C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　1F",
+    "replace": "Kether Castle 1F"
+  },
+  {
+    "addr": "080A7F8C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　1F",
+    "replace": "Kether Castle 1F"
+  },
+  {
+    "addr": "080A7FAC",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　1F",
+    "replace": "Kether Castle 1F"
+  },
+  {
+    "addr": "080A7FCC",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　1F",
+    "replace": "Kether Castle 1F"
+  },
+  {
+    "addr": "080A7FEC",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　1F",
+    "replace": "Kether Castle 1F"
+  },
+  {
+    "addr": "080A800C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　1F",
+    "replace": "Kether Castle 1F"
+  },
+  {
+    "addr": "080A802C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　2F",
+    "replace": "Kether Castle 2F"
+  },
+  {
+    "addr": "080A804C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　1F",
+    "replace": "Kether Castle 1F"
+  },
+  {
+    "addr": "080A806C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　1F",
+    "replace": "Kether Castle 1F"
+  },
+  {
+    "addr": "080A808C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　2F",
+    "replace": "Kether Castle 2F"
+  },
+  {
+    "addr": "080A80AC",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　3F",
+    "replace": "Kether Castle 3F"
+  },
+  {
+    "addr": "080A80CC",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　3F",
+    "replace": "Kether Castle 3F"
+  },
+  {
+    "addr": "080A80EC",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　3F",
+    "replace": "Kether Castle 3F"
+  },
+  {
+    "addr": "080A810C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　3F",
+    "replace": "Kether Castle 3F"
+  },
+  {
+    "addr": "080A812C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　3F",
+    "replace": "Kether Castle 3F"
+  },
+  {
+    "addr": "080A814C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　3F",
+    "replace": "Kether Castle 3F"
+  },
+  {
+    "addr": "080A816C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　3F",
+    "replace": "Kether Castle 3F"
+  },
+  {
+    "addr": "080A818C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　3F",
+    "replace": "Kether Castle 3F"
+  },
+  {
+    "addr": "080A81AC",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　3F",
+    "replace": "Kether Castle 3F"
+  },
+  {
+    "addr": "080A81CC",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　3F",
+    "replace": "Kether Castle 3F"
+  },
+  {
+    "addr": "080A81EC",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　3F",
+    "replace": "Kether Castle 3F"
+  },
+  {
+    "addr": "080A820C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　3F",
+    "replace": "Kether Castle 3F"
+  },
+  {
+    "addr": "080A822C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　3F",
+    "replace": "Kether Castle 3F"
+  },
+  {
+    "addr": "080A824C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　3F",
+    "replace": "Kether Castle 3F"
+  },
+  {
+    "addr": "080A826C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　3F",
+    "replace": "Kether Castle 3F"
+  },
+  {
+    "addr": "080A828C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　3F",
+    "replace": "Kether Castle 3F"
+  },
+  {
+    "addr": "080A82AC",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　4F",
+    "replace": "Kether Castle 4F"
+  },
+  {
+    "addr": "080A82CC",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　4F",
+    "replace": "Kether Castle 4F"
+  },
+  {
+    "addr": "080A82EC",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　5F",
+    "replace": "Kether Castle 5F"
+  },
+  {
+    "addr": "080A830C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　5F",
+    "replace": "Kether Castle 5F"
+  },
+  {
+    "addr": "080A832C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　4F",
+    "replace": "Kether Castle 4F"
+  },
+  {
+    "addr": "080A834C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　4F",
+    "replace": "Kether Castle 4F"
+  },
+  {
+    "addr": "080A836C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　5F",
+    "replace": "Kether Castle 5F"
+  },
+  {
+    "addr": "080A838C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　5F",
+    "replace": "Kether Castle 5F"
+  },
+  {
+    "addr": "080A83AC",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　6F",
+    "replace": "Kether Castle 6F"
+  },
+  {
+    "addr": "080A83CC",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　6F",
+    "replace": "Kether Castle 6F"
+  },
+  {
+    "addr": "080A83EC",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　7F",
+    "replace": "Kether Castle 7F"
+  },
+  {
+    "addr": "080A840C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　9F",
+    "replace": "Kether Castle 9F"
+  },
+  {
+    "addr": "080A842C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　6F",
+    "replace": "Kether Castle 6F"
+  },
+  {
+    "addr": "080A844C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　6F",
+    "replace": "Kether Castle 6F"
+  },
+  {
+    "addr": "080A846C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　8F",
+    "replace": "Kether Castle 8F"
+  },
+  {
+    "addr": "080A848C",
+    "max": 16,
+    "term": "",
+    "original": "ケテル城　9F",
+    "replace": "Kether Castle 9F"
+  },
+  {
+    "addr": "080A84AC",
+    "max": 16,
+    "term": "",
+    "original": "ベリアー回廊　B2",
+    "replace": "Beriah Path B2"
+  },
+  {
+    "addr": "080A84CC",
+    "max": 16,
+    "term": "",
+    "original": "ベリアー回廊　B2",
+    "replace": "Beriah Path B2"
+  },
+  {
+    "addr": "080A84EC",
+    "max": 16,
+    "term": "",
+    "original": "ベリアー回廊　B2",
+    "replace": "Beriah Path B2"
+  },
+  {
+    "addr": "080A850C",
+    "max": 16,
+    "term": "",
+    "original": "ベリアー回廊　B1",
+    "replace": "Beriah Path B1"
+  },
+  {
+    "addr": "080A852C",
+    "max": 16,
+    "term": "",
+    "original": "ベリアー回廊　B2",
+    "replace": "Beriah Path B2"
+  },
+  {
+    "addr": "080A854C",
+    "max": 16,
+    "term": "",
+    "original": "ベリアー回廊　B2",
+    "replace": "Beriah Path B2"
+  },
+  {
+    "addr": "080A856C",
+    "max": 16,
+    "term": "",
+    "original": "ベリアー回廊　B2",
+    "replace": "Beriah Path B2"
+  },
+  {
+    "addr": "080A858C",
+    "max": 16,
+    "term": "",
+    "original": "ベリアー回廊　B1",
+    "replace": "Beriah Path B1"
+  },
+  {
+    "addr": "080A85AC",
+    "max": 16,
+    "term": "",
+    "original": "ベリアー回廊　B1",
+    "replace": "Beriah Path B1"
+  },
+  {
+    "addr": "080A85CC",
+    "max": 16,
+    "term": "",
+    "original": "ベリアー回廊　B1",
+    "replace": "Beriah Path B1"
+  },
+  {
+    "addr": "080A85EC",
+    "max": 16,
+    "term": "",
+    "original": "ベリアー回廊　B1",
+    "replace": "Beriah Path B1"
+  },
+  {
+    "addr": "080A860C",
+    "max": 16,
+    "term": "",
+    "original": "ベリアー回廊　B1",
+    "replace": "Beriah Path B1"
+  },
+  {
+    "addr": "080A862C",
+    "max": 16,
+    "term": "",
+    "original": "ベリアー回廊　B1",
+    "replace": "Beriah Path B1"
+  },
+  {
+    "addr": "080A864C",
+    "max": 16,
+    "term": "",
+    "original": "ベリアー回廊　B1",
+    "replace": "Beriah Path B1"
+  },
+  {
+    "addr": "080A866C",
+    "max": 16,
+    "term": "",
+    "original": "ベリアー回廊　B1",
+    "replace": "Beriah Path B1"
+  },
+  {
+    "addr": "080A868C",
+    "max": 16,
+    "term": "",
+    "original": "ベリアー回廊　B1",
+    "replace": "Beriah Path B1"
+  },
+  {
+    "addr": "080A86AC",
+    "max": 16,
+    "term": "",
+    "original": "ゲブラー砦　B1",
+    "replace": "Geburah Fort B1"
+  },
+  {
+    "addr": "080A86CC",
+    "max": 16,
+    "term": "",
+    "original": "ゲブラー砦　B1",
+    "replace": "Geburah Fort B1"
+  },
+  {
+    "addr": "080A86EC",
+    "max": 16,
+    "term": "",
+    "original": "ケセド仏殿",
+    "replace": "Chesed Temple"
+  },
+  {
+    "addr": "080A870C",
+    "max": 16,
+    "term": "",
+    "original": "ケセド仏殿",
+    "replace": "Chesed Temple"
+  },
+  {
+    "addr": "080A872C",
+    "max": 16,
+    "term": "",
+    "original": "ゲブラー砦　B1",
+    "replace": "Geburah Fort B1"
+  },
+  {
+    "addr": "080A874C",
+    "max": 16,
+    "term": "",
+    "original": "ゲブラー砦　B1",
+    "replace": "Geburah Fort B1"
+  },
+  {
+    "addr": "080A876C",
+    "max": 16,
+    "term": "",
+    "original": "ゲブラー砦　B1",
+    "replace": "Geburah Fort B1"
+  },
+  {
+    "addr": "080A878C",
+    "max": 16,
+    "term": "",
+    "original": "ケセド仏殿",
+    "replace": "Chesed Temple"
+  },
+  {
+    "addr": "080A87AC",
+    "max": 16,
+    "term": "",
+    "original": "ゲブラー砦　B2",
+    "replace": "Geburah Fort B2"
+  },
+  {
+    "addr": "080A87CC",
+    "max": 16,
+    "term": "",
+    "original": "ゲブラー砦　B2",
+    "replace": "Geburah Fort B2"
+  },
+  {
+    "addr": "080A87EC",
+    "max": 16,
+    "term": "",
+    "original": "ゲブラー砦　B1",
+    "replace": "Geburah Fort B1"
+  },
+  {
+    "addr": "080A880C",
+    "max": 16,
+    "term": "",
+    "original": "ケセド仏殿",
+    "replace": "Chesed Temple"
+  },
+  {
+    "addr": "080A882C",
+    "max": 16,
+    "term": "",
+    "original": "ゲブラー砦　B2",
+    "replace": "Geburah Fort B2"
+  },
+  {
+    "addr": "080A884C",
+    "max": 16,
+    "term": "",
+    "original": "ゲブラー砦　B2",
+    "replace": "Geburah Fort B2"
+  },
+  {
+    "addr": "080A886C",
+    "max": 16,
+    "term": "",
+    "original": "ゲブラー砦　1F",
+    "replace": "Geburah Fort 1F"
+  },
+  {
+    "addr": "080A888C",
+    "max": 16,
+    "term": "",
+    "original": "ゲブラー砦　1F",
+    "replace": "Geburah Fort 1F"
+  },
+  {
+    "addr": "080A88AC",
+    "max": 16,
+    "term": "",
+    "original": "アティルト回廊　B1",
+    "replace": "Atziluth Path B1"
+  },
+  {
+    "addr": "080A890C",
+    "max": 16,
+    "term": "",
+    "original": "アティルト回廊　B1",
+    "replace": "Atziluth Path B1"
+  },
+  {
+    "addr": "080A892C",
+    "max": 16,
+    "term": "",
+    "original": "アティルト回廊　B1",
+    "replace": "Atziluth Path B1"
+  },
+  {
+    "addr": "080A894C",
+    "max": 16,
+    "term": "",
+    "original": "ビナーの街",
+    "replace": "Binah"
+  },
+  {
+    "addr": "080A896C",
+    "max": 16,
+    "term": "",
+    "original": "ビナーの街",
+    "replace": "Binah"
+  },
+  {
+    "addr": "080A898C",
+    "max": 16,
+    "term": "",
+    "original": "アティルト回廊　B1",
+    "replace": "Atziluth Path B1"
+  },
+  {
+    "addr": "080A89AC",
+    "max": 16,
+    "term": "",
+    "original": "アティルト回廊　B1",
+    "replace": "Atziluth Path B1"
+  },
+  {
+    "addr": "080A89CC",
+    "max": 16,
+    "term": "",
+    "original": "ビナーの街",
+    "replace": "Binah"
+  },
+  {
+    "addr": "080A89EC",
+    "max": 16,
+    "term": "",
+    "original": "ビナーの街",
+    "replace": "Binah"
+  },
+  {
+    "addr": "080A8A0C",
+    "max": 16,
+    "term": "",
+    "original": "アティルト回廊　B1",
+    "replace": "Atziluth Path B1"
+  },
+  {
+    "addr": "080A8A2C",
+    "max": 16,
+    "term": "",
+    "original": "アティルト回廊　B1",
+    "replace": "Atziluth Path B1"
+  },
+  {
+    "addr": "080A8A4C",
+    "max": 16,
+    "term": "",
+    "original": "アティルト回廊　B2",
+    "replace": "Atziluth Path B2"
+  },
+  {
+    "addr": "080A8A6C",
+    "max": 16,
+    "term": "",
+    "original": "アティルト回廊　B2",
+    "replace": "Atziluth Path B2"
+  },
+  {
+    "addr": "080A8A8C",
+    "max": 16,
+    "term": "",
+    "original": "アティルト回廊　B2",
+    "replace": "Atziluth Path B2"
+  },
+  {
+    "addr": "080A8AAC",
+    "max": 16,
+    "term": "",
+    "original": "コクマの塔　1F",
+    "replace": "Chokmah Tower 1F"
+  },
+  {
+    "addr": "080A8ACC",
+    "max": 16,
+    "term": "",
+    "original": "コクマの塔　1F",
+    "replace": "Chokmah Tower 1F"
+  },
+  {
+    "addr": "080A8AEC",
+    "max": 16,
+    "term": "",
+    "original": "コクマの塔　2F",
+    "replace": "Chokmah Tower 2F"
+  },
+  {
+    "addr": "080A8B0C",
+    "max": 16,
+    "term": "",
+    "original": "コクマの塔　2F",
+    "replace": "Chokmah Tower 2F"
+  },
+  {
+    "addr": "080A8B2C",
+    "max": 16,
+    "term": "",
+    "original": "コクマの塔　1F",
+    "replace": "Chokmah Tower 1F"
+  },
+  {
+    "addr": "080A8B4C",
+    "max": 16,
+    "term": "",
+    "original": "コクマの塔　1F",
+    "replace": "Chokmah Tower 1F"
+  },
+  {
+    "addr": "080A8B6C",
+    "max": 16,
+    "term": "",
+    "original": "コクマの塔　2F",
+    "replace": "Chokmah Tower 2F"
+  },
+  {
+    "addr": "080A8B8C",
+    "max": 16,
+    "term": "",
+    "original": "コクマの塔　2F",
+    "replace": "Chokmah Tower 2F"
+  },
+  {
+    "addr": "080A8BAC",
+    "max": 16,
+    "term": "",
+    "original": "コクマの塔　3F",
+    "replace": "Chokmah Tower 3F"
+  },
+  {
+    "addr": "080A8BCC",
+    "max": 16,
+    "term": "",
+    "original": "コクマの塔　3F",
+    "replace": "Chokmah Tower 3F"
+  },
+  {
+    "addr": "080A8BEC",
+    "max": 16,
+    "term": "",
+    "original": "コクマの塔　4F",
+    "replace": "Chokmah Tower 4F"
+  },
+  {
+    "addr": "080A8C0C",
+    "max": 16,
+    "term": "",
+    "original": "コクマの塔　4F",
+    "replace": "Chokmah Tower 4F"
+  },
+  {
+    "addr": "080A8C2C",
+    "max": 16,
+    "term": "",
+    "original": "コクマの塔　3F",
+    "replace": "Chokmah Tower 3F"
+  },
+  {
+    "addr": "080A8C4C",
+    "max": 16,
+    "term": "",
+    "original": "コクマの塔　3F",
+    "replace": "Chokmah Tower 3F"
+  },
+  {
+    "addr": "080A8C6C",
+    "max": 16,
+    "term": "",
+    "original": "コクマの塔　4F",
+    "replace": "Chokmah Tower 4F"
+  },
+  {
+    "addr": "080A8C8C",
+    "max": 16,
+    "term": "",
+    "original": "コクマの塔　4F",
+    "replace": "Chokmah Tower 4F"
+  },
+  {
+    "addr": "080A8CAC",
+    "max": 16,
+    "term": "",
+    "original": "方舟　1F",
+    "replace": "Ark 1F"
+  },
+  {
+    "addr": "080A8CCC",
+    "max": 16,
+    "term": "",
+    "original": "方舟　1F",
+    "replace": "Ark 1F"
+  },
+  {
+    "addr": "080A8CEC",
+    "max": 16,
+    "term": "",
+    "original": "方舟　1F",
+    "replace": "Ark 1F"
+  },
+  {
+    "addr": "080A8D0C",
+    "max": 16,
+    "term": "",
+    "original": "高次元空間",
+    "replace": "Hyperspace"
+  },
+  {
+    "addr": "080A8D2C",
+    "max": 16,
+    "term": "",
+    "original": "方舟　1F",
+    "replace": "Ark 1F"
+  },
+  {
+    "addr": "080A8D4C",
+    "max": 16,
+    "term": "",
+    "original": "方舟　1F",
+    "replace": "Ark 1F"
+  },
+  {
+    "addr": "080A8D6C",
+    "max": 16,
+    "term": "",
+    "original": "方舟　1F",
+    "replace": "Ark 1F"
+  },
+  {
+    "addr": "080A8D8C",
+    "max": 16,
+    "term": "",
+    "original": "高次元空間",
+    "replace": "Hyperspace"
+  },
+  {
+    "addr": "080A8DAC",
+    "max": 16,
+    "term": "",
+    "original": "方舟　1F",
+    "replace": "Ark 1F"
+  },
+  {
+    "addr": "080A8DCC",
+    "max": 16,
+    "term": "",
+    "original": "方舟　1F",
+    "replace": "Ark 1F"
+  },
+  {
+    "addr": "080A8DEC",
+    "max": 16,
+    "term": "",
+    "original": "方舟　1F",
+    "replace": "Ark 1F"
+  },
+  {
+    "addr": "080A8E0C",
+    "max": 16,
+    "term": "",
+    "original": "高次元空間",
+    "replace": "Hyperspace"
+  },
+  {
+    "addr": "080A8E2C",
+    "max": 16,
+    "term": "",
+    "original": "方舟　4F",
+    "replace": "Ark 4F"
+  },
+  {
+    "addr": "080A8E8C",
+    "max": 16,
+    "term": "",
+    "original": "高次元空間",
+    "replace": "Hyperspace"
+  },
+  {
+    "addr": "080A8EAC",
+    "max": 16,
+    "term": "",
+    "original": "方舟　2F",
+    "replace": "Ark 2F"
+  },
+  {
+    "addr": "080A8ECC",
+    "max": 16,
+    "term": "",
+    "original": "方舟　2F",
+    "replace": "Ark 2F"
+  },
+  {
+    "addr": "080A8EEC",
+    "max": 16,
+    "term": "",
+    "original": "方舟　3F",
+    "replace": "Ark 3F"
+  },
+  {
+    "addr": "080A8F0C",
+    "max": 16,
+    "term": "",
+    "original": "方舟　3F",
+    "replace": "Ark 3F"
+  },
+  {
+    "addr": "080A8F2C",
+    "max": 16,
+    "term": "",
+    "original": "方舟　2F",
+    "replace": "Ark 2F"
+  },
+  {
+    "addr": "080A8F4C",
+    "max": 16,
+    "term": "",
+    "original": "方舟　2F",
+    "replace": "Ark 2F"
+  },
+  {
+    "addr": "080A8F6C",
+    "max": 16,
+    "term": "",
+    "original": "方舟　3F",
+    "replace": "Ark 3F"
+  },
+  {
+    "addr": "080A8F8C",
+    "max": 16,
+    "term": "",
+    "original": "方舟　3F",
+    "replace": "Ark 3F"
+  },
+  {
+    "addr": "080A8FAC",
+    "max": 16,
+    "term": "",
+    "original": "旧イチガヤ　B1",
+    "replace": "Old Ichigaya B1"
+  },
+  {
+    "addr": "080A8FCC",
+    "max": 16,
+    "term": "",
+    "original": "旧イチガヤ　B1",
+    "replace": "Old Ichigaya B1"
+  },
+  {
+    "addr": "080A8FEC",
+    "max": 16,
+    "term": "",
+    "original": "旧トウキョウタワー　1F",
+    "replace": "Old Tokyo Tower 1F"
+  },
+  {
+    "addr": "080A900C",
+    "max": 16,
+    "term": "",
+    "original": "旧トウキョウタワー　45F",
+    "replace": "Old Tokyo Tower 45F"
+  },
+  {
+    "addr": "080A902C",
+    "max": 16,
+    "term": "",
+    "original": "旧イチガヤ　1F",
+    "replace": "Old Ichigaya 1F"
+  },
+  {
+    "addr": "080A904C",
+    "max": 16,
+    "term": "",
+    "original": "旧イチガヤ　1F",
+    "replace": "Old Ichigaya 1F"
+  },
+  {
+    "addr": "080A906C",
+    "max": 16,
+    "term": "",
+    "original": "旧トウキョウタワー　30F",
+    "replace": "Old Tokyo Tower 30F"
+  },
+  {
+    "addr": "080A908C",
+    "max": 16,
+    "term": "",
+    "original": "旧トウキョウタワー　30F",
+    "replace": "Old Tokyo Tower 30F"
+  },
+  {
+    "addr": "080A90AC",
+    "max": 16,
+    "term": "",
+    "original": "旧都<0CEE>　15F",
+    "replace": "Old Government Building 15F"
+  },
+  {
+    "addr": "080A90CC",
+    "max": 16,
+    "term": "",
+    "original": "旧都<0CEE>　15F",
+    "replace": "Old Government Building 15F"
+  },
+  {
+    "addr": "080A90EC",
+    "max": 16,
+    "term": "",
+    "original": "旧都<0CEE>　15F",
+    "replace": "Old Government Building 15F"
+  },
+  {
+    "addr": "080A910C",
+    "max": 16,
+    "term": "",
+    "original": "旧都<0CEE>　15F",
+    "replace": "Old Government Building 15F"
+  },
+  {
+    "addr": "080A912C",
+    "max": 16,
+    "term": "",
+    "original": "旧都<0CEE>　15F",
+    "replace": "Old Government Building 15F"
+  },
+  {
+    "addr": "080A914C",
+    "max": 16,
+    "term": "",
+    "original": "旧都<0CEE>　1F",
+    "replace": "Old Government Building 1F"
+  },
+  {
+    "addr": "080A916C",
+    "max": 16,
+    "term": "",
+    "original": "旧皇居",
+    "replace": "Old Imperial Palace"
+  },
+  {
+    "addr": "080A918C",
+    "max": 16,
+    "term": "",
+    "original": "旧都<0CEE>　15F",
+    "replace": "Old Government Building 15F"
+  },
+  {
+    "addr": "080A91AC",
+    "max": 16,
+    "term": "",
+    "original": "旧都<0CEE>　18F",
+    "replace": "Old Government Building 18F"
+  },
+  {
+    "addr": "080A91CC",
+    "max": 16,
+    "term": "",
+    "original": "旧皇居",
+    "replace": "Old Imperial Palace"
+  },
+  {
+    "addr": "080A91EC",
+    "max": 16,
+    "term": "",
+    "original": "旧皇居",
+    "replace": "Old Imperial Palace"
+  },
+  {
+    "addr": "080A920C",
+    "max": 16,
+    "term": "",
+    "original": "旧都<0CEE>　18F",
+    "replace": "Old Government Building 18F"
+  },
+  {
+    "addr": "080A922C",
+    "max": 16,
+    "term": "",
+    "original": "旧都<0CEE>　18F",
+    "replace": "Old Government Building 18F"
+  },
+  {
+    "addr": "080A924C",
+    "max": 16,
+    "term": "",
+    "original": "旧皇居",
+    "replace": "Old Imperial Palace"
+  },
+  {
+    "addr": "080A926C",
+    "max": 16,
+    "term": "",
+    "original": "旧皇居",
+    "replace": "Old Imperial Palace"
+  },
+  {
+    "addr": "080A928C",
+    "max": 16,
+    "term": "",
+    "original": "旧都<0CEE>　18F",
+    "replace": "Old Government Building 18F"
+  },
+  {
+    "addr": "080A92AC",
+    "max": 16,
+    "term": "",
+    "original": "金剛神界",
+    "replace": "Diamond Realm"
+  },
+  {
+    "addr": "080A92CC",
+    "max": 16,
+    "term": "",
+    "original": "金剛神界",
+    "replace": "Diamond Realm"
+  },
+  {
+    "addr": "080A92EC",
+    "max": 16,
+    "term": "",
+    "original": "金剛神界",
+    "replace": "Diamond Realm"
+  },
+  {
+    "addr": "080A930C",
+    "max": 16,
+    "term": "",
+    "original": "金剛神界",
+    "replace": "Diamond Realm"
+  },
+  {
+    "addr": "080A932C",
+    "max": 16,
+    "term": "",
+    "original": "金剛神界",
+    "replace": "Diamond Realm"
+  },
+  {
+    "addr": "080A934C",
+    "max": 16,
+    "term": "",
+    "original": "金剛神界",
+    "replace": "Diamond Realm"
+  },
+  {
+    "addr": "080A936C",
+    "max": 16,
+    "term": "",
+    "original": "金剛神界",
+    "replace": "Diamond Realm"
+  },
+  {
+    "addr": "080A938C",
+    "max": 16,
+    "term": "",
+    "original": "金剛神界",
+    "replace": "Diamond Realm"
+  },
+  {
+    "addr": "080A93AC",
+    "max": 16,
+    "term": "",
+    "original": "金剛神界",
+    "replace": "Diamond Realm"
+  },
+  {
+    "addr": "080A93CC",
+    "max": 16,
+    "term": "",
+    "original": "金剛神界",
+    "replace": "Diamond Realm"
+  },
+  {
+    "addr": "080A93EC",
+    "max": 16,
+    "term": "",
+    "original": "金剛神界",
+    "replace": "Diamond Realm"
+  },
+  {
+    "addr": "080A940C",
+    "max": 16,
+    "term": "",
+    "original": "金剛神界",
+    "replace": "Diamond Realm"
+  },
+  {
+    "addr": "080A942C",
+    "max": 16,
+    "term": "",
+    "original": "金剛神界",
+    "replace": "Diamond Realm"
+  },
+  {
+    "addr": "080A944C",
+    "max": 16,
+    "term": "",
+    "original": "金剛神界",
+    "replace": "Diamond Realm"
+  },
+  {
+    "addr": "080A946C",
+    "max": 16,
+    "term": "",
+    "original": "金剛神界",
+    "replace": "Diamond Realm"
+  },
+  {
+    "addr": "080A948C",
+    "max": 16,
+    "term": "",
+    "original": "金剛神界",
+    "replace": "Diamond Realm"
+  },
+  {
+    "addr": "080A94AC",
+    "max": 16,
+    "term": "",
+    "original": "ヴァルハラ",
+    "replace": "Valhalla"
+  },
+  {
+    "addr": "080A94CC",
+    "max": 16,
+    "term": "",
+    "original": "センター",
+    "replace": "Center"
+  },
+  {
+    "addr": "080A94EC",
+    "max": 16,
+    "term": "",
+    "original": "ホーリータウン",
+    "replace": "Holytown"
+  },
+  {
+    "addr": "080A950C",
+    "max": 16,
+    "term": "",
+    "original": "ファクトリー",
+    "replace": "Factory"
+  },
+  {
+    "addr": "080A952C",
+    "max": 16,
+    "term": "",
+    "original": "アルカディア",
+    "replace": "Arcadia"
+  },
+  {
+    "addr": "080A954C",
+    "max": 16,
+    "term": "",
+    "original": "地下世界",
+    "replace": "Underworld"
+  },
+  {
+    "addr": "080A956C",
+    "max": 16,
+    "term": "",
+    "original": "エデン",
+    "replace": "Eden"
+  },
+  {
+    "addr": "080A958C",
+    "max": 16,
+    "term": "",
+    "original": "魔界・ケテル",
+    "replace": "Makai: Kether"
+  },
+  {
+    "addr": "080A95AC",
+    "max": 16,
+    "term": "",
+    "original": "魔界・ビナー",
+    "replace": "Makai: Binah"
+  },
+  {
+    "addr": "080A95CC",
+    "max": 16,
+    "term": "",
+    "original": "魔界・コクマ",
+    "replace": "Makai: Chokmah"
+  },
+  {
+    "addr": "080A95EC",
+    "max": 16,
+    "term": "",
+    "original": "魔界・ゲブラー",
+    "replace": "Makai: Geburah"
+  },
+  {
+    "addr": "080A960C",
+    "max": 16,
+    "term": "",
+    "original": "魔界・ケセド",
+    "replace": "Makai: Chesed"
+  },
+  {
+    "addr": "080A962C",
+    "max": 16,
+    "term": "",
+    "original": "魔界・ティフェレト",
+    "replace": "Makai: Tiphereth"
+  },
+  {
+    "addr": "080A964C",
+    "max": 16,
+    "term": "",
+    "original": "魔界・ホド",
+    "replace": "Makai: Hod"
+  },
+  {
+    "addr": "080A966C",
+    "max": 16,
+    "term": "",
+    "original": "魔界・ネツァク",
+    "replace": "Makai: Netzach"
+  },
+  {
+    "addr": "080A968C",
+    "max": 16,
+    "term": "",
+    "original": "魔界・イェソド",
+    "replace": "Makai: Yesod"
+  },
+  {
+    "addr": "080A96AC",
+    "max": 16,
+    "term": "",
+    "original": "魔界・マルクト",
+    "replace": "Makai: Malkuth"
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "addr": "0815BFBE",
+    "ptrs": ["080CEAC0"],
+    "max": 6,
+    "term": "0301",
+    "original": "召喚するのに",
+    "replace": "Summoning will cost"
+  },
+  {
+    "addr": "0815BFCC",
+    "ptrs": ["080CEAC8"],
+    "max": 4,
+    "term": "0301",
+    "original": "かかるが",
+    "replace": "macca."
+  },
+  {
+    "addr": "0815BFD6",
+    "ptrs": ["080CEACC"],
+    "max": 9,
+    "term": "0301",
+    "original": "これでよいのだな？",
+    "replace": "Is this all right?"
+  },
+  {
+    "addr": "0815BF92",
+    "ptrs": ["08157A5C"],
+    "max": 21,
+    "term": "0301",
+    "original": "これが　{DEMON_NAME}　じゃ{n}持ってゆくがよい・・・{n}",
+    "replace": "This is {DEMON_NAME}.{n}They are yours...{n}"
+  },
+  {
+    "addr": "0815C02C",
+    "ptrs": ["080CF45C"],
+    "max": 13,
+    "term": "0301",
+    "original": "メモリーチップが足りないよ",
+    "replace": "Not enough Memory Chips."
+  },
+  {
+    "addr": "0815C048",
+    "ptrs": ["080CF468"],
+    "max": 8,
+    "term": "0301",
+    "original": "お金が足りないよ",
+    "replace": "Not enough makka."
+  },
+  {
+    "addr": "0815C05A",
+    "ptrs": ["080CF474"],
+    "max": 9,
+    "term": "0301",
+    "original": "仲魔がいっぱいだよ",
+    "replace": "Too many minions."
+  },
+  {
+    "addr": "0815C06E",
+    "ptrs": ["080CF494"],
+    "max": 9,
+    "term": "0301",
+    "original": "レベルが足りないよ",
+    "replace": "Your level is too low."
+  },
+  {
+    "addr": "0815C082",
+    "ptrs": ["080CF4D4"],
+    "max": 6,
+    "term": "0301",
+    "original": "属性が違うよ",
+    "replace": "Your alignments clash."
+  },
+  {
+    "addr": "0815C090",
+    "ptrs": ["080D4820"],
+    "max": 12,
+    "term": "0301",
+    "original": "抽出に失敗しました！！{WAIT}",
+    "replace": "Extraction failed!{WAIT}"
+  }
+]

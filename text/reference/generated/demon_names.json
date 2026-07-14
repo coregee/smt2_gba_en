@@ -1,0 +1,1392 @@
+[
+ {
+  "category": "Deity",
+  "Level": "67",
+  "name": "Ardha"
+ },
+ {
+  "category": "Deity",
+  "Level": "64",
+  "name": "Virocana"
+ },
+ {
+  "category": "Deity",
+  "Level": "61",
+  "name": "Kalki"
+ },
+ {
+  "category": "Deity",
+  "Level": "58",
+  "name": "Baal"
+ },
+ {
+  "category": "Deity",
+  "Level": "55",
+  "name": "Atavaka"
+ },
+ {
+  "category": "Deity",
+  "Level": "48",
+  "name": "Odin"
+ },
+ {
+  "category": "Deity",
+  "Level": "40",
+  "name": "Ashtar"
+ },
+ {
+  "category": "Deity",
+  "Level": "37",
+  "name": "Horus"
+ },
+ {
+  "category": "Deity",
+  "Level": "34",
+  "name": "Thor"
+ },
+ {
+  "category": "Deity",
+  "Level": "27",
+  "name": "Indra"
+ },
+ {
+  "category": "Megami",
+  "Level": "52",
+  "name": "Lakshmi"
+ },
+ {
+  "category": "Megami",
+  "Level": "46",
+  "name": "Urd"
+ },
+ {
+  "category": "Megami",
+  "Level": "45",
+  "name": "Parvati"
+ },
+ {
+  "category": "Megami",
+  "Level": "39",
+  "name": "Freyja"
+ },
+ {
+  "category": "Megami",
+  "Level": "35",
+  "name": "Sarasvati"
+ },
+ {
+  "category": "Megami",
+  "Level": "34",
+  "name": "Verdandi"
+ },
+ {
+  "category": "Megami",
+  "Level": "28",
+  "name": "Kushinada-Hime"
+ },
+ {
+  "category": "Megami",
+  "Level": "27",
+  "name": "Arianrhod"
+ },
+ {
+  "category": "Megami",
+  "Level": "22",
+  "name": "Skuld"
+ },
+ {
+  "category": "Megami",
+  "Level": "21",
+  "name": "Ame-no-Uzume"
+ },
+ {
+  "category": "Amatsukami",
+  "Level": "59",
+  "name": "Amaterasu"
+ },
+ {
+  "category": "Amatsukami",
+  "Level": "54",
+  "name": "Tsukuyomi"
+ },
+ {
+  "category": "Amatsukami",
+  "Level": "48",
+  "name": "Takemikazuchi"
+ },
+ {
+  "category": "Amatsukami",
+  "Level": "44",
+  "name": "Hinokagutsuchi"
+ },
+ {
+  "category": "Amatsukami",
+  "Level": "38",
+  "name": "Omoikane"
+ },
+ {
+  "category": "Amatsukami",
+  "Level": "33",
+  "name": "Tajikarao"
+ },
+ {
+  "category": "Amatsukami",
+  "Level": "29",
+  "name": "Ameno Torifune"
+ },
+ {
+  "category": "Fury",
+  "Level": "72",
+  "name": "Shiva"
+ },
+ {
+  "category": "Fury",
+  "Level": "61",
+  "name": "Susano-o"
+ },
+ {
+  "category": "Fury",
+  "Level": "48",
+  "name": "Seiten Taisei"
+ },
+ {
+  "category": "Fury",
+  "Level": "39",
+  "name": "Chernobog"
+ },
+ {
+  "category": "Fury",
+  "Level": "30",
+  "name": "Ares"
+ },
+ {
+  "category": "Lady",
+  "Level": "65",
+  "name": "Kali"
+ },
+ {
+  "category": "Lady",
+  "Level": "56",
+  "name": "Ishtar"
+ },
+ {
+  "category": "Lady",
+  "Level": "47",
+  "name": "Durga"
+ },
+ {
+  "category": "Lady",
+  "Level": "38",
+  "name": "Kikuri-hime"
+ },
+ {
+  "category": "Lady",
+  "Level": "33",
+  "name": "Hariti"
+ },
+ {
+  "category": "Lady",
+  "Level": "26",
+  "name": "Ta-weret"
+ },
+ {
+  "category": "Kunitsukami",
+  "Level": "57",
+  "name": "Arahabaki"
+ },
+ {
+  "category": "Kunitsukami",
+  "Level": "53",
+  "name": "Takeminakata"
+ },
+ {
+  "category": "Kunitsukami",
+  "Level": "50",
+  "name": "O-namuchi"
+ },
+ {
+  "category": "Kunitsukami",
+  "Level": "46",
+  "name": "Kotoshironushi"
+ },
+ {
+  "category": "Kunitsukami",
+  "Level": "43",
+  "name": "Sarutahiko"
+ },
+ {
+  "category": "Kunitsukami",
+  "Level": "35",
+  "name": "Hitokotonushi"
+ },
+ {
+  "category": "Kunitsukami",
+  "Level": "30",
+  "name": "Sukunahikona"
+ },
+ {
+  "category": "Kunitsukami",
+  "Level": "27",
+  "name": "O-Yamatsumi"
+ },
+ {
+  "category": "Vile",
+  "Level": "67",
+  "name": "Cthulhu"
+ },
+ {
+  "category": "Vile",
+  "Level": "59",
+  "name": "Pazuzu"
+ },
+ {
+  "category": "Vile",
+  "Level": "55",
+  "name": "Amon"
+ },
+ {
+  "category": "Vile",
+  "Level": "53",
+  "name": "Nyarlathotep"
+ },
+ {
+  "category": "Vile",
+  "Level": "47",
+  "name": "Tezcatlipoca"
+ },
+ {
+  "category": "Vile",
+  "Level": "41",
+  "name": "Naragiri"
+ },
+ {
+  "category": "Yoma",
+  "Level": "46",
+  "name": "Hanuman"
+ },
+ {
+  "category": "Yoma",
+  "Level": "43",
+  "name": "Ganesha"
+ },
+ {
+  "category": "Yoma",
+  "Level": "37",
+  "name": "Djinn"
+ },
+ {
+  "category": "Yoma",
+  "Level": "31",
+  "name": "Tengu"
+ },
+ {
+  "category": "Yoma",
+  "Level": "27",
+  "name": "Haokah"
+ },
+ {
+  "category": "Yoma",
+  "Level": "21",
+  "name": "Apsaras"
+ },
+ {
+  "category": "Yoma",
+  "Level": "14",
+  "name": "Mercurius"
+ },
+ {
+  "category": "Night",
+  "Level": "47",
+  "name": "Nyx"
+ },
+ {
+  "category": "Night",
+  "Level": "35",
+  "name": "Vampire"
+ },
+ {
+  "category": "Night",
+  "Level": "23",
+  "name": "Lilim"
+ },
+ {
+  "category": "Night",
+  "Level": "15",
+  "name": "Nightmare"
+ },
+ {
+  "category": "Night",
+  "Level": "12",
+  "name": "Empusa"
+ },
+ {
+  "category": "Night",
+  "Level": "8",
+  "name": "Alp"
+ },
+ {
+  "category": "Fairy",
+  "Level": "57",
+  "name": "Dullahan"
+ },
+ {
+  "category": "Fairy",
+  "Level": "48",
+  "name": "Titania"
+ },
+ {
+  "category": "Fairy",
+  "Level": "45",
+  "name": "Oberon"
+ },
+ {
+  "category": "Fairy",
+  "Level": "40",
+  "name": "Cu Chulain"
+ },
+ {
+  "category": "Fairy",
+  "Level": "30",
+  "name": "Nadja"
+ },
+ {
+  "category": "Fairy",
+  "Level": "26",
+  "name": "Elf"
+ },
+ {
+  "category": "Fairy",
+  "Level": "25",
+  "name": "Banshee"
+ },
+ {
+  "category": "Fairy",
+  "Level": "18",
+  "name": "Dark Elf"
+ },
+ {
+  "category": "Fairy",
+  "Level": "13",
+  "name": "Jack O'Lantern"
+ },
+ {
+  "category": "Fairy",
+  "Level": "12",
+  "name": "Jack Frost"
+ },
+ {
+  "category": "Fairy",
+  "Level": "7",
+  "name": "High Pixie"
+ },
+ {
+  "category": "Tyrant",
+  "Level": "99",
+  "name": "Lucifer"
+ },
+ {
+  "category": "Tyrant",
+  "Level": "95",
+  "name": "Satanachia"
+ },
+ {
+  "category": "Tyrant",
+  "Level": "80",
+  "name": "Asmodeus"
+ },
+ {
+  "category": "Tyrant",
+  "Level": "75",
+  "name": "Mephisto"
+ },
+ {
+  "category": "Tyrant",
+  "Level": "65",
+  "name": "Beelzebub"
+ },
+ {
+  "category": "Tyrant",
+  "Level": "62",
+  "name": "Mara"
+ },
+ {
+  "category": "Tyrant",
+  "Level": "55",
+  "name": "Bael"
+ },
+ {
+  "category": "Tyrant",
+  "Level": "52",
+  "name": "Astaroth"
+ },
+ {
+  "category": "Tyrant",
+  "Level": "49",
+  "name": "Loki"
+ },
+ {
+  "category": "Tyrant",
+  "Level": "42",
+  "name": "Hecate"
+ },
+ {
+  "category": "Herald",
+  "Level": "99",
+  "name": "Satan"
+ },
+ {
+  "category": "Herald",
+  "Level": "68",
+  "name": "Metatron"
+ },
+ {
+  "category": "Herald",
+  "Level": "64",
+  "name": "Kamael"
+ },
+ {
+  "category": "Herald",
+  "Level": "59",
+  "name": "Sariel"
+ },
+ {
+  "category": "Herald",
+  "Level": "52",
+  "name": "Kushiel"
+ },
+ {
+  "category": "Herald",
+  "Level": "47",
+  "name": "Ophanim"
+ },
+ {
+  "category": "Herald",
+  "Level": "40",
+  "name": "Raguel"
+ },
+ {
+  "category": "Herald",
+  "Level": "37",
+  "name": "Haniel"
+ },
+ {
+  "category": "Herald",
+  "Level": "32",
+  "name": "Tzaphkiel"
+ },
+ {
+  "category": "Herald",
+  "Level": "28",
+  "name": "Remiel"
+ },
+ {
+  "category": "Divine",
+  "Level": "52",
+  "name": "Dominion"
+ },
+ {
+  "category": "Divine",
+  "Level": "44",
+  "name": "Virtue"
+ },
+ {
+  "category": "Divine",
+  "Level": "36",
+  "name": "Power"
+ },
+ {
+  "category": "Divine",
+  "Level": "32",
+  "name": "Principality"
+ },
+ {
+  "category": "Divine",
+  "Level": "28",
+  "name": "Archangel"
+ },
+ {
+  "category": "Divine",
+  "Level": "21",
+  "name": "Angel"
+ },
+ {
+  "category": "Fallen",
+  "Level": "67",
+  "name": "Sargatanas"
+ },
+ {
+  "category": "Fallen",
+  "Level": "57",
+  "name": "Agares"
+ },
+ {
+  "category": "Fallen",
+  "Level": "49",
+  "name": "Gaap"
+ },
+ {
+  "category": "Fallen",
+  "Level": "41",
+  "name": "Berith"
+ },
+ {
+  "category": "Fallen",
+  "Level": "37",
+  "name": "Baphomet"
+ },
+ {
+  "category": "Fallen",
+  "Level": "29",
+  "name": "Eligor"
+ },
+ {
+  "category": "Fallen",
+  "Level": "24",
+  "name": "Betelgeuse"
+ },
+ {
+  "category": "Fallen",
+  "Level": "15",
+  "name": "Gagyson"
+ },
+ {
+  "category": "Fallen",
+  "Level": "10",
+  "name": "Ukobach"
+ },
+ {
+  "category": "Dragon",
+  "Level": "59",
+  "name": "Ananta"
+ },
+ {
+  "category": "Dragon",
+  "Level": "54",
+  "name": "Rahabh"
+ },
+ {
+  "category": "Dragon",
+  "Level": "50",
+  "name": "Itzamna"
+ },
+ {
+  "category": "Dragon",
+  "Level": "43",
+  "name": "Seiryuu"
+ },
+ {
+  "category": "Dragon",
+  "Level": "39",
+  "name": "Quetzalcoatl"
+ },
+ {
+  "category": "Dragon",
+  "Level": "36",
+  "name": "Pek Young"
+ },
+ {
+  "category": "Dragon",
+  "Level": "34",
+  "name": "Maya"
+ },
+ {
+  "category": "Snake",
+  "Level": "53",
+  "name": "Yamata-no-Orochi"
+ },
+ {
+  "category": "Snake",
+  "Level": "48",
+  "name": "Vritra"
+ },
+ {
+  "category": "Snake",
+  "Level": "46",
+  "name": "Yurlungur"
+ },
+ {
+  "category": "Snake",
+  "Level": "42",
+  "name": "Raja Naga"
+ },
+ {
+  "category": "Snake",
+  "Level": "36",
+  "name": "Oto-hime"
+ },
+ {
+  "category": "Snake",
+  "Level": "33",
+  "name": "Mizuchi"
+ },
+ {
+  "category": "Snake",
+  "Level": "28",
+  "name": "Naga"
+ },
+ {
+  "category": "Snake",
+  "Level": "19",
+  "name": "Nozuchi"
+ },
+ {
+  "category": "Drake",
+  "Level": "58",
+  "name": "Midgardsomr"
+ },
+ {
+  "category": "Drake",
+  "Level": "51",
+  "name": "Tiamat"
+ },
+ {
+  "category": "Drake",
+  "Level": "46",
+  "name": "Kingu"
+ },
+ {
+  "category": "Drake",
+  "Level": "43",
+  "name": "Nidhoggr"
+ },
+ {
+  "category": "Drake",
+  "Level": "35",
+  "name": "Tarasque"
+ },
+ {
+  "category": "Drake",
+  "Level": "28",
+  "name": "Wyvern"
+ },
+ {
+  "category": "Drake",
+  "Level": "16",
+  "name": "Worm"
+ },
+ {
+  "category": "Avian",
+  "Level": "52",
+  "name": "Takuhi"
+ },
+ {
+  "category": "Avian",
+  "Level": "49",
+  "name": "Garuda"
+ },
+ {
+  "category": "Avian",
+  "Level": "41",
+  "name": "Suzaku"
+ },
+ {
+  "category": "Avian",
+  "Level": "31",
+  "name": "Yatagarasu"
+ },
+ {
+  "category": "Avian",
+  "Level": "22",
+  "name": "Phoenix"
+ },
+ {
+  "category": "Avian",
+  "Level": "15",
+  "name": "Suparna"
+ },
+ {
+  "category": "Flight",
+  "Level": "38",
+  "name": "Morrigan"
+ },
+ {
+  "category": "Flight",
+  "Level": "35",
+  "name": "Macha"
+ },
+ {
+  "category": "Flight",
+  "Level": "31",
+  "name": "Nemhain"
+ },
+ {
+  "category": "Flight",
+  "Level": "25",
+  "name": "Aello"
+ },
+ {
+  "category": "Flight",
+  "Level": "21",
+  "name": "Kelaino"
+ },
+ {
+  "category": "Flight",
+  "Level": "16",
+  "name": "Ocypete"
+ },
+ {
+  "category": "Flight",
+  "Level": "9",
+  "name": "Bennu"
+ },
+ {
+  "category": "Raptor",
+  "Level": "48",
+  "name": "Hraesvelgr"
+ },
+ {
+  "category": "Raptor",
+  "Level": "38",
+  "name": "Anzu"
+ },
+ {
+  "category": "Raptor",
+  "Level": "26",
+  "name": "Gurr"
+ },
+ {
+  "category": "Raptor",
+  "Level": "17",
+  "name": "Furiae"
+ },
+ {
+  "category": "Raptor",
+  "Level": "4",
+  "name": "Chon Chon"
+ },
+ {
+  "category": "Avatar",
+  "Level": "51",
+  "name": "Barong"
+ },
+ {
+  "category": "Avatar",
+  "Level": "45",
+  "name": "Genbu"
+ },
+ {
+  "category": "Avatar",
+  "Level": "41",
+  "name": "Anubis"
+ },
+ {
+  "category": "Avatar",
+  "Level": "35",
+  "name": "Narasinha"
+ },
+ {
+  "category": "Avatar",
+  "Level": "29",
+  "name": "Sphinx"
+ },
+ {
+  "category": "Avatar",
+  "Level": "17",
+  "name": "Nandi"
+ },
+ {
+  "category": "Holy",
+  "Level": "42",
+  "name": "Byakko"
+ },
+ {
+  "category": "Holy",
+  "Level": "32",
+  "name": "Pabilsag"
+ },
+ {
+  "category": "Holy",
+  "Level": "28",
+  "name": "Bastet"
+ },
+ {
+  "category": "Holy",
+  "Level": "20",
+  "name": "Apis"
+ },
+ {
+  "category": "Holy",
+  "Level": "16",
+  "name": "Unicorn"
+ },
+ {
+  "category": "Holy",
+  "Level": "12",
+  "name": "Heqet"
+ },
+ {
+  "category": "Beast",
+  "Level": "63",
+  "name": "Pascal II"
+ },
+ {
+  "category": "Beast",
+  "Level": "43",
+  "name": "Pascal I"
+ },
+ {
+  "category": "Beast",
+  "Level": "43",
+  "name": "Cerberus"
+ },
+ {
+  "category": "Beast",
+  "Level": "39",
+  "name": "Gdon"
+ },
+ {
+  "category": "Beast",
+  "Level": "30",
+  "name": "Selket"
+ },
+ {
+  "category": "Beast",
+  "Level": "26",
+  "name": "Orthrus"
+ },
+ {
+  "category": "Beast",
+  "Level": "20",
+  "name": "Nekomata"
+ },
+ {
+  "category": "Beast",
+  "Level": "14",
+  "name": "Cu Sith"
+ },
+ {
+  "category": "Beast",
+  "Level": "12",
+  "name": "Cait Sith"
+ },
+ {
+  "category": "Wilder",
+  "Level": "60",
+  "name": "Behemoth"
+ },
+ {
+  "category": "Wilder",
+  "Level": "50",
+  "name": "Manticore"
+ },
+ {
+  "category": "Wilder",
+  "Level": "45",
+  "name": "Scylla"
+ },
+ {
+  "category": "Wilder",
+  "Level": "31",
+  "name": "Black Widow"
+ },
+ {
+  "category": "Wilder",
+  "Level": "29",
+  "name": "Gyu-Ki"
+ },
+ {
+  "category": "Wilder",
+  "Level": "20",
+  "name": "Nue"
+ },
+ {
+  "category": "Wilder",
+  "Level": "15",
+  "name": "Bicorn"
+ },
+ {
+  "category": "Wilder",
+  "Level": "10",
+  "name": "Garm"
+ },
+ {
+  "category": "Jirae",
+  "Level": "44",
+  "name": "Titan"
+ },
+ {
+  "category": "Jirae",
+  "Level": "34",
+  "name": "Ubelluris"
+ },
+ {
+  "category": "Jirae",
+  "Level": "27",
+  "name": "Tsuchigumo"
+ },
+ {
+  "category": "Jirae",
+  "Level": "18",
+  "name": "Dverger"
+ },
+ {
+  "category": "Jirae",
+  "Level": "11",
+  "name": "Sudama"
+ },
+ {
+  "category": "Jirae",
+  "Level": "6",
+  "name": "Knocker"
+ },
+ {
+  "category": "Brute",
+  "Level": "46",
+  "name": "Yaksha"
+ },
+ {
+  "category": "Brute",
+  "Level": "40",
+  "name": "Shuten-Doji"
+ },
+ {
+  "category": "Brute",
+  "Level": "38",
+  "name": "Ibaraki Doji"
+ },
+ {
+  "category": "Brute",
+  "Level": "33",
+  "name": "Yakshini"
+ },
+ {
+  "category": "Brute",
+  "Level": "28",
+  "name": "Turdak"
+ },
+ {
+  "category": "Brute",
+  "Level": "19",
+  "name": "Hannya"
+ },
+ {
+  "category": "Brute",
+  "Level": "13",
+  "name": "Azumi"
+ },
+ {
+  "category": "Brute",
+  "Level": "7",
+  "name": "Ihika"
+ },
+ {
+  "category": "Femme",
+  "Level": "55",
+  "name": "Rangda"
+ },
+ {
+  "category": "Femme",
+  "Level": "50",
+  "name": "Volvo"
+ },
+ {
+  "category": "Femme",
+  "Level": "45",
+  "name": "Gorgon"
+ },
+ {
+  "category": "Femme",
+  "Level": "38",
+  "name": "Cailleach Bheare"
+ },
+ {
+  "category": "Femme",
+  "Level": "29",
+  "name": "Arachne"
+ },
+ {
+  "category": "Femme",
+  "Level": "24",
+  "name": "Lamia"
+ },
+ {
+  "category": "Femme",
+  "Level": "14",
+  "name": "Hag"
+ },
+ {
+  "category": "Jaki",
+  "Level": "59",
+  "name": "Hecatonchires"
+ },
+ {
+  "category": "Jaki",
+  "Level": "54",
+  "name": "Girimekra"
+ },
+ {
+  "category": "Jaki",
+  "Level": "48",
+  "name": "Ekimmu"
+ },
+ {
+  "category": "Jaki",
+  "Level": "40",
+  "name": "Cyclops"
+ },
+ {
+  "category": "Jaki",
+  "Level": "30",
+  "name": "Rakshasa"
+ },
+ {
+  "category": "Jaki",
+  "Level": "22",
+  "name": "Ogre"
+ },
+ {
+  "category": "Jaki",
+  "Level": "11",
+  "name": "Wendigo"
+ },
+ {
+  "category": "Jaki",
+  "Level": "6",
+  "name": "Gremlin"
+ },
+ {
+  "category": "Undead",
+  "Level": "23",
+  "name": "Corpse"
+ },
+ {
+  "category": "Undead",
+  "Level": "19",
+  "name": "Zombie Priest"
+ },
+ {
+  "category": "Undead",
+  "Level": "15",
+  "name": "Workaholic"
+ },
+ {
+  "category": "Undead",
+  "Level": "12",
+  "name": "Bodyconian"
+ },
+ {
+  "category": "Undead",
+  "Level": "5",
+  "name": "Zombie"
+ },
+ {
+  "category": "Undead",
+  "Level": "1",
+  "name": "Zombie Dog"
+ },
+ {
+  "category": "Haunt",
+  "Level": "44",
+  "name": "Vetara"
+ },
+ {
+  "category": "Haunt",
+  "Level": "32",
+  "name": "Yaka"
+ },
+ {
+  "category": "Haunt",
+  "Level": "25",
+  "name": "Man Eater"
+ },
+ {
+  "category": "Haunt",
+  "Level": "16",
+  "name": "Ghoulette"
+ },
+ {
+  "category": "Haunt",
+  "Level": "16",
+  "name": "Ghoul"
+ },
+ {
+  "category": "Haunt",
+  "Level": "3",
+  "name": "Gaki"
+ },
+ {
+  "category": "Spirit",
+  "Level": "38",
+  "name": "Legion"
+ },
+ {
+  "category": "Spirit",
+  "Level": "29",
+  "name": "Inferno"
+ },
+ {
+  "category": "Spirit",
+  "Level": "15",
+  "name": "Depth"
+ },
+ {
+  "category": "Spirit",
+  "Level": "13",
+  "name": "Hanged Man"
+ },
+ {
+  "category": "Spirit",
+  "Level": "2",
+  "name": "Poltergeist"
+ },
+ {
+  "category": "Foul",
+  "Level": "49",
+  "name": "Old One"
+ },
+ {
+  "category": "Foul",
+  "Level": "39",
+  "name": "Doppelganger"
+ },
+ {
+  "category": "Foul",
+  "Level": "28",
+  "name": "Black Ooze"
+ },
+ {
+  "category": "Foul",
+  "Level": "17",
+  "name": "Chris the Car"
+ },
+ {
+  "category": "Foul",
+  "Level": "9",
+  "name": "Jack the Ripper"
+ },
+ {
+  "category": "Foul",
+  "Level": "6",
+  "name": "Slime"
+ },
+ {
+  "category": "Demonoid",
+  "Level": "16",
+  "name": "Frankie"
+ },
+ {
+  "category": "Demonoid",
+  "Level": "11",
+  "name": "Demi-Nandi"
+ },
+ {
+  "category": "Demonoid",
+  "Level": "7",
+  "name": "Heracles"
+ },
+ {
+  "category": "Demonoid",
+  "Level": "6",
+  "name": "Slave"
+ },
+ {
+  "category": "Demonoid",
+  "Level": "3",
+  "name": "Oracles"
+ },
+ {
+  "category": "Demonoid",
+  "Level": "2",
+  "name": "Spartan"
+ },
+ {
+  "category": "Messian",
+  "Level": "51",
+  "name": "Adept"
+ },
+ {
+  "category": "Messian",
+  "Level": "40",
+  "name": "Terminator"
+ },
+ {
+  "category": "Messian",
+  "Level": "34",
+  "name": "Gyrator"
+ },
+ {
+  "category": "Messian",
+  "Level": "26",
+  "name": "Temple Knight"
+ },
+ {
+  "category": "Messian",
+  "Level": "21",
+  "name": "Executioner"
+ },
+ {
+  "category": "Messian",
+  "Level": "15",
+  "name": "Neophyte"
+ },
+ {
+  "category": "Messian",
+  "Level": "9",
+  "name": "Butcher"
+ },
+ {
+  "category": "Gaean",
+  "Level": "39",
+  "name": "Kamen-Hijiri"
+ },
+ {
+  "category": "Gaean",
+  "Level": "30",
+  "name": "Ashura"
+ },
+ {
+  "category": "Gaean",
+  "Level": "22",
+  "name": "Onmyoji"
+ },
+ {
+  "category": "Gaean",
+  "Level": "15",
+  "name": "Jiraiya"
+ },
+ {
+  "category": "Gaean",
+  "Level": "8",
+  "name": "Kugutsushi"
+ },
+ {
+  "category": "Element",
+  "Level": "32",
+  "name": "Salamander"
+ },
+ {
+  "category": "Element",
+  "Level": "30",
+  "name": "Undine"
+ },
+ {
+  "category": "Element",
+  "Level": "28",
+  "name": "Sylph"
+ },
+ {
+  "category": "Element",
+  "Level": "26",
+  "name": "Gnome"
+ },
+ {
+  "category": "Element",
+  "Level": "12",
+  "name": "Flamies"
+ },
+ {
+  "category": "Element",
+  "Level": "11",
+  "name": "Aquans"
+ },
+ {
+  "category": "Element",
+  "Level": "10",
+  "name": "Aeros"
+ },
+ {
+  "category": "Element",
+  "Level": "9",
+  "name": "Earthies"
+ },
+ {
+  "category": "Wood",
+  "Level": "38",
+  "name": "Yggdrasil"
+ },
+ {
+  "category": "Wood",
+  "Level": "29",
+  "name": "Alraune"
+ },
+ {
+  "category": "Wood",
+  "Level": "18",
+  "name": "Mandrake"
+ },
+ {
+  "category": "Wood",
+  "Level": "7",
+  "name": "Audrey"
+ },
+ {
+  "category": "Machine",
+  "Level": "37",
+  "name": "Medusa"
+ },
+ {
+  "category": "Machine",
+  "Level": "30",
+  "name": "Rabbi"
+ },
+ {
+  "category": "Machine",
+  "Level": "26",
+  "name": "Golem"
+ },
+ {
+  "category": "Machine",
+  "Level": "21",
+  "name": "Junk"
+ },
+ {
+  "category": "Machine",
+  "Level": "8",
+  "name": "Iron Maiden"
+ },
+ {
+  "category": "Machine",
+  "Level": "5",
+  "name": "Crazy Dummy"
+ },
+ {
+  "category": "Machine",
+  "Level": "15",
+  "name": "Police"
+ },
+ {
+  "category": "Machine",
+  "Level": "10",
+  "name": "Jaws"
+ },
+ {
+  "category": "Machine",
+  "Level": "20",
+  "name": "Andromeda"
+ },
+ {
+  "category": "Machine",
+  "Level": "8",
+  "name": "Spider"
+ },
+ {
+  "category": "Machine",
+  "Level": "3",
+  "name": "Moebius"
+ },
+ {
+  "category": "Fiend",
+  "Level": "50",
+  "name": "Sage of Time"
+ },
+ {
+  "category": "Fiend",
+  "Level": "40",
+  "name": "Matador"
+ },
+ {
+  "category": "Fiend",
+  "Level": "35",
+  "name": "Hell's Angel"
+ },
+ {
+  "category": "Fiend",
+  "Level": "35",
+  "name": "Alice"
+ },
+ {
+  "category": "Fiend",
+  "Level": "30",
+  "name": "Ghost Q"
+ }
+]

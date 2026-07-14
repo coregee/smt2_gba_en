@@ -1,0 +1,12 @@
+[
+ {
+  "addr": "085096C4",
+  "ptrs": [
+   "080D6868"
+  ],
+  "max": 51,
+  "term": "0000",
+  "original": "　このゲームは　フィクションであり登場する人物や集団は　実在の個人および団体とは　一切関係ありません<000A>",
+  "replace": "This game is a work of fiction.{n}Any resemblance to real persons,{n}groups, or events is coincidental."
+ }
+]

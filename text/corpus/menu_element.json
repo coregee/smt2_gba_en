@@ -1,0 +1,538 @@
+[
+ {
+  "addr": "084F032C",
+  "max": 6,
+  "term": "0000",
+  "original": "　　ノーマル",
+  "replace": "Normal",
+  "sentinel": true
+ },
+ {
+  "addr": "084F033A",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　対火炎",
+  "replace": "Resist Fire",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0348",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　対氷結",
+  "replace": "Resist Ice",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0356",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　対電撃",
+  "replace": "Resist Electric",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0364",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　対衝撃",
+  "replace": "Resist Force",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0372",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　対精神",
+  "replace": "Resist Mind",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0380",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　対物理",
+  "replace": "Resist Physical",
+  "sentinel": true
+ },
+ {
+  "addr": "084F038E",
+  "max": 6,
+  "term": "0000",
+  "original": "対電撃・衝撃",
+  "replace": "Resist Electric/Force",
+  "sentinel": true
+ },
+ {
+  "addr": "084F039C",
+  "max": 6,
+  "term": "0000",
+  "original": "対火炎・氷結",
+  "replace": "Resist Fire/Ice",
+  "sentinel": true
+ },
+ {
+  "addr": "084F03AA",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　反精神",
+  "replace": "Resist Mind",
+  "sentinel": true
+ },
+ {
+  "addr": "084F03B8",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　反物理",
+  "replace": "Resist Physical",
+  "sentinel": true
+ },
+ {
+  "addr": "084F03C6",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　　吸熱",
+  "replace": "Drain Fire",
+  "sentinel": true
+ },
+ {
+  "addr": "084F03D4",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　　吸電",
+  "replace": "Drain Electric",
+  "sentinel": true
+ },
+ {
+  "addr": "084F03E2",
+  "max": 6,
+  "term": "0000",
+  "original": "　　魔性防具",
+  "replace": "Magic Armor",
+  "sentinel": true
+ },
+ {
+  "addr": "084F03F0",
+  "max": 6,
+  "term": "0000",
+  "original": "　　神聖防具",
+  "replace": "Holy Armor",
+  "sentinel": true
+ },
+ {
+  "addr": "084F03FE",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　全対応",
+  "replace": "Resist All",
+  "sentinel": true
+ },
+ {
+  "addr": "084F040C",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　　　鳥",
+  "replace": "Bird",
+  "sentinel": true
+ },
+ {
+  "addr": "084F041A",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　　植物",
+  "replace": "Plant",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0428",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　クグツ",
+  "replace": "Puppet",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0436",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　　　竜",
+  "replace": "Dragon",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0444",
+  "max": 6,
+  "term": "0000",
+  "original": "　アンデッド",
+  "replace": "Undead",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0452",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　　幽霊",
+  "replace": "Ghost",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0460",
+  "max": 6,
+  "term": "0000",
+  "original": "強アンデッド",
+  "replace": "Strong Undead",
+  "sentinel": true
+ },
+ {
+  "addr": "084F046E",
+  "max": 6,
+  "term": "0000",
+  "original": "　　実体希薄",
+  "replace": "Ethereal",
+  "sentinel": true
+ },
+ {
+  "addr": "084F047C",
+  "max": 6,
+  "term": "0000",
+  "original": "燃えている奴",
+  "replace": "Burning One",
+  "sentinel": true
+ },
+ {
+  "addr": "084F048A",
+  "max": 6,
+  "term": "0000",
+  "original": "　　火炎反射",
+  "replace": "Reflect Fire",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0498",
+  "max": 6,
+  "term": "0000",
+  "original": "　　火炎吸収",
+  "replace": "Drain Fire",
+  "sentinel": true
+ },
+ {
+  "addr": "084F04A6",
+  "max": 6,
+  "term": "0000",
+  "original": "　　ザン使い",
+  "replace": "Learn Zan",
+  "sentinel": true
+ },
+ {
+  "addr": "084F04B4",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　火炎獣",
+  "replace": "Flame Beast",
+  "sentinel": true
+ },
+ {
+  "addr": "084F04C2",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　神聖獣",
+  "replace": "Holy Beast",
+  "sentinel": true
+ },
+ {
+  "addr": "084F04D0",
+  "max": 6,
+  "term": "0000",
+  "original": "　　ロボット",
+  "replace": "Robot",
+  "sentinel": true
+ },
+ {
+  "addr": "084F04DE",
+  "max": 6,
+  "term": "0000",
+  "original": "ヴァーチャル",
+  "replace": "Virtual",
+  "sentinel": true
+ },
+ {
+  "addr": "084F04EC",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　　弱電",
+  "replace": "Weak Electric",
+  "sentinel": true
+ },
+ {
+  "addr": "084F04FA",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　電撃魔",
+  "replace": "Electric Mage",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0508",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　耐魔法",
+  "replace": "Magic Resistant",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0516",
+  "max": 6,
+  "term": "0000",
+  "original": "　　魔法喰い",
+  "replace": "Magic Eater",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0524",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　　技者",
+  "replace": "Technician",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0532",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　　天使",
+  "replace": "Angel",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0540",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　反魔法",
+  "replace": "Anti-Magic",
+  "sentinel": true
+ },
+ {
+  "addr": "084F054E",
+  "max": 6,
+  "term": "0000",
+  "original": "ノーマルボス",
+  "replace": "Normal Boss",
+  "sentinel": true
+ },
+ {
+  "addr": "084F055C",
+  "max": 6,
+  "term": "0000",
+  "original": "　物理効かず",
+  "replace": "Physical Immune",
+  "sentinel": true
+ },
+ {
+  "addr": "084F056A",
+  "max": 6,
+  "term": "0000",
+  "original": "ングフロスト",
+  "replace": "Frost",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0578",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　氷結魔",
+  "replace": "Ice Mage",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0586",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　　　　",
+  "replace": null,
+  "sentinel": true
+ },
+ {
+  "addr": "084F0594",
+  "max": 6,
+  "term": "0000",
+  "original": "　バジリスク",
+  "replace": "Basilisk",
+  "sentinel": true
+ },
+ {
+  "addr": "084F05A2",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　　大地",
+  "replace": "Earth",
+  "sentinel": true
+ },
+ {
+  "addr": "084F05B0",
+  "max": 6,
+  "term": "0000",
+  "original": "　　炎のボス",
+  "replace": "Fire Boss",
+  "sentinel": true
+ },
+ {
+  "addr": "084F05BE",
+  "max": 6,
+  "term": "0000",
+  "original": "　　ウリエル",
+  "replace": "Uriel",
+  "sentinel": true
+ },
+ {
+  "addr": "084F05CC",
+  "max": 6,
+  "term": "0000",
+  "original": "　　電撃ボス",
+  "replace": "Electric Boss",
+  "sentinel": true
+ },
+ {
+  "addr": "084F05DA",
+  "max": 6,
+  "term": "0000",
+  "original": "　ラファエル",
+  "replace": "Raphael",
+  "sentinel": true
+ },
+ {
+  "addr": "084F05E8",
+  "max": 6,
+  "term": "0000",
+  "original": "　　魔力ボス",
+  "replace": "Magic Boss",
+  "sentinel": true
+ },
+ {
+  "addr": "084F05F6",
+  "max": 6,
+  "term": "0000",
+  "original": "実体希薄ボス",
+  "replace": "Ethereal Boss",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0604",
+  "max": 6,
+  "term": "0000",
+  "original": "　魔食いボス",
+  "replace": "Magic Eater Boss",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0612",
+  "max": 6,
+  "term": "0000",
+  "original": "　呪いのボス",
+  "replace": "Cursed Boss",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0620",
+  "max": 6,
+  "term": "0000",
+  "original": "　　ダレス強",
+  "replace": "Daleth Strong",
+  "sentinel": true
+ },
+ {
+  "addr": "084F062E",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　竜ボス",
+  "replace": "Dragon Boss",
+  "sentinel": true
+ },
+ {
+  "addr": "084F063C",
+  "max": 6,
+  "term": "0000",
+  "original": "　　弱炎ボス",
+  "replace": "Weak Fire Boss",
+  "sentinel": true
+ },
+ {
+  "addr": "084F064A",
+  "max": 6,
+  "term": "0000",
+  "original": "　　弱凍ボス",
+  "replace": "Weak Ice Boss",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0658",
+  "max": 6,
+  "term": "0000",
+  "original": "　　弱衝ボス",
+  "replace": "Weak Impact Boss",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0666",
+  "max": 6,
+  "term": "0000",
+  "original": "　　弱電ボス",
+  "replace": "Weak Electric Boss",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0674",
+  "max": 6,
+  "term": "0000",
+  "original": "　　弱技ボス",
+  "replace": "Weak Skill Boss",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0682",
+  "max": 6,
+  "term": "0000",
+  "original": "　　弱縛ボス",
+  "replace": "Weak Bind Boss",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0690",
+  "max": 6,
+  "term": "0000",
+  "original": "　　弱呪ボス",
+  "replace": "Weak Curse Boss",
+  "sentinel": true
+ },
+ {
+  "addr": "084F069E",
+  "max": 6,
+  "term": "0000",
+  "original": "　弱破魔ボス",
+  "replace": "Weak Anti-Magic Boss",
+  "sentinel": true
+ },
+ {
+  "addr": "084F06AC",
+  "max": 6,
+  "term": "0000",
+  "original": "　ルシファー",
+  "replace": "Lucifer",
+  "sentinel": true
+ },
+ {
+  "addr": "084F06BA",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　サタン",
+  "replace": "Satan",
+  "sentinel": true
+ },
+ {
+  "addr": "084F06C8",
+  "max": 6,
+  "term": "0000",
+  "original": "　　　　究極",
+  "replace": "Ultimate",
+  "sentinel": true
+ }
+]

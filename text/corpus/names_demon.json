@@ -1,0 +1,7238 @@
+[
+ {
+  "addr": "0819CB96",
+  "max": 6,
+  "term": "0000",
+  "original": "サタン",
+  "replace": "Satan",
+  "name_table": true,
+  "id": 0,
+  "aff1": {
+   "addr": "0819CBA6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "神経・破魔",
+   "replace": "Null: Nerve, Expel,"
+  },
+  "aff2": {
+   "addr": "0819CBBC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺が無効",
+   "replace": "Curse"
+  }
+ },
+ {
+  "addr": "0819CBF6",
+  "max": 6,
+  "term": "0000",
+  "original": "メタトロン",
+  "replace": "Metatron",
+  "name_table": true,
+  "id": 1,
+  "aff1": {
+   "addr": "0819CC06",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "全体的に強い",
+   "replace": "Resist: All"
+  },
+  "aff2": {
+   "addr": "0819CC1C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "0819CC56",
+  "max": 6,
+  "term": "0000",
+  "original": "カマエル",
+  "replace": "Kamael",
+  "name_table": true,
+  "id": 2,
+  "aff1": {
+   "addr": "0819CC66",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔・物理に強い",
+   "replace": "Resist: Expel, Physical"
+  }
+ },
+ {
+  "addr": "0819CCB6",
+  "max": 6,
+  "term": "0000",
+  "original": "サリエル",
+  "replace": "Sariel",
+  "name_table": true,
+  "id": 3,
+  "aff1": {
+   "addr": "0819CCC6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔を無効",
+   "replace": "Null: Expel"
+  },
+  "aff2": {
+   "addr": "0819CCDC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "0819CD16",
+  "max": 6,
+  "term": "0000",
+  "original": "クシエル",
+  "replace": "Kushiel",
+  "name_table": true,
+  "id": 4,
+  "aff1": {
+   "addr": "0819CD26",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔を無効",
+   "replace": "Null: Expel"
+  },
+  "aff2": {
+   "addr": "0819CD3C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "0819CD76",
+  "max": 6,
+  "term": "0000",
+  "original": "オファニム",
+  "replace": "Ophanim",
+  "name_table": true,
+  "id": 5,
+  "aff1": {
+   "addr": "0819CD86",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔を無効",
+   "replace": "Null: Expel"
+  },
+  "aff2": {
+   "addr": "0819CD9C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "0819CDD6",
+  "max": 6,
+  "term": "0000",
+  "original": "ラグエル",
+  "replace": "Raguel",
+  "name_table": true,
+  "id": 6,
+  "aff1": {
+   "addr": "0819CDE6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔を無効",
+   "replace": "Null: Expel"
+  },
+  "aff2": {
+   "addr": "0819CDFC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "0819CE36",
+  "max": 6,
+  "term": "0000",
+  "original": "ハニエル",
+  "replace": "Haniel",
+  "name_table": true,
+  "id": 7,
+  "aff1": {
+   "addr": "0819CE46",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔を無効",
+   "replace": "Null: Expel"
+  },
+  "aff2": {
+   "addr": "0819CE5C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "0819CE96",
+  "max": 6,
+  "term": "0000",
+  "original": "ザフキエル",
+  "replace": "Tzaphkiel",
+  "name_table": true,
+  "id": 8,
+  "aff1": {
+   "addr": "0819CEA6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔を無効",
+   "replace": "Null: Expel"
+  },
+  "aff2": {
+   "addr": "0819CEBC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "0819CEF6",
+  "max": 6,
+  "term": "0000",
+  "original": "ラミエル",
+  "replace": "Remiel",
+  "name_table": true,
+  "id": 9,
+  "aff1": {
+   "addr": "0819CF06",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔を無効",
+   "replace": "Null: Expel"
+  },
+  "aff2": {
+   "addr": "0819CF1C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "0819CF56",
+  "max": 6,
+  "term": "0000",
+  "original": "アマテラス",
+  "replace": "Amaterasu",
+  "name_table": true,
+  "id": 10,
+  "aff1": {
+   "addr": "0819CF66",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "神経・破魔",
+   "replace": "Null: Nerve, Expel,"
+  },
+  "aff2": {
+   "addr": "0819CF7C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺が無効",
+   "replace": "Curse"
+  }
+ },
+ {
+  "addr": "0819CFB6",
+  "max": 6,
+  "term": "0000",
+  "original": "ツクヨミ",
+  "replace": "Tsukuyomi",
+  "name_table": true,
+  "id": 11,
+  "aff1": {
+   "addr": "0819CFC6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法を反射",
+   "replace": "Repel: Magic"
+  },
+  "aff2": {
+   "addr": "0819CFDC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に弱い",
+   "replace": "Weak: Physical"
+  }
+ },
+ {
+  "addr": "0819D016",
+  "max": 6,
+  "term": "0000",
+  "original": "タケミカヅチ",
+  "replace": "Takemikazuchi",
+  "name_table": true,
+  "id": 12,
+  "aff1": {
+   "addr": "0819D026",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃反射",
+   "replace": "Repel: Electric"
+  },
+  "aff2": {
+   "addr": "0819D03C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔に強い",
+   "replace": "Resist: Expel"
+  }
+ },
+ {
+  "addr": "0819D076",
+  "max": 6,
+  "term": "0000",
+  "original": "ヒノカグツチ",
+  "replace": "Hinokagutsuchi",
+  "name_table": true,
+  "id": 13,
+  "aff1": {
+   "addr": "0819D086",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎吸収",
+   "replace": "Drain: Fire"
+  },
+  "aff2": {
+   "addr": "0819D09C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "打撃系技反射",
+   "replace": "Repel: Strike"
+  }
+ },
+ {
+  "addr": "0819D0D6",
+  "max": 6,
+  "term": "0000",
+  "original": "オモイカネ",
+  "replace": "Omoikane",
+  "name_table": true,
+  "id": 14,
+  "aff1": {
+   "addr": "0819D0E6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法吸収",
+   "replace": "Drain: Magic"
+  },
+  "aff2": {
+   "addr": "0819D0FC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に弱い",
+   "replace": "Weak: Physical"
+  }
+ },
+ {
+  "addr": "0819D136",
+  "max": 6,
+  "term": "0000",
+  "original": "タヂカラオ",
+  "replace": "Tajikarao",
+  "name_table": true,
+  "id": 15,
+  "aff1": {
+   "addr": "0819D146",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔・物理に強い",
+   "replace": "Resist: Expel, Physical"
+  }
+ },
+ {
+  "addr": "0819D196",
+  "max": 6,
+  "term": "0000",
+  "original": "アメノトリフ",
+  "replace": "Ameno Torifune",
+  "name_table": true,
+  "id": 16,
+  "aff1": {
+   "addr": "0819D1A6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔・呪殺",
+   "replace": "Repel: Expel, Curse,"
+  },
+  "aff2": {
+   "addr": "0819D1BC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔力を反射",
+   "replace": "Magic"
+  }
+ },
+ {
+  "addr": "0819D1F6",
+  "max": 6,
+  "term": "0000",
+  "original": "ガルーダ",
+  "replace": "Garuda",
+  "name_table": true,
+  "id": 17,
+  "aff1": {
+   "addr": "0819D206",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔・呪殺",
+   "replace": "Repel: Expel, Curse,"
+  },
+  "aff2": {
+   "addr": "0819D21C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔力を反射",
+   "replace": "Magic"
+  }
+ },
+ {
+  "addr": "0819D256",
+  "max": 6,
+  "term": "0000",
+  "original": "スザク",
+  "replace": "Suzaku",
+  "name_table": true,
+  "id": 18,
+  "aff1": {
+   "addr": "0819D266",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺・魔力に弱く",
+   "replace": "Weak: Curse, Magic"
+  },
+  "aff2": {
+   "addr": "0819D27C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "ガンに強い",
+   "replace": "Resist: Gun"
+  }
+ },
+ {
+  "addr": "0819D2B6",
+  "max": 6,
+  "term": "0000",
+  "original": "ヤタガラス",
+  "replace": "Yatagarasu",
+  "name_table": true,
+  "id": 19,
+  "aff1": {
+   "addr": "0819D2C6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎吸収",
+   "replace": "Drain: Fire"
+  },
+  "aff2": {
+   "addr": "0819D2DC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "打撃系技反射",
+   "replace": "Repel: Strike"
+  }
+ },
+ {
+  "addr": "0819D316",
+  "max": 6,
+  "term": "0000",
+  "original": "フェニックス",
+  "replace": "Phoenix",
+  "name_table": true,
+  "id": 20,
+  "aff1": {
+   "addr": "0819D326",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎吸収",
+   "replace": "Drain: Fire"
+  },
+  "aff2": {
+   "addr": "0819D33C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "打撃系技反射",
+   "replace": "Repel: Strike"
+  }
+ },
+ {
+  "addr": "0819D376",
+  "max": 6,
+  "term": "0000",
+  "original": "スパルナ",
+  "replace": "Suparna",
+  "name_table": true,
+  "id": 21,
+  "aff1": {
+   "addr": "0819D386",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "ガン以外の",
+   "replace": "Resist: Physical,"
+  },
+  "aff2": {
+   "addr": "0819D39C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理攻撃に強い",
+   "replace": "except Gun"
+  }
+ },
+ {
+  "addr": "0819D3D6",
+  "max": 6,
+  "term": "0000",
+  "original": "ラクシュミ",
+  "replace": "Lakshmi",
+  "name_table": true,
+  "id": 22,
+  "aff1": {
+   "addr": "0819D3E6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔を無効",
+   "replace": "Null: Expel"
+  },
+  "aff2": {
+   "addr": "0819D3FC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "0819D436",
+  "max": 6,
+  "term": "0000",
+  "original": "パールヴァテ",
+  "replace": "Parvati",
+  "name_table": true,
+  "id": 23,
+  "aff1": {
+   "addr": "0819D446",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔を無効",
+   "replace": "Null: Expel"
+  },
+  "aff2": {
+   "addr": "0819D45C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "0819D496",
+  "max": 6,
+  "term": "0000",
+  "original": "フレイア",
+  "replace": "Freyja",
+  "name_table": true,
+  "id": 24,
+  "aff1": {
+   "addr": "0819D4A6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔を無効",
+   "replace": "Null: Expel"
+  },
+  "aff2": {
+   "addr": "0819D4BC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "0819D4F6",
+  "max": 6,
+  "term": "0000",
+  "original": "サラスヴァテ",
+  "replace": "Sarasvati",
+  "name_table": true,
+  "id": 25,
+  "aff1": {
+   "addr": "0819D506",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔を無効",
+   "replace": "Null: Expel"
+  },
+  "aff2": {
+   "addr": "0819D51C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "0819D556",
+  "max": 6,
+  "term": "0000",
+  "original": "アリアンロッ",
+  "replace": "Arianrhod",
+  "name_table": true,
+  "id": 26,
+  "aff1": {
+   "addr": "0819D566",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔・物理に強い",
+   "replace": "Resist: Expel, Physical"
+  }
+ },
+ {
+  "addr": "0819D5B6",
+  "max": 6,
+  "term": "0000",
+  "original": "アメノウズメ",
+  "replace": "Ame-no-Uzume",
+  "name_table": true,
+  "id": 27,
+  "aff1": {
+   "addr": "0819D5C6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "0819D616",
+  "max": 6,
+  "term": "0000",
+  "original": "アルダー",
+  "replace": "Ardha",
+  "name_table": true,
+  "id": 28,
+  "aff1": {
+   "addr": "0819D626",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "全体的に強い",
+   "replace": "Resist: All"
+  },
+  "aff2": {
+   "addr": "0819D63C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "0819D676",
+  "max": 6,
+  "term": "0000",
+  "original": "ヴィローシャ",
+  "replace": "Virocana",
+  "name_table": true,
+  "id": 29,
+  "aff1": {
+   "addr": "0819D686",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎に強い",
+   "replace": "Resist: Fire"
+  }
+ },
+ {
+  "addr": "0819D6D6",
+  "max": 6,
+  "term": "0000",
+  "original": "カルキ",
+  "replace": "Kalki",
+  "name_table": true,
+  "id": 30,
+  "aff1": {
+   "addr": "0819D6E6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "全体的に強い",
+   "replace": "Resist: All"
+  },
+  "aff2": {
+   "addr": "0819D6FC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "0819D736",
+  "max": 6,
+  "term": "0000",
+  "original": "バール",
+  "replace": "Baal",
+  "name_table": true,
+  "id": 31,
+  "aff1": {
+   "addr": "0819D746",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺・魔力に弱く",
+   "replace": "Weak: Curse, Magic"
+  },
+  "aff2": {
+   "addr": "0819D75C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "ガンに強い",
+   "replace": "Resist: Gun"
+  }
+ },
+ {
+  "addr": "0819D796",
+  "max": 6,
+  "term": "0000",
+  "original": "アタバク",
+  "replace": "Atavaka",
+  "name_table": true,
+  "id": 32,
+  "aff1": {
+   "addr": "0819D7A6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔・呪殺",
+   "replace": "Repel: Expel, Curse,"
+  },
+  "aff2": {
+   "addr": "0819D7BC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔力を反射",
+   "replace": "Magic"
+  }
+ },
+ {
+  "addr": "0819D7F6",
+  "max": 6,
+  "term": "0000",
+  "original": "オーディン",
+  "replace": "Odin",
+  "name_table": true,
+  "id": 33,
+  "aff1": {
+   "addr": "0819D806",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "0819D856",
+  "max": 6,
+  "term": "0000",
+  "original": "アシュター",
+  "replace": "Ashtar",
+  "name_table": true,
+  "id": 34,
+  "aff1": {
+   "addr": "0819D866",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔・物理に強い",
+   "replace": "Resist: Expel, Physical"
+  }
+ },
+ {
+  "addr": "0819D8B6",
+  "max": 6,
+  "term": "0000",
+  "original": "ホルス",
+  "replace": "Horus",
+  "name_table": true,
+  "id": 35,
+  "aff1": {
+   "addr": "0819D8C6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎吸収",
+   "replace": "Drain: Fire"
+  },
+  "aff2": {
+   "addr": "0819D8DC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "打撃系技反射",
+   "replace": "Repel: Strike"
+  }
+ },
+ {
+  "addr": "0819D916",
+  "max": 6,
+  "term": "0000",
+  "original": "トール",
+  "replace": "Thor",
+  "name_table": true,
+  "id": 36,
+  "aff1": {
+   "addr": "0819D926",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃反射",
+   "replace": "Repel: Electric"
+  },
+  "aff2": {
+   "addr": "0819D93C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔に強い",
+   "replace": "Resist: Expel"
+  }
+ },
+ {
+  "addr": "0819D976",
+  "max": 6,
+  "term": "0000",
+  "original": "インドラ",
+  "replace": "Indra",
+  "name_table": true,
+  "id": 37,
+  "aff1": {
+   "addr": "0819D986",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃反射",
+   "replace": "Repel: Electric"
+  },
+  "aff2": {
+   "addr": "0819D99C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔に強い",
+   "replace": "Resist: Expel"
+  }
+ },
+ {
+  "addr": "0819D9D6",
+  "max": 6,
+  "term": "0000",
+  "original": "バロン",
+  "replace": "Barong",
+  "name_table": true,
+  "id": 38,
+  "aff1": {
+   "addr": "0819D9E6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "突撃を吸収",
+   "replace": "Drain: Charge"
+  },
+  "aff2": {
+   "addr": "0819D9FC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "0819DA36",
+  "max": 6,
+  "term": "0000",
+  "original": "ゲンブ",
+  "replace": "Genbu",
+  "name_table": true,
+  "id": 39,
+  "aff1": {
+   "addr": "0819DA46",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "突撃を吸収",
+   "replace": "Drain: Charge"
+  },
+  "aff2": {
+   "addr": "0819DA5C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "0819DA96",
+  "max": 6,
+  "term": "0000",
+  "original": "アヌビス",
+  "replace": "Anubis",
+  "name_table": true,
+  "id": 40,
+  "aff1": {
+   "addr": "0819DAA6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺・魔力に弱く",
+   "replace": "Weak: Curse, Magic"
+  },
+  "aff2": {
+   "addr": "0819DABC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "ガンに強い",
+   "replace": "Resist: Gun"
+  }
+ },
+ {
+  "addr": "0819DAF6",
+  "max": 6,
+  "term": "0000",
+  "original": "ナラシンハ",
+  "replace": "Narasinha",
+  "name_table": true,
+  "id": 41,
+  "aff1": {
+   "addr": "0819DB06",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺・魔力に弱く",
+   "replace": "Weak: Curse, Magic"
+  },
+  "aff2": {
+   "addr": "0819DB1C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "ガンに強い",
+   "replace": "Resist: Gun"
+  }
+ },
+ {
+  "addr": "0819DB56",
+  "max": 6,
+  "term": "0000",
+  "original": "スフィンクス",
+  "replace": "Sphinx",
+  "name_table": true,
+  "id": 42,
+  "aff1": {
+   "addr": "0819DB66",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺・魔力に弱く",
+   "replace": "Weak: Curse, Magic"
+  },
+  "aff2": {
+   "addr": "0819DB7C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "ガンに強い",
+   "replace": "Resist: Gun"
+  }
+ },
+ {
+  "addr": "0819DBB6",
+  "max": 6,
+  "term": "0000",
+  "original": "ナンディ",
+  "replace": "Nandi",
+  "name_table": true,
+  "id": 43,
+  "aff1": {
+   "addr": "0819DBC6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺・魔力に弱く",
+   "replace": "Weak: Curse, Magic"
+  },
+  "aff2": {
+   "addr": "0819DBDC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "ガンに強い",
+   "replace": "Resist: Gun"
+  }
+ },
+ {
+  "addr": "0819DC16",
+  "max": 6,
+  "term": "0000",
+  "original": "ビャッコ",
+  "replace": "Byakko",
+  "name_table": true,
+  "id": 44,
+  "aff1": {
+   "addr": "0819DC26",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺・魔力に弱く",
+   "replace": "Weak: Curse, Magic"
+  },
+  "aff2": {
+   "addr": "0819DC3C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "ガンに強い",
+   "replace": "Resist: Gun"
+  }
+ },
+ {
+  "addr": "0819DC76",
+  "max": 6,
+  "term": "0000",
+  "original": "パピルサグ",
+  "replace": "Pabilsag",
+  "name_table": true,
+  "id": 45,
+  "aff1": {
+   "addr": "0819DC86",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺・魔力に弱く",
+   "replace": "Weak: Curse, Magic"
+  },
+  "aff2": {
+   "addr": "0819DC9C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "ガンに強い",
+   "replace": "Resist: Gun"
+  }
+ },
+ {
+  "addr": "0819DCD6",
+  "max": 6,
+  "term": "0000",
+  "original": "バステト",
+  "replace": "Bastet",
+  "name_table": true,
+  "id": 46,
+  "aff1": {
+   "addr": "0819DCE6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺・魔力に弱く",
+   "replace": "Weak: Curse, Magic"
+  },
+  "aff2": {
+   "addr": "0819DCFC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "ガンに強い",
+   "replace": "Resist: Gun"
+  }
+ },
+ {
+  "addr": "0819DD36",
+  "max": 6,
+  "term": "0000",
+  "original": "アピス",
+  "replace": "Apis",
+  "name_table": true,
+  "id": 47,
+  "aff1": {
+   "addr": "0819DD46",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺・魔力に弱く",
+   "replace": "Weak: Curse, Magic"
+  },
+  "aff2": {
+   "addr": "0819DD5C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "ガンに強い",
+   "replace": "Resist: Gun"
+  }
+ },
+ {
+  "addr": "0819DD96",
+  "max": 6,
+  "term": "0000",
+  "original": "ユニコーン",
+  "replace": "Unicorn",
+  "name_table": true,
+  "id": 48,
+  "aff1": {
+   "addr": "0819DDA6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺・魔力に弱く",
+   "replace": "Weak: Curse, Magic"
+  },
+  "aff2": {
+   "addr": "0819DDBC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "ガンに強い",
+   "replace": "Resist: Gun"
+  }
+ },
+ {
+  "addr": "0819DDF6",
+  "max": 6,
+  "term": "0000",
+  "original": "ヘケト",
+  "replace": "Heqet",
+  "name_table": true,
+  "id": 49,
+  "aff1": {
+   "addr": "0819DE06",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺・魔力に弱く",
+   "replace": "Weak: Curse, Magic"
+  },
+  "aff2": {
+   "addr": "0819DE1C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "ガンに強い",
+   "replace": "Resist: Gun"
+  }
+ },
+ {
+  "addr": "0819DE56",
+  "max": 6,
+  "term": "0000",
+  "original": "サラマンダー",
+  "replace": "Salamander",
+  "name_table": true,
+  "id": 50,
+  "aff1": {
+   "addr": "0819DE66",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎吸収",
+   "replace": "Drain: Fire"
+  },
+  "aff2": {
+   "addr": "0819DE7C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "打撃系技反射",
+   "replace": "Repel: Strike"
+  }
+ },
+ {
+  "addr": "0819DEB6",
+  "max": 6,
+  "term": "0000",
+  "original": "ウンディーネ",
+  "replace": "Undine",
+  "name_table": true,
+  "id": 51,
+  "aff1": {
+   "addr": "0819DEC6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃・衝撃",
+   "replace": "Resist: Electric, Force,"
+  },
+  "aff2": {
+   "addr": "0819DEDC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Physical"
+  }
+ },
+ {
+  "addr": "0819DF16",
+  "max": 6,
+  "term": "0000",
+  "original": "シルフ",
+  "replace": "Sylph",
+  "name_table": true,
+  "id": 52,
+  "aff1": {
+   "addr": "0819DF26",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃・衝撃",
+   "replace": "Resist: Electric, Force,"
+  },
+  "aff2": {
+   "addr": "0819DF3C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Physical"
+  }
+ },
+ {
+  "addr": "0819DF76",
+  "max": 6,
+  "term": "0000",
+  "original": "ノーム",
+  "replace": "Gnome",
+  "name_table": true,
+  "id": 53,
+  "aff1": {
+   "addr": "0819DF86",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔・呪殺に強い",
+   "replace": "Resist: Expel, Curse"
+  }
+ },
+ {
+  "addr": "0819DFD6",
+  "max": 6,
+  "term": "0000",
+  "original": "フレイミーズ",
+  "replace": "Flamies",
+  "name_table": true,
+  "id": 54,
+  "aff1": {
+   "addr": "0819DFE6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎吸収",
+   "replace": "Drain: Fire"
+  },
+  "aff2": {
+   "addr": "0819DFFC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "打撃系技反射",
+   "replace": "Repel: Strike"
+  }
+ },
+ {
+  "addr": "0819E036",
+  "max": 6,
+  "term": "0000",
+  "original": "アクアンズ",
+  "replace": "Aquans",
+  "name_table": true,
+  "id": 55,
+  "aff1": {
+   "addr": "0819E046",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃・衝撃",
+   "replace": "Resist: Electric, Force,"
+  },
+  "aff2": {
+   "addr": "0819E05C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Physical"
+  }
+ },
+ {
+  "addr": "0819E096",
+  "max": 6,
+  "term": "0000",
+  "original": "エアロス",
+  "replace": "Aeros",
+  "name_table": true,
+  "id": 56,
+  "aff1": {
+   "addr": "0819E0A6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃・衝撃",
+   "replace": "Resist: Electric, Force,"
+  },
+  "aff2": {
+   "addr": "0819E0BC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Physical"
+  }
+ },
+ {
+  "addr": "0819E0F6",
+  "max": 6,
+  "term": "0000",
+  "original": "アーシーズ",
+  "replace": "Earthies",
+  "name_table": true,
+  "id": 57,
+  "aff1": {
+   "addr": "0819E106",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔・呪殺に強い",
+   "replace": "Resist: Expel, Curse"
+  }
+ },
+ {
+  "addr": "0819E156",
+  "max": 6,
+  "term": "0000",
+  "original": "シヴァ",
+  "replace": "Shiva",
+  "name_table": true,
+  "id": 58,
+  "aff1": {
+   "addr": "0819E166",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "神経・破魔",
+   "replace": "Null: Nerve, Expel,"
+  },
+  "aff2": {
+   "addr": "0819E17C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺が無効",
+   "replace": "Curse"
+  }
+ },
+ {
+  "addr": "0819E1B6",
+  "max": 6,
+  "term": "0000",
+  "original": "スサノオ",
+  "replace": "Susano-o",
+  "name_table": true,
+  "id": 59,
+  "aff1": {
+   "addr": "0819E1C6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃反射",
+   "replace": "Repel: Electric"
+  },
+  "aff2": {
+   "addr": "0819E1DC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔に強い",
+   "replace": "Resist: Expel"
+  }
+ },
+ {
+  "addr": "0819E216",
+  "max": 6,
+  "term": "0000",
+  "original": "セイテンタイ",
+  "replace": "Seiten Taisei",
+  "name_table": true,
+  "id": 60,
+  "aff1": {
+   "addr": "0819E226",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎に強い",
+   "replace": "Resist: Fire"
+  }
+ },
+ {
+  "addr": "0819E276",
+  "max": 6,
+  "term": "0000",
+  "original": "チェルノボグ",
+  "replace": "Chernobog",
+  "name_table": true,
+  "id": 61,
+  "aff1": {
+   "addr": "0819E286",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺を反射",
+   "replace": "Repel: Curse"
+  },
+  "aff2": {
+   "addr": "0819E29C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に強い",
+   "replace": "Resist: Electric"
+  }
+ },
+ {
+  "addr": "0819E2D6",
+  "max": 6,
+  "term": "0000",
+  "original": "アレス",
+  "replace": "Ares",
+  "name_table": true,
+  "id": 62,
+  "aff1": {
+   "addr": "0819E2E6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔・物理に強い",
+   "replace": "Resist: Expel, Physical"
+  }
+ },
+ {
+  "addr": "0819E336",
+  "max": 6,
+  "term": "0000",
+  "original": "アナンタ",
+  "replace": "Ananta",
+  "name_table": true,
+  "id": 63,
+  "aff1": {
+   "addr": "0819E346",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "突撃を吸収",
+   "replace": "Drain: Charge"
+  },
+  "aff2": {
+   "addr": "0819E35C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "0819E396",
+  "max": 6,
+  "term": "0000",
+  "original": "ラハブ",
+  "replace": "Rahabh",
+  "name_table": true,
+  "id": 64,
+  "aff1": {
+   "addr": "0819E3A6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "突撃を吸収",
+   "replace": "Drain: Charge"
+  },
+  "aff2": {
+   "addr": "0819E3BC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "0819E3F6",
+  "max": 6,
+  "term": "0000",
+  "original": "イツァム・ナ",
+  "replace": "Itzamna",
+  "name_table": true,
+  "id": 65,
+  "aff1": {
+   "addr": "0819E406",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎吸収",
+   "replace": "Drain: Fire"
+  },
+  "aff2": {
+   "addr": "0819E41C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "打撃系技反射",
+   "replace": "Repel: Strike"
+  }
+ },
+ {
+  "addr": "0819E456",
+  "max": 6,
+  "term": "0000",
+  "original": "セイリュウ",
+  "replace": "Seiryuu",
+  "name_table": true,
+  "id": 66,
+  "aff1": {
+   "addr": "0819E466",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "突撃を吸収",
+   "replace": "Drain: Charge"
+  },
+  "aff2": {
+   "addr": "0819E47C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "0819E4B6",
+  "max": 6,
+  "term": "0000",
+  "original": "ケツアルカト",
+  "replace": "Quetzalcoatl",
+  "name_table": true,
+  "id": 67,
+  "aff1": {
+   "addr": "0819E4C6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "突撃を吸収",
+   "replace": "Drain: Charge"
+  },
+  "aff2": {
+   "addr": "0819E4DC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "0819E516",
+  "max": 6,
+  "term": "0000",
+  "original": "ペクヨン",
+  "replace": "Pek Young",
+  "name_table": true,
+  "id": 68,
+  "aff1": {
+   "addr": "0819E526",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "突撃を吸収",
+   "replace": "Drain: Charge"
+  },
+  "aff2": {
+   "addr": "0819E53C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "0819E576",
+  "max": 6,
+  "term": "0000",
+  "original": "マヤ",
+  "replace": "Maya",
+  "name_table": true,
+  "id": 69,
+  "aff1": {
+   "addr": "0819E586",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "突撃を吸収",
+   "replace": "Drain: Charge"
+  },
+  "aff2": {
+   "addr": "0819E59C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "0819E5D6",
+  "max": 6,
+  "term": "0000",
+  "original": "カーリー",
+  "replace": "Kali",
+  "name_table": true,
+  "id": 70,
+  "aff1": {
+   "addr": "0819E5E6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強く",
+   "replace": "Resist: Physical"
+  },
+  "aff2": {
+   "addr": "0819E5FC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔力に弱い",
+   "replace": "Weak: Magic"
+  }
+ },
+ {
+  "addr": "0819E636",
+  "max": 6,
+  "term": "0000",
+  "original": "イシュタル",
+  "replace": "Ishtar",
+  "name_table": true,
+  "id": 71,
+  "aff1": {
+   "addr": "0819E646",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔・呪殺",
+   "replace": "Repel: Expel, Curse,"
+  },
+  "aff2": {
+   "addr": "0819E65C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔力を反射",
+   "replace": "Magic"
+  }
+ },
+ {
+  "addr": "0819E696",
+  "max": 6,
+  "term": "0000",
+  "original": "ドルガー",
+  "replace": "Durga",
+  "name_table": true,
+  "id": 72,
+  "aff1": {
+   "addr": "0819E6A6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔・物理に強い",
+   "replace": "Resist: Expel, Physical"
+  }
+ },
+ {
+  "addr": "0819E6F6",
+  "max": 6,
+  "term": "0000",
+  "original": "キクリヒメ",
+  "replace": "Kikuri-hime",
+  "name_table": true,
+  "id": 73,
+  "aff1": {
+   "addr": "0819E706",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "0819E756",
+  "max": 6,
+  "term": "0000",
+  "original": "ハリティー",
+  "replace": "Hariti",
+  "name_table": true,
+  "id": 74,
+  "aff1": {
+   "addr": "0819E766",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "神経・呪殺",
+   "replace": "Resist: Nerve, Curse,"
+  },
+  "aff2": {
+   "addr": "0819E77C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔力・緊縛に強い",
+   "replace": "Magic, Bind"
+  }
+ },
+ {
+  "addr": "0819E7B6",
+  "max": 6,
+  "term": "0000",
+  "original": "タウエレト",
+  "replace": "Ta-weret",
+  "name_table": true,
+  "id": 75,
+  "aff1": {
+   "addr": "0819E7C6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺・魔力に弱く",
+   "replace": "Weak: Curse, Magic"
+  },
+  "aff2": {
+   "addr": "0819E7DC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "ガンに強い",
+   "replace": "Resist: Gun"
+  }
+ },
+ {
+  "addr": "0819E816",
+  "max": 6,
+  "term": "0000",
+  "original": "アラハバキ",
+  "replace": "Arahabaki",
+  "name_table": true,
+  "id": 76,
+  "aff1": {
+   "addr": "0819E826",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔・呪殺",
+   "replace": "Repel: Expel, Curse,"
+  },
+  "aff2": {
+   "addr": "0819E83C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔力を反射",
+   "replace": "Magic"
+  }
+ },
+ {
+  "addr": "0819E876",
+  "max": 6,
+  "term": "0000",
+  "original": "タケミナカタ",
+  "replace": "Takeminakata",
+  "name_table": true,
+  "id": 77,
+  "aff1": {
+   "addr": "0819E886",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎吸収",
+   "replace": "Drain: Fire"
+  },
+  "aff2": {
+   "addr": "0819E89C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "打撃系技反射",
+   "replace": "Repel: Strike"
+  }
+ },
+ {
+  "addr": "0819E8D6",
+  "max": 6,
+  "term": "0000",
+  "original": "オオナムチ",
+  "replace": "Okuninushi",
+  "name_table": true,
+  "id": 78,
+  "aff1": {
+   "addr": "0819E8E6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃反射",
+   "replace": "Repel: Electric"
+  },
+  "aff2": {
+   "addr": "0819E8FC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔に強い",
+   "replace": "Resist: Expel"
+  }
+ },
+ {
+  "addr": "0819E936",
+  "max": 6,
+  "term": "0000",
+  "original": "コトシロヌシ",
+  "replace": "Kotoshironushi",
+  "name_table": true,
+  "id": 79,
+  "aff1": {
+   "addr": "0819E946",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "0819E996",
+  "max": 6,
+  "term": "0000",
+  "original": "サルタヒコ",
+  "replace": "Sarutahiko",
+  "name_table": true,
+  "id": 80,
+  "aff1": {
+   "addr": "0819E9A6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎に強い",
+   "replace": "Resist: Fire"
+  }
+ },
+ {
+  "addr": "0819E9F6",
+  "max": 6,
+  "term": "0000",
+  "original": "ヒトコトヌシ",
+  "replace": "Hitokotonushi",
+  "name_table": true,
+  "id": 81,
+  "aff1": {
+   "addr": "0819EA06",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法吸収",
+   "replace": "Drain: Magic"
+  },
+  "aff2": {
+   "addr": "0819EA1C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に弱い",
+   "replace": "Weak: Physical"
+  }
+ },
+ {
+  "addr": "0819EA56",
+  "max": 6,
+  "term": "0000",
+  "original": "スクナヒコナ",
+  "replace": "Sukunahikona",
+  "name_table": true,
+  "id": 82,
+  "aff1": {
+   "addr": "0819EA66",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強く",
+   "replace": "Resist: Physical"
+  },
+  "aff2": {
+   "addr": "0819EA7C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔力に弱い",
+   "replace": "Weak: Magic"
+  }
+ },
+ {
+  "addr": "0819EAB6",
+  "max": 6,
+  "term": "0000",
+  "original": "オオヤマツミ",
+  "replace": "O-Yamatsumi",
+  "name_table": true,
+  "id": 83,
+  "aff1": {
+   "addr": "0819EAC6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔・呪殺に強い",
+   "replace": "Resist: Expel, Curse"
+  }
+ },
+ {
+  "addr": "0819EB16",
+  "max": 6,
+  "term": "0000",
+  "original": "ドミニオン",
+  "replace": "Dominion",
+  "name_table": true,
+  "id": 84,
+  "aff1": {
+   "addr": "0819EB26",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔を無効",
+   "replace": "Null: Expel"
+  },
+  "aff2": {
+   "addr": "0819EB3C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "0819EB76",
+  "max": 6,
+  "term": "0000",
+  "original": "ヴァーチャー",
+  "replace": "Virtue",
+  "name_table": true,
+  "id": 85,
+  "aff1": {
+   "addr": "0819EB86",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔を無効",
+   "replace": "Null: Expel"
+  },
+  "aff2": {
+   "addr": "0819EB9C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "0819EBD6",
+  "max": 6,
+  "term": "0000",
+  "original": "パワー",
+  "replace": "Power",
+  "name_table": true,
+  "id": 86,
+  "aff1": {
+   "addr": "0819EBE6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔を無効",
+   "replace": "Null: Expel"
+  },
+  "aff2": {
+   "addr": "0819EBFC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "0819EC36",
+  "max": 6,
+  "term": "0000",
+  "original": "プリンシパリ",
+  "replace": "Principality",
+  "name_table": true,
+  "id": 87,
+  "aff1": {
+   "addr": "0819EC46",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔を無効",
+   "replace": "Null: Expel"
+  },
+  "aff2": {
+   "addr": "0819EC5C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "0819EC96",
+  "max": 6,
+  "term": "0000",
+  "original": "アークエンジ",
+  "replace": "Archangel",
+  "name_table": true,
+  "id": 88,
+  "aff1": {
+   "addr": "0819ECA6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔を無効",
+   "replace": "Null: Expel"
+  },
+  "aff2": {
+   "addr": "0819ECBC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "0819ECF6",
+  "max": 6,
+  "term": "0000",
+  "original": "エンジェル",
+  "replace": "Angel",
+  "name_table": true,
+  "id": 89,
+  "aff1": {
+   "addr": "0819ED06",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔を無効",
+   "replace": "Null: Expel"
+  },
+  "aff2": {
+   "addr": "0819ED1C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "0819ED56",
+  "max": 6,
+  "term": "0000",
+  "original": "モリーアン",
+  "replace": "Morrigan",
+  "name_table": true,
+  "id": 90,
+  "aff1": {
+   "addr": "0819ED66",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "0819EDB6",
+  "max": 6,
+  "term": "0000",
+  "original": "マッハ",
+  "replace": "Macha",
+  "name_table": true,
+  "id": 91,
+  "aff1": {
+   "addr": "0819EDC6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "ガン以外の",
+   "replace": "Resist: Physical,"
+  },
+  "aff2": {
+   "addr": "0819EDDC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理攻撃に強い",
+   "replace": "except Gun"
+  }
+ },
+ {
+  "addr": "0819EE16",
+  "max": 6,
+  "term": "0000",
+  "original": "ネヴァン",
+  "replace": "Nemhain",
+  "name_table": true,
+  "id": 92,
+  "aff1": {
+   "addr": "0819EE26",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "0819EE76",
+  "max": 6,
+  "term": "0000",
+  "original": "アエロー",
+  "replace": "Aello",
+  "name_table": true,
+  "id": 93,
+  "aff1": {
+   "addr": "0819EE86",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "ガン以外の",
+   "replace": "Resist: Physical,"
+  },
+  "aff2": {
+   "addr": "0819EE9C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理攻撃に強い",
+   "replace": "except Gun"
+  }
+ },
+ {
+  "addr": "0819EED6",
+  "max": 6,
+  "term": "0000",
+  "original": "ケライノー",
+  "replace": "Kelaino",
+  "name_table": true,
+  "id": 94,
+  "aff1": {
+   "addr": "0819EEE6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "ガン以外の",
+   "replace": "Resist: Physical,"
+  },
+  "aff2": {
+   "addr": "0819EEFC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理攻撃に強い",
+   "replace": "except Gun"
+  }
+ },
+ {
+  "addr": "0819EF36",
+  "max": 6,
+  "term": "0000",
+  "original": "オキュペテー",
+  "replace": "Ocypete",
+  "name_table": true,
+  "id": 95,
+  "aff1": {
+   "addr": "0819EF46",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "ガン以外の",
+   "replace": "Resist: Physical,"
+  },
+  "aff2": {
+   "addr": "0819EF5C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理攻撃に強い",
+   "replace": "except Gun"
+  }
+ },
+ {
+  "addr": "0819EF96",
+  "max": 6,
+  "term": "0000",
+  "original": "ベンヌ",
+  "replace": "Bennu",
+  "name_table": true,
+  "id": 96,
+  "aff1": {
+   "addr": "0819EFA6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "ガン以外の",
+   "replace": "Resist: Physical,"
+  },
+  "aff2": {
+   "addr": "0819EFBC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理攻撃に強い",
+   "replace": "except Gun"
+  }
+ },
+ {
+  "addr": "0819EFF6",
+  "max": 6,
+  "term": "0000",
+  "original": "アデプト",
+  "replace": "Adept",
+  "name_table": true,
+  "id": 97,
+  "aff1": {
+   "addr": "0819F006",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "精神系魔法を反射",
+   "replace": "Repel: Mind"
+  },
+  "aff2": {
+   "addr": "0819F01C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に弱い",
+   "replace": "Weak: Physical"
+  }
+ },
+ {
+  "addr": "0819F056",
+  "max": 6,
+  "term": "0000",
+  "original": "ターミネイタ",
+  "replace": "Terminator",
+  "name_table": true,
+  "id": 98,
+  "aff1": {
+   "addr": "0819F066",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎・氷結・呪殺反射",
+   "replace": "Repel: Fire, Ice, Curse"
+  },
+  "aff2": {
+   "addr": "0819F07C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔に弱い",
+   "replace": "Weak: Expel"
+  }
+ },
+ {
+  "addr": "0819F0B6",
+  "max": 6,
+  "term": "0000",
+  "original": "ジエレーター",
+  "replace": "Gyrator",
+  "name_table": true,
+  "id": 99,
+  "aff1": {
+   "addr": "0819F0C6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "神経・呪殺",
+   "replace": "Resist: Nerve, Curse,"
+  },
+  "aff2": {
+   "addr": "0819F0DC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔力・緊縛に強い",
+   "replace": "Magic, Bind"
+  }
+ },
+ {
+  "addr": "0819F116",
+  "max": 6,
+  "term": "0000",
+  "original": "テンプルナイ",
+  "replace": "Temple Knight",
+  "name_table": true,
+  "id": 100,
+  "aff1": {
+   "addr": "0819F126",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔・呪殺",
+   "replace": "Repel: Expel, Curse,"
+  },
+  "aff2": {
+   "addr": "0819F13C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔力を反射",
+   "replace": "Magic"
+  }
+ },
+ {
+  "addr": "0819F176",
+  "max": 6,
+  "term": "0000",
+  "original": "エグゼクター",
+  "replace": "Executioner",
+  "name_table": true,
+  "id": 101,
+  "aff1": {
+   "addr": "0819F186",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "0819F1D6",
+  "max": 6,
+  "term": "0000",
+  "original": "ネオファイト",
+  "replace": "Neophyte",
+  "name_table": true,
+  "id": 102,
+  "aff1": {
+   "addr": "0819F1E6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "0819F236",
+  "max": 6,
+  "term": "0000",
+  "original": "ブッチャー",
+  "replace": "Butcher",
+  "name_table": true,
+  "id": 103,
+  "aff1": {
+   "addr": "0819F246",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "0819F296",
+  "max": 6,
+  "term": "0000",
+  "original": "ヤマタノオロ",
+  "replace": "Yamata-Orochi",
+  "name_table": true,
+  "id": 104,
+  "aff1": {
+   "addr": "0819F2A6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "突撃を吸収",
+   "replace": "Drain: Charge"
+  },
+  "aff2": {
+   "addr": "0819F2BC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "0819F2F6",
+  "max": 6,
+  "term": "0000",
+  "original": "ヴリトラ",
+  "replace": "Vritra",
+  "name_table": true,
+  "id": 105,
+  "aff1": {
+   "addr": "0819F306",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "神経・呪殺",
+   "replace": "Resist: Nerve, Curse,"
+  },
+  "aff2": {
+   "addr": "0819F31C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔力・緊縛に強い",
+   "replace": "Magic, Bind"
+  }
+ },
+ {
+  "addr": "0819F356",
+  "max": 6,
+  "term": "0000",
+  "original": "ナーガ・ラジ",
+  "replace": "Raja Naga",
+  "name_table": true,
+  "id": 106,
+  "aff1": {
+   "addr": "0819F366",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "突撃を吸収",
+   "replace": "Drain: Charge"
+  },
+  "aff2": {
+   "addr": "0819F37C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "0819F3B6",
+  "max": 6,
+  "term": "0000",
+  "original": "オトヒメ",
+  "replace": "Oto-hime",
+  "name_table": true,
+  "id": 107,
+  "aff1": {
+   "addr": "0819F3C6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "神経・呪殺",
+   "replace": "Resist: Nerve, Curse,"
+  },
+  "aff2": {
+   "addr": "0819F3DC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔力・緊縛に強い",
+   "replace": "Magic, Bind"
+  }
+ },
+ {
+  "addr": "0819F416",
+  "max": 6,
+  "term": "0000",
+  "original": "ミズチ",
+  "replace": "Mizuchi",
+  "name_table": true,
+  "id": 108,
+  "aff1": {
+   "addr": "0819F426",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に強い",
+   "replace": "Resist: Electric"
+  }
+ },
+ {
+  "addr": "0819F476",
+  "max": 6,
+  "term": "0000",
+  "original": "ナーガ",
+  "replace": "Naga",
+  "name_table": true,
+  "id": 109,
+  "aff1": {
+   "addr": "0819F486",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に強い",
+   "replace": "Resist: Electric"
+  }
+ },
+ {
+  "addr": "0819F4D6",
+  "max": 6,
+  "term": "0000",
+  "original": "ノズチ",
+  "replace": "Nozuchi",
+  "name_table": true,
+  "id": 110,
+  "aff1": {
+   "addr": "0819F4E6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "0819F536",
+  "max": 6,
+  "term": "0000",
+  "original": "ハヌマーン",
+  "replace": "Hanuman",
+  "name_table": true,
+  "id": 111,
+  "aff1": {
+   "addr": "0819F546",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃・衝撃",
+   "replace": "Resist: Electric, Force,"
+  },
+  "aff2": {
+   "addr": "0819F55C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Physical"
+  }
+ },
+ {
+  "addr": "0819F596",
+  "max": 6,
+  "term": "0000",
+  "original": "ガネーシャ",
+  "replace": "Ganesha",
+  "name_table": true,
+  "id": 112,
+  "aff1": {
+   "addr": "0819F5A6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔を無効",
+   "replace": "Null: Expel"
+  },
+  "aff2": {
+   "addr": "0819F5BC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "0819F5F6",
+  "max": 6,
+  "term": "0000",
+  "original": "ジン",
+  "replace": "Djinn",
+  "name_table": true,
+  "id": 113,
+  "aff1": {
+   "addr": "0819F606",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "0819F656",
+  "max": 6,
+  "term": "0000",
+  "original": "テング",
+  "replace": "Tengu",
+  "name_table": true,
+  "id": 114,
+  "aff1": {
+   "addr": "0819F666",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "氷結反射",
+   "replace": "Repel: Ice"
+  },
+  "aff2": {
+   "addr": "0819F67C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎に弱い",
+   "replace": "Weak: Fire"
+  }
+ },
+ {
+  "addr": "0819F6B6",
+  "max": 6,
+  "term": "0000",
+  "original": "ハオカー",
+  "replace": "Haokah",
+  "name_table": true,
+  "id": 115,
+  "aff1": {
+   "addr": "0819F6C6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "0819F716",
+  "max": 6,
+  "term": "0000",
+  "original": "メルクリウス",
+  "replace": "Mercurius",
+  "name_table": true,
+  "id": 116,
+  "aff1": {
+   "addr": "0819F726",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "神経・呪殺",
+   "replace": "Resist: Nerve, Curse,"
+  },
+  "aff2": {
+   "addr": "0819F73C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔力・緊縛に強い",
+   "replace": "Magic, Bind"
+  }
+ },
+ {
+  "addr": "0819F776",
+  "max": 6,
+  "term": "0000",
+  "original": "ケルベロス",
+  "replace": "Cerberus",
+  "name_table": true,
+  "id": 117,
+  "aff1": {
+   "addr": "0819F786",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎吸収",
+   "replace": "Drain: Fire"
+  },
+  "aff2": {
+   "addr": "0819F79C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "氷結に弱い",
+   "replace": "Weak: Ice"
+  }
+ },
+ {
+  "addr": "0819F7D6",
+  "max": 6,
+  "term": "0000",
+  "original": "ドゥン",
+  "replace": "Gdon",
+  "name_table": true,
+  "id": 118,
+  "aff1": {
+   "addr": "0819F7E6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺・魔力に弱く",
+   "replace": "Weak: Curse, Magic"
+  },
+  "aff2": {
+   "addr": "0819F7FC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "ガンに強い",
+   "replace": "Resist: Gun"
+  }
+ },
+ {
+  "addr": "0819F836",
+  "max": 6,
+  "term": "0000",
+  "original": "セルケト",
+  "replace": "Selket",
+  "name_table": true,
+  "id": 119,
+  "aff1": {
+   "addr": "0819F846",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "0819F896",
+  "max": 6,
+  "term": "0000",
+  "original": "オルトロス",
+  "replace": "Orthrus",
+  "name_table": true,
+  "id": 120,
+  "aff1": {
+   "addr": "0819F8A6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "0819F8F6",
+  "max": 6,
+  "term": "0000",
+  "original": "ネコマタ",
+  "replace": "Nekomata",
+  "name_table": true,
+  "id": 121,
+  "aff1": {
+   "addr": "0819F906",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "0819F956",
+  "max": 6,
+  "term": "0000",
+  "original": "カーシー",
+  "replace": "Cu Sith",
+  "name_table": true,
+  "id": 122,
+  "aff1": {
+   "addr": "0819F966",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "0819F9B6",
+  "max": 6,
+  "term": "0000",
+  "original": "ケットシー",
+  "replace": "Cait Sith",
+  "name_table": true,
+  "id": 123,
+  "aff1": {
+   "addr": "0819F9C6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "0819FA16",
+  "max": 6,
+  "term": "0000",
+  "original": "ニュクス",
+  "replace": "Nyx",
+  "name_table": true,
+  "id": 124,
+  "aff1": {
+   "addr": "0819FA26",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法吸収",
+   "replace": "Drain: Magic"
+  },
+  "aff2": {
+   "addr": "0819FA3C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に弱い",
+   "replace": "Weak: Physical"
+  }
+ },
+ {
+  "addr": "0819FA76",
+  "max": 6,
+  "term": "0000",
+  "original": "ヴァンパイア",
+  "replace": "Vampire",
+  "name_table": true,
+  "id": 125,
+  "aff1": {
+   "addr": "0819FA86",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺を反射",
+   "replace": "Repel: Curse"
+  },
+  "aff2": {
+   "addr": "0819FA9C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に強い",
+   "replace": "Resist: Electric"
+  }
+ },
+ {
+  "addr": "0819FAD6",
+  "max": 6,
+  "term": "0000",
+  "original": "リリム",
+  "replace": "Lilim",
+  "name_table": true,
+  "id": 126,
+  "aff1": {
+   "addr": "0819FAE6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "0819FB36",
+  "max": 6,
+  "term": "0000",
+  "original": "ナイトメア",
+  "replace": "Nightmare",
+  "name_table": true,
+  "id": 127,
+  "aff1": {
+   "addr": "0819FB46",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "0819FB96",
+  "max": 6,
+  "term": "0000",
+  "original": "エンプーサ",
+  "replace": "Empusa",
+  "name_table": true,
+  "id": 128,
+  "aff1": {
+   "addr": "0819FBA6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "神経・呪殺",
+   "replace": "Resist: Nerve, Curse,"
+  },
+  "aff2": {
+   "addr": "0819FBBC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔力・緊縛に強い",
+   "replace": "Magic, Bind"
+  }
+ },
+ {
+  "addr": "0819FBF6",
+  "max": 6,
+  "term": "0000",
+  "original": "アルプ",
+  "replace": "Alp",
+  "name_table": true,
+  "id": 129,
+  "aff1": {
+   "addr": "0819FC06",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "神経・呪殺",
+   "replace": "Resist: Nerve, Curse,"
+  },
+  "aff2": {
+   "addr": "0819FC1C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔力・緊縛に強い",
+   "replace": "Magic, Bind"
+  }
+ },
+ {
+  "addr": "0819FC56",
+  "max": 6,
+  "term": "0000",
+  "original": "ティターン",
+  "replace": "Titan",
+  "name_table": true,
+  "id": 130,
+  "aff1": {
+   "addr": "0819FC66",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "0819FCB6",
+  "max": 6,
+  "term": "0000",
+  "original": "ウベルリ",
+  "replace": "Ubelluris",
+  "name_table": true,
+  "id": 131,
+  "aff1": {
+   "addr": "0819FCC6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "0819FD16",
+  "max": 6,
+  "term": "0000",
+  "original": "ツチグモ",
+  "replace": "Tsuchigumo",
+  "name_table": true,
+  "id": 132,
+  "aff1": {
+   "addr": "0819FD26",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "0819FD76",
+  "max": 6,
+  "term": "0000",
+  "original": "ドヴェルガー",
+  "replace": "Dverger",
+  "name_table": true,
+  "id": 133,
+  "aff1": {
+   "addr": "0819FD86",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "0819FDD6",
+  "max": 6,
+  "term": "0000",
+  "original": "スダマ",
+  "replace": "Sudama",
+  "name_table": true,
+  "id": 134,
+  "aff1": {
+   "addr": "0819FDE6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "0819FE36",
+  "max": 6,
+  "term": "0000",
+  "original": "ノッカー",
+  "replace": "Knocker",
+  "name_table": true,
+  "id": 135,
+  "aff1": {
+   "addr": "0819FE46",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "0819FE96",
+  "max": 6,
+  "term": "0000",
+  "original": "ティターニア",
+  "replace": "Titania",
+  "name_table": true,
+  "id": 136,
+  "aff1": {
+   "addr": "0819FEA6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法を反射",
+   "replace": "Repel: Magic"
+  },
+  "aff2": {
+   "addr": "0819FEBC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に弱い",
+   "replace": "Weak: Physical"
+  }
+ },
+ {
+  "addr": "0819FEF6",
+  "max": 6,
+  "term": "0000",
+  "original": "オベロン",
+  "replace": "Oberon",
+  "name_table": true,
+  "id": 137,
+  "aff1": {
+   "addr": "0819FF06",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "0819FF56",
+  "max": 6,
+  "term": "0000",
+  "original": "クー・フーリ",
+  "replace": "Cu Chulain",
+  "name_table": true,
+  "id": 138,
+  "aff1": {
+   "addr": "0819FF66",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "衝撃・突撃に強い",
+   "replace": "Resist: Force, Charge"
+  }
+ },
+ {
+  "addr": "0819FFB6",
+  "max": 6,
+  "term": "0000",
+  "original": "ナジャ",
+  "replace": "Nadja",
+  "name_table": true,
+  "id": 139,
+  "aff1": {
+   "addr": "0819FFC6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A0016",
+  "max": 6,
+  "term": "0000",
+  "original": "バンシー",
+  "replace": "Banshee",
+  "name_table": true,
+  "id": 140,
+  "aff1": {
+   "addr": "081A0026",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A0076",
+  "max": 6,
+  "term": "0000",
+  "original": "ダークエルフ",
+  "replace": "Dark Elf",
+  "name_table": true,
+  "id": 141,
+  "aff1": {
+   "addr": "081A0086",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A00D6",
+  "max": 6,
+  "term": "0000",
+  "original": "ジャックラン",
+  "replace": "Jack O'Lantern",
+  "name_table": true,
+  "id": 142,
+  "aff1": {
+   "addr": "081A00E6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎吸収",
+   "replace": "Drain: Fire"
+  },
+  "aff2": {
+   "addr": "081A00FC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "氷結に弱い",
+   "replace": "Weak: Ice"
+  }
+ },
+ {
+  "addr": "081A0136",
+  "max": 6,
+  "term": "0000",
+  "original": "ジャックフロ",
+  "replace": "Jack Frost",
+  "name_table": true,
+  "id": 143,
+  "aff1": {
+   "addr": "081A0146",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "氷結吸収",
+   "replace": "Drain: Ice"
+  },
+  "aff2": {
+   "addr": "081A015C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎に弱い",
+   "replace": "Weak: Fire"
+  }
+ },
+ {
+  "addr": "081A0196",
+  "max": 6,
+  "term": "0000",
+  "original": "ハイピクシー",
+  "replace": "High Pixie",
+  "name_table": true,
+  "id": 144,
+  "aff1": {
+   "addr": "081A01A6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A01F6",
+  "max": 6,
+  "term": "0000",
+  "original": "フランキー",
+  "replace": "Frankie",
+  "name_table": true,
+  "id": 145,
+  "aff1": {
+   "addr": "081A0206",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "081A0256",
+  "max": 6,
+  "term": "0000",
+  "original": "デミナンディ",
+  "replace": "Demi-Nandi",
+  "name_table": true,
+  "id": 146,
+  "aff1": {
+   "addr": "081A0266",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "081A02B6",
+  "max": 6,
+  "term": "0000",
+  "original": "ヘラクルス",
+  "replace": "Heracles",
+  "name_table": true,
+  "id": 147,
+  "aff1": {
+   "addr": "081A02C6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "081A0316",
+  "max": 6,
+  "term": "0000",
+  "original": "スレイヴ",
+  "replace": "Slave",
+  "name_table": true,
+  "id": 148,
+  "aff1": {
+   "addr": "081A0326",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "081A0376",
+  "max": 6,
+  "term": "0000",
+  "original": "オラクルス",
+  "replace": "Oracles",
+  "name_table": true,
+  "id": 149,
+  "aff1": {
+   "addr": "081A0386",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "081A03D6",
+  "max": 6,
+  "term": "0000",
+  "original": "スパルタン",
+  "replace": "Spartan",
+  "name_table": true,
+  "id": 150,
+  "aff1": {
+   "addr": "081A03E6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "081A0436",
+  "max": 6,
+  "term": "0000",
+  "original": "アガレス",
+  "replace": "Agares",
+  "name_table": true,
+  "id": 151,
+  "aff1": {
+   "addr": "081A0446",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A0496",
+  "max": 6,
+  "term": "0000",
+  "original": "ガープ",
+  "replace": "Gaap",
+  "name_table": true,
+  "id": 152,
+  "aff1": {
+   "addr": "081A04A6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A04F6",
+  "max": 6,
+  "term": "0000",
+  "original": "ベリス",
+  "replace": "Berith",
+  "name_table": true,
+  "id": 153,
+  "aff1": {
+   "addr": "081A0506",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎吸収",
+   "replace": "Drain: Fire"
+  },
+  "aff2": {
+   "addr": "081A051C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "氷結に弱い",
+   "replace": "Weak: Ice"
+  }
+ },
+ {
+  "addr": "081A0556",
+  "max": 6,
+  "term": "0000",
+  "original": "バフォメット",
+  "replace": "Baphomet",
+  "name_table": true,
+  "id": 154,
+  "aff1": {
+   "addr": "081A0566",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A05B6",
+  "max": 6,
+  "term": "0000",
+  "original": "エリゴール",
+  "replace": "Eligor",
+  "name_table": true,
+  "id": 155,
+  "aff1": {
+   "addr": "081A05C6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "神経・呪殺",
+   "replace": "Resist: Nerve, Curse,"
+  },
+  "aff2": {
+   "addr": "081A05DC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔力・緊縛に強い",
+   "replace": "Magic, Bind"
+  }
+ },
+ {
+  "addr": "081A0616",
+  "max": 6,
+  "term": "0000",
+  "original": "ベテルギウス",
+  "replace": "Betelgeuse",
+  "name_table": true,
+  "id": 156,
+  "aff1": {
+   "addr": "081A0626",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "081A0676",
+  "max": 6,
+  "term": "0000",
+  "original": "ガギソン",
+  "replace": "Gagyson",
+  "name_table": true,
+  "id": 157,
+  "aff1": {
+   "addr": "081A0686",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "081A06D6",
+  "max": 6,
+  "term": "0000",
+  "original": "ウコバク",
+  "replace": "Ukobach",
+  "name_table": true,
+  "id": 158,
+  "aff1": {
+   "addr": "081A06E6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎を吸収",
+   "replace": "Drain: Fire"
+  },
+  "aff2": {
+   "addr": "081A06FC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "氷結に弱い",
+   "replace": "Weak: Ice"
+  }
+ },
+ {
+  "addr": "081A0736",
+  "max": 6,
+  "term": "0000",
+  "original": "ヤクシャ",
+  "replace": "Yaksha",
+  "name_table": true,
+  "id": 159,
+  "aff1": {
+   "addr": "081A0746",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎吸収",
+   "replace": "Drain: Fire"
+  },
+  "aff2": {
+   "addr": "081A075C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "氷結に弱い",
+   "replace": "Weak: Ice"
+  }
+ },
+ {
+  "addr": "081A0796",
+  "max": 6,
+  "term": "0000",
+  "original": "シュテンドウ",
+  "replace": "Shuten-Doji",
+  "name_table": true,
+  "id": 160,
+  "aff1": {
+   "addr": "081A07A6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "081A07F6",
+  "max": 6,
+  "term": "0000",
+  "original": "ヤクシニー",
+  "replace": "Yakshini",
+  "name_table": true,
+  "id": 161,
+  "aff1": {
+   "addr": "081A0806",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "081A0856",
+  "max": 6,
+  "term": "0000",
+  "original": "トゥルダク",
+  "replace": "Turdak",
+  "name_table": true,
+  "id": 162,
+  "aff1": {
+   "addr": "081A0866",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔を無効",
+   "replace": "Null: Expel"
+  },
+  "aff2": {
+   "addr": "081A087C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "081A08B6",
+  "max": 6,
+  "term": "0000",
+  "original": "ハンニャ",
+  "replace": "Hannya",
+  "name_table": true,
+  "id": 163,
+  "aff1": {
+   "addr": "081A08C6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "081A0916",
+  "max": 6,
+  "term": "0000",
+  "original": "アズミ",
+  "replace": "Azumi",
+  "name_table": true,
+  "id": 164,
+  "aff1": {
+   "addr": "081A0926",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "081A0976",
+  "max": 6,
+  "term": "0000",
+  "original": "イヒカ",
+  "replace": "Ihika",
+  "name_table": true,
+  "id": 165,
+  "aff1": {
+   "addr": "081A0986",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎・氷結",
+   "replace": "Weak: Fire, Ice,"
+  },
+  "aff2": {
+   "addr": "081A099C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に弱い",
+   "replace": "Electric"
+  }
+ },
+ {
+  "addr": "081A09D6",
+  "max": 6,
+  "term": "0000",
+  "original": "ランダ",
+  "replace": "Rangda",
+  "name_table": true,
+  "id": 166,
+  "aff1": {
+   "addr": "081A09E6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理を反射",
+   "replace": "Repel: Physical"
+  },
+  "aff2": {
+   "addr": "081A09FC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に弱い",
+   "replace": "Weak: Magic"
+  }
+ },
+ {
+  "addr": "081A0A36",
+  "max": 6,
+  "term": "0000",
+  "original": "ボルボ",
+  "replace": "Volvo",
+  "name_table": true,
+  "id": 167,
+  "aff1": {
+   "addr": "081A0A46",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A0A96",
+  "max": 6,
+  "term": "0000",
+  "original": "ゴルゴン",
+  "replace": "Gorgon",
+  "name_table": true,
+  "id": 168,
+  "aff1": {
+   "addr": "081A0AA6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "081A0AF6",
+  "max": 6,
+  "term": "0000",
+  "original": "カリアッハベ",
+  "replace": "Cailleach",
+  "name_table": true,
+  "id": 169,
+  "aff1": {
+   "addr": "081A0B06",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "氷結に強い",
+   "replace": "Resist: Ice"
+  }
+ },
+ {
+  "addr": "081A0B56",
+  "max": 6,
+  "term": "0000",
+  "original": "アルケニー",
+  "replace": "Arachne",
+  "name_table": true,
+  "id": 170,
+  "aff1": {
+   "addr": "081A0B66",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "081A0BB6",
+  "max": 6,
+  "term": "0000",
+  "original": "ラミア",
+  "replace": "Lamia",
+  "name_table": true,
+  "id": 171,
+  "aff1": {
+   "addr": "081A0BC6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に強い",
+   "replace": "Resist: Electric"
+  }
+ },
+ {
+  "addr": "081A0C16",
+  "max": 6,
+  "term": "0000",
+  "original": "ハッグ",
+  "replace": "Hag",
+  "name_table": true,
+  "id": 172,
+  "aff1": {
+   "addr": "081A0C26",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に強い",
+   "replace": "Resist: Electric"
+  }
+ },
+ {
+  "addr": "081A0C76",
+  "max": 6,
+  "term": "0000",
+  "original": "カメンヒジリ",
+  "replace": "Kamen-Hijiri",
+  "name_table": true,
+  "id": 173,
+  "aff1": {
+   "addr": "081A0C86",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A0CD6",
+  "max": 6,
+  "term": "0000",
+  "original": "アシュラ",
+  "replace": "Ashura",
+  "name_table": true,
+  "id": 174,
+  "aff1": {
+   "addr": "081A0CE6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "雷撃を吸収",
+   "replace": "Drain: Electric"
+  },
+  "aff2": {
+   "addr": "081A0CFC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "衝撃に弱い",
+   "replace": "Weak: Force"
+  }
+ },
+ {
+  "addr": "081A0D36",
+  "max": 6,
+  "term": "0000",
+  "original": "オンミョウジ",
+  "replace": "Onmyoji",
+  "name_table": true,
+  "id": 175,
+  "aff1": {
+   "addr": "081A0D46",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A0D96",
+  "max": 6,
+  "term": "0000",
+  "original": "ジライヤ",
+  "replace": "Jiraiya",
+  "name_table": true,
+  "id": 176,
+  "aff1": {
+   "addr": "081A0DA6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔・物理に強い",
+   "replace": "Resist: Expel, Physical"
+  }
+ },
+ {
+  "addr": "081A0DF6",
+  "max": 6,
+  "term": "0000",
+  "original": "クグツシ",
+  "replace": "Kugutsushi",
+  "name_table": true,
+  "id": 177,
+  "aff1": {
+   "addr": "081A0E06",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "神経・呪殺",
+   "replace": "Resist: Nerve, Curse,"
+  },
+  "aff2": {
+   "addr": "081A0E1C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔力・緊縛に強い",
+   "replace": "Magic, Bind"
+  }
+ },
+ {
+  "addr": "081A0E56",
+  "max": 6,
+  "term": "0000",
+  "original": "クトゥルー",
+  "replace": "Cthulhu",
+  "name_table": true,
+  "id": 178,
+  "aff1": {
+   "addr": "081A0E66",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法吸収",
+   "replace": "Drain: Magic"
+  },
+  "aff2": {
+   "addr": "081A0E7C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に弱い",
+   "replace": "Weak: Physical"
+  }
+ },
+ {
+  "addr": "081A0EB6",
+  "max": 6,
+  "term": "0000",
+  "original": "パズス",
+  "replace": "Pazuzu",
+  "name_table": true,
+  "id": 179,
+  "aff1": {
+   "addr": "081A0EC6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "氷結反射",
+   "replace": "Repel: Ice"
+  },
+  "aff2": {
+   "addr": "081A0EDC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎に弱い",
+   "replace": "Weak: Fire"
+  }
+ },
+ {
+  "addr": "081A0F16",
+  "max": 6,
+  "term": "0000",
+  "original": "ニャルラトホ",
+  "replace": "Nyarlathotep",
+  "name_table": true,
+  "id": 180,
+  "aff1": {
+   "addr": "081A0F26",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法を反射",
+   "replace": "Repel: Magic"
+  },
+  "aff2": {
+   "addr": "081A0F3C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に弱い",
+   "replace": "Weak: Physical"
+  }
+ },
+ {
+  "addr": "081A0F76",
+  "max": 6,
+  "term": "0000",
+  "original": "テスカトリポ",
+  "replace": "Tezcatlipoca",
+  "name_table": true,
+  "id": 181,
+  "aff1": {
+   "addr": "081A0F86",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺を反射",
+   "replace": "Repel: Curse"
+  },
+  "aff2": {
+   "addr": "081A0F9C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に強い",
+   "replace": "Resist: Electric"
+  }
+ },
+ {
+  "addr": "081A0FD6",
+  "max": 6,
+  "term": "0000",
+  "original": "ナラギリ",
+  "replace": "Naragiri",
+  "name_table": true,
+  "id": 182,
+  "aff1": {
+   "addr": "081A0FE6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺を反射",
+   "replace": "Repel: Curse"
+  },
+  "aff2": {
+   "addr": "081A0FFC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に強い",
+   "replace": "Resist: Electric"
+  }
+ },
+ {
+  "addr": "081A1036",
+  "max": 6,
+  "term": "0000",
+  "original": "フレスベルグ",
+  "replace": "Hraesvelgr",
+  "name_table": true,
+  "id": 183,
+  "aff1": {
+   "addr": "081A1046",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "氷結吸収",
+   "replace": "Drain: Ice"
+  },
+  "aff2": {
+   "addr": "081A105C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎に弱い",
+   "replace": "Weak: Fire"
+  }
+ },
+ {
+  "addr": "081A1096",
+  "max": 6,
+  "term": "0000",
+  "original": "アンズー",
+  "replace": "Anzu",
+  "name_table": true,
+  "id": 184,
+  "aff1": {
+   "addr": "081A10A6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎反射",
+   "replace": "Repel: Fire"
+  },
+  "aff2": {
+   "addr": "081A10BC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "氷結に弱い",
+   "replace": "Weak: Ice"
+  }
+ },
+ {
+  "addr": "081A10F6",
+  "max": 6,
+  "term": "0000",
+  "original": "グルル",
+  "replace": "Gurr",
+  "name_table": true,
+  "id": 185,
+  "aff1": {
+   "addr": "081A1106",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "ガン以外の",
+   "replace": "Resist: Physical,"
+  },
+  "aff2": {
+   "addr": "081A111C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理攻撃に強い",
+   "replace": "except Gun"
+  }
+ },
+ {
+  "addr": "081A1156",
+  "max": 6,
+  "term": "0000",
+  "original": "フリアイ",
+  "replace": "Furiae",
+  "name_table": true,
+  "id": 186,
+  "aff1": {
+   "addr": "081A1166",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "ガン以外の",
+   "replace": "Resist: Physical,"
+  },
+  "aff2": {
+   "addr": "081A117C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理攻撃に強い",
+   "replace": "except Gun"
+  }
+ },
+ {
+  "addr": "081A11B6",
+  "max": 6,
+  "term": "0000",
+  "original": "チョンチョン",
+  "replace": "Chon Chon",
+  "name_table": true,
+  "id": 187,
+  "aff1": {
+   "addr": "081A11C6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎・破魔に弱く",
+   "replace": "Weak: Fire, Expel"
+  },
+  "aff2": {
+   "addr": "081A11DC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "神経に強い",
+   "replace": "Resist: Nerve"
+  }
+ },
+ {
+  "addr": "081A1216",
+  "max": 6,
+  "term": "0000",
+  "original": "メデューサ",
+  "replace": "Medusa",
+  "name_table": true,
+  "id": 188,
+  "aff1": {
+   "addr": "081A1226",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強く",
+   "replace": "Resist: Physical"
+  },
+  "aff2": {
+   "addr": "081A123C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に弱い",
+   "replace": "Weak: Electric"
+  }
+ },
+ {
+  "addr": "081A1276",
+  "max": 6,
+  "term": "0000",
+  "original": "ラビ",
+  "replace": "Rabbi",
+  "name_table": true,
+  "id": 189,
+  "aff1": {
+   "addr": "081A1286",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強く",
+   "replace": "Resist: Physical"
+  },
+  "aff2": {
+   "addr": "081A129C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に弱い",
+   "replace": "Weak: Electric"
+  }
+ },
+ {
+  "addr": "081A12D6",
+  "max": 6,
+  "term": "0000",
+  "original": "ゴーレム",
+  "replace": "Golem",
+  "name_table": true,
+  "id": 190,
+  "aff1": {
+   "addr": "081A12E6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強く",
+   "replace": "Resist: Physical"
+  },
+  "aff2": {
+   "addr": "081A12FC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に弱い",
+   "replace": "Weak: Electric"
+  }
+ },
+ {
+  "addr": "081A1336",
+  "max": 6,
+  "term": "0000",
+  "original": "ジャンク",
+  "replace": "Junk",
+  "name_table": true,
+  "id": 191,
+  "aff1": {
+   "addr": "081A1346",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に弱く",
+   "replace": "Weak: Electric"
+  },
+  "aff2": {
+   "addr": "081A135C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔に強い",
+   "replace": "Resist: Expel"
+  }
+ },
+ {
+  "addr": "081A1396",
+  "max": 6,
+  "term": "0000",
+  "original": "アイアンメイ",
+  "replace": "Iron Maiden",
+  "name_table": true,
+  "id": 192,
+  "aff1": {
+   "addr": "081A13A6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔・魔力",
+   "replace": "Weak: Expel, Magic,"
+  },
+  "aff2": {
+   "addr": "081A13BC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "緊縛に弱い",
+   "replace": "Bind"
+  }
+ },
+ {
+  "addr": "081A13F6",
+  "max": 6,
+  "term": "0000",
+  "original": "クレイジーダ",
+  "replace": "Crazy Dummy",
+  "name_table": true,
+  "id": 193,
+  "aff1": {
+   "addr": "081A1406",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔・魔力",
+   "replace": "Weak: Expel, Magic,"
+  },
+  "aff2": {
+   "addr": "081A141C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "緊縛に弱い",
+   "replace": "Bind"
+  }
+ },
+ {
+  "addr": "081A1456",
+  "max": 6,
+  "term": "0000",
+  "original": "ポリス",
+  "replace": "Police",
+  "name_table": true,
+  "id": 194,
+  "aff1": {
+   "addr": "081A1466",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に弱い",
+   "replace": "Weak: Electric"
+  }
+ },
+ {
+  "addr": "081A14B6",
+  "max": 6,
+  "term": "0000",
+  "original": "ジョーズ",
+  "replace": "Jaws",
+  "name_table": true,
+  "id": 195,
+  "aff1": {
+   "addr": "081A14C6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に弱い",
+   "replace": "Weak: Electric"
+  }
+ },
+ {
+  "addr": "081A1516",
+  "max": 6,
+  "term": "0000",
+  "original": "ヘカトンケイ",
+  "replace": "Hecatonchires",
+  "name_table": true,
+  "id": 196,
+  "aff1": {
+   "addr": "081A1526",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎を吸収",
+   "replace": "Drain: Fire"
+  },
+  "aff2": {
+   "addr": "081A153C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "氷結に弱い",
+   "replace": "Weak: Ice"
+  }
+ },
+ {
+  "addr": "081A1576",
+  "max": 6,
+  "term": "0000",
+  "original": "ギリメカラ",
+  "replace": "Girimekra",
+  "name_table": true,
+  "id": 197,
+  "aff1": {
+   "addr": "081A1586",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理を反射",
+   "replace": "Repel: Physical"
+  },
+  "aff2": {
+   "addr": "081A159C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に弱い",
+   "replace": "Weak: Magic"
+  }
+ },
+ {
+  "addr": "081A15D6",
+  "max": 6,
+  "term": "0000",
+  "original": "エキンム",
+  "replace": "Ekimmu",
+  "name_table": true,
+  "id": 198,
+  "aff1": {
+   "addr": "081A15E6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "氷結反射",
+   "replace": "Repel: Ice"
+  },
+  "aff2": {
+   "addr": "081A15FC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎に弱い",
+   "replace": "Weak: Fire"
+  }
+ },
+ {
+  "addr": "081A1636",
+  "max": 6,
+  "term": "0000",
+  "original": "サイクロプス",
+  "replace": "Cyclops",
+  "name_table": true,
+  "id": 199,
+  "aff1": {
+   "addr": "081A1646",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃反射",
+   "replace": "Repel: Electric"
+  },
+  "aff2": {
+   "addr": "081A165C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔に強い",
+   "replace": "Resist: Expel"
+  }
+ },
+ {
+  "addr": "081A1696",
+  "max": 6,
+  "term": "0000",
+  "original": "ラクシャーサ",
+  "replace": "Rakshasa",
+  "name_table": true,
+  "id": 200,
+  "aff1": {
+   "addr": "081A16A6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎・氷結に強く",
+   "replace": "Resist: Fire, Ice"
+  },
+  "aff2": {
+   "addr": "081A16BC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に弱い",
+   "replace": "Weak: Physical"
+  }
+ },
+ {
+  "addr": "081A16F6",
+  "max": 6,
+  "term": "0000",
+  "original": "オーガ",
+  "replace": "Ogre",
+  "name_table": true,
+  "id": 201,
+  "aff1": {
+   "addr": "081A1706",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "081A1756",
+  "max": 6,
+  "term": "0000",
+  "original": "ウェンディゴ",
+  "replace": "Wendigo",
+  "name_table": true,
+  "id": 202,
+  "aff1": {
+   "addr": "081A1766",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "氷結吸収",
+   "replace": "Drain: Ice"
+  },
+  "aff2": {
+   "addr": "081A177C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎に弱い",
+   "replace": "Weak: Fire"
+  }
+ },
+ {
+  "addr": "081A17B6",
+  "max": 6,
+  "term": "0000",
+  "original": "グレムリン",
+  "replace": "Gremlin",
+  "name_table": true,
+  "id": 203,
+  "aff1": {
+   "addr": "081A17C6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃反射",
+   "replace": "Repel: Electric"
+  },
+  "aff2": {
+   "addr": "081A17DC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔に強い",
+   "replace": "Resist: Expel"
+  }
+ },
+ {
+  "addr": "081A1816",
+  "max": 6,
+  "term": "0000",
+  "original": "ベヒモス",
+  "replace": "Behemoth",
+  "name_table": true,
+  "id": 204,
+  "aff1": {
+   "addr": "081A1826",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "突撃を吸収",
+   "replace": "Drain: Charge"
+  },
+  "aff2": {
+   "addr": "081A183C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A1876",
+  "max": 6,
+  "term": "0000",
+  "original": "マンティコア",
+  "replace": "Manticore",
+  "name_table": true,
+  "id": 205,
+  "aff1": {
+   "addr": "081A1886",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃を吸収",
+   "replace": "Drain: Electric"
+  },
+  "aff2": {
+   "addr": "081A189C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "衝撃に弱い",
+   "replace": "Weak: Force"
+  }
+ },
+ {
+  "addr": "081A18D6",
+  "max": 6,
+  "term": "0000",
+  "original": "スキュラ",
+  "replace": "Scylla",
+  "name_table": true,
+  "id": 206,
+  "aff1": {
+   "addr": "081A18E6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "081A1936",
+  "max": 6,
+  "term": "0000",
+  "original": "ブラックウイ",
+  "replace": "Black Widow",
+  "name_table": true,
+  "id": 207,
+  "aff1": {
+   "addr": "081A1946",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "神経・呪殺",
+   "replace": "Resist: Nerve, Curse,"
+  },
+  "aff2": {
+   "addr": "081A195C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔力・緊縛に強い",
+   "replace": "Magic, Bind"
+  }
+ },
+ {
+  "addr": "081A1996",
+  "max": 6,
+  "term": "0000",
+  "original": "ギュウキ",
+  "replace": "Gyu-Ki",
+  "name_table": true,
+  "id": 208,
+  "aff1": {
+   "addr": "081A19A6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "081A19F6",
+  "max": 6,
+  "term": "0000",
+  "original": "ヌエ",
+  "replace": "Nue",
+  "name_table": true,
+  "id": 209,
+  "aff1": {
+   "addr": "081A1A06",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "081A1A56",
+  "max": 6,
+  "term": "0000",
+  "original": "バイコーン",
+  "replace": "Bicorn",
+  "name_table": true,
+  "id": 210,
+  "aff1": {
+   "addr": "081A1A66",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "081A1AB6",
+  "max": 6,
+  "term": "0000",
+  "original": "ガルム",
+  "replace": "Garm",
+  "name_table": true,
+  "id": 211,
+  "aff1": {
+   "addr": "081A1AC6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "081A1B16",
+  "max": 6,
+  "term": "0000",
+  "original": "イグドラジル",
+  "replace": "Yggdrasil",
+  "name_table": true,
+  "id": 212,
+  "aff1": {
+   "addr": "081A1B26",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎・氷結",
+   "replace": "Weak: Fire, Ice,"
+  },
+  "aff2": {
+   "addr": "081A1B3C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に弱い",
+   "replace": "Electric"
+  }
+ },
+ {
+  "addr": "081A1B76",
+  "max": 6,
+  "term": "0000",
+  "original": "アルラウネ",
+  "replace": "Alraune",
+  "name_table": true,
+  "id": 213,
+  "aff1": {
+   "addr": "081A1B86",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "081A1BD6",
+  "max": 6,
+  "term": "0000",
+  "original": "マンドレイク",
+  "replace": "Mandrake",
+  "name_table": true,
+  "id": 214,
+  "aff1": {
+   "addr": "081A1BE6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎・氷結",
+   "replace": "Weak: Fire, Ice,"
+  },
+  "aff2": {
+   "addr": "081A1BFC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に弱い",
+   "replace": "Electric"
+  }
+ },
+ {
+  "addr": "081A1C36",
+  "max": 6,
+  "term": "0000",
+  "original": "オードリー",
+  "replace": "Audrey",
+  "name_table": true,
+  "id": 215,
+  "aff1": {
+   "addr": "081A1C46",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎・氷結",
+   "replace": "Weak: Fire, Ice,"
+  },
+  "aff2": {
+   "addr": "081A1C5C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に弱い",
+   "replace": "Electric"
+  }
+ },
+ {
+  "addr": "081A1C96",
+  "max": 6,
+  "term": "0000",
+  "original": "コープス",
+  "replace": "Corpse",
+  "name_table": true,
+  "id": 216,
+  "aff1": {
+   "addr": "081A1CA6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺を反射",
+   "replace": "Repel: Curse"
+  },
+  "aff2": {
+   "addr": "081A1CBC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に強い",
+   "replace": "Resist: Electric"
+  }
+ },
+ {
+  "addr": "081A1CF6",
+  "max": 6,
+  "term": "0000",
+  "original": "ゾンビプリー",
+  "replace": "Zombie Priest",
+  "name_table": true,
+  "id": 217,
+  "aff1": {
+   "addr": "081A1D06",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺を反射",
+   "replace": "Repel: Curse"
+  },
+  "aff2": {
+   "addr": "081A1D1C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に強い",
+   "replace": "Resist: Electric"
+  }
+ },
+ {
+  "addr": "081A1D56",
+  "max": 6,
+  "term": "0000",
+  "original": "ワーカホリッ",
+  "replace": "Workaholic",
+  "name_table": true,
+  "id": 218,
+  "aff1": {
+   "addr": "081A1D66",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎・破魔に弱く",
+   "replace": "Weak: Fire, Expel"
+  },
+  "aff2": {
+   "addr": "081A1D7C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "神経に強い",
+   "replace": "Resist: Nerve"
+  }
+ },
+ {
+  "addr": "081A1DB6",
+  "max": 6,
+  "term": "0000",
+  "original": "ボディコニア",
+  "replace": "Bodyconian",
+  "name_table": true,
+  "id": 219,
+  "aff1": {
+   "addr": "081A1DC6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎・破魔に弱く",
+   "replace": "Weak: Fire, Expel"
+  },
+  "aff2": {
+   "addr": "081A1DDC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "神経に強い",
+   "replace": "Resist: Nerve"
+  }
+ },
+ {
+  "addr": "081A1E16",
+  "max": 6,
+  "term": "0000",
+  "original": "ゾンビ",
+  "replace": "Zombie",
+  "name_table": true,
+  "id": 220,
+  "aff1": {
+   "addr": "081A1E26",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎・破魔に弱く",
+   "replace": "Weak: Fire, Expel"
+  },
+  "aff2": {
+   "addr": "081A1E3C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "神経に強い",
+   "replace": "Resist: Nerve"
+  }
+ },
+ {
+  "addr": "081A1E76",
+  "max": 6,
+  "term": "0000",
+  "original": "ゾンビドッグ",
+  "replace": "Zombie Dog",
+  "name_table": true,
+  "id": 221,
+  "aff1": {
+   "addr": "081A1E86",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎・破魔に弱く",
+   "replace": "Weak: Fire, Expel"
+  },
+  "aff2": {
+   "addr": "081A1E9C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "神経に強い",
+   "replace": "Resist: Nerve"
+  }
+ },
+ {
+  "addr": "081A1ED6",
+  "max": 6,
+  "term": "0000",
+  "original": "ルシファー",
+  "replace": "Lucifer",
+  "name_table": true,
+  "id": 222,
+  "aff1": {
+   "addr": "081A1EE6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "神経・破魔",
+   "replace": "Null: Nerve, Expel,"
+  },
+  "aff2": {
+   "addr": "081A1EFC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺が無効",
+   "replace": "Curse"
+  }
+ },
+ {
+  "addr": "081A1F36",
+  "max": 6,
+  "term": "0000",
+  "original": "ベルゼブブ",
+  "replace": "Beelzebub",
+  "name_table": true,
+  "id": 223,
+  "aff1": {
+   "addr": "081A1F46",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A1F96",
+  "max": 6,
+  "term": "0000",
+  "original": "マーラ",
+  "replace": "Mara",
+  "name_table": true,
+  "id": 224,
+  "aff1": {
+   "addr": "081A1FA6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A1FF6",
+  "max": 6,
+  "term": "0000",
+  "original": "バエル",
+  "replace": "Bael",
+  "name_table": true,
+  "id": 225,
+  "aff1": {
+   "addr": "081A2006",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A2056",
+  "max": 6,
+  "term": "0000",
+  "original": "アスタロト",
+  "replace": "Astaroth",
+  "name_table": true,
+  "id": 226,
+  "aff1": {
+   "addr": "081A2066",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強く",
+   "replace": "Resist: Physical"
+  },
+  "aff2": {
+   "addr": "081A207C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔力に弱い",
+   "replace": "Weak: Magic"
+  }
+ },
+ {
+  "addr": "081A20B6",
+  "max": 6,
+  "term": "0000",
+  "original": "ロキ",
+  "replace": "Loki",
+  "name_table": true,
+  "id": 227,
+  "aff1": {
+   "addr": "081A20C6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強く",
+   "replace": "Resist: Physical"
+  },
+  "aff2": {
+   "addr": "081A20DC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔力に弱い",
+   "replace": "Weak: Magic"
+  }
+ },
+ {
+  "addr": "081A2116",
+  "max": 6,
+  "term": "0000",
+  "original": "ヘカーテ",
+  "replace": "Hecate",
+  "name_table": true,
+  "id": 228,
+  "aff1": {
+   "addr": "081A2126",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法を反射",
+   "replace": "Repel: Magic"
+  },
+  "aff2": {
+   "addr": "081A213C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に弱い",
+   "replace": "Weak: Physical"
+  }
+ },
+ {
+  "addr": "081A2176",
+  "max": 6,
+  "term": "0000",
+  "original": "ティアマット",
+  "replace": "Tiamat",
+  "name_table": true,
+  "id": 229,
+  "aff1": {
+   "addr": "081A2186",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "突撃を吸収",
+   "replace": "Drain: Charge"
+  },
+  "aff2": {
+   "addr": "081A219C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A21D6",
+  "max": 6,
+  "term": "0000",
+  "original": "キングー",
+  "replace": "Kingu",
+  "name_table": true,
+  "id": 230,
+  "aff1": {
+   "addr": "081A21E6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "突撃を吸収",
+   "replace": "Drain: Charge"
+  },
+  "aff2": {
+   "addr": "081A21FC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A2236",
+  "max": 6,
+  "term": "0000",
+  "original": "ニーズホッグ",
+  "replace": "Nidhoggr",
+  "name_table": true,
+  "id": 231,
+  "aff1": {
+   "addr": "081A2246",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "突撃を吸収",
+   "replace": "Drain: Charge"
+  },
+  "aff2": {
+   "addr": "081A225C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A2296",
+  "max": 6,
+  "term": "0000",
+  "original": "タラスク",
+  "replace": "Tarasque",
+  "name_table": true,
+  "id": 232,
+  "aff1": {
+   "addr": "081A22A6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "突撃を吸収",
+   "replace": "Drain: Charge"
+  },
+  "aff2": {
+   "addr": "081A22BC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A22F6",
+  "max": 6,
+  "term": "0000",
+  "original": "ワイバーン",
+  "replace": "Wyvern",
+  "name_table": true,
+  "id": 233,
+  "aff1": {
+   "addr": "081A2306",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "突撃を吸収",
+   "replace": "Drain: Charge"
+  },
+  "aff2": {
+   "addr": "081A231C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A2356",
+  "max": 6,
+  "term": "0000",
+  "original": "ワーム",
+  "replace": "Worm",
+  "name_table": true,
+  "id": 234,
+  "aff1": {
+   "addr": "081A2366",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "081A23B6",
+  "max": 6,
+  "term": "0000",
+  "original": "ヴェータラ",
+  "replace": "Vetara",
+  "name_table": true,
+  "id": 235,
+  "aff1": {
+   "addr": "081A23C6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "081A2416",
+  "max": 6,
+  "term": "0000",
+  "original": "ヤカー",
+  "replace": "Yaka",
+  "name_table": true,
+  "id": 236,
+  "aff1": {
+   "addr": "081A2426",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "神経・呪殺",
+   "replace": "Resist: Nerve, Curse,"
+  },
+  "aff2": {
+   "addr": "081A243C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔力・緊縛に強い",
+   "replace": "Magic, Bind"
+  }
+ },
+ {
+  "addr": "081A2476",
+  "max": 6,
+  "term": "0000",
+  "original": "マンイーター",
+  "replace": "Man Eater",
+  "name_table": true,
+  "id": 237,
+  "aff1": {
+   "addr": "081A2486",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺を反射",
+   "replace": "Repel: Curse"
+  },
+  "aff2": {
+   "addr": "081A249C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に強い",
+   "replace": "Resist: Electric"
+  }
+ },
+ {
+  "addr": "081A24D6",
+  "max": 6,
+  "term": "0000",
+  "original": "グーラー",
+  "replace": "Ghoulette",
+  "name_table": true,
+  "id": 238,
+  "aff1": {
+   "addr": "081A24E6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎・破魔に弱く",
+   "replace": "Weak: Fire, Expel"
+  },
+  "aff2": {
+   "addr": "081A24FC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "神経に強い",
+   "replace": "Resist: Nerve"
+  }
+ },
+ {
+  "addr": "081A2536",
+  "max": 6,
+  "term": "0000",
+  "original": "グール",
+  "replace": "Ghoul",
+  "name_table": true,
+  "id": 239,
+  "aff1": {
+   "addr": "081A2546",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎・破魔に弱く",
+   "replace": "Weak: Fire, Expel"
+  },
+  "aff2": {
+   "addr": "081A255C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "神経に強い",
+   "replace": "Resist: Nerve"
+  }
+ },
+ {
+  "addr": "081A2596",
+  "max": 6,
+  "term": "0000",
+  "original": "ガキ",
+  "replace": "Preta",
+  "name_table": true,
+  "id": 240,
+  "aff1": {
+   "addr": "081A25A6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎・破魔に弱く",
+   "replace": "Weak: Fire, Expel"
+  },
+  "aff2": {
+   "addr": "081A25BC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "神経に強い",
+   "replace": "Resist: Nerve"
+  }
+ },
+ {
+  "addr": "081A25F6",
+  "max": 6,
+  "term": "0000",
+  "original": "レギオン",
+  "replace": "Legion",
+  "name_table": true,
+  "id": 241,
+  "aff1": {
+   "addr": "081A2606",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺を反射",
+   "replace": "Repel: Curse"
+  },
+  "aff2": {
+   "addr": "081A261C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に強い",
+   "replace": "Resist: Electric"
+  }
+ },
+ {
+  "addr": "081A2656",
+  "max": 6,
+  "term": "0000",
+  "original": "インフェルノ",
+  "replace": "Inferno",
+  "name_table": true,
+  "id": 242,
+  "aff1": {
+   "addr": "081A2666",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎反射",
+   "replace": "Repel: Fire"
+  },
+  "aff2": {
+   "addr": "081A267C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "氷結に弱い",
+   "replace": "Weak: Ice"
+  }
+ },
+ {
+  "addr": "081A26B6",
+  "max": 6,
+  "term": "0000",
+  "original": "デプス",
+  "replace": "Depth",
+  "name_table": true,
+  "id": 243,
+  "aff1": {
+   "addr": "081A26C6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔に弱く",
+   "replace": "Weak: Expel"
+  },
+  "aff2": {
+   "addr": "081A26DC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "081A2716",
+  "max": 6,
+  "term": "0000",
+  "original": "ハングドマン",
+  "replace": "Hanged Man",
+  "name_table": true,
+  "id": 244,
+  "aff1": {
+   "addr": "081A2726",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔に弱く",
+   "replace": "Weak: Expel"
+  },
+  "aff2": {
+   "addr": "081A273C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "081A2776",
+  "max": 6,
+  "term": "0000",
+  "original": "ポルターガイ",
+  "replace": "Poltergeist",
+  "name_table": true,
+  "id": 245,
+  "aff1": {
+   "addr": "081A2786",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔に弱く",
+   "replace": "Weak: Expel"
+  },
+  "aff2": {
+   "addr": "081A279C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "081A27D6",
+  "max": 6,
+  "term": "0000",
+  "original": "オールドワン",
+  "replace": "Old One",
+  "name_table": true,
+  "id": 246,
+  "aff1": {
+   "addr": "081A27E6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A2836",
+  "max": 6,
+  "term": "0000",
+  "original": "ドッペルゲン",
+  "replace": "Doppelganger",
+  "name_table": true,
+  "id": 247,
+  "aff1": {
+   "addr": "081A2846",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理を反射",
+   "replace": "Repel: Physical"
+  },
+  "aff2": {
+   "addr": "081A285C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に弱い",
+   "replace": "Weak: Magic"
+  }
+ },
+ {
+  "addr": "081A2896",
+  "max": 6,
+  "term": "0000",
+  "original": "ブラックウー",
+  "replace": "Black Ooze",
+  "name_table": true,
+  "id": 248,
+  "aff1": {
+   "addr": "081A28A6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "剣に強く",
+   "replace": "Resist: Sword"
+  },
+  "aff2": {
+   "addr": "081A28BC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "他の物理無効",
+   "replace": "Null: Other Physical"
+  }
+ },
+ {
+  "addr": "081A28F6",
+  "max": 6,
+  "term": "0000",
+  "original": "クリス・ザ・",
+  "replace": "Chris the Car",
+  "name_table": true,
+  "id": 249,
+  "aff1": {
+   "addr": "081A2906",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に弱く",
+   "replace": "Weak: Electric"
+  },
+  "aff2": {
+   "addr": "081A291C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔に強い",
+   "replace": "Resist: Expel"
+  }
+ },
+ {
+  "addr": "081A2956",
+  "max": 6,
+  "term": "0000",
+  "original": "ジャック・リ",
+  "replace": "Jack the Ripper",
+  "name_table": true,
+  "id": 250,
+  "aff1": {
+   "addr": "081A2966",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "呪殺を反射",
+   "replace": "Repel: Curse"
+  },
+  "aff2": {
+   "addr": "081A297C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に強い",
+   "replace": "Resist: Electric"
+  }
+ },
+ {
+  "addr": "081A29B6",
+  "max": 6,
+  "term": "0000",
+  "original": "スライム",
+  "replace": "Slime",
+  "name_table": true,
+  "id": 251,
+  "aff1": {
+   "addr": "081A29C6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強く",
+   "replace": "Resist: Physical"
+  },
+  "aff2": {
+   "addr": "081A29DC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔力に弱い",
+   "replace": "Weak: Magic"
+  }
+ },
+ {
+  "addr": "081A2A16",
+  "max": 6,
+  "term": "0000",
+  "original": "アンドロメダ",
+  "replace": "Andromeda",
+  "name_table": true,
+  "id": 252,
+  "aff1": {
+   "addr": "081A2A26",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に弱い",
+   "replace": "Weak: Electric"
+  }
+ },
+ {
+  "addr": "081A2A76",
+  "max": 6,
+  "term": "0000",
+  "original": "スパイダー",
+  "replace": "Spider",
+  "name_table": true,
+  "id": 253,
+  "aff1": {
+   "addr": "081A2A86",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に弱い",
+   "replace": "Weak: Electric"
+  }
+ },
+ {
+  "addr": "081A2AD6",
+  "max": 6,
+  "term": "0000",
+  "original": "メビウス",
+  "replace": "Moebius",
+  "name_table": true,
+  "id": 254,
+  "aff1": {
+   "addr": "081A2AE6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "電撃に弱い",
+   "replace": "Weak: Electric"
+  }
+ },
+ {
+  "addr": "081A2B96",
+  "max": 6,
+  "term": "0000",
+  "original": "レッド・ベア",
+  "replace": "Red Bear",
+  "name_table": true,
+  "id": 256
+ },
+ {
+  "addr": "081A2BF6",
+  "max": 6,
+  "term": "0000",
+  "original": "メルクリウス",
+  "replace": "Mercurius",
+  "name_table": true,
+  "id": 257
+ },
+ {
+  "addr": "081A2C56",
+  "max": 6,
+  "term": "0000",
+  "original": "バジリスク",
+  "replace": "Basilisk",
+  "name_table": true,
+  "id": 258
+ },
+ {
+  "addr": "081A2CB6",
+  "max": 6,
+  "term": "0000",
+  "original": "キングフロス",
+  "replace": "King Frost",
+  "name_table": true,
+  "id": 259
+ },
+ {
+  "addr": "081A2D16",
+  "max": 6,
+  "term": "0000",
+  "original": "デミナンディ",
+  "replace": "Demi-Nandi",
+  "name_table": true,
+  "id": 260
+ },
+ {
+  "addr": "081A2D76",
+  "max": 6,
+  "term": "0000",
+  "original": "ベテルギウス",
+  "replace": "Betelgeuse",
+  "name_table": true,
+  "id": 261
+ },
+ {
+  "addr": "081A2DD6",
+  "max": 6,
+  "term": "0000",
+  "original": "ダレス",
+  "replace": "Daleth",
+  "name_table": true,
+  "id": 262
+ },
+ {
+  "addr": "081A2E36",
+  "max": 6,
+  "term": "0000",
+  "original": "ヤヌス",
+  "replace": "Janus",
+  "name_table": true,
+  "id": 263
+ },
+ {
+  "addr": "081A2E96",
+  "max": 6,
+  "term": "0000",
+  "original": "ザイン",
+  "replace": "Zayin",
+  "name_table": true,
+  "id": 264
+ },
+ {
+  "addr": "081A2EF6",
+  "max": 6,
+  "term": "0000",
+  "original": "ダレス",
+  "replace": "Daleth",
+  "name_table": true,
+  "id": 265
+ },
+ {
+  "addr": "081A2F56",
+  "max": 6,
+  "term": "0000",
+  "original": "バフォメット",
+  "replace": "Baphomet",
+  "name_table": true,
+  "id": 266
+ },
+ {
+  "addr": "081A2FB6",
+  "max": 6,
+  "term": "0000",
+  "original": "サルタヒコ",
+  "replace": "Sarutahiko",
+  "name_table": true,
+  "id": 267
+ },
+ {
+  "addr": "081A3016",
+  "max": 6,
+  "term": "0000",
+  "original": "ダレス",
+  "replace": "Daleth (3rd)",
+  "name_table": true,
+  "id": 268
+ },
+ {
+  "addr": "081A3076",
+  "max": 6,
+  "term": "0000",
+  "original": "ベルフェゴー",
+  "replace": "Belphegor",
+  "name_table": true,
+  "id": 269
+ },
+ {
+  "addr": "081A30D6",
+  "max": 6,
+  "term": "0000",
+  "original": "ギメル",
+  "replace": "Gimmel",
+  "name_table": true,
+  "id": 270
+ },
+ {
+  "addr": "081A3136",
+  "max": 6,
+  "term": "0000",
+  "original": "ウリエル",
+  "replace": "Uriel",
+  "name_table": true,
+  "id": 271
+ },
+ {
+  "addr": "081A3196",
+  "max": 6,
+  "term": "0000",
+  "original": "ラファエル",
+  "replace": "Raphael",
+  "name_table": true,
+  "id": 272
+ },
+ {
+  "addr": "081A31F6",
+  "max": 6,
+  "term": "0000",
+  "original": "ミカエル",
+  "replace": "Michael",
+  "name_table": true,
+  "id": 273
+ },
+ {
+  "addr": "081A3256",
+  "max": 6,
+  "term": "0000",
+  "original": "ルキフグス",
+  "replace": "Lucifuge",
+  "name_table": true,
+  "id": 274
+ },
+ {
+  "addr": "081A32B6",
+  "max": 6,
+  "term": "0000",
+  "original": "ヘカーテ",
+  "replace": "Hecate",
+  "name_table": true,
+  "id": 275
+ },
+ {
+  "addr": "081A3316",
+  "max": 6,
+  "term": "0000",
+  "original": "アタバク",
+  "replace": "Atavaka",
+  "name_table": true,
+  "id": 276
+ },
+ {
+  "addr": "081A3376",
+  "max": 6,
+  "term": "0000",
+  "original": "マスターテリ",
+  "replace": "Master Therion",
+  "name_table": true,
+  "id": 277
+ },
+ {
+  "addr": "081A33D6",
+  "max": 6,
+  "term": "0000",
+  "original": "アバドン",
+  "replace": "Abaddon",
+  "name_table": true,
+  "id": 278
+ },
+ {
+  "addr": "081A3436",
+  "max": 6,
+  "term": "0000",
+  "original": "アスタロト",
+  "replace": "Astaroth",
+  "name_table": true,
+  "id": 279
+ },
+ {
+  "addr": "081A3496",
+  "max": 6,
+  "term": "0000",
+  "original": "クンビーラ",
+  "replace": "Kumbhira",
+  "name_table": true,
+  "id": 280
+ },
+ {
+  "addr": "081A34F6",
+  "max": 6,
+  "term": "0000",
+  "original": "ヴァジラ",
+  "replace": "Vajra",
+  "name_table": true,
+  "id": 281
+ },
+ {
+  "addr": "081A3556",
+  "max": 6,
+  "term": "0000",
+  "original": "ミヒラ",
+  "replace": "Mihira",
+  "name_table": true,
+  "id": 282
+ },
+ {
+  "addr": "081A35B6",
+  "max": 6,
+  "term": "0000",
+  "original": "アンティラ",
+  "replace": "Andira",
+  "name_table": true,
+  "id": 283
+ },
+ {
+  "addr": "081A3616",
+  "max": 6,
+  "term": "0000",
+  "original": "マジラ",
+  "replace": "Majira",
+  "name_table": true,
+  "id": 284
+ },
+ {
+  "addr": "081A3676",
+  "max": 6,
+  "term": "0000",
+  "original": "サンティラ",
+  "replace": "Sandira",
+  "name_table": true,
+  "id": 285
+ },
+ {
+  "addr": "081A36D6",
+  "max": 6,
+  "term": "0000",
+  "original": "インダラ",
+  "replace": "Indara",
+  "name_table": true,
+  "id": 286
+ },
+ {
+  "addr": "081A3736",
+  "max": 6,
+  "term": "0000",
+  "original": "パジラ",
+  "replace": "Pajira",
+  "name_table": true,
+  "id": 287
+ },
+ {
+  "addr": "081A3796",
+  "max": 6,
+  "term": "0000",
+  "original": "マクラ",
+  "replace": "Makura",
+  "name_table": true,
+  "id": 288
+ },
+ {
+  "addr": "081A37F6",
+  "max": 6,
+  "term": "0000",
+  "original": "シンドゥーラ",
+  "replace": "Sindura",
+  "name_table": true,
+  "id": 289
+ },
+ {
+  "addr": "081A3856",
+  "max": 6,
+  "term": "0000",
+  "original": "チャツラ",
+  "replace": "Catura",
+  "name_table": true,
+  "id": 290
+ },
+ {
+  "addr": "081A38B6",
+  "max": 6,
+  "term": "0000",
+  "original": "ヴィカラーラ",
+  "replace": "Vikarala",
+  "name_table": true,
+  "id": 291
+ },
+ {
+  "addr": "081A3916",
+  "max": 6,
+  "term": "0000",
+  "original": "ティアマット",
+  "replace": "Tiamat",
+  "name_table": true,
+  "id": 292
+ },
+ {
+  "addr": "081A3976",
+  "max": 6,
+  "term": "0000",
+  "original": "ヴィローシャ",
+  "replace": "Virochana",
+  "name_table": true,
+  "id": 293
+ },
+ {
+  "addr": "081A39D6",
+  "max": 6,
+  "term": "0000",
+  "original": "マーラ",
+  "replace": "Mara",
+  "name_table": true,
+  "id": 294
+ },
+ {
+  "addr": "081A3A36",
+  "max": 6,
+  "term": "0000",
+  "original": "ルシファー",
+  "replace": "Lucifer",
+  "name_table": true,
+  "id": 295
+ },
+ {
+  "addr": "081A3A96",
+  "max": 6,
+  "term": "0000",
+  "original": "クズリュウ",
+  "replace": "Kyzuryu",
+  "name_table": true,
+  "id": 296
+ },
+ {
+  "addr": "081A3AF6",
+  "max": 6,
+  "term": "0000",
+  "original": "ツァバト",
+  "replace": "Sabaoth",
+  "name_table": true,
+  "id": 297
+ },
+ {
+  "addr": "081A3B56",
+  "max": 6,
+  "term": "0000",
+  "original": "シャダイ",
+  "replace": "Shaddai",
+  "name_table": true,
+  "id": 298
+ },
+ {
+  "addr": "081A3BB6",
+  "max": 6,
+  "term": "0000",
+  "original": "エロヒム",
+  "replace": "Elohim",
+  "name_table": true,
+  "id": 299
+ },
+ {
+  "addr": "081A3C16",
+  "max": 6,
+  "term": "0000",
+  "original": "サタン",
+  "replace": "Satan",
+  "name_table": true,
+  "id": 300
+ },
+ {
+  "addr": "081A3C76",
+  "max": 6,
+  "term": "0000",
+  "original": "YHVH",
+  "replace": "YHVH",
+  "name_table": true,
+  "id": 301
+ },
+ {
+  "addr": "081A3CD6",
+  "max": 6,
+  "term": "0000",
+  "original": "YHVH",
+  "replace": "YHVH",
+  "name_table": true,
+  "id": 302
+ },
+ {
+  "addr": "081A3D36",
+  "max": 6,
+  "term": "0000",
+  "original": "ベルゼブブ",
+  "replace": "Beelzebub",
+  "name_table": true,
+  "id": 303
+ },
+ {
+  "addr": "081A3D96",
+  "max": 6,
+  "term": "0000",
+  "original": "アリス",
+  "replace": "Alice",
+  "name_table": true,
+  "id": 304
+ },
+ {
+  "addr": "081A3DF6",
+  "max": 6,
+  "term": "0000",
+  "original": "ゴーストQ",
+  "replace": "Ghost Q",
+  "name_table": true,
+  "id": 305
+ },
+ {
+  "addr": "081A3E56",
+  "max": 6,
+  "term": "0000",
+  "original": "ときのおきな",
+  "replace": "Sage of Time",
+  "name_table": true,
+  "id": 306
+ },
+ {
+  "addr": "081A3EB6",
+  "max": 6,
+  "term": "0000",
+  "original": "ヘルズエンジ",
+  "replace": "Hell Biker",
+  "name_table": true,
+  "id": 307
+ },
+ {
+  "addr": "081A3F16",
+  "max": 6,
+  "term": "0000",
+  "original": "マタドール",
+  "replace": "Matador",
+  "name_table": true,
+  "id": 308
+ },
+ {
+  "addr": "081A4996",
+  "max": 6,
+  "term": "0000",
+  "original": "ブラフマース",
+  "replace": "Brahmastra",
+  "name_table": true,
+  "id": 336
+ },
+ {
+  "addr": "081A49F6",
+  "max": 6,
+  "term": "0000",
+  "original": "妖刀ニヒル",
+  "replace": "Nihil Blade",
+  "name_table": true,
+  "id": 337
+ },
+ {
+  "addr": "081A4A56",
+  "max": 6,
+  "term": "0000",
+  "original": "ルナブレード",
+  "replace": "Luna Blade",
+  "name_table": true,
+  "id": 338
+ },
+ {
+  "addr": "081A4AB6",
+  "max": 6,
+  "term": "0000",
+  "original": "ソルブレード",
+  "replace": "Sol Blade",
+  "name_table": true,
+  "id": 339
+ },
+ {
+  "addr": "081A4B16",
+  "max": 6,
+  "term": "0000",
+  "original": "クチナワの剣",
+  "replace": "Kuchinawa Sword",
+  "name_table": true,
+  "id": 340
+ },
+ {
+  "addr": "081A4B76",
+  "max": 6,
+  "term": "0000",
+  "original": "デスブリンガ",
+  "replace": "Death Bringer",
+  "name_table": true,
+  "id": 341
+ },
+ {
+  "addr": "081A4BD6",
+  "max": 6,
+  "term": "0000",
+  "original": "練気の剣",
+  "replace": "Chi Sword",
+  "name_table": true,
+  "id": 342
+ },
+ {
+  "addr": "081A4C36",
+  "max": 6,
+  "term": "0000",
+  "original": "小狐丸",
+  "replace": "Kogitsunemaru",
+  "name_table": true,
+  "id": 343
+ },
+ {
+  "addr": "081A4C96",
+  "max": 6,
+  "term": "0000",
+  "original": "風神剣",
+  "replace": "Fujin Sword",
+  "name_table": true,
+  "id": 344
+ },
+ {
+  "addr": "081A4CF6",
+  "max": 6,
+  "term": "0000",
+  "original": "雷神剣",
+  "replace": "Raijin Sword",
+  "name_table": true,
+  "id": 345
+ },
+ {
+  "addr": "081A4D56",
+  "max": 6,
+  "term": "0000",
+  "original": "備前長船",
+  "replace": "Bizen Osafune",
+  "name_table": true,
+  "id": 346
+ },
+ {
+  "addr": "081A4DB6",
+  "max": 6,
+  "term": "0000",
+  "original": "銘刀虎徹",
+  "replace": "Kotetsu Blade",
+  "name_table": true,
+  "id": 347
+ },
+ {
+  "addr": "081A4E16",
+  "max": 6,
+  "term": "0000",
+  "original": "関の兼定",
+  "replace": "Seki Kanesada",
+  "name_table": true,
+  "id": 348
+ },
+ {
+  "addr": "081A4E76",
+  "max": 6,
+  "term": "0000",
+  "original": "般若長光",
+  "replace": "Nagamitsu",
+  "name_table": true,
+  "id": 349
+ },
+ {
+  "addr": "081A4ED6",
+  "max": 6,
+  "term": "0000",
+  "original": "妖刀村正",
+  "replace": "Muramasa",
+  "name_table": true,
+  "id": 350
+ },
+ {
+  "addr": "081A4F36",
+  "max": 6,
+  "term": "0000",
+  "original": "無想正宗",
+  "replace": "Muso Masamune",
+  "name_table": true,
+  "id": 351
+ },
+ {
+  "addr": "081A4F96",
+  "max": 6,
+  "term": "0000",
+  "original": "乾雲丸",
+  "replace": "Kenunmaru",
+  "name_table": true,
+  "id": 352
+ },
+ {
+  "addr": "081A4FF6",
+  "max": 6,
+  "term": "0000",
+  "original": "坤竜丸",
+  "replace": "Konryumaru",
+  "name_table": true,
+  "id": 353
+ },
+ {
+  "addr": "081A5056",
+  "max": 6,
+  "term": "0000",
+  "original": "八束の剣",
+  "replace": "Yatsuka Sword",
+  "name_table": true,
+  "id": 354
+ },
+ {
+  "addr": "081A50B6",
+  "max": 6,
+  "term": "0000",
+  "original": "天叢雲",
+  "replace": "Murakumo",
+  "name_table": true,
+  "id": 355
+ },
+ {
+  "addr": "081A5116",
+  "max": 6,
+  "term": "0000",
+  "original": "天沼矛",
+  "replace": "Amenonuhoko",
+  "name_table": true,
+  "id": 356
+ },
+ {
+  "addr": "081A5176",
+  "max": 6,
+  "term": "0000",
+  "original": "ヒノカグツチ",
+  "replace": "Hinokagutsuchi",
+  "name_table": true,
+  "id": 357
+ },
+ {
+  "addr": "081A51D6",
+  "max": 6,
+  "term": "0000",
+  "original": "ホゥアコン",
+  "replace": "Faucon",
+  "name_table": true,
+  "id": 358
+ },
+ {
+  "addr": "081A5236",
+  "max": 6,
+  "term": "0000",
+  "original": "タップスアン",
+  "replace": "Tapsuan",
+  "name_table": true,
+  "id": 359
+ },
+ {
+  "addr": "081A5296",
+  "max": 6,
+  "term": "0000",
+  "original": "パーホゥラッ",
+  "replace": "Pahourat",
+  "name_table": true,
+  "id": 360
+ },
+ {
+  "addr": "081A52F6",
+  "max": 6,
+  "term": "0000",
+  "original": "カムライター",
+  "replace": "Kamuraitao",
+  "name_table": true,
+  "id": 361
+ },
+ {
+  "addr": "081A5356",
+  "max": 6,
+  "term": "0000",
+  "original": "アプサラス",
+  "replace": "Apsaras",
+  "name_table": true,
+  "id": 362,
+  "aff1": {
+   "addr": "081A5366",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A53B6",
+  "max": 6,
+  "term": "0000",
+  "original": "スクルド",
+  "replace": "Skuld",
+  "name_table": true,
+  "id": 363,
+  "aff1": {
+   "addr": "081A53C6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔を無効",
+   "replace": "Null: Expel"
+  },
+  "aff2": {
+   "addr": "081A53DC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "081A5416",
+  "max": 6,
+  "term": "0000",
+  "original": "エルフ",
+  "replace": "Elf",
+  "name_table": true,
+  "id": 364,
+  "aff1": {
+   "addr": "081A5426",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A5476",
+  "max": 6,
+  "term": "0000",
+  "original": "クシナダヒメ",
+  "replace": "Kushinada-Hime",
+  "name_table": true,
+  "id": 365,
+  "aff1": {
+   "addr": "081A5486",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔を無効",
+   "replace": "Null: Expel"
+  },
+  "aff2": {
+   "addr": "081A549C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "081A54D6",
+  "max": 6,
+  "term": "0000",
+  "original": "ヴェルザンデ",
+  "replace": "Verdandi",
+  "name_table": true,
+  "id": 366,
+  "aff1": {
+   "addr": "081A54E6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔を無効",
+   "replace": "Null: Expel"
+  },
+  "aff2": {
+   "addr": "081A54FC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "081A5536",
+  "max": 6,
+  "term": "0000",
+  "original": "イバラギドウ",
+  "replace": "Jinn",
+  "name_table": true,
+  "id": 367,
+  "aff1": {
+   "addr": "081A5546",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔が無効",
+   "replace": "Null: Expel"
+  }
+ },
+ {
+  "addr": "081A5596",
+  "max": 6,
+  "term": "0000",
+  "original": "パスカル",
+  "replace": "Pascal I",
+  "name_table": true,
+  "id": 368,
+  "aff1": {
+   "addr": "081A55A6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎吸収",
+   "replace": "Drain: Fire"
+  },
+  "aff2": {
+   "addr": "081A55BC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "氷結に弱い",
+   "replace": "Weak: Ice"
+  }
+ },
+ {
+  "addr": "081A55F6",
+  "max": 6,
+  "term": "0000",
+  "original": "ウルズ",
+  "replace": "Urd",
+  "name_table": true,
+  "id": 369,
+  "aff1": {
+   "addr": "081A5606",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "破魔を無効",
+   "replace": "Null: Expel"
+  },
+  "aff2": {
+   "addr": "081A561C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強い",
+   "replace": "Resist: Physical"
+  }
+ },
+ {
+  "addr": "081A5656",
+  "max": 6,
+  "term": "0000",
+  "original": "ユルング",
+  "replace": "Yurlungur",
+  "name_table": true,
+  "id": 370,
+  "aff1": {
+   "addr": "081A5666",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "突撃を吸収",
+   "replace": "Drain: Charge"
+  },
+  "aff2": {
+   "addr": "081A567C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A56B6",
+  "max": 6,
+  "term": "0000",
+  "original": "タクヒ",
+  "replace": "Takuhi",
+  "name_table": true,
+  "id": 371,
+  "aff1": {
+   "addr": "081A56C6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "ガン以外の",
+   "replace": "Resist: Physical,"
+  },
+  "aff2": {
+   "addr": "081A56DC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理攻撃に強い",
+   "replace": "except Gun"
+  }
+ },
+ {
+  "addr": "081A5716",
+  "max": 6,
+  "term": "0000",
+  "original": "アモン",
+  "replace": "Amon",
+  "name_table": true,
+  "id": 372,
+  "aff1": {
+   "addr": "081A5726",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "氷結反射",
+   "replace": "Repel: Ice"
+  },
+  "aff2": {
+   "addr": "081A573C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎に弱い",
+   "replace": "Weak: Fire"
+  }
+ },
+ {
+  "addr": "081A5776",
+  "max": 6,
+  "term": "0000",
+  "original": "デュラハ－ン",
+  "replace": "Dullahan",
+  "name_table": true,
+  "id": 373,
+  "aff1": {
+   "addr": "081A5786",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "衝撃・突撃に強い",
+   "replace": "Resist: Force, Charge"
+  }
+ },
+ {
+  "addr": "081A57D6",
+  "max": 6,
+  "term": "0000",
+  "original": "ミズガルズオ",
+  "replace": "Midgardsomr",
+  "name_table": true,
+  "id": 374,
+  "aff1": {
+   "addr": "081A57E6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "突撃を吸収",
+   "replace": "Drain: Charge"
+  },
+  "aff2": {
+   "addr": "081A57FC",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A5836",
+  "max": 6,
+  "term": "0000",
+  "original": "パスカル",
+  "replace": "Pascal II",
+  "name_table": true,
+  "id": 375,
+  "aff1": {
+   "addr": "081A5846",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "火炎吸収",
+   "replace": "Drain: Fire"
+  },
+  "aff2": {
+   "addr": "081A585C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "氷結に弱い",
+   "replace": "Weak: Ice"
+  }
+ },
+ {
+  "addr": "081A5896",
+  "max": 6,
+  "term": "0000",
+  "original": "サルガタナス",
+  "replace": "Sargatanas",
+  "name_table": true,
+  "id": 376,
+  "aff1": {
+   "addr": "081A58A6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A58F6",
+  "max": 6,
+  "term": "0000",
+  "original": "メフィスト",
+  "replace": "Mephisto",
+  "name_table": true,
+  "id": 377,
+  "aff1": {
+   "addr": "081A5906",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ },
+ {
+  "addr": "081A5956",
+  "max": 6,
+  "term": "0000",
+  "original": "アスモデウス",
+  "replace": "Asmodeus",
+  "name_table": true,
+  "id": 378,
+  "aff1": {
+   "addr": "081A5966",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "物理に強く",
+   "replace": "Resist: Physical"
+  },
+  "aff2": {
+   "addr": "081A597C",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔力に弱い",
+   "replace": "Weak: Magic"
+  }
+ },
+ {
+  "addr": "081A59B6",
+  "max": 6,
+  "term": "0000",
+  "original": "サタナキア",
+  "replace": "Satanachia",
+  "name_table": true,
+  "id": 379,
+  "aff1": {
+   "addr": "081A59C6",
+   "max": 11,
+   "term": "0000",
+   "sentinel": true,
+   "aff": true,
+   "original": "魔法に強い",
+   "replace": "Resist: Magic"
+  }
+ }
+]

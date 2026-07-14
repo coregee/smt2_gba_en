@@ -1,0 +1,130 @@
+[
+ {
+  "addr": "084F06D6",
+  "max": 4,
+  "term": "0000",
+  "original": "ノーマル",
+  "replace": "Normal",
+  "sentinel": true
+ },
+ {
+  "addr": "084F06E0",
+  "max": 4,
+  "term": "0000",
+  "original": "　対火炎",
+  "replace": "Rs Fire",
+  "sentinel": true
+ },
+ {
+  "addr": "084F06EA",
+  "max": 4,
+  "term": "0000",
+  "original": "　対氷結",
+  "replace": "Rs Ice",
+  "sentinel": true
+ },
+ {
+  "addr": "084F06F4",
+  "max": 4,
+  "term": "0000",
+  "original": "　対電撃",
+  "replace": "Rs Elec",
+  "sentinel": true
+ },
+ {
+  "addr": "084F06FE",
+  "max": 4,
+  "term": "0000",
+  "original": "　対衝撃",
+  "replace": "Rs Force",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0708",
+  "max": 4,
+  "term": "0000",
+  "original": "　対精神",
+  "replace": "Rs Mind",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0712",
+  "max": 4,
+  "term": "0000",
+  "original": "　対物理",
+  "replace": "Rs Phys",
+  "sentinel": true
+ },
+ {
+  "addr": "084F071C",
+  "max": 4,
+  "term": "0000",
+  "original": "対電・衝",
+  "replace": "Rs Elec/Force",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0726",
+  "max": 4,
+  "term": "0000",
+  "original": "対火・氷",
+  "replace": "Rs Fire/Ice",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0730",
+  "max": 4,
+  "term": "0000",
+  "original": "　反精神",
+  "replace": "Rf Mind",
+  "sentinel": true
+ },
+ {
+  "addr": "084F073A",
+  "max": 4,
+  "term": "0000",
+  "original": "　反物理",
+  "replace": "Rf Phys",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0744",
+  "max": 4,
+  "term": "0000",
+  "original": "　　吸熱",
+  "replace": "Dr Fire",
+  "sentinel": true
+ },
+ {
+  "addr": "084F074E",
+  "max": 4,
+  "term": "0000",
+  "original": "　　吸電",
+  "replace": "Dr Elec",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0758",
+  "max": 4,
+  "term": "0000",
+  "original": "魔性防具",
+  "replace": "Magic",
+  "sentinel": true
+ },
+ {
+  "addr": "084F0762",
+  "max": 4,
+  "term": "0000",
+  "original": "神聖防具",
+  "replace": "Holy",
+  "sentinel": true
+ },
+ {
+  "addr": "084F076C",
+  "max": 4,
+  "term": "0000",
+  "original": "　全対応",
+  "replace": "Rs All",
+  "sentinel": true
+ }
+]

@@ -1,0 +1,2882 @@
+[
+ {
+  "id": 0,
+  "name": {
+   "addr": "0819B9FA",
+   "max": 8,
+   "term": "0000",
+   "original": "アギ",
+   "replace": "Agi",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BA0C",
+   "addr": "08003DD4",
+   "term": "0301",
+   "original": "敵1体を火炎で焼く",
+   "replace": "Burns one foe with fire."
+  }
+ },
+ {
+  "id": 1,
+  "name": {
+   "addr": "0819BA16",
+   "max": 8,
+   "term": "0000",
+   "original": "アギラオ",
+   "replace": "Agilao",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BA28",
+   "addr": "08003DE8",
+   "term": "0301",
+   "original": "アギの強化版",
+   "replace": "Enhanced version of Agi."
+  }
+ },
+ {
+  "id": 2,
+  "name": {
+   "addr": "0819BA32",
+   "max": 8,
+   "term": "0000",
+   "original": "マハラギ",
+   "replace": "Maragi",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BA44",
+   "addr": "08003DF6",
+   "term": "0301",
+   "original": "敵全体にアギの効果",
+   "replace": "Inflicts Agi on all foes."
+  }
+ },
+ {
+  "id": 3,
+  "name": {
+   "addr": "0819BA4E",
+   "max": 8,
+   "term": "0000",
+   "original": "マハラギオン",
+   "replace": "Maragion",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BA60",
+   "addr": "08003E0A",
+   "term": "0301",
+   "original": "マハラギの強化版",
+   "replace": "Enhanced version of Maragi."
+  }
+ },
+ {
+  "id": 4,
+  "name": {
+   "addr": "0819BA6A",
+   "max": 8,
+   "term": "0000",
+   "original": "ブフ",
+   "replace": "Bufu",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BA7C",
+   "addr": "08003E1C",
+   "term": "0301",
+   "original": "敵1体を凍結させて{n}FREEZE状態にする",
+   "replace": "Chills one foe with ice, inflicting Freeze."
+  }
+ },
+ {
+  "id": 5,
+  "name": {
+   "addr": "0819BA86",
+   "max": 8,
+   "term": "0000",
+   "original": "ブフーラ",
+   "replace": "Bufula",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BA98",
+   "addr": "08003E48",
+   "term": "0301",
+   "original": "ブフの強化版",
+   "replace": "Enhanced version of Bufu."
+  }
+ },
+ {
+  "id": 6,
+  "name": {
+   "addr": "0819BAA2",
+   "max": 8,
+   "term": "0000",
+   "original": "マハーブフ",
+   "replace": "Mabufu",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BAB4",
+   "addr": "08003E56",
+   "term": "0301",
+   "original": "敵全体にブフの効果",
+   "replace": "Inflicts Bufu on all foes."
+  }
+ },
+ {
+  "id": 7,
+  "name": {
+   "addr": "0819BABE",
+   "max": 8,
+   "term": "0000",
+   "original": "マハブフーラ",
+   "replace": "Mabufula",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BAD0",
+   "addr": "08003E6A",
+   "term": "0301",
+   "original": "マハーブフの強化版",
+   "replace": "Enhanced version of Mabufu."
+  }
+ },
+ {
+  "id": 8,
+  "name": {
+   "addr": "0819BADA",
+   "max": 8,
+   "term": "0000",
+   "original": "ジオ",
+   "replace": "Zio",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BAEC",
+   "addr": "08003E7E",
+   "term": "0301",
+   "original": "雷を落として敵1体を{n}SHOCK状態にする",
+   "replace": "Strikes one foe with lightning, inflicting Shock."
+  }
+ },
+ {
+  "id": 9,
+  "name": {
+   "addr": "0819BAF6",
+   "max": 8,
+   "term": "0000",
+   "original": "ジオンガ",
+   "replace": "Zionga",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BB08",
+   "addr": "08003EAA",
+   "term": "0301",
+   "original": "ジオの強化版",
+   "replace": "Enhanced version of Zio."
+  }
+ },
+ {
+  "id": 10,
+  "name": {
+   "addr": "0819BB12",
+   "max": 8,
+   "term": "0000",
+   "original": "マハジオ",
+   "replace": "Mazio",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BB24",
+   "addr": "08003EB8",
+   "term": "0301",
+   "original": "敵全体にジオの効果",
+   "replace": "Inflicts Zio on all foes."
+  }
+ },
+ {
+  "id": 11,
+  "name": {
+   "addr": "0819BB2E",
+   "max": 8,
+   "term": "0000",
+   "original": "マハジオンガ",
+   "replace": "Mazionga",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BB40",
+   "addr": "08003ECC",
+   "term": "0301",
+   "original": "マハジオの強化版",
+   "replace": "Enhanced version of Mazio."
+  }
+ },
+ {
+  "id": 12,
+  "name": {
+   "addr": "0819BB4A",
+   "max": 8,
+   "term": "0000",
+   "original": "ザン",
+   "replace": "Zan",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BB5C",
+   "addr": "08003EDE",
+   "term": "0301",
+   "original": "敵1体に衝撃波をぶつける",
+   "replace": "Blasts one foe with force."
+  }
+ },
+ {
+  "id": 13,
+  "name": {
+   "addr": "0819BB66",
+   "max": 8,
+   "term": "0000",
+   "original": "ザンマ",
+   "replace": "Zanma",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BB78",
+   "addr": "08003EF8",
+   "term": "0301",
+   "original": "ザンの強化版",
+   "replace": "Enhanced version of Zan."
+  }
+ },
+ {
+  "id": 14,
+  "name": {
+   "addr": "0819BB82",
+   "max": 8,
+   "term": "0000",
+   "original": "マハザン",
+   "replace": "Mazan",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BB94",
+   "addr": "08003F06",
+   "term": "0301",
+   "original": "敵全体にザンの効果",
+   "replace": "Inflicts Zan on all foes."
+  }
+ },
+ {
+  "id": 15,
+  "name": {
+   "addr": "0819BB9E",
+   "max": 8,
+   "term": "0000",
+   "original": "マハザンマ",
+   "replace": "Mazanma",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BBB0",
+   "addr": "08003F1A",
+   "term": "0301",
+   "original": "マハザンの強化版",
+   "replace": "Enhanced version of Mazan."
+  }
+ },
+ {
+  "id": 16,
+  "name": {
+   "addr": "0819BBBA",
+   "max": 8,
+   "term": "0000",
+   "original": "テンタラフー",
+   "replace": "Tentarafoo",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BBCC",
+   "addr": "08003F2C",
+   "term": "0301",
+   "original": "敵全体をPANIC状態にする",
+   "replace": "Inflicts Panic on all foes."
+  }
+ },
+ {
+  "id": 17,
+  "name": {
+   "addr": "0819BBD6",
+   "max": 8,
+   "term": "0000",
+   "original": "メギド",
+   "replace": "Megido",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BBE8",
+   "addr": "08003F4A",
+   "term": "0301",
+   "original": "敵全体に無属性のダメージを{n}与える",
+   "replace": "Deals non-elemental damage to all foes."
+  }
+ },
+ {
+  "id": 18,
+  "name": {
+   "addr": "0819BBF2",
+   "max": 8,
+   "term": "0000",
+   "original": "メギドラオン",
+   "replace": "Megidolaon",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BC04",
+   "addr": "08003F6E",
+   "term": "0301",
+   "original": "メギドの強化版",
+   "replace": "Enhanced version of Megido."
+  }
+ },
+ {
+  "id": 19,
+  "name": {
+   "addr": "0819BC0E",
+   "max": 8,
+   "term": "0000",
+   "original": "ドルミナー",
+   "replace": "Dormina",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BC20",
+   "addr": "08003F7E",
+   "term": "0301",
+   "original": "敵数体をSLEEP状態にする",
+   "replace": "Inflicts Sleep on multiple foes."
+  }
+ },
+ {
+  "id": 20,
+  "name": {
+   "addr": "0819BC2A",
+   "max": 8,
+   "term": "0000",
+   "original": "シバブー",
+   "replace": "Shibaboo",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BC3C",
+   "addr": "08003F9C",
+   "term": "0301",
+   "original": "敵数体をBIND状態にする",
+   "replace": "Inflicts Bind on multiple foes."
+  }
+ },
+ {
+  "id": 21,
+  "name": {
+   "addr": "0819BC46",
+   "max": 8,
+   "term": "0000",
+   "original": "プリンパ",
+   "replace": "Pulinpa",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BC58",
+   "addr": "08003FB8",
+   "term": "0301",
+   "original": "敵1体をPANIC状態にする",
+   "replace": "Inflicts Panic on one foe."
+  }
+ },
+ {
+  "id": 22,
+  "name": {
+   "addr": "0819BC62",
+   "max": 8,
+   "term": "0000",
+   "original": "ハピルマ",
+   "replace": "Hapilma",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BC74",
+   "addr": "08003FD6",
+   "term": "0301",
+   "original": "敵数体をHAPPY状態にする",
+   "replace": "Inflicts Happy on multiple foes."
+  }
+ },
+ {
+  "id": 23,
+  "name": {
+   "addr": "0819BC7E",
+   "max": 8,
+   "term": "0000",
+   "original": "マリンカリン",
+   "replace": "Marin Karin",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BC90",
+   "addr": "08003FF4",
+   "term": "0301",
+   "original": "敵1体をCHARM状態にする",
+   "replace": "Inflicts Charm on one foe."
+  }
+ },
+ {
+  "id": 24,
+  "name": {
+   "addr": "0819BC9A",
+   "max": 8,
+   "term": "0000",
+   "original": "マカジャマ",
+   "replace": "Makajam",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BCAC",
+   "addr": "08004012",
+   "term": "0301",
+   "original": "敵数体をCLOSE状態にする",
+   "replace": "Inflicts Close on multiple foes."
+  }
+ },
+ {
+  "id": 25,
+  "name": {
+   "addr": "0819BCB6",
+   "max": 8,
+   "term": "0000",
+   "original": "ムド",
+   "replace": "Mudo",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BCC8",
+   "addr": "08004030",
+   "term": "0301",
+   "original": "敵2体を呪い殺す",
+   "replace": "Kills two foes with curse."
+  }
+ },
+ {
+  "id": 26,
+  "name": {
+   "addr": "0819BCD2",
+   "max": 8,
+   "term": "0000",
+   "original": "ムドオン",
+   "replace": "Mudoon",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BCE4",
+   "addr": "08004042",
+   "term": "0301",
+   "original": "敵数体を呪い殺す",
+   "replace": "Kills multiple foes with curse."
+  }
+ },
+ {
+  "id": 27,
+  "name": {
+   "addr": "0819BCEE",
+   "max": 8,
+   "term": "0000",
+   "original": "ハンマ",
+   "replace": "Hama",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BD00",
+   "addr": "08004054",
+   "term": "0301",
+   "original": "敵2体を破魔の力で昇天させる",
+   "replace": "Kills two foes with bless."
+  }
+ },
+ {
+  "id": 28,
+  "name": {
+   "addr": "0819BD0A",
+   "max": 8,
+   "term": "0000",
+   "original": "マハンマ",
+   "replace": "Mahama",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BD1C",
+   "addr": "08004072",
+   "term": "0301",
+   "original": "敵全体にハンマの効果",
+   "replace": "Inflicts Hama on all foes."
+  }
+ },
+ {
+  "id": 29,
+  "name": {
+   "addr": "0819BD26",
+   "max": 8,
+   "term": "0000",
+   "original": "タルンダ",
+   "replace": "Tarunda",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BD38",
+   "addr": "08004088",
+   "term": "0301",
+   "original": "敵の攻撃力を下げる",
+   "replace": "Lowers the attack power of foes."
+  }
+ },
+ {
+  "id": 30,
+  "name": {
+   "addr": "0819BD42",
+   "max": 8,
+   "term": "0000",
+   "original": "ラクンダ",
+   "replace": "Rakunda",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BD54",
+   "addr": "0800409C",
+   "term": "0301",
+   "original": "敵の防御力を下げる",
+   "replace": "Lowers the defense of foes."
+  }
+ },
+ {
+  "id": 31,
+  "name": {
+   "addr": "0819BD5E",
+   "max": 8,
+   "term": "0000",
+   "original": "スクンダ",
+   "replace": "Sukunda",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BD70",
+   "addr": "080040B0",
+   "term": "0301",
+   "original": "敵の命中率を下げる",
+   "replace": "Lowers the accuracy of foes."
+  }
+ },
+ {
+  "id": 32,
+  "name": {
+   "addr": "0819BD7A",
+   "max": 8,
+   "term": "0000",
+   "original": "エルトラ",
+   "replace": "Eltra",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BD8C",
+   "addr": "080040C4",
+   "term": "0301",
+   "original": "　{n}　",
+   "replace": null
+  }
+ },
+ {
+  "id": 33,
+  "name": {
+   "addr": "0819BD96",
+   "max": 8,
+   "term": "0000",
+   "original": "デカジャ",
+   "replace": "Dekaja",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BDA8",
+   "addr": "080040CC",
+   "term": "0301",
+   "original": "全てのカジャ系魔法の効果を消す",
+   "replace": "Removes all -kaja effects."
+  }
+ },
+ {
+  "id": 34,
+  "name": {
+   "addr": "0819BDB2",
+   "max": 8,
+   "term": "0000",
+   "original": "リカジャ",
+   "replace": "Rikaja",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BDC4",
+   "addr": "080040EC",
+   "term": "0301",
+   "original": "ンダ系魔法で下げられた能力を{n}元に戻す",
+   "replace": "Restores abilities lowered by -nda effects."
+  }
+ },
+ {
+  "id": 35,
+  "name": {
+   "addr": "0819BDCE",
+   "max": 8,
+   "term": "0000",
+   "original": "テトラ",
+   "replace": "Tetra",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BDE0",
+   "addr": "08004114",
+   "term": "0301",
+   "original": "敵の魔法と特殊攻撃を{n}1ターン無効にする",
+   "replace": "Nullifies enemy magic and special attacks for 1 turn."
+  }
+ },
+ {
+  "id": 36,
+  "name": {
+   "addr": "0819BDEA",
+   "max": 8,
+   "term": "0000",
+   "original": "タルカジャ",
+   "replace": "Tarukaja",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BDFC",
+   "addr": "0800413E",
+   "term": "0301",
+   "original": "味方全員の攻撃力を上げる",
+   "replace": "Increases the attack power of all allies."
+  }
+ },
+ {
+  "id": 37,
+  "name": {
+   "addr": "0819BE06",
+   "max": 8,
+   "term": "0000",
+   "original": "ラクカジャ",
+   "replace": "Rakukaja",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BE18",
+   "addr": "08004158",
+   "term": "0301",
+   "original": "味方全員の防御力を上げる",
+   "replace": "Increases the defense of all allies."
+  }
+ },
+ {
+  "id": 38,
+  "name": {
+   "addr": "0819BE22",
+   "max": 8,
+   "term": "0000",
+   "original": "スクカジャ",
+   "replace": "Sukukaja",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BE34",
+   "addr": "08004172",
+   "term": "0301",
+   "original": "味方全員の命中率を上げる",
+   "replace": "Increases the accuracy of all allies."
+  }
+ },
+ {
+  "id": 39,
+  "name": {
+   "addr": "0819BE3E",
+   "max": 8,
+   "term": "0000",
+   "original": "マカカジャ",
+   "replace": "Makakaja",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BE50",
+   "addr": "0800418C",
+   "term": "0301",
+   "original": "味方全員の魔法力を上げる",
+   "replace": "Increases the magic power of all allies."
+  }
+ },
+ {
+  "id": 40,
+  "name": {
+   "addr": "0819BE5A",
+   "max": 8,
+   "term": "0000",
+   "original": "テトラジャ",
+   "replace": "Tetraja",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BE6C",
+   "addr": "080041A6",
+   "term": "0301",
+   "original": "味方を敵のエナジードレイン{n}から防ぐ",
+   "replace": "Protects allies from Energy Drain."
+  }
+ },
+ {
+  "id": 41,
+  "name": {
+   "addr": "0819BE76",
+   "max": 8,
+   "term": "0000",
+   "original": "マカラカーン",
+   "replace": "Makarakarn",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BE88",
+   "addr": "080041CC",
+   "term": "0301",
+   "original": "敵の攻撃魔法を{n}1ターンの間はね返す",
+   "replace": "Reflects enemy magic attacks for 1 turn."
+  }
+ },
+ {
+  "id": 42,
+  "name": {
+   "addr": "0819BE92",
+   "max": 8,
+   "term": "0000",
+   "original": "テトラカーン",
+   "replace": "Tetrakarn",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BEA4",
+   "addr": "080041F2",
+   "term": "0301",
+   "original": "敵の直接攻撃を{n}1ターンの間はね返す",
+   "replace": "Reflects enemy physical attacks for 1 turn."
+  }
+ },
+ {
+  "id": 43,
+  "name": {
+   "addr": "0819BEAE",
+   "max": 8,
+   "term": "0000",
+   "original": "ディア",
+   "replace": "Dia",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BEC0",
+   "addr": "08004218",
+   "term": "0301",
+   "original": "味方1人のHPを{n}少し回復する",
+   "replace": "Recovers a small amount of HP for one ally."
+  }
+ },
+ {
+  "id": 44,
+  "name": {
+   "addr": "0819BECA",
+   "max": 8,
+   "term": "0000",
+   "original": "ディアラマ",
+   "replace": "Diarama",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BEDC",
+   "addr": "08004238",
+   "term": "0301",
+   "original": "味方1人のHPを{n}大きく回復する",
+   "replace": "Recovers a large amount of HP for one ally."
+  }
+ },
+ {
+  "id": 45,
+  "name": {
+   "addr": "0819BEE6",
+   "max": 8,
+   "term": "0000",
+   "original": "ディアラハン",
+   "replace": "Diarahan",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BEF8",
+   "addr": "0800425A",
+   "term": "0301",
+   "original": "味方1人のHPを{n}MAXまで回復する",
+   "replace": "Recovers HP to MAX for one ally."
+  }
+ },
+ {
+  "id": 46,
+  "name": {
+   "addr": "0819BF02",
+   "max": 8,
+   "term": "0000",
+   "original": "メディア",
+   "replace": "Media",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BF14",
+   "addr": "08004280",
+   "term": "0301",
+   "original": "味方全体にディアの効果",
+   "replace": "Applies Dia effect to all allies."
+  }
+ },
+ {
+  "id": 47,
+  "name": {
+   "addr": "0819BF1E",
+   "max": 8,
+   "term": "0000",
+   "original": "メディラマ",
+   "replace": "Mediarama",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BF30",
+   "addr": "08004298",
+   "term": "0301",
+   "original": "味方全体にディアラマの効果",
+   "replace": "Applies Diarama effect to all allies."
+  }
+ },
+ {
+  "id": 48,
+  "name": {
+   "addr": "0819BF3A",
+   "max": 8,
+   "term": "0000",
+   "original": "メディアラハン",
+   "replace": "Mediarahan",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BF4C",
+   "addr": "080042B4",
+   "term": "0301",
+   "original": "味方全体にディアラハンの効果",
+   "replace": "Applies Diarahan effect to all allies."
+  }
+ },
+ {
+  "id": 49,
+  "name": {
+   "addr": "0819BF56",
+   "max": 8,
+   "term": "0000",
+   "original": "パトラ",
+   "replace": "Patra",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BF68",
+   "addr": "080042D2",
+   "term": "0301",
+   "original": "味方1人の軽いステータス異常を{n}回復する",
+   "replace": "Recovers minor status ailments for one ally."
+  }
+ },
+ {
+  "id": 50,
+  "name": {
+   "addr": "0819BF72",
+   "max": 8,
+   "term": "0000",
+   "original": "ペンパトラ",
+   "replace": "Penpatra",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BF84",
+   "addr": "080042FC",
+   "term": "0301",
+   "original": "味方全体の軽いステータス異常を{n}回復する",
+   "replace": "Recovers minor status ailments for all allies."
+  }
+ },
+ {
+  "id": 51,
+  "name": {
+   "addr": "0819BF8E",
+   "max": 8,
+   "term": "0000",
+   "original": "ポズムディ",
+   "replace": "Posumudi",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BFA0",
+   "addr": "08004326",
+   "term": "0301",
+   "original": "味方1人のPOISON状態を{n}回復する",
+   "replace": "Recovers Poison status for one ally."
+  }
+ },
+ {
+  "id": 52,
+  "name": {
+   "addr": "0819BFAA",
+   "max": 8,
+   "term": "0000",
+   "original": "パララディ",
+   "replace": "Paraladi",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BFBC",
+   "addr": "0800434E",
+   "term": "0301",
+   "original": "味方1人のPALYZE状態を{n}回復する",
+   "replace": "Recovers Paralyze status for one ally."
+  }
+ },
+ {
+  "id": 53,
+  "name": {
+   "addr": "0819BFC6",
+   "max": 8,
+   "term": "0000",
+   "original": "ペトラディ",
+   "replace": "Petradi",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BFD8",
+   "addr": "08004376",
+   "term": "0301",
+   "original": "味方1人のSTONE状態を{n}回復する",
+   "replace": "Recovers Stone status for one ally."
+  }
+ },
+ {
+  "id": 54,
+  "name": {
+   "addr": "0819BFE2",
+   "max": 8,
+   "term": "0000",
+   "original": "リカーム",
+   "replace": "Recarm",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819BFF4",
+   "addr": "0800439C",
+   "term": "0301",
+   "original": "味方1人のDYING・DEAD{n}状態を　HP1／4の状態で回復",
+   "replace": "Recovers HP to 1/4 for one Dying/Dead ally."
+  }
+ },
+ {
+  "id": 55,
+  "name": {
+   "addr": "0819BFFE",
+   "max": 8,
+   "term": "0000",
+   "original": "サマリカーム",
+   "replace": "Samarecarm",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C010",
+   "addr": "080043DC",
+   "term": "0301",
+   "original": "味方1人のDYING・DEAD{n}状態を　HPMAX状態で回復",
+   "replace": "Recovers HP to MAX for one Dying/Dead ally."
+  }
+ },
+ {
+  "id": 56,
+  "name": {
+   "addr": "0819C01A",
+   "max": 8,
+   "term": "0000",
+   "original": "リカームドラ",
+   "replace": "Recarmdra",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C02C",
+   "addr": "0800441A",
+   "term": "0301",
+   "original": "術者の命と引き替えに味方全体の{n}HPをMAXにする",
+   "replace": "Recovers all allies' HP to MAX. Kills the caster."
+  }
+ },
+ {
+  "id": 57,
+  "name": {
+   "addr": "0819C036",
+   "max": 8,
+   "term": "0000",
+   "original": "マッパー",
+   "replace": "Mapper",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C048",
+   "addr": "0800444E",
+   "term": "0301",
+   "original": "周囲のMAPを表示する{n}新月で効果が切れる",
+   "replace": "Displays the nearby map. Effect wears off at new moon."
+  }
+ },
+ {
+  "id": 58,
+  "name": {
+   "addr": "0819C052",
+   "max": 8,
+   "term": "0000",
+   "original": "トラエスト",
+   "replace": "Traesto",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C064",
+   "addr": "0800447A",
+   "term": "0301",
+   "original": "3Dダンジョンから脱出し{n}進入地点に戻る",
+   "replace": "Escapes from a 3D dungeon and returns to its entrance."
+  }
+ },
+ {
+  "id": 59,
+  "name": {
+   "addr": "0819C06E",
+   "max": 8,
+   "term": "0000",
+   "original": "トラポート",
+   "replace": "Traport",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C080",
+   "addr": "080044A4",
+   "term": "0301",
+   "original": "最後にセーブしたポイントへ{n}ワープする",
+   "replace": "Warps to the last save point."
+  }
+ },
+ {
+  "id": 60,
+  "name": {
+   "addr": "0819C08A",
+   "max": 8,
+   "term": "0000",
+   "original": "トラフーリ",
+   "replace": "Trafuri",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C09C",
+   "addr": "080044CC",
+   "term": "0301",
+   "original": "戦闘から必ず脱出できる{n}ボスには無効",
+   "replace": "Can always escape from battle. Ineffective against bosses."
+  }
+ },
+ {
+  "id": 61,
+  "name": {
+   "addr": "0819C0A6",
+   "max": 8,
+   "term": "0000",
+   "original": "エストマ",
+   "replace": "Estoma",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C0B8",
+   "addr": "080044F2",
+   "term": "0301",
+   "original": "主人公より低レベルの{n}悪魔の出現を抑える",
+   "replace": "Keeps demons below your level from appearing."
+  }
+ },
+ {
+  "id": 62,
+  "name": {
+   "addr": "0819C0C2",
+   "max": 8,
+   "term": "0000",
+   "original": "サバトマ",
+   "replace": "Sabatoma",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C0D4",
+   "addr": "0800451C",
+   "term": "0301",
+   "original": "マッカを使用せずに{n}仲魔を1体召喚できる",
+   "replace": "Can summon one ally without using Macca."
+  }
+ },
+ {
+  "id": 63,
+  "name": {
+   "addr": "0819C0DE",
+   "max": 8,
+   "term": "0000",
+   "original": "ネクロマ",
+   "replace": "Necroma",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C0F0",
+   "addr": "08004546",
+   "term": "0301",
+   "original": "DEAD状態の仲魔を戦闘に{n}参加させる　戦闘時のみ有効",
+   "replace": "Brings a DEAD ally into battle. Usable only in combat."
+  }
+ },
+ {
+  "id": 64,
+  "name": {
+   "addr": "0819C0FA",
+   "max": 8,
+   "term": "0000",
+   "original": "パララアイ",
+   "replace": "Paral Eyes",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C10C",
+   "addr": "0800457E",
+   "term": "0301",
+   "original": "敵1体をPALYZE状態にする",
+   "replace": "Paralyzes one enemy."
+  }
+ },
+ {
+  "id": 65,
+  "name": {
+   "addr": "0819C116",
+   "max": 8,
+   "term": "0000",
+   "original": "ペトラアイ",
+   "replace": "Petra Eyes",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C128",
+   "addr": "0800459E",
+   "term": "0301",
+   "original": "敵1体をSTONE状態にする",
+   "replace": "Turns one enemy to STONE."
+  }
+ },
+ {
+  "id": 66,
+  "name": {
+   "addr": "0819C132",
+   "max": 8,
+   "term": "0000",
+   "original": "ヘルズアイ",
+   "replace": "Hell's Eye",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C144",
+   "addr": "080045BC",
+   "term": "0301",
+   "original": "敵1体をDEAD状態にする",
+   "replace": "Kills one enemy."
+  }
+ },
+ {
+  "id": 67,
+  "name": {
+   "addr": "0819C14E",
+   "max": 8,
+   "term": "0000",
+   "original": "バエルの呪い",
+   "replace": "Bael's Curse",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C160",
+   "addr": "080045D8",
+   "term": "0301",
+   "original": "敵1体をFLY状態にする",
+   "replace": "Turns one enemy into a fly."
+  }
+ },
+ {
+  "id": 68,
+  "name": {
+   "addr": "0819C16A",
+   "max": 8,
+   "term": "0000",
+   "original": "セクシーダンス",
+   "replace": "Sexy Dance",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C17C",
+   "addr": "080045F2",
+   "term": "0301",
+   "original": "敵全体をCHARM状態にする",
+   "replace": "Charms all enemies."
+  }
+ },
+ {
+  "id": 69,
+  "name": {
+   "addr": "0819C186",
+   "max": 8,
+   "term": "0000",
+   "original": "ハッピーダンス",
+   "replace": "Happy Dance",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C198",
+   "addr": "08004610",
+   "term": "0301",
+   "original": "敵全体をHAPPY状態にする",
+   "replace": "Puts all enemies in a Happy state."
+  }
+ },
+ {
+  "id": 70,
+  "name": {
+   "addr": "0819C1A2",
+   "max": 8,
+   "term": "0000",
+   "original": "幸せの歌",
+   "replace": "Joy Song",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C1B4",
+   "addr": "0800462E",
+   "term": "0301",
+   "original": "敵全体をHAPPY状態にする",
+   "replace": "Puts all enemies in a Happy state."
+  }
+ },
+ {
+  "id": 71,
+  "name": {
+   "addr": "0819C1BE",
+   "max": 8,
+   "term": "0000",
+   "original": "子守歌",
+   "replace": "Lullaby",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C1D0",
+   "addr": "0800464C",
+   "term": "0301",
+   "original": "敵全体をSLEEP状態にする",
+   "replace": "Puts all enemies to sleep."
+  }
+ },
+ {
+  "id": 72,
+  "name": {
+   "addr": "0819C1DA",
+   "max": 8,
+   "term": "0000",
+   "original": "パニックボイス",
+   "replace": "Panic Voice",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C1EC",
+   "addr": "0800466A",
+   "term": "0301",
+   "original": "敵全体をPANIC状態にする",
+   "replace": "Puts all enemies in a Panic state."
+  }
+ },
+ {
+  "id": 73,
+  "name": {
+   "addr": "0819C1F6",
+   "max": 8,
+   "term": "0000",
+   "original": "バインドボイス",
+   "replace": "Bind Voice",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C208",
+   "addr": "08004688",
+   "term": "0301",
+   "original": "敵全体をBIND状態にする",
+   "replace": "Binds all enemies."
+  }
+ },
+ {
+  "id": 74,
+  "name": {
+   "addr": "0819C212",
+   "max": 8,
+   "term": "0000",
+   "original": "吸血",
+   "replace": "Life Drain",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C224",
+   "addr": "080046A4",
+   "term": "0301",
+   "original": "敵1体をBAT状態にする",
+   "replace": "Turns one enemy into a bat."
+  }
+ },
+ {
+  "id": 75,
+  "name": {
+   "addr": "0819C22E",
+   "max": 8,
+   "term": "0000",
+   "original": "ファイアブレス",
+   "replace": "Fire Breath",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C240",
+   "addr": "080046BE",
+   "term": "0301",
+   "original": "敵数体に火炎系攻撃",
+   "replace": "Deals fire damage to multiple enemies."
+  }
+ },
+ {
+  "id": 76,
+  "name": {
+   "addr": "0819C24A",
+   "max": 8,
+   "term": "0000",
+   "original": "アイスブレス",
+   "replace": "Ice Breath",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C25C",
+   "addr": "080046D2",
+   "term": "0301",
+   "original": "敵数体に氷結系攻撃",
+   "replace": "Deals ice damage to multiple enemies."
+  }
+ },
+ {
+  "id": 77,
+  "name": {
+   "addr": "0819C266",
+   "max": 8,
+   "term": "0000",
+   "original": "毒ガスブレス",
+   "replace": "Poison Breath",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C278",
+   "addr": "080046E6",
+   "term": "0301",
+   "original": "敵数体を攻撃し{n}POISON状態にする",
+   "replace": "Attacks multiple enemies and inflicts Poison."
+  }
+ },
+ {
+  "id": 78,
+  "name": {
+   "addr": "0819C282",
+   "max": 8,
+   "term": "0000",
+   "original": "電撃",
+   "replace": "Shock",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C294",
+   "addr": "0800470E",
+   "term": "0301",
+   "original": "敵数体に電撃系攻撃",
+   "replace": "Deals electric damage to multiple enemies."
+  }
+ },
+ {
+  "id": 79,
+  "name": {
+   "addr": "0819C29E",
+   "max": 8,
+   "term": "0000",
+   "original": "アイスバウンド",
+   "replace": "Ice Bound",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C2B0",
+   "addr": "08004722",
+   "term": "0301",
+   "original": "　{n}　{n}",
+   "replace": "Freezes multiple enemies."
+  }
+ },
+ {
+  "id": 80,
+  "name": {
+   "addr": "0819C2BA",
+   "max": 8,
+   "term": "0000",
+   "original": "ポイズンミスト",
+   "replace": "Poison Mist",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C2CC",
+   "addr": "0800472C",
+   "term": "0301",
+   "original": "敵全体をPOISON状態にする",
+   "replace": "Poisons all enemies."
+  }
+ },
+ {
+  "id": 81,
+  "name": {
+   "addr": "0819C2D6",
+   "max": 8,
+   "term": "0000",
+   "original": "聖なる光",
+   "replace": "Holy Light",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C2E8",
+   "addr": "0800474C",
+   "term": "0301",
+   "original": "敵全体をCHARM状態にする",
+   "replace": "Charms all enemies."
+  }
+ },
+ {
+  "id": 82,
+  "name": {
+   "addr": "0819C2F2",
+   "max": 8,
+   "term": "0000",
+   "original": "悪しき輝き",
+   "replace": "Evil Shine",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C304",
+   "addr": "0800476A",
+   "term": "0301",
+   "original": "　{n}　",
+   "replace": null
+  }
+ },
+ {
+  "id": 83,
+  "name": {
+   "addr": "0819C30E",
+   "max": 8,
+   "term": "0000",
+   "original": "愚者の声",
+   "replace": "Fool's Voice",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C320",
+   "addr": "08004772",
+   "term": "0301",
+   "original": "敵全体をCLOSE状態にする",
+   "replace": "Inflicts Close on all enemies."
+  }
+ },
+ {
+  "id": 84,
+  "name": {
+   "addr": "0819C32A",
+   "max": 8,
+   "term": "0000",
+   "original": "悪魔のキス",
+   "replace": "Devil's Kiss",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C33C",
+   "addr": "08004790",
+   "term": "0301",
+   "original": "　{n}　",
+   "replace": null
+  }
+ },
+ {
+  "id": 85,
+  "name": {
+   "addr": "0819C346",
+   "max": 8,
+   "term": "0000",
+   "original": "デビルスマイル",
+   "replace": "Devil's Smile",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C358",
+   "addr": "08004798",
+   "term": "0301",
+   "original": "　{n}　",
+   "replace": null
+  }
+ },
+ {
+  "id": 86,
+  "name": {
+   "addr": "0819C362",
+   "max": 8,
+   "term": "0000",
+   "original": "フォッグブレス",
+   "replace": "Fog Breath",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C374",
+   "addr": "080047A0",
+   "term": "0301",
+   "original": "敵全体の命中率を{n}1／2に下げる",
+   "replace": "Reduces all enemy's accuracy by half."
+  }
+ },
+ {
+  "id": 87,
+  "name": {
+   "addr": "0819C37E",
+   "max": 8,
+   "term": "0000",
+   "original": "パワーブレス",
+   "replace": "Power Breath",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C390",
+   "addr": "080047C2",
+   "term": "0301",
+   "original": "術者の攻撃力と命中率を{n}上昇させる",
+   "replace": "Raises the caster's attack power and accuracy."
+  }
+ },
+ {
+  "id": 88,
+  "name": {
+   "addr": "0819C39A",
+   "max": 8,
+   "term": "0000",
+   "original": "ダークブレス",
+   "replace": "Dark Breath",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C3AC",
+   "addr": "080047E6",
+   "term": "0301",
+   "original": "術者の防御力と魔力を上昇させる",
+   "replace": "Raises the caster's defense and magic power."
+  }
+ },
+ {
+  "id": 89,
+  "name": {
+   "addr": "0819C3B6",
+   "max": 8,
+   "term": "0000",
+   "original": "水の壁",
+   "replace": "Water Wall",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C3C8",
+   "addr": "08004806",
+   "term": "0301",
+   "original": "火炎系魔法を無効にする{n}シールドを張る",
+   "replace": "Raises a shield that nullifies fire magic."
+  }
+ },
+ {
+  "id": 90,
+  "name": {
+   "addr": "0819C3D2",
+   "max": 8,
+   "term": "0000",
+   "original": "炎の壁",
+   "replace": "Fire Wall",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C3E4",
+   "addr": "0800482E",
+   "term": "0301",
+   "original": "氷結系魔法を無効にする{n}シールドを張る",
+   "replace": "Raises a shield that nullifies ice magic."
+  }
+ },
+ {
+  "id": 91,
+  "name": {
+   "addr": "0819C3EE",
+   "max": 8,
+   "term": "0000",
+   "original": "怪音波",
+   "replace": "Sonic Wave",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C400",
+   "addr": "08004856",
+   "term": "0301",
+   "original": "敵全体をPANIC状態にする",
+   "replace": "Inflicts Panic on all foes."
+  }
+ },
+ {
+  "id": 92,
+  "name": {
+   "addr": "0819C40A",
+   "max": 8,
+   "term": "0000",
+   "original": "天罰",
+   "replace": "Holy Wrath",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C41C",
+   "addr": "08004874",
+   "term": "0301",
+   "original": "術者と違う属性の敵に現HPの{n}1／4　味方に1／8ダメージ",
+   "replace": "Deals 1/4 HP to foes of another alignment, 1/8 to allies."
+  }
+ },
+ {
+  "id": 93,
+  "name": {
+   "addr": "0819C426",
+   "max": 8,
+   "term": "0000",
+   "original": "デスタッチ",
+   "replace": "Deathtouch",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C438",
+   "addr": "080048B0",
+   "term": "0301",
+   "original": "敵のHPを吸収して{n}自分のHPにする",
+   "replace": "Drains a foe's HP to heal the caster."
+  }
+ },
+ {
+  "id": 94,
+  "name": {
+   "addr": "0819C442",
+   "max": 8,
+   "term": "0000",
+   "original": "悪魔のキス",
+   "replace": "Devil's Kiss",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C454",
+   "addr": "080048D6",
+   "term": "0301",
+   "original": "　{n}　",
+   "replace": null
+  }
+ },
+ {
+  "id": 95,
+  "name": {
+   "addr": "0819C45E",
+   "max": 8,
+   "term": "0000",
+   "original": "遠吠え",
+   "replace": "Howl",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C470",
+   "addr": "080048DE",
+   "term": "0301",
+   "original": "月齢を4進める",
+   "replace": "Advances the moon phase by 4."
+  }
+ },
+ {
+  "id": 96,
+  "name": {
+   "addr": "0819C47A",
+   "max": 8,
+   "term": "0000",
+   "original": "逆回転",
+   "replace": "Backspin",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C48C",
+   "addr": "080048EE",
+   "term": "0301",
+   "original": "　{n}　",
+   "replace": null
+  }
+ },
+ {
+  "id": 97,
+  "name": {
+   "addr": "0819C496",
+   "max": 8,
+   "term": "0000",
+   "original": "破魔の雷光",
+   "replace": "Violet Flash",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C4A8",
+   "addr": "080048F6",
+   "term": "0301",
+   "original": "　{n}　",
+   "replace": null
+  }
+ },
+ {
+  "id": 98,
+  "name": {
+   "addr": "0819C4B2",
+   "max": 8,
+   "term": "0000",
+   "original": "ゴッドボイス",
+   "replace": "God's Voice",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C4C4",
+   "addr": "080048FE",
+   "term": "0301",
+   "original": "　{n}　",
+   "replace": null
+  }
+ },
+ {
+  "id": 99,
+  "name": {
+   "addr": "0819C4CE",
+   "max": 8,
+   "term": "0000",
+   "original": "ツァバトの声",
+   "replace": "Sabaoth's Voice",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C4E0",
+   "addr": "08004906",
+   "term": "0301",
+   "original": "　{n}　",
+   "replace": null
+  }
+ },
+ {
+  "id": 100,
+  "name": {
+   "addr": "0819C4EA",
+   "max": 8,
+   "term": "0000",
+   "original": "シャダイの目",
+   "replace": "Shaddai's Eye",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C4FC",
+   "addr": "0800490E",
+   "term": "0301",
+   "original": "　{n}　",
+   "replace": null
+  }
+ },
+ {
+  "id": 101,
+  "name": {
+   "addr": "0819C506",
+   "max": 8,
+   "term": "0000",
+   "original": "エロヒムの光",
+   "replace": "Elohim's Light",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C518",
+   "addr": "08004916",
+   "term": "0301",
+   "original": "　{n}　",
+   "replace": null
+  }
+ },
+ {
+  "id": 102,
+  "name": {
+   "addr": "0819C522",
+   "max": 8,
+   "term": "0000",
+   "original": "神の裁き",
+   "replace": "God's Judgement",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C534",
+   "addr": "0800491E",
+   "term": "0301",
+   "original": "　{n}　",
+   "replace": null
+  }
+ },
+ {
+  "id": 103,
+  "name": {
+   "addr": "0819C53E",
+   "max": 8,
+   "term": "0000",
+   "original": "ゴッドボイス",
+   "replace": "God's Voice",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C550",
+   "addr": "08004926",
+   "term": "0301",
+   "original": "　{n}　",
+   "replace": null
+  }
+ },
+ {
+  "id": 104,
+  "name": {
+   "addr": "0819C55A",
+   "max": 8,
+   "term": "0000",
+   "original": "噛みつき",
+   "replace": "Feral Bite",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C56C",
+   "addr": "0800492E",
+   "term": "0301",
+   "original": "敵1体に噛みつく",
+   "replace": "Bites one foe."
+  }
+ },
+ {
+  "id": 105,
+  "name": {
+   "addr": "0819C576",
+   "max": 8,
+   "term": "0000",
+   "original": "毒噛みつき",
+   "replace": "Venom Bite",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C588",
+   "addr": "08004940",
+   "term": "0301",
+   "original": "敵1体に噛みつき{n}POISON状態にする",
+   "replace": "Bites one foe, inflicting Poison."
+  }
+ },
+ {
+  "id": 106,
+  "name": {
+   "addr": "0819C592",
+   "max": 8,
+   "term": "0000",
+   "original": "麻痺噛みつき",
+   "replace": "Stun Bite",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C5A4",
+   "addr": "0800496A",
+   "term": "0301",
+   "original": "敵1体に噛みつき{n}PALYZE状態にする",
+   "replace": "Bites one foe, inflicting Paralyze."
+  }
+ },
+ {
+  "id": 107,
+  "name": {
+   "addr": "0819C5AE",
+   "max": 8,
+   "term": "0000",
+   "original": "石化噛みつき",
+   "replace": "Stone Bite",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C5C0",
+   "addr": "08004994",
+   "term": "0301",
+   "original": "敵1体に噛みつき{n}STONE状態にする",
+   "replace": "Bites one foe, inflicting Stone."
+  }
+ },
+ {
+  "id": 108,
+  "name": {
+   "addr": "0819C5CA",
+   "max": 8,
+   "term": "0000",
+   "original": "魅惑噛みつき",
+   "replace": "Charm Bite",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C5DC",
+   "addr": "080049BC",
+   "term": "0301",
+   "original": "敵1体に噛みつき{n}CHARM状態にする",
+   "replace": "Bites one foe, inflicting Charm."
+  }
+ },
+ {
+  "id": 109,
+  "name": {
+   "addr": "0819C5E6",
+   "max": 8,
+   "term": "0000",
+   "original": "引っかき",
+   "replace": "Feral Claw",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C5F8",
+   "addr": "080049E4",
+   "term": "0301",
+   "original": "敵2体を引っかく",
+   "replace": "Claws two foes."
+  }
+ },
+ {
+  "id": 110,
+  "name": {
+   "addr": "0819C602",
+   "max": 8,
+   "term": "0000",
+   "original": "毒引っかき",
+   "replace": "Venom Claw",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C614",
+   "addr": "080049F6",
+   "term": "0301",
+   "original": "敵2体を引っかき{n}POISON状態にする",
+   "replace": "Claws two foes, inflicting Poison."
+  }
+ },
+ {
+  "id": 111,
+  "name": {
+   "addr": "0819C61E",
+   "max": 8,
+   "term": "0000",
+   "original": "麻痺引っかき",
+   "replace": "Stun Claw",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C630",
+   "addr": "08004A20",
+   "term": "0301",
+   "original": "敵2体を引っかき{n}PALYZE状態にする",
+   "replace": "Claws two foes, inflicting Paralyze."
+  }
+ },
+ {
+  "id": 112,
+  "name": {
+   "addr": "0819C63A",
+   "max": 8,
+   "term": "0000",
+   "original": "毒針",
+   "replace": "Toxic Sting",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C64C",
+   "addr": "08004A4A",
+   "term": "0301",
+   "original": "敵1体に毒針を放って{n}POISON状態にする",
+   "replace": "Fires a poison needle at one foe, inflicting Poison."
+  }
+ },
+ {
+  "id": 113,
+  "name": {
+   "addr": "0819C656",
+   "max": 8,
+   "term": "0000",
+   "original": "麻痺針",
+   "replace": "Stun Needle",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C668",
+   "addr": "08004A78",
+   "term": "0301",
+   "original": "敵数体に麻痺針を放って{n}PALYZE状態にする",
+   "replace": "Fires stun needles at several foes, inflicting Paralyze."
+  }
+ },
+ {
+  "id": 114,
+  "name": {
+   "addr": "0819C672",
+   "max": 8,
+   "term": "0000",
+   "original": "巻きつき",
+   "replace": "Constrict",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C684",
+   "addr": "08004AA8",
+   "term": "0301",
+   "original": "敵1体に巻きつき{n}BIND状態にする",
+   "replace": "Coils around one foe, inflicting Bind."
+  }
+ },
+ {
+  "id": 115,
+  "name": {
+   "addr": "0819C68E",
+   "max": 8,
+   "term": "0000",
+   "original": "地獄突き",
+   "replace": "Hell Thrust",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C6A0",
+   "addr": "08004ACE",
+   "term": "0301",
+   "original": "敵1体を攻撃し{n}CLOSE状態にする",
+   "replace": "Attacks one foe, inflicting Close."
+  }
+ },
+ {
+  "id": 116,
+  "name": {
+   "addr": "0819C6AA",
+   "max": 8,
+   "term": "0000",
+   "original": "スキャニング",
+   "replace": "Scan",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C6BC",
+   "addr": "08004AF4",
+   "term": "0301",
+   "original": "敵2体を攻撃し{n}PALYZE状態にする",
+   "replace": "Attacks two foes, inflicting Paralyze."
+  }
+ },
+ {
+  "id": 117,
+  "name": {
+   "addr": "0819C6C6",
+   "max": 8,
+   "term": "0000",
+   "original": "天羽の舞",
+   "replace": "Heavenly Dance",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C6D8",
+   "addr": "08004B1C",
+   "term": "0301",
+   "original": "　{n}　",
+   "replace": null
+  }
+ },
+ {
+  "id": 118,
+  "name": {
+   "addr": "0819C6E2",
+   "max": 8,
+   "term": "0000",
+   "original": "乱れ打ち",
+   "replace": "Iron Punch",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C6F4",
+   "addr": "08004B24",
+   "term": "0301",
+   "original": "敵全体を攻撃し{n}CLOSE状態にする",
+   "replace": "Attacks all foes, inflicting Close."
+  }
+ },
+ {
+  "id": 119,
+  "name": {
+   "addr": "0819C6FE",
+   "max": 8,
+   "term": "0000",
+   "original": "風神撃",
+   "replace": "Fujin Attack",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C710",
+   "addr": "08004B4A",
+   "term": "0301",
+   "original": "敵全体を攻撃し{n}FREEZE状態にする",
+   "replace": "Attacks all foes, inflicting Freeze."
+  }
+ },
+ {
+  "id": 120,
+  "name": {
+   "addr": "0819C71A",
+   "max": 8,
+   "term": "0000",
+   "original": "雷神撃",
+   "replace": "Raijin Attack",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C72C",
+   "addr": "08004B72",
+   "term": "0301",
+   "original": "　{n}　",
+   "replace": null
+  }
+ },
+ {
+  "id": 121,
+  "name": {
+   "addr": "0819C736",
+   "max": 8,
+   "term": "0000",
+   "original": "消化液",
+   "replace": "Acid",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C748",
+   "addr": "08004B7A",
+   "term": "0301",
+   "original": "　{n}　",
+   "replace": null
+  }
+ },
+ {
+  "id": 122,
+  "name": {
+   "addr": "0819C752",
+   "max": 8,
+   "term": "0000",
+   "original": "誘惑の霧",
+   "replace": "Alluring Fog",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C764",
+   "addr": "08004B82",
+   "term": "0301",
+   "original": "敵全体を攻撃し{n}CHARM状態にする",
+   "replace": "Attacks all foes, inflicting Charm."
+  }
+ },
+ {
+  "id": 123,
+  "name": {
+   "addr": "0819C76E",
+   "max": 8,
+   "term": "0000",
+   "original": "羽ばたき",
+   "replace": "Wing Flap",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C780",
+   "addr": "08004BA8",
+   "term": "0301",
+   "original": "敵全体にダメージを与える",
+   "replace": "Deals damage to all foes."
+  }
+ },
+ {
+  "id": 124,
+  "name": {
+   "addr": "0819C78A",
+   "max": 8,
+   "term": "0000",
+   "original": "九十九針",
+   "replace": "Needle Rush",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C79C",
+   "addr": "08004BC2",
+   "term": "0301",
+   "original": "敵数体にダメージを与える",
+   "replace": "Deals damage to several foes."
+  }
+ },
+ {
+  "id": 125,
+  "name": {
+   "addr": "0819C7A6",
+   "max": 8,
+   "term": "0000",
+   "original": "体当たり",
+   "replace": "Tackle",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C7B8",
+   "addr": "08004BDC",
+   "term": "0301",
+   "original": "敵に突進してダメージを与える",
+   "replace": "Charges a foe, dealing damage."
+  }
+ },
+ {
+  "id": 126,
+  "name": {
+   "addr": "0819C7C2",
+   "max": 8,
+   "term": "0000",
+   "original": "暴れまくり",
+   "replace": "Rampage",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C7D4",
+   "addr": "08004BFA",
+   "term": "0301",
+   "original": "敵全体にダメージを与える",
+   "replace": "Deals damage to all foes."
+  }
+ },
+ {
+  "id": 127,
+  "name": {
+   "addr": "0819C7DE",
+   "max": 8,
+   "term": "0000",
+   "original": "押し潰し",
+   "replace": "Squash",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C7F0",
+   "addr": "08004C14",
+   "term": "0301",
+   "original": "敵1体を押しつぶす",
+   "replace": "Crushes one foe."
+  }
+ },
+ {
+  "id": 128,
+  "name": {
+   "addr": "0819C7FA",
+   "max": 8,
+   "term": "0000",
+   "original": "なぎ払い",
+   "replace": "Cleave",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C80C",
+   "addr": "08004C28",
+   "term": "0301",
+   "original": "敵全体にダメージを与える",
+   "replace": "Deals damage to all foes."
+  }
+ },
+ {
+  "id": 129,
+  "name": {
+   "addr": "0819C816",
+   "max": 8,
+   "term": "0000",
+   "original": "ショータイム",
+   "replace": "Showtime",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C828",
+   "addr": "08004C42",
+   "term": "0301",
+   "original": "　{n}　",
+   "replace": null
+  }
+ },
+ {
+  "id": 130,
+  "name": {
+   "addr": "0819C832",
+   "max": 8,
+   "term": "0000",
+   "original": "殴る",
+   "replace": "Punch",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C844",
+   "addr": "08004C4A",
+   "term": "0301",
+   "original": "敵1体を殴りダメージを与える",
+   "replace": "Punches one foe for damage."
+  }
+ },
+ {
+  "id": 131,
+  "name": {
+   "addr": "0819C84E",
+   "max": 8,
+   "term": "0000",
+   "original": "裏拳",
+   "replace": "Backfist",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C860",
+   "addr": "08004C68",
+   "term": "0301",
+   "original": "殴るの強化版",
+   "replace": "Enhanced version of Punch."
+  }
+ },
+ {
+  "id": 132,
+  "name": {
+   "addr": "0819C86A",
+   "max": 8,
+   "term": "0000",
+   "original": "鉄拳パンチ",
+   "replace": "Tekken Punch",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C87C",
+   "addr": "08004C76",
+   "term": "0301",
+   "original": "敵数体を殴りダメージを与える",
+   "replace": "Punches several foes for damage."
+  }
+ },
+ {
+  "id": 133,
+  "name": {
+   "addr": "0819C886",
+   "max": 8,
+   "term": "0000",
+   "original": "アカシャアーツ",
+   "replace": "Akasha Arts",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C898",
+   "addr": "08004C94",
+   "term": "0301",
+   "original": "敵全体を拳で攻撃する",
+   "replace": "Strikes all foes with fists."
+  }
+ },
+ {
+  "id": 134,
+  "name": {
+   "addr": "0819C8A2",
+   "max": 8,
+   "term": "0000",
+   "original": "蹴り",
+   "replace": "Kick",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C8B4",
+   "addr": "08004CAA",
+   "term": "0301",
+   "original": "敵1体を蹴りダメージを与える",
+   "replace": "Kicks one foe for damage."
+  }
+ },
+ {
+  "id": 135,
+  "name": {
+   "addr": "0819C8BE",
+   "max": 8,
+   "term": "0000",
+   "original": "回し蹴り",
+   "replace": "Roundhouse Kick",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C8D0",
+   "addr": "08004CC8",
+   "term": "0301",
+   "original": "蹴りの強化版",
+   "replace": "Enhanced version of Kick."
+  }
+ },
+ {
+  "id": 136,
+  "name": {
+   "addr": "0819C8DA",
+   "max": 8,
+   "term": "0000",
+   "original": "飛び蹴り",
+   "replace": "Jump Kick",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C8EC",
+   "addr": "08004CD6",
+   "term": "0301",
+   "original": "敵数体を蹴りダメージを与える",
+   "replace": "Kicks several foes for damage."
+  }
+ },
+ {
+  "id": 137,
+  "name": {
+   "addr": "0819C8F6",
+   "max": 8,
+   "term": "0000",
+   "original": "狙い撃ち",
+   "replace": "Aim",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C908",
+   "addr": "08004CF4",
+   "term": "0301",
+   "original": "敵1体を銃で攻撃する",
+   "replace": "Shoots one foe with a gun."
+  }
+ },
+ {
+  "id": 138,
+  "name": {
+   "addr": "0819C912",
+   "max": 8,
+   "term": "0000",
+   "original": "連射撃ち",
+   "replace": "Autofire",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C924",
+   "addr": "08004D0A",
+   "term": "0301",
+   "original": "敵数体を銃で攻撃する",
+   "replace": "Shoots several foes with a gun."
+  }
+ },
+ {
+  "id": 139,
+  "name": {
+   "addr": "0819C92E",
+   "max": 8,
+   "term": "0000",
+   "original": "散弾撃ち",
+   "replace": "Shrapnel",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C940",
+   "addr": "08004D20",
+   "term": "0301",
+   "original": "敵全体を銃で攻撃する",
+   "replace": "Shoots all foes with a gun."
+  }
+ },
+ {
+  "id": 140,
+  "name": {
+   "addr": "0819C94A",
+   "max": 8,
+   "term": "0000",
+   "original": "達磨返し",
+   "replace": "Dharma Kaeshi",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C95C",
+   "addr": "08004D36",
+   "term": "0301",
+   "original": "敵1体を攻撃　術者の{n}MAXHPにより威力が変わる",
+   "replace": "Attacks one foe. Power scales with the caster's max HP."
+  }
+ },
+ {
+  "id": 141,
+  "name": {
+   "addr": "0819C966",
+   "max": 8,
+   "term": "0000",
+   "original": "冥界破",
+   "replace": "Hades Blast",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C978",
+   "addr": "08004D6A",
+   "term": "0301",
+   "original": "敵数体を攻撃　術者の{n}MAXHPにより威力が変わる",
+   "replace": "Attacks several foes. Power scales with the caster's max HP."
+  }
+ },
+ {
+  "id": 142,
+  "name": {
+   "addr": "0819C982",
+   "max": 8,
+   "term": "0000",
+   "original": "回転斬り",
+   "replace": "Spin Slash",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C994",
+   "addr": "08004D9E",
+   "term": "0301",
+   "original": "敵数体を攻撃　術者の{n}MAXHPにより威力が変わる",
+   "replace": "Attacks several foes. Power scales with the caster's max HP."
+  }
+ },
+ {
+  "id": 143,
+  "name": {
+   "addr": "0819C99E",
+   "max": 8,
+   "term": "0000",
+   "original": "菩薩掌",
+   "replace": "Bodhisattva's Palm",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C9B0",
+   "addr": "08004DD2",
+   "term": "0301",
+   "original": "敵1体を攻撃　術者の{n}MAXHPにより威力が変わる",
+   "replace": "Attacks one foe. Power scales with the caster's max HP."
+  }
+ },
+ {
+  "id": 144,
+  "name": {
+   "addr": "0819C9BA",
+   "max": 8,
+   "term": "0000",
+   "original": "雷霆蹴り",
+   "replace": "Thunder Kick",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C9CC",
+   "addr": "08004E06",
+   "term": "0301",
+   "original": "敵2体を攻撃　術者の{n}MAXHPにより威力が変わる",
+   "replace": "Attacks two foes. Power scales with the caster's max HP."
+  }
+ },
+ {
+  "id": 145,
+  "name": {
+   "addr": "0819C9D6",
+   "max": 8,
+   "term": "0000",
+   "original": "ヒートウェイブ",
+   "replace": "Heat Wave",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819C9E8",
+   "addr": "08004E3A",
+   "term": "0301",
+   "original": "敵数体を攻撃　術者の{n}MAXHPにより威力が変わる",
+   "replace": "Attacks several foes. Power scales with the caster's max HP."
+  }
+ },
+ {
+  "id": 146,
+  "name": {
+   "addr": "0819C9F2",
+   "max": 8,
+   "term": "0000",
+   "original": "デスバウンド",
+   "replace": "Deathbound",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819CA04",
+   "addr": "08004E6E",
+   "term": "0301",
+   "original": "敵数体を攻撃　術者の{n}MAXHPにより威力が変わる",
+   "replace": "Attacks several foes. Power scales with the caster's max HP."
+  }
+ },
+ {
+  "id": 147,
+  "name": {
+   "addr": "0819CA0E",
+   "max": 8,
+   "term": "0000",
+   "original": "ヘルファング",
+   "replace": "Hell Fang",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819CA20",
+   "addr": "08004EA2",
+   "term": "0301",
+   "original": "敵1体を攻撃　術者の{n}MAXHPにより威力が変わる",
+   "replace": "Attacks one foe. Power scales with the caster's max HP."
+  }
+ },
+ {
+  "id": 148,
+  "name": {
+   "addr": "0819CA2A",
+   "max": 8,
+   "term": "0000",
+   "original": "コバラスキマロ",
+   "replace": "Cobra Schemer",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819CA3C",
+   "addr": "08004ED6",
+   "term": "0301",
+   "original": "　{n}　",
+   "replace": null
+  }
+ },
+ {
+  "id": 149,
+  "name": {
+   "addr": "0819CA46",
+   "max": 8,
+   "term": "0000",
+   "original": "身代わり",
+   "replace": "Scapegoat",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819CA58",
+   "addr": "08004EDE",
+   "term": "0301",
+   "original": "1ターンの間敵の物理攻撃を{n}術者が受ける",
+   "replace": "The caster takes enemy physical attacks for 1 turn."
+  }
+ },
+ {
+  "id": 150,
+  "name": {
+   "addr": "0819CA62",
+   "max": 8,
+   "term": "0000",
+   "original": "吸収",
+   "replace": "Absorption",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819CA74",
+   "addr": "08004F08",
+   "term": "0301",
+   "original": "　{n}　",
+   "replace": null
+  }
+ },
+ {
+  "id": 151,
+  "name": {
+   "addr": "0819CA7E",
+   "max": 8,
+   "term": "0000",
+   "original": "自爆",
+   "replace": "Self-Destruct",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819CA90",
+   "addr": "08004F10",
+   "term": "0301",
+   "original": "術者LOSTで戦闘を{n}強制的に終了させる",
+   "replace": "Caster is Lost, forcibly ending the duel."
+  }
+ },
+ {
+  "id": 152,
+  "name": {
+   "addr": "0819CA9A",
+   "max": 8,
+   "term": "0000",
+   "original": "吸い付き",
+   "replace": "Suck",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819CAAC",
+   "addr": "08004F3A",
+   "term": "0301",
+   "original": "敵に与えたダメージの{n}1／2のHPが回復する",
+   "replace": "Recovers HP equal to 1/2 the damage dealt."
+  }
+ },
+ {
+  "id": 153,
+  "name": {
+   "addr": "0819CAB6",
+   "max": 8,
+   "term": "0000",
+   "original": "真空投げ",
+   "replace": "Vacuum Throw",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819CAC8",
+   "addr": "08004F68",
+   "term": "0301",
+   "original": "敵1体を戦線離脱させる",
+   "replace": "Forces one foe out of the duel."
+  }
+ },
+ {
+  "id": 154,
+  "name": {
+   "addr": "0819CAD2",
+   "max": 8,
+   "term": "0000",
+   "original": "休む",
+   "replace": "Rest",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819CAE4",
+   "addr": "08004F80",
+   "term": "0301",
+   "original": "術者のHPが{n}使用HPの3倍回復する",
+   "replace": "Recovers HP equal to 3x the HP spent."
+  }
+ },
+ {
+  "id": 155,
+  "name": {
+   "addr": "0819CAEE",
+   "max": 8,
+   "term": "0000",
+   "original": "玉砕破",
+   "replace": "Sacrifice",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819CB00",
+   "addr": "08004FA6",
+   "term": "0301",
+   "original": "　{n}　",
+   "replace": null
+  }
+ },
+ {
+  "id": 156,
+  "name": {
+   "addr": "0819CB0A",
+   "max": 8,
+   "term": "0000",
+   "original": "山津波",
+   "replace": "Landslide",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819CB1C",
+   "addr": "08004FAE",
+   "term": "0301",
+   "original": "　{n}　",
+   "replace": null
+  }
+ },
+ {
+  "id": 157,
+  "name": {
+   "addr": "0819CB26",
+   "max": 8,
+   "term": "0000",
+   "original": "守る",
+   "replace": "Guard",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819CB38",
+   "addr": "08004FB6",
+   "term": "0301",
+   "original": "　{n}　",
+   "replace": null
+  }
+ },
+ {
+  "id": 158,
+  "name": {
+   "addr": "0819CB42",
+   "max": 8,
+   "term": "0000",
+   "original": "逃げる",
+   "replace": "Escape",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819CB54",
+   "addr": "08004FBE",
+   "term": "0301",
+   "original": "　{n}　",
+   "replace": null
+  }
+ },
+ {
+  "id": 159,
+  "name": {
+   "addr": "0819CB5E",
+   "max": 8,
+   "term": "0000",
+   "original": "仲間を呼ぶ",
+   "replace": "Call Ally",
+   "sentinel": true
+  },
+  "desc": {
+   "ptr": "0819CB70",
+   "addr": "08004FC6",
+   "term": "0301",
+   "original": "　{n}　",
+   "replace": null
+  }
+ }
+]

@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "profiles": [
+    {
+      "name": "full",
+      "description": "Build the complete translated ROM.",
+      "diagnostic": false,
+      "output": "smt2-en.gba"
+    },
+    {
+      "name": "diagnostic",
+      "description": "Build the translated ROM with hardware diagnostic beacon hooks.",
+      "diagnostic": true,
+      "output": "smt2-en-diagnostic.gba"
+    }
+  ]
+}

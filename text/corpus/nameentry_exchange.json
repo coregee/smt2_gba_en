@@ -1,0 +1,42 @@
+[
+  {
+    "addr": "084F3002",
+    "ptrs": ["080D17C0"],
+    "max": 19,
+    "term": "0301",
+    "original": "ひらがな{n}カタカナ{n}英数字　{n}END　",
+    "replace": "Uppercase{n}Lowercase{n}Symbols{n}END"
+  },
+  {
+    "addr": "084F311E",
+    "ptrs": ["080D2BC0"],
+    "max": 6,
+    "term": "0301",
+    "original": "　　　交換品",
+    "replace": "   Exchange Item"
+  },
+  {
+    "addr": "084F312C",
+    "ptrs": ["080D2C98"],
+    "max": 7,
+    "term": "0301",
+    "original": "　　　交換精霊",
+    "replace": "   Trade Elements"
+  },
+  {
+    "addr": "084F3FDC",
+    "ptrs": ["080D4E6C"],
+    "max": 9,
+    "term": "0301",
+    "original": "コードを入力せよ：",
+    "replace": "Enter the code:"
+  },
+  {
+    "addr": "084F3FFC",
+    "ptrs": ["080D4EB4"],
+    "max": 11,
+    "term": "0301",
+    "original": "あら　ћが　足りないわ",
+    "replace": "Oh? You're short on ћ."
+  }
+]

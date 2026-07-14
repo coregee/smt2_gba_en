@@ -1,0 +1,362 @@
+[
+ {
+  "addr": "081A5C34",
+  "max": 7,
+  "term": "0000",
+  "original": "神霊",
+  "replace": "Godly",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5C44",
+  "max": 7,
+  "term": "0000",
+  "original": "大天使",
+  "replace": "Herald",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5C54",
+  "max": 7,
+  "term": "0000",
+  "original": "天津神",
+  "replace": "Amatsu",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5C64",
+  "max": 7,
+  "term": "0000",
+  "original": "霊鳥",
+  "replace": "Avian",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5C74",
+  "max": 7,
+  "term": "0000",
+  "original": "女神",
+  "replace": "Megami",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5C84",
+  "max": 7,
+  "term": "0000",
+  "original": "魔神",
+  "replace": "Deity",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5C94",
+  "max": 7,
+  "term": "0000",
+  "original": "神獣",
+  "replace": "Avatar",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5CA4",
+  "max": 7,
+  "term": "0000",
+  "original": "聖獣",
+  "replace": "Holy",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5CB4",
+  "max": 7,
+  "term": "0000",
+  "original": "精霊",
+  "replace": "Element",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5CC4",
+  "max": 7,
+  "term": "0000",
+  "original": "破壊神",
+  "replace": "Fury",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5CD4",
+  "max": 7,
+  "term": "0000",
+  "original": "竜神",
+  "replace": "Dragon",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5CE4",
+  "max": 7,
+  "term": "0000",
+  "original": "地母神",
+  "replace": "Lady",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5CF4",
+  "max": 7,
+  "term": "0000",
+  "original": "国津神",
+  "replace": "Kunitsu",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5D04",
+  "max": 7,
+  "term": "0000",
+  "original": "天使",
+  "replace": "Divine",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5D14",
+  "max": 7,
+  "term": "0000",
+  "original": "妖鳥",
+  "replace": "Flight",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5D24",
+  "max": 7,
+  "term": "0000",
+  "original": "メシアン",
+  "replace": "Messian",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5D34",
+  "max": 7,
+  "term": "0000",
+  "original": "竜王",
+  "replace": "Snake",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5D44",
+  "max": 7,
+  "term": "0000",
+  "original": "妖魔",
+  "replace": "Yoma",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5D54",
+  "max": 7,
+  "term": "0000",
+  "original": "魔獣",
+  "replace": "Beast",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5D64",
+  "max": 7,
+  "term": "0000",
+  "original": "夜魔",
+  "replace": "Night",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5D74",
+  "max": 7,
+  "term": "0000",
+  "original": "地霊",
+  "replace": "Jirae",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5D84",
+  "max": 7,
+  "term": "0000",
+  "original": "妖精",
+  "replace": "Fairy",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5D94",
+  "max": 7,
+  "term": "0000",
+  "original": "デモノイド",
+  "replace": "Demonoid",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5DA4",
+  "max": 7,
+  "term": "0000",
+  "original": "堕天使",
+  "replace": "Fallen",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5DB4",
+  "max": 7,
+  "term": "0000",
+  "original": "妖鬼",
+  "replace": "Brute",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5DC4",
+  "max": 7,
+  "term": "0000",
+  "original": "鬼女",
+  "replace": "Femme",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5DD4",
+  "max": 7,
+  "term": "0000",
+  "original": "ガイアーズ",
+  "replace": "Gaean",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5DE4",
+  "max": 7,
+  "term": "0000",
+  "original": "邪神",
+  "replace": "Vile",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5DF4",
+  "max": 7,
+  "term": "0000",
+  "original": "兇鳥",
+  "replace": "Raptor",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5E04",
+  "max": 7,
+  "term": "0000",
+  "original": "マシン",
+  "replace": "Machine",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5E14",
+  "max": 7,
+  "term": "0000",
+  "original": "ワクチン",
+  "replace": "Vaccine",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5E24",
+  "max": 7,
+  "term": "0000",
+  "original": "邪鬼",
+  "replace": "Jaki",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5E34",
+  "max": 7,
+  "term": "0000",
+  "original": "妖獣",
+  "replace": "Wilder",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5E44",
+  "max": 7,
+  "term": "0000",
+  "original": "妖樹",
+  "replace": "Wood",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5E54",
+  "max": 7,
+  "term": "0000",
+  "original": "屍鬼",
+  "replace": "Undead",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5E64",
+  "max": 7,
+  "term": "0000",
+  "original": "魔王",
+  "replace": "Tyrant",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5E74",
+  "max": 7,
+  "term": "0000",
+  "original": "邪竜",
+  "replace": "Drake",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5E84",
+  "max": 7,
+  "term": "0000",
+  "original": "幽鬼",
+  "replace": "Haunt",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5E94",
+  "max": 7,
+  "term": "0000",
+  "original": "悪霊",
+  "replace": "Spirit",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5EA4",
+  "max": 7,
+  "term": "0000",
+  "original": "外道",
+  "replace": "Foul",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5EB4",
+  "max": 7,
+  "term": "0000",
+  "original": "ウィルス",
+  "replace": "Virus",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5EC4",
+  "max": 7,
+  "term": "0000",
+  "original": "戦士",
+  "replace": "Warrior",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5ED4",
+  "max": 7,
+  "term": "0000",
+  "original": "神将",
+  "replace": "Shinshou",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5EE4",
+  "max": 7,
+  "term": "0000",
+  "original": "魔人",
+  "replace": "Fiend",
+  "sentinel": true
+ },
+ {
+  "addr": "081A5EF4",
+  "max": 7,
+  "term": "0000",
+  "original": "合体剣",
+  "replace": "Fuse",
+  "sentinel": true
+ }
+]

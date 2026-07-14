@@ -1,0 +1,32 @@
+[
+ {
+  "addr": "08165574",
+  "ptrs": [
+   "080B95B8"
+  ],
+  "max": 16,
+  "term": "0000",
+  "original": "ここではCOMPを使用できません",
+  "replace": "Can't use the COMP."
+ },
+ {
+  "addr": "081652D8",
+  "ptrs": [
+   "080B9218"
+  ],
+  "max": 5,
+  "term": "0000",
+  "original": "は力尽きた",
+  "replace": " collapsed."
+ },
+ {
+  "addr": "08165654",
+  "ptrs": [
+   "080B9C54"
+  ],
+  "max": 15,
+  "term": "0000",
+  "original": "声：{n}ご利用階をお選びください",
+  "replace": "Voice:{n}Choose a floor."
+ }
+]

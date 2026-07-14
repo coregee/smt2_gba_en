@@ -1,0 +1,91 @@
+found 54 runs total; 18 outside known region
+
+TABLE src=0x087707E0 entries=145 targets~0x0812490C-0x081261AA
+    □は回復した·
+    悪魔たちはスライムになった·
+    □は回復した·
+
+TABLE src=0x086BED5C entries=108 targets~0x08123A06-0x08125ED4
+    □は/にらんだ·
+    □は/にらんだ·
+    □は/にらんだ·
+
+TABLE src=0x0876FE40 entries=47 targets~0x0812509E-0x081254F0
+    □から/MPを吸い取った·
+    □は/MPを吸い取られた·
+    悪魔たちの/攻撃力を下げた·
+
+TABLE src=0x0876FC9C entries=30 targets~0x08124894-0x08124B80
+    COMP作動
+    COMPを/使える状態ではありません·
+    コンピュータシステムエラー·
+
+TABLE src=0x08032CD8 entries=29 targets~0x080A1190-0x080A14F2
+    ·ふふふ　ここでは　命など/わたげの様に　かるい！··□
+    ·今日も　この俺の手は/血で染まるのか！··□
+    ·アンタの中にすくう魔が/オイラを狂気に　かりたてるぅ！··□
+
+TABLE src=0x0876FFB8 entries=28 targets~0x08125502-0x0812576E
+    □は/力が抜けていった·
+    □は/HPを吸い取られた·
+    □の/HPを吸い取った·
+
+TABLE src=0x087700B4 entries=28 targets~0x081264EE-0x08126794
+    悪魔を倒した
+    □は□のEXPを得た·
+    □のお金を手に入れた·
+
+TABLE src=0x086BEC28 entries=27 targets~0x081231C2-0x08123C9A
+    単独を開始します
+    悪魔と会話します
+    単独から逃げ出します
+
+TABLE src=0x086BEF10 entries=21 targets~0x08123052-0x08123BC2
+    は呪われた
+    は虜にされた
+    を虜にした
+
+TABLE src=0x08770060 entries=20 targets~0x0812623E-0x081264CA
+    □は/どうしますか？
+    □は逃げだした・···・···・···・···・··・··・··・··・··・·・·・·・/
+    □は逃げだした・···・···・···・···・··・··・··・··・··・·・·・·・/
+
+TABLE src=0x084F3838 entries=18 targets~0x0815BC8C-0x0815BC8C
+    私は□　□/貴方に忠誠をちかい/守護をにないましょう/·
+    私は□　□/貴方に忠誠をちかい/守護をにないましょう/·
+    私は□　□/貴方に忠誠をちかい/守護をにないましょう/·
+
+TABLE src=0x0876FD7C entries=18 targets~0x08124EC2-0x0812507E
+    すでに中身はからっぽだ·
+    しかし中身はからっぽだった·
+    ·誰も魔法を使えない·
+
+TABLE src=0x0876FC2C entries=12 targets~0x0812474A-0x08124818
+    店を出る
+    掛け軸　　　　￥　10000
+    水□画　　　　￥　12800
+
+TABLE src=0x087F02C8 entries=12 targets~0x0815BBD4-0x0815BDC4
+    ワシは□　□/今後とも　よろしく/·
+    俺サマは□　□だ/ま　今後とも　よろしく頼む/·
+    オイラ/□　□だぽーん！/今後とも　よろよろぴーー！/·
+
+TABLE src=0x0876FC00 entries=10 targets~0x081246B0-0x0812472E
+    2身合体
+    3身合体
+    ステイタスを見る
+
+TABLE src=0x0876FD18 entries=10 targets~0x08124BAA-0x08124D36
+    ·位置替えできない·
+    ·持っていない·
+    使えるアイテムは持っていません·
+
+TABLE src=0x086BE630 entries=9 targets~0x08123216-0x08123C9A
+    剣で攻撃します
+    獣で攻撃します
+    COMPを使用します
+
+TABLE src=0x087E3340 entries=8 targets~0x087E32C8-0x087E331C
+    　1〜　9
+    10〜19
+    20〜29

@@ -1,0 +1,2607 @@
+[
+ {
+  "category": "Recovery",
+  "Japanese": "傷薬",
+  "Effect": "Heal some HP.",
+  "name": "Medicine"
+ },
+ {
+  "category": "Recovery",
+  "Japanese": "魔石",
+  "Effect": "Heals 1/4 max HP. Useful in demon negotiation.",
+  "name": "Life Stone"
+ },
+ {
+  "category": "Recovery",
+  "Japanese": "宝玉",
+  "Effect": "Restores all HP.",
+  "name": "Bead"
+ },
+ {
+  "category": "Recovery",
+  "Japanese": "マッスルドリンコ",
+  "Effect": "Heals HP when you're tired / (May have negative effects)",
+  "name": "Muscle Drink"
+ },
+ {
+  "category": "Recovery",
+  "Japanese": "ハイパードロップ",
+  "Effect": "Heals a lot of HP when you're tired / (May have negative effects)",
+  "name": "Hyper Drop"
+ },
+ {
+  "category": "Recovery",
+  "Japanese": "ヒランヤ",
+  "Effect": "Heals a lot of HP and MP.",
+  "name": "Hiranya"
+ },
+ {
+  "category": "Recovery",
+  "Japanese": "ソーマ",
+  "Effect": "Heals all your HP, MP, and status ailments / (Can't heal Dead, Dying, or Undead statuses)",
+  "name": "Soma"
+ },
+ {
+  "category": "Recovery",
+  "Japanese": "ディストーン",
+  "Effect": "Heals Stone status.",
+  "name": "Dis-Stone"
+ },
+ {
+  "category": "Recovery",
+  "Japanese": "ディスパライズ",
+  "Effect": "Heals Paralysis status.",
+  "name": "Dis-Stun"
+ },
+ {
+  "category": "Recovery",
+  "Japanese": "ディスポイズン",
+  "Effect": "Heals Poison status.",
+  "name": "Dis-Poison"
+ },
+ {
+  "category": "Recovery",
+  "Japanese": "金丹",
+  "Effect": "Revives a Dead or Dying character and heals 1/8 max HP.",
+  "name": "Kintan"
+ },
+ {
+  "category": "Recovery",
+  "Japanese": "地返しの玉",
+  "Effect": "Revives a Dead or Dying character, and heals 1/4 of their max HP.",
+  "name": "Revival Bead"
+ },
+ {
+  "category": "Recovery",
+  "Japanese": "反魂香",
+  "Effect": "Revives a Dead or Dying character, and heals all HP.",
+  "name": "Balm of Life"
+ },
+ {
+  "category": "Recovery",
+  "Japanese": "青巻紙",
+  "Effect": "Casts a random healing spell.",
+  "name": "Blue Scroll"
+ },
+ {
+  "category": "Recovery",
+  "Japanese": "エンゼルヘアー",
+  "Effect": "Heals all damage/status ailments of LAW aligned party members. / Non-Law members take damage when using it.",
+  "name": "Angel Hair"
+ },
+ {
+  "category": "Recovery",
+  "Japanese": "阿修羅の掌",
+  "Effect": "Heals all damage/status ailments of CHAOS aligned party Members. / Non-Chaos members take damage when using it.",
+  "name": "Asura's Palm"
+ },
+ {
+  "category": "Combat",
+  "Japanese": "マハラギストーン",
+  "Effect": "Casts Maragi",
+  "name": "Maragi Stone"
+ },
+ {
+  "category": "Combat",
+  "Japanese": "マハブフストーン",
+  "Effect": "Casts Mabufu",
+  "name": "Mabufu Stone"
+ },
+ {
+  "category": "Combat",
+  "Japanese": "マハジオストーン",
+  "Effect": "Casts Mazio",
+  "name": "Mazio Stone"
+ },
+ {
+  "category": "Combat",
+  "Japanese": "赤巻紙",
+  "Effect": "Casts one spell at random from the four attack spell types.",
+  "name": "Red Scroll"
+ },
+ {
+  "category": "Combat",
+  "Japanese": "施餓鬼米",
+  "Effect": "Kills undead enemies in one hit / (Doesn't work on bosses)",
+  "name": "Segaki Rice"
+ },
+ {
+  "category": "Combat",
+  "Japanese": "蟲毒皿",
+  "Effect": "Kills two enemies with a curse / (Doesn't works on bosses)",
+  "name": "Kodoku Serving"
+ },
+ {
+  "category": "Combat",
+  "Japanese": "秘孔針",
+  "Effect": "Kills several enemies with a curse / (Doesn't work on bosses)",
+  "name": "Deadly Needle"
+ },
+ {
+  "category": "Combat",
+  "Japanese": "破魔矢",
+  "Effect": "Attack that is effective against any enemy.",
+  "name": "Expel Arrow"
+ },
+ {
+  "category": "Combat",
+  "Japanese": "毒矢",
+  "Effect": "Inflicts Poison status on one enemy.",
+  "name": "Poison Arrow"
+ },
+ {
+  "category": "Combat",
+  "Japanese": "スパイラルボム",
+  "Effect": "Puts enemy to sleep.",
+  "name": "Spiral Bomb"
+ },
+ {
+  "category": "Combat",
+  "Japanese": "溶魔の玉",
+  "Effect": "25% chance of turning enemies into Slimes.",
+  "name": "Demon-melting Bead"
+ },
+ {
+  "category": "Combat",
+  "Japanese": "パンチガン",
+  "Effect": "Knock away one enemy / (Doesn't work on bosses)",
+  "name": "Punch Gun"
+ },
+ {
+  "category": "Combat",
+  "Japanese": "バルーンシールド",
+  "Effect": "Blocks any single attack",
+  "name": "Balloon Shield"
+ },
+ {
+  "category": "Combat",
+  "Japanese": "ロザリオ",
+  "Effect": "Absorbs an energy drain attack or killing blow / (only Law aligned members can use this)",
+  "name": "Rosary"
+ },
+ {
+  "category": "Combat",
+  "Japanese": "阿弥陀数珠",
+  "Effect": "Protects you from one energy-drain attack / (Law-aligned characters cannot use it)",
+  "name": "Amidabu Beads"
+ },
+ {
+  "category": "Combat",
+  "Japanese": "如来像",
+  "Effect": "Absorbs a hit that would normally kill you / (Law-aligned members can't use this)",
+  "name": "Nyorai Statue"
+ },
+ {
+  "category": "Combat",
+  "Japanese": "聖者の笛",
+  "Effect": "Reflects any attacks from Dark demons for one round / (doesn't work on bosses)",
+  "name": "Saint Flute"
+ },
+ {
+  "category": "Incense",
+  "Japanese": "力の香",
+  "Effect": "Raises your St by one, and recovers your HP",
+  "name": "Strength Incense"
+ },
+ {
+  "category": "Incense",
+  "Japanese": "知恵の香",
+  "Effect": "Raises your In by one, and recovers your HP",
+  "name": "Intelligence Incense"
+ },
+ {
+  "category": "Incense",
+  "Japanese": "魔力の香",
+  "Effect": "Raises your Ma by one, and recovers your HP",
+  "name": "Magic Incense"
+ },
+ {
+  "category": "Incense",
+  "Japanese": "体力の香",
+  "Effect": "Raises your Vi by one, and recovers your HP",
+  "name": "Vitality Incense"
+ },
+ {
+  "category": "Incense",
+  "Japanese": "速さの香",
+  "Effect": "Raises your Ag by one, and recovers your HP",
+  "name": "Agility Incense"
+ },
+ {
+  "category": "Incense",
+  "Japanese": "運の香",
+  "Effect": "Raises your Lu by one, and recovers your HP",
+  "name": "Luck Incense"
+ },
+ {
+  "category": "Misc",
+  "Japanese": "見渡しの鐘",
+  "Effect": "Displays a map of nearby unexplored areas",
+  "name": "Bell of Scrying"
+ },
+ {
+  "category": "Misc",
+  "Japanese": "アミュレット",
+  "Effect": "Eliminates all damage from Damage Zones on the current floor / (effect ends when you go to another floor)",
+  "name": "Amulet"
+ },
+ {
+  "category": "Misc",
+  "Japanese": "コアシールド",
+  "Effect": "Eliminates damage from Damage Zones",
+  "name": "Core Shield"
+ },
+ {
+  "category": "Misc",
+  "Japanese": "封魔の鈴",
+  "Effect": "Reduces encounter rate / (Unless demons are higher-leveled)",
+  "name": "Repulse Bell"
+ },
+ {
+  "category": "Misc",
+  "Japanese": "霞の壺",
+  "Effect": "Until the next full moon, enemies will not notice you when you meet them / (Doesn't work on bosses)",
+  "name": "Haze Pot"
+ },
+ {
+  "category": "Misc",
+  "Japanese": "青銅の箱",
+  "Effect": "Calls forth any demon in your Devil Analyze database / (sometimes it summons the wrong demon)",
+  "name": "Bronze Box"
+ },
+ {
+  "category": "Misc",
+  "Japanese": "リアクトシート",
+  "Effect": "When the COMP user is dead, another human can summon Demons",
+  "name": "React Sheet"
+ },
+ {
+  "category": "Misc",
+  "Japanese": "メタルカード",
+  "Effect": "Used to play Code Breaker",
+  "name": "Metal Card"
+ },
+ {
+  "category": "Key",
+  "Japanese": "招待状",
+  "Effect": "Invitation to Madam's mansion",
+  "name": "Invitation Letter"
+ },
+ {
+  "category": "Key",
+  "Japanese": "市民IDカード",
+  "Effect": "Identification card for residents of the Center",
+  "name": "Resident ID"
+ },
+ {
+  "category": "Key",
+  "Japanese": "笑う人形",
+  "Effect": "One of the Five Dolls of the Abyss",
+  "name": "Laughing Doll"
+ },
+ {
+  "category": "Key",
+  "Japanese": "泣く人形",
+  "name": "Crying Doll"
+ },
+ {
+  "category": "Key",
+  "Japanese": "怒る人形",
+  "name": "Angry Doll"
+ },
+ {
+  "category": "Key",
+  "Japanese": "踊る人形",
+  "name": "Dancing Doll"
+ },
+ {
+  "category": "Key",
+  "Japanese": "火星のピラー",
+  "Effect": "One of the Seven Pillars of Solomon",
+  "name": "Mars Pillar"
+ },
+ {
+  "category": "Melee",
+  "Attack": "9",
+  "Hit%": "4",
+  "NOH": "1",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Ailment": "-",
+  "Dropped by": "Aleph Initial",
+  "name": "Attack Knife"
+ },
+ {
+  "category": "Melee",
+  "Attack": "11",
+  "Hit%": "6",
+  "NOH": "1",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Ailment": "-",
+  "Dropped by": "Knocker, Zombie",
+  "name": "Spike Rod"
+ },
+ {
+  "category": "Melee",
+  "Attack": "12",
+  "Hit%": "8",
+  "NOH": "1-3",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Ailment": "-",
+  "Dropped by": "Beth Initial",
+  "name": "Queen Bute"
+ },
+ {
+  "category": "Melee",
+  "Attack": "13",
+  "Hit%": "8",
+  "NOH": "1",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Ailment": "-",
+  "Dropped by": "Heracles",
+  "name": "Battle Hammer"
+ },
+ {
+  "category": "Melee",
+  "Attack": "15",
+  "Hit%": "7",
+  "NOH": "2",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Ailment": "-",
+  "Dropped by": "Spartan",
+  "name": "Bollock Knife"
+ },
+ {
+  "category": "Melee",
+  "Attack": "18",
+  "Hit%": "10",
+  "NOH": "2",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Ailment": "-",
+  "Dropped by": "Jack Ripper",
+  "name": "Slicer"
+ },
+ {
+  "category": "Melee",
+  "Attack": "12",
+  "Hit%": "11",
+  "NOH": "1-3",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Ailment": "-",
+  "Dropped by": "Hiroko Initial, Alp",
+  "name": "Scorpion Whip"
+ },
+ {
+  "category": "Melee",
+  "Attack": "21",
+  "Hit%": "8",
+  "NOH": "2",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Ailment": "-",
+  "Dropped by": "Slave, Ukobach",
+  "name": "Corseca"
+ },
+ {
+  "category": "Melee",
+  "Attack": "25",
+  "Hit%": "6",
+  "NOH": "1",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Ailment": "-",
+  "Dropped by": "Butcher",
+  "name": "Guillotine Axe"
+ },
+ {
+  "category": "Melee",
+  "Attack": "25",
+  "Hit%": "10",
+  "NOH": "1",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Ailment": "-",
+  "Dropped by": "Kugutsushi, Cait Sith",
+  "name": "Bizen's Tanto"
+ },
+ {
+  "category": "Melee",
+  "Attack": "20",
+  "Hit%": "15",
+  "NOH": "1-3",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Ailment": "-",
+  "Dropped by": "Pyro Jack",
+  "name": "Jet Bola"
+ },
+ {
+  "category": "Melee",
+  "Attack": "22",
+  "Hit%": "15",
+  "NOH": "1",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Ailment": "-",
+  "Dropped by": "Empusa",
+  "name": "Athame Knife"
+ },
+ {
+  "category": "Melee",
+  "Attack": "25",
+  "Hit%": "15",
+  "NOH": "2",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Ailment": "-",
+  "Dropped by": "Angel",
+  "name": "Heat Glaive"
+ },
+ {
+  "category": "Melee",
+  "Attack": "35",
+  "Hit%": "10",
+  "NOH": "1",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Ailment": "-",
+  "Dropped by": "Azumi",
+  "name": "Harakiri Sabre"
+ },
+ {
+  "category": "Melee",
+  "Attack": "32",
+  "Hit%": "15",
+  "NOH": "1",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Ailment": "-",
+  "Dropped by": "Nightmare",
+  "name": "Shadow Needle"
+ },
+ {
+  "category": "Melee",
+  "Attack": "30",
+  "Hit%": "20",
+  "NOH": "1-3",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Ailment": "-",
+  "Dropped by": "Jiraiya",
+  "name": "Hinoki Bokken"
+ },
+ {
+  "category": "Melee",
+  "Attack": "36",
+  "Hit%": "16",
+  "NOH": "1",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Ailment": "-",
+  "Dropped by": "Frankie, Duergar",
+  "name": "Head Basher"
+ },
+ {
+  "category": "Melee",
+  "Attack": "41",
+  "Hit%": "13",
+  "NOH": "1",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "Vi +1",
+  "Ailment": "-",
+  "Dropped by": "Valhalla Casino",
+  "name": "Vacuum Axe"
+ },
+ {
+  "category": "Melee",
+  "Attack": "55",
+  "Hit%": "2",
+  "NOH": "1-3",
+  "Sex": "Both",
+  "Alignment": "Chaos",
+  "Bonus": "St +1",
+  "Ailment": "-",
+  "Dropped by": "Executioner",
+  "name": "Chainsaw"
+ },
+ {
+  "category": "Melee",
+  "Attack": "43",
+  "Hit%": "38",
+  "NOH": "2",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "Ag +1",
+  "Ailment": "Sleep",
+  "Dropped by": "Worm, Neophyte",
+  "name": "Screw Lance"
+ },
+ {
+  "category": "Melee",
+  "Attack": "45",
+  "Hit%": "20",
+  "NOH": "1",
+  "Sex": "Both",
+  "Alignment": "Law",
+  "Bonus": "In +1",
+  "Ailment": "Charm",
+  "Dropped by": "Dark Elf",
+  "name": "Kodachi of Light"
+ },
+ {
+  "category": "Melee",
+  "Attack": "38",
+  "Hit%": "26",
+  "NOH": "5-7",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "Ma +1",
+  "Ailment": "-",
+  "Dropped by": "Nekomata",
+  "name": "Lotus Whip"
+ },
+ {
+  "category": "Melee",
+  "Attack": "60",
+  "Hit%": "11",
+  "NOH": "1",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "Ag +1",
+  "Ailment": "-",
+  "Dropped by": "Holy Town Casino",
+  "name": "Rocket Hammer"
+ },
+ {
+  "category": "Melee",
+  "Attack": "75",
+  "Hit%": "20",
+  "NOH": "3-5",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "Ma +1",
+  "Ailment": "-",
+  "Dropped by": "Chris the Car, Onmyoji",
+  "name": "Cursed Blade Disc"
+ },
+ {
+  "category": "Melee",
+  "Attack": "55",
+  "Hit%": "23",
+  "NOH": "3-6",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "Ma +2",
+  "Ailment": "Shock",
+  "Dropped by": "Lilim",
+  "name": "Lightning Whip"
+ },
+ {
+  "category": "Melee",
+  "Attack": "42",
+  "Hit%": "38",
+  "NOH": "2",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "St +1, Ag +1",
+  "Ailment": "-",
+  "Dropped by": "Lamia, Hannya",
+  "name": "Scarlet Nagamaki"
+ },
+ {
+  "category": "Melee",
+  "Attack": "65",
+  "Hit%": "17",
+  "NOH": "1",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "Vi +1, Lu +1",
+  "Ailment": "-",
+  "Dropped by": "Ogre, Betelgeuse",
+  "name": "Glamorous Axe"
+ },
+ {
+  "category": "Melee",
+  "Attack": "55",
+  "Hit%": "32",
+  "NOH": "2",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "Lu +2",
+  "Ailment": "Happy",
+  "Dropped by": "Valhalla B&S",
+  "name": "Skip Hammer"
+ },
+ {
+  "category": "Melee",
+  "Attack": "45",
+  "Hit%": "43",
+  "NOH": "2-4",
+  "Sex": "Male",
+  "Alignment": "Law",
+  "Bonus": "St +1, Ag +1",
+  "Ailment": "-",
+  "Dropped by": "Temple Knight",
+  "name": "Plasma Sword"
+ },
+ {
+  "category": "Melee",
+  "Attack": "60",
+  "Hit%": "31",
+  "NOH": "2",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "Vi +2",
+  "Ailment": "-",
+  "Dropped by": "Haokah",
+  "name": "Aqua Flail"
+ },
+ {
+  "category": "Melee",
+  "Attack": "62",
+  "Hit%": "33",
+  "NOH": "1-3",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "Lu +2",
+  "Ailment": "Panic",
+  "Dropped by": "Holy Town Code Breaker / Roppongi Casino",
+  "name": "Coil of Blessings"
+ },
+ {
+  "category": "Melee",
+  "Attack": "75",
+  "Hit%": "23",
+  "NOH": "1",
+  "Sex": "Male",
+  "Alignment": "Chaos",
+  "Bonus": "In +1, Ma +1",
+  "Ailment": "-",
+  "Dropped by": "Naga",
+  "name": "Tokkosho"
+ },
+ {
+  "category": "Melee",
+  "Attack": "50",
+  "Hit%": "55",
+  "NOH": "3-6",
+  "Sex": "Both",
+  "Alignment": "Law",
+  "Bonus": "St +1, Vi +1",
+  "Ailment": "-",
+  "Dropped by": "Rakshasa, Archangel",
+  "name": "Sonic Blade"
+ },
+ {
+  "category": "Melee",
+  "Attack": "87",
+  "Hit%": "24",
+  "NOH": "0-7",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "St +1, Ag +1",
+  "Ailment": "Bind",
+  "Dropped by": "Dummied",
+  "name": "Thousand Needles"
+ },
+ {
+  "category": "Melee",
+  "Attack": "72",
+  "Hit%": "40",
+  "NOH": "2",
+  "Sex": "Male",
+  "Alignment": "Neutral",
+  "Bonus": "Vi +2",
+  "Ailment": "-",
+  "Dropped by": "Eligor",
+  "name": "Vital Lance"
+ },
+ {
+  "category": "Melee",
+  "Attack": "88",
+  "Hit%": "25",
+  "NOH": "1",
+  "Sex": "Male",
+  "Alignment": "Chaos",
+  "Bonus": "-",
+  "Ailment": "-",
+  "Dropped by": "Tengu",
+  "name": "Higyosanko"
+ },
+ {
+  "category": "Melee",
+  "Attack": "106",
+  "Hit%": "20",
+  "NOH": "1",
+  "Sex": "Both",
+  "Alignment": "Law",
+  "Bonus": "In +2",
+  "Ailment": "Charm",
+  "Dropped by": "Dummied",
+  "name": "Nichirin Kodachi"
+ },
+ {
+  "category": "Melee",
+  "Attack": "90",
+  "Hit%": "37",
+  "NOH": "1-2",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "Ag +1",
+  "Ailment": "-",
+  "Dropped by": "Holy Town B&S",
+  "name": "Screp"
+ },
+ {
+  "category": "Melee",
+  "Attack": "108",
+  "Hit%": "22",
+  "NOH": "1",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "St +2",
+  "Ailment": "-",
+  "Dropped by": "Tarasque",
+  "name": "Kamikaze Axe"
+ },
+ {
+  "category": "Melee",
+  "Attack": "58",
+  "Hit%": "40",
+  "NOH": "1",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Ailment": "-",
+  "Dropped by": "Turdak, Principality",
+  "name": "Renki-no-ken"
+ },
+ {
+  "category": "Melee",
+  "Attack": "110",
+  "Hit%": "21",
+  "NOH": "2",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "Ma +1, Lu +1",
+  "Ailment": "-",
+  "Dropped by": "Mizuchi",
+  "name": "Charon's Staff"
+ },
+ {
+  "category": "Melee",
+  "Attack": "108",
+  "Hit%": "25",
+  "NOH": "1-3",
+  "Sex": "Male",
+  "Alignment": "Chaos",
+  "Bonus": "St +2, Ma +1",
+  "Ailment": "-",
+  "Dropped by": "Yaksini",
+  "name": "Ankou's Sickle"
+ },
+ {
+  "category": "Melee",
+  "Attack": "105",
+  "Hit%": "29",
+  "NOH": "0-1",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "St +2",
+  "Ailment": "-",
+  "Dropped by": "Yaka",
+  "name": "Headhunter Spoon"
+ },
+ {
+  "category": "Melee",
+  "Attack": "85",
+  "Hit%": "50",
+  "NOH": "2-7",
+  "Sex": "Female",
+  "Alignment": "Neutral",
+  "Bonus": "Ma +1, Ag +1",
+  "Ailment": "Paralyze",
+  "Dropped by": "Valhalla Casino",
+  "name": "Cat o' Nine Tails"
+ },
+ {
+  "category": "Melee",
+  "Attack": "110",
+  "Hit%": "27",
+  "NOH": "2",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "Vi +2",
+  "Ailment": "-",
+  "Dropped by": "Macha",
+  "name": "The Answerer"
+ },
+ {
+  "category": "Melee",
+  "Attack": "100",
+  "Hit%": "41",
+  "NOH": "1",
+  "Sex": "Female",
+  "Alignment": "Chaos",
+  "Bonus": "St +1, In +1, Ma +1",
+  "Ailment": "-",
+  "Dropped by": "Holy Town Casino",
+  "name": "Valhalla Sword"
+ },
+ {
+  "category": "Melee",
+  "Attack": "111",
+  "Hit%": "33",
+  "NOH": "2",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "St +1, Vi +2",
+  "Ailment": "-",
+  "Dropped by": "Worker's Dorm Code Breaker",
+  "name": "Magma Spear"
+ },
+ {
+  "category": "Melee",
+  "Attack": "125",
+  "Hit%": "20",
+  "NOH": "1",
+  "Sex": "Both",
+  "Alignment": "Law",
+  "Bonus": "St +1, In +2",
+  "Ailment": "-",
+  "Dropped by": "Power",
+  "name": "Caduceus"
+ },
+ {
+  "category": "Melee",
+  "Attack": "108",
+  "Hit%": "40",
+  "NOH": "All",
+  "Sex": "Female",
+  "Alignment": "Neutral",
+  "Bonus": "St +1, Ag +1, Lu +1",
+  "Ailment": "Freeze",
+  "Dropped by": "Otohime",
+  "name": "Majo-sen"
+ },
+ {
+  "category": "Melee",
+  "Attack": "100",
+  "Hit%": "60",
+  "NOH": "2-4",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "St +1, Ma +1, Ag +1",
+  "Ailment": "-",
+  "Dropped by": "Jinn",
+  "name": "Longinus"
+ },
+ {
+  "category": "Melee",
+  "Attack": "130",
+  "Hit%": "32",
+  "NOH": "4-6",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "St +1, Vi +2",
+  "Ailment": "Close",
+  "Dropped by": "Baphomet",
+  "name": "Fergus' Sword"
+ },
+ {
+  "category": "Melee",
+  "Attack": "135",
+  "Hit%": "29",
+  "NOH": "0-2",
+  "Sex": "Male",
+  "Alignment": "Law",
+  "Bonus": "St +2 In +1",
+  "Ailment": "-",
+  "Dropped by": "Akasaka Code Breaker",
+  "name": "Lotus Wand"
+ },
+ {
+  "category": "Melee",
+  "Attack": "115",
+  "Hit%": "50",
+  "NOH": "All",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "Ma +3",
+  "Ailment": "-",
+  "Dropped by": "Cyclops, Shuten Doji, Sword fusion",
+  "name": "Yoto Nihil"
+ },
+ {
+  "category": "Melee",
+  "Attack": "100",
+  "Hit%": "66",
+  "NOH": "2-3",
+  "Sex": "Female",
+  "Alignment": "Law",
+  "Bonus": "St +2, Ag +1",
+  "Ailment": "-",
+  "Dropped by": "Sword fusion",
+  "name": "Luna Blade"
+ },
+ {
+  "category": "Melee",
+  "Attack": "148",
+  "Hit%": "21",
+  "NOH": "5-7",
+  "Sex": "Male",
+  "Alignment": "Law",
+  "Bonus": "St +2, Vi +1",
+  "Ailment": "-",
+  "Dropped by": "Sword fusion",
+  "name": "Sol Blade"
+ },
+ {
+  "category": "Melee",
+  "Attack": "123",
+  "Hit%": "47",
+  "NOH": "2-4",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "Lu +3",
+  "Ailment": "-",
+  "Dropped by": "Kamen-Hijiri",
+  "name": "Lion's War Fan"
+ },
+ {
+  "category": "Melee",
+  "Attack": "150",
+  "Hit%": "25",
+  "NOH": "2",
+  "Sex": "Male",
+  "Alignment": "Neutral",
+  "Bonus": "St +1, In +1, Vi +1, Ag +1",
+  "Ailment": "Poison",
+  "Dropped by": "Yetzirah Corridor Code Breaker",
+  "name": "Engetsuto"
+ },
+ {
+  "category": "Melee",
+  "Attack": "140",
+  "Hit%": "38",
+  "NOH": "0-1",
+  "Sex": "Both",
+  "Alignment": "Neutral",
+  "Bonus": "St +2, Ag +1",
+  "Ailment": "-",
+  "Dropped by": "Raja Naga, Sword fusion",
+  "name": "Kuchinawa's Sword"
+ },
+ {
+  "category": "Melee",
+  "Attack": "139",
+  "Hit%": "40",
+  "NOH": "2-3",
+  "Sex": "Male",
+  "Alignment": "Neutral",
+  "Bonus": "St +1, In +1, Vi +1, Ag +1",
+  "Ailment": "Poison",
+  "Dropped by": "Roppongi Casino",
+  "name": "Hoten-Kageki"
+ },
+ {
+  "category": "Melee",
+  "Attack": "137",
+  "Hit%": "43",
+  "NOH": "3-5",
+  "Sex": "Male",
+  "Alignment": "Chaos",
+  "Bonus": "Vi +3",
+  "Ailment": "-",
+  "Dropped by": "Naragiri, Berith, Sword fusion",
+  "name": "Deathbringer"
+ },
+ {
+  "category": "Melee",
+  "Attack": "152",
+  "Hit%": "30",
+  "NOH": "2",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "St +2, Ma +1",
+  "Ailment": "-",
+  "Dropped by": "Morrigan",
+  "name": "Brionac"
+ },
+ {
+  "category": "Melee",
+  "Attack": "155",
+  "Hit%": "33",
+  "NOH": "All",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "St +2, Lu +1",
+  "Ailment": "-",
+  "Dropped by": "Cu Chulainn",
+  "name": "Gae Bolga"
+ },
+ {
+  "category": "Melee",
+  "Attack": "120",
+  "Hit%": "70",
+  "NOH": "All",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "Ag +3",
+  "Ailment": "-",
+  "Dropped by": "Titan",
+  "name": "Gleipnir"
+ },
+ {
+  "category": "Melee",
+  "Attack": "185",
+  "Hit%": "10",
+  "NOH": "1",
+  "Sex": "Male",
+  "Alignment": "Chaos",
+  "Bonus": "St +3",
+  "Ailment": "Stone",
+  "Dropped by": "Tiphareth Casino",
+  "name": "Dagda's Club"
+ },
+ {
+  "category": "Melee",
+  "Attack": "108",
+  "Hit%": "88",
+  "NOH": "0-7",
+  "Sex": "Both",
+  "Alignment": "Chaos",
+  "Bonus": "St +2, Ma +1",
+  "Ailment": "-",
+  "Dropped by": "Loki, Dominion",
+  "name": "Zuftaff Spear"
+ },
+ {
+  "category": "Melee",
+  "Attack": "130",
+  "Hit%": "50",
+  "NOH": "1",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "St +2, Lu +1",
+  "Ailment": "Poison",
+  "Dropped by": "Sword fusion",
+  "name": "Kogitsune-Maru"
+ },
+ {
+  "category": "Melee",
+  "Attack": "133",
+  "Hit%": "51",
+  "NOH": "2",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "St +2, Lu +1",
+  "Ailment": "Paralyze",
+  "Dropped by": "Hanuman, Sword fusion",
+  "name": "Fujin-ken"
+ },
+ {
+  "category": "Melee",
+  "Attack": "148",
+  "Hit%": "39",
+  "NOH": "3-6",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "St +2, Lu +2",
+  "Ailment": "-",
+  "Dropped by": "Yaksa, Sword fusion",
+  "name": "Raijin-Ken"
+ },
+ {
+  "category": "Melee",
+  "Attack": "145",
+  "Hit%": "45",
+  "NOH": "2-4",
+  "Sex": "Male",
+  "Alignment": "Chaos",
+  "Bonus": "St +2, Ma +1, Ag +2, Lu +1",
+  "Ailment": "Panic",
+  "Dropped by": "Sword fusion",
+  "name": "Bizen Osafune"
+ },
+ {
+  "category": "Melee",
+  "Attack": "140",
+  "Hit%": "53",
+  "NOH": "1-3",
+  "Sex": "Male",
+  "Alignment": "Law",
+  "Bonus": "St +2, Vi +2, Ag +1, Lu +2",
+  "Ailment": "Close",
+  "Dropped by": "Sword fusion",
+  "name": "Meito Kotetsu"
+ },
+ {
+  "category": "Melee",
+  "Attack": "125",
+  "Hit%": "70",
+  "NOH": "2",
+  "Sex": "Both",
+  "Alignment": "Law",
+  "Bonus": "St +2, In +1, Ma +2, Lu +2",
+  "Ailment": "Charm",
+  "Dropped by": "Sword fusion",
+  "name": "Seki no Kanesada"
+ },
+ {
+  "category": "Melee",
+  "Attack": "162",
+  "Hit%": "40",
+  "NOH": "2",
+  "Sex": "Both",
+  "Alignment": "Chaos",
+  "Bonus": "St +3, Ma +1, Vi +1, Ag +1, Lu +1",
+  "Ailment": "Stone",
+  "Dropped by": "Sword fusion",
+  "name": "Hannya Nagimitsu"
+ },
+ {
+  "category": "Melee",
+  "Attack": "208",
+  "Hit%": "7",
+  "NOH": "0-7",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "St +3, Ma +3, Lu +1",
+  "Ailment": "Freeze",
+  "Dropped by": "Sword fusion",
+  "name": "Yoto Muramasa"
+ },
+ {
+  "category": "Melee",
+  "Attack": "174",
+  "Hit%": "42",
+  "NOH": "2",
+  "Sex": "Both",
+  "Alignment": "Neutral",
+  "Bonus": "St +3, Vi +2, Ag +1, Lu +1",
+  "Ailment": "Sleep",
+  "Dropped by": "Sword fusion",
+  "name": "Muso-Masamune"
+ },
+ {
+  "category": "Melee",
+  "Attack": "171",
+  "Hit%": "69",
+  "NOH": "2-7",
+  "Sex": "Both",
+  "Alignment": "Law",
+  "Bonus": "St +2, Ag +2, Lu +3",
+  "Ailment": "Happy",
+  "Dropped by": "Kushiel, Sword fusion",
+  "name": "Kenun-Maru"
+ },
+ {
+  "category": "Melee",
+  "Attack": "190",
+  "Hit%": "50",
+  "NOH": "0-2",
+  "Sex": "Both",
+  "Alignment": "Chaos",
+  "Bonus": "St +2, Ma +2, Lu +3",
+  "Ailment": "Bind",
+  "Dropped by": "Kamael, Sword fusion",
+  "name": "Konryu-Maru"
+ },
+ {
+  "category": "Melee",
+  "Attack": "180",
+  "Hit%": "63",
+  "NOH": "3-6",
+  "Sex": "Both",
+  "Alignment": "Neutral",
+  "Bonus": "St +3, Ma +1, Vi +1, Lu +2",
+  "Ailment": "-",
+  "Dropped by": "Take-Mikazuchi, Sword fusion",
+  "name": "Yatsuka-no-Ken"
+ },
+ {
+  "category": "Melee",
+  "Attack": "175",
+  "Hit%": "75",
+  "NOH": "1-3",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "St +3, Ma +1, Ag +1, Lu +2",
+  "Ailment": "-",
+  "Dropped by": "O-namuchi, Metatron, Sword fusion",
+  "name": "Ame-no-Murakumo"
+ },
+ {
+  "category": "Melee",
+  "Attack": "172",
+  "Hit%": "78",
+  "NOH": "0-2",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "St +3, In +2, Lu +2",
+  "Ailment": "-",
+  "Dropped by": "Tsukuyomi, Sword fusion",
+  "name": "Ame-no-Nuboko"
+ },
+ {
+  "category": "Melee",
+  "Attack": "200",
+  "Hit%": "70",
+  "NOH": "2-4",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "St +3, In +1, Ma +1, Vi +1, Lu +3",
+  "Ailment": "Stone",
+  "Dropped by": "Susano-O, Sword fusion",
+  "name": "Hinokagutsuchi"
+ },
+ {
+  "category": "Melee",
+  "Attack": "190",
+  "Hit%": "85",
+  "NOH": "1-3",
+  "Sex": "Male",
+  "Alignment": "Law",
+  "Bonus": "St +3, In +1, Ag +2",
+  "Ailment": "Sleep",
+  "Dropped by": "Diet Building",
+  "name": "Ama-no-Mitsurugi"
+ },
+ {
+  "category": "Melee",
+  "Attack": "190",
+  "Hit%": "87",
+  "NOH": "1-3",
+  "Sex": "Male",
+  "Alignment": "Neutral",
+  "Bonus": "St +3, In +1, Vi +2",
+  "Ailment": "Freeze",
+  "Dropped by": "Arahabaki, Event",
+  "name": "Masakado's Katana"
+ },
+ {
+  "category": "Melee",
+  "Attack": "195",
+  "Hit%": "90",
+  "NOH": "3-5",
+  "Sex": "Male",
+  "Alignment": "Chaos",
+  "Bonus": "St +3, In +1, Ma +2",
+  "Ailment": "Paralyze",
+  "Dropped by": "Take-Minakata, Diet Building",
+  "name": "Kurikara's Sword"
+ },
+ {
+  "category": "Melee",
+  "Attack": "215",
+  "Hit%": "75",
+  "NOH": "1",
+  "Sex": "Male",
+  "Alignment": "non-Chaos",
+  "Bonus": "St +3, Lu +2",
+  "Ailment": "-",
+  "Dropped by": "Sage of Time",
+  "name": "Rouki Staff"
+ },
+ {
+  "category": "Melee",
+  "Attack": "220",
+  "Hit%": "75",
+  "NOH": "1",
+  "Sex": "Female",
+  "Alignment": "non-Chaos",
+  "Bonus": "St +3, Lu +2",
+  "Ailment": "-",
+  "Dropped by": "Hell's Angel",
+  "name": "Shuuki Staff"
+ },
+ {
+  "category": "Melee",
+  "Attack": "240",
+  "Hit%": "75",
+  "NOH": "1-3",
+  "Sex": "Female",
+  "Alignment": "non-Law",
+  "Bonus": "St +4, Lu +2",
+  "Ailment": "Happy",
+  "Dropped by": "Alice",
+  "name": "Shiki Staff"
+ },
+ {
+  "category": "Melee",
+  "Attack": "245",
+  "Hit%": "75",
+  "NOH": "2-4",
+  "Sex": "Male",
+  "Alignment": "non-Law",
+  "Bonus": "St +4, Lu +2",
+  "Ailment": "Panic",
+  "Dropped by": "Matador",
+  "name": "Souki Staff"
+ },
+ {
+  "category": "Melee",
+  "Attack": "255",
+  "Hit%": "70",
+  "NOH": "0-7",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "St +5, Lu +2",
+  "Ailment": "Close",
+  "Dropped by": "Ghost Q",
+  "name": "Ouki Staff"
+ },
+ {
+  "category": "Firearms",
+  "Attack": "22",
+  "Hit%": "15",
+  "NOH": "1",
+  "Sex": "Both",
+  "Alignment": "All",
+  "name": "Beretta 92"
+ },
+ {
+  "category": "Firearms",
+  "Attack": "35",
+  "Hit%": "10",
+  "NOH": "1",
+  "Sex": "Both",
+  "Alignment": "All",
+  "name": "Desert Eagle"
+ },
+ {
+  "category": "Firearms",
+  "Attack": "38",
+  "Hit%": "26",
+  "NOH": "1",
+  "Sex": "Both",
+  "Alignment": "All",
+  "name": "Miracle Glock"
+ },
+ {
+  "category": "Firearms",
+  "Attack": "25",
+  "Hit%": "21",
+  "NOH": "2-4",
+  "Sex": "Both",
+  "Alignment": "All",
+  "name": "Goncz Pistol"
+ },
+ {
+  "category": "Firearms",
+  "Attack": "70",
+  "Hit%": "18",
+  "NOH": "1",
+  "Sex": "Male",
+  "Alignment": "All",
+  "name": "Dominator"
+ },
+ {
+  "category": "Firearms",
+  "Attack": "75",
+  "Hit%": "20",
+  "NOH": "1",
+  "Sex": "Male",
+  "Alignment": "All",
+  "name": "Gyro Jet"
+ },
+ {
+  "category": "Firearms",
+  "Attack": "46",
+  "Hit%": "29",
+  "NOH": "2-4",
+  "Sex": "Both",
+  "Alignment": "All",
+  "name": "M16 Rifle"
+ },
+ {
+  "category": "Firearms",
+  "Attack": "38",
+  "Hit%": "26",
+  "NOH": "5-7",
+  "Sex": "Both",
+  "Alignment": "All",
+  "name": "Smile Stare"
+ },
+ {
+  "category": "Firearms",
+  "Attack": "60",
+  "Hit%": "40",
+  "NOH": "4-6",
+  "Sex": "Both",
+  "Alignment": "All",
+  "name": "M249 Minimi"
+ },
+ {
+  "category": "Firearms",
+  "Attack": "110",
+  "Hit%": "30",
+  "NOH": "All",
+  "Sex": "Male",
+  "Alignment": "Law",
+  "name": "SPAS12"
+ },
+ {
+  "category": "Firearms",
+  "Attack": "80",
+  "Hit%": "38",
+  "NOH": "3-6",
+  "Sex": "Both",
+  "Alignment": "All",
+  "name": "Kirai-Ho"
+ },
+ {
+  "category": "Firearms",
+  "Attack": "127",
+  "Hit%": "28",
+  "NOH": "All",
+  "Sex": "Both",
+  "Alignment": "All",
+  "name": "Death Colt"
+ },
+ {
+  "category": "Firearms",
+  "Attack": "200",
+  "Hit%": "58",
+  "NOH": "0-1",
+  "Sex": "Male",
+  "Alignment": "Neutral",
+  "name": "Barrett M90"
+ },
+ {
+  "category": "Firearms",
+  "Attack": "131",
+  "Hit%": "46",
+  "NOH": "All",
+  "Sex": "Both",
+  "Alignment": "All",
+  "name": "Golden Gun"
+ },
+ {
+  "category": "Firearms",
+  "Attack": "99",
+  "Hit%": "58",
+  "NOH": "5-7",
+  "Sex": "Male",
+  "Alignment": "Chaos",
+  "name": "M134"
+ },
+ {
+  "category": "Firearms",
+  "Attack": "150",
+  "Hit%": "38",
+  "NOH": "All",
+  "Sex": "Male",
+  "Alignment": "All",
+  "name": "Gigasmasher"
+ },
+ {
+  "category": "Firearms",
+  "Attack": "252",
+  "Hit%": "30",
+  "NOH": "0-1",
+  "Sex": "Both",
+  "Alignment": "All",
+  "name": "Kunitomo's Gun"
+ },
+ {
+  "category": "Firearms",
+  "Attack": "80",
+  "Hit%": "60",
+  "NOH": "5-7",
+  "Sex": "Both",
+  "Alignment": "All",
+  "name": "Railgun"
+ },
+ {
+  "category": "Firearms",
+  "Attack": "110",
+  "Hit%": "66",
+  "NOH": "3-5",
+  "Sex": "Male",
+  "Alignment": "Law",
+  "name": "Bodoribin"
+ },
+ {
+  "category": "Firearms",
+  "Attack": "200",
+  "Hit%": "70",
+  "NOH": "2-3",
+  "Sex": "Male",
+  "Alignment": "Neutral",
+  "name": "Blaster Gun"
+ },
+ {
+  "category": "Firearms",
+  "Attack": "165",
+  "Hit%": "50",
+  "NOH": "3-5",
+  "Sex": "Male",
+  "Alignment": "Chaos",
+  "name": "Randall Custom"
+ },
+ {
+  "category": "Firearms",
+  "Attack": "170",
+  "Hit%": "60",
+  "NOH": "All",
+  "Sex": "Both",
+  "Alignment": "Law",
+  "name": "Megido Fire"
+ },
+ {
+  "category": "Firearms",
+  "Attack": "190",
+  "Hit%": "45",
+  "NOH": "All",
+  "Sex": "Both",
+  "Alignment": "Chaos",
+  "name": "Peacemaker"
+ },
+ {
+  "category": "Firearms",
+  "Attack": "199",
+  "Hit%": "51",
+  "NOH": "All",
+  "Sex": "Both",
+  "Alignment": "All",
+  "name": "Brahmastra"
+ },
+ {
+  "category": "Ammunition",
+  "Attack": "2",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Ailment": "-",
+  "name": "Bullets"
+ },
+ {
+  "category": "Ammunition",
+  "Attack": "5",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Ailment": "Poison",
+  "name": "Poisoned Bullets"
+ },
+ {
+  "category": "Ammunition",
+  "Attack": "8",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Ailment": "-",
+  "name": "Shotgun Shells"
+ },
+ {
+  "category": "Ammunition",
+  "Attack": "10",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Ailment": "Charm",
+  "name": "Randi Shots"
+ },
+ {
+  "category": "Ammunition",
+  "Attack": "14",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Ailment": "Sleep",
+  "name": "Nerve Bullets"
+ },
+ {
+  "category": "Ammunition",
+  "Attack": "15",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Ailment": "-",
+  "name": "Cursed Bullets"
+ },
+ {
+  "category": "Ammunition",
+  "Attack": "18",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Ailment": "-",
+  "name": "Cop Killer"
+ },
+ {
+  "category": "Ammunition",
+  "Attack": "20",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Ailment": "-",
+  "name": "Blessed Bullets"
+ },
+ {
+  "category": "Ammunition",
+  "Attack": "24",
+  "Sex": "Both",
+  "Alignment": "Law",
+  "Ailment": "Close",
+  "name": "Anti-Magic Shells"
+ },
+ {
+  "category": "Ammunition",
+  "Attack": "30",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Ailment": "-",
+  "name": "Plutonium Slugs"
+ },
+ {
+  "category": "Ammunition",
+  "Attack": "32",
+  "Sex": "Both",
+  "Alignment": "Chaos",
+  "Ailment": "Stone",
+  "name": "Carbo Liner"
+ },
+ {
+  "category": "Ammunition",
+  "Attack": "35",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Ailment": "Shock",
+  "name": "Corona Shot"
+ },
+ {
+  "category": "Ammunition",
+  "Attack": "40",
+  "Sex": "Both",
+  "Alignment": "Law",
+  "Ailment": "-",
+  "name": "Bullets of Light"
+ },
+ {
+  "category": "Ammunition",
+  "Attack": "40",
+  "Sex": "Both",
+  "Alignment": "Chaos",
+  "Ailment": "-",
+  "name": "Bullets of Darkness"
+ },
+ {
+  "category": "Ammunition",
+  "Attack": "44",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Ailment": "Fly",
+  "name": "Corrosion Shells"
+ },
+ {
+  "category": "Ammunition",
+  "Attack": "50",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Ailment": "-",
+  "name": "Skull Bullets"
+ },
+ {
+  "category": "Helmets",
+  "Defense": "4",
+  "Evade": "1",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistances": "-",
+  "name": "Headgear"
+ },
+ {
+  "category": "Helmets",
+  "Defense": "6",
+  "Evade": "0",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistances": "-",
+  "name": "Fritz Helm"
+ },
+ {
+  "category": "Helmets",
+  "Defense": "8",
+  "Evade": "1",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistances": "-",
+  "name": "Nape Guard"
+ },
+ {
+  "category": "Helmets",
+  "Defense": "5",
+  "Evade": "5",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistances": "Physical",
+  "name": "Metal Turban"
+ },
+ {
+  "category": "Helmets",
+  "Defense": "10",
+  "Evade": "2",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistances": "Ice",
+  "name": "Iron Bunny Ears"
+ },
+ {
+  "category": "Helmets",
+  "Defense": "11",
+  "Evade": "3",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistances": "Bolt",
+  "name": "Frog Helm"
+ },
+ {
+  "category": "Helmets",
+  "Defense": "12",
+  "Evade": "3",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistances": "Reflect Mental",
+  "name": "Dolphin Helm"
+ },
+ {
+  "category": "Helmets",
+  "Defense": "11",
+  "Evade": "5",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "Lu +1",
+  "Resistances": "Attacks",
+  "name": "Bingo Hat"
+ },
+ {
+  "category": "Helmets",
+  "Defense": "14",
+  "Evade": "4",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistances": "-",
+  "name": "Iron Facemask"
+ },
+ {
+  "category": "Helmets",
+  "Defense": "14",
+  "Evade": "6",
+  "Sex": "Male",
+  "Alignment": "Law",
+  "Bonus": "In +1, Lu +1",
+  "Resistances": "Fire",
+  "name": "Dragon Helm"
+ },
+ {
+  "category": "Helmets",
+  "Defense": "16",
+  "Evade": "6",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "In +1",
+  "Resistances": "-",
+  "name": "Daybreak Helm"
+ },
+ {
+  "category": "Helmets",
+  "Defense": "18",
+  "Evade": "6",
+  "Sex": "Male",
+  "Alignment": "Chaos",
+  "Bonus": "In +2, Lu +1",
+  "Resistances": "-",
+  "name": "Phosphorescent Helm"
+ },
+ {
+  "category": "Helmets",
+  "Defense": "24",
+  "Evade": "6",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "In +2",
+  "Resistances": "Attacks",
+  "name": "Panzer Helm"
+ },
+ {
+  "category": "Helmets",
+  "Defense": "25",
+  "Evade": "7",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "In +2",
+  "Resistances": "Attacks",
+  "name": "Jagd Helm"
+ },
+ {
+  "category": "Helmets",
+  "Defense": "27",
+  "Evade": "7",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "In +3",
+  "Resistances": "Ice",
+  "name": "Sturm Helm"
+ },
+ {
+  "category": "Helmets",
+  "Defense": "26",
+  "Evade": "9",
+  "Sex": "Male",
+  "Alignment": "Chaos",
+  "Bonus": "In +3",
+  "Resistances": "Ice",
+  "name": "Tenma Helm"
+ },
+ {
+  "category": "Helmets",
+  "Defense": "25",
+  "Evade": "11",
+  "Sex": "Male",
+  "Alignment": "Neutral",
+  "Bonus": "In +3",
+  "Resistances": "Shock",
+  "name": "Masakado's Helm"
+ },
+ {
+  "category": "Helmets",
+  "Defense": "26",
+  "Evade": "14",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "In +3",
+  "Resistances": "Mental",
+  "name": "Jipanium Helm"
+ },
+ {
+  "category": "Helmets",
+  "Defense": "30",
+  "Evade": "15",
+  "Sex": "Male",
+  "Alignment": "Law",
+  "Bonus": "In +3, Lu +2",
+  "Resistances": "Fire",
+  "name": "Jesus Helm"
+ },
+ {
+  "category": "Helmets",
+  "Defense": "38",
+  "Evade": "12",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "In +5, Lu +1",
+  "Resistances": "Holy",
+  "name": "Hua Khon"
+ },
+ {
+  "category": "Body",
+  "Defense": "8",
+  "Evade": "2",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistance": "-",
+  "name": "Survival Vest"
+ },
+ {
+  "category": "Body",
+  "Defense": "9",
+  "Evade": "6",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "Lu +1",
+  "Resistance": "Attacks",
+  "name": "Amigo Poncho"
+ },
+ {
+  "category": "Body",
+  "Defense": "15",
+  "Evade": "5",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistance": "-",
+  "name": "Highleg Armor"
+ },
+ {
+  "category": "Body",
+  "Defense": "17",
+  "Evade": "7",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistance": "Shock",
+  "name": "Kaiser Armor"
+ },
+ {
+  "category": "Body",
+  "Defense": "21",
+  "Evade": "6",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistance": "Holy",
+  "name": "Armor of the Sun"
+ },
+ {
+  "category": "Body",
+  "Defense": "26",
+  "Evade": "5",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistance": "Fire/Ice",
+  "name": "Tang Lion Happi"
+ },
+ {
+  "category": "Body",
+  "Defense": "26",
+  "Evade": "7",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistance": "Physical",
+  "name": "Rear Unit's Armor"
+ },
+ {
+  "category": "Body",
+  "Defense": "25",
+  "Evade": "13",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistance": "Reflect Physical",
+  "name": "Skull Keikogi"
+ },
+ {
+  "category": "Body",
+  "Defense": "28",
+  "Evade": "12",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistance": "Holy",
+  "name": "Tetrajammer"
+ },
+ {
+  "category": "Body",
+  "Defense": "30",
+  "Evade": "15",
+  "Sex": "Male",
+  "Alignment": "Law",
+  "Bonus": "Vi +1, Lu +1",
+  "Resistance": "Bolt/Shock",
+  "name": "Dragon Mail"
+ },
+ {
+  "category": "Body",
+  "Defense": "35",
+  "Evade": "10",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "Vi +1",
+  "Resistance": "Holy",
+  "name": "Daybreak Armor"
+ },
+ {
+  "category": "Body",
+  "Defense": "38",
+  "Evade": "16",
+  "Sex": "Male",
+  "Alignment": "Chaos",
+  "Bonus": "Vi +2, Lu +1",
+  "Resistance": "Absorb Fire",
+  "name": "Fireball Armor"
+ },
+ {
+  "category": "Body",
+  "Defense": "46",
+  "Evade": "14",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "Vi +2",
+  "Resistance": "Attack",
+  "name": "Panzer Suit"
+ },
+ {
+  "category": "Body",
+  "Defense": "53",
+  "Evade": "15",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "Vi +2",
+  "Resistance": "Attack",
+  "name": "Jagd Armor"
+ },
+ {
+  "category": "Body",
+  "Defense": "56",
+  "Evade": "16",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "Vi +3",
+  "Resistance": "Attack",
+  "name": "Sturm Suit"
+ },
+ {
+  "category": "Body",
+  "Defense": "70",
+  "Evade": "20",
+  "Sex": "Male",
+  "Alignment": "Chaos",
+  "Bonus": "Vi +3",
+  "Resistance": "Curse",
+  "name": "Tenma Armor"
+ },
+ {
+  "category": "Body",
+  "Defense": "75",
+  "Evade": "18",
+  "Sex": "Male",
+  "Alignment": "Neutral",
+  "Bonus": "Vi +3",
+  "Resistance": "Fire",
+  "name": "Masakado's Armor"
+ },
+ {
+  "category": "Body",
+  "Defense": "88",
+  "Evade": "17",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "Vi +3",
+  "Resistance": "Physical",
+  "name": "Jipanium Suit"
+ },
+ {
+  "category": "Body",
+  "Defense": "98",
+  "Evade": "16",
+  "Sex": "Male",
+  "Alignment": "Law",
+  "Bonus": "Vi +3, Lu +2",
+  "Resistance": "Holy",
+  "name": "Jesus Armor"
+ },
+ {
+  "category": "Body",
+  "Defense": "110",
+  "Evade": "10",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "Vi +5, Lu +1",
+  "Resistance": "Bolt/Shock",
+  "name": "Tapsuan"
+ },
+ {
+  "category": "Gauntlets",
+  "Defense": "2",
+  "Evade": "1",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistance": "-",
+  "name": "Leather Glove"
+ },
+ {
+  "category": "Gauntlets",
+  "Defense": "3",
+  "Evade": "2",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "Lu +1",
+  "Resistance": "Bolt",
+  "name": "Star Glove"
+ },
+ {
+  "category": "Gauntlets",
+  "Defense": "5",
+  "Evade": "1",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistance": "-",
+  "name": "Rivet Knuckle"
+ },
+ {
+  "category": "Gauntlets",
+  "Defense": "6",
+  "Evade": "3",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistance": "Mental",
+  "name": "Jamming Arms"
+ },
+ {
+  "category": "Gauntlets",
+  "Defense": "5",
+  "Evade": "5",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistance": "-",
+  "name": "Arm Bridge"
+ },
+ {
+  "category": "Gauntlets",
+  "Defense": "9",
+  "Evade": "3",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistance": "-",
+  "name": "Whirlwind Gauntlets"
+ },
+ {
+  "category": "Gauntlets",
+  "Defense": "10",
+  "Evade": "3",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistance": "-",
+  "name": "Tachiwari Gauntlets"
+ },
+ {
+  "category": "Gauntlets",
+  "Defense": "13",
+  "Evade": "1",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistance": "-",
+  "name": "Rikiou Gauntlet"
+ },
+ {
+  "category": "Gauntlets",
+  "Defense": "12",
+  "Evade": "8",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistance": "Curse",
+  "name": "Revenge Gauntlet"
+ },
+ {
+  "category": "Gauntlets",
+  "Defense": "11",
+  "Evade": "12",
+  "Sex": "Male",
+  "Alignment": "Law",
+  "Bonus": "Ma +1, Lu +1",
+  "Resistance": "-",
+  "name": "Draupnir"
+ },
+ {
+  "category": "Gauntlets",
+  "Defense": "13",
+  "Evade": "14",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "Ma +1",
+  "Resistance": "-",
+  "name": "Daybreak Gloves"
+ },
+ {
+  "category": "Gauntlets",
+  "Defense": "18",
+  "Evade": "9",
+  "Sex": "Male",
+  "Alignment": "Chaos",
+  "Bonus": "Ma +2, Lu +1",
+  "Resistance": "Fire",
+  "name": "Inferno Gauntlet"
+ },
+ {
+  "category": "Gauntlets",
+  "Defense": "18",
+  "Evade": "12",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "Ma +2",
+  "Resistance": "-",
+  "name": "Panzer Fist"
+ },
+ {
+  "category": "Gauntlets",
+  "Defense": "15",
+  "Evade": "16",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "Ma +2",
+  "Resistance": "-",
+  "name": "Jagd Glove"
+ },
+ {
+  "category": "Gauntlets",
+  "Defense": "17",
+  "Evade": "15",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "Ma +3",
+  "Resistance": "-",
+  "name": "Sturm Glove"
+ },
+ {
+  "category": "Gauntlets",
+  "Defense": "15",
+  "Evade": "19",
+  "Sex": "Male",
+  "Alignment": "Chaos",
+  "Bonus": "Ma +3",
+  "Resistance": "-",
+  "name": "Tenma Gauntlet"
+ },
+ {
+  "category": "Gauntlets",
+  "Defense": "17",
+  "Evade": "18",
+  "Sex": "Male",
+  "Alignment": "Neutral",
+  "Bonus": "Ma +3",
+  "Resistance": "-",
+  "name": "Masakado's Gauntlet"
+ },
+ {
+  "category": "Gauntlets",
+  "Defense": "19",
+  "Evade": "18",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "Ma +3",
+  "Resistance": "Shock",
+  "name": "Jipanium Gloves"
+ },
+ {
+  "category": "Gauntlets",
+  "Defense": "22",
+  "Evade": "20",
+  "Sex": "Male",
+  "Alignment": "Law",
+  "Bonus": "Ma +3, Lu +2",
+  "Resistance": "-",
+  "name": "Jesus Gloves"
+ },
+ {
+  "category": "Gauntlets",
+  "Defense": "30",
+  "Evade": "15",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "Ma +5, Lu +1",
+  "Resistance": "Ice",
+  "name": "Pahurat"
+ },
+ {
+  "category": "Legs",
+  "Defense": "2",
+  "Evade": "4",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistance": "-",
+  "name": "Leather Boots"
+ },
+ {
+  "category": "Legs",
+  "Defense": "5",
+  "Evade": "2",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistance": "-",
+  "name": "Leggerslam"
+ },
+ {
+  "category": "Legs",
+  "Defense": "3",
+  "Evade": "6",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "Lu +1",
+  "Resistance": "-",
+  "name": "Happy Sandals"
+ },
+ {
+  "category": "Legs",
+  "Defense": "10",
+  "Evade": "0",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistance": "-",
+  "name": "Titanium Boots"
+ },
+ {
+  "category": "Legs",
+  "Defense": "1",
+  "Evade": "10",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistance": "-",
+  "name": "Dancing Heels"
+ },
+ {
+  "category": "Legs",
+  "Defense": "8",
+  "Evade": "4",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistance": "-",
+  "name": "Aero Jet"
+ },
+ {
+  "category": "Legs",
+  "Defense": "6",
+  "Evade": "7",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistance": "-",
+  "name": "Crescent Moon Greaves"
+ },
+ {
+  "category": "Legs",
+  "Defense": "10",
+  "Evade": "4",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistance": "-",
+  "name": "Climbing Shoes"
+ },
+ {
+  "category": "Legs",
+  "Defense": "12",
+  "Evade": "3",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "-",
+  "Resistance": "-",
+  "name": "Bell-toll Greaves"
+ },
+ {
+  "category": "Legs",
+  "Defense": "10",
+  "Evade": "6",
+  "Sex": "Male",
+  "Alignment": "Law",
+  "Bonus": "Ag +1, Lu +1",
+  "Resistance": "-",
+  "name": "Dragon Boots"
+ },
+ {
+  "category": "Legs",
+  "Defense": "11",
+  "Evade": "7",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "Ag +1",
+  "Resistance": "-",
+  "name": "Crimson Greaves"
+ },
+ {
+  "category": "Legs",
+  "Defense": "10",
+  "Evade": "10",
+  "Sex": "Male",
+  "Alignment": "Chaos",
+  "Bonus": "Ag +2, Lu +1",
+  "Resistance": "-",
+  "name": "Blazing Greaves"
+ },
+ {
+  "category": "Legs",
+  "Defense": "11",
+  "Evade": "13",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "Ag +2",
+  "Resistance": "-",
+  "name": "Panzer Leg"
+ },
+ {
+  "category": "Legs",
+  "Defense": "14",
+  "Evade": "11",
+  "Sex": "Male",
+  "Alignment": "All",
+  "Bonus": "Ag +2",
+  "Resistance": "-",
+  "name": "Jagd Leg"
+ },
+ {
+  "category": "Legs",
+  "Defense": "12",
+  "Evade": "15",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "Ag +3",
+  "Resistance": "-",
+  "name": "Sturm Leg"
+ },
+ {
+  "category": "Legs",
+  "Defense": "13",
+  "Evade": "16",
+  "Sex": "Male",
+  "Alignment": "Chaos",
+  "Bonus": "Ag +3",
+  "Resistance": "Attack",
+  "name": "Tenma Greaves"
+ },
+ {
+  "category": "Legs",
+  "Defense": "15",
+  "Evade": "15",
+  "Sex": "Male",
+  "Alignment": "Neutral",
+  "Bonus": "Ag +3",
+  "Resistance": "Ice",
+  "name": "Masakado's Greaves"
+ },
+ {
+  "category": "Legs",
+  "Defense": "16",
+  "Evade": "16",
+  "Sex": "Both",
+  "Alignment": "All",
+  "Bonus": "Ag +3",
+  "Resistance": "Bolt",
+  "name": "Jipanium Leg"
+ },
+ {
+  "category": "Legs",
+  "Defense": "18",
+  "Evade": "17",
+  "Sex": "Male",
+  "Alignment": "Law",
+  "Bonus": "Ag +3, Lu +2",
+  "Resistance": "Attack",
+  "name": "Jesus Leg"
+ },
+ {
+  "category": "Legs",
+  "Defense": "20",
+  "Evade": "20",
+  "Sex": "Female",
+  "Alignment": "All",
+  "Bonus": "Ag +5, Lu +1",
+  "Resistance": "Fire",
+  "name": "Khamraitao"
+ },
+ {
+  "category": "Legs",
+  "Japanese": "アメジスト",
+  "Max Hold Bonus": "In +1, Ma +1, Lu +3",
+  "Dropped by": "Bennu, Poltergeist, Furiae, Sindura, Old One",
+  "name": "Amethyst"
+ },
+ {
+  "category": "Legs",
+  "Japanese": "アクアマリン",
+  "Max Hold Bonus": "In +1, Ma +1, Lu +3",
+  "Dropped by": "Hag, Depth, Gurr, Manticore, Catura",
+  "name": "Aquamarine"
+ },
+ {
+  "category": "Legs",
+  "Japanese": "エメラルド",
+  "Max Hold Bonus": "Ma +3",
+  "Dropped by": "Nemhain, Gorgon, Nidhoggr, Hecatoncheir, Mihira",
+  "name": "Emerald"
+ },
+ {
+  "category": "Legs",
+  "Japanese": "オニキス",
+  "Max Hold Bonus": "St +1, Vi +1, Ag +3, Lu +1",
+  "Dropped by": "Celaeno, Vampire, Nyx, Ghoulette, Vikarala",
+  "name": "Onyx"
+ },
+ {
+  "category": "Legs",
+  "Japanese": "オパール",
+  "Max Hold Bonus": "St +1, In +3, Ma +3, Vi +1, Ag +1",
+  "Dropped by": "Mercurius, Gdon, Black Widow, Pazuzu, Majira",
+  "name": "Opal"
+ },
+ {
+  "category": "Legs",
+  "Japanese": "ガーネット",
+  "Max Hold Bonus": "Vi +3",
+  "Dropped by": "Aello, Orthrus, Bicorn, Wyvern, Anzu, Indara",
+  "name": "Garnet"
+ },
+ {
+  "category": "Legs",
+  "Japanese": "サファイア",
+  "Max Hold Bonus": "St +2, Ma +1, Vi +1, Lu +1",
+  "Dropped by": "Banshee, Vritra, Man Eater, Doppelganger, Mara, Betelgeuse, Vajra",
+  "name": "Sapphire"
+ },
+ {
+  "category": "Legs",
+  "Japanese": "ダイアモンド",
+  "Max Hold Bonus": "St +2, In +2",
+  "Dropped by": "Ubelluris, Oberon, Nyarlathotep, Kumbhira",
+  "name": "Diamond"
+ },
+ {
+  "category": "Legs",
+  "Japanese": "ターコイズ",
+  "Max Hold Bonus": "St +1, In +1, Ma +1, Vi +1, Ag +2, Lu +1",
+  "Dropped by": "Gagyson, Bodyconian, Hresvelgr, Makura",
+  "name": "Turquoise"
+ },
+ {
+  "category": "Legs",
+  "Japanese": "トパーズ",
+  "Max Hold Bonus": "St +2, In +2, Ma +2, Vi +2, Ag +1, Lu +1",
+  "Dropped by": "Ocypete, Tsuchigumo, Edimmu, Sandira",
+  "name": "Topaz"
+ },
+ {
+  "category": "Legs",
+  "Japanese": "パール",
+  "Max Hold Bonus": "St +1, In +2, Ma +1, Vi +2, Ag +2, Lu +1",
+  "Dropped by": "Selket, Scylla, Tiamat, Cthulhu, Pajira",
+  "name": "Pearl"
+ },
+ {
+  "category": "Legs",
+  "Japanese": "ルビー",
+  "Max Hold Bonus": "Vi +3",
+  "Dropped by": "Ganesha, Titania, Alraune, Behemoth, Andira",
+  "name": "Ruby"
+ }
+]
