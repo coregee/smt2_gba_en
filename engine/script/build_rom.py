@@ -63,7 +63,8 @@ PATCH_NAMES = (
     "patch_dictstatus",     # demon-dictionary STATUS screen stat labels -> English (repoint + 3 micro-caves)
     "patch_vision",         # DDS "素材補完" (Visionary) service: item list names + prompt -> English
     "patch_areaname",       # pure-data: English current-area names spliced into script msgs (op 0x328)
-    "patch_roomlabels",     # pure-data: 3D room-preview facility labels (JAKYOU->CATHEDRAL, ...) -> EN
+    "patch_roomlabels",     # pure-data: 3D room-preview facility labels -> canonical EN
+    "patch_maphelp",         # pure-data: matching baked-text automap-help legend sprites
     "patch_titlegfx",       # pure-data: graphics/assets/*.png baked-text graphics
     # AFTER patch_spritebuf (cave_runtext strip): boot fiction-disclaimer via the strip path.
     "patch_introdisclaimer",

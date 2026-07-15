@@ -30,11 +30,13 @@
  * zeroes the sprite COUNT, so nothing re-emits it, and the flush doesn't clear that slot), while the
  * new screen has already painted its SLOT 2 into that same tile (marker 0x100+0xC0 = 0x1C0).  An
  * empty slot 2 = "(No data)", so the stale banner sprite shows "(No data)" on the location line.
- * Fix: record the real entry frame and defer ALL marker-text VRAM writes/emits for two frames.
- * During that handoff the old banner and its source cells remain untouched; once the previous
- * screen is covered, the marker header and slot rows render normally.  Writing either the header
- * destination or slot-2 alias earlier corrupts something still visible: the former aliases the
- * party HP/MP digits, while the latter changes what the lingering location sprite displays.
+ * Fix: record the real entry frame and stage marker-text VRAM writes across three logical frames.
+ * The drawer transition stalls on its second logical frame while completing several video frames,
+ * then still owns the shared tiles on the third; a two-frame all-or-nothing barrier released every
+ * row together.  Phases 0-1 re-emit the old automap banner from its untouched 0x1C0 tiles.  Phase 2
+ * moves only the header to its marker tiles after the party panel is gone.  Phase 3 permits slot 2
+ * to reuse 0x1C0, after no location sprite points there.  The location window therefore stays
+ * visible without exposing either shared range during its unsafe phase.
  * cave_entry's steady-state cache is keyed by both content and OBJ base because the automap and
  * marker screens use different bases.
  */
@@ -55,6 +57,7 @@ typedef unsigned int   u32;
 #define PAD_TOK 0x57u
 #define INK_OVERHANG 2
 #define PITCH 0xc
+#define AUTOMAP_BANNER_TILE 0x1c0u
 
 /* current-location coord globals read by the stock header drawer 0x080c8b7c */
 #define LOC_A (*(volatile u16 *)0x03004614)
@@ -95,7 +98,35 @@ static int chunk_size(int y) { return (y >= 50 && y < 100) ? 16 : 8; }
  * are FIXED per chunk, so a HIT just re-emits sprites over the still-valid VRAM. */
 #define MCACHE ((volatile u32 *)RM_MARKER_CACHE)
 
-static u16 render_marker(const u16 *str, int x, int y, int minCell, u32 grp, u32 prio)
+static int transition_phase(void)
+{
+    u32 frame = *(volatile u32 *)0x030031bcu;
+    u32 phase;
+    if (MCACHE[0] != frame) return -1;
+    phase = (u32)(frame - MCACHE[9]);
+    return phase < 3u ? (int)phase : -1;
+}
+
+/* Keep the location window alive during the no-write handoff.  The automap rendered the same
+ * location string into 0x1C0 immediately before entry; only its OAM entry was dropped.  Re-emitting
+ * the exact number of covering sprites is safe, while re-blitting either shared tile range is not. */
+static void emit_transition_header(const u16 *str, int x, int y, u32 grp, u32 prio)
+{
+    const u16 *p;
+    s16 px = 0;
+    u16 cells, j;
+
+    for (p = str; *p; ++p) px += gw(*p);
+    cells = (u16)((px + INK_OVERHANG + 15) >> 4);
+    cells = (u16)((cells + 1) & ~1u);
+    if (cells > 16u) cells = 16u;
+    for (j = 0; j < (u16)(cells >> 1); ++j)
+        ST_Emit(ST_TMPL32, grp, 0, prio, (s16)(AUTOMAP_BANNER_TILE + j * 4),
+                (u16)(x + j * 32), (s16)y);
+}
+
+static u16 render_marker(const u16 *str, int x, int y, int minCell,
+                         u32 grp, u32 prio, int headerTakeover)
 {
     const u16 *p;
     s16 px = 0;
@@ -104,13 +135,9 @@ static u16 render_marker(const u16 *str, int x, int y, int minCell, u32 grp, u32
     u32 h = 2166136261u;
 
     if (str[0] == 0) return 0;
-    {
-        u32 frame = *(volatile u32 *)0x030031bcu;
-        /* The marker header/slot rows alias location and HP/MP tiles that the previous screen
-         * still displays during the two-frame drawer handoff.  Do not touch or emit marker text
-         * until that handoff ends; the old location banner remains valid in place meanwhile. */
-        if (MCACHE[0] == frame && (u32)(frame - MCACHE[9]) < 2u) return 0;
-    }
+    /* The marker header/slot rows alias location and HP/MP tiles that the previous screen still
+     * displays during the drawer handoff.  cave_entry preserves the old banner separately. */
+    if (transition_phase() >= 0 && !headerTakeover) return 0;
     cs   = chunk_start(y);
     if (cs < minCell) cs = minCell;             /* slot rows (minCell=32) never map below their region */
     maxc = chunk_size(y);
@@ -186,9 +213,15 @@ __attribute__((used, section(".text.entry")))      /* must be named cave_entry: 
 void cave_entry(u32 a0, u32 a1, u32 startX, u32 startY, u32 pitch)
 {
     u16 buf[33];   /* 31 glyphs + null (cap-lift) */
-    (void)a0; (void)a1; (void)pitch;
+    int phase;
+    (void)pitch;
     copy_cell(GetCell(LOC_A, LOC_B, LOC_C, LOC_D), buf);
-    render_marker(buf, (int)startX, (int)startY, 0, 1, 0);
+    phase = transition_phase();
+    if (phase >= 0 && phase < 2) {
+        emit_transition_header(buf, (int)startX, (int)startY, a0, a1);
+        return;
+    }
+    render_marker(buf, (int)startX, (int)startY, 0, a0, a1, phase == 2);
 }
 
 /* placed-marker LOCATION NAME row (hook 0x080b54f6) */
@@ -199,7 +232,7 @@ void cave_loc(u32 f4, u32 f6, u32 f0, u32 f1,
     u16 buf[33];   /* 31 glyphs + null (cap-lift) */
     (void)one; (void)zero;
     copy_cell(GetCell(f4, f6, f0, f1), buf);
-    render_marker(buf, (int)startX, (int)rowY, 32, 1, 0);   /* slot row: floor at chunk 3 */
+    render_marker(buf, (int)startX, (int)rowY, 32, 1, 0, 0);   /* slot row: floor at chunk 3 */
 }
 
 /* prompts / captions — replaces the prompt/caption bl Text_DrawSpriteString sites (y-keyed:
@@ -209,7 +242,7 @@ __attribute__((used))
 void cave_draw(const u16 *str, u32 p2, u32 p3, u32 startX, u32 startY, u32 pitch)
 {
     (void)pitch;
-    render_marker(str, (int)startX, (int)startY, 0, p2, p3);
+    render_marker(str, (int)startX, (int)startY, 0, p2, p3, 0);
 }
 
 /* empty-slot "(No data)" row — same as cave_draw but floored at chunk 3 (slot region), so
@@ -218,7 +251,7 @@ __attribute__((used))
 void cave_nodata(const u16 *str, u32 p2, u32 p3, u32 startX, u32 startY, u32 pitch)
 {
     (void)pitch;
-    render_marker(str, (int)startX, (int)startY, 32, p2, p3);
+    render_marker(str, (int)startX, (int)startY, 32, p2, p3, 0);
 }
 
 /* render-handler entry (hook 0x080b52c8), once per frame.  Jobs:
@@ -229,7 +262,7 @@ void cave_nodata(const u16 *str, u32 p2, u32 p3, u32 startX, u32 startY, u32 pit
  *    per marker frame; ==1 invalidated on every such frame -> all 7 rows re-blit -> the menu lag.
  *  - zero cave_runtext's cache magic (field-on-exit safety: our direct DMA clobbered its
  *    glyph cells, so force the field to re-render rather than serve a stale HIT).
- *  - record entryFrame so render_marker leaves all transition-shared tiles untouched for 2 frames.
+ *  - record entryFrame for the old-banner -> header-only -> full-list handoff.
  *  - restore the 2 displaced setup instrs (r6=obj, r7=obj). */
 __attribute__((naked, used))
 void cave_init(void)
@@ -252,7 +285,7 @@ void cave_init(void)
         "str  r1, [r2, #0x18]  \n"
         "str  r1, [r2, #0x1c]  \n"
         "str  r1, [r2, #0x20]  \n"
-        "str  r3, [r2, #0x24]  \n"   /* entryFrame: defer marker VRAM writes for two frames */
+        "str  r3, [r2, #0x24]  \n"   /* entryFrame for the phased marker handoff */
         "1:                    \n"
         "str  r3, [r2]         \n"   /* lastFrame = frame */
         "ldr  r1, =0x02036164  \n"   /* GLYPH_CACHE_CTX + 0x88 (cave_runtext magic) */

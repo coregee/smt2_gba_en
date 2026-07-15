@@ -26,13 +26,13 @@ TABLE = 0x08163444
 STRIDE = 10
 ALLOWED = set("ABCDEFGHIJKLMNOPQRSTUVWXYZ ()'&_")
 
-# field room preview texts (limit 8 char)
+# Field room-preview texts (9 usable chars + NUL).
 CHANGES = [
     (0,  "4a414b594f5520202000", "FUSION"),  # JAKYOU   邪教 (Cathedral of Shadows)
     (2,  "4d455349412020202000", "MESSIAN"),     # MESIA    メシア (Messian church)
     (3,  "47414941202020202000", "GAEAN"),       # GAIA     ガイア (Gaian temple)
-    (4,  "4b414946554b55202000", "RECOVERY"),    # KAIFUKU  回復
-    (5,  "495a554d492020202000", "FOUNTAIN"),    # IZUMI    泉
+    (4,  "4b414946554b55202000", "HEALER"),      # KAIFUKU  回復
+    (5,  "495a554d492020202000", "SPRING"),      # IZUMI    泉
     (17, "4a554e4b532020202000", "SHOP"),        # JUNKS    (junk shop)
     (20, "5649525455414c532000", "VR"),          # VIRTUALS (Virtual Battler)
 ]
