@@ -37,8 +37,10 @@
  * moves only the header to its marker tiles after the party panel is gone.  Phase 3 permits slot 2
  * to reuse 0x1C0, after no location sprite points there.  The location window therefore stays
  * visible without exposing either shared range during its unsafe phase.
- * cave_entry's steady-state cache is keyed by both content and OBJ base because the automap and
- * marker screens use different bases.
+ * cave_entry's steady-state cache is keyed by content, OBJ base, and the shared engine glyph-cache
+ * state.  The latter matters after NPC dialogue: its staging upload can overwrite the same OBJ
+ * cells without changing the location string or base.  A frame-gap check also catches consumers
+ * that run while the location banner is not being drawn.
  */
 
 typedef unsigned char  u8;
@@ -51,6 +53,11 @@ typedef unsigned int   u32;
 
 #define OBJ_VRAM 0x06010000u
 #define CTX_BASE (*(volatile u16 *)(RM_GLYPH_CACHE_CTX + 0))   /* +0 = base OBJ tile (384) */
+#define CTX_COUNT (*(volatile u16 *)(RM_GLYPH_CACHE_CTX + 2))
+#define CTX_CAP (*(volatile u16 *)(RM_GLYPH_CACHE_CTX + 4))
+#define CTX_DIRTY (*(volatile u16 *)(RM_GLYPH_CACHE_CTX + 6))
+#define CTX_CODES ((volatile u16 *)(RM_GLYPH_CACHE_CTX + 8))
+#define FRAME_COUNTER (*(volatile u32 *)RM_FRAME_COUNTER)
 #define DMA3SAD (*(volatile u32 *)0x040000D4)
 #define DMA3DAD (*(volatile u32 *)0x040000D8)
 #define DMA3CNT (*(volatile u32 *)0x040000DC)
@@ -98,9 +105,26 @@ static int chunk_size(int y) { return (y >= 50 && y < 100) ? 16 : 8; }
  * are FIXED per chunk, so a HIT just re-emits sprites over the still-valid VRAM. */
 #define MCACHE ((volatile u32 *)RM_MARKER_CACHE)
 
+/* Fingerprint the engine-owned cache state that can overwrite the header's direct-to-VRAM row.
+ * Dialogue composes into the staging canvas and later uploads whole cache rows.  Because our
+ * marker renderer deliberately bypasses that allocator, text+base alone cannot tell that those
+ * pixels were replaced.  Count/cap/dirty cover allocator and pending-upload transitions; the row-1
+ * code tags cover stable-count reuse. */
+static u32 header_context_hash(void)
+{
+    u32 h = 2166136261u;
+    int i;
+    h = (h ^ CTX_COUNT) * 16777619u;
+    h = (h ^ CTX_CAP) * 16777619u;
+    h = (h ^ CTX_DIRTY) * 16777619u;
+    for (i = 16; i < 32; ++i)
+        h = (h ^ CTX_CODES[i]) * 16777619u;
+    return h;
+}
+
 static int transition_phase(void)
 {
-    u32 frame = *(volatile u32 *)0x030031bcu;
+    u32 frame = FRAME_COUNTER;
     u32 phase;
     if (MCACHE[0] != frame) return -1;
     phase = (u32)(frame - MCACHE[9]);
@@ -126,7 +150,7 @@ static void emit_transition_header(const u16 *str, int x, int y, u32 grp, u32 pr
 }
 
 static u16 render_marker(const u16 *str, int x, int y, int minCell,
-                         u32 grp, u32 prio, int headerTakeover)
+                         u32 grp, u32 prio, int headerTakeover, u32 externalHash)
 {
     const u16 *p;
     s16 px = 0;
@@ -148,6 +172,7 @@ static u16 render_marker(const u16 *str, int x, int y, int minCell,
     h = (h ^ (u32)cs) * 16777619u;               /* fold chunk identity (moved string re-renders) */
     base = (u16)(CTX_BASE & 0x7ff);
     h = (h ^ (u32)base) * 16777619u;             /* automap/marker use different OBJ tile bases */
+    h = (h ^ externalHash) * 16777619u;           /* shared-cache generation (header only) */
     h = h ? h : 1u;
 
     cells = (u16)((px + INK_OVERHANG + 15) >> 4);
@@ -203,7 +228,9 @@ static void copy_cell(const u16 *cell, u16 *buf)
  *
  * Draw the current area's location-table cell (coords -> GetCell) into the header chunk.  The
  * content hash includes CTX_BASE, so crossing from the automap base (0x180) to the marker base
- * (0x100) causes exactly one redraw; stable frames are cache hits.
+ * (0x100) causes exactly one redraw.  It also fingerprints the engine cache row and invalidates
+ * after a banner-frame gap: NPC/message rendering can otherwise upload its staging row over our
+ * direct VRAM tiles, then leave the old text+base hash looking like a valid hit.
  *
  * (Was wrapped in an MCACHE[4]/[9] "freeze" that captured + re-used the cell pointer to mask the
  * "(No data)" flash — that flash is now fixed by the two-frame transition write barrier, so
@@ -214,14 +241,20 @@ void cave_entry(u32 a0, u32 a1, u32 startX, u32 startY, u32 pitch)
 {
     u16 buf[33];   /* 31 glyphs + null (cap-lift) */
     int phase;
+    u32 frame, contextHash;
     (void)pitch;
     copy_cell(GetCell(LOC_A, LOC_B, LOC_C, LOC_D), buf);
+    frame = FRAME_COUNTER;
+    contextHash = header_context_hash();
+    if ((u32)(frame - MCACHE[4]) > 1u)
+        MCACHE[3] = 0;    /* banner was absent while another screen could reuse its tiles */
+    MCACHE[4] = frame;    /* idx4 has no Y-chunk; reserve it for lastHeaderFrame */
     phase = transition_phase();
     if (phase >= 0 && phase < 2) {
         emit_transition_header(buf, (int)startX, (int)startY, a0, a1);
         return;
     }
-    render_marker(buf, (int)startX, (int)startY, 0, a0, a1, phase == 2);
+    render_marker(buf, (int)startX, (int)startY, 0, a0, a1, phase == 2, contextHash);
 }
 
 /* placed-marker LOCATION NAME row (hook 0x080b54f6) */
@@ -232,7 +265,7 @@ void cave_loc(u32 f4, u32 f6, u32 f0, u32 f1,
     u16 buf[33];   /* 31 glyphs + null (cap-lift) */
     (void)one; (void)zero;
     copy_cell(GetCell(f4, f6, f0, f1), buf);
-    render_marker(buf, (int)startX, (int)rowY, 32, 1, 0, 0);   /* slot row: floor at chunk 3 */
+    render_marker(buf, (int)startX, (int)rowY, 32, 1, 0, 0, 0);   /* slot row: floor at chunk 3 */
 }
 
 /* prompts / captions — replaces the prompt/caption bl Text_DrawSpriteString sites (y-keyed:
@@ -242,7 +275,7 @@ __attribute__((used))
 void cave_draw(const u16 *str, u32 p2, u32 p3, u32 startX, u32 startY, u32 pitch)
 {
     (void)pitch;
-    render_marker(str, (int)startX, (int)startY, 0, p2, p3, 0);
+    render_marker(str, (int)startX, (int)startY, 0, p2, p3, 0, 0);
 }
 
 /* empty-slot "(No data)" row — same as cave_draw but floored at chunk 3 (slot region), so
@@ -251,7 +284,7 @@ __attribute__((used))
 void cave_nodata(const u16 *str, u32 p2, u32 p3, u32 startX, u32 startY, u32 pitch)
 {
     (void)pitch;
-    render_marker(str, (int)startX, (int)startY, 32, p2, p3, 0);
+    render_marker(str, (int)startX, (int)startY, 32, p2, p3, 0, 0);
 }
 
 /* render-handler entry (hook 0x080b52c8), once per frame.  Jobs:
@@ -279,8 +312,8 @@ void cave_init(void)
         "str  r1, [r2, #4]     \n"
         "str  r1, [r2, #8]     \n"
         "str  r1, [r2, #0xc]   \n"
-        /* offset 0x10 (idx4) has no chunk; chunk hashes are idx 1-3,5-8.  Offset 0x24
-         * (idx9) stores entryFrame for the transition write barrier below. */
+        /* offset 0x10 (idx4) has no chunk; cave_entry stores lastHeaderFrame there.
+         * Chunk hashes are idx 1-3,5-8.  Offset 0x24 (idx9) stores entryFrame. */
         "str  r1, [r2, #0x14]  \n"
         "str  r1, [r2, #0x18]  \n"
         "str  r1, [r2, #0x1c]  \n"

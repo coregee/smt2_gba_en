@@ -473,8 +473,8 @@ NEGO_NAME_MARKER = 0x0000F800     # demon-name marker for the EVENT-VM window (c
 MARKER_CACHE     = 0x0203FDE0     # cave_markerlist per-chunk content cache: u32 lastFrame +
                                   #   u32 hash[8] (skip the re-blit when a chunk is unchanged;
                                   #   frame-gap-invalidated on screen re-enter).  40 B — ends exactly
-                                  #   at RUNTEXT_STRIP.  idx4 (cs=24, no chunk) and idx9 are free now
-                                  #   that the location freeze is gone; chunk hashes are idx 1-3,5-8.
+                                  #   at RUNTEXT_STRIP.  idx4 (cs=24, no chunk) is lastHeaderFrame;
+                                  #   idx9 is marker entryFrame; chunk hashes are idx 1-3,5-8.
 RUNTEXT_STRIP    = 0x0203FE08     # cave_strip StripState for cave_runtext (battle/menu sprite
                                   #   text): magic+frame+floor/cap + 12 cell-packed slots. 0xC8 B.
 VISION_STRIP     = 0x0203FED0     # cave_strip StripState for cave_vision's NPC material-list strip
