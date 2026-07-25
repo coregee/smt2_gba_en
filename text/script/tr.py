@@ -955,7 +955,7 @@ def write_section(sec_id, fresh):
 # {=23..}, {MACCA}) 30px.  A spaceless overlong line, or a page that ends up with more
 # lines than the window shows, is left alone and WARNED for manual attention.
 # Per-window px budgets and JP pitches live on the Section manifest (sections.py:
-# story/dialogue 198px @13, battle/battlefrag 194px @12).  These are ~10px under the widest
+# story/dialogue rommap.EVENT_WRAP_PX @13, battle/battlefrag 194px @12).  These are ~10px under the widest
 # clean JP line (218/204): EN VWF glyphs carry a left bearing whose ink overhangs the summed
 # advance, so a line packed flush to the JP max still nudged a glyph or two off the right edge —
 # the margin keeps the last glyph inside the window.

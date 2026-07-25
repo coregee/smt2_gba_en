@@ -1453,7 +1453,7 @@
     "addr": "08126546",
     "term": "0301",
     "original": "{NUMBER}個の魔石を拾った{WAIT}",
-    "replace": "Found {NUMBER} gems!{WAIT}"
+    "replace": "Found {NUMBER} Life Stones!{WAIT}"
   },
   {
     "ids": [349],

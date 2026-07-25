@@ -2922,7 +2922,7 @@
     "max": 11,
     "term": "0301",
     "original": "{NUMBER}マッカで{n}どうじゃ？",
-    "replace": "How about {NUMBER}(Macca)!"
+    "replace": "How about ћ{NUMBER}!"
   },
   {
     "ptrs": ["080348E0"],
@@ -2930,7 +2930,7 @@
     "max": 16,
     "term": "0301",
     "original": "{NUMBER}マッカよこせ{n}悪くはしねェぜ！",
-    "replace": "Give me {NUMBER}(Macca)! You won't regret it!"
+    "replace": "Give me ћ{NUMBER}! You won't regret it!"
   },
   {
     "ptrs": ["080348E4"],
@@ -2938,7 +2938,7 @@
     "max": 19,
     "term": "0301",
     "original": "オイラ　{NUMBER}マッカ{n}欲しーんだなあ………",
-    "replace": "I'd really like {NUMBER}(Macca)..."
+    "replace": "I'd really like ћ{NUMBER}..."
   },
   {
     "ptrs": ["080348E8"],
@@ -2946,7 +2946,7 @@
     "max": 11,
     "term": "0301",
     "original": "{NUMBER}マッカ{n}イタダキタイ",
-    "replace": "I WANT {NUMBER}(Macca)."
+    "replace": "I WANT ћ{NUMBER}."
   },
   {
     "ptrs": ["080348EC"],
@@ -3418,7 +3418,7 @@
     "max": 8,
     "term": "0301",
     "original": "魔石も無いのか！",
-    "replace": "You have no Magic Stones!?"
+    "replace": "You have no Life Stones!?"
   },
   {
     "ptrs": ["080349F0"],
@@ -3426,7 +3426,7 @@
     "max": 10,
     "term": "0301",
     "original": "魔石が　ねーのかーよ",
-    "replace": "What, no magic stones!?"
+    "replace": "What, no Life Stones!?"
   },
   {
     "ptrs": ["080349F4"],
@@ -3434,7 +3434,7 @@
     "max": 17,
     "term": "0301",
     "original": "ませきが　無くちゃ{n}始まらないゼ！",
-    "replace": "No Magic stones, no deal!"
+    "replace": "No Life Stones, no deal!"
   },
   {
     "ptrs": ["080349F8"],
@@ -3442,7 +3442,7 @@
     "max": 10,
     "term": "0301",
     "original": "マセキガ　ナイノカ！",
-    "replace": "YOU HAVE NO MAGIC STONES!?"
+    "replace": "YOU HAVE NO LIFE STONES!?"
   },
   {
     "ptrs": ["080349FC"],
@@ -3618,7 +3618,7 @@
     "max": 11,
     "term": "0301",
     "original": "魔石を　もらおうかの？",
-    "replace": "Could you give me a Magic Stone?"
+    "replace": "Could you give me a Life Stone?"
   },
   {
     "ptrs": ["08034A50"],
@@ -3626,7 +3626,7 @@
     "max": 12,
     "term": "0301",
     "original": "魔石を　渡してもらおう！",
-    "replace": "Hand over a Magic Stone!"
+    "replace": "Hand over a Life Stone!"
   },
   {
     "ptrs": ["08034A54"],
@@ -3634,7 +3634,7 @@
     "max": 15,
     "term": "0301",
     "original": "ませきチョーダイ！{n}ませきー！",
-    "replace": "Give me a Magic Stone! A Magic Stone!"
+    "replace": "Give me a Life Stone! A Life Stone!"
   },
   {
     "ptrs": ["08034A58"],
@@ -3642,7 +3642,7 @@
     "max": 5,
     "term": "0301",
     "original": "マセキダ！",
-    "replace": "GEMS!"
+    "replace": "A LIFE STONE!"
   },
   {
     "ptrs": ["08034A5C"],
@@ -7321,7 +7321,7 @@
     "max": 11,
     "term": "0301",
     "original": "{NUMBER}マッカ{n}寄付するのだ",
-    "replace": "Donate {NUMBER}(Macca)."
+    "replace": "Donate ћ{NUMBER}."
   },
   {
     "ptrs": ["080342C4"],
@@ -7497,7 +7497,7 @@
     "max": 14,
     "term": "0301",
     "original": "魔石…{SLOW}…{SLOW}…{SLOW}で　どうだ？",
-    "replace": "A magic stone{SLOW}...{SLOW}...{SLOW}{n}How does that sound?"
+    "replace": "A Life Stone{SLOW}...{SLOW}...{SLOW}{n}How does that sound?"
   },
   {
     "ptrs": ["0803437C", "08034380"],
@@ -9422,7 +9422,7 @@
     "max": 18,
     "term": "0301",
     "original": "{NUMBER}マッカ………{n}それで　いかがです？",
-    "replace": "{NUMBER}(Macca)... How does that sound?"
+    "replace": "ћ{NUMBER}... How does that sound?"
   },
   {
     "ptrs": ["0803369C", "080336A0"],
@@ -9430,7 +9430,7 @@
     "max": 9,
     "term": "0301",
     "original": "{NUMBER}マッカ{n}頂きたい",
-    "replace": "I want {NUMBER}(Macca)."
+    "replace": "I want ћ{NUMBER}."
   },
   {
     "ptrs": ["080336A4"],
@@ -9734,7 +9734,7 @@
     "max": 11,
     "term": "0301",
     "original": "魔石が　無いのですか？",
-    "replace": "You have no Magic Stones?"
+    "replace": "You have no Life Stones?"
   },
   {
     "ptrs": ["08033768", "0803376C"],
@@ -9742,7 +9742,7 @@
     "max": 9,
     "term": "0301",
     "original": "魔石が　無いだと！",
-    "replace": "What!? You don't have any Magic Stones?"
+    "replace": "What!? You don't have any Life Stones?"
   },
   {
     "ptrs": ["08033770"],
@@ -9830,7 +9830,7 @@
     "max": 16,
     "term": "0301",
     "original": "魔石………{n}それで　いかがです？",
-    "replace": "A gemstone... >How does that sound?"
+    "replace": "A Life Stone... >How does that sound?"
   },
   {
     "ptrs": ["080337B0", "080337B4"],
@@ -9838,7 +9838,7 @@
     "max": 9,
     "term": "0301",
     "original": "魔石を　もらおう！",
-    "replace": "I'll take a gemstone!"
+    "replace": "I'll take a Life Stone!"
   },
   {
     "ptrs": ["080337B8"],
@@ -13005,7 +13005,7 @@
     "max": 8,
     "term": "0301",
     "original": "{NUMBER}マッカ{n}おくれ",
-    "replace": "Give me {NUMBER}(Macca)."
+    "replace": "Give me ћ{NUMBER}."
   },
   {
     "ptrs": ["08032F1C", "08032F20"],
@@ -13013,7 +13013,7 @@
     "max": 11,
     "term": "0301",
     "original": "{NUMBER}マッカ{n}ちょうだい！",
-    "replace": "I want {NUMBER}(Macca)!"
+    "replace": "I want ћ{NUMBER}!"
   },
   {
     "ptrs": ["08032F24"],
@@ -13333,7 +13333,7 @@
     "max": 13,
     "term": "0301",
     "original": "魔石が　無いと言うのかえ！",
-    "replace": "You say that you lack any Magic Stones!?"
+    "replace": "You say that you lack any Life Stones!?"
   },
   {
     "ptrs": ["08032FE8"],
@@ -13341,7 +13341,7 @@
     "max": 11,
     "term": "0301",
     "original": "魔石が　無いですって！",
-    "replace": "You don't have any Magic Stones!?"
+    "replace": "You don't have any Life Stones!?"
   },
   {
     "ptrs": ["08032FEC"],
@@ -13349,7 +13349,7 @@
     "max": 13,
     "term": "0301",
     "original": "えー！　マセキ無いのお？！",
-    "replace": "Ehh!? You got no Magic Stones?!"
+    "replace": "Ehh!? You got no Life Stones?!"
   },
   {
     "ptrs": ["08032FF0"],
@@ -13461,7 +13461,7 @@
     "max": 7,
     "term": "0301",
     "original": "魔石が望みじゃ",
-    "replace": "I wish a Magic Stone."
+    "replace": "I wish a Life Stone."
   },
   {
     "ptrs": ["08033030"],
@@ -13469,7 +13469,7 @@
     "max": 8,
     "term": "0301",
     "original": "魔石　ちょうだい",
-    "replace": "Give me a magic stone."
+    "replace": "Give me a Life Stone."
   },
   {
     "ptrs": ["08033034"],
@@ -13477,7 +13477,7 @@
     "max": 7,
     "term": "0301",
     "original": "マセキちょー！",
-    "replace": "Gimme a Magic Stone!"
+    "replace": "Gimme a Life Stone!"
   },
   {
     "ptrs": ["08033038"],

@@ -13,6 +13,9 @@ This makes `col` a PIXEL accumulator and advances it by each glyph's measured wi
      trimmed advance, everything else keeps 13 (so Japanese is unchanged)
   5. LEFT-ALIGN the English glyphs (shift ink to the cell's left) so the trimmed
      advance spaces them correctly without a runtime blit-trim.
+  6. before EventVM_RunStep records a glyph, word-look ahead from the LIVE pixel
+     column and soft-wrap when separately packed negotiation fragments would overflow
+     after being concatenated by ScriptOp_EndMessage's caller-return path.
 
 Run AFTER patch_font.py. Idempotent-ish: asserts the original bytes before patching.
 """
@@ -31,6 +34,7 @@ from engine.script import rommap                                                
 B = rommap.ROM_BASE
 
 CAVE_ADDR = 0x081A6DB4          # 0xFF gap, in bl range of the patch site
+WRAP_SRC = Path(__file__).with_name("cave_vwf_wrap.c")
 TABLE_ADDR = rommap.WIDTH_TABLE       # the VWF advance table this patch fills
 TABLE_SIZE = rommap.WIDTH_TABLE_SIZE  # code-indexed advance bytes
 DEFAULT_ADV = 13
@@ -39,6 +43,8 @@ COL0, COL1, ROW0, ROW1 = 2, 13, 2, 14   # drawn window
 
 P1_ADDR, P1_OLD, P1_NEW = 0x0813dc90, bytes.fromhex("6843"), bytes.fromhex("c046")  # mul -> nop
 P2_ADDR, P2_OLD = 0x0813dcc8, bytes.fromhex("01303080")                              # add#1;strh -> bl
+PREWRAP_ADDR = 0x0813DC8C
+PREWRAP_OLD = bytes.fromhex("30880d25")  # ldrh r0,[r6]; movs r5,#13
 
 
 def cave_bytes():
@@ -67,6 +73,56 @@ def english_codes(rom):
     return out
 
 
+def measure_advances(rom):
+    """Return the exact English glyph advances used by both the ROM hook and wrap tests."""
+    adv = {}
+    for code in english_codes(rom):
+        cols = ink_cols(decode_main_glyph(rom, code))
+        adv[code] = (max(cols) - min(cols) + 1 + GAP) if cols else 5
+    return adv
+
+
+def simulate_runtime_fragments(fragments, widths):
+    """Host-side mirror of cave_vwf_wrap.c for regression tests and diagnostics.
+
+    `fragments` is an iterable of independently terminated u16 token sequences.  The
+    returned `(token, col, row)` placements model the live event-VM state retained across
+    fragment returns.  Controls are intentionally outside this small diagnostic helper;
+    the production cave handles their boundaries directly.
+    """
+    placements = []
+    col = row = 0
+    for fragment in fragments:
+        fragment = list(fragment)
+        for i, token in enumerate(fragment):
+            if token == rommap.TOK_NEWLINE:
+                col, row = 0, row + 1
+                continue
+            if not (0 <= token < len(widths)):
+                continue
+            previous = fragment[i - 1] if i else None
+            word_start = i == 0 or previous in (rommap.ENG_LO, 0x003F)
+            if (col and word_start and rommap.ENG_LO <= token < rommap.ENG_HI
+                    and token != rommap.ENG_LO):
+                word_width = 0
+                for following in fragment[i:i + 64]:
+                    if following in (rommap.ENG_LO, 0x003F, rommap.TERM_NUL,
+                                     rommap.TOK_NEWLINE, rommap.TERM_MSG):
+                        break
+                    if rommap.OP_LO <= following <= rommap.VMCTRL_HI:
+                        break
+                    if not 0 <= following < len(widths):
+                        break
+                    word_width += widths[following]
+                    if word_width > rommap.EVENT_WRAP_PX:
+                        break
+                if col + word_width > rommap.EVENT_WRAP_PX:
+                    col, row = 0, row + 1
+            placements.append((token, col, row))
+            col += widths[token]
+    return placements
+
+
 def apply(p):
     rom = p.rom
     # ---- safety guards ----
@@ -78,17 +134,14 @@ def apply(p):
 
     # ---- left-align English glyphs; collect advances ----
     eng = english_codes(rom)
-    adv = {}
+    adv = measure_advances(rom)
     aligned = 0
     for code in sorted(eng):
         g = decode_main_glyph(rom, code)
         cols = ink_cols(g)
         if not cols:                       # blank (space)
-            adv[code] = 5
             continue
         left = min(cols) - COL0
-        ink = max(cols) - COL0 - left + 1
-        adv[code] = ink + GAP
         if left > 0:                       # shift ink to start at COL0
             ng = [[0] * 16 for _ in range(16)]
             for y in range(16):
@@ -108,6 +161,10 @@ def apply(p):
 
     # ---- cave (0xFF region, direct) + the two code patches ----
     p.write(CAVE_ADDR, cb)
+    p.cave_c(WRAP_SRC, name="vwf-wrap")
+    wrap_entry = p.cave_c_syms["cave_entry"]
+    p.bl(PREWRAP_ADDR, wrap_entry, PREWRAP_OLD, name="vwf-runtime-wrap")
     p.patch(P1_ADDR, P1_OLD, P1_NEW, name="vwf-nop")     # mul -> nop
     p.bl(P2_ADDR, CAVE_ADDR, P2_OLD, name="vwf-bl")      # add#1;strh -> bl cave
-    print(f"left-aligned {aligned} English glyphs; width table @0x{TABLE_ADDR:08X}")
+    print(f"left-aligned {aligned} English glyphs; width table @0x{TABLE_ADDR:08X}; "
+          f"runtime word-wrap @0x{wrap_entry:08X}")

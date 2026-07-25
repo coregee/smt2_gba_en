@@ -67,7 +67,7 @@ class Mirror:
 # Event-VM window page budget in g_MsgGlyphList RECORDS (one per drawn glyph; name/number
 # subs reserve their runtime expansion, see tr._atom_glyphs).  The runtime list holds
 # rommap.MSG_GLYPH_REC_MAX (192) records, so this is a pure SAFETY BACKSTOP: window geometry
-# (autowrap's 198px lines x the 4-line _paginate cap) bounds a physically-fitting page at
+# (autowrap's rommap.EVENT_WRAP_PX lines x the 4-line _paginate cap) bounds a physically-fitting page at
 # ~140-160 records of real English, so _paginate's record split should essentially never fire
 # — pagination is governed by pixels/lines, the record cap only catches pathological
 # narrow-glyph pages before the engine would truncate them on screen.  (History: 104 was the
@@ -190,7 +190,7 @@ SECTIONS = [
     Section("dialogue", Source("ptr_table",
                                dict(tables=((0x08032DE0, 0x08035BB4),), dedup="text",
                                     ws_fold=True, str_max=240)),
-            route="ptr_repoint", term="0301", wrap_px=198, wrap_jp_pitch=13,
+            route="ptr_repoint", term="0301", wrap_px=rommap.EVENT_WRAP_PX, wrap_jp_pitch=13,
             page_glyphs=PAGE_GLYPHS, strip_manual_n=True, order=30),
 
     # ---- demon compendium lore -----------------------------------------------------
@@ -328,7 +328,7 @@ SECTIONS = [
                                               # giant phantom message @0x080A548C
                                               (0x080A548C, 0x080A96CC)),
                                  min_glyphs=3)),
-            route="story_expand", term="0301", wrap_px=198, wrap_jp_pitch=13,
+            route="story_expand", term="0301", wrap_px=rommap.EVENT_WRAP_PX, wrap_jp_pitch=13,
             page_glyphs=PAGE_GLYPHS, strip_manual_n=True, order=150),
 
     # ---- save/load + map-banner location names ------------------------------------------
@@ -551,7 +551,7 @@ SECTIONS = [
     Section("battle_taunts", Source("ptr_table",
                                     dict(tables=((0x08032CD8, 0x08032CD8 + 29 * 4),),
                                          dedup="text", str_max=240)),
-            route="ptr_repoint", term="", wrap_px=198, wrap_jp_pitch=13,
+            route="ptr_repoint", term="", wrap_px=rommap.EVENT_WRAP_PX, wrap_jp_pitch=13,
             page_glyphs=PAGE_GLYPHS, strip_manual_n=True, order=175,
             notes="event-VM message window: dispatched as a script stream by "
                   "ScriptState79_BranchByPersonality 0x0813d874 (= the dialogue.json window)"),
@@ -569,7 +569,7 @@ SECTIONS = [
                                 dict(tables=((0x084F3838, 0x084F3838 + 18 * 4),
                                              (0x087F02C8, 0x087F02C8 + 12 * 4)),
                                      dedup="text", str_max=120)),
-            route="ptr_repoint", term="", wrap_px=198, wrap_jp_pitch=13,
+            route="ptr_repoint", term="", wrap_px=rommap.EVENT_WRAP_PX, wrap_jp_pitch=13,
             page_glyphs=PAGE_GLYPHS, strip_manual_n=True, order=180,
             notes="field message window: FUN_080af178(id=0x1a) -> FUN_080af060 -> "
                   "FUN_0813e184 (Field_SetState 0x19); reader ldr @0x080d47f6"),
@@ -591,7 +591,7 @@ SECTIONS = [
     Section("negotiate_status", Source("ptr_table",
                                        dict(tables=((0x08032BBC, 0x08032C60),),
                                             dedup="text", str_max=240)),
-            route="ptr_repoint", term="", wrap_px=198, wrap_jp_pitch=13,
+            route="ptr_repoint", term="", wrap_px=rommap.EVENT_WRAP_PX, wrap_jp_pitch=13,
             page_glyphs=PAGE_GLYPHS, strip_manual_n=True, order=185,
             # The item-get template "{ALEPH}は ”{ITEM_NAME}”を 手に入れた" (0x080A0BC6) is reached
             # THREE ways: the negotiation gift via the table slot 0x08032C54 (repointed by the
@@ -607,7 +607,7 @@ SECTIONS = [
     Section("negotiate_outcomes", Source("ptr_table",
                                          dict(tables=((0x08032C60, 0x08032C60 + 6 * 4),),
                                               dedup="text", str_max=240)),
-            route="ptr_repoint", term="", wrap_px=198, wrap_jp_pitch=13,
+            route="ptr_repoint", term="", wrap_px=rommap.EVENT_WRAP_PX, wrap_jp_pitch=13,
             page_glyphs=PAGE_GLYPHS, strip_manual_n=True, order=186,
             notes="event-VM message window (sister table of dialogue.json @0x08032DE0)"),
 
@@ -617,7 +617,7 @@ SECTIONS = [
     Section("door_check", Source("ptr_table",
                                  dict(tables=((0x0819853C, 0x0819853C + 6 * 4),),
                                       dedup="text", str_max=200)),
-            route="ptr_repoint", term="", wrap_px=198, wrap_jp_pitch=13,
+            route="ptr_repoint", term="", wrap_px=rommap.EVENT_WRAP_PX, wrap_jp_pitch=13,
             page_glyphs=PAGE_GLYPHS, strip_manual_n=True, order=190,
             notes="field message window: FUN_080b832c -> FUN_080af1e8(id=0x20) -> "
                   "FUN_080af060 (Field_SetState 0x19); reader ldr @0x080be948"),

@@ -211,8 +211,13 @@ CpuFastSet                  = 0x0815CAF4   # CpuFastSet wrapper (src, dst, len/m
 # stack).  ScriptOp_EndMessage (0x0301) handles real-end vs caller-return itself.  See docs/text-extraction.md.
 SCRIPT_BASE_PTR   = 0x03006950   # -> current script base (u16*); ROM or RAM
 SCRIPT_PC         = 0x0203DB40   # u16 PC index into base
+SCRIPT_CUR_OPCODE = 0x0203DB44   # u16 token/opcode currently being handled by EventVM_RunStep
 SCRIPT_OP_TABLE   = 0x087913DC   # opcode->handler table (u32 each); slot 0x50 = our expanded-text op
 SCRIPT_EXPAND_CODE = 0x0350      # sentinel opcode = expanded text (slot 0x50, verified unused in script)
+MSG_TEXT_COL      = 0x0203DB38   # event-VM flowing-text X; pixel accumulator after patch_vwf
+MSG_TEXT_ROW      = 0x0203DB3A   # event-VM flowing-text row
+MSG_TEXT_BREAKS   = 0x0203DB4A   # line counter advanced together with MSG_TEXT_ROW by opcode 0x0300
+EVENT_WRAP_PX     = 198          # shared pack/runtime safe width for every event-VM message window
 
 # Battle UI message system: BattleMenu_SetMode(mode, msgPtr) stores msgPtr at struct(0x0203c200)+0x7e8
 # and (mode 4/8/9) copies the message into battle-state buffers (+0x7ec/+0x86c) that the battle-UI loop
