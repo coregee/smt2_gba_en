@@ -30,9 +30,9 @@ Run AFTER patch_menu.py (needs its Font_DrawGlyph string-pointer hook).
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 from font.atlas import character_codes  # noqa: E402
-from engine.script import rommap  # noqa: E402
+import rom_layout as rommap  # noqa: E402
 from engine.script.cave_builders import sidecar_cave  # noqa: E402
 
 # (literal addr, expected JP glyph token, English label) -> repoint to pooled EN string.

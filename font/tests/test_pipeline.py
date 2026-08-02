@@ -11,7 +11,8 @@ from font.script.font_codec import (
     encode_small_cell,
 )
 from font.script.repack import build_fonts
-from engine.script import patch_font, patch_vwf, rommap
+from engine.script import patch_font, patch_vwf
+import rom_layout as rommap
 from engine.script.rompatch import RomPatcher
 from paths import ProjectPaths
 from text.script import sections, tr

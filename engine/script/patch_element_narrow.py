@@ -20,9 +20,9 @@ Run AFTER patch_vwf.py (cave reads the width table).
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
-from engine.script import rommap
+import rom_layout as rommap
 
 B = rommap.ROM_BASE
 

@@ -22,7 +22,7 @@ Run AFTER patch_font.py. Idempotent-ish: asserts the original bytes before patch
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
 from font.atlas import GLYPH_MAP, replacement_characters  # noqa: E402
 from font.script.font_codec import (  # noqa: E402
@@ -30,7 +30,7 @@ from font.script.font_codec import (  # noqa: E402
     encode_main_record,
     main_glyph_offset,
 )
-from engine.script import rommap                                                    # noqa: E402
+import rom_layout as rommap                                                    # noqa: E402
 B = rommap.ROM_BASE
 
 CAVE_ADDR = 0x081A6DB4          # 0xFF gap, in bl range of the patch site

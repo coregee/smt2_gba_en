@@ -26,9 +26,9 @@ pre-existing behavior, which the EN lookup actually repairs whenever a name exis
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
-from engine.script import rommap
+import rom_layout as rommap
 from engine.script.cave_asm import thumb_bl
 
 # the case-0xb cap-8 copy loop @0x080ebe2a..0x080ebe4a (34 B).  r5 = template ptr,

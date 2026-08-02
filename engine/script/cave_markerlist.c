@@ -48,7 +48,7 @@ typedef unsigned short u16;
 typedef short          s16;
 typedef unsigned int   u32;
 
-#include "rommap.h"
+#include <rommap.h>
 #include "cave_glyph.h"   /* shared: ST_GetBmp/ST_Blit/ST_Emit, ST_TMPL32, st_gw */
 
 #define OBJ_VRAM 0x06010000u

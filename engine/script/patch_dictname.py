@@ -37,7 +37,7 @@ Run AFTER patch_vwf (needs the width table).
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
 SRC = Path(__file__).resolve().parent / "cave_dictname.c"
 SRC_INFO = Path(__file__).resolve().parent / "cave_dictinfo.c"   # full-info detail screen (separate blob)

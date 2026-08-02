@@ -23,9 +23,9 @@ Cost: the ~5 "marked" rows lose their gray tint (cosmetic).
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
-from engine.script import rommap  # noqa: E402
+import rom_layout as rommap  # noqa: E402
 from engine.script.cave_builders import marker_copy_cave  # noqa: E402
 
 HOOK = 0x080E0B28

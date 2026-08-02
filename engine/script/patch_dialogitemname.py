@@ -31,9 +31,9 @@ back to the original JP record name (byte-safe).
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
-from engine.script import rommap
+import rom_layout as rommap
 from engine.script.cave_asm import thumb_bl
 
 HOOK = 0x08132F3A

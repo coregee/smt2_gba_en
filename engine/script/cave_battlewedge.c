@@ -2,7 +2,7 @@ typedef unsigned char  u8;
 typedef unsigned short u16;
 typedef unsigned int   u32;
 
-#include "rommap.h"   /* RM_* address defines, generated from lib/rommap.py */
+#include <rommap.h>   /* RM_* address defines, generated from rom_layout.py */
 
 /* Natural-order battle "wedge" — fixes the item-used / skill-cast battle-log lines.
 

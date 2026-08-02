@@ -12,7 +12,7 @@ loop to 0x080d2c28, so only the name draw changes.
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
 from pathlib import Path
 from engine.script.cave_asm import thumb_bl

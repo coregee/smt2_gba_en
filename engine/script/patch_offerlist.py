@@ -32,9 +32,9 @@ patch_msgwin (the renderer that expands the marker).
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
-from engine.script import rommap  # noqa: E402
+import rom_layout as rommap  # noqa: E402
 
 HOOK = 0x0813400E
 HOOK_OLD = bytes.fromhex("5a4c5000")     # ldr r4,[0x08134178] ; lsl r0,r2,#1

@@ -26,9 +26,9 @@ only r0/r1/r3/r4/r5, all dead after the loop.
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
-from engine.script import rommap  # noqa: E402
+import rom_layout as rommap  # noqa: E402
 
 HOOK = 0x08133D68
 HOOK_OLD = bytes.fromhex("1b4d6000")     # ldr r5,[0x08133dd8] ; lsl r0,r4,#1

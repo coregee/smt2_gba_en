@@ -16,9 +16,9 @@ from capstone import Cs, CS_ARCH_ARM, CS_MODE_THUMB
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
-from engine.script import rommap    # noqa: E402
+import rom_layout as rommap    # noqa: E402
 from text.script import sections  # noqa: E402
 from text.script import tr        # noqa: E402
 

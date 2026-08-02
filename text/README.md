@@ -1,7 +1,9 @@
 # Text
 
 `corpus/` contains the 42 editable translation JSON files. `script/sections.py` is their single
-registry, and `script/tr.py` owns decoding, extraction, validation, and packing.
+registry, and `script/tr.py` owns decoding, extraction, validation, and packing. Shared cartridge
+addresses come from the neutral root `rom_layout.py`; text runtime modules do not depend on private
+engine implementation.
 
 Run from the repository root:
 

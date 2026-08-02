@@ -13,7 +13,7 @@
  * name's by 1px, so the strip key (buf ^ Y) stays distinct from the name's slot. */
 typedef unsigned short u16;
 typedef unsigned int   u32;
-#include "rommap.h"
+#include <rommap.h>
 
 typedef void (*tdss_fn)(const u16 *str, u32 p2, u32 p3, int x, int y, int pitch);
 #define Text_DrawSpriteString ((tdss_fn)(RM_Text_DrawSpriteString | 1))

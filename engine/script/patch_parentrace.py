@@ -23,9 +23,9 @@ import struct
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
-from engine.script import rommap
+import rom_layout as rommap
 from text.script import tr
 
 TERM = b"\x01\x03"               # 0x0301 string terminator (VWF draw stops here or at NUL)

@@ -8,12 +8,11 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from paths import ProjectPaths  # noqa: E402
+from rom_layout import ROM_BASE  # noqa: E402
 
 PATHS = ProjectPaths.discover()
 ROOT = PATHS.project_root
 
-from engine.script import rommap  # noqa: E402
+B = ROM_BASE
 
-B = rommap.ROM_BASE
-
-__all__ = ["PATHS", "ROOT", "rommap", "B", "Path"]
+__all__ = ["PATHS", "ROOT", "B", "Path"]

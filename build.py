@@ -52,9 +52,6 @@ def _load_builder(paths: ProjectPaths, profile: BuildProfile) -> ModuleType:
     return module
 
 
-_load_legacy_builder = _load_builder
-
-
 def run_build(profile: BuildProfile, *, check: bool = False) -> tuple[bytes, object]:
     paths = ProjectPaths.discover()
     if not paths.source_rom.is_file():

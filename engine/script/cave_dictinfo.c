@@ -14,7 +14,7 @@ typedef unsigned char  u8;
 typedef unsigned short u16;
 typedef unsigned int   u32;
 
-#include "rommap.h"
+#include <rommap.h>
 
 typedef void (*fdt_fn)(u16 code, void *canvas, int x, int y, int tint); /* Font_DrawGlyphTinted */
 typedef int  (*seen_fn)(u32 species);

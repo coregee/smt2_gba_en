@@ -39,11 +39,9 @@ rompatch.bl_far does).  The original literal pool word (the base) at +0x0C is le
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
 import struct
-
-from engine.script import rommap
 
 RACE_GETNAME = 0x080C068C                       # Race_GetName entry (leaf)
 RACE_GETNAME_OLD = "0004000b01494018"           # lsl r0,#0x10 ; lsr r0,#0xc ; ldr r1,[pc,#4] ; add r0,r0,r1

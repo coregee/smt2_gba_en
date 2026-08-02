@@ -37,7 +37,7 @@ _PATHS = ProjectPaths.discover()
 ROOT = _PATHS.project_root
 
 from font.atlas import GLYPH_MAP, character_codes  # noqa: E402
-from engine.script import rommap    # noqa: E402
+import rom_layout as rommap    # noqa: E402
 from text.script import sections    # noqa: E402  the section manifest (single registry)
 from text.script import scriptrefs  # noqa: E402  used by 3 pack phases
 
@@ -46,7 +46,7 @@ TR = _PATHS.corpus_root
 ROM_BASE = rommap.ROM_BASE
 u16 = lambda rom, a: int.from_bytes(rom[a - ROM_BASE:a - ROM_BASE + 2], "little")
 u32 = lambda rom, a: int.from_bytes(rom[a - ROM_BASE:a - ROM_BASE + 4], "little")
-POOL_START = rommap.POOL_START          # pool/table layout — single source of truth in rommap.py
+POOL_START = rommap.POOL_START          # pool/table layout — single source of truth in rom_layout.py
 NAME_TABLE = rommap.NAME_TABLE
 NAME_TABLE_SIZE = rommap.NAME_TABLE_SIZE
 ITEM_TABLE = rommap.ITEM_TABLE

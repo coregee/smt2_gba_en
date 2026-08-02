@@ -17,7 +17,7 @@ typedef unsigned char  u8;
 typedef unsigned short u16;
 typedef unsigned int   u32;
 
-#include "rommap.h"
+#include <rommap.h>
 
 typedef void (*dss_fn)(const u16 *str, u32 p2, u32 p3, int startX, int startY, int pitch);
 #define DrawSpriteString ((dss_fn)(RM_Text_DrawSpriteString | 1))

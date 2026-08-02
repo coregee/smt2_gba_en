@@ -17,7 +17,7 @@ typedef unsigned short u16;
 typedef short          s16;
 typedef unsigned int   u32;
 
-#include "rommap.h"
+#include <rommap.h>
 
 typedef void (*fsg_fn)(u16 code, int p2, int p3, int x, int y);   /* FontSprite_DrawGlyph(g,_,_,x,y) */
 typedef int  (*seen_fn)(u32 species);

@@ -30,7 +30,7 @@ Run AFTER patch_spritebuf (the cave_runtext strip hook on Text_DrawSpriteString 
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
 from pathlib import Path
 

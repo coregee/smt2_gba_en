@@ -20,9 +20,7 @@ nothing else is affected. Run after patch_spritebuf.
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
-
-from engine.script import rommap  # noqa: F401  (kept for symmetry / future rommap use)
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
 SRC = Path(__file__).resolve().parent / "cave_elevator.c"
 

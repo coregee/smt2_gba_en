@@ -49,7 +49,7 @@ typedef short s16;
 typedef unsigned int u32;
 typedef int s32;
 
-#include "rommap.h"
+#include <rommap.h>
 #include "cave_glyph.h"   /* shared engine-interface primitives (ST_GetBmp/ST_Blit/ST_Emit/ST_WIDTH) */
 
 /* ---- engine glyph sprite cache (EWRAM ctx) ---- */

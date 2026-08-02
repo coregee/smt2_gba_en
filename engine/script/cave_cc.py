@@ -10,7 +10,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 
-from engine.script import rommap
+import rom_layout as rommap
 
 # devkitARM (discovered on this machine); fall back to PATH.
 DKP_BIN = Path("C:/msys64/opt/devkitpro/devkitARM/bin")

@@ -1,7 +1,7 @@
 typedef unsigned short u16;
 typedef unsigned int   u32;
 
-#include "rommap.h"   /* RM_* address defines, generated from lib/rommap.py */
+#include <rommap.h>   /* RM_* address defines, generated from rom_layout.py */
 
 /* Battle demon-name -> a 1-u16 MARKER (the unified, length-unlimited name path).
 

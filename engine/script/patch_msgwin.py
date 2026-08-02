@@ -25,15 +25,15 @@ the real fix:
 
 Static layout sanity: list 0x0203F400..F9FF (0x600), cave state 0x0203FA00+
 (0x3C8 B reserved) — both inside the zero-verified scratch run
-0x0203F400..0x0203FFFF (layout asserts in rommap.py).  The row-save buffer
+0x0203F400..0x0203FFFF (layout asserts in rom_layout.py).  The row-save buffer
 moved to the DEAD stock-list block 0x0203D800 (see rommap.MSG_ROWSAVE2).
 """
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
-from engine.script import rommap  # noqa: E402
+import rom_layout as rommap  # noqa: E402
 
 SRC = Path(__file__).parent / "cave_msgwin.c"
 

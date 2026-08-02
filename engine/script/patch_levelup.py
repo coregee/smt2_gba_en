@@ -13,9 +13,9 @@ Run AFTER patch_menu.py (installs the Font_DrawGlyph pointer hook).
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
-from engine.script import rommap
+import rom_layout as rommap
 from text.script import tr
 
 LABEL_LIT  = 0x080CB0B4               # literal slot holding the 残りポイント string ptr

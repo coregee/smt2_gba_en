@@ -27,7 +27,7 @@ typedef unsigned short u16;
 typedef short          s16;
 typedef unsigned int   u32;
 
-#include "rommap.h"
+#include <rommap.h>
 
 /* ROM routines, mirroring FUN_0814c318 / FUN_0814adac usage (Thumb addresses, bit0 set). */
 typedef void (*rgc_fn)(int n);

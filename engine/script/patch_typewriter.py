@@ -29,9 +29,9 @@ pixel accumulator) running first; build_rom orders them before this.
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
-from engine.script import rommap  # noqa: E402
+import rom_layout as rommap  # noqa: E402
 
 SRC = Path(__file__).parent / "cave_typewriter.c"
 

@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
-"""Single source of truth for ROM/RAM addresses shared across the build scripts.
+"""Neutral source of truth for ROM/RAM addresses shared across build domains.
 
 Before this existed, addresses like the VWF width table (0x087F2F40), the demon/item name
 pointer tables, the status text buffer and engine entry points were copy-pasted into ~8 patch
-scripts and tr.py, kept in sync only by hand and by comments like "= tr.py ITEM_TABLE".  Import
-from here instead so a layout change is a one-line edit.
+scripts and tr.py, kept in sync only by hand and by comments like "= tr.py ITEM_TABLE".
+This module lives at the repository root because text packing and engine patching are peers:
+neither domain should depend on the other's private implementation to share the cartridge map.
 
 Conventions: addresses are the byte address in the cartridge/RAM map.  Engine *functions* are
 given as their even (ARM-style) entry; add `| 1` at the call site when a Thumb `bx`/pointer needs
-the low bit set.  See docs/text-render-hooks.md and docs/text-extraction.md for context.
+the low bit set.
 """
 
 ROM_BASE = 0x08000000
@@ -159,7 +160,7 @@ ENG_HI = 0x118
 # Stream tokenizer control codes — the glyph/opcode/optail walk constants that
 # were copy-pasted across the four stream walkers (tr.decode/encode,
 # tr.extract_story_vm, scriptrefs.tokenize_stream/tokenize_rep; backlog #4).
-# Centralized here 2026-06-16 so the walkers — and, via write_header -> rommap.h,
+# Centralized here 2026-06-16 so the walkers — and, via write_header -> generated rommap.h,
 # the C/asm caves — agree on one set. (scriptrefs adopted first; tr.py follows.)
 # ---------------------------------------------------------------------------
 TERM_NUL     = 0x0000   # plain (0000) string terminator
@@ -493,7 +494,7 @@ REVEAL_STEP      = 24             # px revealed per tick.  Drives BOTH typewrite
 
 # EWRAM scratch layout guards — the zero-verified run 0x0203F400..0x0203FFFF is fully packed,
 # and a tenant growing past its reservation would corrupt its neighbour silently.  Fail at
-# import instead (every build script imports rommap).
+# import instead (the build domains import this module as ``rommap``).
 assert MSG_GLYPH_LIST2 + MSG_GLYPH_REC_MAX * 8 == MSGWIN_STATE
 assert MSGWIN_STATE + MSGWIN_STATE_SIZE == REVEAL_PX
 assert REVEAL_PX + 8 == NEGONAME_BUF                      # PX/STAMP/LASTCOL/FINE = 4 u16
@@ -520,7 +521,7 @@ def write_header(path):
     truth.  cave_cc generates this before compiling; the .c files #include it and add the Thumb
     low bit / casts themselves."""
     from pathlib import Path
-    lines = ["/* Auto-generated from engine/script/rommap.py - do not edit. */", "#pragma once", ""]
+    lines = ["/* Auto-generated from rom_layout.py - do not edit. */", "#pragma once", ""]
     for k, v in sorted(globals().items()):
         if k.isidentifier() and not k.startswith("_") and type(v) is int:
             lines.append(f"#define RM_{k} 0x{v:08X}")

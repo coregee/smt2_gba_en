@@ -40,9 +40,9 @@ import struct
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
-from engine.script import rommap
+import rom_layout as rommap
 from font.script.repack import build_small_font
 from font.script.font_codec import small_cell_offset
 

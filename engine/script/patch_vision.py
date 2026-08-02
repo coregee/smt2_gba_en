@@ -27,11 +27,11 @@ Run after patch_itemname (ITEM_TABLE) and patch_spritebuf (Text_DrawSpriteString
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
 SRC = Path(__file__).resolve().parent / "cave_vision.c"
 
-from engine.script import rommap
+import rom_layout as rommap
 from text.script import tr
 
 # list-row name loop init: `movs r6,#0 ; movs r2,#0x6c`

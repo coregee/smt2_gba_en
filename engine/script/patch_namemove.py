@@ -33,7 +33,7 @@ EXISTING pool slot) and disasm-verified Thumb-1 like patch_battlewedge.
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
 from keystone import Ks, KS_ARCH_ARM, KS_MODE_THUMB
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_THUMB

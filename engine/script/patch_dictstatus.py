@@ -29,9 +29,9 @@ Run AFTER patch_menutinted.py (needs the Font_DrawGlyphTinted pointer hook).
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
-from engine.script import rommap
+import rom_layout as rommap
 from text.script import tr
 from engine.script.cave_builders import sidecar_cave
 

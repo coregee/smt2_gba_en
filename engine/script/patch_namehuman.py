@@ -21,9 +21,9 @@ and EN names (narrower than JP's 12 px cells) never overflow.  Run AFTER patch_v
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
-from engine.script import rommap
+import rom_layout as rommap
 
 BUF       = rommap.STATUS_TEXT_BUF        # 0x0200F874 status text canvas (== DAT_080c9b8c)
 WIDTH_TBL = rommap.WIDTH_TABLE

@@ -23,7 +23,7 @@ typedef unsigned short u16;
 typedef short          s16;
 typedef unsigned int   u32;
 
-#include "rommap.h"   /* RM_* address defines, generated from lib/rommap.py */
+#include <rommap.h>   /* RM_* address defines, generated from rom_layout.py */
 
 typedef void (*draw_fn)(u32 code, void *canvas, u16 x, u16 y, u8 tint);
 typedef void (*cfs_fn)(const void *src, void *dst, u32 ctrl);

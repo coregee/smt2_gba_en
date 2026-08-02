@@ -33,9 +33,8 @@ of these two functions, all party messages are fixed at once; the JSON `replace`
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
-from engine.script import rommap
 from text.script import tr
 
 STAGING = 0x0203DB08          # field substitution staging buffer (== case literal @0x08132F04)

@@ -31,7 +31,7 @@ typedef unsigned short u16;
 typedef short          s16;
 typedef unsigned int   u32;
 
-#include "rommap.h"
+#include <rommap.h>
 
 #define REVEAL_PX    ((volatile u16 *)RM_REVEAL_PX)
 #define REVEAL_STAMP (*(volatile u16 *)RM_REVEAL_STAMP)

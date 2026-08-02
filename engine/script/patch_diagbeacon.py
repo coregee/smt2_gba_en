@@ -29,8 +29,9 @@ frozen screen distinguishes alive-and-retrying (flicker) from main-loop-dead
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 import os
+import rom_layout as rommap
 
 # (site, replaced bytes, redo asm, color, tag) — bytes verified vs JP base AND
 # the current EN build (no collision with existing hooks).

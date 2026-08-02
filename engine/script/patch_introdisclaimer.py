@@ -16,9 +16,9 @@ import struct as _struct
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
-from engine.script import rommap
+import rom_layout as rommap
 
 # intro cutscene step record fn-ptr slot -> stock renderer 0x080D67BC (thumb 0x080D67BD)
 FNPTR_SLOT = rommap.INTRO_DISCLAIMER_FNPTR        # 0x08509EEC

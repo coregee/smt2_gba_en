@@ -16,9 +16,9 @@ on the patch_menutinted pointer hook.  Run AFTER patch_vwf.py (needs the width t
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
-from engine.script import rommap
+import rom_layout as rommap
 from text.script import tr
 
 HOOK = 0x080CBAA6                       # start of the f1a==0xFF branch: `ldr r5,[pc..]; mov r4,#6`

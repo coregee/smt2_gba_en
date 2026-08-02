@@ -20,7 +20,7 @@ the other 30 labels already ship English (TERMINAL/ELEVATOR/CASINO/...).
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # noqa: F401,F403  (sys.path for sibling imports; ROOT, rommap, B, Path)
+    from _boot import *  # noqa: F401,F403  (sys.path for sibling imports; ROOT, B, Path)
 
 TABLE = 0x08163444
 STRIDE = 10

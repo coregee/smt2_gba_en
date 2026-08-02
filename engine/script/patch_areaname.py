@@ -26,7 +26,7 @@ import struct
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
 AREA_NAME_TABLE = 0x0878F9CC
 STRIDE          = 0x14

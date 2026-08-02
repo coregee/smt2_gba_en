@@ -21,9 +21,9 @@ the stack, so the cave may clobber them freely; sp is left untouched so the epil
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
-from engine.script import rommap
+import rom_layout as rommap
 
 B = rommap.ROM_BASE
 

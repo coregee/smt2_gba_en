@@ -18,7 +18,7 @@
 #ifndef CAVE_GLYPH_H
 #define CAVE_GLYPH_H
 
-#include "rommap.h"
+#include <rommap.h>
 
 #define ST_WIDTH  ((const u8 *)RM_WIDTH_TABLE)                     /* VWF advance per glyph code */
 

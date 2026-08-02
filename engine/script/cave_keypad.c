@@ -1,4 +1,4 @@
-#include "rommap.h"
+#include <rommap.h>
 
 /* Passcode number-pad keypad ("Enter the code:") — fix the digits-clobber-the-prompt VRAM
  * collision (patch_keypad.py).

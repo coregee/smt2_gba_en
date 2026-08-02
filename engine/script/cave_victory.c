@@ -6,7 +6,7 @@ typedef unsigned char  u8;
 typedef unsigned short u16;
 typedef unsigned int   u32;
 
-#include "rommap.h"
+#include <rommap.h>
 
 typedef u32 (*rec_fn)(u32);
 typedef u16 *(*racename_fn)(u32 id, const u16 *suffix);

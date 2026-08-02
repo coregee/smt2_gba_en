@@ -20,7 +20,7 @@ Depends on patch_spritebuf (cave_runtext hook on Text_DrawSpriteString) being ap
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
 # Route EVERY marker-screen text draw through our position-keyed renderer so cell layout is
 # stable (no cave_runtext bump = no flicker).  Orig bytes = drift guard.

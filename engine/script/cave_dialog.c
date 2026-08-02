@@ -1,4 +1,4 @@
-#include "rommap.h"
+#include <rommap.h>
 
 /* Custom event-VM opcode 0x0350 ("expanded text"): wires English dialogue longer than the original
    Japanese WITHOUT shifting any bytecode (so every existing jump stays valid).

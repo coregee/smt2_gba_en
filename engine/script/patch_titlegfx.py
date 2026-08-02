@@ -26,6 +26,7 @@ from PIL import Image
 
 from graphics.script import gbagfx
 from paths import ProjectPaths
+import rom_layout as rommap
 
 _PATHS = ProjectPaths.discover()
 GFXDIR = _PATHS.graphics_assets_root

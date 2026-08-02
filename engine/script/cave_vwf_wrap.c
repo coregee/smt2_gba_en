@@ -21,7 +21,7 @@
 typedef unsigned short u16;
 typedef unsigned int u32;
 
-#include "rommap.h"
+#include <rommap.h>
 
 #define COL (*(volatile u16 *)RM_MSG_TEXT_COL)
 #define ROW (*(volatile u16 *)RM_MSG_TEXT_ROW)

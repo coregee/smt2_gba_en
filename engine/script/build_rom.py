@@ -16,7 +16,8 @@ import sys
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
+import rom_layout as rommap
 from text.script import tr
 from engine.script.rompatch import RomPatcher, plan_pool_layout
 from font import ENGINE_PATCHES as FONT_PATCHES

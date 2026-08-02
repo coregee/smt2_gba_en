@@ -14,7 +14,7 @@ build summary (and the confined-diff self-check).
 """
 from pathlib import Path
 
-from engine.script import rommap
+import rom_layout as rommap
 from engine.script.cave_asm import assemble, thumb_bl
 from engine.script.cave_cc import build_blob
 

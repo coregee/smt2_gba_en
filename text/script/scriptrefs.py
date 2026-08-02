@@ -38,7 +38,7 @@ are left pointing at the original JP — the pre-fix behavior — and logged.
 from __future__ import annotations
 
 import json
-from engine.script import rommap
+import rom_layout as rommap
 from paths import ProjectPaths
 
 ROM_BASE = 0x08000000

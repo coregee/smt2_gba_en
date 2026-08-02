@@ -24,7 +24,7 @@ typedef unsigned short u16;
 typedef short          s16;
 typedef unsigned int   u32;
 
-#include "rommap.h"   /* RM_* address defines, generated from lib/rommap.py */
+#include <rommap.h>   /* RM_* address defines, generated from rom_layout.py */
 
 typedef void (*tds_fn)(const u16 *str, int p2, int p3, int x, int y, int pitch);
 #define Text_DrawSpriteString ((tds_fn)(RM_Text_DrawSpriteString | 1))

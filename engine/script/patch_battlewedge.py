@@ -18,7 +18,7 @@ aligned, so the hook is assembled with keystone directly (cave_asm.assemble is f
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
 from pathlib import Path
 from keystone import Ks, KS_ARCH_ARM, KS_MODE_THUMB

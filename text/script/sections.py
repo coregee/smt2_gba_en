@@ -45,7 +45,7 @@ Routes (injection mechanisms — each is one arm in tr.pack):
 """
 from dataclasses import dataclass, field as dc_field
 
-from engine.script import rommap
+import rom_layout as rommap
 
 
 @dataclass(frozen=True)

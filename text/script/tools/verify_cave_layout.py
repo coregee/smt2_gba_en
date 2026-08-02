@@ -31,7 +31,8 @@ try:
 except ModuleNotFoundError:
     import _boot  # noqa: F401
 
-from engine.script import build_rom, rommap
+from engine.script import build_rom
+import rom_layout as rommap
 from engine.script import rompatch as _rp
 from engine.script.rompatch import RomPatcher, plan_pool_layout
 from engine.script.cave_asm import assemble as _assemble

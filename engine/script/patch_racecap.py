@@ -20,7 +20,7 @@ stock loop exit expects.
 try:
     from engine.script._boot import *
 except ModuleNotFoundError:
-    from _boot import *  # sys.path for sibling imports; ROOT, rommap, B, Path
+    from _boot import *  # sys.path for sibling imports; ROOT, B, Path
 
 SITE = 0x080EACCC
 OLD = "21800232023411880029f9d1"   # strh r1,[r4]; adds r2,#2; adds r4,#2; ldrh r1,[r2]; cmp r1,#0; bne loop

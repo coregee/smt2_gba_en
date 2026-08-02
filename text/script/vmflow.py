@@ -23,7 +23,7 @@ from __future__ import annotations
 
 import json
 from collections import deque
-from engine.script import rommap
+import rom_layout as rommap
 from paths import ProjectPaths
 
 ROM_BASE = 0x08000000

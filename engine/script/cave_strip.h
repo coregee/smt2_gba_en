@@ -26,7 +26,7 @@
 #ifndef CAVE_STRIP_H
 #define CAVE_STRIP_H
 
-#include "rommap.h"
+#include <rommap.h>
 #include "cave_glyph.h"   /* shared primitives: st_gw/st_marker/st_measure/st_hash, ST_Blit/ST_Emit, ST_TMPL* */
 
 #define STRIP_ALL  0x7fff         /* reveal value = show the whole run */
