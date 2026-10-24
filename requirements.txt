@@ -1,0 +1,7 @@
+# Thumb assembler (imports as keystone; the OpenStack package named keystone is unrelated).
+keystone-engine==0.9.2
+# Thumb disassembler used by the patch engine and validation tools.
+capstone>=5.0.6,<6
+# Graphics codecs and font rendering.
+numpy>=2.3,<3
+Pillow>=12,<13

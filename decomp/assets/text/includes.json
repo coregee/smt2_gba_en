@@ -1,0 +1,7 @@
+[
+  {"addr": "0x08009010", "len": 170860, "file": "assets/text/event_a.s"},
+  {"addr": "0x08032BBC", "len": 12544, "file": "assets/text/event_ptrs.s"},
+  {"addr": "0x08035CBC", "len": 456656, "file": "assets/text/event_b.s"},
+  {"addr": "0x080A548C", "len": 16960, "file": "assets/text/locations.s"},
+  {"addr": "0x08123038", "len": 14268, "file": "assets/text/battle.s"}
+]

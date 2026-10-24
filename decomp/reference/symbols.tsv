@@ -1,0 +1,757 @@
+address	name	kind	confidence	note
+00000004	gNumMusicPlayers	ram	proven	absolute symbol: number of music players (literal 4 read as an address)
+02009004	gTasks	ram	probable	64 x 100-byte script tasks (Task_ClearAll, Task_Create, Task_RunAll)
+0200DFD4	gWindowTilemapBuffer	ram	probable	32x32 u16 tilemap built by TextWindow_DrawFrame, DMA'd to VRAM screenblocks by sub_080AB9B0..sub_080ABA18
+0200E8D4	gOpenWindowCount	ram	probable	incremented by TextWindow_Create, decremented by TextWindow_Erase
+02017874	gSaveSlotPreview	ram	probable	sub_080D0498 loads each save slot here (sub_080D1328(slot, 0x02017874, 1)) to draw it
+020360DC	gGlyphSpriteCache	ram	probable	{baseTile, count, capacity, uploadPending, codes[64]}: Font_ResetGlyphSpriteCache clears 0x88 bytes
+020361DC	gGlyphSpriteStaging	ram	probable	4bpp staging canvas for cached glyphs, DMA'd to OBJ VRAM by Font_UploadGlyphSpriteTiles
+020381DC	gWindowMap	ram	probable	4 KB 32x64 map buffer for windows
+020391DC	gWindowCount	ram	probable	sub_080AB7D4 increments, sub_080AB660 decrements; first window clears the buffer
+020391E0	gGlyphBitmap	ram	probable	Font_GetGlyphBitmap output (2x2 tiles in a 32-tile-wide canvas)
+0203A454	gMenuState	ram	probable	shared state block of the save, name entry and status screens (cleared with CpuSet 0x200 words)
+0203C9E0	gBattleMsg	ram	probable	battle message window state (mode, delay, typed, done, row, lines, locked, src, text/text2/compose u16[64] buffers, auto-close); base+0x7E0 of the EWRAM block at 0x0203C200
+0203DB08	gScriptSubstBuf	ram	probable	u16[16] built by ScriptOp_DrawCharOrSubstitute, ended with 0x318
+0203DB38	gTextColumn	ram	probable	ScriptVM_Run x = col*13+0x11; zeroed by ScriptOp_300
+0203DB3A	gTextLine	ram	probable	ScriptVM_Run y = line*13+base; incremented by ScriptOp_300
+0203DB40	gScriptPc	ram	probable	word index into gScriptBase, incremented per operand read
+0203DB44	gScriptCurOp	ram	probable	ScriptVM_Run stores the fetched opcode; ScriptOp_DrawCharOrSubstitute switches on it
+0203DB4E	gScriptSubstSavedPc	ram	probable	saved by ScriptOp_DrawCharOrSubstitute, restored by ScriptOp_318
+0203DB50	gScriptItemCheckId	ram	probable	set by ScriptOp_30A, tested by ScriptOp_30B
+0203DB5A	gScriptWaitState	ram	probable	indexes handler table 0x08790FDC called at the start of ScriptVM_Run
+0203DB6E	gScriptYield	ram	probable	set to 1 by handlers; ScriptVM_Run returns after the handler when 1
+0203E7D0	gSoundInfo	ram	proven	m4aSoundInit: SoundInit argument
+0203F1E0	gCgbChans	ram	proven	m4aSoundInit: MPlayExtender argument
+0203F3A0	gMPlayMemAccArea	ram	proven	m4aSoundInit: mplayInfo->memAccArea
+03000000	gDispRegs	ram	probable	0x44 bytes DMA'd to REG_BG0HOFS.. by sub_080A9AF4
+030020E0	gRandomSeed	ram	probable	read/written by Random_Next (tentative)
+030020E4	gMainCallback	ram	probable	AgbMain calls it once per frame; set by sub_080A9AB4
+030020E8	gDigits	ram	probable	sub_080A9CC0 output
+030020F0	gIntrTable	ram	proven	IRQ handler table in IWRAM
+03002128	gAffineCount	ram	probable	affine matrices used this frame
+03002130	gSpriteNodes	ram	probable	128 x 12 bytes {OAM attributes, s8 next}
+03002730	gPalFades	ram	probable	8 x 0x50-byte palette fades
+030029B0	gPaletteTarget	ram	probable	palette fades move 0x03002DB0 towards it
+03002DB0	gPaletteBuffer	ram	probable	0x400 bytes DMA'd to PLTT when 0x030031C0 is set
+030031B0	gHeldKeys	ram	probable	sub_080A9A04: current keys
+030031B8	gKeysNew	ram	probable	tested for A (1), B (2), START (8) presses in the menu input handlers
+030031BC	gFrameCounter	ram	probable	incremented once per main-loop iteration
+030031C0	gPaletteDirty	ram	probable	sub_080AABB0 / sub_080AABC8
+030031C4	gNewKeys	ram	probable	sub_080A9A04: keys pressed this frame
+030031CC	gYesNoResult	ram	probable	written by YesNo_HandleInput on A, read by YesNo_StoreResult
+030031D4	gInMainLoop	ram	probable	1 while AgbMain's frame work runs; VBlankHandler skips OAM/palette uploads when set
+030031E0	gSpriteLayers	ram	probable	10 sprite list heads (s8, -1 = empty)
+030031F0	gAffineSlots	ram	probable	32 x 16 bytes, pa..pd at +8
+030033F0	gOamBuffer	ram	probable	DMA'd to OAM by sub_080A9AF4
+03003900	gVBlankTasks	ram	probable	10 x {u16 state, u16 counter, func}
+03003950	gSpriteNodeCount	ram	probable	next free sprite node
+03003960	gVBlankCallback	ram	probable	called by VBlankIntr; set by sub_080A9934
+03003964	gRepeatedKeys	ram	probable	sub_080A9A04: new presses plus auto-repeat
+03003968	gKeyRepeat	ram	probable	sub_080A9A04: {prev, held, pressed, timer, unk7}
+03003980	gIntrMainBuffer	ram	probable	IntrMain is copied here; address stored to 0x03007FFC
+03003B80	gVBlankFlag	ram	probable	bit 0 set by VBlankIntr, polled by sub_080A999C
+03003B84	gTaskOpArgs	ram	probable	pointer to the current task op's argument words, set by Task_RunAll before each op handler
+030046C0	gGameState	ram	probable	0x18F8 bytes written to / read from SRAM by sub_080D1264 / sub_080D1328
+03006080	gColorEffect	ram	probable	{s16 r, g, b, desat} read by Color_ApplyEffect
+030068CC	gScriptSubstSavedBase	ram	probable	saved by ScriptOp_DrawCharOrSubstitute, restored by ScriptOp_318
+030068E4	gScriptJumpTarget	ram	probable	written by jump handlers; ScriptVM_Run moves it into 03006950 and zeroes pc
+03006950	gScriptBase	ram	probable	ScriptVM_Run reads words at gScriptBase[pc]; every operand read in ScriptOp_3xx
+03007000	SoundMainRAM_Buffer	ram	proven	m4aSoundInit: CpuSet destination for SoundMainRAM
+080000C0	Start	func	proven	AGB SDK crt0 reset entry (ARM)
+080000FC	IntrMain	func	proven	AGB SDK crt0 IRQ dispatcher, address stored to 0x03007FFC
+080A96CC	AgbMain	func	proven	crt0 bx target; init then infinite frame loop
+080A9794	InitMemory	func	probable	calls ClearWorkRam then ClearVideoMemory; first call in AgbMain
+080A97A4	ClearWorkRam	func	probable	DMA3 32-bit fills of 0 over EWRAM (0x40000) and IWRAM (0x7E00)
+080A97E0	ClearVideoMemory	func	probable	calls ClearVram, ResetOam, ClearPaletteRam
+080A97F4	ClearVram	func	probable	DMA3 16-bit fill of 0 over 0x18000 bytes at 0x06000000
+080A981C	ResetOam	func	probable	writes attr0=0x200 (hidden) to all OAM entries and identity (0x100) affine matrices
+080A9880	ClearPaletteRam	func	probable	DMA3 16-bit fill of 0 over 0x400 bytes at 0x05000000
+080A98A8	FixedMul8	func	probable	returns (s16)((a * b) / 256)
+080A98C4	FixedDiv8	func	probable	returns (s16)((a << 8) / b)
+080A98DC	FixedInverse8	func	probable	returns (s16)(0x10000 / a)
+080A98F4	InitInterrupts	func	probable	copies IntrMain to IWRAM 0x03003980 and stores that address at 0x03007FFC
+080A9934	SetVBlankCallback	func	probable	stores the argument (IntrDummy if NULL) to the pointer VBlankIntr calls
+080A9950	VBlankIntr	func	proven	IRQ table entry 0 (copied from 0x0815EAA8 to 0x030020F0)
+080A996C	HBlankIntr	func	proven	IRQ table entry 1
+080A9970	IntrDummy	func	proven	IRQ table entries 2-5, 8-13
+080A9974	ClearVBlankFlag	func	probable	clears bit 0 of 0x03003B80 (set by VBlankIntr)
+080A9988	AcknowledgeVBlank	func	probable	REG_IF = 1 and sets bit 0 of 0x03003B80; called at the end of VBlankIntr
+080A999C	WaitForVBlank	func	probable	clears the flag, then swi 2 (Halt) until VBlankIntr sets it again
+080A99BC	Keys_Init	func	probable	zeroes the key globals, prev = 0xFFFF
+080A9A04	Keys_Read	func	probable	REG_KEYINPUT ^ 0x3FF into held/new-press globals plus an auto-repeat mask (16-frame delay, then every 2 frames)
+080A9AB4	SetMainCallback	func	probable	stores the function AgbMain calls once per frame (0x030020E4)
+080A9AC0	VBlankTasks_Init	func	probable	clears the 10 VBlank task slots and installs VBlankHandler as VBlank callback
+080A9AF4	VBlankHandler	func	probable	installed by VBlankTasks_Init; copies display regs/OAM/palette and runs VBlank tasks
+080A9BE8	VBlankTask_FindFree	func	probable	returns the first slot of 0x03003900 with state 0
+080A9C0C	VBlankTask_Add	func	probable	free slot := {state 1, counter 0xFFFF, func}
+080A9C30	VBlankTask_AddAlways	func	probable	VBlankTask_Add then state 2 (also runs on lag frames)
+080A9C40	VBlankTask_AddCounted	func	probable	currently DisplayList_Add (tentative): free slot := {state 1, counter = arg, func}; slot freed after counter runs
+080A9C64	VBlankTask_AddCountedAlways	func	probable	DisplayList_Add then state 2
+080A9C78	VBlankTasks_Run	func	probable	runs tasks with state >= phase, decrements finite counters
+080A9CC0	NumberToDigits	func	probable	splits n mod 10^8 into 8 decimal digits at 0x030020E8, least significant first
+080A9D90	Sprites_BeginFrame	func	probable	called by AgbMain; resets sprite/affine counters, clears layer lists and affine slots
+080A9DD0	Sprites_BuildOam	func	probable	called by AgbMain; walks 10 layer lists into the OAM buffer 0x030033F0, hides the rest, writes affine params
+080A9E78	Sprites_ClearLayers	func	probable	sets the 10 layer heads to -1 and the node count to 0
+080A9EA8	Sprite_Alloc	func	probable	takes the next of 128 sprite nodes and links it at the head of a layer
+080A9F04	Sprite_DrawWithMode	func	probable	queues all OAM entries of a sprite definition with tile/x/y/palette offsets, mosaic flag (x bit 15), OBJ mode, per-entry affine
+080AA184	Sprite_Draw	func	probable	Sprite_DrawWithMode(..., objMode 0)
+080AA1BC	Sprite_DrawBlended	func	probable	Sprite_DrawWithMode(..., objMode 1 = semi-transparent)
+080AA1F4	Sprite_DrawSingle	func	probable	queues one OAM template with the same offsets
+080AA2DC	Sprite_DrawPlain	func	probable	Sprite_DrawWithMode without mosaic or OBJ mode
+080AA790	Sprite_DrawSharedAffine	func	probable	one affine matrix (slot = argument) built from the first affine entry, used by all entries
+080AA998	Sprite_DrawSharedAffineDouble	func	probable	Sprite_DrawSharedAffine with affine mode 3 (double size) and an OBJ mode
+080AABB0	Palette_MarkDirty	func	probable	sets 0x030031C0; VBlankHandler uploads 0x03002DB0 to PLTT when it is 1
+080AABBC	Palette_ClearDirty	func	probable	clears 0x030031C0; called by VBlankHandler after the upload
+080AABC8	Palette_IsDirty	func	probable	returns 0x030031C0
+080AABD4	PalFade_Init	func	probable	clears the 8 fades and, when the argument is 0, both palette buffers
+080AAC34	PalFade_FindTagged	func	probable	returns the active fade whose tag field == tag + 0x8000
+080AAC70	PalFade_AccumulateSteps	func	probable	adds the 32-entry table 0x0815EAE0 to a fade's accumulators
+080AAC98	PalFade_WrapSteps	func	probable	subtracts 1000 from accumulators above 999
+080AACC8	PalFade_StepComponent	func	probable	moves a 5-bit colour component towards the target value
+080AAD1C	PalFade_Update	func	probable	one fade step over its colour range of 0x03002DB0 towards 0x030029B0
+080AAE58	PalFade_UpdateAll	func	probable	PalFade_Update on all 8 slots; called every frame by AgbMain
+080AAE78	PalFade_FindFree	func	probable	first fade slot with active == 0
+080AAE9C	PalFade_Setup	func	probable	clears a slot, sets start/count/delay, duration 0xFFFF, active
+080AAEDC	PalFade_FadeInFromBlack	func	probable	clears the palette buffer and fades all 512 colours to the target
+080AAF30	PalFade_FadeToWhite	func	probable	PalFade_FadeRangeToWhite(0, 0x200, delay)
+080AAF48	PalFade_FadeToBlack	func	probable	clears the target palette and fades all colours to it
+080AAF98	PalFade_FadeToTarget	func	probable	fade of all colours without touching either buffer
+080AAFBC	PalFade_FadeRangeInFromBlack	func	probable	clears a range of the palette buffer and fades it to the target
+080AB008	PalFade_FadeRangeToWhite	func	probable	fills a range of the target with 0x7FFF and fades to it
+080AB054	PalFade_FadeRangeWithDuration	func	probable	fade of a range with a step limit
+080AB090	PalFade_FadeRangeInFromBlackTagged	func	probable	PalFade_FadeRangeInFromBlack plus a wait tag
+080AB0F0	PalFade_FadeRangeToBlack	func	probable	clears a range of the target and fades to it
+080AB138	PalFade_FadeRangeToBlackWithDuration	func	probable	PalFade_FadeRangeToBlack then sets the step limit
+080AB158	PalFade_FadeRangeToBlackTagged	func	probable	PalFade_FadeRangeToBlack then sets the wait tag
+080AB178	PalFade_IsActive	func	probable	returns fade->active != 0
+080AB184	PalFade_AllDone	func	probable	TRUE when no fade slot is active
+080AB1C4	Tilemap_OffsetRect	func	probable	adds to the 12-bit tile field and sets the palette of a rectangle of a 32-wide map
+080AB250	Tilemap_CopyRectSkipZero	func	probable	copies a 32-wide block, offsetting non-zero tiles and setting the palette
+080AB2F4	Tilemap_CopyRect	func	probable	copies a 32-wide block, offsetting every tile and setting the palette
+080AB390	Tilemap_CopyRectStride	func	probable	Tilemap_CopyRect with a source row width argument
+080AB438	Tilemap_FillRect	func	probable	fills a rectangle of a 32-wide map with a value
+080AB49C	WindowMap_UploadToBg0	func	probable	DMA of the 4 KB map buffer 0x020381DC to VRAM 0x06000000
+080AB4BC	WindowMap_UploadToBg1	func	probable	same, to 0x06001000
+080AB4E0	WindowMap_UploadToBg2	func	probable	same, to 0x06002000
+080AB504	WindowMap_UploadToBg3	func	probable	same, to 0x06003000
+080AB528	Window_DrawFrame	func	probable	draws a 9-piece frame (tiles from 0x0815EB20 / 0x0815EB32) into 0x020381DC
+080AB61C	WindowMap_QueueUpload	func	probable	queues WindowMap_UploadToBgN (N = argument) as a one-shot VBlank task
+080AB660	Window_Erase	func	probable	fills the window rectangle with 0, queues the upload, decrements the window count
+080AB6A0	Window_Animate	func	probable	draws the frame at the current height and grows/shrinks it one row (mode 0 open, 1 close, 2 resize)
+080AB78C	Windows_Init	func	probable	clears both map buffers and the window count
+080AB7D4	Window_Create	func	probable	allocates an object (sub_080AD0FC, script 0x0815EB44) with x/y/w/h/bg and height 2
+080AB860	Window_CreateOpen	func	probable	Window_Create with current height = full height
+080AB91C	Window_Close	func	probable	animated close (cmd 1) or immediate erase and free (sub_080AD1FC)
+080AB98C	Window_SetHeight	func	probable	sets the target height and cmd 2 (resize)
+080AB994	Window_IsIdle	func	probable	TRUE when the object is inactive or has no command
+080AB9F4	TextWindow_UploadTilemapSbb4	func	probable	DMA3 0x800 bytes from tilemap buffer 0x0200DFD4 to VRAM 0x06002000; queued by sub_080ABB20(2)
+080ABA18	TextWindow_UploadTilemapSbb6	func	probable	DMA3 0x800 bytes from tilemap buffer 0x0200DFD4 to VRAM 0x06003000; queued by sub_080ABB20(3)
+080ABA3C	TextWindow_DrawFrame	func	probable	writes 3x3 frame tile set (corners/edges/fill, default gUnknown_0815EC2C) into the 32x32 tilemap buffer over x,y,w,h
+080ABB20	TextWindow_QueueTilemapUpload	func	probable	switch on screen 0..3 -> DisplayList_Add(sub_080AB9B0/sub_080AB9D0/sub_080AB9F4/sub_080ABA18, 1)
+080ABB64	TextWindow_Erase	func	probable	sub_080AB438(0, tilemap buffer, x, y, w, h), flush, decrements open-window count 0x0200E8D4
+080ABBA4	TextWindow_AnimateStep	func	probable	draws frame at curH, mode 0 grows to h, 1 shrinks to 2 clearing rows, sets task->result when done
+080ABC40	TextWindow_Create	func	probable	sub_080AD0FC(window script gUnknown_0815EC40), fills x,y,w,h,screen, curH=2, frame=NULL, count++
+080ABCAC	TextWindow_CreateWithFrame	func	probable	TextWindow_Create(...,1) then data.frame = arg
+080ABCD4	TextWindow_CreateOpen	func	probable	TextWindow_Create then curH = h
+080ABD04	TextWindow_CreateOpenWithFrame	func	probable	TextWindow_CreateOpen then data.frame = arg
+080ABD30	TextWindow_Close	func	probable	arg 0: unk1E=1 (request); else TextWindow_Erase + Task_End
+080ABD58	TextWindow_IsDone	func	probable	returns task->state == 0 || task->unk1E == 0
+080ABD74	YesNo_UploadCursorTiles	func	probable	DMA3 0x100 bytes 0x0203A2E4 -> OBJ VRAM tile gUnk_03000048
+080ABDA4	YesNo_LoadCursor	func	probable	decompress gUnknown_0815ED28 to 0x0203A2E4 (sub_080C7E24), queue YesNo_UploadCursorTiles
+080ABDDC	YesNo_HandleInput	func	probable	A (new keys bit0) stores choice to 0x030031CC + SE 0x65/0x66; up/down (0xC0) toggles choice + SE 0x64
+080ABE44	YesNo_DrawCursor	func	probable	emits two OAM sprites (gUnknown_0815ED30/38) at (0xCD,0x86)/(0xCD,0x92), palette 2 on the selected one
+080ABEB4	YesNo_Create	func	probable	sub_080AD0FC(gUnknown_0815ED40), choice = arg, tile = 0x178
+080ABEE0	YesNo_CreateWithTile	func	probable	YesNo_Create(choice) then tile = arg2
+080ABF04	Task_IsFree	func	probable	returns task->state == 0
+080ABF18	YesNo_StoreResult	func	probable	task->unk1E = last choice 0x030031CC
+080ABF24	Font_GetGlyphBitmap	func	probable	bank table 0x0815ED88[code>>8] + row/col offset, 2bpp -> 4bpp into 0x020391E0 (2x2 tiles of a 32-tile canvas), returns it (rom_layout name confirmed)
+080AC0E4	Font_SetGlyphSpriteCacheCapacity	func	probable	writes glyph cache +4 (capacity), called with 64 by Font_ResetGlyphSpriteCache
+080AC0F0	Font_ResetGlyphSpriteCache	func	tentative	from translation patches (lost Ghidra session); verify
+080AC124	Font_CacheGlyphSprite	func	tentative	from translation patches (lost Ghidra session); verify
+080AC198	Font_UploadGlyphSpriteTiles	func	tentative	from translation patches (lost Ghidra session); verify
+080AC1DC	Font_FindGlyphSprite	func	probable	linear search of glyph cache codes[0..count) for code, returns slot or -1
+080AC218	FontSprite_DrawGlyph	func	tentative	from translation patches (lost Ghidra session); verify
+080AC2A0	FontSprite_DrawGlyphTinted	func	probable	FontSprite_DrawGlyph with the last argument passed as OAM palette to sub_080AA1F4 (rom_layout: FontSprite_DrawCached)
+080AC334	Text_DrawSpriteString	func	tentative	from translation patches (lost Ghidra session); verify
+080AC3AC	Text_DrawSpriteStringTinted	func	tentative	from translation patches (lost Ghidra session); verify
+080AC438	Font_CopyGlyphCell	func	probable	copies 0x40 bytes at +0 and +0x400 (2x2 tiles of a 32-tile canvas) from glyph bitmap to cache staging cell
+080AC468	Random_Next	func	probable	updates and returns seed 0x030020E0 from multiplies plus frame counter*VCOUNT rotated by 3/12/21/30 (tentative)
+080AC4E4	Canvas_BlitOr	func	probable	ORs a w x h pixel block between two 32-tile-wide 4bpp canvases, pixel-granular dst x
+080AC62C	Canvas_BlitOrTinted	func	probable	Canvas_BlitOr plus tint added to nonzero pixels (rom_layout calls this Font_BlitGlyph)
+080AC7CC	Canvas_FillRect	func	probable	sets every 4bpp pixel of a w x h rect of a 32-tile-wide canvas to a color
+080AC8D0	Font_DrawGlyph	func	tentative	from translation patches (lost Ghidra session); verify
+080AC908	Text_DrawString	func	probable	u16 string -> Font_DrawGlyph per glyph at fixed advance; 0x300 newline, 0/0x301 end (existing tentative name confirmed)
+080AC980	Font_DrawGlyphTinted	func	tentative	from translation patches (lost Ghidra session); verify
+080AC9C8	Text_DrawStringTinted	func	tentative	from translation patches (lost Ghidra session); verify
+080ACA40	SmallFont_DrawGlyph	func	probable	Canvas_BlitOr of 8x8 tile index from small font sheet 0x081AD7B8
+080ACA74	SmallFont_DrawGlyphTinted	func	probable	Canvas_BlitOrTinted of 8x8 small font tile
+080ACAB0	SmallFont_DrawAsciiTinted	func	probable	ASCII string via table 0x0815EE20[ch-0x20], '-' -> tile 6, fixed advance
+080ACB30	DigitFont_DrawGlyph	func	probable	Canvas_BlitOr of rows 6..15 of an 8x16 cell of the small font sheet (8x10 digits)
+080ACB78	DigitFont_DrawGlyphTinted	func	probable	tinted DigitFont_DrawGlyph
+080ACBC8	DigitFont_DrawStringTinted	func	probable	'0'..'9' string via table 0x0815EE96[ch-'0'] at fixed advance
+080ACC30	System_CheckSoftReset	func	probable	held keys 0x030031D0 == A+B+Select+Start and 0x03003970 != 1 -> SoftReset(0xFF)
+080ACC54	Color_ApplyEffect	func	probable	RGB555 color adjusted by 0x03006080 (mode from sub_080C2C70: 1 = per-channel brighten/darken, else desaturate)
+080ACFA4	Palette_FillWithEffect	func	probable	dst[i] = Color_ApplyEffect(color) for size/2 halfwords
+080ACFCC	Palette_CopyWithEffect	func	probable	dst[i] = Color_ApplyEffect(src[i]) for size/2 halfwords
+080ACFF4	Task_ClearAll	func	probable	DMA3 32-bit fill of 0x640 bytes (64 x 100-byte tasks) at 0x02009004
+080AD01C	Task_RunAll	func	probable	per task: fetch ops from script, call op table 0x0815EEEC start/update until wait != 0; then onFrame (+0x20)
+080AD0D4	Task_FindFreeSlot	func	probable	first task index 1..63 with state 0, else -1
+080AD0FC	Task_Create	func	probable	Task_FindFreeSlot, zero the 100-byte slot, script/id/parent set, state = 1
+080AD150	Task_Pause	func	probable	state = 0xFFFF (Task_RunAll skips it)
+080AD15C	Task_IsPaused	func	probable	returns state == 0xFFFF
+080AD174	Task_Resume	func	probable	state = 1
+080AD17C	TaskOp_Wait	func	probable	op table entry 0 start: wait = arg, pc++
+080AD190	TaskOp_WaitUpdate	func	probable	op table entry 0 update: wait-- unless -1
+080AD1A8	Task_GotoLabel	func	probable	scans script from start for {0x10241224, label}, sets pc to it
+080AD1E4	TaskOp_Goto	func	probable	op table entry 1 start
+080AD1FC	Task_End	func	probable	state = 0 (NULL-safe); called by window/yes-no code to free tasks
+080AD20C	Task_GetState	func	probable	returns task->state
+080AD210	Task_EndById	func	probable	Task_End(&tasks[id]) if active
+080AD230	Task_EndAllExcept	func	probable	ends every active task except the argument
+080AD260	Task_EndChildren	func	probable	ends active tasks whose parent == self->id
+080AD298	TaskOp_End	func	probable	op table entry 2 start
+080AD2A8	TaskOp_Loop	func	probable	op table entry 3 start: loopCount = arg, loopStart = pc after arg
+080AD2C4	TaskOp_EndLoop	func	probable	op table entry 4 start: if --loopCount != 0, pc = loopStart
+080AD2F0	TaskOp_IfResultGoto	func	probable	op table entry 7 start: result != 0 -> Task_GotoLabel(arg)
+080AD31C	TaskOp_UnlessResultGoto	func	probable	op table entry 8 start: result == 0 -> Task_GotoLabel(arg)
+080AD348	Task_Signal	func	probable	active task with wait == -1 gets wait = 1
+080AD364	Task_GetParent	func	probable	returns &tasks[task->parent]
+080AD374	TaskOp_SignalParent	func	probable	op table entry 9 start: Task_Signal(Task_GetParent(task))
+080AD388	TaskOp_Call0	func	probable	op table entry 10: func = arg0, func(task)
+080AD3A8	TaskOp_Call1	func	probable	op table entry 11: func(task, arg1)
+080AD3CC	TaskOp_Call2	func	probable	op table entry 12: func(task, arg1, arg2)
+080AD3F0	TaskOp_Call3	func	probable	op table entry 13: func(task, arg1..arg3)
+080AD418	TaskOp_Call4	func	probable	op table entry 14: func(task, arg1..arg4)
+080AD78C	Field_SetState	func	tentative	from translation patches (lost Ghidra session); verify
+080B968C	Location_GetNameCellFromCoords	func	tentative	from translation patches (lost Ghidra session); verify
+080BEA60	Status_ShowAfflictionMessage	func	tentative	from translation patches (lost Ghidra session); verify
+080BF354	Equipment_GetRecord36_MidRange	func	tentative	from translation patches (lost Ghidra session); verify
+080BF418	Action_GetRecord	func	tentative	from translation patches (lost Ghidra session); verify
+080C0344	Combatant_DecodeName	func	tentative	from translation patches (lost Ghidra session); verify
+080C068C	Race_GetName	func	tentative	from translation patches (lost Ghidra session); verify
+080C069C	ParentRace_GetName	func	tentative	from translation patches (lost Ghidra session); verify
+080C09A4	Race_GetParentId	func	tentative	from translation patches (lost Ghidra session); verify
+080C2340	Flag_Test	func	probable	returns bit arg of byte array 03005CA8 (used by ScriptOp_30C)
+080C2364	Flag_Set	func	probable	sets bit arg in 03005CA8 (and mirror 03004680 for 0x120-0x14D)
+080C23BC	Flag_Clear	func	probable	clears bit arg in 03005CA8 (and mirror 03004680)
+080C2B34	Settings_GetBattleMsgSpeed	func	tentative	from translation patches (lost Ghidra session); verify
+080C6E78	Party_BuildMemberNameTiles	func	tentative	from translation patches (lost Ghidra session); verify
+080C8B7C	MarkerHeader_DrawLocationName	func	tentative	from translation patches (lost Ghidra session); verify
+080C8BFC	MarkerList_DrawLocationName	func	tentative	from translation patches (lost Ghidra session); verify
+080C99C4	Status_DrawDemonInfo	func	tentative	from translation patches (lost Ghidra session); verify
+080CBA7C	Status_DrawDropItem	func	tentative	from translation patches (lost Ghidra session); verify
+080CEAD0	Comp_DrawSummonCost	func	tentative	from translation patches (lost Ghidra session); verify
+080D0288	Menu_DrawCombatantName8px	func	tentative	from translation patches (lost Ghidra session); verify
+080D0340	GameState_TestFlag	func	probable	returns bit n of the byte array at state+0x15E8 (event flags 0xEE, 0x163 tested by the save screen)
+080D035C	SaveScreen_DrawLocationName	func	tentative	from translation patches (lost Ghidra session); verify
+080D042C	SaveScreen_DrawTokenString	func	tentative	from translation patches (lost Ghidra session); verify
+080D0498	SaveScreen_DrawSlot	func	probable	draws slot number, empty-slot text or location name, play data and party names of slot loaded into 0x02017874
+080D06BC	SaveScreen_DrawPage	func	probable	creates the title/slot windows and calls sub_080D0498 for slots 0-3 by page
+080D0834	BgMap_SetPaletteRect	func	probable	rewrites the palette bits (<<12) of a w*h rectangle in a 32-wide tilemap
+080D0A74	SaveScreen_HandleInput	func	probable	A/B/Up/Down on the slot list; A accepted only if sub_080D13D0(slot)==1; sets task+0x1C/+0x1E
+080D0B18	LoadScreen_Confirm	func	probable	not cancelled: sub_080D1328(cursor, 0x030046C0, 0) loads the slot into the live state
+080D0C74	GameState_StoreLocation	func	probable	copies the current map/position globals into the live state (0xA2C..0xA3C, 0x18A0..) before saving
+080D0DA0	SaveScreen_WriteSuspend	func	probable	sub_080D0C74(3) then sub_080D1264(3, 0x030046C0)
+080D0EA0	SaveScreen_WriteSlot	func	probable	sub_080D0C74(cursor) then sub_080D1264(cursor, 0x030046C0)
+080D0F60	SaveScreen_Close	func	probable	frees the windows at 0x0203A464..74 and returns to the caller screen by mode
+080D110C	SaveScreen_Open	func	probable	clears 0x0203A454 (0x800 bytes), stores mode/arg; mode 3 takes the cursor from state+0x18B0
+080D1180	Sram_FormatIfInvalid	func	probable	reads the 0x20-byte SRAM header; when magic!=0x10241179 or version!=0x11 writes a fresh 0x8000-byte image
+080D1230	Sram_WriteVerified	func	probable	write (0815CBB4) then verify (0815CC24), up to 3 tries; returns 1 on success
+080D1264	SaveSlot_Write	func	probable	writes 0x18F8 bytes to 0x0E00009C+slot*0x1B00, byte-sum checksum to 0x0E00008C+slot*4, valid=1 to 0x0E00007C+slot*4
+080D12F4	Sram_ReadVerified	func	probable	read (0815CB50) then verify (0815CC24), up to 3 tries
+080D1328	SaveSlot_Read	func	probable	reads slot data and checksum, returns 1 when the byte sum matches; applies it unless arg2 != 0
+080D13A8	SaveSlot_ClearSuspend	func	probable	writes 0 to the slot-3 valid flag at 0x0E000088
+080D13D0	SaveSlot_IsValid	func	probable	reads the u32 at 0x0E00007C+slot*4, returns it == 1
+080D1430	SaveSlot_AnyValid	func	probable	returns 1 if sub_080D13D0(i) for any i < 3
+080D155C	NameEntry_RenderName	func	probable	decodes the 8-byte name at 0x0203A46E and renders 8 glyph tiles to 0x02000000
+080D15DC	NameEntry_DrawGrid	func	tentative	from translation patches (lost Ghidra session); verify
+080D17CC	NameEntry_Backspace	func	probable	plays sfx 0x66, removes the last character (0xFF) and re-renders
+080D1828	NameEntry_HandleInput	func	tentative	from translation patches (lost Ghidra session); verify
+080D1AD8	Name_Equals8	func	probable	compares two 8-byte names; returns 0 when equal
+080D1B28	NameEntry_ValidateName	func	probable	rejects an empty name or one equal to another character's name (sub_080C0148 ids 0x8000+, state names at 0xA00)
+080D1D14	NameEntry_StoreName	func	probable	copies the entered name to the target combatant or state+0xA00 slot, inner 0xFF become 0
+080D1E48	NameEntry_Open	func	probable	clears 0x0203A454, sets the target id, fills the name with 0xFF
+080D22C0	StatsPage_DrawLabelGrid	func	tentative	from translation patches (lost Ghidra session); verify
+080D2508	StatsPage_ApplyPreview	func	probable	backs up the combatant (0x80 bytes) to 0x0203A470 and applies the stats of id
+080D2554	StatsPage_RestoreCombatant	func	probable	copies the 0x80-byte backup at 0x0203A470 back
+080D2570	StatsPage_DrawBaseStats	func	tentative	from translation patches (lost Ghidra session); verify
+080D2788	StatsPage_DrawDerivedStats	func	tentative	from translation patches (lost Ghidra session); verify
+080D295C	StatsPage_DrawDerivedStats2	func	tentative	from translation patches (lost Ghidra session); verify
+080D2B70	Menu_DrawItemNameTriple	func	tentative	from translation patches (lost Ghidra session); verify
+080D2C44	Menu_DrawSkillRowTriple	func	tentative	from translation patches (lost Ghidra session); verify
+080D2D04	Action_CountDescriptionBreaks	func	probable	counts 0x300 codes in the description of action id (> 0xD0) up to 0/0x301
+080D2D80	Item_RenderDescription	func	tentative	from translation patches (lost Ghidra session); verify
+080D37BC	CasinoPrize_DrawRows	func	tentative	from translation patches (lost Ghidra session); verify
+080D5324	Door_KeypadInitInputState	func	tentative	from translation patches (lost Ghidra session); verify
+080D67BC	Intro_DrawDisclaimer	func	tentative	from translation patches (lost Ghidra session); verify
+080DADF8	Vision_DrawItemList	func	tentative	from translation patches (lost Ghidra session); verify
+080DAF50	Vision_ComposePrompt	func	tentative	from translation patches (lost Ghidra session); verify
+080DB2C0	DDS_DrawMenuRow	func	tentative	from translation patches (lost Ghidra session); verify
+080DB4A8	Dict_BuildList	func	tentative	from translation patches (lost Ghidra session); verify
+080DF1EC	SerialTimer3Intr	func	proven	IRQ table entries 6-7 (Timer3, Serial): link cable
+080E0A1C	Battle_DrawItemListPage	func	tentative	from translation patches (lost Ghidra session); verify
+080E2364	umul3232H32	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E2374	SoundMain	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E23F8	SoundMainRAM	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E2728	SoundMainBTM	func	proven	gMPlayJumpTableTemplate entry
+080E2740	RealClearChain	func	proven	gMPlayJumpTableTemplate entry
+080E2760	ply_fine	func	proven	gMPlayJumpTableTemplate entry
+080E2790	MPlayJumpTableCopy	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E27A8	ldrb_r3_r2	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E27AA	chk_adr_r2	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E27C4	ld_r3_tp_adr_i	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E27D0	ply_goto	func	proven	gMPlayJumpTableTemplate entry
+080E27F0	ply_patt	func	proven	gMPlayJumpTableTemplate entry
+080E280C	ply_pend	func	proven	gMPlayJumpTableTemplate entry
+080E2820	ply_rept	func	proven	gMPlayJumpTableTemplate entry
+080E2850	ply_prio	func	proven	gMPlayJumpTableTemplate entry
+080E285C	ply_tempo	func	proven	gMPlayJumpTableTemplate entry
+080E2870	ply_keysh	func	proven	gMPlayJumpTableTemplate entry
+080E2884	ply_voice	func	proven	gMPlayJumpTableTemplate entry
+080E28B4	ply_vol	func	proven	gMPlayJumpTableTemplate entry
+080E28C8	ply_pan	func	proven	gMPlayJumpTableTemplate entry
+080E28DC	ply_bend	func	proven	gMPlayJumpTableTemplate entry
+080E28F0	ply_bendr	func	proven	gMPlayJumpTableTemplate entry
+080E2904	ply_lfodl	func	proven	gMPlayJumpTableTemplate entry
+080E2910	ply_modt	func	proven	gMPlayJumpTableTemplate entry
+080E2928	ply_tune	func	proven	gMPlayJumpTableTemplate entry
+080E293C	ply_port	func	proven	gMPlayJumpTableTemplate entry
+080E2954	m4aSoundVSync	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E2990	MPlayMain	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E2BF8	TrackStop	func	proven	gMPlayJumpTableTemplate entry
+080E2C3C	ChnVolSetAsm	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E2C6C	ply_note	func	proven	gMPlayJumpTableTemplate entry
+080E2E6C	ply_endtie	func	proven	gMPlayJumpTableTemplate entry
+080E2EAC	clear_modM	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E2EC8	ld_r3_tp_adr_i_2	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E2ED4	ply_lfos	func	proven	gMPlayJumpTableTemplate entry
+080E2EE8	ply_mod	func	proven	gMPlayJumpTableTemplate entry
+080E2EFC	MidiKeyToFreq	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E2F60	UnusedDummyFunc	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E2F64	MPlayContinue	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E2F80	MPlayFadeOut	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E2FA0	m4aSoundInit	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E3018	m4aSoundMain	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E3024	m4aSongNumStart	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E3050	m4aSongNumStartOrChange	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E309C	m4aSongNumStartOrContinue	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E30F0	m4aSongNumStop	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E3124	m4aSongNumContinue	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E3158	m4aMPlayAllStop	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E3184	m4aMPlayContinue	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E3190	m4aMPlayAllContinue	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E31BC	m4aMPlayFadeOut	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E31CC	m4aMPlayFadeOutTemporarily	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E31EC	m4aMPlayFadeIn	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E3214	m4aMPlayImmInit	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E325C	MPlayExtender	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E3374	MusicPlayerJumpTableCopy	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E3378	ClearChain	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E338C	Clear64byte	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E33A0	SoundInit	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E346C	SampleFreqSet	func	proven	gMPlayJumpTableTemplate entry
+080E3510	m4aSoundMode	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E35A8	SoundClear	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E35FC	m4aSoundVSyncOff	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E3660	m4aSoundVSyncOn	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E3698	MPlayOpen	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E3710	MPlayStart	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E37F4	m4aMPlayStop	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E3834	FadeOutBody	func	proven	gMPlayJumpTableTemplate entry
+080E38FC	TrkVolPitSet	func	proven	gMPlayJumpTableTemplate entry
+080E39B0	MidiKeyToCgbFreq	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E3A58	CgbOscOff	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E3AA8	CgbModVol	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E3B10	CgbSound	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E3F5C	m4aMPlayTempoControl	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E3F84	m4aMPlayVolumeControl	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E3FEC	m4aMPlayPitchControl	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E4060	m4aMPlayPanpotControl	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E40C8	ClearModM	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E40E8	m4aMPlayModDepthSet	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E415C	m4aMPlayLFOSpeedSet	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080E41D0	ply_memacc	func	proven	gMPlayJumpTableTemplate entry
+080E4328	ply_xcmd	func	proven	gMPlayJumpTableTemplate entry
+080E4348	ply_xxx	func	proven	gMPlayJumpTableTemplate entry
+080E435C	ply_xwave	func	proven	gMPlayJumpTableTemplate entry
+080E43A4	ply_xtype	func	proven	gMPlayJumpTableTemplate entry
+080E43B8	ply_xatta	func	proven	gMPlayJumpTableTemplate entry
+080E43CC	ply_xdeca	func	proven	gMPlayJumpTableTemplate entry
+080E43E0	ply_xsust	func	proven	gMPlayJumpTableTemplate entry
+080E43F4	ply_xrele	func	proven	gMPlayJumpTableTemplate entry
+080E4408	ply_xiecv	func	proven	gMPlayJumpTableTemplate entry
+080E4414	ply_xiecl	func	proven	gMPlayJumpTableTemplate entry
+080E4420	ply_xleng	func	proven	gMPlayJumpTableTemplate entry
+080E4434	ply_xswee	func	proven	gMPlayJumpTableTemplate entry
+080E4448	DummyFunc	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
+080EA37C	BattleMenu_SetMode	func	tentative	from translation patches (lost Ghidra session); verify
+080EA4F8	BattleMenu_SetModeAutoClose	func	probable	calls BattleMenu_SetMode then sets msg.autoClose=1, autoCloseTimer=75; sub_080EA538 mode 1 sets done when the timer runs out
+080EA528	BattleMenu_Reset	func	probable	BattleMenu_SetMode(0, NULL)
+080EA538	BattleMsg_Update	func	probable	per-mode switch: types msg.src into text/text2 at gUnknown_086BEC94[Settings_GetBattleMsgSpeed()] frames per char, draws with Text_DrawSpriteString, blinks arrow via sub_080AA184
+080EA934	BattleMsg_IsDone	func	probable	returns 1 when locked or (mode 1/5 and done flag set)
+080EA964	BattleMsg_Close	func	probable	mode=0, sub_080AB91C(window,1), sub_080AD1FC(task), clears both pointers
+080EA9E8	BattleMsg_SetLocked	func	probable	stores its argument into msg.locked, which every compose function and BattleMenu_SetMode check
+080EAA08	MessageBox_ComposeRaceNameText	func	tentative	from translation patches (lost Ghidra session); verify
+080EAAB0	MessageBox_ComposeNameText	func	tentative	from translation patches (lost Ghidra session); verify
+080EAB3C	MessageBox_ComposeTwoNamesText	func	probable	demon name(id1), 0x143, line break, demon name(id2), suffix into the compose buffer
+080EAC0C	MessageBox_ComposeSpeciesText	func	tentative	from translation patches (lost Ghidra session); verify
+080EAD80	Battle_BuildActorPrompt	func	tentative	from translation patches (lost Ghidra session); verify
+080EB080	Battle_BuildActorActionText	func	probable	actor name, gUnknown_081236FC[0], line break, Action_GetRecord(actor[0x5C]) name (+0xC), rest of gUnknown_081236FC
+080EB16C	Battle_BuildStatusResultText	func	tentative	from translation patches (lost Ghidra session); verify
+080EB220	Battle_BuildCombatActionList	func	tentative	from translation patches (lost Ghidra session); verify
+080EB2D4	Battle_BuildNamePrependText	func	tentative	from translation patches (lost Ghidra session); verify
+080EB37C	Battle_BuildNamePrefixText	func	tentative	from translation patches (lost Ghidra session); verify
+080EB454	Battle_BuildDamageDealtText	func	tentative	from translation patches (lost Ghidra session); verify
+080EB570	Battle_BuildDefeatedTargetText	func	tentative	from translation patches (lost Ghidra session); verify
+080EB618	Battle_BuildDodgeText	func	tentative	from translation patches (lost Ghidra session); verify
+080EB71C	Battle_BuildActorStatusText	func	tentative	from translation patches (lost Ghidra session); verify
+080EB8DC	Battle_BuildRaceCountText	func	tentative	from translation patches (lost Ghidra session); verify
+080EB9EC	Battle_BuildRewardText	func	tentative	from translation patches (lost Ghidra session); verify
+080EBB20	Battle_BuildValueRewardText	func	tentative	from translation patches (lost Ghidra session); verify
+080EBBF0	Battle_BuildItemDropText	func	tentative	from translation patches (lost Ghidra session); verify
+080EBCA4	Menu_ExpandListTemplate	func	tentative	from translation patches (lost Ghidra session); verify
+080EBE7C	Battle_AppendCombatantName	func	probable	appends the (<=8 char) name of combatant sub_080F2F64(who+0x8000) at dst and returns the new end; used by Menu_ExpandListTemplate and MessageBox_ComposeSpeciesText
+080EBED4	MessageBox_ComposeWrappedText	func	tentative	from translation patches (lost Ghidra session); verify
+080F2F64	Battle_GetCombatant	func	probable	callers read +0xC (<4 = human: Combatant_DecodeName) and +0x12 (demon id for sub_080BF648) from the returned record
+080F3254	Skill_DrawEquippedRow	func	tentative	from translation patches (lost Ghidra session); verify
+081289B8	Menu_DrawLabeledName	func	tentative	from translation patches (lost Ghidra session); verify
+081321B4	ScriptOp_Nop	func	probable	empty body; table entry for 0x302, 0x314 and ~100 unused opcodes in both tables
+081321B8	ScriptOpAlt_Shared_081321B8	func	probable	gScriptOpAltTable handler for opcode(s) 300,307,30E,310,313,315,316,317,318,31A,31B,31C...
+081321C4	ScriptOpAlt_Shared_081321C4	func	probable	gScriptOpAltTable handler for opcode(s) 305,37B,388,38B,39F,426
+081321D8	ScriptOpAlt_301	func	probable	gScriptOpAltTable handler for opcode(s) 301
+081321E4	ScriptOp_Newline	func	probable	0x300: column (0203DB38) := 0, line (0203DB3A)++, 0203DB4A++
+08132208	ScriptOp_End	func	probable	0x301: pops the unrolled 5-level gosub stack (030069CC/03006910/030065EC/03006600/0203DB64) restoring pc+base; at depth 0 resets cursor, sets task->unk1C=1 and yields
+081323AC	ScriptOp_303	func	probable	gScriptOpTable handler for opcode(s) 303
+081323D4	ScriptOp_304	func	probable	gScriptOpTable handler for opcode(s) 304
+08132464	ScriptOp_305	func	probable	gScriptOpTable handler for opcode(s) 305
+081324A8	ScriptOp_SkipOperand	func	probable	0x306: pc += 1, operand unused
+081324B8	ScriptOp_307	func	probable	gScriptOpTable handler for opcode(s) 307
+0813250C	ScriptOp_308	func	probable	gScriptOpTable handler for opcode(s) 308
+08132544	ScriptOpAlt_Skip3	func	probable	pc += 3 (alt table 0x304/0x32D/0x336)
+08132554	ScriptOpAlt_Skip2	func	probable	pc += 2 (alt table 0x395)
+08132564	ScriptOpAlt_Skip1	func	probable	pc += 1 (alt table 0x303/0x306/0x309/0x311/...)
+08132574	ScriptOp_309	func	probable	gScriptOpTable handler for opcode(s) 309
+081325BC	ScriptOp_SetItemCheckId	func	probable	0x30A: 0203DB50 := operand; consumed by 0x30B
+081325E4	ScriptOp_JumpIfItemMissing	func	probable	0x30B: jumps to operand pointer unless item 0203DB50 is held (sub_080C32D4 count != 0, ids >= 300 via sub_080C57CC)
+08132654	ScriptOpAlt_30B	func	probable	gScriptOpAltTable handler for opcode(s) 30B
+081326C0	ScriptOp_JumpIfFlag	func	probable	0x30C id,ptr: jumps when Flag_Test(id)==1 (id 0x114: sub_080C2A84(2)==1), else pc += 2
+08132734	ScriptOp_30D	func	probable	gScriptOpTable handler for opcode(s) 30D
+081327F8	ScriptOp_30E	func	probable	gScriptOpTable handler for opcode(s) 30E
+08132858	ScriptOp_Jump	func	probable	0x30F: 030068E4 := 32-bit operand pointer (ScriptVM_Run then loads it with pc 0)
+0813291C	ScriptOp_CloseMessage	func	probable	0x310: sets/clears flag 0xD5 by operand, state 7, resets cursor, closes window 03006968 if open, yields
+081329BC	ScriptOp_311	func	probable	gScriptOpTable handler for opcode(s) 311
+081329E4	ScriptOp_SetFlag	func	probable	0x312: Flag_Set(operand)
+08132A0C	ScriptOp_Delay	func	probable	0x315: wait state 15 with 0203DB5C = 20 frames (1 when skipping, 0203DB48==1)
+08132A5C	ScriptOp_316	func	probable	gScriptOpTable handler for opcode(s) 316
+08132AA0	ScriptOp_341	func	probable	gScriptOpTable handler for opcode(s) 341
+08132ACC	ScriptOp_317	func	probable	gScriptOpTable handler for opcode(s) 317
+08132AF8	ScriptOp_ReturnFromSubst	func	probable	0x318: pc/base := 0203DB4E/030068CC saved by ScriptOp_DrawCharOrSubstitute
+08132B1C	ScriptOp_ClearFlag	func	probable	0x319: Flag_Clear(operand)
+08132B40	ScriptOp_Substitute	func	probable	table entry for 0x31A-0x329, 0x32E, 0x32F, 0x36E: writes a name/number into 0203DB08 terminated by 0x318 and redirects the VM there
+081332BC	ScriptOp_32A	func	probable	gScriptOpTable handler for opcode(s) 32A
+081332F4	ScriptOp_32B	func	probable	gScriptOpTable handler for opcode(s) 32B
+081333E4	ScriptOp_336	func	probable	gScriptOpTable handler for opcode(s) 336
+08133434	ScriptOp_337	func	probable	gScriptOpTable handler for opcode(s) 337
+0813345C	ScriptOp_338	func	probable	gScriptOpTable handler for opcode(s) 338
+081334B4	ScriptOp_32C	func	probable	gScriptOpTable handler for opcode(s) 32C
+08133500	ScriptOp_32D	func	probable	gScriptOpTable handler for opcode(s) 32D
+0813355C	ScriptOp_333	func	probable	gScriptOpTable handler for opcode(s) 333
+081336A4	ScriptOp_334	func	probable	gScriptOpTable handler for opcode(s) 334
+081339EC	ScriptOp_33A	func	probable	gScriptOpTable handler for opcode(s) 33A
+08133B18	Shop_InitItemList	func	tentative	from translation patches (lost Ghidra session); verify
+081343AC	ScriptOp_33B	func	probable	gScriptOpTable handler for opcode(s) 33B
+08134568	ScriptOp_33C	func	probable	gScriptOpTable handler for opcode(s) 33C
+081345CC	ScriptOp_33D	func	probable	gScriptOpTable handler for opcode(s) 33D
+08134854	ScriptOp_33E	func	probable	gScriptOpTable handler for opcode(s) 33E
+081348B8	ScriptOp_33F	func	probable	gScriptOpTable handler for opcode(s) 33F
+081348FC	ScriptOp_340	func	probable	gScriptOpTable handler for opcode(s) 340
+08134900	ScriptOp_Choice	func	tentative	from translation patches (lost Ghidra session); verify
+08134A48	ScriptOp_352	func	probable	gScriptOpTable handler for opcode(s) 352
+08134A78	ScriptOp_353	func	probable	gScriptOpTable handler for opcode(s) 353
+08134AC0	ScriptOp_354	func	probable	gScriptOpTable handler for opcode(s) 354
+08134AC4	ScriptOp_355	func	probable	gScriptOpTable handler for opcode(s) 355
+08134B34	ScriptOp_356	func	probable	gScriptOpTable handler for opcode(s) 356
+08134BA8	ScriptOp_357	func	probable	gScriptOpTable handler for opcode(s) 357
+08134C00	ScriptOp_358	func	probable	gScriptOpTable handler for opcode(s) 358
+08134C40	ScriptOp_359	func	probable	gScriptOpTable handler for opcode(s) 359
+08134CE4	ScriptOp_35A	func	probable	gScriptOpTable handler for opcode(s) 35A
+08134D3C	ScriptOp_35B	func	probable	gScriptOpTable handler for opcode(s) 35B
+08134D40	ScriptOp_35C	func	probable	gScriptOpTable handler for opcode(s) 35C
+08134DC4	ScriptOp_35D	func	probable	gScriptOpTable handler for opcode(s) 35D
+08134E28	ScriptOp_35E	func	probable	gScriptOpTable handler for opcode(s) 35E
+08134FB8	ScriptOp_35F	func	probable	gScriptOpTable handler for opcode(s) 35F
+081356C8	ScriptOp_360	func	probable	gScriptOpTable handler for opcode(s) 360
+08135724	ScriptOp_361	func	probable	gScriptOpTable handler for opcode(s) 361
+08135784	ScriptOp_362	func	probable	gScriptOpTable handler for opcode(s) 362
+08135820	ScriptOp_363	func	probable	gScriptOpTable handler for opcode(s) 363
+08135880	ScriptOp_364	func	probable	gScriptOpTable handler for opcode(s) 364
+08135884	ScriptOp_365	func	probable	gScriptOpTable handler for opcode(s) 365
+08135894	ScriptOp_370_371	func	probable	gScriptOpTable handler for opcode(s) 370,371
+081358A4	ScriptOp_366	func	probable	gScriptOpTable handler for opcode(s) 366
+08135904	ScriptOp_367	func	probable	gScriptOpTable handler for opcode(s) 367
+08135908	ScriptOp_368	func	probable	gScriptOpTable handler for opcode(s) 368
+0813593C	ScriptOp_369	func	probable	gScriptOpTable handler for opcode(s) 369
+08135940	ScriptOp_36B	func	probable	gScriptOpTable handler for opcode(s) 36B
+08135998	ScriptOp_36C	func	probable	gScriptOpTable handler for opcode(s) 36C
+081359DC	ScriptOp_36D	func	probable	gScriptOpTable handler for opcode(s) 36D
+08135AA8	ScriptOp_36F	func	probable	gScriptOpTable handler for opcode(s) 36F
+08135BA0	ScriptOp_372	func	probable	gScriptOpTable handler for opcode(s) 372
+08135E10	ScriptOp_373	func	probable	gScriptOpTable handler for opcode(s) 373
+08135E14	ScriptOp_374	func	probable	gScriptOpTable handler for opcode(s) 374
+08135EEC	ScriptOp_375	func	probable	gScriptOpTable handler for opcode(s) 375
+0813615C	ScriptOp_376	func	probable	gScriptOpTable handler for opcode(s) 376
+081365D0	ScriptOp_377	func	probable	gScriptOpTable handler for opcode(s) 377
+08136718	ScriptOp_378	func	probable	gScriptOpTable handler for opcode(s) 378
+08136790	ScriptOp_379	func	probable	gScriptOpTable handler for opcode(s) 379
+081367E4	ScriptOp_37A	func	probable	gScriptOpTable handler for opcode(s) 37A
+08136888	ScriptOp_37B	func	probable	gScriptOpTable handler for opcode(s) 37B
+081368B8	ScriptOp_37D	func	probable	gScriptOpTable handler for opcode(s) 37D
+0813695C	ScriptOp_37F	func	probable	gScriptOpTable handler for opcode(s) 37F
+081369BC	ScriptOp_380	func	probable	gScriptOpTable handler for opcode(s) 380
+081369CC	ScriptOp_381	func	probable	gScriptOpTable handler for opcode(s) 381
+08136BD4	ScriptOp_382	func	probable	gScriptOpTable handler for opcode(s) 382
+08136C94	ScriptOp_388	func	probable	gScriptOpTable handler for opcode(s) 388
+08136CBC	ScriptOp_389	func	probable	gScriptOpTable handler for opcode(s) 389
+08136D58	ScriptOp_38A	func	probable	gScriptOpTable handler for opcode(s) 38A
+08136D5C	ScriptOp_38B	func	probable	gScriptOpTable handler for opcode(s) 38B
+08136DD0	ScriptOp_38C	func	probable	gScriptOpTable handler for opcode(s) 38C
+08136DD4	ScriptOp_38D	func	probable	gScriptOpTable handler for opcode(s) 38D
+08136E34	ScriptOp_390	func	probable	gScriptOpTable handler for opcode(s) 390
+08136E38	ScriptOp_391	func	probable	gScriptOpTable handler for opcode(s) 391
+08136E3C	ScriptOp_392	func	probable	gScriptOpTable handler for opcode(s) 392
+08136EB8	ScriptOp_394	func	probable	gScriptOpTable handler for opcode(s) 394
+08136EBC	ScriptOp_395	func	probable	gScriptOpTable handler for opcode(s) 395
+08136EF8	ScriptOp_396	func	probable	gScriptOpTable handler for opcode(s) 396
+08136F08	ScriptOp_398	func	probable	gScriptOpTable handler for opcode(s) 398
+08136F0C	ScriptOp_399	func	probable	gScriptOpTable handler for opcode(s) 399
+08136F10	ScriptOp_39A	func	probable	gScriptOpTable handler for opcode(s) 39A
+08136F14	ScriptOp_39B	func	probable	gScriptOpTable handler for opcode(s) 39B
+08137058	ScriptOp_39C	func	probable	gScriptOpTable handler for opcode(s) 39C
+0813705C	ScriptOp_39F	func	probable	gScriptOpTable handler for opcode(s) 39F
+081370C0	ScriptOp_3A3	func	probable	gScriptOpTable handler for opcode(s) 3A3
+081370D4	ScriptOp_3A4	func	probable	gScriptOpTable handler for opcode(s) 3A4
+081370F0	ScriptOp_3A5	func	probable	gScriptOpTable handler for opcode(s) 3A5
+08137150	ScriptOp_3A6	func	probable	gScriptOpTable handler for opcode(s) 3A6
+08137154	ScriptOp_3A8	func	probable	gScriptOpTable handler for opcode(s) 3A8
+08137158	ScriptOp_3A9	func	probable	gScriptOpTable handler for opcode(s) 3A9
+0813715C	ScriptOp_3AB	func	probable	gScriptOpTable handler for opcode(s) 3AB
+08137160	ScriptOp_3AC	func	probable	gScriptOpTable handler for opcode(s) 3AC
+08137188	ScriptOp_3AE	func	probable	gScriptOpTable handler for opcode(s) 3AE
+0813718C	ScriptOp_3B1	func	probable	gScriptOpTable handler for opcode(s) 3B1
+08137190	ScriptOp_3B2	func	probable	gScriptOpTable handler for opcode(s) 3B2
+08137194	ScriptOp_3B3	func	probable	gScriptOpTable handler for opcode(s) 3B3
+08137198	ScriptOp_3B6	func	probable	gScriptOpTable handler for opcode(s) 3B6
+081371F8	ScriptOp_3B9	func	probable	gScriptOpTable handler for opcode(s) 3B9
+081372BC	ScriptOp_3BA	func	probable	gScriptOpTable handler for opcode(s) 3BA
+081372C0	ScriptOp_3BB	func	probable	gScriptOpTable handler for opcode(s) 3BB
+081372E4	ScriptOp_3BD	func	probable	gScriptOpTable handler for opcode(s) 3BD
+081372E8	ScriptOp_3BE	func	probable	gScriptOpTable handler for opcode(s) 3BE
+081372EC	ScriptOp_3BF	func	probable	gScriptOpTable handler for opcode(s) 3BF
+081372F0	ScriptOp_3C0	func	probable	gScriptOpTable handler for opcode(s) 3C0
+0813731C	ScriptOp_3C2	func	probable	gScriptOpTable handler for opcode(s) 3C2
+08137320	ScriptOp_3C4	func	probable	gScriptOpTable handler for opcode(s) 3C4
+08137324	ScriptOp_3C5	func	probable	gScriptOpTable handler for opcode(s) 3C5
+081373E0	ScriptOp_3C7	func	probable	gScriptOpTable handler for opcode(s) 3C7
+08137478	ScriptOp_3C6	func	probable	gScriptOpTable handler for opcode(s) 3C6
+08137584	ScriptOp_3CA	func	probable	gScriptOpTable handler for opcode(s) 3CA
+08137588	ScriptOp_3CB	func	probable	gScriptOpTable handler for opcode(s) 3CB
+081375D0	ScriptOp_3CC	func	probable	gScriptOpTable handler for opcode(s) 3CC
+081375D4	ScriptOp_3CD	func	probable	gScriptOpTable handler for opcode(s) 3CD
+081376CC	ScriptOp_3CE	func	probable	gScriptOpTable handler for opcode(s) 3CE
+081377D0	ScriptOp_3CF	func	probable	gScriptOpTable handler for opcode(s) 3CF
+08137824	ScriptOp_3D0	func	probable	gScriptOpTable handler for opcode(s) 3D0
+08137878	ScriptOp_3D1	func	probable	gScriptOpTable handler for opcode(s) 3D1
+08137908	ScriptOp_3D2	func	probable	gScriptOpTable handler for opcode(s) 3D2
+0813795C	ScriptOp_3D3	func	probable	gScriptOpTable handler for opcode(s) 3D3
+081379C8	ScriptOp_3D4	func	probable	gScriptOpTable handler for opcode(s) 3D4
+08137A20	ScriptOp_3D5	func	probable	gScriptOpTable handler for opcode(s) 3D5
+08137A74	ScriptOp_3D6	func	probable	gScriptOpTable handler for opcode(s) 3D6
+081380DC	ScriptOp_3D7	func	probable	gScriptOpTable handler for opcode(s) 3D7
+08138154	ScriptOp_3D8	func	probable	gScriptOpTable handler for opcode(s) 3D8
+08138158	ScriptOp_3D9	func	probable	gScriptOpTable handler for opcode(s) 3D9
+0813815C	ScriptOp_3DA	func	probable	gScriptOpTable handler for opcode(s) 3DA
+08138160	ScriptOp_3DB	func	probable	gScriptOpTable handler for opcode(s) 3DB
+08138164	ScriptOp_3DC	func	probable	gScriptOpTable handler for opcode(s) 3DC
+08138168	ScriptOp_3DD	func	probable	gScriptOpTable handler for opcode(s) 3DD
+0813816C	ScriptOp_3DE	func	probable	gScriptOpTable handler for opcode(s) 3DE
+08138170	ScriptOp_3DF	func	probable	gScriptOpTable handler for opcode(s) 3DF
+08138310	ScriptOp_3E0	func	probable	gScriptOpTable handler for opcode(s) 3E0
+08138350	ScriptOp_3E1	func	probable	gScriptOpTable handler for opcode(s) 3E1
+08138588	ScriptOp_3E2_40F	func	probable	gScriptOpTable handler for opcode(s) 3E2,40F
+081385D0	ScriptOp_44C	func	probable	gScriptOpTable handler for opcode(s) 44C
+081385F8	ScriptOp_412	func	probable	gScriptOpTable handler for opcode(s) 412
+081386DC	Negotiate_SelectResponse	func	tentative	from translation patches (lost Ghidra session); verify
+08138B9C	ScriptOp_3E3	func	probable	gScriptOpTable handler for opcode(s) 3E3
+08138C48	ScriptOp_3E4	func	probable	gScriptOpTable handler for opcode(s) 3E4
+08138C4C	ScriptOp_3E5	func	probable	gScriptOpTable handler for opcode(s) 3E5
+08138D18	ScriptOp_3E6	func	probable	gScriptOpTable handler for opcode(s) 3E6
+08138D50	ScriptOp_401	func	probable	gScriptOpTable handler for opcode(s) 401
+08138DC8	ScriptOp_402	func	probable	gScriptOpTable handler for opcode(s) 402
+08138E60	ScriptOpAlt_402	func	probable	gScriptOpAltTable handler for opcode(s) 402
+08138E64	ScriptOp_403	func	probable	gScriptOpTable handler for opcode(s) 403
+08138EA0	ScriptOpAlt_403	func	probable	gScriptOpAltTable handler for opcode(s) 403
+08138EB0	ScriptOp_404	func	probable	gScriptOpTable handler for opcode(s) 404
+08138F28	ScriptOpAlt_404	func	probable	gScriptOpAltTable handler for opcode(s) 404
+08138F38	ScriptOp_405	func	probable	gScriptOpTable handler for opcode(s) 405
+08138FA8	ScriptOpAlt_405	func	probable	gScriptOpAltTable handler for opcode(s) 405
+08138FB8	ScriptOp_406	func	probable	gScriptOpTable handler for opcode(s) 406
+08138FEC	ScriptOpAlt_406	func	probable	gScriptOpAltTable handler for opcode(s) 406
+08138FFC	ScriptOp_407	func	probable	gScriptOpTable handler for opcode(s) 407
+08139030	ScriptOpAlt_407	func	probable	gScriptOpAltTable handler for opcode(s) 407
+08139040	ScriptOp_408	func	probable	gScriptOpTable handler for opcode(s) 408
+0813907C	ScriptOpAlt_408	func	probable	gScriptOpAltTable handler for opcode(s) 408
+0813908C	ScriptOp_409	func	probable	gScriptOpTable handler for opcode(s) 409
+0813914C	CasinoPrize_DrawList	func	tentative	from translation patches (lost Ghidra session); verify
+08139504	ScriptOpAlt_409	func	probable	gScriptOpAltTable handler for opcode(s) 409
+08139514	ScriptOp_40A	func	probable	gScriptOpTable handler for opcode(s) 40A
+08139610	ScriptOpAlt_40A	func	probable	gScriptOpAltTable handler for opcode(s) 40A
+08139620	ScriptOp_40C	func	probable	gScriptOpTable handler for opcode(s) 40C
+08139650	ScriptOp_40B	func	probable	gScriptOpTable handler for opcode(s) 40B
+081396E0	ScriptOpAlt_40B	func	probable	gScriptOpAltTable handler for opcode(s) 40B
+081396F0	ScriptOp_40D	func	probable	gScriptOpTable handler for opcode(s) 40D
+08139758	ScriptOpAlt_40D	func	probable	gScriptOpAltTable handler for opcode(s) 40D
+08139768	ScriptOp_40E	func	probable	gScriptOpTable handler for opcode(s) 40E
+081397A8	ScriptOpAlt_40E	func	probable	gScriptOpAltTable handler for opcode(s) 40E
+081397C8	ScriptOpAlt_40F	func	probable	gScriptOpAltTable handler for opcode(s) 40F
+081399F0	ScriptOp_410	func	probable	gScriptOpTable handler for opcode(s) 410
+08139DDC	ScriptOpAlt_410	func	probable	gScriptOpAltTable handler for opcode(s) 410
+08139DEC	ScriptOp_411	func	probable	gScriptOpTable handler for opcode(s) 411
+08139E0C	ScriptOpAlt_411	func	probable	gScriptOpAltTable handler for opcode(s) 411
+08139E1C	ScriptOp_421	func	probable	gScriptOpTable handler for opcode(s) 421
+08139E6C	ScriptOpAlt_421	func	probable	gScriptOpAltTable handler for opcode(s) 421
+08139E7C	ScriptOp_422	func	probable	gScriptOpTable handler for opcode(s) 422
+08139F20	ScriptOpAlt_422	func	probable	gScriptOpAltTable handler for opcode(s) 422
+08139F30	ScriptOp_423	func	probable	gScriptOpTable handler for opcode(s) 423
+08139FA0	ScriptOpAlt_423	func	probable	gScriptOpAltTable handler for opcode(s) 423
+08139FB0	ScriptOp_424	func	probable	gScriptOpTable handler for opcode(s) 424
+0813A008	ScriptOpAlt_424	func	probable	gScriptOpAltTable handler for opcode(s) 424
+0813A018	ScriptOp_425	func	probable	gScriptOpTable handler for opcode(s) 425
+0813A01C	ScriptOpAlt_425	func	probable	gScriptOpAltTable handler for opcode(s) 425
+0813A020	ScriptOp_426	func	probable	gScriptOpTable handler for opcode(s) 426
+0813A228	ScriptOp_427	func	probable	gScriptOpTable handler for opcode(s) 427
+0813A22C	ScriptOpAlt_427	func	probable	gScriptOpAltTable handler for opcode(s) 427
+0813A230	ScriptOp_428	func	probable	gScriptOpTable handler for opcode(s) 428
+0813A234	ScriptOpAlt_428	func	probable	gScriptOpAltTable handler for opcode(s) 428
+0813A238	ScriptOp_429	func	probable	gScriptOpTable handler for opcode(s) 429
+0813A2A8	ScriptOp_42A	func	probable	gScriptOpTable handler for opcode(s) 42A
+0813A2AC	ScriptOpAlt_42A	func	probable	gScriptOpAltTable handler for opcode(s) 42A
+0813A2B0	ScriptOp_42B	func	probable	gScriptOpTable handler for opcode(s) 42B
+0813A2C8	ScriptOpAlt_42B	func	probable	gScriptOpAltTable handler for opcode(s) 42B
+0813A2D8	ScriptOp_42C	func	probable	gScriptOpTable handler for opcode(s) 42C
+0813A2DC	ScriptOpAlt_42C	func	probable	gScriptOpAltTable handler for opcode(s) 42C
+0813A2E0	ScriptOp_42D	func	probable	gScriptOpTable handler for opcode(s) 42D
+0813A2E4	ScriptOpAlt_42D	func	probable	gScriptOpAltTable handler for opcode(s) 42D
+0813A2E8	ScriptOp_42E	func	probable	gScriptOpTable handler for opcode(s) 42E
+0813A2EC	ScriptOpAlt_42E	func	probable	gScriptOpAltTable handler for opcode(s) 42E
+0813A2F0	ScriptOp_42F	func	probable	gScriptOpTable handler for opcode(s) 42F
+0813A2F4	ScriptOpAlt_42F	func	probable	gScriptOpAltTable handler for opcode(s) 42F
+0813A2F8	ScriptOp_430	func	probable	gScriptOpTable handler for opcode(s) 430
+0813A304	ScriptOpAlt_430	func	probable	gScriptOpAltTable handler for opcode(s) 430
+0813A308	ScriptOp_431	func	probable	gScriptOpTable handler for opcode(s) 431
+0813A30C	ScriptOpAlt_431	func	probable	gScriptOpAltTable handler for opcode(s) 431
+0813A310	ScriptOp_432	func	probable	gScriptOpTable handler for opcode(s) 432
+0813A384	ScriptOpAlt_432	func	probable	gScriptOpAltTable handler for opcode(s) 432
+0813A394	ScriptOp_433	func	probable	gScriptOpTable handler for opcode(s) 433
+0813A3A0	ScriptOpAlt_433	func	probable	gScriptOpAltTable handler for opcode(s) 433
+0813A3C0	ScriptOp_434	func	probable	gScriptOpTable handler for opcode(s) 434
+0813A42C	ScriptOp_435	func	probable	gScriptOpTable handler for opcode(s) 435
+0813A570	ScriptOpAlt_435	func	probable	gScriptOpAltTable handler for opcode(s) 435
+0813A580	ScriptOp_436	func	probable	gScriptOpTable handler for opcode(s) 436
+0813A584	ScriptOpAlt_436	func	probable	gScriptOpAltTable handler for opcode(s) 436
+0813A588	ScriptOp_437	func	probable	gScriptOpTable handler for opcode(s) 437
+0813A58C	ScriptOpAlt_437	func	probable	gScriptOpAltTable handler for opcode(s) 437
+0813A590	ScriptOp_438	func	probable	gScriptOpTable handler for opcode(s) 438
+0813A838	ScriptOpAlt_438	func	probable	gScriptOpAltTable handler for opcode(s) 438
+0813A848	ScriptOp_439	func	probable	gScriptOpTable handler for opcode(s) 439
+0813A888	ScriptOpAlt_439	func	probable	gScriptOpAltTable handler for opcode(s) 439
+0813A898	ScriptOp_43A	func	probable	gScriptOpTable handler for opcode(s) 43A
+0813A8A8	ScriptOpAlt_43A	func	probable	gScriptOpAltTable handler for opcode(s) 43A
+0813A8B8	ScriptOp_43B	func	probable	gScriptOpTable handler for opcode(s) 43B
+0813A8E8	ScriptOpAlt_43B	func	probable	gScriptOpAltTable handler for opcode(s) 43B
+0813A8F8	ScriptOp_43C	func	probable	gScriptOpTable handler for opcode(s) 43C
+0813A908	ScriptOpAlt_43C	func	probable	gScriptOpAltTable handler for opcode(s) 43C
+0813A918	ScriptOp_43D	func	probable	gScriptOpTable handler for opcode(s) 43D
+0813A988	ScriptOpAlt_43D	func	probable	gScriptOpAltTable handler for opcode(s) 43D
+0813A998	ScriptOp_43E	func	probable	gScriptOpTable handler for opcode(s) 43E
+0813AA28	ScriptOpAlt_43E	func	probable	gScriptOpAltTable handler for opcode(s) 43E
+0813AA38	ScriptOp_43F	func	probable	gScriptOpTable handler for opcode(s) 43F
+0813AB18	ScriptOpAlt_43F	func	probable	gScriptOpAltTable handler for opcode(s) 43F
+0813AB28	ScriptOp_440	func	probable	gScriptOpTable handler for opcode(s) 440
+0813AB70	ScriptOpAlt_440	func	probable	gScriptOpAltTable handler for opcode(s) 440
+0813AB80	ScriptOp_441	func	probable	gScriptOpTable handler for opcode(s) 441
+0813AC88	ScriptOpAlt_441	func	probable	gScriptOpAltTable handler for opcode(s) 441
+0813ACDC	ScriptOp_442	func	probable	gScriptOpTable handler for opcode(s) 442
+0813B128	ScriptOpAlt_442	func	probable	gScriptOpAltTable handler for opcode(s) 442
+0813B138	ScriptOp_443	func	probable	gScriptOpTable handler for opcode(s) 443
+0813B254	ScriptOpAlt_443	func	probable	gScriptOpAltTable handler for opcode(s) 443
+0813B2C0	ScriptOp_444	func	probable	gScriptOpTable handler for opcode(s) 444
+0813B324	ScriptOpAlt_444	func	probable	gScriptOpAltTable handler for opcode(s) 444
+0813B524	ScriptOp_445	func	probable	gScriptOpTable handler for opcode(s) 445
+0813BC2C	ScriptOpAlt_445	func	probable	gScriptOpAltTable handler for opcode(s) 445
+0813BC3C	ScriptOp_446	func	probable	gScriptOpTable handler for opcode(s) 446
+0813BD48	ScriptOpAlt_446	func	probable	gScriptOpAltTable handler for opcode(s) 446
+0813BF98	ScriptOp_447	func	probable	gScriptOpTable handler for opcode(s) 447
+0813C4E8	ScriptOpAlt_447	func	probable	gScriptOpAltTable handler for opcode(s) 447
+0813C554	ScriptOp_448	func	probable	gScriptOpTable handler for opcode(s) 448
+0813C7EC	ScriptOp_44A	func	probable	gScriptOpTable handler for opcode(s) 44A
+0813C838	ScriptOpAlt_44A	func	probable	gScriptOpAltTable handler for opcode(s) 44A
+0813C848	ScriptOp_44B	func	probable	gScriptOpTable handler for opcode(s) 44B
+0813C8E0	ScriptOpAlt_44B	func	probable	gScriptOpAltTable handler for opcode(s) 44B
+0813C900	ScriptOpAlt_44C	func	probable	gScriptOpAltTable handler for opcode(s) 44C
+0813DB34	ScriptVM_Run	func	probable	indexes gScriptOpTable with (op - 0x300), op <= 0x470
+0813E428	ScriptVM_RunAlt	func	probable	same loop over gScriptOpAltTable; purpose unverified (skip/scan mode?)
+08155998	Fusion_DrawMaterialHeader	func	tentative	from translation patches (lost Ghidra session); verify
+0815CAF4	CpuFastSet	func	proven	svc 0x0C; bx lr
+0815CAF8	CpuSet	func	proven	svc 0x0B; bx lr
+0815CAFC	HuffUnComp	func	proven	svc 0x13; bx lr
+0815CB00	LZ77UnCompWram	func	proven	svc 0x11; bx lr
+0815CB04	ObjAffineSet	func	proven	svc 0x0F; bx lr
+0815CB08	RLUnCompWram	func	proven	svc 0x14; bx lr
+0815CB0C	SoftReset	func	proven	clears 0x03007FFA, RegisterRamReset (svc 1) then SoftReset (svc 0)
+0815CB24	VBlankIntrWait	func	proven	movs r2,#0; svc 5; bx lr
+0815CCC0	_call_via_r0	func	proven	libgcc interworking thunk: bx r0
+0815CCC4	_call_via_r1	func	proven	libgcc interworking thunk: bx r1
+0815CCC8	_call_via_r2	func	proven	libgcc interworking thunk: bx r2
+0815CCCC	_call_via_r3	func	proven	libgcc interworking thunk: bx r3
+0815CCD0	_call_via_r4	func	proven	libgcc interworking thunk: bx r4
+0815CCD4	_call_via_r5	func	proven	libgcc interworking thunk: bx r5
+0815CCD8	_call_via_r6	func	proven	libgcc interworking thunk: bx r6
+0815CCDC	_call_via_r7	func	proven	libgcc interworking thunk: bx r7
+0815CCE0	_call_via_r8	func	proven	libgcc interworking thunk: bx r8
+0815CCE4	_call_via_sb	func	proven	libgcc interworking thunk: bx sb
+0815CCE8	_call_via_sl	func	proven	libgcc interworking thunk: bx sl
+0815CCEC	_call_via_fp	func	proven	libgcc interworking thunk: bx fp
+0815CCF0	_call_via_ip	func	proven	libgcc interworking thunk: bx ip
+0815CCF4	_call_via_sp	func	proven	libgcc interworking thunk: bx sp
+0815CCF8	_call_via_lr	func	proven	libgcc interworking thunk: bx lr
+0815CCFC	__divsi3	func	proven	libgcc: signed quotient (sign = a^b)
+0815CD90	__div0	func	proven	libgcc: divide-by-zero stub (mov pc, lr)
+0815CD94	__modsi3	func	proven	libgcc: signed remainder
+0815CE64	__udivsi3	func	proven	libgcc: unsigned quotient
+0815CEDC	__umodsi3	func	proven	libgcc: unsigned remainder
+0815E740	memcpy	func	proven	newlib (word copy when len >= 16)
+0815E7A0	memset	func	proven	newlib (word fill when len >= 4)
+0815E7F4	srand	func	proven	newlib: _impure_ptr->_rand_next = seed
+0815E800	rand	func	proven	newlib-style: next = next*1103515245+12345; return next & 0x7FFFFFFF (state at _impure_ptr+0x58)
+0815E828	gSineTable	data	probable	sin at [a], cos at [a + 0x40], used to build affine matrices
+0815EAA8	gIntrTableTemplate	data	proven	14 IRQ handlers copied to IWRAM by AgbMain
+0815EAE0	gPalFadeStepTable	data	probable	32 per-component-value increments in units of 1/1000
+0815EB20	gWindowFrameTiles	data	probable	9 frame tile entries used by sub_080AB528
+0815EB32	gWindowFrameTilesAlt	data	probable	alternative frame for height-4 windows with altFrame set
+0815EC2C	gDefaultWindowFrameTiles	data	probable	9 tilemap entries used by TextWindow_DrawFrame when frame == NULL
+0815ED88	gFontBankTable	data	probable	8-byte entries {glyph data ptr, ?}, indexed by glyph code >> 8 in Font_GetGlyphBitmap
+0815EE18	gGlyphSpriteTemplate	data	probable	OAM attribute template passed to sub_080AA1F4 by FontSprite_DrawGlyph(Tinted)
+0815EEEC	gTaskOpTable	data	probable	15+ {start, update} Thumb function pointer pairs indexed by task op (read from ROM)
+081AD7B8	gSmallFontSheet	data	probable	4bpp 8x8 font tiles (SmallFont_*) and 8x16 digit cells at +0xC00 (DigitFont_*); font_codec.py SMALL_SHEET_ADDR
+084F2DDC	gNameEntryCharGrid	data	probable	u16 glyph table, 25 rows of 11, indexed (row+scroll)*11+col by NameEntry_DrawGrid/HandleInput
+084F3074	NameEntry_InitAllyNameInput	data	tentative	from translation patches (lost Ghidra session); verify
+0858BBBC	gMPlayJumpTableTemplate	data	proven	m4a ply_* dispatch table
+0858BC4C	gScaleTable	data	proven	m4a note scale table
+0858BD00	gFreqTable	data	proven	MidiKeyToFreq: 12 note frequencies
+0858D354	gMPlayTable	data	proven	m4aSongNumStart: table of {info, track, numTracks, unk_A}
+0858D384	gSongTable	data	proven	m4aSongNumStart: {header, ms, me} per song
+086BEC94	gBattleMsgSpeedFrames	data	probable	u8 table indexed by Settings_GetBattleMsgSpeed(), stored into the per-character delay
+086BEF74	gBattleDigitGlyphs	data	probable	u16 table indexed by decimal digits from sub_080A9CC0 in all number-printing Battle_Build*Text functions
+0878F9B8	gScriptDigitGlyphs	data	probable	glyph codes for digits 0-9, indexed by value%10 in ScriptOp_DrawCharOrSubstitute
+087913DC	gScriptOpTable	data	probable	369 handlers, opcodes 0x300-0x470
+08791BDC	gScriptOpAltTable	data	probable	369 handlers, opcodes 0x300-0x470

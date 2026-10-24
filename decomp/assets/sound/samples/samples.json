@@ -1,0 +1,1058 @@
+{
+ "sample_0858E000": {
+  "addr": "0x0858E000",
+  "type": 0,
+  "freq": 16384000,
+  "loop_start": 0,
+  "size": 83522,
+  "tail": "0000"
+ },
+ "sample_085A2654": {
+  "addr": "0x085A2654",
+  "type": 1073741824,
+  "freq": 46340950,
+  "loop_start": 17978,
+  "size": 39460,
+  "tail": "f3000000"
+ },
+ "sample_085AC08C": {
+  "addr": "0x085AC08C",
+  "type": 1073741824,
+  "freq": 16384000,
+  "loop_start": 20163,
+  "size": 32452,
+  "tail": "09000000"
+ },
+ "sample_085B3F64": {
+  "addr": "0x085B3F64",
+  "type": 1073741824,
+  "freq": 11289600,
+  "loop_start": 11011,
+  "size": 13239,
+  "tail": "23"
+ },
+ "sample_085B732C": {
+  "addr": "0x085B732C",
+  "type": 1073741824,
+  "freq": 12288000,
+  "loop_start": 579,
+  "size": 3329,
+  "tail": "f20000"
+ },
+ "sample_085B8040": {
+  "addr": "0x085B8040",
+  "type": 1073741824,
+  "freq": 11289600,
+  "loop_start": 2705,
+  "size": 15123,
+  "tail": "20"
+ },
+ "sample_085BBB64": {
+  "addr": "0x085BBB64",
+  "type": 1073741824,
+  "freq": 11289600,
+  "loop_start": 5650,
+  "size": 9567,
+  "tail": "00"
+ },
+ "sample_085BE0D4": {
+  "addr": "0x085BE0D4",
+  "type": 1073741824,
+  "freq": 11289600,
+  "loop_start": 9552,
+  "size": 11150,
+  "tail": "0600"
+ },
+ "sample_085C0C74": {
+  "addr": "0x085C0C74",
+  "type": 0,
+  "freq": 22579200,
+  "loop_start": 0,
+  "size": 41919,
+  "tail": "00"
+ },
+ "sample_085CB044": {
+  "addr": "0x085CB044",
+  "type": 1073741824,
+  "freq": 15069808,
+  "loop_start": 12719,
+  "size": 21266,
+  "tail": "ef00"
+ },
+ "sample_085D0368": {
+  "addr": "0x085D0368",
+  "type": 1073741824,
+  "freq": 11289600,
+  "loop_start": 4467,
+  "size": 8151,
+  "tail": "b7"
+ },
+ "sample_085D2350": {
+  "addr": "0x085D2350",
+  "type": 1073741824,
+  "freq": 22579200,
+  "loop_start": 12371,
+  "size": 12917,
+  "tail": "2e0000"
+ },
+ "sample_085D55D8": {
+  "addr": "0x085D55D8",
+  "type": 1073741824,
+  "freq": 16146432,
+  "loop_start": 0,
+  "size": 30,
+  "tail": "ff00"
+ },
+ "sample_085D5608": {
+  "addr": "0x085D5608",
+  "type": 0,
+  "freq": 16146432,
+  "loop_start": 0,
+  "size": 17479,
+  "tail": "00"
+ },
+ "sample_085D9A60": {
+  "addr": "0x085D9A60",
+  "type": 1073741824,
+  "freq": 12288000,
+  "loop_start": 13601,
+  "size": 15254,
+  "tail": "f800"
+ },
+ "sample_085DD608": {
+  "addr": "0x085DD608",
+  "type": 0,
+  "freq": 16384000,
+  "loop_start": 0,
+  "size": 16075,
+  "tail": "00"
+ },
+ "sample_085E14E4": {
+  "addr": "0x085E14E4",
+  "type": 1073741824,
+  "freq": 65536000,
+  "loop_start": 21350,
+  "size": 27345,
+  "tail": "0e0000"
+ },
+ "sample_085E7FC8": {
+  "addr": "0x085E7FC8",
+  "type": 1073741824,
+  "freq": 11289600,
+  "loop_start": 7571,
+  "size": 13796,
+  "tail": "bc000000"
+ },
+ "sample_085EB5C0": {
+  "addr": "0x085EB5C0",
+  "type": 1073741824,
+  "freq": 11289600,
+  "loop_start": 10894,
+  "size": 11823,
+  "tail": "eb"
+ },
+ "sample_085EE400": {
+  "addr": "0x085EE400",
+  "type": 1073741824,
+  "freq": 11289600,
+  "loop_start": 8085,
+  "size": 8763,
+  "tail": "dc"
+ },
+ "sample_085F064C": {
+  "addr": "0x085F064C",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 1845,
+  "tail": "000000"
+ },
+ "sample_085F0D94": {
+  "addr": "0x085F0D94",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 2813,
+  "tail": "000000"
+ },
+ "sample_085F18A4": {
+  "addr": "0x085F18A4",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 2739,
+  "tail": "00"
+ },
+ "sample_085F2368": {
+  "addr": "0x085F2368",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 2924,
+  "tail": "00000000"
+ },
+ "sample_085F2EE8": {
+  "addr": "0x085F2EE8",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 652,
+  "tail": "00000000"
+ },
+ "sample_085F3188": {
+  "addr": "0x085F3188",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 2924,
+  "tail": "00000000"
+ },
+ "sample_085F3D08": {
+  "addr": "0x085F3D08",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 4040,
+  "tail": "00000000"
+ },
+ "sample_085F4CE4": {
+  "addr": "0x085F4CE4",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 6223,
+  "tail": "00"
+ },
+ "sample_085F6544": {
+  "addr": "0x085F6544",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 4228,
+  "tail": "00000000"
+ },
+ "sample_085F75DC": {
+  "addr": "0x085F75DC",
+  "type": 0,
+  "freq": 22579200,
+  "loop_start": 0,
+  "size": 1835,
+  "tail": "00"
+ },
+ "sample_085F7D18": {
+  "addr": "0x085F7D18",
+  "type": 0,
+  "freq": 22579200,
+  "loop_start": 0,
+  "size": 4301,
+  "tail": "000000"
+ },
+ "sample_085F8DF8": {
+  "addr": "0x085F8DF8",
+  "type": 0,
+  "freq": 22579200,
+  "loop_start": 0,
+  "size": 4320,
+  "tail": "00000000"
+ },
+ "sample_085F9EEC": {
+  "addr": "0x085F9EEC",
+  "type": 0,
+  "freq": 22579200,
+  "loop_start": 0,
+  "size": 7343,
+  "tail": "00"
+ },
+ "sample_085FBBAC": {
+  "addr": "0x085FBBAC",
+  "type": 0,
+  "freq": 22579200,
+  "loop_start": 0,
+  "size": 3850,
+  "tail": "0000"
+ },
+ "sample_085FCAC8": {
+  "addr": "0x085FCAC8",
+  "type": 0,
+  "freq": 22579200,
+  "loop_start": 0,
+  "size": 4956,
+  "tail": "00000000"
+ },
+ "sample_085FDE38": {
+  "addr": "0x085FDE38",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 951,
+  "tail": "00"
+ },
+ "sample_085FE200": {
+  "addr": "0x085FE200",
+  "type": 0,
+  "freq": 16384000,
+  "loop_start": 0,
+  "size": 5782,
+  "tail": "0000"
+ },
+ "sample_085FF8A8": {
+  "addr": "0x085FF8A8",
+  "type": 0,
+  "freq": 16384000,
+  "loop_start": 0,
+  "size": 6962,
+  "tail": "0000"
+ },
+ "sample_086013EC": {
+  "addr": "0x086013EC",
+  "type": 0,
+  "freq": 16384000,
+  "loop_start": 0,
+  "size": 22060,
+  "tail": "00000000"
+ },
+ "sample_08606A2C": {
+  "addr": "0x08606A2C",
+  "type": 0,
+  "freq": 22579200,
+  "loop_start": 0,
+  "size": 3298,
+  "tail": "0000"
+ },
+ "sample_08607720": {
+  "addr": "0x08607720",
+  "type": 1073741824,
+  "freq": 22579200,
+  "loop_start": 18611,
+  "size": 28278,
+  "tail": "d700"
+ },
+ "sample_0860E5A8": {
+  "addr": "0x0860E5A8",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 4901,
+  "tail": "000000"
+ },
+ "sample_0860F8E0": {
+  "addr": "0x0860F8E0",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 10654,
+  "tail": "0000"
+ },
+ "sample_08612290": {
+  "addr": "0x08612290",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 3006,
+  "tail": "0000"
+ },
+ "sample_08612E60": {
+  "addr": "0x08612E60",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 1629,
+  "tail": "000000"
+ },
+ "sample_086134D0": {
+  "addr": "0x086134D0",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 3296,
+  "tail": "00000000"
+ },
+ "sample_086141C4": {
+  "addr": "0x086141C4",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 1241,
+  "tail": "000000"
+ },
+ "sample_086146B0": {
+  "addr": "0x086146B0",
+  "type": 0,
+  "freq": 22579200,
+  "loop_start": 0,
+  "size": 12418,
+  "tail": "0000"
+ },
+ "sample_08617744": {
+  "addr": "0x08617744",
+  "type": 0,
+  "freq": 22579200,
+  "loop_start": 0,
+  "size": 1075,
+  "tail": "00"
+ },
+ "sample_08617B88": {
+  "addr": "0x08617B88",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 3342,
+  "tail": "0000"
+ },
+ "sample_086188A8": {
+  "addr": "0x086188A8",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 4428,
+  "tail": "00000000"
+ },
+ "sample_08619A08": {
+  "addr": "0x08619A08",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 3876,
+  "tail": "00000000"
+ },
+ "sample_0861A940": {
+  "addr": "0x0861A940",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 3279,
+  "tail": "00"
+ },
+ "sample_0861B620": {
+  "addr": "0x0861B620",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 2922,
+  "tail": "0000"
+ },
+ "sample_0861C19C": {
+  "addr": "0x0861C19C",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 4247,
+  "tail": "00"
+ },
+ "sample_0861D244": {
+  "addr": "0x0861D244",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 3942,
+  "tail": "0000"
+ },
+ "sample_0861E1BC": {
+  "addr": "0x0861E1BC",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 3657,
+  "tail": "000000"
+ },
+ "sample_0861F018": {
+  "addr": "0x0861F018",
+  "type": 0,
+  "freq": 12288000,
+  "loop_start": 0,
+  "size": 6573,
+  "tail": "000000"
+ },
+ "sample_086209D8": {
+  "addr": "0x086209D8",
+  "type": 1073741824,
+  "freq": 6144000,
+  "loop_start": 4294966947,
+  "size": 11494,
+  "tail": "0000"
+ },
+ "sample_086236D0": {
+  "addr": "0x086236D0",
+  "type": 0,
+  "freq": 22579200,
+  "loop_start": 0,
+  "size": 15804,
+  "tail": "00000000"
+ },
+ "sample_086274A0": {
+  "addr": "0x086274A0",
+  "type": 0,
+  "freq": 11394048,
+  "loop_start": 0,
+  "size": 30120,
+  "tail": "00000000"
+ },
+ "sample_0862EA5C": {
+  "addr": "0x0862EA5C",
+  "type": 0,
+  "freq": 11394048,
+  "loop_start": 0,
+  "size": 10869,
+  "tail": "000000"
+ },
+ "sample_086314E4": {
+  "addr": "0x086314E4",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 32879,
+  "tail": "00"
+ },
+ "sample_08639564": {
+  "addr": "0x08639564",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 22310,
+  "tail": "0000"
+ },
+ "sample_0863EC9C": {
+  "addr": "0x0863EC9C",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 4003,
+  "tail": "00"
+ },
+ "sample_0863FC50": {
+  "addr": "0x0863FC50",
+  "type": 0,
+  "freq": 16384000,
+  "loop_start": 0,
+  "size": 16650,
+  "tail": "0000"
+ },
+ "sample_08643D6C": {
+  "addr": "0x08643D6C",
+  "type": 0,
+  "freq": 16384000,
+  "loop_start": 0,
+  "size": 27290,
+  "tail": "0000"
+ },
+ "sample_0864A818": {
+  "addr": "0x0864A818",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 32745,
+  "tail": "000000"
+ },
+ "sample_08652814": {
+  "addr": "0x08652814",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 1576,
+  "tail": "00000000"
+ },
+ "sample_08652E50": {
+  "addr": "0x08652E50",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 5248,
+  "tail": "00000000"
+ },
+ "sample_086542E4": {
+  "addr": "0x086542E4",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 1877,
+  "tail": "000000"
+ },
+ "sample_08654A4C": {
+  "addr": "0x08654A4C",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 5114,
+  "tail": "0000"
+ },
+ "sample_08655E58": {
+  "addr": "0x08655E58",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 1726,
+  "tail": "0000"
+ },
+ "sample_08656528": {
+  "addr": "0x08656528",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 5362,
+  "tail": "0000"
+ },
+ "sample_08657A2C": {
+  "addr": "0x08657A2C",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 2505,
+  "tail": "000000"
+ },
+ "sample_08658408": {
+  "addr": "0x08658408",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 1859,
+  "tail": "00"
+ },
+ "sample_08658B5C": {
+  "addr": "0x08658B5C",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 5112,
+  "tail": "00000000"
+ },
+ "sample_08659F68": {
+  "addr": "0x08659F68",
+  "type": 1073741824,
+  "freq": 22579200,
+  "loop_start": 4294967186,
+  "size": 9820,
+  "tail": "00000000"
+ },
+ "sample_0865C5D8": {
+  "addr": "0x0865C5D8",
+  "type": 1073741824,
+  "freq": 22579200,
+  "loop_start": 4294967186,
+  "size": 10476,
+  "tail": "00000000"
+ },
+ "sample_0865EED8": {
+  "addr": "0x0865EED8",
+  "type": 1073741824,
+  "freq": 22579200,
+  "loop_start": 4294967186,
+  "size": 11025,
+  "tail": "000000"
+ },
+ "sample_086619FC": {
+  "addr": "0x086619FC",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 2959,
+  "tail": "00"
+ },
+ "sample_0866259C": {
+  "addr": "0x0866259C",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 2985,
+  "tail": "000000"
+ },
+ "sample_08663158": {
+  "addr": "0x08663158",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 7705,
+  "tail": "000000"
+ },
+ "sample_08664F84": {
+  "addr": "0x08664F84",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 2909,
+  "tail": "000000"
+ },
+ "sample_08665AF4": {
+  "addr": "0x08665AF4",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 2619,
+  "tail": "00"
+ },
+ "sample_08666540": {
+  "addr": "0x08666540",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 2523,
+  "tail": "00"
+ },
+ "sample_08666F2C": {
+  "addr": "0x08666F2C",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 1293,
+  "tail": "000000"
+ },
+ "sample_0866744C": {
+  "addr": "0x0866744C",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 3314,
+  "tail": "0000"
+ },
+ "sample_08668150": {
+  "addr": "0x08668150",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 3411,
+  "tail": "00"
+ },
+ "sample_08668EB4": {
+  "addr": "0x08668EB4",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 2177,
+  "tail": "000000"
+ },
+ "sample_08669748": {
+  "addr": "0x08669748",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 4343,
+  "tail": "00"
+ },
+ "sample_0866A850": {
+  "addr": "0x0866A850",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 3307,
+  "tail": "00"
+ },
+ "sample_0866B54C": {
+  "addr": "0x0866B54C",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 3261,
+  "tail": "000000"
+ },
+ "sample_0866C21C": {
+  "addr": "0x0866C21C",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 3233,
+  "tail": "000000"
+ },
+ "sample_0866CED0": {
+  "addr": "0x0866CED0",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 2146,
+  "tail": "0000"
+ },
+ "sample_0866D744": {
+  "addr": "0x0866D744",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 2619,
+  "tail": "00"
+ },
+ "sample_0866E190": {
+  "addr": "0x0866E190",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 780,
+  "tail": "00000000"
+ },
+ "sample_0866E4B0": {
+  "addr": "0x0866E4B0",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 2609,
+  "tail": "000000"
+ },
+ "sample_0866EEF4": {
+  "addr": "0x0866EEF4",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 3951,
+  "tail": "00"
+ },
+ "sample_0866FE74": {
+  "addr": "0x0866FE74",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 2511,
+  "tail": "00"
+ },
+ "sample_08670854": {
+  "addr": "0x08670854",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 2543,
+  "tail": "00"
+ },
+ "sample_08671254": {
+  "addr": "0x08671254",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 2550,
+  "tail": "0000"
+ },
+ "sample_08671C5C": {
+  "addr": "0x08671C5C",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 2556,
+  "tail": "00000000"
+ },
+ "sample_0867266C": {
+  "addr": "0x0867266C",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 1518,
+  "tail": "0000"
+ },
+ "sample_08672C6C": {
+  "addr": "0x08672C6C",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 3673,
+  "tail": "000000"
+ },
+ "sample_08673AD8": {
+  "addr": "0x08673AD8",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 4994,
+  "tail": "0000"
+ },
+ "sample_08674E6C": {
+  "addr": "0x08674E6C",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 4421,
+  "tail": "000000"
+ },
+ "sample_08675FC4": {
+  "addr": "0x08675FC4",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 3905,
+  "tail": "000000"
+ },
+ "sample_08676F18": {
+  "addr": "0x08676F18",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 9056,
+  "tail": "00000000"
+ },
+ "sample_0867928C": {
+  "addr": "0x0867928C",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 6491,
+  "tail": "00"
+ },
+ "sample_0867ABF8": {
+  "addr": "0x0867ABF8",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 16503,
+  "tail": "00"
+ },
+ "sample_0867EC80": {
+  "addr": "0x0867EC80",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 5521,
+  "tail": "000000"
+ },
+ "sample_08680224": {
+  "addr": "0x08680224",
+  "type": 0,
+  "freq": 6144000,
+  "loop_start": 0,
+  "size": 18896,
+  "tail": "00000000"
+ },
+ "sample_08684C08": {
+  "addr": "0x08684C08",
+  "type": 1073741824,
+  "freq": 8192000,
+  "loop_start": 15194,
+  "size": 17425,
+  "tail": "010000"
+ },
+ "sample_0868902C": {
+  "addr": "0x0868902C",
+  "type": 0,
+  "freq": 22579200,
+  "loop_start": 0,
+  "size": 5341,
+  "tail": "000000"
+ },
+ "sample_0868A51C": {
+  "addr": "0x0868A51C",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 14424,
+  "tail": "00000000"
+ },
+ "sample_0868DD88": {
+  "addr": "0x0868DD88",
+  "type": 1073741824,
+  "freq": 11289600,
+  "loop_start": 250,
+  "size": 11333,
+  "tail": "ef0000"
+ },
+ "sample_086909E0": {
+  "addr": "0x086909E0",
+  "type": 1073741824,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 12112,
+  "tail": "00000000"
+ },
+ "sample_08693944": {
+  "addr": "0x08693944",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 39022,
+  "tail": "0000"
+ },
+ "sample_0869D1C4": {
+  "addr": "0x0869D1C4",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 29244,
+  "tail": "00000000"
+ },
+ "sample_086A4414": {
+  "addr": "0x086A4414",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 19728,
+  "tail": "00000000"
+ },
+ "sample_086A9138": {
+  "addr": "0x086A9138",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 3260,
+  "tail": "00000000"
+ },
+ "sample_086A9E08": {
+  "addr": "0x086A9E08",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 5805,
+  "tail": "000000"
+ },
+ "sample_086AB4C8": {
+  "addr": "0x086AB4C8",
+  "type": 1073741824,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 5680,
+  "tail": "00000000"
+ },
+ "sample_086ACB0C": {
+  "addr": "0x086ACB0C",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 1955,
+  "tail": "00"
+ },
+ "sample_086AD2C0": {
+  "addr": "0x086AD2C0",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 3918,
+  "tail": "0000"
+ },
+ "sample_086AE220": {
+  "addr": "0x086AE220",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 2291,
+  "tail": "00"
+ },
+ "sample_086AEB24": {
+  "addr": "0x086AEB24",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 675,
+  "tail": "00"
+ },
+ "sample_086AEDD8": {
+  "addr": "0x086AEDD8",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 3895,
+  "tail": "00"
+ },
+ "sample_086AFD20": {
+  "addr": "0x086AFD20",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 680,
+  "tail": "00000000"
+ },
+ "sample_086AFFDC": {
+  "addr": "0x086AFFDC",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 12731,
+  "tail": "00"
+ },
+ "sample_086B31A8": {
+  "addr": "0x086B31A8",
+  "type": 0,
+  "freq": 11289600,
+  "loop_start": 0,
+  "size": 1727,
+  "tail": "00"
+ }
+}

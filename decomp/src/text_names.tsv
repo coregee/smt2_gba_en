@@ -1,0 +1,84 @@
+080AB9F4	TextWindow_UploadTilemapSbb4	func	DMA3 0x800 bytes from tilemap buffer 0x0200DFD4 to VRAM 0x06002000; queued by sub_080ABB20(2)
+080ABA18	TextWindow_UploadTilemapSbb6	func	DMA3 0x800 bytes from tilemap buffer 0x0200DFD4 to VRAM 0x06003000; queued by sub_080ABB20(3)
+080ABA3C	TextWindow_DrawFrame	func	writes 3x3 frame tile set (corners/edges/fill, default gUnknown_0815EC2C) into the 32x32 tilemap buffer over x,y,w,h
+080ABB20	TextWindow_QueueTilemapUpload	func	switch on screen 0..3 -> DisplayList_Add(sub_080AB9B0/sub_080AB9D0/sub_080AB9F4/sub_080ABA18, 1)
+080ABB64	TextWindow_Erase	func	sub_080AB438(0, tilemap buffer, x, y, w, h), flush, decrements open-window count 0x0200E8D4
+080ABBA4	TextWindow_AnimateStep	func	draws frame at curH, mode 0 grows to h, 1 shrinks to 2 clearing rows, sets task->result when done
+080ABC40	TextWindow_Create	func	sub_080AD0FC(window script gUnknown_0815EC40), fills x,y,w,h,screen, curH=2, frame=NULL, count++
+080ABCAC	TextWindow_CreateWithFrame	func	TextWindow_Create(...,1) then data.frame = arg
+080ABCD4	TextWindow_CreateOpen	func	TextWindow_Create then curH = h
+080ABD04	TextWindow_CreateOpenWithFrame	func	TextWindow_CreateOpen then data.frame = arg
+080ABD30	TextWindow_Close	func	arg 0: unk1E=1 (request); else TextWindow_Erase + Task_End
+080ABD58	TextWindow_IsDone	func	returns task->state == 0 || task->unk1E == 0
+080ABD74	YesNo_UploadCursorTiles	func	DMA3 0x100 bytes 0x0203A2E4 -> OBJ VRAM tile gUnk_03000048
+080ABDA4	YesNo_LoadCursor	func	decompress gUnknown_0815ED28 to 0x0203A2E4 (sub_080C7E24), queue YesNo_UploadCursorTiles
+080ABDDC	YesNo_HandleInput	func	A (new keys bit0) stores choice to 0x030031CC + SE 0x65/0x66; up/down (0xC0) toggles choice + SE 0x64
+080ABE44	YesNo_DrawCursor	func	emits two OAM sprites (gUnknown_0815ED30/38) at (0xCD,0x86)/(0xCD,0x92), palette 2 on the selected one
+080ABEB4	YesNo_Create	func	sub_080AD0FC(gUnknown_0815ED40), choice = arg, tile = 0x178
+080ABEE0	YesNo_CreateWithTile	func	YesNo_Create(choice) then tile = arg2
+080ABF04	Task_IsFree	func	returns task->state == 0
+080ABF18	YesNo_StoreResult	func	task->unk1E = last choice 0x030031CC
+080ABF24	Font_GetGlyphBitmap	func	bank table 0x0815ED88[code>>8] + row/col offset, 2bpp -> 4bpp into 0x020391E0 (2x2 tiles of a 32-tile canvas), returns it (rom_layout name confirmed)
+080AC0E4	Font_SetGlyphSpriteCacheCapacity	func	writes glyph cache +4 (capacity), called with 64 by Font_ResetGlyphSpriteCache
+080AC1DC	Font_FindGlyphSprite	func	linear search of glyph cache codes[0..count) for code, returns slot or -1
+080AC2A0	FontSprite_DrawGlyphTinted	func	FontSprite_DrawGlyph with the last argument passed as OAM palette to sub_080AA1F4 (rom_layout: FontSprite_DrawCached)
+080AC438	Font_CopyGlyphCell	func	copies 0x40 bytes at +0 and +0x400 (2x2 tiles of a 32-tile canvas) from glyph bitmap to cache staging cell
+080AC468	Random_Next	func	updates and returns seed 0x030020E0 from multiplies plus frame counter*VCOUNT rotated by 3/12/21/30 (tentative)
+080AC4E4	Canvas_BlitOr	func	ORs a w x h pixel block between two 32-tile-wide 4bpp canvases, pixel-granular dst x
+080AC62C	Canvas_BlitOrTinted	func	Canvas_BlitOr plus tint added to nonzero pixels (rom_layout calls this Font_BlitGlyph)
+080AC7CC	Canvas_FillRect	func	sets every 4bpp pixel of a w x h rect of a 32-tile-wide canvas to a color
+080AC908	Text_DrawString	func	u16 string -> Font_DrawGlyph per glyph at fixed advance; 0x300 newline, 0/0x301 end (existing tentative name confirmed)
+080ACA40	SmallFont_DrawGlyph	func	Canvas_BlitOr of 8x8 tile index from small font sheet 0x081AD7B8
+080ACA74	SmallFont_DrawGlyphTinted	func	Canvas_BlitOrTinted of 8x8 small font tile
+080ACAB0	SmallFont_DrawAsciiTinted	func	ASCII string via table 0x0815EE20[ch-0x20], '-' -> tile 6, fixed advance
+080ACB30	DigitFont_DrawGlyph	func	Canvas_BlitOr of rows 6..15 of an 8x16 cell of the small font sheet (8x10 digits)
+080ACB78	DigitFont_DrawGlyphTinted	func	tinted DigitFont_DrawGlyph
+080ACBC8	DigitFont_DrawStringTinted	func	'0'..'9' string via table 0x0815EE96[ch-'0'] at fixed advance
+080ACC30	System_CheckSoftReset	func	held keys 0x030031D0 == A+B+Select+Start and 0x03003970 != 1 -> SoftReset(0xFF)
+080ACC54	Color_ApplyEffect	func	RGB555 color adjusted by 0x03006080 (mode from sub_080C2C70: 1 = per-channel brighten/darken, else desaturate)
+080ACFA4	Palette_FillWithEffect	func	dst[i] = Color_ApplyEffect(color) for size/2 halfwords
+080ACFCC	Palette_CopyWithEffect	func	dst[i] = Color_ApplyEffect(src[i]) for size/2 halfwords
+080ACFF4	Task_ClearAll	func	DMA3 32-bit fill of 0x640 bytes (64 x 100-byte tasks) at 0x02009004
+080AD01C	Task_RunAll	func	per task: fetch ops from script, call op table 0x0815EEEC start/update until wait != 0; then onFrame (+0x20)
+080AD0D4	Task_FindFreeSlot	func	first task index 1..63 with state 0, else -1
+080AD0FC	Task_Create	func	Task_FindFreeSlot, zero the 100-byte slot, script/id/parent set, state = 1
+080AD150	Task_Pause	func	state = 0xFFFF (Task_RunAll skips it)
+080AD15C	Task_IsPaused	func	returns state == 0xFFFF
+080AD174	Task_Resume	func	state = 1
+080AD17C	TaskOp_Wait	func	op table entry 0 start: wait = arg, pc++
+080AD190	TaskOp_WaitUpdate	func	op table entry 0 update: wait-- unless -1
+080AD1A8	Task_GotoLabel	func	scans script from start for {0x10241224, label}, sets pc to it
+080AD1E4	TaskOp_Goto	func	op table entry 1 start
+080AD1FC	Task_End	func	state = 0 (NULL-safe); called by window/yes-no code to free tasks
+080AD20C	Task_GetState	func	returns task->state
+080AD210	Task_EndById	func	Task_End(&tasks[id]) if active
+080AD230	Task_EndAllExcept	func	ends every active task except the argument
+080AD260	Task_EndChildren	func	ends active tasks whose parent == self->id
+080AD298	TaskOp_End	func	op table entry 2 start
+080AD2A8	TaskOp_Loop	func	op table entry 3 start: loopCount = arg, loopStart = pc after arg
+080AD2C4	TaskOp_EndLoop	func	op table entry 4 start: if --loopCount != 0, pc = loopStart
+080AD2F0	TaskOp_IfResultGoto	func	op table entry 7 start: result != 0 -> Task_GotoLabel(arg)
+080AD31C	TaskOp_UnlessResultGoto	func	op table entry 8 start: result == 0 -> Task_GotoLabel(arg)
+080AD348	Task_Signal	func	active task with wait == -1 gets wait = 1
+080AD364	Task_GetParent	func	returns &tasks[task->parent]
+080AD374	TaskOp_SignalParent	func	op table entry 9 start: Task_Signal(Task_GetParent(task))
+080AD388	TaskOp_Call0	func	op table entry 10: func = arg0, func(task)
+080AD3A8	TaskOp_Call1	func	op table entry 11: func(task, arg1)
+080AD3CC	TaskOp_Call2	func	op table entry 12: func(task, arg1, arg2)
+080AD3F0	TaskOp_Call3	func	op table entry 13: func(task, arg1..arg3)
+080AD418	TaskOp_Call4	func	op table entry 14: func(task, arg1..arg4)
+0200DFD4	gWindowTilemapBuffer	ram	32x32 u16 tilemap built by TextWindow_DrawFrame, DMA'd to VRAM screenblocks by sub_080AB9B0..sub_080ABA18
+0200E8D4	gOpenWindowCount	ram	incremented by TextWindow_Create, decremented by TextWindow_Erase
+020360DC	gGlyphSpriteCache	ram	{baseTile, count, capacity, uploadPending, codes[64]}: Font_ResetGlyphSpriteCache clears 0x88 bytes
+020361DC	gGlyphSpriteStaging	ram	4bpp staging canvas for cached glyphs, DMA'd to OBJ VRAM by Font_UploadGlyphSpriteTiles
+020391E0	gGlyphBitmap	ram	Font_GetGlyphBitmap output (2x2 tiles in a 32-tile-wide canvas)
+02009004	gTasks	ram	64 x 100-byte script tasks (Task_ClearAll, Task_Create, Task_RunAll)
+03003B84	gTaskOpArgs	ram	pointer to the current task op's argument words, set by Task_RunAll before each op handler
+030020E0	gRandomSeed	ram	read/written by Random_Next (tentative)
+03006080	gColorEffect	ram	{s16 r, g, b, desat} read by Color_ApplyEffect
+030031CC	gYesNoResult	ram	written by YesNo_HandleInput on A, read by YesNo_StoreResult
+0815ED88	gFontBankTable	data	8-byte entries {glyph data ptr, ?}, indexed by glyph code >> 8 in Font_GetGlyphBitmap
+0815EEEC	gTaskOpTable	data	15+ {start, update} Thumb function pointer pairs indexed by task op (read from ROM)
+0815EC2C	gDefaultWindowFrameTiles	data	9 tilemap entries used by TextWindow_DrawFrame when frame == NULL
+0815EE18	gGlyphSpriteTemplate	data	OAM attribute template passed to sub_080AA1F4 by FontSprite_DrawGlyph(Tinted)
+081AD7B8	gSmallFontSheet	data	4bpp 8x8 font tiles (SmallFont_*) and 8x16 digit cells at +0xC00 (DigitFont_*); font_codec.py SMALL_SHEET_ADDR

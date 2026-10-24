@@ -1,0 +1,33 @@
+081321B4	ScriptOp_Nop	func	empty body; table entry for 0x302, 0x314 and ~100 unused opcodes in both tables
+081321E4	ScriptOp_Newline	func	0x300: column (0203DB38) := 0, line (0203DB3A)++, 0203DB4A++
+08132208	ScriptOp_End	func	0x301: pops the unrolled 5-level gosub stack (030069CC/03006910/030065EC/03006600/0203DB64) restoring pc+base; at depth 0 resets cursor, sets task->unk1C=1 and yields
+081324A8	ScriptOp_SkipOperand	func	0x306: pc += 1, operand unused
+08132544	ScriptOpAlt_Skip3	func	pc += 3 (alt table 0x304/0x32D/0x336)
+08132554	ScriptOpAlt_Skip2	func	pc += 2 (alt table 0x395)
+08132564	ScriptOpAlt_Skip1	func	pc += 1 (alt table 0x303/0x306/0x309/0x311/...)
+081325BC	ScriptOp_SetItemCheckId	func	0x30A: 0203DB50 := operand; consumed by 0x30B
+081325E4	ScriptOp_JumpIfItemMissing	func	0x30B: jumps to operand pointer unless item 0203DB50 is held (sub_080C32D4 count != 0, ids >= 300 via sub_080C57CC)
+081326C0	ScriptOp_JumpIfFlag	func	0x30C id,ptr: jumps when Flag_Test(id)==1 (id 0x114: sub_080C2A84(2)==1), else pc += 2
+08132858	ScriptOp_Jump	func	0x30F: 030068E4 := 32-bit operand pointer (ScriptVM_Run then loads it with pc 0)
+0813291C	ScriptOp_CloseMessage	func	0x310: sets/clears flag 0xD5 by operand, state 7, resets cursor, closes window 03006968 if open, yields
+081329E4	ScriptOp_SetFlag	func	0x312: Flag_Set(operand)
+08132A0C	ScriptOp_Delay	func	0x315: wait state 15 with 0203DB5C = 20 frames (1 when skipping, 0203DB48==1)
+08132AF8	ScriptOp_ReturnFromSubst	func	0x318: pc/base := 0203DB4E/030068CC saved by ScriptOp_DrawCharOrSubstitute
+08132B1C	ScriptOp_ClearFlag	func	0x319: Flag_Clear(operand)
+08132B40	ScriptOp_Substitute	func	table entry for 0x31A-0x329, 0x32E, 0x32F, 0x36E: writes a name/number into 0203DB08 terminated by 0x318 and redirects the VM there
+080C2340	Flag_Test	func	returns bit arg of byte array 03005CA8 (used by ScriptOp_30C)
+080C2364	Flag_Set	func	sets bit arg in 03005CA8 (and mirror 03004680 for 0x120-0x14D)
+080C23BC	Flag_Clear	func	clears bit arg in 03005CA8 (and mirror 03004680)
+03006950	gScriptBase	ram	ScriptVM_Run reads words at gScriptBase[pc]; every operand read in ScriptOp_3xx
+0203DB40	gScriptPc	ram	word index into gScriptBase, incremented per operand read
+030068E4	gScriptJumpTarget	ram	written by jump handlers; ScriptVM_Run moves it into 03006950 and zeroes pc
+0203DB44	gScriptCurOp	ram	ScriptVM_Run stores the fetched opcode; ScriptOp_DrawCharOrSubstitute switches on it
+0203DB6E	gScriptYield	ram	set to 1 by handlers; ScriptVM_Run returns after the handler when 1
+0203DB5A	gScriptWaitState	ram	indexes handler table 0x08790FDC called at the start of ScriptVM_Run
+0203DB38	gTextColumn	ram	ScriptVM_Run x = col*13+0x11; zeroed by ScriptOp_300
+0203DB3A	gTextLine	ram	ScriptVM_Run y = line*13+base; incremented by ScriptOp_300
+0203DB08	gScriptSubstBuf	ram	u16[16] built by ScriptOp_DrawCharOrSubstitute, ended with 0x318
+0203DB4E	gScriptSubstSavedPc	ram	saved by ScriptOp_DrawCharOrSubstitute, restored by ScriptOp_318
+030068CC	gScriptSubstSavedBase	ram	saved by ScriptOp_DrawCharOrSubstitute, restored by ScriptOp_318
+0203DB50	gScriptItemCheckId	ram	set by ScriptOp_30A, tested by ScriptOp_30B
+0878F9B8	gScriptDigitGlyphs	data	glyph codes for digits 0-9, indexed by value%10 in ScriptOp_DrawCharOrSubstitute

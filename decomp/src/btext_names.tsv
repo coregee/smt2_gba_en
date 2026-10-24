@@ -1,0 +1,14 @@
+080EA4F8	BattleMenu_SetModeAutoClose	func	calls BattleMenu_SetMode then sets msg.autoClose=1, autoCloseTimer=75; sub_080EA538 mode 1 sets done when the timer runs out
+080EA528	BattleMenu_Reset	func	BattleMenu_SetMode(0, NULL)
+080EA538	BattleMsg_Update	func	per-mode switch: types msg.src into text/text2 at gUnknown_086BEC94[Settings_GetBattleMsgSpeed()] frames per char, draws with Text_DrawSpriteString, blinks arrow via sub_080AA184
+080EA934	BattleMsg_IsDone	func	returns 1 when locked or (mode 1/5 and done flag set)
+080EA964	BattleMsg_Close	func	mode=0, sub_080AB91C(window,1), sub_080AD1FC(task), clears both pointers
+080EA9E8	BattleMsg_SetLocked	func	stores its argument into msg.locked, which every compose function and BattleMenu_SetMode check
+080EAB3C	MessageBox_ComposeTwoNamesText	func	demon name(id1), 0x143, line break, demon name(id2), suffix into the compose buffer
+080EB080	Battle_BuildActorActionText	func	actor name, gUnknown_081236FC[0], line break, Action_GetRecord(actor[0x5C]) name (+0xC), rest of gUnknown_081236FC
+080EBE7C	Battle_AppendCombatantName	func	appends the (<=8 char) name of combatant sub_080F2F64(who+0x8000) at dst and returns the new end; used by Menu_ExpandListTemplate and MessageBox_ComposeSpeciesText
+080F2F64	Battle_GetCombatant	func	callers read +0xC (<4 = human: Combatant_DecodeName) and +0x12 (demon id for sub_080BF648) from the returned record
+0203C9E0	gBattleMsg	ram	battle message window state (mode, delay, typed, done, row, lines, locked, src, text/text2/compose u16[64] buffers, auto-close); base+0x7E0 of the EWRAM block at 0x0203C200
+086BEC94	gBattleMsgSpeedFrames	data	u8 table indexed by Settings_GetBattleMsgSpeed(), stored into the per-character delay
+086BEF74	gBattleDigitGlyphs	data	u16 table indexed by decimal digits from sub_080A9CC0 in all number-printing Battle_Build*Text functions
+080A9CC0	Number_ToDigits	func	returns 8 u8 decimal digits, least significant first (callers print them from the highest nonzero one down through gDigitGlyphs)

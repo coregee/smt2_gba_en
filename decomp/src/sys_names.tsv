@@ -1,0 +1,110 @@
+080A9794	InitMemory	func	calls ClearWorkRam then ClearVideoMemory; first call in AgbMain
+080A97A4	ClearWorkRam	func	DMA3 32-bit fills of 0 over EWRAM (0x40000) and IWRAM (0x7E00)
+080A97E0	ClearVideoMemory	func	calls ClearVram, ResetOam, ClearPaletteRam
+080A97F4	ClearVram	func	DMA3 16-bit fill of 0 over 0x18000 bytes at 0x06000000
+080A981C	ResetOam	func	writes attr0=0x200 (hidden) to all OAM entries and identity (0x100) affine matrices
+080A9880	ClearPaletteRam	func	DMA3 16-bit fill of 0 over 0x400 bytes at 0x05000000
+080A98A8	FixedMul8	func	returns (s16)((a * b) / 256)
+080A98C4	FixedDiv8	func	returns (s16)((a << 8) / b)
+080A98DC	FixedInverse8	func	returns (s16)(0x10000 / a)
+080A98F4	InitInterrupts	func	copies IntrMain to IWRAM 0x03003980 and stores that address at 0x03007FFC
+080A9934	SetVBlankCallback	func	stores the argument (IntrDummy if NULL) to the pointer VBlankIntr calls
+080A9974	ClearVBlankFlag	func	clears bit 0 of 0x03003B80 (set by VBlankIntr)
+080A9988	AcknowledgeVBlank	func	REG_IF = 1 and sets bit 0 of 0x03003B80; called at the end of VBlankIntr
+080A999C	WaitForVBlank	func	clears the flag, then swi 2 (Halt) until VBlankIntr sets it again
+080A99BC	Keys_Init	func	zeroes the key globals, prev = 0xFFFF
+080A9A04	Keys_Read	func	REG_KEYINPUT ^ 0x3FF into held/new-press globals plus an auto-repeat mask (16-frame delay, then every 2 frames)
+080A9AB4	SetMainCallback	func	stores the function AgbMain calls once per frame (0x030020E4)
+080A9AC0	VBlankTasks_Init	func	clears the 10 VBlank task slots and installs VBlankHandler as VBlank callback
+080A9AF4	VBlankHandler	func	installed by VBlankTasks_Init; copies display regs/OAM/palette and runs VBlank tasks
+080A9BE8	VBlankTask_FindFree	func	returns the first slot of 0x03003900 with state 0
+080A9C0C	VBlankTask_Add	func	free slot := {state 1, counter 0xFFFF, func}
+080A9C30	VBlankTask_AddAlways	func	VBlankTask_Add then state 2 (also runs on lag frames)
+080A9C40	VBlankTask_AddCounted	func	currently DisplayList_Add (tentative): free slot := {state 1, counter = arg, func}; slot freed after counter runs
+080A9C64	VBlankTask_AddCountedAlways	func	DisplayList_Add then state 2
+080A9C78	VBlankTasks_Run	func	runs tasks with state >= phase, decrements finite counters
+080A9CC0	NumberToDigits	func	splits n mod 10^8 into 8 decimal digits at 0x030020E8, least significant first
+080A9D90	Sprites_BeginFrame	func	called by AgbMain; resets sprite/affine counters, clears layer lists and affine slots
+080A9DD0	Sprites_BuildOam	func	called by AgbMain; walks 10 layer lists into the OAM buffer 0x030033F0, hides the rest, writes affine params
+080A9E78	Sprites_ClearLayers	func	sets the 10 layer heads to -1 and the node count to 0
+080A9EA8	Sprite_Alloc	func	takes the next of 128 sprite nodes and links it at the head of a layer
+080A9F04	Sprite_DrawWithMode	func	queues all OAM entries of a sprite definition with tile/x/y/palette offsets, mosaic flag (x bit 15), OBJ mode, per-entry affine
+080AA184	Sprite_Draw	func	Sprite_DrawWithMode(..., objMode 0)
+080AA1BC	Sprite_DrawBlended	func	Sprite_DrawWithMode(..., objMode 1 = semi-transparent)
+080AA1F4	Sprite_DrawSingle	func	queues one OAM template with the same offsets
+080AA2DC	Sprite_DrawPlain	func	Sprite_DrawWithMode without mosaic or OBJ mode
+080AA790	Sprite_DrawSharedAffine	func	one affine matrix (slot = argument) built from the first affine entry, used by all entries
+080AA998	Sprite_DrawSharedAffineDouble	func	Sprite_DrawSharedAffine with affine mode 3 (double size) and an OBJ mode
+080AABB0	Palette_MarkDirty	func	sets 0x030031C0; VBlankHandler uploads 0x03002DB0 to PLTT when it is 1
+080AABBC	Palette_ClearDirty	func	clears 0x030031C0; called by VBlankHandler after the upload
+080AABC8	Palette_IsDirty	func	returns 0x030031C0
+080AABD4	PalFade_Init	func	clears the 8 fades and, when the argument is 0, both palette buffers
+080AAC34	PalFade_FindTagged	func	returns the active fade whose tag field == tag + 0x8000
+080AAC70	PalFade_AccumulateSteps	func	adds the 32-entry table 0x0815EAE0 to a fade's accumulators
+080AAC98	PalFade_WrapSteps	func	subtracts 1000 from accumulators above 999
+080AACC8	PalFade_StepComponent	func	moves a 5-bit colour component towards the target value
+080AAD1C	PalFade_Update	func	one fade step over its colour range of 0x03002DB0 towards 0x030029B0
+080AAE58	PalFade_UpdateAll	func	PalFade_Update on all 8 slots; called every frame by AgbMain
+080AAE78	PalFade_FindFree	func	first fade slot with active == 0
+080AAE9C	PalFade_Setup	func	clears a slot, sets start/count/delay, duration 0xFFFF, active
+080AAEDC	PalFade_FadeInFromBlack	func	clears the palette buffer and fades all 512 colours to the target
+080AAF30	PalFade_FadeToWhite	func	PalFade_FadeRangeToWhite(0, 0x200, delay)
+080AAF48	PalFade_FadeToBlack	func	clears the target palette and fades all colours to it
+080AAF98	PalFade_FadeToTarget	func	fade of all colours without touching either buffer
+080AAFBC	PalFade_FadeRangeInFromBlack	func	clears a range of the palette buffer and fades it to the target
+080AB008	PalFade_FadeRangeToWhite	func	fills a range of the target with 0x7FFF and fades to it
+080AB054	PalFade_FadeRangeWithDuration	func	fade of a range with a step limit
+080AB090	PalFade_FadeRangeInFromBlackTagged	func	PalFade_FadeRangeInFromBlack plus a wait tag
+080AB0F0	PalFade_FadeRangeToBlack	func	clears a range of the target and fades to it
+080AB138	PalFade_FadeRangeToBlackWithDuration	func	PalFade_FadeRangeToBlack then sets the step limit
+080AB158	PalFade_FadeRangeToBlackTagged	func	PalFade_FadeRangeToBlack then sets the wait tag
+080AB178	PalFade_IsActive	func	returns fade->active != 0
+080AB184	PalFade_AllDone	func	TRUE when no fade slot is active
+080AB1C4	Tilemap_OffsetRect	func	adds to the 12-bit tile field and sets the palette of a rectangle of a 32-wide map
+080AB250	Tilemap_CopyRectSkipZero	func	copies a 32-wide block, offsetting non-zero tiles and setting the palette
+080AB2F4	Tilemap_CopyRect	func	copies a 32-wide block, offsetting every tile and setting the palette
+080AB390	Tilemap_CopyRectStride	func	Tilemap_CopyRect with a source row width argument
+080AB438	Tilemap_FillRect	func	fills a rectangle of a 32-wide map with a value
+080AB49C	WindowMap_UploadToBg0	func	DMA of the 4 KB map buffer 0x020381DC to VRAM 0x06000000
+080AB4BC	WindowMap_UploadToBg1	func	same, to 0x06001000
+080AB4E0	WindowMap_UploadToBg2	func	same, to 0x06002000
+080AB504	WindowMap_UploadToBg3	func	same, to 0x06003000
+080AB528	Window_DrawFrame	func	draws a 9-piece frame (tiles from 0x0815EB20 / 0x0815EB32) into 0x020381DC
+080AB61C	WindowMap_QueueUpload	func	queues WindowMap_UploadToBgN (N = argument) as a one-shot VBlank task
+080AB660	Window_Erase	func	fills the window rectangle with 0, queues the upload, decrements the window count
+080AB6A0	Window_Animate	func	draws the frame at the current height and grows/shrinks it one row (mode 0 open, 1 close, 2 resize)
+080AB78C	Windows_Init	func	clears both map buffers and the window count
+080AB7D4	Window_Create	func	allocates an object (sub_080AD0FC, script 0x0815EB44) with x/y/w/h/bg and height 2
+080AB860	Window_CreateOpen	func	Window_Create with current height = full height
+080AB91C	Window_Close	func	animated close (cmd 1) or immediate erase and free (sub_080AD1FC)
+080AB98C	Window_SetHeight	func	sets the target height and cmd 2 (resize)
+080AB994	Window_IsIdle	func	TRUE when the object is inactive or has no command
+030020E4	gMainCallback	ram	AgbMain calls it once per frame; set by sub_080A9AB4
+030031D4	gInMainLoop	ram	1 while AgbMain's frame work runs; VBlankHandler skips OAM/palette uploads when set
+030031BC	gFrameCounter	ram	incremented once per main-loop iteration
+03003960	gVBlankCallback	ram	called by VBlankIntr; set by sub_080A9934
+03003980	gIntrMainBuffer	ram	IntrMain is copied here; address stored to 0x03007FFC
+03003B80	gVBlankFlag	ram	bit 0 set by VBlankIntr, polled by sub_080A999C
+03003900	gVBlankTasks	ram	10 x {u16 state, u16 counter, func}
+030031B0	gHeldKeys	ram	sub_080A9A04: current keys
+030031C4	gNewKeys	ram	sub_080A9A04: keys pressed this frame
+03003968	gKeyRepeat	ram	sub_080A9A04: {prev, held, pressed, timer, unk7}
+03003964	gRepeatedKeys	ram	sub_080A9A04: new presses plus auto-repeat
+030020E8	gDigits	ram	sub_080A9CC0 output
+03002130	gSpriteNodes	ram	128 x 12 bytes {OAM attributes, s8 next}
+030031E0	gSpriteLayers	ram	10 sprite list heads (s8, -1 = empty)
+03003950	gSpriteNodeCount	ram	next free sprite node
+03002128	gAffineCount	ram	affine matrices used this frame
+030031F0	gAffineSlots	ram	32 x 16 bytes, pa..pd at +8
+030033F0	gOamBuffer	ram	DMA'd to OAM by sub_080A9AF4
+03002DB0	gPaletteBuffer	ram	0x400 bytes DMA'd to PLTT when 0x030031C0 is set
+030029B0	gPaletteTarget	ram	palette fades move 0x03002DB0 towards it
+030031C0	gPaletteDirty	ram	sub_080AABB0 / sub_080AABC8
+03002730	gPalFades	ram	8 x 0x50-byte palette fades
+03000000	gDispRegs	ram	0x44 bytes DMA'd to REG_BG0HOFS.. by sub_080A9AF4
+020381DC	gWindowMap	ram	4 KB 32x64 map buffer for windows
+020391DC	gWindowCount	ram	sub_080AB7D4 increments, sub_080AB660 decrements; first window clears the buffer
+0815E828	gSineTable	data	sin at [a], cos at [a + 0x40], used to build affine matrices
+0815EAE0	gPalFadeStepTable	data	32 per-component-value increments in units of 1/1000
+0815EB20	gWindowFrameTiles	data	9 frame tile entries used by sub_080AB528
+0815EB32	gWindowFrameTilesAlt	data	alternative frame for height-4 windows with altFrame set

@@ -1,0 +1,34 @@
+080D0340	GameState_TestFlag	func	returns bit n of the byte array at state+0x15E8 (event flags 0xEE, 0x163 tested by the save screen)
+080D0498	SaveScreen_DrawSlot	func	draws slot number, empty-slot text or location name, play data and party names of slot loaded into 0x02017874
+080D06BC	SaveScreen_DrawPage	func	creates the title/slot windows and calls sub_080D0498 for slots 0-3 by page
+080D0834	BgMap_SetPaletteRect	func	rewrites the palette bits (<<12) of a w*h rectangle in a 32-wide tilemap
+080D0A74	SaveScreen_HandleInput	func	A/B/Up/Down on the slot list; A accepted only if sub_080D13D0(slot)==1; sets task+0x1C/+0x1E
+080D0B18	LoadScreen_Confirm	func	not cancelled: sub_080D1328(cursor, 0x030046C0, 0) loads the slot into the live state
+080D0C74	GameState_StoreLocation	func	copies the current map/position globals into the live state (0xA2C..0xA3C, 0x18A0..) before saving
+080D0DA0	SaveScreen_WriteSuspend	func	sub_080D0C74(3) then sub_080D1264(3, 0x030046C0)
+080D0EA0	SaveScreen_WriteSlot	func	sub_080D0C74(cursor) then sub_080D1264(cursor, 0x030046C0)
+080D0F60	SaveScreen_Close	func	frees the windows at 0x0203A464..74 and returns to the caller screen by mode
+080D110C	SaveScreen_Open	func	clears 0x0203A454 (0x800 bytes), stores mode/arg; mode 3 takes the cursor from state+0x18B0
+080D1180	Sram_FormatIfInvalid	func	reads the 0x20-byte SRAM header; when magic!=0x10241179 or version!=0x11 writes a fresh 0x8000-byte image
+080D1230	Sram_WriteVerified	func	write (0815CBB4) then verify (0815CC24), up to 3 tries; returns 1 on success
+080D1264	SaveSlot_Write	func	writes 0x18F8 bytes to 0x0E00009C+slot*0x1B00, byte-sum checksum to 0x0E00008C+slot*4, valid=1 to 0x0E00007C+slot*4
+080D12F4	Sram_ReadVerified	func	read (0815CB50) then verify (0815CC24), up to 3 tries
+080D1328	SaveSlot_Read	func	reads slot data and checksum, returns 1 when the byte sum matches; applies it unless arg2 != 0
+080D13A8	SaveSlot_ClearSuspend	func	writes 0 to the slot-3 valid flag at 0x0E000088
+080D13D0	SaveSlot_IsValid	func	reads the u32 at 0x0E00007C+slot*4, returns it == 1
+080D1430	SaveSlot_AnyValid	func	returns 1 if sub_080D13D0(i) for any i < 3
+080D155C	NameEntry_RenderName	func	decodes the 8-byte name at 0x0203A46E and renders 8 glyph tiles to 0x02000000
+080D17CC	NameEntry_Backspace	func	plays sfx 0x66, removes the last character (0xFF) and re-renders
+080D1AD8	Name_Equals8	func	compares two 8-byte names; returns 0 when equal
+080D1B28	NameEntry_ValidateName	func	rejects an empty name or one equal to another character's name (sub_080C0148 ids 0x8000+, state names at 0xA00)
+080D1D14	NameEntry_StoreName	func	copies the entered name to the target combatant or state+0xA00 slot, inner 0xFF become 0
+080D1E48	NameEntry_Open	func	clears 0x0203A454, sets the target id, fills the name with 0xFF
+080D2508	StatsPage_ApplyPreview	func	backs up the combatant (0x80 bytes) to 0x0203A470 and applies the stats of id
+080D2554	StatsPage_RestoreCombatant	func	copies the 0x80-byte backup at 0x0203A470 back
+080D2D04	Action_CountDescriptionBreaks	func	counts 0x300 codes in the description of action id (> 0xD0) up to 0/0x301
+0203A454	gMenuState	ram	shared state block of the save, name entry and status screens (cleared with CpuSet 0x200 words)
+030046C0	gGameState	ram	0x18F8 bytes written to / read from SRAM by sub_080D1264 / sub_080D1328
+02017874	gSaveSlotPreview	ram	sub_080D0498 loads each save slot here (sub_080D1328(slot, 0x02017874, 1)) to draw it
+030031B8	gKeysNew	ram	tested for A (1), B (2), START (8) presses in the menu input handlers
+03003964	gKeysRepeat	ram	tested for Up/Down/Left/Right/R/L (0x40/0x80/0x20/0x10/0x100/0x200) to move menu cursors
+084F2DDC	gNameEntryCharGrid	data	u16 glyph table, 25 rows of 11, indexed (row+scroll)*11+col by NameEntry_DrawGrid/HandleInput
