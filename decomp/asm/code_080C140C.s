@@ -1318,7 +1318,7 @@ sub_080C1F50: @ 0x080C1F50
 	ldrh r0, [r0]
 	ldr r1, .L080C1F90
 	ldrh r1, [r1]
-	bl sub_080C8B10
+	bl DungeonMap_GetFloor
 	ldrh r1, [r0, #8]
 	adds r4, r4, r1
 	strh r4, [r6]
@@ -1479,7 +1479,7 @@ sub_080C2090: @ 0x080C2090
 	ldrh r0, [r0]
 	ldr r1, .L080C20BC
 	ldrh r1, [r1]
-	bl sub_080C8B10
+	bl DungeonMap_GetFloor
 	ldr r1, .L080C20C0
 	ldr r2, .L080C20C4
 	adds r1, r1, r2

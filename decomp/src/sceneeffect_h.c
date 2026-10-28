@@ -9,7 +9,7 @@ void sub_080BC5A8(struct Task *task, u32 step)
         struct Task *t;
 
         sub_080C4618(2, 0xD9, 0x78, 0x46, 0, 0);
-        t = sub_080BC230(0xD8);
+        t = Char_FindById(0xD8);
         if (t != NULL)
             sub_080C48F0(t, 0);
         LZ77UnCompWram(gUnknown_08554E10, gUnk_02001000);
@@ -44,19 +44,19 @@ void sub_080BC710(struct Task *task, u32 still)
 {
     struct ObjData *d;
 
-    sub_080BC230(0x1BE);
+    Char_FindById(0x1BE);
     if (still == 0)
     {
-        d = (struct ObjData *)sub_080BC230(0x1BE)->data.raw;
+        d = (struct ObjData *)Char_FindById(0x1BE)->data.raw;
         d->y--;
-        d = (struct ObjData *)sub_080BC230(0x16D)->data.raw;
+        d = (struct ObjData *)Char_FindById(0x16D)->data.raw;
         d->y--;
     }
-    d = (struct ObjData *)sub_080BC230(0x1BF)->data.raw;
+    d = (struct ObjData *)Char_FindById(0x1BF)->data.raw;
     d->y++;
-    d = (struct ObjData *)sub_080BC230(0x16B)->data.raw;
+    d = (struct ObjData *)Char_FindById(0x16B)->data.raw;
     d->y++;
-    d = (struct ObjData *)sub_080BC230(0x16C)->data.raw;
+    d = (struct ObjData *)Char_FindById(0x16C)->data.raw;
     d->y++;
     if (Flag_Test(0xC6))
     {
@@ -93,16 +93,16 @@ void sub_080BC864(void)
 {
     struct Task *t;
 
-    t = sub_080BC230(0x1BB);
+    t = Char_FindById(0x1BB);
     if (t != NULL)
         t->data.h[8] = 1;
-    t = sub_080BC230(0x1BD);
+    t = Char_FindById(0x1BD);
     if (t != NULL)
         t->data.h[8] = 1;
-    t = sub_080BC230(0x1B9);
+    t = Char_FindById(0x1B9);
     if (t != NULL)
         t->data.h[8] = 1;
-    t = sub_080BC230(0x1BA);
+    t = Char_FindById(0x1BA);
     if (t != NULL)
         t->data.h[8] = 1;
 }
@@ -116,15 +116,15 @@ void sub_080BC8B8(void)
 // sub_080BC8D8 @ 0x080BC8D8
 void sub_080BC8D8(struct Task *task, u32 frame)
 {
-    u16 *d = sub_080BC230(0x1BB)->data.h;
+    u16 *d = Char_FindById(0x1BB)->data.h;
 
-    sub_080D95F4(d[3]);
+    Char_GetRecord(d[3]);
     d[0xC] = frame;
     if (frame == 3 || frame == 4)
     {
-        d = sub_080BC230(0x1B9)->data.h;
+        d = Char_FindById(0x1B9)->data.h;
         d[5]--;
-        d = sub_080BC230(0x1BA)->data.h;
+        d = Char_FindById(0x1BA)->data.h;
         d[5]--;
     }
 }

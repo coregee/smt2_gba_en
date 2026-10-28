@@ -1065,7 +1065,7 @@ sub_080C53F4: @ 0x080C53F4
 	ldrh r0, [r0]
 	ldr r1, .L080C546C
 	ldrh r1, [r1]
-	bl sub_080C8B10
+	bl DungeonMap_GetFloor
 	adds r3, r0, #0
 	lsls r2, r4, #3
 	adds r2, r2, r4
@@ -1108,7 +1108,7 @@ sub_080C53F4: @ 0x080C53F4
 .L080C5474: .4byte 0x03004550 @ IWRAM+0x4550
 .L080C5478:
 	adds r0, r3, #0
-	bl sub_080B7944
+	bl SubMap_IsOutsideExclusions
 	cmp r0, #0
 	beq .L080C54BC
 	ldrh r2, [r4, #2]
@@ -2220,7 +2220,7 @@ sub_080C5D58: @ 0x080C5D58
 	push {r4, lr}
 	ldr r4, .L080C5D90
 	ldrh r0, [r4, #8]
-	bl sub_08151EB4
+	bl FieldMap_GetArea
 	ldrh r2, [r4, #0xc]
 	adds r1, r0, #0
 	adds r1, #0xcc

@@ -199,7 +199,7 @@ void sub_080D5B8C(u16 mode)
     u32 zero;
 
     gUnk_0203BB68 = mode;
-    if (sub_080D6A34() == 0 && mode == 4)
+    if (Title_HasExtraUnlocked() == 0 && mode == 4)
         gUnk_0203BB68 = 3;
     SetMainCallback(sub_080D5A48);
     zero = 0;

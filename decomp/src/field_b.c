@@ -562,11 +562,11 @@ void Automap_SetVisitedRaw(u16 x, u16 y)
 // Automap_SetVisited @ 0x080AF4EC
 void Automap_SetVisited(u16 x, u16 y)
 {
-    struct MapHeader *h = sub_080C8B10(gUnk_03004614, gUnk_03004514);
+    struct MapHeader *h = DungeonMap_GetFloor(gUnk_03004614, gUnk_03004514);
 
     x += h->originX;
     y += h->originY;
-    if (sub_080B7944(h, x, y))
+    if (SubMap_IsOutsideExclusions(h, x, y))
         Automap_SetVisitedRaw(x, y);
 }
 
@@ -616,11 +616,11 @@ void Automap_ClearVisitedRaw(u16 x, u16 y)
 // Automap_ClearVisited @ 0x080AF56C
 void Automap_ClearVisited(u16 x, u16 y)
 {
-    struct MapHeader *h = sub_080C8B10(gUnk_03004614, gUnk_03004514);
+    struct MapHeader *h = DungeonMap_GetFloor(gUnk_03004614, gUnk_03004514);
 
     x += h->originX;
     y += h->originY;
-    if (sub_080B7944(h, x, y))
+    if (SubMap_IsOutsideExclusions(h, x, y))
         Automap_ClearVisitedRaw(x, y);
 }
 
@@ -651,11 +651,11 @@ void Automap_SetVisitedAhead(u16 x, u16 y, u16 dir)
 #ifdef NONMATCHING
 u16 Automap_IsVisited(u16 x, u16 y)
 {
-    struct MapHeader *h = sub_080C8B10(gUnk_03004614, gUnk_03004514);
+    struct MapHeader *h = DungeonMap_GetFloor(gUnk_03004614, gUnk_03004514);
 
     x += h->originX;
     y += h->originY;
-    if (sub_080B7944(h, x, y) == 0)
+    if (SubMap_IsOutsideExclusions(h, x, y) == 0)
         return 0;
     return gGameState.visited[y][x >> 3] & (1 << (x & 7));
 }
@@ -676,7 +676,7 @@ u16 Automap_IsVisited(u16 x, u16 y)
         "    ldrh r0, [r0]\n"
         "    ldr r1, .L080AF678\n"
         "    ldrh r1, [r1]\n"
-        "    bl sub_080C8B10\n"
+        "    bl DungeonMap_GetFloor\n"
         "    ldrh r1, [r0, #8]\n"
         "    adds r4, r4, r1\n"
         "    lsls r6, r4, #0x10\n"
@@ -687,7 +687,7 @@ u16 Automap_IsVisited(u16 x, u16 y)
         "    lsrs r5, r5, #0x10\n"
         "    adds r1, r4, #0\n"
         "    adds r2, r5, #0\n"
-        "    bl sub_080B7944\n"
+        "    bl SubMap_IsOutsideExclusions\n"
         "    cmp r0, #0\n"
         "    beq .L080AF684\n"
         "    movs r3, #7\n"
@@ -724,7 +724,7 @@ u16 Automap_IsVisited(u16 x, u16 y)
 u16 Automap_IsVisitedUnchecked(u16 x, u16 y)
 {
     u8 bit = 1;
-    struct MapHeader *h = sub_080C8B10(gUnk_03004614, gUnk_03004514);
+    struct MapHeader *h = DungeonMap_GetFloor(gUnk_03004614, gUnk_03004514);
     u32 mask;
 
     x += h->originX;
@@ -750,7 +750,7 @@ u16 Automap_IsVisitedUnchecked(u16 x, u16 y)
         "    ldrh r0, [r0]\n"
         "    ldr r1, .L080AF6D8\n"
         "    ldrh r1, [r1]\n"
-        "    bl sub_080C8B10\n"
+        "    bl DungeonMap_GetFloor\n"
         "    ldrh r1, [r0, #8]\n"
         "    adds r4, r4, r1\n"
         "    lsls r4, r4, #0x10\n"

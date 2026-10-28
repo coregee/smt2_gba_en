@@ -74,7 +74,7 @@ void sub_080BCB90(struct Task *task, u32 step)
     }
     else
     {
-        u16 *d = sub_080BC230(0x195)->data.h;
+        u16 *d = Char_FindById(0x195)->data.h;
 
         d[4]--;
         gUnk_03000004++;
@@ -90,7 +90,7 @@ void sub_080BCBD8(struct Task *task, u32 step)
     }
     else
     {
-        if (sub_080BC230(0xC0) == NULL)
+        if (Char_FindById(0xC0) == NULL)
             task->result = 1;
         else
             task->result = 0;

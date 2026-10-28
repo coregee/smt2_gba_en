@@ -324,7 +324,7 @@ sub_080E4A40: @ 0x080E4A40
 	adds r0, r0, r2
 	adds r5, r1, r0
 	ldrh r0, [r5]
-	bl sub_080E444C
+	bl Demon_GetGfxRecord
 	ldr r4, [r0, #4]
 	ldr r0, .L080E4A98
 	ldr r1, [r0]
@@ -1776,8 +1776,8 @@ sub_080E5674: @ 0x080E5674
 	bx lr
 	.byte 0x00, 0x00
 
-	thumb_func_start sub_080E5678
-sub_080E5678: @ 0x080E5678
+	thumb_func_start Demon_LoadGfx
+Demon_LoadGfx: @ 0x080E5678
 .L080E5678:
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
@@ -1806,7 +1806,7 @@ sub_080E5678: @ 0x080E5678
 .L080E56A8: .4byte 0x0000017B
 .L080E56AC:
 	mov r0, r8
-	bl sub_080E444C
+	bl Demon_GetGfxRecord
 	adds r2, r0, #0
 	ldr r7, [r2, #4]
 	cmp r5, #0
@@ -1987,9 +1987,9 @@ sub_080E57F0: @ 0x080E57F0
 	movs r1, #0
 	movs r2, #0
 	movs r3, #0xe
-	bl sub_080E5678
+	bl Demon_LoadGfx
 	adds r0, r4, #0
-	bl sub_080E444C
+	bl Demon_GetGfxRecord
 	ldr r0, .L080E5844
 	ldr r2, .L080E5848
 	adds r1, r5, r2
@@ -2014,7 +2014,7 @@ sub_080E584C: @ 0x080E584C
 	movs r1, #0
 	movs r2, #1
 	movs r3, #0xff
-	bl sub_080E5678
+	bl Demon_LoadGfx
 	pop {r0}
 	bx r0
 	.byte 0x00, 0x00
@@ -2045,9 +2045,9 @@ sub_080E586C: @ 0x080E586C
 	movs r1, #0
 	movs r2, #0
 	movs r3, #0xf
-	bl sub_080E5678
+	bl Demon_LoadGfx
 	adds r0, r4, #0
-	bl sub_080E444C
+	bl Demon_GetGfxRecord
 	ldr r0, .L080E58C0
 	ldr r2, .L080E58C4
 	adds r1, r5, r2
@@ -2077,7 +2077,7 @@ sub_080E58C8: @ 0x080E58C8
 	movs r1, #0
 	movs r2, #1
 	movs r3, #0xff
-	bl sub_080E5678
+	bl Demon_LoadGfx
 .L080E58E4:
 	pop {r0}
 	bx r0
@@ -2118,7 +2118,7 @@ sub_080E5910: @ 0x080E5910
 	adds r1, r2, #0
 	adds r2, r3, #0
 	movs r3, #0xff
-	bl sub_080E5678
+	bl Demon_LoadGfx
 	pop {r4}
 	pop {r0}
 	bx r0
@@ -2211,7 +2211,7 @@ sub_080E59C8: @ 0x080E59C8
 	cmp r2, #0
 	bne .L080E5A10
 	adds r0, r1, #0
-	bl sub_080E444C
+	bl Demon_GetGfxRecord
 	ldr r0, [r0, #0x14]
 	cmp r0, #0
 	beq .L080E5A08
@@ -6640,7 +6640,7 @@ sub_080E7D30: @ 0x080E7D30
 	push {lr}
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080E444C
+	bl Demon_GetGfxRecord
 	ldrh r1, [r0]
 	ldr r0, .L080E7D4C
 	ands r0, r1
@@ -7887,7 +7887,7 @@ sub_080E86B4: @ 0x080E86B4
 	lsls r2, r2, #0x10
 	lsrs r6, r2, #0x10
 	adds r0, r6, #0
-	bl sub_080E444C
+	bl Demon_GetGfxRecord
 	adds r5, r0, #0
 	ldrb r1, [r5, #1]
 	movs r2, #0x80
@@ -7983,7 +7983,7 @@ sub_080E8738: @ 0x080E8738
 	adds r0, r6, r2
 	adds r5, r0, r1
 	ldrh r0, [r5]
-	bl sub_080E444C
+	bl Demon_GetGfxRecord
 	adds r6, r0, #0
 	ldrb r0, [r6]
 	cmp r0, #0
@@ -8173,7 +8173,7 @@ sub_080E88C0: @ 0x080E88C0
 	b .L080E8A1C
 .L080E88E2:
 	ldrh r0, [r4, #0x12]
-	bl sub_080E444C
+	bl Demon_GetGfxRecord
 	adds r6, r0, #0
 	ldrb r0, [r6]
 	cmp r0, #0
@@ -8372,7 +8372,7 @@ sub_080E8A28: @ 0x080E8A28
 	strh r2, [r4, #0x12]
 	str r1, [r4, #0xc]
 	ldrh r0, [r4, #0x12]
-	bl sub_080E444C
+	bl Demon_GetGfxRecord
 	cmp r5, #1
 	beq .L080E8A80
 	cmp r5, #1
@@ -8554,7 +8554,7 @@ sub_080E8B78: @ 0x080E8B78
 	adds r1, r7, r2
 	adds r0, r0, r1
 	ldrh r0, [r0]
-	bl sub_080E444C
+	bl Demon_GetGfxRecord
 	ldr r5, [r0, #4]
 	b .L080E8BC4
 	.byte 0x00, 0x00

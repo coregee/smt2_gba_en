@@ -54,7 +54,7 @@ sub_080B0C90: @ 0x080B0C90
 	ldrh r0, [r0]
 	lsls r1, r1, #0x10
 	lsrs r1, r1, #0x10
-	bl sub_080C8B10
+	bl DungeonMap_GetFloor
 	ldr r1, .L080B0D28
 	ldr r2, .L080B0D2C
 	adds r1, r1, r2
@@ -1150,7 +1150,7 @@ gUnknown_080B0EB0:
 .L080B1678: .4byte 0x03003BA8 @ IWRAM+0x3BA8
 .L080B167C: .4byte 0x03004550 @ IWRAM+0x4550
 .L080B1680:
-	bl sub_080B4C48
+	bl Automap_Update
 	b .L080B1A06
 .L080B1686:
 	ldrh r1, [r5, #0x1e]

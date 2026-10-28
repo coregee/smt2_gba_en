@@ -149,7 +149,7 @@ void sub_080BBFA8(void)
 // sub_080BBFC8 @ 0x080BBFC8
 void sub_080BBFC8(struct Task *task)
 {
-    if (sub_080BC230(0x161)->wait == -1)
+    if (Char_FindById(0x161)->wait == -1)
         task->result = 1;
     else
         task->result = 0;
@@ -158,13 +158,13 @@ void sub_080BBFC8(struct Task *task)
 // sub_080BBFF0 @ 0x080BBFF0
 void sub_080BBFF0(void)
 {
-    sub_080BC230(0x161)->wait = 1;
+    Char_FindById(0x161)->wait = 1;
 }
 
 // sub_080BC004 @ 0x080BC004
 void sub_080BC004(struct Task *task)
 {
-    if (sub_080BC230(0x161) == NULL)
+    if (Char_FindById(0x161) == NULL)
         task->result = 1;
     else
         task->result = 0;

@@ -78,7 +78,7 @@ void Sprite_Draw(const void *a0, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5, s32 a6)
 /* OAM_EmitSprite (rom_layout.py): one sprite from a 3-u16 attribute template. */
 void Sprite_DrawSingle(const void *tmpl, u16 a1, u16 palette, u16 a3, u16 tile, u16 x, u16 y);
 
-extern u8 gUnk_0203A2E4[];              /* cursor graphics buffer */
+extern u8 gBannerTiles[];              /* cursor graphics buffer */
 extern u32 gUnk_03000048;               /* cursor OBJ tile */
 extern u16 gKeysNew;               /* new keys */
 extern s32 gYesNoResult;               /* last yes/no choice */

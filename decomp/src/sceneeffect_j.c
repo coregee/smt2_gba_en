@@ -83,10 +83,10 @@ void sub_080BCE0C(struct Task *task)
     }
     for (i = 0; i < 6; i++)
     {
-        if (gUnk_02036094[i] != NULL)
+        if (gCharTasks[i] != NULL)
         {
-            u16 *d = gUnk_02036094[i]->data.h;
-            const u16 *pal = sub_080D95F4(d[3])->palette;
+            u16 *d = gCharTasks[i]->data.h;
+            const u16 *pal = Char_GetRecord(d[3])->palette;
 
             if (d[3] == 0x1C1)
                 pal = sub_080D8248(gUnk_0203DB28[0])->palette;

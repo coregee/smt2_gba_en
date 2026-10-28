@@ -16,7 +16,7 @@ sub_0815201C: @ 0x0815201C
 	sub sp, #0xc
 	ldr r4, .L08152044
 	ldrh r0, [r4, #8]
-	bl sub_08151EB4
+	bl FieldMap_GetArea
 	adds r5, r0, #0
 	ldr r0, [r4]
 	cmp r0, #0x10
@@ -199,7 +199,7 @@ gUnknown_0815204C:
 .L081521B0:
 	ldr r7, .L08152220
 	ldrh r0, [r7, #8]
-	bl sub_08151EB4
+	bl FieldMap_GetArea
 	mov sb, r0
 	ldr r0, [r7]
 	cmp r0, #2
@@ -534,7 +534,7 @@ sub_08152440: @ 0x08152440
 	lsls r4, r4, #0x10
 	ldr r0, .L08152478
 	ldrh r0, [r0, #8]
-	bl sub_08151EB4
+	bl FieldMap_GetArea
 	adds r1, r0, #0
 	lsrs r4, r4, #0x13
 	str r4, [sp, #4]
@@ -695,14 +695,14 @@ sub_08152578: @ 0x08152578
 	.byte 0x00, 0x00
 .L08152580: .4byte 0x030069F0 @ IWRAM+0x69F0
 
-	thumb_func_start sub_08152584
-sub_08152584: @ 0x08152584
+	thumb_func_start FieldMap_LoadTiles
+FieldMap_LoadTiles: @ 0x08152584
 	push {r4, r5, r6, lr}
 	sub sp, #4
 	adds r5, r1, #0
 	ldr r0, .L081525C8
 	ldrh r0, [r0, #8]
-	bl sub_08151EB4
+	bl FieldMap_GetArea
 	adds r4, r0, #0
 	ldr r6, .L081525CC
 	lsls r0, r5, #0xc
@@ -732,13 +732,13 @@ sub_08152584: @ 0x08152584
 .L081525D0: .4byte 0x05000400
 .L081525D4: .4byte 0x0200AFC8 @ EWRAM+0xAFC8
 
-	thumb_func_start sub_081525D8
-sub_081525D8: @ 0x081525D8
+	thumb_func_start FieldMap_LoadBlockData
+FieldMap_LoadBlockData: @ 0x081525D8
 	push {r4, r5, lr}
 	adds r4, r1, #0
 	ldr r0, .L0815260C
 	ldrh r0, [r0, #8]
-	bl sub_08151EB4
+	bl FieldMap_GetArea
 	lsls r1, r4, #2
 	adds r0, #0xa8
 	adds r0, r0, r1
@@ -773,14 +773,14 @@ sub_081525D8: @ 0x081525D8
 	bx r0
 .L0815262C: .4byte 0x02030C74 @ EWRAM+0x30C74
 
-	thumb_func_start sub_08152630
-sub_08152630: @ 0x08152630
+	thumb_func_start FieldMap_LoadMapChunk
+FieldMap_LoadMapChunk: @ 0x08152630
 	push {r4, r5, r6, r7, lr}
 	sub sp, #8
 	adds r7, r1, #0
 	ldr r0, .L081526C0
 	ldrh r0, [r0, #8]
-	bl sub_08151EB4
+	bl FieldMap_GetArea
 	adds r6, r0, #0
 	ldr r5, .L081526C4
 	lsls r0, r7, #0xc
@@ -918,7 +918,7 @@ sub_08152750: @ 0x08152750
 	adds r4, r2, #0
 	ldr r6, .L0815276C
 	ldrh r0, [r6, #8]
-	bl sub_08151EB4
+	bl FieldMap_GetArea
 	adds r5, r0, #0
 	cmp r4, #2
 	beq .L08152770
@@ -982,7 +982,7 @@ sub_081527E0: @ 0x081527E0
 	sub sp, #4
 	ldr r0, .L0815281C
 	ldrh r0, [r0, #8]
-	bl sub_08151EB4
+	bl FieldMap_GetArea
 	adds r4, r0, #0
 	ldr r5, .L08152820
 	adds r0, r5, #0
@@ -1904,7 +1904,7 @@ sub_08152EF8: @ 0x08152EF8
 	push {r4, r5, lr}
 	ldr r4, .L08152F14
 	ldrh r0, [r4, #8]
-	bl sub_08151EB4
+	bl FieldMap_GetArea
 	adds r5, r0, #0
 	ldrh r0, [r4, #0xc]
 	cmp r0, #0x78
@@ -1975,7 +1975,7 @@ sub_08152F80: @ 0x08152F80
 	push {r4, r5, lr}
 	ldr r4, .L08152FA0
 	ldrh r0, [r4, #8]
-	bl sub_08151EB4
+	bl FieldMap_GetArea
 	bl sub_081529E0
 	ldr r2, .L08152FA4
 	ldrh r1, [r2]
@@ -2302,7 +2302,7 @@ sub_081531D4: @ 0x081531D4
 .L08153204:
 	mov r0, r8
 	adds r1, r4, #0
-	bl sub_080C8B10
+	bl DungeonMap_GetFloor
 	adds r1, r0, #0
 	ldrh r0, [r1, #8]
 	cmp r0, r7
@@ -2319,7 +2319,7 @@ sub_081531D4: @ 0x081531D4
 	adds r0, r1, #0
 	adds r1, r7, #0
 	adds r2, r5, #0
-	bl sub_080B7944
+	bl SubMap_IsOutsideExclusions
 	cmp r0, #1
 	beq .L08153258
 .L08153234:
@@ -2446,7 +2446,7 @@ sub_08153324: @ 0x08153324
 	sub sp, #4
 	ldr r0, .L08153358
 	ldrh r0, [r0, #8]
-	bl sub_08151EB4
+	bl FieldMap_GetArea
 	adds r0, #0xa4
 	ldr r1, [r0]
 	ldr r2, .L0815335C
@@ -2621,7 +2621,7 @@ sub_08153458: @ 0x08153458
 	ldr r4, .L08153504
 	ldr r0, .L08153508
 	ldrh r0, [r0, #8]
-	bl sub_08151EB4
+	bl FieldMap_GetArea
 	adds r1, r0, #0
 	adds r1, #0xcc
 	ldrh r1, [r1]
@@ -2887,7 +2887,7 @@ sub_08153668: @ 0x08153668
 	push {r7}
 	ldr r0, .L08153698
 	ldrh r0, [r0, #8]
-	bl sub_08151EB4
+	bl FieldMap_GetArea
 	adds r4, r0, #0
 	bl sub_081535A4
 	mov r8, r0
@@ -3009,7 +3009,7 @@ sub_0815374C: @ 0x0815374C
 	push {r4, r5, r6, r7, lr}
 	ldr r4, .L081537AC
 	ldrh r0, [r4, #8]
-	bl sub_08151EB4
+	bl FieldMap_GetArea
 	ldrh r1, [r4, #0xc]
 	adds r2, r0, #0
 	adds r2, #0xcc

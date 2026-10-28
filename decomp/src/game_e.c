@@ -212,7 +212,7 @@ s32 FieldView_DrawLayer(const struct ViewLayer *layer, const struct ViewCond *co
     u16 kind;
     u16 kind2; /* never assigned: the original reads an uninitialised register (r8) here */
 
-    sub_080C8B10(gUnk_03004614, gUnk_03004514);
+    DungeonMap_GetFloor(gUnk_03004614, gUnk_03004514);
     if (layer->data == (const void *)-1)
         return (s32)layer->data;
     if (layer->data == NULL)
@@ -258,7 +258,7 @@ s32 FieldView_DrawLayer(const struct ViewLayer *layer, const struct ViewCond *co
     }
     else
     {
-        sub_080B6F40(src);
+        Picture_ScaleStep(src);
     }
     if (gUnk_03003FE8 != 0 && (kind == 3 || kind2 == 3) && layer->mode == 1)
     {

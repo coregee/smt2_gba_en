@@ -214,7 +214,7 @@ void SaveScreen_DrawSlot(u32 unused, u32 slot)
                 tok = sub_080C8B54(state->unkA32);
                 if (tok == NULL)
                 {
-                    sub_080C8B10(state->unkA32, state->unkA34);
+                    DungeonMap_GetFloor(state->unkA32, state->unkA34);
                     SaveScreen_DrawLocationName(state, slot, 0x39, y);
                 }
                 else
@@ -372,7 +372,7 @@ void SaveScreen_DrawSlot(u32 unused, u32 slot)
         "    ldr r1, .L080D0588\n"
         "    add r1, sb\n"
         "    ldrh r1, [r1]\n"
-        "    bl sub_080C8B10\n"
+        "    bl DungeonMap_GetFloor\n"
         "    lsls r1, r6, #0x10\n"
         "    lsrs r1, r1, #0x10\n"
         "    mov r0, sb\n"

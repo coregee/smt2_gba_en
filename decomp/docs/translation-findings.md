@@ -206,3 +206,23 @@ No text is drawn here, so nothing limits the translation. Oddities in the origin
   effect's sprite.
 - `0x080BB2A0` and `0x080BCDC4` test `0x0200AB04 & 0x8000`, but both branches fade to white.
 - `0x080BCAFC` builds a scaled copy of the sprite and then draws the original table.
+
+### Automap and field events (`0x080B447C`-`0x080B89B0`)
+
+- **Location banner** (`0x080B6364`/`0x080B6460`/`0x080B6568`): names are 10-byte entries at
+  `0x08163444` (37 of them). Only A-Z ( ) ' & _ have glyphs; 0x100 bytes (8 tiles) are
+  uploaded and the reveal is centred for 8 letters; a longer name writes past the buffer at
+  `0x0203A2E4` into the banner task's pointer at `0x0203A3E4`. The translation rewrites 7
+  entries (FUSION, MESSIAN, GAEAN, HEALER, SPRING, SHOP, VR), all within 8 letters and the
+  glyph set (checked in the patched build).
+- **`Text_CopyToMenuBuffer`** (`0x080B8490`) copies a message into `gMenuState`
+  (`0x0203A454`) up to the 0x301 terminator with no length limit. Still to check: which
+  translated treasure messages pass through it, and how much room follows.
+
+### More possible original bugs
+
+- `Spring_HealMember` (`0x080B86B0`), kind 2: calls `sub_080C8490` twice on a cure and reports
+  success even when nothing was cured.
+- `Warp_ToWorldPosition` (`0x080B7AFC`) and `sub_080B7E3C`: warp to an uninitialised map when
+  no sub-map contains the point.
+- `sub_080B8384`: the message is uninitialised outside 0x120-0x12B (`sub_080B8354` guards it).

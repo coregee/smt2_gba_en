@@ -104,8 +104,8 @@ struct MapHeader
     struct MapVariant variants[1];
 };
 
-struct MapHeader *sub_080C8B10(u16 a, u16 b);
-s32 sub_080B6F40(const u8 *a);
+struct MapHeader *DungeonMap_GetFloor(u16 a, u16 b);
+s32 Picture_ScaleStep(const u8 *a);
 void sub_080B6F28(const u8 *a);
 void Palette_CopyDarkened(const u16 *src, u16 *dst, u16 count);
 void Map_SetGraphicsPointers(u32 map, u32 sub);
@@ -216,7 +216,7 @@ u16 sub_080C5E58(void);
 s32 FieldMap_CellRecordsRel(u32 a, u32 b);
 s32 FieldMap_FindRecord(s32 a, u32 b);
 u32 View_GetWall(u16 dir, u16 dx, u16 dy);
-void sub_080B6568(u16 a);
+void LocationBanner_Start(u16 a);
 void sub_080B3878(u32 a);
 
 u16 sub_080AD608(u16 unused0, u16 unused1);
@@ -239,7 +239,7 @@ extern u8 gUnk_03004010[];
 
 void Palette_CopyWithEffect(u32 a0, const void *src, void *dst, u32 a3, u32 a4);
 void BgPicture_LoadAll(void);
-void sub_080AE1C4(void);
+void DungeonMap_LoadDoorGfx(void);
 void sub_080F3F58(s32 a);
 void sub_080C2230(u32 a);
 void sub_080B2840(u32 a, u32 b, u32 c);
@@ -261,7 +261,7 @@ extern struct ViewCell gViewCells[][9];
 
 extern u16 gUnk_03003B9C;
 extern u16 gUnk_03004608;
-extern u16 gUnk_03003FD0[];
+extern u16 gWarpDest[];
 extern u32 gUnk_030045FC;
 extern const u16 gUnknown_0815F2E6[];
 
@@ -347,7 +347,7 @@ extern const u8 gUnknown_08073ABC[];
 extern const u8 gUnknown_08073AC6[];
 extern const u8 gUnknown_08073AA8[];
 
-s32 sub_080B7944(struct MapHeader *h, u16 x, u16 y);
+s32 SubMap_IsOutsideExclusions(struct MapHeader *h, u16 x, u16 y);
 void Automap_SetVisitedRaw(u16 x, u16 y);
 void Automap_ClearVisitedRaw(u16 x, u16 y);
 void Automap_SetVisited(u16 x, u16 y);

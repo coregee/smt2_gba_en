@@ -3,8 +3,8 @@
 
 /* Draws a character sprite with the OBJ tile base / palette of its slot (0..5), or of the
    first three slots only while sub_080D7A04 reports 0. */
-// sub_080D7A84 @ 0x080D7A84
-void sub_080D7A84(struct Task *task, const void *sprite)
+// Char_DrawBySlot @ 0x080D7A84
+void Char_DrawBySlot(struct Task *task, const void *sprite)
 {
     struct CharObj *obj = (struct CharObj *)&task->data;
     u16 slot = obj->slot;
@@ -44,7 +44,7 @@ void sub_080D7A84(struct Task *task, const void *sprite)
 // sub_080D7BB4 @ 0x080D7BB4
 void sub_080D7BB4(struct Task *task)
 {
-    sub_080D7A84(task, gUnknown_080050C4);
+    Char_DrawBySlot(task, gUnknown_080050C4);
 }
 
 // sub_080D7BC4 @ 0x080D7BC4
@@ -63,11 +63,11 @@ void sub_080D7BC8(struct Task *task)
 
 /* Starts the character's animation script (record +0x28): first frame's duration, and its
    graphics if the frame asks for a load. */
-// sub_080D7BE4 @ 0x080D7BE4
-void sub_080D7BE4(struct Task *task)
+// Char_StartAnim @ 0x080D7BE4
+void Char_StartAnim(struct Task *task)
 {
     struct CharObj *obj = (struct CharObj *)&task->data;
-    struct CharAnimFrame *frame = sub_080D95F4(obj->id)->anim;
+    struct CharAnimFrame *frame = Char_GetRecord(obj->id)->anim;
     u16 load;
 
     obj->frameTimer = frame->duration;
@@ -81,8 +81,8 @@ void sub_080D7BE4(struct Task *task)
     }
 }
 
-// sub_080D7C30 @ 0x080D7C30
-void sub_080D7C30(struct Task *task, struct CharAnimFrame *frame)
+// Char_DrawAnimFrame @ 0x080D7C30
+void Char_DrawAnimFrame(struct Task *task, struct CharAnimFrame *frame)
 {
     struct CharObj *obj = (struct CharObj *)&task->data;
     u16 slot = obj->slot;
@@ -121,12 +121,12 @@ void sub_080D7C30(struct Task *task, struct CharAnimFrame *frame)
 }
 
 /* Steps the character animation: 0xFFFF ends it, 0xFFFE loops to the first frame. */
-// sub_080D7CA8 @ 0x080D7CA8
-void sub_080D7CA8(struct Task *task)
+// Char_StepAnim @ 0x080D7CA8
+void Char_StepAnim(struct Task *task)
 {
     struct CharObj *obj = (struct CharObj *)&task->data;
     struct CharAnimFrame *frame;
-    struct CharGfxRecord *rec = sub_080D95F4(obj->id);
+    struct CharGfxRecord *rec = Char_GetRecord(obj->id);
     u16 load;
 
     frame = rec->anim;
@@ -153,12 +153,12 @@ void sub_080D7CA8(struct Task *task)
             if (frame->se != 0)
                 sub_080C51D4(frame->se);
         }
-        sub_080D7C30(task, frame);
+        Char_DrawAnimFrame(task, frame);
     }
     else
     {
         frame += obj->frame;
-        sub_080D7C30(task, frame);
+        Char_DrawAnimFrame(task, frame);
     }
 }
 

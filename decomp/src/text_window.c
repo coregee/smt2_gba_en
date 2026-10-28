@@ -219,7 +219,7 @@ bool32 TextWindow_IsDone(struct Task *task)
 // YesNo_UploadCursorTiles @ 0x080ABD74
 void YesNo_UploadCursorTiles(void)
 {
-    TEXT_DMA3_SET(gUnk_0203A2E4, 0x06010000 + gUnk_03000048 * 32, 0x84000040);
+    TEXT_DMA3_SET(gBannerTiles, 0x06010000 + gUnk_03000048 * 32, 0x84000040);
 }
 
 // YesNo_LoadCursor @ 0x080ABDA4
@@ -229,7 +229,7 @@ void YesNo_LoadCursor(struct Task *task, s32 mode)
 
     if (mode == 0)
     {
-        sub_080C7E24(gUnk_0203A2E4, gUnknown_0815ED28);
+        sub_080C7E24(gBannerTiles, gUnknown_0815ED28);
         gUnk_03000048 = cur->tile;
         VBlankTask_AddCounted(YesNo_UploadCursorTiles, 1);
     }

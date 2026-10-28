@@ -285,7 +285,7 @@ void sub_080D7748(struct Task *task, u32 pause)
 // sub_080D7764 @ 0x080D7764
 void sub_080D7764(struct Task *task, u32 pose, u32 half)
 {
-    struct CharGfxRecord *rec = sub_080D95F4(task->data.h[3]);
+    struct CharGfxRecord *rec = Char_GetRecord(task->data.h[3]);
 
     LZ77UnCompWram(rec->gfx[pose][half], (void *)(0x02001000 + (half << 12)));
 }
@@ -307,7 +307,7 @@ void sub_080D77CC(struct Task *task, u32 palIndex)
 {
     struct CharObj *obj = (struct CharObj *)&task->data;
 
-    sub_080C3F4C(obj, sub_080D95F4(obj->id)->palette, palIndex, 0x20, 1);
+    sub_080C3F4C(obj, Char_GetRecord(obj->id)->palette, palIndex, 0x20, 1);
 }
 
 // sub_080D77F4 @ 0x080D77F4
@@ -322,20 +322,20 @@ void sub_080D77FC(struct Task *task, const void **base, u32 a2, u32 pose, u32 ha
 {
     struct CharObj *obj = (struct CharObj *)&task->data;
 
-    sub_080D95F4(obj->id);
-    sub_080C4080(obj, base[pose * 2 + half], a2, half, 1);
+    Char_GetRecord(obj->id);
+    Char_LoadGfxHalf(obj, base[pose * 2 + half], a2, half, 1);
 }
 
 /* Signals every character task (table at 0x02036094) whose id matches `id` -- which is never
    assigned: the comparison reads whatever the caller left in r6 (original bug). */
-// sub_080D7840 @ 0x080D7840
-void sub_080D7840(void)
+// Char_SignalById @ 0x080D7840
+void Char_SignalById(void)
 {
     u32 i;
     struct Task **p;
     u16 id;
 
-    for (i = 0, p = gUnk_02036094; i < 6; p++, i++)
+    for (i = 0, p = gCharTasks; i < 6; p++, i++)
     {
         if (*p != NULL && (*p)->data.h[3] == id)
             Task_Signal(*p);
@@ -389,7 +389,7 @@ void sub_080D792C(void)
 // sub_080D7950 @ 0x080D7950
 void sub_080D7950(struct CharObj *obj, const void *src, u32 noPalette, u32 unused, u32 a4)
 {
-    struct CharGfxRecord *rec = sub_080D95F4(obj->id);
+    struct CharGfxRecord *rec = Char_GetRecord(obj->id);
     u16 slot = obj->slot;
 
     if (obj->shown != 0)
@@ -407,7 +407,7 @@ void sub_080D7950(struct CharObj *obj, const void *src, u32 noPalette, u32 unuse
 void sub_080D79C0(struct Task *task, u32 noPalette, u32 pose, u32 half)
 {
     struct CharObj *obj = (struct CharObj *)&Task_GetParent(task)->data;
-    struct CharGfxRecord *rec = sub_080D95F4(obj->id);
+    struct CharGfxRecord *rec = Char_GetRecord(obj->id);
 
     sub_080D7950(obj, rec->gfx[pose][half], noPalette, half, 1);
 }

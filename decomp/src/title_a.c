@@ -9,8 +9,8 @@ void sub_080D6264(struct Task *task, u16 se)
 
 /* Title screen scene setup: loads graphics/palettes for gMenuState.mode, then queues the
    VBlank upload (sub_080D5C20). */
-// sub_080D6274 @ 0x080D6274
-void sub_080D6274(struct Task *task, u16 mode)
+// Title_LoadScene @ 0x080D6274
+void Title_LoadScene(struct Task *task, u16 mode)
 {
     u32 zero;
 
@@ -201,8 +201,8 @@ void sub_080D692C(struct Task *task, u32 n)
     gUnk_03000034 -= n;
 }
 
-// sub_080D693C @ 0x080D693C
-void sub_080D693C(void)
+// Title_DrawPressStart @ 0x080D693C
+void Title_DrawPressStart(void)
 {
     struct TitleMenu *menu = TITLE;
 
@@ -227,8 +227,8 @@ void sub_080D69D8(void)
 }
 
 /* TRUE if any of the three save slots is valid or any of the checked flags is set. */
-// sub_080D6A34 @ 0x080D6A34
-u32 sub_080D6A34(void)
+// Title_HasExtraUnlocked @ 0x080D6A34
+u32 Title_HasExtraUnlocked(void)
 {
     u32 i;
 
@@ -248,8 +248,8 @@ u32 sub_080D6A34(void)
 }
 
 /* Title menu: rows greyed when unavailable (unk08/unk0A), cursor sprite at row TITLE->cursor. */
-// sub_080D6A9C @ 0x080D6A9C
-void sub_080D6A9C(void)
+// Title_DrawMenu @ 0x080D6A9C
+void Title_DrawMenu(void)
 {
     struct TitleMenu *menu = TITLE;
 
@@ -263,7 +263,7 @@ void sub_080D6A9C(void)
         Sprite_Draw(gUnknown_0813ED9C, 0, 0, 0, 0, 0x58, 0x6A);
     else
         Sprite_Draw(gUnknown_0813EE08, 0, 0, 0, 0, 0x58, 0x6A);
-    if (sub_080D6A34() == 1)
+    if (Title_HasExtraUnlocked() == 1)
     {
         Sprite_Draw(gUnknown_0813EDC0, 0, 0, 0, 0, 0x50, 0x75);
         Sprite_Draw(gUnknown_0813EDD8, 0, 0, 0, 0, 0x60, 0x80);
@@ -295,8 +295,8 @@ void sub_080D6A9C(void)
 }
 
 /* "Press start" wait: unk1E = 2 when the idle timer runs out, 1 on any key (cursor preset). */
-// sub_080D6C8C @ 0x080D6C8C
-void sub_080D6C8C(struct Task *task)
+// Title_WaitPressStart @ 0x080D6C8C
+void Title_WaitPressStart(struct Task *task)
 {
     struct TitleMenu *menu = TITLE;
 
@@ -320,14 +320,14 @@ void sub_080D6C8C(struct Task *task)
 
 /* Title menu input: A picks row cursor+1 (5 for the last row when it is hidden), B = 10,
    up/down wrap over 4 or 5 rows; 0x80 when idle too long. */
-// sub_080D6CEC @ 0x080D6CEC
-void sub_080D6CEC(struct Task *task)
+// Title_HandleMenuInput @ 0x080D6CEC
+void Title_HandleMenuInput(struct Task *task)
 {
     struct TitleMenu *menu = TITLE;
     u16 rows = 5;
     u16 keys;
 
-    if (sub_080D6A34() == 0)
+    if (Title_HasExtraUnlocked() == 0)
         rows = 4;
     task->unk1E = 0;
     if (--menu->idle == 0)
@@ -341,7 +341,7 @@ void sub_080D6CEC(struct Task *task)
         if (menu->cursor == 1 && menu->unk08 == 0)
             return;
         task->unk1E = menu->cursor + 1;
-        if (sub_080D6A34() == 0 && task->unk1E == 4)
+        if (Title_HasExtraUnlocked() == 0 && task->unk1E == 4)
             task->unk1E = 5;
         sub_080C51D4(0x65);
     }

@@ -219,8 +219,8 @@ gUnknown_084C0D50: @ 0x084C0D50
 .Lspan_084C5FBC:
 	.incbin "build/assets/084C5FBC.bin" @ dungeon/map91_floor00_setF
 	.incbin "baserom.gba", 0x4C7448, 0x26154
-	.global gUnknown_084ED59C
-gUnknown_084ED59C: @ 0x084ED59C
+	.global gDungeonMaps
+gDungeonMaps: @ 0x084ED59C
 	.byte 0xEC, 0x32, 0x4D, 0x08, 0x01, 0x00, 0x00, 0x00
 	.global gUnknown_084ED5A4
 gUnknown_084ED5A4: @ 0x084ED5A4

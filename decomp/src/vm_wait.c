@@ -364,7 +364,7 @@ void sub_0813D54C(void)
 // sub_0813D584 @ 0x0813D584
 void sub_0813D584(void)
 {
-    if (sub_080BA920() == 0)
+    if (SceneEffect_IsDone() == 0)
     {
         gScriptWaitBusy = 1;
     }

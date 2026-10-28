@@ -72,7 +72,7 @@ void sub_080BD3C4(void)
 // sub_080BD3D8 @ 0x080BD3D8
 void sub_080BD3D8(struct Task *task)
 {
-    task->data.w[0] = sub_080B6DB4(0x6D);
+    task->data.w[0] = BgPicture_StartTask(0x6D);
 }
 
 // sub_080BD3EC @ 0x080BD3EC
@@ -87,7 +87,7 @@ void sub_080BD3EC(struct Task *task)
 // sub_080BD404 @ 0x080BD404
 void sub_080BD404(void)
 {
-    struct Task *t = sub_080BC230(0x11E);
+    struct Task *t = Char_FindById(0x11E);
 
     if (t != NULL)
         t->data.h[8] = 3;
@@ -103,7 +103,7 @@ void sub_080BD41C(void)
 // sub_080BD43C @ 0x080BD43C
 void sub_080BD43C(struct Task *task)
 {
-    task->data.w[0] = sub_080B6DB4(0x71);
+    task->data.w[0] = BgPicture_StartTask(0x71);
 }
 
 // sub_080BD450 @ 0x080BD450
@@ -134,7 +134,7 @@ void sub_080BD468(void)
     gUnk_0300000E = 0;
     gUnk_0300000C = 0;
     gUnk_03000002 = 0;
-    gUnk_03000000 = 0;
+    gDispRegs = 0;
 }
 
 // sub_080BD550 @ 0x080BD550
@@ -153,7 +153,7 @@ void sub_080BD58C(void)
 // sub_080BD598 @ 0x080BD598
 void sub_080BD598(struct Task *task)
 {
-    struct Task *t = sub_080BC230(0x21);
+    struct Task *t = Char_FindById(0x21);
     struct ObjData *d = (struct ObjData *)t->data.raw;
 
     task->result = 0;

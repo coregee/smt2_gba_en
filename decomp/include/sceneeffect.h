@@ -112,7 +112,7 @@ struct MapHeader
     u8 pad00[0x06];
     s16 unk06;
 };
-struct MapHeader *sub_080C8B10(u16 a, u16 b);
+struct MapHeader *DungeonMap_GetFloor(u16 a, u16 b);
 
 void LZ77UnCompWram(const void *src, void *dst);
 void VBlankTask_AddCounted(VoidFunc func, u32 count);
@@ -140,7 +140,7 @@ extern u16 gPaletteTarget[0x200];
 /* 0x080BA1AC.. */
 void sub_080BA170(void);
 void sub_080BA1F8(void);
-void sub_080BA4C4(struct Task *task);
+void Elevator_SetScroll(struct Task *task);
 u32 sub_080BA5E0(s16 dx, s16 dy);
 
 /* Elevator task data (task->data). pos is applied to the BG3 V-offset shadow 0x0300000E
@@ -185,12 +185,12 @@ extern const u8 gUnknown_08002D08[], gUnknown_08002D44[], gUnknown_08002CAC[], g
 /* 0x080BA758.. */
 void CpuSet(const void *src, void *dest, u32 control);
 void Tilemap_CopyRectSkipZero(const void *src, void *buf, u32 a2, u32 a3, u32 x, u32 y, u32 w, u32 h);
-u32 sub_080B6DB4(u32 a);
+u32 BgPicture_StartTask(u32 a);
 void sub_080C48F0(struct Task *t, u32 a);
 void Window_Close(void *window, u32 arg1);
 struct Task *sub_080C4618(u32 a, u16 b, u16 c, u16 d, u16 e, u32 f);
 void sub_080BA758(void);
-void sub_080BA940(void);
+void SceneEffect_Stop(void);
 void sub_080BA9CC(void);
 void sub_080BA9F0(struct Task *task);
 void sub_080BAA14(struct Task *task);
@@ -200,7 +200,7 @@ void sub_080BACC4(void);
 void sub_080BAD28(void);
 
 extern u32 gUnk_03004638;
-extern struct Task *gUnk_0300463C;
+extern struct Task *gSceneEffectTask;
 extern u32 gUnk_0200AB04;
 extern u16 gUnk_02000000[];
 extern u16 gUnk_03000004;
@@ -210,7 +210,7 @@ extern u8 gUnk_03000031;
 extern u8 gUnk_03000034;
 extern u8 gUnk_03000035;
 extern u32 gFrameCounter;
-extern struct Task *gUnk_02036094[8];
+extern struct Task *gCharTasks[8];
 extern void *gMsgWindow;
 extern u16 gMsgWindowOpen;
 
@@ -222,7 +222,7 @@ extern const u16 gUnknown_08183454[], gUnknown_08183434[];
 extern const u8 gUnknown_0800781C[], gUnknown_08007844[];
 
 /* 0x080BAEA8.. */
-struct Task *sub_080BC230(u16 id);
+struct Task *Char_FindById(u16 id);
 u32 Palette_IsBg13Black(void);
 void Palette_MarkDirty(void);
 struct PalFade *PalFade_FadeRangeToBlack(u16 start, u16 count, u16 delay);
@@ -260,7 +260,7 @@ struct AffineEffect
     u16 glowFrame;      /* 0x1E */
     u16 unk20;
     u16 pad22;
-    u16 *wait;          /* 0x24: from sub_080B6DB4 */
+    u16 *wait;          /* 0x24: from BgPicture_StartTask */
 };
 
 struct AffineEffect2
@@ -270,7 +270,7 @@ struct AffineEffect2
     u16 y;              /* 0x0A */
     u16 timer;          /* 0x0C */
     u16 pad0E;
-    u16 *wait;          /* 0x10: from sub_080B6DB4 */
+    u16 *wait;          /* 0x10: from BgPicture_StartTask */
 };
 
 void sub_0815862C(const void **def, u16 scaleX, u16 scaleY, u32 n);
@@ -308,7 +308,7 @@ void sub_080BBA1C(void);
 void sub_080BBA64(struct Task *task);
 
 extern u8 gUnk_0300003B;
-extern u8 gUnk_02005000[];
+extern u8 gAutomapCells[];
 extern u16 gUnk_0300000C;
 extern u16 gUnk_03004534;
 extern const u8 gUnknown_08181238[], gUnknown_08181F84[], gUnknown_08180BA0[];
@@ -332,7 +332,7 @@ void sub_0815851C(const void **def);
 void sub_080BA7A0(u32 which);
 void sub_080BA7CC(const void *const *srcs, const u8 *rows, u32 width, s32 row, s32 mirror);
 void sub_080BAD88(struct Task *task, u32 id, u32 dx, u32 dy);
-void sub_080BC260(struct Task *task, u16 id);
+void Char_EndById(struct Task *task, u16 id);
 void sub_080B0820(void);
 void sub_080B0778(void);
 void BgPicture_LoadPalette(void);
@@ -354,7 +354,7 @@ struct DemonGfxRecord
     u16 pad02;
     const u16 *palette;     /* 0x04 */
 };
-struct CharGfxRecord *sub_080D95F4(u16 id);
+struct CharGfxRecord *Char_GetRecord(u16 id);
 struct DemonGfxRecord *sub_080D8248(u16 id);
 void sub_080BC560(void);
 void sub_080BC584(void);
@@ -412,7 +412,7 @@ struct AffineAnim
     u16 y1;             /* 0x12 */
 };
 
-/* Data of the object tasks in gUnk_02036094 (created by sub_080C4618). */
+/* Data of the object tasks in gCharTasks (created by sub_080C4618). */
 struct ObjData
 {
     u16 unk00;
@@ -449,7 +449,7 @@ struct RowScroll
 void sub_080BD334(void);
 void sub_080BD468(void);
 
-extern u16 gUnk_03000000;
+extern u16 gDispRegs;
 extern u16 gUnk_03000002;
 extern const u16 gUnknown_081974F4[];
 

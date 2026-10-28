@@ -4,7 +4,7 @@
 // sub_080BAEA8 @ 0x080BAEA8
 void sub_080BAEA8(struct Task *task)
 {
-    if (sub_080BC230(0x190)->wait == -1)
+    if (Char_FindById(0x190)->wait == -1)
         task->result = 1;
     else
         task->result = 0;
@@ -113,7 +113,7 @@ void sub_080BB0E4(struct Task *task)
 // sub_080BB14C @ 0x080BB14C
 void sub_080BB14C(void)
 {
-    u16 *d = sub_080BC230(0x162)->data.h;
+    u16 *d = Char_FindById(0x162)->data.h;
 
     d[5]--;
 }
@@ -124,13 +124,13 @@ void sub_080BB164(struct Task *task)
     u16 *d;
     u16 i;
 
-    sub_080BC230(0x162);
+    Char_FindById(0x162);
     d = task->data.h;
     if (!(gFrameCounter & 3))
     {
         for (i = 0; i < 6; i++)
         {
-            if (gUnk_02036094[i] == NULL)
+            if (gCharTasks[i] == NULL)
                 break;
         }
         if (i != 6)

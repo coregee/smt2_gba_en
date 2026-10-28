@@ -195,8 +195,8 @@ void sub_080BA7CC(const void *const *srcs, const u8 *rows, u32 width, s32 row, s
 }
 #endif
 
-// sub_080BA8D8 @ 0x080BA8D8
-void sub_080BA8D8(u16 set, u16 id)
+// SceneEffect_Start @ 0x080BA8D8
+void SceneEffect_Start(u16 set, u16 id)
 {
     const void *script;
 
@@ -205,33 +205,33 @@ void sub_080BA8D8(u16 set, u16 id)
     else
         script = gUnknown_08182B54[id];
     if (script != NULL)
-        gUnk_0300463C = Task_Create(script, 0xFFFF);
+        gSceneEffectTask = Task_Create(script, 0xFFFF);
     else
-        gUnk_0300463C = (struct Task *)script;
+        gSceneEffectTask = (struct Task *)script;
 }
 
-// sub_080BA920 @ 0x080BA920
-s32 sub_080BA920(void)
+// SceneEffect_IsDone @ 0x080BA920
+s32 SceneEffect_IsDone(void)
 {
     s32 done = 0;
 
-    if (gUnk_0300463C == NULL || gUnk_0300463C->state == 0)
+    if (gSceneEffectTask == NULL || gSceneEffectTask->state == 0)
         done = 1;
     return done;
 }
 
-// sub_080BA940 @ 0x080BA940
-void sub_080BA940(void)
+// SceneEffect_Stop @ 0x080BA940
+void SceneEffect_Stop(void)
 {
-    if (gUnk_0300463C != NULL)
+    if (gSceneEffectTask != NULL)
     {
-        gUnk_0300463C->state = 0;
-        gUnk_0300463C = NULL;
+        gSceneEffectTask->state = 0;
+        gSceneEffectTask = NULL;
     }
 }
 
-// sub_080BA958 @ 0x080BA958
-void sub_080BA958(u16 set, u16 id)
+// SceneEffect_End @ 0x080BA958
+void SceneEffect_End(u16 set, u16 id)
 {
     if (set == 0 && id == 2)
     {
@@ -239,16 +239,16 @@ void sub_080BA958(u16 set, u16 id)
 
         if (!(gUnk_0200AB04 & 0x8000))
             VBlankTask_AddCounted(sub_080B2880, 1);
-        t = gUnk_0300463C;
+        t = gSceneEffectTask;
         gUnk_0300000E = t->data.h[0];
     }
-    sub_080BA940();
+    SceneEffect_Stop();
 }
 
 // sub_080BA9A0 @ 0x080BA9A0
 void sub_080BA9A0(struct Task *task)
 {
-    task->data.w[0] = sub_080B6DB4(0x1C);
+    task->data.w[0] = BgPicture_StartTask(0x1C);
 }
 
 // sub_080BA9B4 @ 0x080BA9B4
@@ -421,7 +421,7 @@ void sub_080BAD88(struct Task *task, u32 id, u32 dx, u32 dy)
 
     for (i = 0; i < 8; i++)
     {
-        struct Task *t = gUnk_02036094[i];
+        struct Task *t = gCharTasks[i];
 
         if (t != NULL)
         {
@@ -443,7 +443,7 @@ void sub_080BADC4(void)
 
     for (i = 0; i < 8; i++)
     {
-        struct Task *t = gUnk_02036094[i];
+        struct Task *t = gCharTasks[i];
 
         if (t != NULL && t->data.h[3] == 0x157)
             sub_080C48F0(t, 0);
@@ -453,14 +453,14 @@ void sub_080BADC4(void)
 // sub_080BADF8 @ 0x080BADF8
 void sub_080BADF8(struct Task *task, u32 value)
 {
-    if (gUnk_02036094[0] != NULL)
-        gUnk_02036094[0]->pad1E = value;
+    if (gCharTasks[0] != NULL)
+        gCharTasks[0]->pad1E = value;
 }
 
 // sub_080BAE0C @ 0x080BAE0C
 void sub_080BAE0C(struct Task *task)
 {
-    if (gUnk_02036094[0] == NULL)
+    if (gCharTasks[0] == NULL)
         task->result = 1;
     else
         task->result = 0;
@@ -477,7 +477,7 @@ void sub_080BAE28(void)
 // sub_080BAE4C @ 0x080BAE4C
 void sub_080BAE4C(struct Task *task, u32 id)
 {
-    task->data.w[0] = sub_080B6DB4(id);
+    task->data.w[0] = BgPicture_StartTask(id);
 }
 
 // sub_080BAE60 @ 0x080BAE60

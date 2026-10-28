@@ -925,7 +925,7 @@ sub_0815C884: @ 0x0815C884
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #0x3a
-	bl sub_080B6DB4
+	bl BgPicture_StartTask
 	str r0, [r4, #0x24]
 	ldr r0, .L0815C8D4
 	movs r4, #0xe8

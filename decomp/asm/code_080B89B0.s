@@ -686,7 +686,7 @@ sub_080B8EB8: @ 0x080B8EB8
 	adds r6, r0, #0
 	ldr r5, .L080B8EF4
 	ldr r0, .L080B8EF8
-	bl sub_080B8490
+	bl Text_CopyToMenuBuffer
 	adds r0, r4, #0
 	adds r1, r5, #0
 	bl sub_080B832C
@@ -1259,7 +1259,7 @@ sub_080B92D4: @ 0x080B92D4
 	bne .L080B9304
 	ldr r0, .L080B9300
 	b .L080B930A
-.L080B92FC: .4byte sub_080AE1C4
+.L080B92FC: .4byte DungeonMap_LoadDoorGfx
 .L080B9300: .4byte sub_080B34E8
 .L080B9304:
 	cmp r5, #3
@@ -1840,7 +1840,7 @@ sub_080B9738: @ 0x080B9738
 	ldrh r2, [r0]
 	ldrh r1, [r0, #2]
 	adds r0, r2, #0
-	bl sub_080C8B10
+	bl DungeonMap_GetFloor
 	pop {r1}
 	bx r1
 
@@ -2093,7 +2093,7 @@ sub_080B98F8: @ 0x080B98F8
 	ldrh r0, [r0]
 	ldr r1, .L080B9940
 	ldrh r1, [r1]
-	bl sub_080C8B10
+	bl DungeonMap_GetFloor
 	adds r7, r0, #0
 	movs r4, #0
 	cmp r4, r6
@@ -2422,7 +2422,7 @@ sub_080B9BA4: @ 0x080B9BA4
 	ldr r0, .L080B9BFC
 	ldrh r0, [r0]
 	movs r1, #0
-	bl sub_080C8B10
+	bl DungeonMap_GetFloor
 	bl sub_080B9750
 	mov r8, r0
 	adds r0, r7, #0
@@ -2466,7 +2466,7 @@ sub_080B9BA4: @ 0x080B9BA4
 	adds r1, #0x20
 	adds r1, r1, r2
 	ldrh r1, [r1]
-	bl sub_080C8B10
+	bl DungeonMap_GetFloor
 	adds r1, r0, #0
 	adds r0, r7, #0
 	adds r2, r4, #0
@@ -2703,7 +2703,7 @@ sub_080B9DD4: @ 0x080B9DD4
 	ldrh r0, [r0]
 	ldr r1, .L080B9E04
 	ldrh r1, [r1]
-	bl sub_080C8B10
+	bl DungeonMap_GetFloor
 	cmp r4, r0
 	bne .L080B9E24
 	movs r0, #1

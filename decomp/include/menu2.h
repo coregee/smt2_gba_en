@@ -334,7 +334,7 @@ void PalFade_Init(u32 keepPalettes);
 void sub_080C0074(u8 a, u32 b, u32 c);
 void sub_080BF938(u8 a);
 void sub_080C1440(void);
-u32 sub_080D6A34(void);
+u32 Title_HasExtraUnlocked(void);
 u32 SaveSlot_AnyValid(void);
 u32 SaveSlot_IsValid(u32 slot);
 void *PalFade_FadeInFromBlack(u16 delay);

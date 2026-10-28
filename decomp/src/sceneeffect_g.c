@@ -31,7 +31,7 @@ void sub_080BC154(struct Task *task)
 // sub_080BC164 @ 0x080BC164
 void sub_080BC164(struct Task *task)
 {
-    sub_080BC260(task, 0xBE);
+    Char_EndById(task, 0xBE);
 }
 
 // sub_080BC170 @ 0x080BC170
@@ -61,15 +61,15 @@ void sub_080BC200(void)
     sub_080BA7CC(gUnknown_0818F010, gUnknown_0818EEA0, 0xE, 0x1A, 1);
 }
 
-// sub_080BC230 @ 0x080BC230
-/* The object task (one of the 6 in gUnk_02036094) whose id (data.h[3]) is id, or NULL. */
-struct Task *sub_080BC230(u16 id)
+// Char_FindById @ 0x080BC230
+/* The object task (one of the 6 in gCharTasks) whose id (data.h[3]) is id, or NULL. */
+struct Task *Char_FindById(u16 id)
 {
     u32 i;
 
     for (i = 0; i < 6; i++)
     {
-        struct Task *t = gUnk_02036094[i];
+        struct Task *t = gCharTasks[i];
 
         if (t != NULL && t->data.h[3] == id)
             return t;
@@ -77,10 +77,10 @@ struct Task *sub_080BC230(u16 id)
     return NULL;
 }
 
-// sub_080BC260 @ 0x080BC260
-void sub_080BC260(struct Task *task, u16 id)
+// Char_EndById @ 0x080BC260
+void Char_EndById(struct Task *task, u16 id)
 {
-    struct Task *t = sub_080BC230(id);
+    struct Task *t = Char_FindById(id);
 
     if (t != NULL)
         sub_080C48F0(t, 0);
@@ -93,8 +93,8 @@ void sub_080BC278(struct Task *task, u32 step)
     switch (step)
     {
     case 0:
-        sub_080BC260(task, 0xB0);
-        sub_080BC260(task, 0xB1);
+        Char_EndById(task, 0xB0);
+        Char_EndById(task, 0xB1);
         sub_080C4618(2, 0xC5, 0x51, 0x40, 0, 0);
         break;
     case 1:
@@ -120,11 +120,11 @@ void sub_080BC278(struct Task *task, u32 step)
         sub_080B0778();
         break;
     case 100:
-        if (sub_080BC230(0xC5)->wait == -1)
+        if (Char_FindById(0xC5)->wait == -1)
             task->result = 1;
         break;
     case 101:
-        if (sub_080BC230(0xC7)->wait == -1)
+        if (Char_FindById(0xC7)->wait == -1)
             task->result = 1;
         break;
     }
@@ -137,7 +137,7 @@ void sub_080BC4C8(struct Task *task, u32 step)
 
     if (step == 0)
     {
-        t = sub_080BC230(0xD8);
+        t = Char_FindById(0xD8);
         if (t != NULL)
             sub_080C48F0(t, 0);
     }
@@ -146,7 +146,7 @@ void sub_080BC4C8(struct Task *task, u32 step)
     }
     else if (step == 2)
     {
-        t = sub_080BC230(0xD9);
+        t = Char_FindById(0xD9);
         if (t != NULL)
             sub_080C48F0(t, 0);
     }
@@ -157,19 +157,19 @@ void sub_080BC4FC(void)
 {
     struct Task *t;
 
-    t = sub_080BC230(0xD9);
+    t = Char_FindById(0xD9);
     if (t != NULL)
         t->data.h[8] = 1;
-    t = sub_080BC230(0x1BE);
+    t = Char_FindById(0x1BE);
     if (t != NULL)
         t->data.h[8] = 1;
-    t = sub_080BC230(0x1BF);
+    t = Char_FindById(0x1BF);
     if (t != NULL)
         t->data.h[8] = 1;
-    t = sub_080BC230(0x16B);
+    t = Char_FindById(0x16B);
     if (t != NULL)
         t->data.h[8] = 1;
-    t = sub_080BC230(0x16C);
+    t = Char_FindById(0x16C);
     if (t != NULL)
         t->data.h[8] = 1;
 }

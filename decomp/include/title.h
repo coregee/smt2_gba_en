@@ -62,7 +62,7 @@ struct CharObj
     u16 unk1C;
     u16 unk1E;
     struct Task *anim;           /* 0x20 */
-    u32 unk24;                   /* 0x24: party index (sub_080D8284) or sprite (sub_080D8C34) */
+    u32 unk24;                   /* 0x24: party index (Char_LoadPartyDemonGfx) or sprite (sub_080D8C34) */
     u32 unk28;
     u32 unk2C;
     u32 unk30;
@@ -185,7 +185,7 @@ extern const u8 gUnknown_0813EC98[];
 
 extern struct Task *gUnk_030069E4;
 extern struct Task *gUnk_030065F4;
-extern struct Task *gUnk_02036094[6];
+extern struct Task *gCharTasks[6];
 extern const u32 gUnknown_08509764[];
 extern const u32 gUnknown_085097A0[];
 extern const u32 gUnknown_08509728[];
@@ -195,7 +195,7 @@ extern const u32 gUnknown_0855FA84[];
 extern u16 gUnk_0300000E;
 extern u16 gUnk_02000000[];
 extern u8 gUnk_02001000[];
-extern u8 gUnk_0200AFC8[];
+extern u8 gBgPictureBuffer[];
 extern u8 gUnk_02003000[];
 extern u8 gUnk_03002D10[];
 extern u8 gUnk_03003110[];
@@ -228,13 +228,13 @@ extern const u8 gUnknown_08532A9C[];
 extern const void *const gUnknown_08568C14[];
 extern const u8 gUnknown_08550398[], gUnknown_08550EBC[];
 extern const u8 gUnknown_080061A0[];
-extern struct CharGfxRecord gUnknown_08568D78[];
+extern struct CharGfxRecord gCharGfxRecords[];
 extern u8 gUnk_0201D874[], gUnk_02024074[];
 extern u32 gUnk_03006098, gUnk_0300609C;
 extern const u32 gUnknown_085816B8[];
 extern u16 gUnk_0203DB28[];
 extern u16 gUnk_03003150[];
-extern struct DemonGfxRecord gUnknown_0872C774[];
+extern struct DemonGfxRecord gDemonGfxRecords[];
 extern const void *const gUnknown_085651B0[];
 extern const u32 gUnknown_081A64A8[];
 extern const u8 gUnknown_085171C4[];
@@ -310,8 +310,8 @@ void Task_Pause(struct Task *task);
 void Task_Resume(struct Task *task);
 void Task_Signal(struct Task *task);
 struct Task *Task_GetParent(struct Task *task);
-struct CharGfxRecord *sub_080D95F4(u16 id);
-void sub_080C4080(struct CharObj *obj, const void *src, u32 a2, u32 half, u32 a4);
+struct CharGfxRecord *Char_GetRecord(u16 id);
+void Char_LoadGfxHalf(struct CharObj *obj, const void *src, u32 a2, u32 half, u32 a4);
 void sub_080C3F4C(struct CharObj *obj, const void *palette, u32 index, u32 size, u32 a4);
 void sub_080C48F0(struct Task *task, u32 a);
 void sub_080C41F4(struct Task *task);
@@ -352,11 +352,11 @@ void sub_080D5C20(void);
 void sub_080DDEDC(void);
 
 /* this region */
-u32 sub_080D6A34(void);
+u32 Title_HasExtraUnlocked(void);
 void sub_080D7A04(struct Task *task);
 void sub_080D77FC(struct Task *task, const void **base, u32 a2, u32 pose, u32 half);
-void sub_080D7A84(struct Task *task, const void *sprite);
-void sub_080D7C30(struct Task *task, struct CharAnimFrame *frame);
+void Char_DrawBySlot(struct Task *task, const void *sprite);
+void Char_DrawAnimFrame(struct Task *task, struct CharAnimFrame *frame);
 void sub_080D7D60(const u8 *src);
 void sub_080D7D98(const u8 *src);
 void sub_080D7E2C(void);
@@ -365,7 +365,7 @@ void sub_080D7E64(void);
 void sub_080D7EFC(void);
 void sub_080D8148(void);
 void sub_080D7794(void);
-struct Task *sub_080D878C(struct Task *self, u16 id);
+struct Task *Char_FindOther(struct Task *self, u16 id);
 void sub_080D8768(void);
 void sub_080D89AC(struct Task *task, const void *sprite);
 void sub_080D8A84(void);

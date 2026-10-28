@@ -117,7 +117,7 @@ u16 sub_0812DC10(void);
 void sub_0812DC24(void);
 void sub_080D34F0(u32);
 s32 sub_080B9528(u32);
-s32 sub_080BA920(void);
+s32 SceneEffect_IsDone(void);
 struct VmCombatant *Battle_GetCombatant(u16);
 void sub_080C08E8(s32, u32);
 void sub_080C84A0(void);

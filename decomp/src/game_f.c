@@ -14,7 +14,7 @@ u32 *FieldMap_CellRecordsRel(u16 fwd, u16 side)
     u32 *p;
     u16 x, y;
 
-    p = sub_080C8B10(gUnk_03004614, gUnk_03004514)->unk94;
+    p = DungeonMap_GetFloor(gUnk_03004614, gUnk_03004514)->unk94;
     x = gFieldState.unk12;
     y = gFieldState.unk14;
 
@@ -66,7 +66,7 @@ u32 *FieldMap_CellRecordsRel(u16 fwd, u16 side)
         "    ldrh r0, [r0]\n"
         "    ldr r1, .L080B2F30\n"
         "    ldrh r1, [r1]\n"
-        "    bl sub_080C8B10\n"
+        "    bl DungeonMap_GetFloor\n"
         "    adds r0, #0x94\n"
         "    ldr r3, [r0]\n"
         "    ldr r0, .L080B2F34\n"
@@ -297,12 +297,12 @@ void sub_080B30A0(void)
     u16 count = sub_080C8B3C(gUnk_03004614);
     u32 x = gGameState.unk18C2;
     u32 y = gGameState.unk18C3 & 0x3F;
-    struct MapHeader *map = sub_080C8B10(gUnk_03004614, 0);
+    struct MapHeader *map = DungeonMap_GetFloor(gUnk_03004614, 0);
     u16 i;
 
     for (i = 0; i < count; i++, map++)
     {
-        if (map->x0 <= x && map->y0 <= y && map->x1 >= x && map->y1 >= y && sub_080B7944(map, x, y) == 1)
+        if (map->x0 <= x && map->y0 <= y && map->x1 >= x && map->y1 >= y && SubMap_IsOutsideExclusions(map, x, y) == 1)
         {
             gFieldState.unk12 = x - map->x0;
             gFieldState.unk14 = y - map->y0;
@@ -349,7 +349,7 @@ void sub_080B30A0(void)
         "    ands r6, r0\n"
         "    ldrh r0, [r4]\n"
         "    movs r1, #0\n"
-        "    bl sub_080C8B10\n"
+        "    bl DungeonMap_GetFloor\n"
         "    adds r4, r0, #0\n"
         "    movs r7, #0\n"
         "    cmp r7, sb\n"
@@ -374,7 +374,7 @@ void sub_080B30A0(void)
         "    adds r0, r4, #0\n"
         "    adds r1, r5, #0\n"
         "    adds r2, r6, #0\n"
-        "    bl sub_080B7944\n"
+        "    bl SubMap_IsOutsideExclusions\n"
         "    cmp r0, #1\n"
         "    bne .L080B3180\n"
         "    ldrh r0, [r4, #8]\n"
@@ -804,7 +804,7 @@ u32 *FieldMap_FindRecordInMap(u16 mapId, u16 type)
     count = sub_080C8B3C(mapId);
     for (sub = 0; sub < count; sub++)
     {
-        sub_080C8B10(mapId, sub);
+        DungeonMap_GetFloor(mapId, sub);
         gUnk_03004614 = mapId;
         gUnk_03004514 = sub;
         sub_080AE234();
@@ -878,7 +878,7 @@ void sub_080B34E8(void)
 // sub_080B350C @ 0x080B350C
 void sub_080B350C(void)
 {
-    const void *src = sub_080C8B10(gUnk_03004614, gUnk_03004514)->variants[gGameState.unkA38].data[54];
+    const void *src = DungeonMap_GetFloor(gUnk_03004614, gUnk_03004514)->variants[gGameState.unkA38].data[54];
 
     DmaCopy32(3, src, (void *)0x06016000, 0x400);
 }
@@ -900,7 +900,7 @@ void sub_080B3584(u32 a)
 
     if (r == 2)
     {
-        VBlankTask_AddCounted(sub_080AE1C4, 1);
+        VBlankTask_AddCounted(DungeonMap_LoadDoorGfx, 1);
         sub_080B3560(a);
         if (kind == 2)
             VBlankTask_AddCounted(sub_080B34E8, 1);

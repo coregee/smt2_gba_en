@@ -11,14 +11,14 @@
 }
 
 /* Maps 2 and 5 use alternate records (10, 11) until flags 0x11 / 0xEC are set. */
-// sub_08151EB4 @ 0x08151EB4
-struct MapRecord *sub_08151EB4(u16 id)
+// FieldMap_GetArea @ 0x08151EB4
+struct MapRecord *FieldMap_GetArea(u16 id)
 {
     if (id == 2 && !Flag_Test(0x11))
         id = 10;
     if (id == 5 && !Flag_Test(0xEC))
         id = 11;
-    return &gUnknown_087DE924[id];
+    return &gFieldMapAreas[id];
 }
 
 // sub_08151EEC @ 0x08151EEC
@@ -43,13 +43,13 @@ void sub_08151EEC(u32 a0, u32 a1, u16 mode)
         else
         {
             struct MapRecord *rec;
-            u16 m = gUnk_03003FD0[4] >> 4;
+            u16 m = gWarpDest[4] >> 4;
             if (gUnknown_087DF93C[m] != 0xFFFF)
                 m = gUnknown_087DF93C[m];
             gUnk_030069F0.map = m;
-            rec = sub_08151EB4(gUnk_030069F0.map);
-            gUnk_030069F0.x = (gUnk_03003FD0[2] - rec->originX) * 16 + 8;
-            gUnk_030069F0.y = (gUnk_03003FD0[3] - rec->originY) * 16;
+            rec = FieldMap_GetArea(gUnk_030069F0.map);
+            gUnk_030069F0.x = (gWarpDest[2] - rec->originX) * 16 + 8;
+            gUnk_030069F0.y = (gWarpDest[3] - rec->originY) * 16;
         }
         sub_0815251C(0);
         break;
@@ -68,7 +68,7 @@ void sub_08151EEC(u32 a0, u32 a1, u16 mode)
 // sub_08151FD8 @ 0x08151FD8
 void *sub_08151FD8(u16 layer)
 {
-    struct MapRecord *rec = sub_08151EB4(gUnk_030069F0.map);
+    struct MapRecord *rec = FieldMap_GetArea(gUnk_030069F0.map);
     if (rec->maps[layer][1] == 0)
         return (void *)rec->maps[layer][0];
     if (layer == 0)

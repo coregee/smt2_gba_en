@@ -167,8 +167,8 @@ gUnknown_081629F8: @ 0x081629F8
 	.global gUnknown_08162A08
 gUnknown_08162A08: @ 0x08162A08
 	.incbin "baserom.gba", 0x162A08, 0xA8
-	.global gUnknown_08162AB0
-gUnknown_08162AB0: @ 0x08162AB0
+	.global gTitleMenuLoadScript
+gTitleMenuLoadScript: @ 0x08162AB0
 	.incbin "baserom.gba", 0x162AB0, 0x5C
 	.global gUnknown_08162B0C
 gUnknown_08162B0C: @ 0x08162B0C

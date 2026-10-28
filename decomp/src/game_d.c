@@ -101,7 +101,7 @@ void sub_080B28F8(const struct ViewLayer *a, const struct ViewCond *b)
 /* View type of the current map variant (0-3, selects the window layout of sub_080B29A8). */
 u32 sub_080B2938(void)
 {
-    struct MapHeader *map = sub_080C8B10(gUnk_03004614, gUnk_03004514);
+    struct MapHeader *map = DungeonMap_GetFloor(gUnk_03004614, gUnk_03004514);
     u32 r;
 
     if (sub_080B9750() == 0)

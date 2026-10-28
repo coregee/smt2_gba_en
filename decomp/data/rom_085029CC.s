@@ -2046,8 +2046,8 @@ gUnknown_085683F0: @ 0x085683F0
 	.global gUnknown_08568C14
 gUnknown_08568C14: @ 0x08568C14
 	.incbin "baserom.gba", 0x568C14, 0x164
-	.global gUnknown_08568D78
-gUnknown_08568D78: @ 0x08568D78
+	.global gCharGfxRecords
+gCharGfxRecords: @ 0x08568D78
 	.incbin "baserom.gba", 0x568D78, 0x5178
 .Lspan_0856DEF0:
 	.incbin "build/assets/0856DEF0.bin" @ rom_08560000/0856DEF0

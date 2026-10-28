@@ -74,7 +74,7 @@ void sub_080AD76C(void)
     u16 x = sub_080C5E58();
 
     if (x != 0xFFFF)
-        sub_080B6568(x);
+        LocationBanner_Start(x);
 }
 
 // Field_SetState @ 0x080AD78C
@@ -123,11 +123,11 @@ void sub_080AD808(struct Task *task)
 
 /* Loads a map's graphics one piece per call (called every frame while *step != 0):
    clears and decompresses the tile/tilemap buffers in EWRAM, then the palettes.
-   *step goes 1..39, then 0 when done; steps 37-39 repeat until sub_080B6F40 != 1. */
+   *step goes 1..39, then 0 when done; steps 37-39 repeat until Picture_ScaleStep != 1. */
 // Map_LoadGraphicsStep @ 0x080AD824
 void Map_LoadGraphicsStep(u16 map, u16 sub, s32 *step)
 {
-    struct MapVariant *v = &sub_080C8B10(map, sub)->variants[gGameState.unkA38];
+    struct MapVariant *v = &DungeonMap_GetFloor(map, sub)->variants[gGameState.unkA38];
     u32 zero1, zero9, zero15, zero22, zero26, zero32;
     u32 zero36;
     const u8 *p;
@@ -301,13 +301,13 @@ void Map_LoadGraphicsStep(u16 map, u16 sub, s32 *step)
     case 38:
         p = gUnknown_0815F280;
     wait:
-        if (sub_080B6F40(p) == 1)
+        if (Picture_ScaleStep(p) == 1)
             (*step)--;
         else
             sub_080B6F28(p + 0x1C);
         break;
     case 39:
-        if (sub_080B6F40(gUnknown_0815F29C) == 1)
+        if (Picture_ScaleStep(gUnknown_0815F29C) == 1)
             (*step)--;
         else
             gUnk_03003FCC = (void *)0x02030C74;
@@ -325,7 +325,7 @@ void Map_LoadGraphicsStep(u16 map, u16 sub, s32 *step)
 #ifdef NONMATCHING
 void Map_SetGraphicsPointers(u32 map, u32 sub)
 {
-    struct MapVariant *v = &sub_080C8B10(map, sub)->variants[gGameState.unkA38];
+    struct MapVariant *v = &DungeonMap_GetFloor(map, sub)->variants[gGameState.unkA38];
     const u16 *pal;
 
     gUnk_03003FC0 = (void *)0x0201D874;
@@ -370,7 +370,7 @@ void Map_SetGraphicsPointers(u32 map, u32 sub)
         "    lsrs r0, r0, #0x10\n"
         "    lsls r1, r1, #0x10\n"
         "    lsrs r1, r1, #0x10\n"
-        "    bl sub_080C8B10\n"
+        "    bl DungeonMap_GetFloor\n"
         "    ldr r1, .L080ADD2C\n"
         "    ldr r2, .L080ADD30\n"
         "    adds r1, r1, r2\n"
@@ -619,7 +619,7 @@ void sub_080ADFEC(u16 mode)
     }
     Palette_CopyWithEffect(3, gUnk_03004510, &gPaletteTarget[0xD0], 0x20, 0x20);
     sub_080ADF64();
-    sub_080AE1C4();
+    DungeonMap_LoadDoorGfx();
     Palette_CopyWithEffect(3, gUnk_03003FC8, &gPaletteTarget[0x1D0], 0x20, 0x10);
     if (mode == 2 || mode == 3)
         BgPicture_LoadAll();
@@ -652,7 +652,7 @@ void Field_LoadGraphicsStep(void)
         sub_080ADF64();
         break;
     case 4:
-        sub_080AE1C4();
+        DungeonMap_LoadDoorGfx();
         break;
     case 5:
         Palette_CopyWithEffect(3, gUnk_03003FC8, &gPaletteTarget[0x1D0], 0x20, 0x10);
@@ -663,8 +663,8 @@ void Field_LoadGraphicsStep(void)
     gFieldLoadStep++;
 }
 
-// sub_080AE1C4 @ 0x080AE1C4
-void sub_080AE1C4(void)
+// DungeonMap_LoadDoorGfx @ 0x080AE1C4
+void DungeonMap_LoadDoorGfx(void)
 {
     if (gUnk_0300461C != NULL)
         LZ77UnCompWram(gUnk_0300461C, (void *)0x0200AFC8);
@@ -682,7 +682,7 @@ void sub_080AE1FC(void)
 // sub_080AE234 @ 0x080AE234
 void sub_080AE234(void)
 {
-    const u16 *p = sub_080C8B10(gUnk_03004614, gUnk_03004514)->unk90;
+    const u16 *p = DungeonMap_GetFloor(gUnk_03004614, gUnk_03004514)->unk90;
     u32 zero1, zero2;
 
     gFieldState.unk1A = *p++;
@@ -747,7 +747,7 @@ void Field_CopyIwramCode(void)
 }
 
 /* Field start-up. Modes 0 (new game), 4 and 6 reset the field state; mode 0 starts at
-   (0, 0) facing 0, the others at the position saved in gUnk_03003FD0. */
+   (0, 0) facing 0, the others at the position saved in gWarpDest. */
 // sub_080AE364 @ 0x080AE364
 void sub_080AE364(u16 mode)
 {
@@ -770,8 +770,8 @@ void sub_080AE364(u16 mode)
         }
         else
         {
-            Field_SetPosition(gUnk_03003FD0[2], gUnk_03003FD0[3]);
-            gFieldState.unk02 = gUnk_03003FD0[4];
+            Field_SetPosition(gWarpDest[2], gWarpDest[3]);
+            gFieldState.unk02 = gWarpDest[4];
             gFieldState.unk04 = gFieldState.unk02;
         }
         if (FieldMap_HasRecordRel(0, 0, 6) == 1)

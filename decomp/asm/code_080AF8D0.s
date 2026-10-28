@@ -921,7 +921,7 @@ sub_080AF8D0: @ 0x080AF8D0
 	bne .L080B0090
 	adds r0, r3, #0
 .L080B0080:
-	bl sub_080B8994
+	bl Treasure_StartTask
 .L080B0084:
 	ldr r1, .L080B008C
 	str r0, [r1]
@@ -964,7 +964,7 @@ sub_080AF8D0: @ 0x080AF8D0
 	bl sub_080AF6E4
 	ldr r0, [sp, #0x60]
 .L080B00DA:
-	bl sub_080B8994
+	bl Treasure_StartTask
 	ldr r1, .L080B00EC
 	str r0, [r1]
 	movs r0, #0x1a

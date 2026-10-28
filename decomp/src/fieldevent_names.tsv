@@ -1,0 +1,38 @@
+080B449C	Automap_CellToScreen	func	converts map cell (x,y) to automap screen pixels for the current rotation (sub_080B447C) and scroll 0x0200DFCE; used by sub_080B4610 and the marker task
+080B4610	Automap_DrawMarkerSprite	func	draws sprite at map cell (x,y) when Automap_IsVisitedUnchecked and the screen y < 0x58
+080B466C	Automap_DrawSprites	func	draws the 8 markers of 0x03005808 on this map/floor, the player arrow (gUnknown_081629F8[facing]), the per-cell icons of gBgPictureBuffer, the location name and the scroll arrows
+080B47CC	Automap_BuildAroundPlayer	func	calls Automap_Build centred on the player or the map centre depending on map size (<12) and rotation
+080B4854	Automap_BuildIconMap	func	clears gBgPictureBuffer and stores one icon index per map cell chosen from the cell records (FieldMap_FindRecord types 0x23,4,1,2,0x1B,0x1C,0x10,3,0x22,0xB,0xC,0xD..0x27)
+080B4A54	Automap_HasCells	func	TRUE when any of the 11x28 gAutomapCells has nonzero flags
+080B4AA4	Automap_DrawTilemap	func	writes sub_080B4448(cell) (|0x6000 for event cells) for every used gAutomapCells entry into the 0x02000000 tilemap, then Automap_BuildIconMap
+080B4C48	Automap_Update	func	automap screen state machine on gFieldState.unk1E (0..0x37, 100, 200): fades, START/B exit, up/down scroll with gAutomapScroll, A opens the marker task gUnknown_08162C34 (sub_080B5D00)
+080B50C0	Automap_VBlankStep	func	VBlank half of Automap_Update (BG3CNT, tile/tilemap DMA per step), queued by its default case
+080B5248	MarkerMenu_DrawCrosshair	func	draws the horizontal (gUnknown_08000508 x7) and vertical (gUnknown_08000518 x3) cursor lines at task data x/y
+080B52C4	MarkerMenu_Draw	func	per-state text of the marker task (list / placing / kind choice with 5 kind descriptions / viewing) and the 4-row marker list with MarkerList_DrawLocationName
+080B5534	MarkerMenu_SetState	func	stores the marker task state (data+0); state 2 resets the kind (data+0xC)
+080B555C	MarkerMenu_HandleList	func	marker list input: A picks (empty slot -> placing at 13,5), B leaves, up/down/L/R move cursor+top over 8 slots / 4 rows
+080B56B8	Automap_CellToMap	func	returns gAutomapCells[cy][cx].x/.y (map coordinates of an automap cell)
+080B56EC	MarkerMenu_CanPlace	func	TRUE when the cursor cell is used and no other marker of this map/floor has the same coordinates
+080B577C	MarkerMenu_HandleCursor	func	marker placement input: A validates (MarkerMenu_CanPlace) and opens two text windows, d-pad moves the cursor and scrolls the automap at the top/bottom edge
+080B592C	MarkerMenu_Place	func	writes x, y, map (0x03004614), floor (0x03004514) and kind into marker slot data+4
+080B597C	MarkerMenu_Clear	func	empties marker slot data+4 (map = 0xFF)
+080B5998	MarkerMenu_HandleKind	func	marker kind choice: A places (MarkerMenu_Place), B returns, up/down select kind 0-4
+080B5AA4	MarkerMenu_HandleEvent	func	marker task event handler: 2 saves the position and switches the automap to the marker's map/floor with a yes/no (YesNo_CreateWithTile 0x3F7), 5 restores the player's map
+080B6364	LocationBanner_BuildTiles	func	renders gUnknown_08163444[index] (A-Z ( ) ' & _, ended by a space) as 8x8 tiles from gUnknown_081AE018 into 0x0203A2E4 and queues the 0x100-byte upload sub_080B6340
+080B6460	LocationBanner_Update	func	reveals the banner name one letter per 4 frames (max 10) as Sprite_DrawSingle sprites centred for 8 letters
+080B6568	LocationBanner_Start	func	creates the banner task gUnknown_08163640 for entry `index` unless its first char is '?'; clears 0x0203A2E4 and stores the task in 0x0203A3E4
+080B6DB4	BgPicture_StartTask	func	starts the background picture task for picture id (special tasks for 0x2E/0x6D/0x5D), sets 0x03004534 = id
+080B6F40	Picture_ScaleStep	func	scales up to 16 rows of a 4bpp tile sheet (params struct: src, dst, src/dst origin, steps, w, h) with state in 0x03004520; returns 0 when done
+080B758C	Warp_SetDestination	func	sets 0x03003FD0 {map, floor, x, y, dir, arg} and the current map/floor/position/facing
+080B7914	Rect_IsOutside	func	returns 0 when (x,y) is inside {x0,y0,x1,y1}, else 1
+080B7944	SubMap_IsOutsideExclusions	func	returns 1 unless (x,y) lies in one of the up to 16 rectangles at sub-map +0x10 (list ends at a zero x1/y1 pair)
+080B7AFC	Warp_ToWorldPosition	func	finds the map/sub-map whose bounds (+8..+0xE) contain world (x, y&0x3F), marks the automap, takes the facing from y bits 6-7 and warps there (sub_080B75E8/sub_080B764C)
+080B8490	Text_CopyToMenuBuffer	func	copies a message ended by 0x301 to gMenuState (0x0203A454)
+080B84C8	Treasure_Open	func	treasure record value: 0x8xxxxxxx money (task result 1), 0x9xxxxxxx Magnetite (2), else item: shows gUnknown_080033A0 with the item id and gives it (sub_080C3328)
+080B8660	Spring_GetKindAt	func	looks up the player's world position in gUnknown_08164A7C {x, y, kind, pad} (ends at x 0xFF); 0 if absent
+080B86B0	Spring_HealMember	func	heals party slot by the spring kind: 0 HP/4, 1 HP/2 (slots 0-2), 2 cure status 4 (slots 0-2), 3 cure status 2 (slots 3+)
+080B8994	Treasure_StartTask	func	creates task gUnknown_08164AD4 with the treasure record in data+0 (called from the step handler with record type 0x14)
+03005808	gMapMarkers	ram	8 automap markers of 8 bytes {u8 x, u8 y, u8 pad, u8 kind, u16 map (0xFF empty), u16 floor}, read by Automap_DrawSprites and written by MarkerMenu_Place/Clear
+03003FD0	gWarpDest	ram	warp destination {u16 map, floor, x, y, dir, unk0A; u32 arg}, set by sub_080B70BC/Warp_SetDestination, read by sub_080B7248
+03004520	gScaleState	ram	Picture_ScaleStep state {pad, row, accX, accY, srcRow, dstRow}, reset by sub_080B6F28
+0203A2E4	gBannerTiles	ram	0x100-byte tile buffer of the location banner (LocationBanner_BuildTiles), uploaded to 0x06012F00

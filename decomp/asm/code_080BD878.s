@@ -154,7 +154,7 @@ sub_080BD95C: @ 0x080BD95C
 	strh r0, [r1, #0x24]
 .L080BD988:
 	ldrh r0, [r2]
-	bl sub_080BC230
+	bl Char_FindById
 	adds r1, r0, #0
 	cmp r1, #0
 	beq .L080BD998
@@ -171,7 +171,7 @@ sub_080BD99C: @ 0x080BD99C
 	movs r0, #0
 	strh r0, [r4, #0x1c]
 	ldrh r0, [r4, #0x24]
-	bl sub_080BC230
+	bl Char_FindById
 	cmp r0, #0
 	bne .L080BD9B2
 	movs r0, #1
@@ -687,7 +687,7 @@ sub_080BDD94: @ 0x080BDD94
 	adds r5, r4, #0
 	adds r5, #0x24
 	ldr r0, .L080BDDCC
-	bl sub_080BC230
+	bl Char_FindById
 	ldrh r2, [r0, #0x24]
 	movs r1, #0x20
 	orrs r1, r2
@@ -739,7 +739,7 @@ sub_080BDE00: @ 0x080BDE00
 	cmp r1, #0
 	bne .L080BDE14
 	ldr r1, .L080BDE10
-	bl sub_080BC260
+	bl Char_EndById
 	b .L080BDE18
 	.byte 0x00, 0x00
 .L080BDE10: .4byte 0x0000014D
@@ -1588,20 +1588,20 @@ sub_080BE57C: @ 0x080BE57C
 	adds r4, r0, #0
 	adds r4, #0x24
 	ldrh r0, [r4, #6]
-	bl sub_080D95F4
+	bl Char_GetRecord
 	adds r5, r0, #0
 	ldr r1, [r5, #4]
 	str r7, [sp]
 	adds r0, r4, #0
 	movs r2, #0
 	movs r3, #0
-	bl sub_080C4080
+	bl Char_LoadGfxHalf
 	ldr r1, [r5, #8]
 	str r7, [sp]
 	adds r0, r4, #0
 	movs r2, #0
 	movs r3, #1
-	bl sub_080C4080
+	bl Char_LoadGfxHalf
 .L080BE640:
 	adds r0, r6, #1
 	lsls r0, r0, #0x10
@@ -3026,7 +3026,7 @@ sub_080BF0C0: @ 0x080BF0C0
 	adds r1, r6, #0
 	adds r2, r3, #0
 	str r3, [sp, #8]
-	bl sub_080B7944
+	bl SubMap_IsOutsideExclusions
 	ldr r3, [sp, #8]
 	cmp r0, #1
 	beq .L080BF0DC
@@ -3054,7 +3054,7 @@ sub_080BF0C0: @ 0x080BF0C0
 	adds r7, r0, #0
 	mov r0, r8
 	movs r1, #0
-	bl sub_080C8B10
+	bl DungeonMap_GetFloor
 	adds r4, r0, #0
 	ldr r3, [sp, #8]
 	cmp r4, #0

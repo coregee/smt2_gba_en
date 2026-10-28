@@ -4333,7 +4333,7 @@ sub_0815739C: @ 0x0815739C
 .L081573E8: .4byte 0x0203A454 @ EWRAM+0x3A454
 .L081573EC: .4byte 0x0203B854 @ EWRAM+0x3B854
 .L081573F0: .4byte 0x0000FFFF
-.L081573F4: .4byte gUnknown_087F01AC
+.L081573F4: .4byte gFusionRoomAnim
 .L081573F8:
 	cmp r5, #3
 	beq .L08157400
@@ -4419,8 +4419,8 @@ sub_08157480: @ 0x08157480
 	.byte 0x00, 0x00
 .L0815748C: .4byte 0x0203A454 @ EWRAM+0x3A454
 
-	thumb_func_start sub_08157490
-sub_08157490: @ 0x08157490
+	thumb_func_start Fusion_LoadRoomTiles
+Fusion_LoadRoomTiles: @ 0x08157490
 	push {lr}
 	adds r2, r1, #0
 	ldr r0, .L081574B0
@@ -4437,7 +4437,7 @@ sub_08157490: @ 0x08157490
 	b .L081574C6
 	.byte 0x00, 0x00
 .L081574B0: .4byte 0x0203A454 @ EWRAM+0x3A454
-.L081574B4: .4byte gUnknown_087E5D3C
+.L081574B4: .4byte gFusionRoomTiles
 .L081574B8: .4byte 0x02001000 @ EWRAM+0x1000
 .L081574BC:
 	ldr r0, [r0, #8]
@@ -5365,7 +5365,7 @@ sub_08157BB8: @ 0x08157BB8
 	adds r4, r0, #0
 	adds r4, #0x24
 	ldrh r0, [r4, #6]
-	bl sub_080D95F4
+	bl Char_GetRecord
 	subs r3, r5, #1
 	lsls r1, r3, #2
 	adds r0, #4
@@ -5375,7 +5375,7 @@ sub_08157BB8: @ 0x08157BB8
 	str r0, [sp]
 	adds r0, r4, #0
 	movs r2, #0
-	bl sub_080C4080
+	bl Char_LoadGfxHalf
 .L08157C20:
 	add sp, #4
 	pop {r4, r5}
@@ -5949,8 +5949,8 @@ sub_081580A8: @ 0x081580A8
 .L081580C4: .4byte 0x06013800 @ VRAM+0x13800
 .L081580C8: .4byte 0x84000900
 
-	thumb_func_start sub_081580CC
-sub_081580CC: @ 0x081580CC
+	thumb_func_start Fusion_LoadEffectPart
+Fusion_LoadEffectPart: @ 0x081580CC
 	push {r4, r5, r6, r7, lr}
 	sub sp, #4
 	adds r5, r1, #0
@@ -5997,7 +5997,7 @@ sub_081580CC: @ 0x081580CC
 	pop {r0}
 	bx r0
 .L08158134: .4byte 0x0203A454 @ EWRAM+0x3A454
-.L08158138: .4byte gUnknown_087F0954
+.L08158138: .4byte gFusionEffectSets
 .L0815813C: .4byte 0x0200AFC8 @ EWRAM+0xAFC8
 .L08158140: .4byte 0x02001000 @ EWRAM+0x1000
 .L08158144: .4byte 0x03003150 @ IWRAM+0x3150
@@ -6211,8 +6211,8 @@ sub_081582BC: @ 0x081582BC
 .L081582D8: .4byte 0x06013800 @ VRAM+0x13800
 .L081582DC: .4byte 0x84000200
 
-	thumb_func_start sub_081582E0
-sub_081582E0: @ 0x081582E0
+	thumb_func_start Fusion_LoadMistFrame
+Fusion_LoadMistFrame: @ 0x081582E0
 	push {r4, r5, lr}
 	sub sp, #4
 	ldr r5, .L08158330
@@ -6250,7 +6250,7 @@ sub_081582E0: @ 0x081582E0
 	pop {r0}
 	bx r0
 .L08158330: .4byte 0x0203A454 @ EWRAM+0x3A454
-.L08158334: .4byte gUnknown_087F020C
+.L08158334: .4byte gFusionMistFrames
 .L08158338: .4byte 0x0200AFC8 @ EWRAM+0xAFC8
 .L0815833C: .4byte 0x02008000 @ EWRAM+0x8000
 .L08158340: .4byte sub_081582BC

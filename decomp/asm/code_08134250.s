@@ -2922,7 +2922,7 @@ ScriptOp_36B: @ 0x08135940
 	movs r0, #0
 	str r0, [sp]
 	movs r3, #0
-	bl sub_080B7AFC
+	bl Warp_ToWorldPosition
 	ldr r1, .L08135990
 	str r0, [r1]
 	ldr r1, .L08135994
@@ -2960,7 +2960,7 @@ ScriptOp_36C: @ 0x08135998
 	movs r0, #0
 	str r0, [sp]
 	movs r3, #0
-	bl sub_080B7AFC
+	bl Warp_ToWorldPosition
 	ldr r1, .L081359D8
 	str r0, [r1]
 	add sp, #4
@@ -4745,7 +4745,7 @@ ScriptOp_37B: @ 0x08136888
 	push {lr}
 	ldr r0, .L081368A8
 	ldrh r0, [r0]
-	bl sub_080B6DB4
+	bl BgPicture_StartTask
 	ldr r1, .L081368AC
 	str r0, [r1]
 	ldr r1, .L081368B0

@@ -17,14 +17,14 @@ void ScriptOp_304(void)
     u32 t2 = f2 != 0;
 
     gUnk_030068F0[a & 0xF] = sub_080C4618(a, b, hi, lo, t1, t2);
-    if (*(u32 *)(sub_080D95F4(b) + 0x28) != 0)
+    if (*(u32 *)(Char_GetRecord(b) + 0x28) != 0)
         gScriptYield = 1;
 }
 
 // ScriptOp_305 @ 0x08132464
 void ScriptOp_305(void)
 {
-    gUnk_030068B0 = sub_080B6DB4(SCRIPT_READ());
+    gUnk_030068B0 = BgPicture_StartTask(SCRIPT_READ());
     gScriptWaitState = 2;
     gScriptYield = 1;
 }

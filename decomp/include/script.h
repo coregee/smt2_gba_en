@@ -82,8 +82,8 @@ extern const u16 gUnknown_087900A0[];
 extern const u16 gUnknown_087900EC[];
 
 u32 sub_080C4618(u16, u16, u16, u16, u32, u32);
-u8 *sub_080D95F4(u16);
-u32 sub_080B6DB4(u16);
+u8 *Char_GetRecord(u16);
+u32 BgPicture_StartTask(u16);
 void sub_080E9044(u32, u16);
 void sub_080C48F0(u32, u32);
 u32 sub_080E8E00(u16, u16);

@@ -101,8 +101,8 @@ sub_0813EF40: @ 0x0813EF40
 .L0813EF5C: .4byte 0x0203B554 @ EWRAM+0x3B554
 .L0813EF60: .4byte gUnknown_0879243C
 
-	thumb_func_start sub_0813EF64
-sub_0813EF64: @ 0x0813EF64
+	thumb_func_start CasinoScene_LoadTiles
+CasinoScene_LoadTiles: @ 0x0813EF64
 	push {r4, r5, lr}
 	adds r0, r1, #0
 	adds r4, r2, #0
@@ -139,8 +139,8 @@ sub_0813EF90: @ 0x0813EF90
 .L0813EFAC: .4byte 0x06008000 @ VRAM+0x8000
 .L0813EFB0: .4byte 0x84002000
 
-	thumb_func_start sub_0813EFB4
-sub_0813EFB4: @ 0x0813EFB4
+	thumb_func_start CasinoScene_QueueBgTiles
+CasinoScene_QueueBgTiles: @ 0x0813EFB4
 	push {lr}
 	ldr r0, .L0813EFC4
 	movs r1, #1
@@ -167,8 +167,8 @@ sub_0813EFC8: @ 0x0813EFC8
 .L0813EFE4: .4byte 0x06010000 @ VRAM+0x10000
 .L0813EFE8: .4byte 0x84002000
 
-	thumb_func_start sub_0813EFEC
-sub_0813EFEC: @ 0x0813EFEC
+	thumb_func_start CasinoScene_QueueObjTiles
+CasinoScene_QueueObjTiles: @ 0x0813EFEC
 	push {lr}
 	ldr r0, .L0813EFFC
 	movs r1, #1
@@ -178,8 +178,8 @@ sub_0813EFEC: @ 0x0813EFEC
 	.byte 0x00, 0x00
 .L0813EFFC: .4byte sub_0813EFC8
 
-	thumb_func_start sub_0813F000
-sub_0813F000: @ 0x0813F000
+	thumb_func_start CasinoScene_LoadBgPalette
+CasinoScene_LoadBgPalette: @ 0x0813F000
 	push {r4, lr}
 	sub sp, #4
 	adds r0, r1, #0
@@ -201,8 +201,8 @@ sub_0813F000: @ 0x0813F000
 .L0813F028: .4byte 0x0200AFC8 @ EWRAM+0xAFC8
 .L0813F02C: .4byte 0x030029B0 @ IWRAM+0x29B0
 
-	thumb_func_start sub_0813F030
-sub_0813F030: @ 0x0813F030
+	thumb_func_start CasinoScene_LoadObjPalette
+CasinoScene_LoadObjPalette: @ 0x0813F030
 	push {r4, lr}
 	sub sp, #4
 	adds r0, r1, #0
@@ -291,8 +291,8 @@ sub_0813F0C8: @ 0x0813F0C8
 .L0813F0E4: .4byte 0x06003000 @ VRAM+0x3000
 .L0813F0E8: .4byte 0x84000140
 
-	thumb_func_start sub_0813F0EC
-sub_0813F0EC: @ 0x0813F0EC
+	thumb_func_start CasinoScene_LoadBgMap
+CasinoScene_LoadBgMap: @ 0x0813F0EC
 .L0813F0EC:
 	push {r4, lr}
 	adds r0, r1, #0
@@ -707,7 +707,7 @@ sub_0813F22C: @ 0x0813F22C
 	ldr r1, .L0813F46C
 	movs r0, #0
 	movs r2, #0
-	bl sub_0813F0EC
+	bl CasinoScene_LoadBgMap
 	movs r7, #0
 	movs r0, #0x84
 	adds r0, r0, r6
@@ -738,7 +738,7 @@ sub_0813F22C: @ 0x0813F22C
 	ldr r1, .L0813F47C
 	movs r0, #0
 	movs r2, #0
-	bl sub_0813F0EC
+	bl CasinoScene_LoadBgMap
 	b .L0813F4AA
 .L0813F47C: .4byte gUnknown_087A51AC
 .L0813F480:

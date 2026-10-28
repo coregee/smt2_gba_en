@@ -235,7 +235,7 @@ address	mode	size	name	confidence	state	file
 080ADF64	thumb	136			c	src/field_a.c
 080ADFEC	thumb	208			c	src/field_a.c
 080AE0BC	thumb	264	Field_LoadGraphicsStep	probable	c	src/field_a.c
-080AE1C4	thumb	56			c	src/field_a.c
+080AE1C4	thumb	56	DungeonMap_LoadDoorGfx	probable	c	src/field_a.c
 080AE1FC	thumb	56			c	src/field_a.c
 080AE234	thumb	96			c	src/field_a.c
 080AE294	thumb	20			c	src/field_a.c
@@ -386,198 +386,198 @@ address	mode	size	name	confidence	state	file
 080B43C0	thumb	96			nonmatching	src/game_k.c
 080B4420	thumb	40			c	src/game_k.c
 080B4448	thumb	50			c	src/game_k.c
-080B447C	thumb	32			asm	asm/code_080B447C.s
-080B449C	thumb	372			asm	asm/code_080B447C.s
-080B4610	thumb	92			asm	asm/code_080B447C.s
-080B466C	thumb	352			asm	asm/code_080B447C.s
-080B47CC	thumb	134			asm	asm/code_080B447C.s
-080B4854	thumb	512			asm	asm/code_080B447C.s
-080B4A54	thumb	80			asm	asm/code_080B447C.s
-080B4AA4	thumb	180			asm	asm/code_080B447C.s
-080B4B58	thumb	36			asm	asm/code_080B447C.s
-080B4B7C	thumb	36			asm	asm/code_080B447C.s
-080B4BA0	thumb	36			asm	asm/code_080B447C.s
-080B4BC4	thumb	36			asm	asm/code_080B447C.s
-080B4BE8	thumb	96			asm	asm/code_080B447C.s
-080B4C48	thumb	1084			asm	asm/code_080B447C.s
-080B5084	thumb	10			asm	asm/code_080B447C.s
-080B5090	thumb	48			asm	asm/code_080B447C.s
-080B50C0	thumb	304			asm	asm/code_080B447C.s
-080B51F0	thumb	34			asm	asm/code_080B447C.s
-080B5214	thumb	52			asm	asm/code_080B447C.s
-080B5248	thumb	124			asm	asm/code_080B447C.s
-080B52C4	thumb	624			asm	asm/code_080B447C.s
-080B5534	thumb	24			asm	asm/code_080B447C.s
-080B554C	thumb	14			asm	asm/code_080B447C.s
-080B555C	thumb	346			asm	asm/code_080B447C.s
-080B56B8	thumb	52			asm	asm/code_080B447C.s
-080B56EC	thumb	144			asm	asm/code_080B447C.s
-080B577C	thumb	432			asm	asm/code_080B447C.s
-080B592C	thumb	80			asm	asm/code_080B447C.s
-080B597C	thumb	28			asm	asm/code_080B447C.s
-080B5998	thumb	180			asm	asm/code_080B447C.s
-080B5A4C	thumb	88			asm	asm/code_080B447C.s
-080B5AA4	thumb	516			asm	asm/code_080B447C.s
-080B5CA8	thumb	48			asm	asm/code_080B447C.s
-080B5CD8	thumb	12			asm	asm/code_080B447C.s
-080B5CE4	thumb	26			asm	asm/code_080B447C.s
-080B5D00	thumb	24			asm	asm/code_080B447C.s
-080B5D18	thumb	32			asm	asm/code_080B447C.s
-080B5D38	thumb	16			asm	asm/code_080B447C.s
-080B5D48	thumb	142			asm	asm/code_080B447C.s
-080B5DD8	thumb	42			asm	asm/code_080B447C.s
-080B5E04	thumb	12			asm	asm/code_080B447C.s
-080B5E10	thumb	28			asm	asm/code_080B447C.s
-080B5E2C	thumb	36			asm	asm/code_080B447C.s
-080B5E50	thumb	36			asm	asm/code_080B447C.s
-080B5E74	thumb	92			asm	asm/code_080B447C.s
-080B5ED0	thumb	28			asm	asm/code_080B447C.s
-080B5EEC	thumb	56			asm	asm/code_080B447C.s
-080B5F24	thumb	36			asm	asm/code_080B447C.s
-080B5F48	thumb	50			asm	asm/code_080B447C.s
-080B5F7C	thumb	42			asm	asm/code_080B447C.s
-080B5FA8	thumb	12			asm	asm/code_080B447C.s
-080B5FB4	thumb	36			asm	asm/code_080B447C.s
-080B5FD8	thumb	36			asm	asm/code_080B447C.s
-080B5FFC	thumb	138			asm	asm/code_080B447C.s
-080B6088	thumb	28			asm	asm/code_080B447C.s
-080B60A4	thumb	96			asm	asm/code_080B447C.s
-080B6104	thumb	12			asm	asm/code_080B447C.s
-080B6110	thumb	16			asm	asm/code_080B447C.s
-080B6120	thumb	42			asm	asm/code_080B447C.s
-080B614C	thumb	36			asm	asm/code_080B447C.s
-080B6170	thumb	128			asm	asm/code_080B447C.s
-080B61F0	thumb	96			asm	asm/code_080B447C.s
-080B6250	thumb	28			asm	asm/code_080B447C.s
-080B626C	thumb	32			asm	asm/code_080B447C.s
-080B628C	thumb	36			asm	asm/code_080B447C.s
-080B62B0	thumb	88			asm	asm/code_080B447C.s
-080B6308	thumb	52			asm	asm/code_080B447C.s
-080B633C	thumb	2			asm	asm/code_080B447C.s
-080B6340	thumb	36			asm	asm/code_080B447C.s
-080B6364	thumb	252			asm	asm/code_080B447C.s
-080B6460	thumb	198			asm	asm/code_080B447C.s
-080B6528	thumb	24			asm	asm/code_080B447C.s
-080B6540	thumb	40			asm	asm/code_080B447C.s
-080B6568	thumb	104			asm	asm/code_080B447C.s
-080B65D0	thumb	68			asm	asm/code_080B447C.s
-080B6614	thumb	68			asm	asm/code_080B447C.s
-080B6658	thumb	80			asm	asm/code_080B447C.s
-080B66A8	thumb	30			asm	asm/code_080B447C.s
-080B66C8	thumb	48			asm	asm/code_080B447C.s
-080B66F8	thumb	48			asm	asm/code_080B447C.s
-080B6728	thumb	48			asm	asm/code_080B447C.s
-080B6758	thumb	48			asm	asm/code_080B447C.s
-080B6788	thumb	44			asm	asm/code_080B447C.s
-080B67B4	thumb	68			asm	asm/code_080B447C.s
-080B67F8	thumb	88			asm	asm/code_080B447C.s
-080B6850	thumb	14			asm	asm/code_080B447C.s
-080B6860	thumb	76			asm	asm/code_080B447C.s
-080B68AC	thumb	34			asm	asm/code_080B447C.s
-080B68D0	thumb	188			asm	asm/code_080B447C.s
-080B698C	thumb	68			asm	asm/code_080B447C.s
-080B69D0	thumb	36			asm	asm/code_080B447C.s
-080B69F4	thumb	48			asm	asm/code_080B447C.s
-080B6A24	thumb	44			asm	asm/code_080B447C.s
-080B6A50	thumb	176			asm	asm/code_080B447C.s
-080B6B00	thumb	52			asm	asm/code_080B447C.s
-080B6B34	thumb	36			asm	asm/code_080B447C.s
-080B6B58	thumb	88			asm	asm/code_080B6B58.s
-080B6BB0	thumb	80			asm	asm/code_080B6B58.s
-080B6C00	thumb	116			asm	asm/code_080B6B58.s
-080B6C74	thumb	116			asm	asm/code_080B6B58.s
-080B6CE8	thumb	16			asm	asm/code_080B6B58.s
-080B6CF8	thumb	52			asm	asm/code_080B6B58.s
-080B6D2C	thumb	24			asm	asm/code_080B6B58.s
-080B6D44	thumb	36			asm	asm/code_080B6B58.s
-080B6D68	thumb	52			asm	asm/code_080B6B58.s
-080B6D9C	thumb	22			asm	asm/code_080B6B58.s
-080B6DB4	thumb	372			asm	asm/code_080B6B58.s
-080B6F28	thumb	24			asm	asm/code_080B6B58.s
-080B6F40	thumb	380			asm	asm/code_080B6B58.s
-080B70BC	thumb	80			asm	asm/code_080B6B58.s
-080B710C	thumb	80			asm	asm/code_080B6B58.s
-080B715C	thumb	4			asm	asm/code_080B6B58.s
-080B7160	thumb	28			asm	asm/code_080B6B58.s
-080B717C	thumb	20			asm	asm/code_080B6B58.s
-080B7190	thumb	36			asm	asm/code_080B6B58.s
-080B71B4	thumb	104			asm	asm/code_080B6B58.s
-080B721C	thumb	42			asm	asm/code_080B6B58.s
-080B7248	thumb	288			asm	asm/code_080B6B58.s
-080B7368	thumb	28			asm	asm/code_080B6B58.s
-080B7384	thumb	52			asm	asm/code_080B6B58.s
-080B73B8	thumb	68			asm	asm/code_080B6B58.s
-080B73FC	thumb	22			asm	asm/code_080B6B58.s
-080B7414	thumb	2			asm	asm/code_080B6B58.s
-080B7418	thumb	12			asm	asm/code_080B6B58.s
-080B7424	thumb	12			asm	asm/code_080B6B58.s
-080B7430	thumb	104			asm	asm/code_080B6B58.s
-080B7498	thumb	104			asm	asm/code_080B6B58.s
-080B7500	thumb	48			asm	asm/code_080B6B58.s
-080B7530	thumb	72			asm	asm/code_080B6B58.s
-080B7578	thumb	18			asm	asm/code_080B6B58.s
-080B758C	thumb	92			asm	asm/code_080B6B58.s
-080B75E8	thumb	100			asm	asm/code_080B6B58.s
-080B764C	thumb	56			asm	asm/code_080B6B58.s
-080B7684	thumb	72			asm	asm/code_080B6B58.s
-080B76CC	thumb	12			asm	asm/code_080B6B58.s
-080B76D8	thumb	96			asm	asm/code_080B6B58.s
-080B7738	thumb	84			asm	asm/code_080B6B58.s
-080B778C	thumb	56			asm	asm/code_080B6B58.s
-080B77C4	thumb	66			asm	asm/code_080B6B58.s
-080B7808	thumb	36			asm	asm/code_080B6B58.s
-080B782C	thumb	36			asm	asm/code_080B6B58.s
-080B7850	thumb	16			asm	asm/code_080B6B58.s
-080B7860	thumb	28			asm	asm/code_080B6B58.s
-080B787C	thumb	38			asm	asm/code_080B6B58.s
-080B78A4	thumb	56			asm	asm/code_080B6B58.s
-080B78DC	thumb	56			asm	asm/code_080B6B58.s
-080B7914	thumb	46			asm	asm/code_080B6B58.s
-080B7944	thumb	438			asm	asm/code_080B6B58.s
-080B7AFC	thumb	580			asm	asm/code_080B6B58.s
-080B7D40	thumb	184			asm	asm/code_080B6B58.s
-080B7DF8	thumb	18			asm	asm/code_080B6B58.s
-080B7E0C	thumb	48			asm	asm/code_080B6B58.s
-080B7E3C	thumb	240			asm	asm/code_080B6B58.s
-080B7F2C	thumb	68			asm	asm/code_080B6B58.s
-080B7F70	thumb	12			asm	asm/code_080B6B58.s
-080B7F7C	thumb	108			asm	asm/code_080B6B58.s
-080B7FE8	thumb	28			asm	asm/code_080B6B58.s
-080B8004	thumb	28			asm	asm/code_080B6B58.s
-080B8020	thumb	40			asm	asm/code_080B6B58.s
-080B8048	thumb	64			asm	asm/code_080B6B58.s
-080B8088	thumb	112			asm	asm/code_080B6B58.s
-080B80F8	thumb	104			asm	asm/code_080B6B58.s
-080B8160	thumb	18			asm	asm/code_080B6B58.s
-080B8174	thumb	76			asm	asm/code_080B6B58.s
-080B81C0	thumb	108			asm	asm/code_080B6B58.s
-080B822C	thumb	84			asm	asm/code_080B6B58.s
-080B8280	thumb	12			asm	asm/code_080B6B58.s
-080B828C	thumb	40			asm	asm/code_080B6B58.s
-080B82B4	thumb	110			asm	asm/code_080B6B58.s
-080B8324	thumb	6			asm	asm/code_080B6B58.s
-080B832C	thumb	12			asm	asm/code_080B6B58.s
-080B8338	thumb	28			asm	asm/code_080B6B58.s
-080B8354	thumb	48			asm	asm/code_080B6B58.s
-080B8384	thumb	188			asm	asm/code_080B6B58.s
-080B8440	thumb	78			asm	asm/code_080B6B58.s
-080B8490	thumb	56			asm	asm/code_080B6B58.s
-080B84C8	thumb	188			asm	asm/code_080B6B58.s
-080B8584	thumb	68			asm	asm/code_080B6B58.s
-080B85C8	thumb	46			asm	asm/code_080B6B58.s
-080B85F8	thumb	104			asm	asm/code_080B6B58.s
-080B8660	thumb	78			asm	asm/code_080B6B58.s
-080B86B0	thumb	314			asm	asm/code_080B6B58.s
-080B87EC	thumb	136			asm	asm/code_080B6B58.s
-080B8874	thumb	48			asm	asm/code_080B6B58.s
-080B88A4	thumb	40			asm	asm/code_080B6B58.s
-080B88CC	thumb	24			asm	asm/code_080B6B58.s
-080B88E4	thumb	28			asm	asm/code_080B6B58.s
-080B8900	thumb	30			asm	asm/code_080B6B58.s
-080B8920	thumb	74			asm	asm/code_080B6B58.s
-080B896C	thumb	26			asm	asm/code_080B6B58.s
-080B8988	thumb	12			asm	asm/code_080B6B58.s
-080B8994	thumb	28			asm	asm/code_080B6B58.s
+080B447C	thumb	32			c	src/automap_a.c
+080B449C	thumb	372	Automap_CellToScreen	probable	c	src/automap_a.c
+080B4610	thumb	92	Automap_DrawMarkerSprite	probable	c	src/automap_a.c
+080B466C	thumb	352	Automap_DrawSprites	probable	c	src/automap_a.c
+080B47CC	thumb	134	Automap_BuildAroundPlayer	probable	nonmatching	src/automap_a.c
+080B4854	thumb	512	Automap_BuildIconMap	probable	c	src/automap_a.c
+080B4A54	thumb	80	Automap_HasCells	probable	c	src/automap_a.c
+080B4AA4	thumb	180	Automap_DrawTilemap	probable	c	src/automap_a.c
+080B4B58	thumb	36			c	src/automap_a.c
+080B4B7C	thumb	36			c	src/automap_a.c
+080B4BA0	thumb	36			c	src/automap_a.c
+080B4BC4	thumb	36			c	src/automap_a.c
+080B4BE8	thumb	96			c	src/automap_b.c
+080B4C48	thumb	1084	Automap_Update	probable	c	src/automap_b.c
+080B5084	thumb	10			c	src/automap_b.c
+080B5090	thumb	48			c	src/automap_b.c
+080B50C0	thumb	304	Automap_VBlankStep	probable	c	src/automap_b.c
+080B51F0	thumb	34			c	src/automap_c.c
+080B5214	thumb	52			c	src/automap_c.c
+080B5248	thumb	124	MarkerMenu_DrawCrosshair	probable	c	src/automap_c.c
+080B52C4	thumb	624	MarkerMenu_Draw	probable	c	src/automap_c.c
+080B5534	thumb	24	MarkerMenu_SetState	probable	c	src/automap_c.c
+080B554C	thumb	14			c	src/automap_c.c
+080B555C	thumb	346	MarkerMenu_HandleList	probable	c	src/automap_c.c
+080B56B8	thumb	52	Automap_CellToMap	probable	c	src/automap_c.c
+080B56EC	thumb	144	MarkerMenu_CanPlace	probable	c	src/automap_c.c
+080B577C	thumb	432	MarkerMenu_HandleCursor	probable	c	src/automap_c.c
+080B592C	thumb	80	MarkerMenu_Place	probable	c	src/automap_c.c
+080B597C	thumb	28	MarkerMenu_Clear	probable	c	src/automap_c.c
+080B5998	thumb	180	MarkerMenu_HandleKind	probable	c	src/automap_c.c
+080B5A4C	thumb	88			c	src/automap_c.c
+080B5AA4	thumb	516	MarkerMenu_HandleEvent	probable	c	src/automap_c.c
+080B5CA8	thumb	48			c	src/automap_c.c
+080B5CD8	thumb	12			c	src/fieldevent_a.c
+080B5CE4	thumb	26			c	src/fieldevent_a.c
+080B5D00	thumb	24			c	src/fieldevent_a.c
+080B5D18	thumb	32			c	src/fieldevent_a.c
+080B5D38	thumb	16			c	src/fieldevent_a.c
+080B5D48	thumb	142			c	src/fieldevent_a.c
+080B5DD8	thumb	42			c	src/fieldevent_a.c
+080B5E04	thumb	12			c	src/fieldevent_a.c
+080B5E10	thumb	28			c	src/fieldevent_a.c
+080B5E2C	thumb	36			c	src/fieldevent_a.c
+080B5E50	thumb	36			c	src/fieldevent_a.c
+080B5E74	thumb	92			c	src/fieldevent_a.c
+080B5ED0	thumb	28			c	src/fieldevent_a.c
+080B5EEC	thumb	56			c	src/fieldevent_a.c
+080B5F24	thumb	36			c	src/fieldevent_a.c
+080B5F48	thumb	50			c	src/fieldevent_a.c
+080B5F7C	thumb	42			c	src/fieldevent_a.c
+080B5FA8	thumb	12			c	src/fieldevent_a.c
+080B5FB4	thumb	36			c	src/fieldevent_a.c
+080B5FD8	thumb	36			c	src/fieldevent_a.c
+080B5FFC	thumb	138			c	src/fieldevent_a.c
+080B6088	thumb	28			c	src/fieldevent_a.c
+080B60A4	thumb	96			c	src/fieldevent_a.c
+080B6104	thumb	12			c	src/fieldevent_a.c
+080B6110	thumb	16			c	src/fieldevent_a.c
+080B6120	thumb	42			c	src/fieldevent_a.c
+080B614C	thumb	36			c	src/fieldevent_a.c
+080B6170	thumb	128			c	src/fieldevent_b.c
+080B61F0	thumb	96			c	src/fieldevent_b.c
+080B6250	thumb	28			c	src/fieldevent_b.c
+080B626C	thumb	32			c	src/fieldevent_b.c
+080B628C	thumb	36			c	src/fieldevent_b.c
+080B62B0	thumb	88			c	src/fieldevent_b.c
+080B6308	thumb	52			c	src/fieldevent_b.c
+080B633C	thumb	2			c	src/fieldevent_b.c
+080B6340	thumb	36			c	src/fieldevent_b.c
+080B6364	thumb	252	LocationBanner_BuildTiles	probable	c	src/fieldevent_b.c
+080B6460	thumb	198	LocationBanner_Update	probable	c	src/fieldevent_b.c
+080B6528	thumb	24			c	src/fieldevent_b.c
+080B6540	thumb	40			c	src/fieldevent_b.c
+080B6568	thumb	104	LocationBanner_Start	probable	c	src/fieldevent_b.c
+080B65D0	thumb	68			c	src/fieldevent_b.c
+080B6614	thumb	68			c	src/fieldevent_b.c
+080B6658	thumb	80			c	src/fieldevent_b.c
+080B66A8	thumb	30			c	src/fieldevent_b.c
+080B66C8	thumb	48			c	src/fieldevent_b.c
+080B66F8	thumb	48			c	src/fieldevent_b.c
+080B6728	thumb	48			c	src/fieldevent_b.c
+080B6758	thumb	48			c	src/fieldevent_b.c
+080B6788	thumb	44			c	src/fieldevent_b.c
+080B67B4	thumb	68			c	src/fieldevent_b.c
+080B67F8	thumb	88			c	src/fieldevent_b.c
+080B6850	thumb	14			c	src/fieldevent_b.c
+080B6860	thumb	76			c	src/fieldevent_b.c
+080B68AC	thumb	34			c	src/fieldevent_b.c
+080B68D0	thumb	188			c	src/fieldevent_b.c
+080B698C	thumb	68			c	src/fieldevent_b.c
+080B69D0	thumb	36			c	src/fieldevent_b.c
+080B69F4	thumb	48			c	src/fieldevent_b.c
+080B6A24	thumb	44			c	src/fieldevent_b.c
+080B6A50	thumb	176			c	src/fieldevent_b.c
+080B6B00	thumb	52			c	src/fieldevent_b.c
+080B6B34	thumb	36			c	src/fieldevent_b.c
+080B6B58	thumb	88			c	src/fieldevent_c.c
+080B6BB0	thumb	80			c	src/fieldevent_c.c
+080B6C00	thumb	116			c	src/fieldevent_c.c
+080B6C74	thumb	116			c	src/fieldevent_c.c
+080B6CE8	thumb	16			c	src/fieldevent_c.c
+080B6CF8	thumb	52			c	src/fieldevent_c.c
+080B6D2C	thumb	24			c	src/fieldevent_c.c
+080B6D44	thumb	36			c	src/fieldevent_c.c
+080B6D68	thumb	52			c	src/fieldevent_c.c
+080B6D9C	thumb	22			c	src/fieldevent_c.c
+080B6DB4	thumb	372	BgPicture_StartTask	probable	c	src/fieldevent_c.c
+080B6F28	thumb	24			c	src/fieldevent_c.c
+080B6F40	thumb	380	Picture_ScaleStep	probable	c	src/fieldevent_c.c
+080B70BC	thumb	80			c	src/fieldevent_c.c
+080B710C	thumb	80			c	src/fieldevent_c.c
+080B715C	thumb	4			c	src/fieldevent_c.c
+080B7160	thumb	28			c	src/fieldevent_c.c
+080B717C	thumb	20			c	src/fieldevent_c.c
+080B7190	thumb	36			c	src/fieldevent_c.c
+080B71B4	thumb	104			c	src/fieldevent_c.c
+080B721C	thumb	42			c	src/fieldevent_c.c
+080B7248	thumb	288			c	src/fieldevent_c.c
+080B7368	thumb	28			c	src/fieldevent_c.c
+080B7384	thumb	52			c	src/fieldevent_c.c
+080B73B8	thumb	68			c	src/fieldevent_c.c
+080B73FC	thumb	22			c	src/fieldevent_c.c
+080B7414	thumb	2			c	src/fieldevent_c.c
+080B7418	thumb	12			c	src/fieldevent_c.c
+080B7424	thumb	12			c	src/fieldevent_d.c
+080B7430	thumb	104			c	src/fieldevent_d.c
+080B7498	thumb	104			c	src/fieldevent_d.c
+080B7500	thumb	48			c	src/fieldevent_d.c
+080B7530	thumb	72			c	src/fieldevent_d.c
+080B7578	thumb	18			c	src/fieldevent_d.c
+080B758C	thumb	92	Warp_SetDestination	probable	c	src/fieldevent_d.c
+080B75E8	thumb	100			c	src/fieldevent_d.c
+080B764C	thumb	56			c	src/fieldevent_d.c
+080B7684	thumb	72			c	src/fieldevent_d.c
+080B76CC	thumb	12			c	src/fieldevent_d.c
+080B76D8	thumb	96			c	src/fieldevent_d.c
+080B7738	thumb	84			c	src/fieldevent_d.c
+080B778C	thumb	56			c	src/fieldevent_d.c
+080B77C4	thumb	66			c	src/fieldevent_d.c
+080B7808	thumb	36			c	src/fieldevent_d.c
+080B782C	thumb	36			c	src/fieldevent_d.c
+080B7850	thumb	16			c	src/fieldevent_d.c
+080B7860	thumb	28			c	src/fieldevent_d.c
+080B787C	thumb	38			c	src/fieldevent_d.c
+080B78A4	thumb	56			c	src/fieldevent_d.c
+080B78DC	thumb	56			c	src/fieldevent_d.c
+080B7914	thumb	46	Rect_IsOutside	probable	c	src/fieldevent_d.c
+080B7944	thumb	438	SubMap_IsOutsideExclusions	probable	c	src/fieldevent_e.c
+080B7AFC	thumb	580	Warp_ToWorldPosition	probable	c	src/fieldevent_e.c
+080B7D40	thumb	184			c	src/fieldevent_e.c
+080B7DF8	thumb	18			c	src/fieldevent_e.c
+080B7E0C	thumb	48			c	src/fieldevent_e.c
+080B7E3C	thumb	240			c	src/fieldevent_e.c
+080B7F2C	thumb	68			c	src/fieldevent_e.c
+080B7F70	thumb	12			c	src/fieldevent_e.c
+080B7F7C	thumb	108			c	src/fieldevent_e.c
+080B7FE8	thumb	28			c	src/fieldevent_e.c
+080B8004	thumb	28			c	src/fieldevent_e.c
+080B8020	thumb	40			c	src/fieldevent_e.c
+080B8048	thumb	64			c	src/fieldevent_e.c
+080B8088	thumb	112			c	src/fieldevent_e.c
+080B80F8	thumb	104			c	src/fieldevent_e.c
+080B8160	thumb	18			c	src/fieldevent_e.c
+080B8174	thumb	76			nonmatching	src/fieldevent_e.c
+080B81C0	thumb	108			c	src/fieldevent_e.c
+080B822C	thumb	84			c	src/fieldevent_e.c
+080B8280	thumb	12			c	src/fieldevent_e.c
+080B828C	thumb	40			c	src/fieldevent_e.c
+080B82B4	thumb	110			c	src/fieldevent_e.c
+080B8324	thumb	6			c	src/fieldevent_e.c
+080B832C	thumb	12			c	src/fieldevent_e.c
+080B8338	thumb	28			c	src/fieldevent_e.c
+080B8354	thumb	48			c	src/fieldevent_f.c
+080B8384	thumb	188			c	src/fieldevent_f.c
+080B8440	thumb	78			c	src/fieldevent_f.c
+080B8490	thumb	56	Text_CopyToMenuBuffer	probable	c	src/fieldevent_f.c
+080B84C8	thumb	188	Treasure_Open	probable	c	src/fieldevent_f.c
+080B8584	thumb	68			c	src/fieldevent_f.c
+080B85C8	thumb	46			c	src/fieldevent_f.c
+080B85F8	thumb	104			nonmatching	src/fieldevent_f.c
+080B8660	thumb	78	Spring_GetKindAt	probable	c	src/fieldevent_f.c
+080B86B0	thumb	314	Spring_HealMember	probable	c	src/fieldevent_f.c
+080B87EC	thumb	136			c	src/fieldevent_f.c
+080B8874	thumb	48			nonmatching	src/fieldevent_f.c
+080B88A4	thumb	40			c	src/fieldevent_f.c
+080B88CC	thumb	24			c	src/fieldevent_f.c
+080B88E4	thumb	28			c	src/fieldevent_f.c
+080B8900	thumb	30			c	src/fieldevent_f.c
+080B8920	thumb	74			c	src/fieldevent_f.c
+080B896C	thumb	26			c	src/fieldevent_f.c
+080B8988	thumb	12			c	src/fieldevent_f.c
+080B8994	thumb	28	Treasure_StartTask	probable	c	src/fieldevent_f.c
 080B89B0	thumb	272			asm	asm/code_080B89B0.s
 080B8AC0	thumb	32			asm	asm/code_080B89B0.s
 080B8AE0	thumb	40			asm	asm/code_080B89B0.s
@@ -684,20 +684,20 @@ address	mode	size	name	confidence	state	file
 080BA3C0	thumb	14			c	src/sceneeffect_a.c
 080BA3D0	thumb	10			c	src/sceneeffect_a.c
 080BA3DC	thumb	44			c	src/sceneeffect_a.c
-080BA408	thumb	186			c	src/sceneeffect_a.c
-080BA4C4	thumb	116			nonmatching	src/sceneeffect_a.c
-080BA538	thumb	50			c	src/sceneeffect_a.c
-080BA56C	thumb	48			c	src/sceneeffect_a.c
-080BA59C	thumb	68			nonmatching	src/sceneeffect_a.c
+080BA408	thumb	186	Elevator_Init	probable	c	src/sceneeffect_a.c
+080BA4C4	thumb	116	Elevator_SetScroll	probable	nonmatching	src/sceneeffect_a.c
+080BA538	thumb	50	Elevator_Accelerate	probable	c	src/sceneeffect_a.c
+080BA56C	thumb	48	Elevator_Cruise	probable	c	src/sceneeffect_a.c
+080BA59C	thumb	68	Elevator_Decelerate	probable	nonmatching	src/sceneeffect_a.c
 080BA5E0	thumb	212			c	src/sceneeffect_a.c
 080BA6B4	thumb	162			c	src/sceneeffect_a.c
 080BA758	thumb	72			c	src/sceneeffect_b.c
 080BA7A0	thumb	44			c	src/sceneeffect_b.c
 080BA7CC	thumb	268			nonmatching	src/sceneeffect_b.c
-080BA8D8	thumb	72			c	src/sceneeffect_b.c
-080BA920	thumb	32			c	src/sceneeffect_b.c
-080BA940	thumb	24			c	src/sceneeffect_b.c
-080BA958	thumb	72			c	src/sceneeffect_b.c
+080BA8D8	thumb	72	SceneEffect_Start	probable	c	src/sceneeffect_b.c
+080BA920	thumb	32	SceneEffect_IsDone	probable	c	src/sceneeffect_b.c
+080BA940	thumb	24	SceneEffect_Stop	probable	c	src/sceneeffect_b.c
+080BA958	thumb	72	SceneEffect_End	probable	c	src/sceneeffect_b.c
 080BA9A0	thumb	18			c	src/sceneeffect_b.c
 080BA9B4	thumb	24			c	src/sceneeffect_b.c
 080BA9CC	thumb	36			c	src/sceneeffect_b.c
@@ -797,8 +797,8 @@ address	mode	size	name	confidence	state	file
 080BC170	thumb	40			c	src/sceneeffect_g.c
 080BC198	thumb	104			c	src/sceneeffect_g.c
 080BC200	thumb	48			c	src/sceneeffect_g.c
-080BC230	thumb	48			c	src/sceneeffect_g.c
-080BC260	thumb	24			c	src/sceneeffect_g.c
+080BC230	thumb	48	Char_FindById	probable	c	src/sceneeffect_g.c
+080BC260	thumb	24	Char_EndById	probable	c	src/sceneeffect_g.c
 080BC278	thumb	590			c	src/sceneeffect_g.c
 080BC4C8	thumb	52			c	src/sceneeffect_g.c
 080BC4FC	thumb	100			c	src/sceneeffect_g.c
@@ -1200,7 +1200,7 @@ address	mode	size	name	confidence	state	file
 080C3910	thumb	36			asm	asm/code_080C2D48.s
 080C3934	thumb	36			asm	asm/code_080C2D48.s
 080C3958	thumb	36			asm	asm/code_080C2D48.s
-080C397C	thumb	516			asm	asm/code_080C2D48.s
+080C397C	thumb	516	Demon_LoadGfxForTask	probable	named	asm/code_080C2D48.s
 080C3B80	thumb	68			asm	asm/code_080C2D48.s
 080C3BC4	thumb	164			asm	asm/code_080C2D48.s
 080C3C68	thumb	244			asm	asm/code_080C2D48.s
@@ -1216,7 +1216,7 @@ address	mode	size	name	confidence	state	file
 080C3F04	thumb	36			asm	asm/code_080C2D48.s
 080C3F28	thumb	36			asm	asm/code_080C2D48.s
 080C3F4C	thumb	308			asm	asm/code_080C2D48.s
-080C4080	thumb	304			asm	asm/code_080C2D48.s
+080C4080	thumb	304	Char_LoadGfxHalf	probable	named	asm/code_080C2D48.s
 080C41B0	thumb	66			asm	asm/code_080C2D48.s
 080C41F4	thumb	72			asm	asm/code_080C2D48.s
 080C423C	thumb	4			asm	asm/code_080C2D48.s
@@ -1420,7 +1420,7 @@ address	mode	size	name	confidence	state	file
 080C8AE0	thumb	18			asm	asm/code_080C6FD8.s
 080C8AF4	thumb	4			asm	asm/code_080C6FD8.s
 080C8AF8	thumb	24			asm	asm/code_080C6FD8.s
-080C8B10	thumb	44			asm	asm/code_080C6FD8.s
+080C8B10	thumb	44	DungeonMap_GetFloor	probable	named	asm/code_080C6FD8.s
 080C8B3C	thumb	24			asm	asm/code_080C6FD8.s
 080C8B54	thumb	38			asm	asm/code_080C6FD8.s
 080C8B7C	thumb	128	MarkerHeader_DrawLocationName	tentative	named	asm/code_080C6FD8.s
@@ -1827,7 +1827,7 @@ address	mode	size	name	confidence	state	file
 080D624C	thumb	8	Task_SetDataByte	probable	c	src/menu2_h.c
 080D6254	thumb	16			c	src/menu2_h.c
 080D6264	thumb	14			c	src/title_a.c
-080D6274	thumb	1312			c	src/title_a.c
+080D6274	thumb	1312	Title_LoadScene	probable	c	src/title_a.c
 080D6794	thumb	40			c	src/title_a.c
 080D67BC	thumb	176	Intro_DrawDisclaimer	tentative	c	src/title_a.c
 080D686C	thumb	92			c	src/title_a.c
@@ -1835,12 +1835,12 @@ address	mode	size	name	confidence	state	file
 080D68D0	thumb	48			c	src/title_a.c
 080D6900	thumb	44			c	src/title_a.c
 080D692C	thumb	16			c	src/title_a.c
-080D693C	thumb	156			c	src/title_a.c
+080D693C	thumb	156	Title_DrawPressStart	probable	c	src/title_a.c
 080D69D8	thumb	92			c	src/title_a.c
-080D6A34	thumb	104			c	src/title_a.c
-080D6A9C	thumb	496			c	src/title_a.c
-080D6C8C	thumb	94			c	src/title_a.c
-080D6CEC	thumb	226			c	src/title_a.c
+080D6A34	thumb	104	Title_HasExtraUnlocked	probable	c	src/title_a.c
+080D6A9C	thumb	496	Title_DrawMenu	probable	c	src/title_a.c
+080D6C8C	thumb	94	Title_WaitPressStart	probable	c	src/title_a.c
+080D6CEC	thumb	226	Title_HandleMenuInput	probable	c	src/title_a.c
 080D6DD0	thumb	32			c	src/title_a.c
 080D6DF0	thumb	14			c	src/title_a.c
 080D6E00	thumb	14			c	src/title_a.c
@@ -1884,7 +1884,7 @@ address	mode	size	name	confidence	state	file
 080D77CC	thumb	40			c	src/title_d.c
 080D77F4	thumb	6			c	src/title_d.c
 080D77FC	thumb	66			c	src/title_d.c
-080D7840	thumb	44			c	src/title_d.c
+080D7840	thumb	44	Char_SignalById	probable	c	src/title_d.c
 080D786C	thumb	12			c	src/title_d.c
 080D7878	thumb	36			c	src/title_d.c
 080D789C	thumb	36			c	src/title_d.c
@@ -1896,13 +1896,13 @@ address	mode	size	name	confidence	state	file
 080D79C0	thumb	66			c	src/title_d.c
 080D7A04	thumb	62			c	src/title_d.c
 080D7A44	thumb	64			c	src/title_d.c
-080D7A84	thumb	302			c	src/charsprite_a.c
+080D7A84	thumb	302	Char_DrawBySlot	probable	c	src/charsprite_a.c
 080D7BB4	thumb	16			c	src/charsprite_a.c
 080D7BC4	thumb	4			c	src/charsprite_a.c
 080D7BC8	thumb	28			c	src/charsprite_a.c
-080D7BE4	thumb	76			c	src/charsprite_a.c
-080D7C30	thumb	120			c	src/charsprite_a.c
-080D7CA8	thumb	182			c	src/charsprite_a.c
+080D7BE4	thumb	76	Char_StartAnim	probable	c	src/charsprite_a.c
+080D7C30	thumb	120	Char_DrawAnimFrame	probable	c	src/charsprite_a.c
+080D7CA8	thumb	182	Char_StepAnim	probable	c	src/charsprite_a.c
 080D7D60	thumb	56			c	src/charsprite_a.c
 080D7D98	thumb	148			nonmatching	src/charsprite_a.c
 080D7E2C	thumb	28			c	src/charsprite_a.c
@@ -1924,8 +1924,8 @@ address	mode	size	name	confidence	state	file
 080D81C0	thumb	136			c	src/charsprite_a.c
 080D8248	thumb	24			c	src/charsprite_b.c
 080D8260	thumb	36			c	src/charsprite_b.c
-080D8284	thumb	256			c	src/charsprite_b.c
-080D8384	thumb	164			c	src/charsprite_b.c
+080D8284	thumb	256	Char_LoadPartyDemonGfx	probable	c	src/charsprite_b.c
+080D8384	thumb	164	Char_DrawPartyDemon	probable	c	src/charsprite_b.c
 080D8428	thumb	16			c	src/charsprite_b.c
 080D8438	thumb	16			c	src/charsprite_b.c
 080D8448	thumb	20			c	src/charsprite_b.c
@@ -1952,7 +1952,7 @@ address	mode	size	name	confidence	state	file
 080D8748	thumb	16			c	src/charsprite_b.c
 080D8758	thumb	16			c	src/charsprite_b.c
 080D8768	thumb	36			c	src/charsprite_b.c
-080D878C	thumb	52			c	src/charsprite_b.c
+080D878C	thumb	52	Char_FindOther	probable	c	src/charsprite_b.c
 080D87C0	thumb	356			c	src/charsprite_c.c
 080D8924	thumb	136			c	src/charsprite_c.c
 080D89AC	thumb	184			c	src/charsprite_c.c
@@ -2015,7 +2015,7 @@ address	mode	size	name	confidence	state	file
 080D953C	thumb	36			c	src/charsprite_e.c
 080D9560	thumb	80			c	src/charsprite_e.c
 080D95B0	thumb	68			c	src/charsprite_e.c
-080D95F4	thumb	20			c	src/charsprite_e.c
+080D95F4	thumb	20	Char_GetRecord	probable	c	src/charsprite_e.c
 080D9608	thumb	180			c	src/charsprite_e.c
 080D96BC	thumb	192			c	src/charsprite_e.c
 080D977C	thumb	36			asm	asm/code_080D977C.s
@@ -2396,7 +2396,7 @@ address	mode	size	name	confidence	state	file
 080E4420	thumb	18	ply_xleng	proven	named	asm/code_080E325C.s
 080E4434	thumb	18	ply_xswee	proven	named	asm/code_080E325C.s
 080E4448	thumb	2	DummyFunc	probable	named	asm/code_080E325C.s
-080E444C	thumb	88			asm	asm/code_080E325C.s
+080E444C	thumb	88	Demon_GetGfxRecord	probable	named	asm/code_080E325C.s
 080E44A4	thumb	84			asm	asm/code_080E325C.s
 080E44F8	thumb	40			asm	asm/code_080E325C.s
 080E4520	thumb	50			asm	asm/code_080E325C.s
@@ -2416,7 +2416,7 @@ address	mode	size	name	confidence	state	file
 080E5610	thumb	88			asm	asm/code_080E47A8.s
 080E5668	thumb	12			asm	asm/code_080E47A8.s
 080E5674	thumb	2			asm	asm/code_080E47A8.s
-080E5678	thumb	340			asm	asm/code_080E47A8.s
+080E5678	thumb	340	Demon_LoadGfx	probable	named	asm/code_080E47A8.s
 080E57CC	thumb	36			asm	asm/code_080E47A8.s
 080E57F0	thumb	92			asm	asm/code_080E47A8.s
 080E584C	thumb	32			asm	asm/code_080E47A8.s
@@ -3834,18 +3834,18 @@ address	mode	size	name	confidence	state	file
 0813EE90	thumb	64			asm	asm/code_0813EE90.s
 0813EED0	thumb	112			asm	asm/code_0813EE90.s
 0813EF40	thumb	36			asm	asm/code_0813EE90.s
-0813EF64	thumb	44			asm	asm/code_0813EE90.s
+0813EF64	thumb	44	CasinoScene_LoadTiles	probable	named	asm/code_0813EE90.s
 0813EF90	thumb	36			asm	asm/code_0813EE90.s
-0813EFB4	thumb	20			asm	asm/code_0813EE90.s
+0813EFB4	thumb	20	CasinoScene_QueueBgTiles	probable	named	asm/code_0813EE90.s
 0813EFC8	thumb	36			asm	asm/code_0813EE90.s
-0813EFEC	thumb	20			asm	asm/code_0813EE90.s
-0813F000	thumb	48			asm	asm/code_0813EE90.s
-0813F030	thumb	48			asm	asm/code_0813EE90.s
+0813EFEC	thumb	20	CasinoScene_QueueObjTiles	probable	named	asm/code_0813EE90.s
+0813F000	thumb	48	CasinoScene_LoadBgPalette	probable	named	asm/code_0813EE90.s
+0813F030	thumb	48	CasinoScene_LoadObjPalette	probable	named	asm/code_0813EE90.s
 0813F060	thumb	32			asm	asm/code_0813EE90.s
 0813F080	thumb	36			asm	asm/code_0813EE90.s
 0813F0A4	thumb	36			asm	asm/code_0813EE90.s
 0813F0C8	thumb	36			asm	asm/code_0813EE90.s
-0813F0EC	thumb	88			asm	asm/code_0813EE90.s
+0813F0EC	thumb	88	CasinoScene_LoadBgMap	probable	named	asm/code_0813EE90.s
 0813F144	thumb	12			asm	asm/code_0813EE90.s
 0813F150	thumb	12			asm	asm/code_0813EE90.s
 0813F15C	thumb	10			asm	asm/code_0813EE90.s
@@ -3969,7 +3969,7 @@ address	mode	size	name	confidence	state	file
 0814837C	thumb	56			asm	asm/code_08145784.s
 081483B4	thumb	108			asm	asm/code_08145784.s
 08148420	thumb	12			asm	asm/code_08145784.s
-0814842C	thumb	64			asm	asm/code_08145784.s
+0814842C	thumb	64	Baccarat_LoadCards	probable	named	asm/code_08145784.s
 0814846C	thumb	92			asm	asm/code_08145784.s
 081484C8	thumb	12			asm	asm/code_08145784.s
 081484D4	thumb	12			asm	asm/code_08145784.s
@@ -4121,7 +4121,7 @@ address	mode	size	name	confidence	state	file
 0814E798	thumb	172			asm	asm/code_0814A414.s
 0814E844	thumb	108			asm	asm/code_0814E844.s
 0814E8B0	thumb	56			asm	asm/code_0814E844.s
-08151EB4	thumb	56			c	src/c151_08151EB4.c
+08151EB4	thumb	56	FieldMap_GetArea	probable	c	src/c151_08151EB4.c
 08151EEC	thumb	236			c	src/c151_08151EB4.c
 08151FD8	thumb	68			c	src/c151_08151EB4.c
 0815201C	thumb	872			asm	asm/code_0815201C.s
@@ -4131,9 +4131,9 @@ address	mode	size	name	confidence	state	file
 08152440	thumb	220			asm	asm/code_0815201C.s
 0815251C	thumb	90			asm	asm/code_0815201C.s
 08152578	thumb	12			asm	asm/code_0815201C.s
-08152584	thumb	84			asm	asm/code_0815201C.s
-081525D8	thumb	88			asm	asm/code_0815201C.s
-08152630	thumb	160			asm	asm/code_0815201C.s
+08152584	thumb	84	FieldMap_LoadTiles	probable	named	asm/code_0815201C.s
+081525D8	thumb	88	FieldMap_LoadBlockData	probable	named	asm/code_0815201C.s
+08152630	thumb	160	FieldMap_LoadMapChunk	probable	named	asm/code_0815201C.s
 081526D0	thumb	36			asm	asm/code_0815201C.s
 081526F4	thumb	20			asm	asm/code_0815201C.s
 08152708	thumb	36			asm	asm/code_0815201C.s
@@ -4277,7 +4277,7 @@ address	mode	size	name	confidence	state	file
 08157440	thumb	28			asm	asm/code_081551F8.s
 0815745C	thumb	36			asm	asm/code_081551F8.s
 08157480	thumb	16			asm	asm/code_081551F8.s
-08157490	thumb	64			asm	asm/code_081551F8.s
+08157490	thumb	64	Fusion_LoadRoomTiles	probable	named	asm/code_081551F8.s
 081574D0	thumb	100			asm	asm/code_081551F8.s
 08157534	thumb	164			asm	asm/code_081551F8.s
 081575D8	thumb	116			asm	asm/code_081551F8.s
@@ -4304,13 +4304,13 @@ address	mode	size	name	confidence	state	file
 08157F94	thumb	156			asm	asm/code_081551F8.s
 08158030	thumb	118			asm	asm/code_081551F8.s
 081580A8	thumb	36			asm	asm/code_081551F8.s
-081580CC	thumb	128			asm	asm/code_081551F8.s
+081580CC	thumb	128	Fusion_LoadEffectPart	probable	named	asm/code_081551F8.s
 0815814C	thumb	116			asm	asm/code_081551F8.s
 081581C0	thumb	94			asm	asm/code_081551F8.s
 08158220	thumb	72			asm	asm/code_081551F8.s
 08158268	thumb	84			asm	asm/code_081551F8.s
 081582BC	thumb	36			asm	asm/code_081551F8.s
-081582E0	thumb	108			asm	asm/code_081551F8.s
+081582E0	thumb	108	Fusion_LoadMistFrame	probable	named	asm/code_081551F8.s
 0815834C	thumb	84			asm	asm/code_081551F8.s
 081583A0	thumb	84			asm	asm/code_081551F8.s
 081583F4	thumb	296			asm	asm/code_081583F4.s

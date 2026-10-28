@@ -1262,7 +1262,7 @@ ScriptOp_406: @ 0x08138FB8
 	adds r0, r0, r1
 	ldrh r1, [r0]
 	movs r0, #0
-	bl sub_080BA8D8
+	bl SceneEffect_Start
 	ldr r1, .L08138FE8
 	movs r0, #1
 	strh r0, [r1]
@@ -1297,7 +1297,7 @@ ScriptOp_407: @ 0x08138FFC
 	adds r0, r0, r1
 	ldrh r1, [r0]
 	movs r0, #0
-	bl sub_080BA958
+	bl SceneEffect_End
 	ldr r1, .L0813902C
 	movs r0, #1
 	strh r0, [r1]
@@ -1332,7 +1332,7 @@ ScriptOp_408: @ 0x08139040
 	adds r0, r0, r1
 	ldrh r1, [r0]
 	movs r0, #1
-	bl sub_080BA8D8
+	bl SceneEffect_Start
 	ldr r1, .L08139074
 	movs r0, #0x4a
 	strh r0, [r1]
@@ -3558,7 +3558,7 @@ ScriptOp_426: @ 0x0813A020
 	movs r6, #0x12
 .L0813A1F4:
 	adds r0, r6, #0
-	bl sub_080B6DB4
+	bl BgPicture_StartTask
 	ldr r1, .L0813A218
 	str r0, [r1]
 	ldr r1, .L0813A21C
@@ -3632,7 +3632,7 @@ ScriptOp_429: @ 0x0813A238
 	movs r4, #1
 	str r4, [sp]
 	movs r0, #0
-	bl sub_080B7AFC
+	bl Warp_ToWorldPosition
 	ldr r1, .L0813A290
 	str r0, [r1]
 	ldr r0, .L0813A294

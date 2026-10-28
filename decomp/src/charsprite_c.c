@@ -8,8 +8,8 @@ void sub_080D87C0(struct Task *task)
     const u8 *src;
     u8 *dst;
 
-    if (sub_080D878C(task, 0xAC) != NULL || sub_080D878C(task, 0xAD) != NULL
-        || sub_080D878C(task, 0xAE) != NULL || sub_080D878C(task, 0xAF) != NULL)
+    if (Char_FindOther(task, 0xAC) != NULL || Char_FindOther(task, 0xAD) != NULL
+        || Char_FindOther(task, 0xAE) != NULL || Char_FindOther(task, 0xAF) != NULL)
         return;
     LZ77UnCompWram(gUnknown_0852C434, gUnk_02003000);
     LZ77UnCompWram(gUnknown_0852C8CC, gUnk_02003000 + 0x800);
@@ -270,8 +270,8 @@ void sub_080D8D40(struct Task *task)
 // sub_080D8D54 @ 0x080D8D54
 void sub_080D8D54(struct Task *task, const void *src, u32 slot)
 {
-    HuffUnComp(src, gUnk_0200AFC8);
-    LZ77UnCompWram(gUnk_0200AFC8, gUnk_02001000 + (slot << 11));
+    HuffUnComp(src, gBgPictureBuffer);
+    LZ77UnCompWram(gBgPictureBuffer, gUnk_02001000 + (slot << 11));
 }
 
 // sub_080D8D80 @ 0x080D8D80

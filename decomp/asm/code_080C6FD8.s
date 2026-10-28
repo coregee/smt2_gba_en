@@ -3683,8 +3683,8 @@ sub_080C8AF8: @ 0x080C8AF8
 	.byte 0x00, 0x00
 .L080C8B0C: .4byte 0x030046C0 @ IWRAM+0x46C0
 
-	thumb_func_start sub_080C8B10
-sub_080C8B10: @ 0x080C8B10
+	thumb_func_start DungeonMap_GetFloor
+DungeonMap_GetFloor: @ 0x080C8B10
 .L080C8B10:
 	push {lr}
 	lsls r0, r0, #0x10
@@ -3707,7 +3707,7 @@ sub_080C8B10: @ 0x080C8B10
 	adds r0, r1, #0
 	pop {r1}
 	bx r1
-.L080C8B38: .4byte gUnknown_084ED59C
+.L080C8B38: .4byte gDungeonMaps
 
 	thumb_func_start sub_080C8B3C
 sub_080C8B3C: @ 0x080C8B3C
@@ -3722,7 +3722,7 @@ sub_080C8B3C: @ 0x080C8B3C
 	adds r1, r1, r2
 	ldr r0, [r1]
 	bx lr
-.L080C8B50: .4byte gUnknown_084ED59C
+.L080C8B50: .4byte gDungeonMaps
 
 	thumb_func_start sub_080C8B54
 sub_080C8B54: @ 0x080C8B54

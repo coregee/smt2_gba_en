@@ -50,7 +50,7 @@ void sub_080BBA64(struct Task *task)
     u16 y = d[1];
     u16 c = d[2];
 
-    sub_080BB868(gUnknown_0818B2E0[n].gfx, gUnknown_0818B2E0[n].pals, &gUnk_02005000[c * 0x400 + 0x20], &gUnk_02000000[y * 32]);
+    sub_080BB868(gUnknown_0818B2E0[n].gfx, gUnknown_0818B2E0[n].pals, &gAutomapCells[c * 0x400 + 0x20], &gUnk_02000000[y * 32]);
     if (d[0] != 0)
         d[0]--;
     d[2] = (d[2] - 1) & 0xF;

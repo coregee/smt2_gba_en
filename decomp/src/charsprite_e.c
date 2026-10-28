@@ -55,10 +55,10 @@ void sub_080D95B0(struct Task *task)
 }
 
 /* gCharGfxRecords + id * 0x2C. */
-// sub_080D95F4 @ 0x080D95F4
-struct CharGfxRecord *sub_080D95F4(u16 id)
+// Char_GetRecord @ 0x080D95F4
+struct CharGfxRecord *Char_GetRecord(u16 id)
 {
-    return &gUnknown_08568D78[id];
+    return &gCharGfxRecords[id];
 }
 
 /* Main-callback setup that clears VRAM and the map buffers and opens the save screen in mode 4. */

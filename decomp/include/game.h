@@ -245,7 +245,7 @@ struct ViewCond
 
 s32 FieldView_DrawLayer(const struct ViewLayer *layer, const struct ViewCond *cond);
 void sub_080B28F8(const struct ViewLayer *a, const struct ViewCond *b);
-s32 sub_080B6F40(const void *a);
+s32 Picture_ScaleStep(const void *a);
 extern u32 gUnk_03003FE8;
 extern u32 gUnk_030045F4;
 extern const u8 gUnknown_0815FD7C[][0x1C];
@@ -281,7 +281,7 @@ struct MapVariant
     const void *data[0xE8 / 4];
 };
 
-/* One sub-map (0x268 bytes); sub_080C8B10(map, 0) returns the first of an array. */
+/* One sub-map (0x268 bytes); DungeonMap_GetFloor(map, 0) returns the first of an array. */
 struct MapHeader
 {
     u8 pad00[0x08];
@@ -295,10 +295,10 @@ struct MapHeader
     struct MapVariant variants[2];
 };
 
-struct MapHeader *sub_080C8B10(u16 a, u16 b);
+struct MapHeader *DungeonMap_GetFloor(u16 a, u16 b);
 
 u32 sub_080C8B3C(u16 map);
-s32 sub_080B7944(struct MapHeader *map, u16 x, u16 y);
+s32 SubMap_IsOutsideExclusions(struct MapHeader *map, u16 x, u16 y);
 void Field_SavePrevPosition(void);
 void sub_080ADFEC(u16 a);
 void sub_080AE234(void);
@@ -308,7 +308,7 @@ extern u16 gUnk_03004634;
 extern const u32 gUnknown_081622D0[];
 void sub_080B343C(s16 delta);
 void sub_080B3560(u32 unused);
-void sub_080AE1C4(void);
+void DungeonMap_LoadDoorGfx(void);
 void sub_080AE1FC(void);
 void sub_080B34E8(void);
 void sub_080B350C(void);

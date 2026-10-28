@@ -64,7 +64,7 @@ extern u8 gUnk_0200F874[];
 void Canvas_BlitOr(void *src, void *dst, u32 a2, u32 a3, u16 x, u16 y, u32 w, u32 h);
 void Font_DrawGlyphTinted(u16 glyph, void *dst, u16 x, u16 y, u32 tint);
 u16 *Location_GetNameCellFromCoords(u16 a, u16 b, u16 c, u16 d);
-void sub_080C8B10(u16 a, u16 b);
+void DungeonMap_GetFloor(u16 a, u16 b);
 u16 *sub_080C8B54(u16 a);
 void sub_080CCE5C(const void *str, u16 x, u16 y, u32 a3);
 void sub_080CCF44(u32 num, u16 x, u16 y, u32 a3);

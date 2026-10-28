@@ -5,7 +5,7 @@
 // sub_080D8248 @ 0x080D8248
 struct DemonGfxRecord *sub_080D8248(u16 id)
 {
-    return &gUnknown_0872C774[id];
+    return &gDemonGfxRecords[id];
 }
 
 // sub_080D8260 @ 0x080D8260
@@ -15,8 +15,8 @@ void sub_080D8260(void)
 }
 
 /* Loads the battle sprite of party demon gUnk_0203DB28[index] into character slot obj->slot. */
-// sub_080D8284 @ 0x080D8284
-void sub_080D8284(struct Task *task, u32 index)
+// Char_LoadPartyDemonGfx @ 0x080D8284
+void Char_LoadPartyDemonGfx(struct Task *task, u32 index)
 {
     struct CharObj *obj = (struct CharObj *)&task->data;
     struct DemonGfxRecord *rec = sub_080D8248(gUnk_0203DB28[index]);
@@ -25,8 +25,8 @@ void sub_080D8284(struct Task *task, u32 index)
     obj->unk24 = index;
     if (slot == 0)
     {
-        HuffUnComp(rec->gfx0, gUnk_0200AFC8);
-        LZ77UnCompWram(gUnk_0200AFC8, gUnk_02001000);
+        HuffUnComp(rec->gfx0, gBgPictureBuffer);
+        LZ77UnCompWram(gBgPictureBuffer, gUnk_02001000);
         sub_080C3F4C(obj, rec->palette, 0x1E0, 0x20, 1);
         if (rec->gfx1 == NULL)
         {
@@ -34,8 +34,8 @@ void sub_080D8284(struct Task *task, u32 index)
         }
         else
         {
-            HuffUnComp(rec->gfx1, gUnk_0200AFC8 + 0x1000);
-            LZ77UnCompWram(gUnk_0200AFC8 + 0x1000, gUnk_02001000 + 0x1000);
+            HuffUnComp(rec->gfx1, gBgPictureBuffer + 0x1000);
+            LZ77UnCompWram(gBgPictureBuffer + 0x1000, gUnk_02001000 + 0x1000);
             VBlankTask_AddCounted(sub_080D8260, 1);
         }
     }
@@ -55,10 +55,10 @@ void sub_080D8284(struct Task *task, u32 index)
     }
 }
 
-/* Draws the demon loaded by sub_080D8284, alternating its two cells every 16 frames.
+/* Draws the demon loaded by Char_LoadPartyDemonGfx, alternating its two cells every 16 frames.
    Slots other than 0..2 leave tile/palette uninitialised (never happens in practice). */
-// sub_080D8384 @ 0x080D8384
-void sub_080D8384(struct Task *task)
+// Char_DrawPartyDemon @ 0x080D8384
+void Char_DrawPartyDemon(struct Task *task)
 {
     struct CharObj *obj = (struct CharObj *)&task->data;
     struct DemonGfxRecord *rec = sub_080D8248(gUnk_0203DB28[obj->unk24]);
@@ -92,26 +92,26 @@ void sub_080D8384(struct Task *task)
 // sub_080D8428 @ 0x080D8428
 void sub_080D8428(struct Task *task)
 {
-    sub_080D7A84(task, gUnknown_08005064);
+    Char_DrawBySlot(task, gUnknown_08005064);
 }
 
 // sub_080D8438 @ 0x080D8438
 void sub_080D8438(struct Task *task)
 {
-    sub_080D7A84(task, gUnknown_08005088);
+    Char_DrawBySlot(task, gUnknown_08005088);
 }
 
 // sub_080D8448 @ 0x080D8448
 void sub_080D8448(struct Task *task)
 {
     task->data.h[5] = 1;
-    sub_080D7A84(task, gUnknown_08005104);
+    Char_DrawBySlot(task, gUnknown_08005104);
 }
 
 // sub_080D845C @ 0x080D845C
 void sub_080D845C(struct Task *task)
 {
-    sub_080D7A84(task, gUnknown_0800520C);
+    Char_DrawBySlot(task, gUnknown_0800520C);
 }
 
 // sub_080D846C @ 0x080D846C
@@ -135,20 +135,20 @@ void sub_080D84A8(struct Task *task)
     if (task->data.h[3] == 0xF2)
     {
         if ((gFrameCounter >> 4) & 1)
-            sub_080D7A84(task, gUnknown_080054D4);
+            Char_DrawBySlot(task, gUnknown_080054D4);
         else
-            sub_080D7A84(task, gUnknown_08005514);
+            Char_DrawBySlot(task, gUnknown_08005514);
     }
     else
     {
-        sub_080D7A84(task, gUnknown_080054D4);
+        Char_DrawBySlot(task, gUnknown_080054D4);
     }
 }
 
 // sub_080D84EC @ 0x080D84EC
 void sub_080D84EC(struct Task *task)
 {
-    sub_080D7A84(task, gUnknown_08005554);
+    Char_DrawBySlot(task, gUnknown_08005554);
 }
 
 // sub_080D84FC @ 0x080D84FC
@@ -157,26 +157,26 @@ void sub_080D84FC(struct Task *task)
     if (task->data.h[3] == 0xF3)
     {
         if ((gFrameCounter >> 4) & 1)
-            sub_080D7A84(task, gUnknown_0800559C);
+            Char_DrawBySlot(task, gUnknown_0800559C);
         else
-            sub_080D7A84(task, gUnknown_080055E4);
+            Char_DrawBySlot(task, gUnknown_080055E4);
     }
     else
     {
-        sub_080D7A84(task, gUnknown_0800559C);
+        Char_DrawBySlot(task, gUnknown_0800559C);
     }
 }
 
 // sub_080D8540 @ 0x080D8540
 void sub_080D8540(struct Task *task)
 {
-    sub_080D7A84(task, gUnknown_08005624);
+    Char_DrawBySlot(task, gUnknown_08005624);
 }
 
 // sub_080D8550 @ 0x080D8550
 void sub_080D8550(struct Task *task)
 {
-    sub_080D7A84(task, gUnknown_08005664);
+    Char_DrawBySlot(task, gUnknown_08005664);
 }
 
 // sub_080D8560 @ 0x080D8560
@@ -289,13 +289,13 @@ void sub_080D8768(void)
 }
 
 /* Another character task (not `self`) showing character `id`, or NULL. */
-// sub_080D878C @ 0x080D878C
-struct Task *sub_080D878C(struct Task *self, u16 id)
+// Char_FindOther @ 0x080D878C
+struct Task *Char_FindOther(struct Task *self, u16 id)
 {
     u32 i;
     struct Task **p;
 
-    for (i = 0, p = gUnk_02036094; i < 6; p++, i++)
+    for (i = 0, p = gCharTasks; i < 6; p++, i++)
     {
         struct Task *t = *p;
 

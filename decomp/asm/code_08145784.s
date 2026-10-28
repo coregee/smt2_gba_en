@@ -5734,8 +5734,8 @@ sub_08148420: @ 0x08148420
 	.byte 0x00, 0x00
 .L08148428: .4byte 0x0203A454 @ EWRAM+0x3A454
 
-	thumb_func_start sub_0814842C
-sub_0814842C: @ 0x0814842C
+	thumb_func_start Baccarat_LoadCards
+Baccarat_LoadCards: @ 0x0814842C
 	push {r4, r5, lr}
 	ldr r5, .L0814845C
 	lsls r0, r1, #3
@@ -5759,7 +5759,7 @@ sub_0814842C: @ 0x0814842C
 	pop {r0}
 	bx r0
 .L0814845C: .4byte 0x0200F874 @ EWRAM+0xF874
-.L08148460: .4byte gUnknown_0879CCF4
+.L08148460: .4byte gBaccaratCardGfx
 .L08148464: .4byte 0x0200AFC8 @ EWRAM+0xAFC8
 .L08148468: .4byte 0x03003BB4 @ IWRAM+0x3BB4
 

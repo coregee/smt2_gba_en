@@ -5,7 +5,7 @@
 
 typedef void (*VoidFunc)(void);
 
-/* World (overworld) map record, 0xD8 bytes each at gUnknown_087DE924. */
+/* World (overworld) map record, 0xD8 bytes each at gFieldMapAreas. */
 struct MapRecord
 {
     const void *gfx[8];             /* 0x00: Huffman+LZ77 tile sheets */
@@ -77,9 +77,9 @@ struct WarpEntry
 
 extern struct WorldMap gUnk_030069F0;
 extern struct GameState gGameState;
-extern struct MapRecord gUnknown_087DE924[];
+extern struct MapRecord gFieldMapAreas[];
 extern const u16 gUnknown_087DF93C[];
-extern u16 gUnk_03003FD0[];
+extern u16 gWarpDest[];
 extern u32 gUnk_03004614;
 extern u8 gUnk_0200F874[];
 extern u8 gUnk_0201F874[];
@@ -95,7 +95,7 @@ extern u8 gUnk_02000000[];
 extern u8 gUnk_02000800[];
 extern u8 gUnk_02001000[];
 extern u8 gUnk_02005004[];
-extern u8 gUnk_0200AFC8[];
+extern u8 gBgPictureBuffer[];
 extern u8 gUnk_02030C74[];
 extern const u8 gUnknown_087DDE08[], gUnknown_087DE4C8[];
 extern const u16 gUnknown_087DE8C4[];
@@ -115,7 +115,7 @@ void sub_080C2F44(u32 a, u32 b, u32 c);
 void sub_080C67C0(void *a, u32 b);
 void Palette_CopyWithEffect(u32 a0, const void *src, void *dst, u32 a3, u32 a4);
 
-struct MapRecord *sub_08151EB4(u16 id);
+struct MapRecord *FieldMap_GetArea(u16 id);
 void *sub_08151FD8(u16 layer);
 void sub_0815201C(void);
 void sub_08152384(void);

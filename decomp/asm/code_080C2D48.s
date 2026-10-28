@@ -1682,8 +1682,8 @@ sub_080C3958: @ 0x080C3958
 .L080C3974: .4byte 0x06015000 @ VRAM+0x15000
 .L080C3978: .4byte 0x84000400
 
-	thumb_func_start sub_080C397C
-sub_080C397C: @ 0x080C397C
+	thumb_func_start Demon_LoadGfxForTask
+Demon_LoadGfxForTask: @ 0x080C397C
 	push {r4, r5, r6, r7, lr}
 	sub sp, #4
 	adds r7, r1, #0
@@ -1722,7 +1722,7 @@ sub_080C397C: @ 0x080C397C
 	bl HuffUnComp
 	b .L080C39D8
 	.byte 0x00, 0x00
-.L080C39C8: .4byte gUnknown_0872C774
+.L080C39C8: .4byte gDemonGfxRecords
 .L080C39CC: .4byte 0x0200AFC8 @ EWRAM+0xAFC8
 .L080C39D0:
 	ldr r0, .L080C3A10
@@ -2055,7 +2055,7 @@ sub_080C3C68: @ 0x080C3C68
 	cmp r0, #0
 	beq .L080C3D54
 	ldrh r0, [r4, #0x12]
-	bl sub_080E444C
+	bl Demon_GetGfxRecord
 	movs r2, #0
 	movs r1, #1
 	strb r1, [r4, #1]
@@ -2564,8 +2564,8 @@ sub_080C3F4C: @ 0x080C3F4C
 	.byte 0x00, 0x00
 .L080C407C: .4byte 0x030029B0 @ IWRAM+0x29B0
 
-	thumb_func_start sub_080C4080
-sub_080C4080: @ 0x080C4080
+	thumb_func_start Char_LoadGfxHalf
+Char_LoadGfxHalf: @ 0x080C4080
 .L080C4080:
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
@@ -2576,7 +2576,7 @@ sub_080C4080: @ 0x080C4080
 	adds r7, r2, #0
 	adds r4, r3, #0
 	ldrh r0, [r5, #6]
-	bl sub_080D95F4
+	bl Char_GetRecord
 	mov r8, r0
 	ldrh r1, [r5, #2]
 	adds r2, r1, #0
@@ -2722,7 +2722,7 @@ sub_080C41B0: @ 0x080C41B0
 	adds r4, r0, #0
 	adds r4, #0x24
 	ldrh r0, [r4, #6]
-	bl sub_080D95F4
+	bl Char_GetRecord
 	lsls r1, r6, #2
 	lsls r5, r5, #3
 	adds r1, r1, r5
@@ -2734,7 +2734,7 @@ sub_080C41B0: @ 0x080C41B0
 	adds r0, r4, #0
 	mov r2, r8
 	adds r3, r6, #0
-	bl sub_080C4080
+	bl Char_LoadGfxHalf
 	add sp, #4
 	pop {r3}
 	mov r8, r3
@@ -2853,7 +2853,7 @@ sub_080C4274: @ 0x080C4274
 	cmp r0, #1
 	bne .L080C436E
 	ldrh r0, [r7, #6]
-	bl sub_080D95F4
+	bl Char_GetRecord
 	lsls r2, r4, #5
 	ldr r1, .L080C4384
 	adds r2, r2, r1
@@ -2996,7 +2996,7 @@ sub_080C43B4: @ 0x080C43B4
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrh r0, [r4, #6]
-	bl sub_080D95F4
+	bl Char_GetRecord
 	adds r2, r0, #0
 	ldrh r1, [r4]
 	movs r0, #0x10
@@ -3360,7 +3360,7 @@ sub_080C4618: @ 0x080C4618
 	lsls r5, r5, #0x10
 	lsrs r5, r5, #0x10
 	mov r0, r8
-	bl sub_080D95F4
+	bl Char_GetRecord
 	adds r4, r0, #0
 	mov r0, sb
 	mov r1, r8
@@ -3378,7 +3378,7 @@ sub_080C4618: @ 0x080C4618
 	cmp r0, #0
 	bne .L080C4730
 	mov r0, r8
-	bl sub_080D95F4
+	bl Char_GetRecord
 	ldr r5, [r0, #0x24]
 	ldr r0, .L080C4684
 	cmp r8, r0

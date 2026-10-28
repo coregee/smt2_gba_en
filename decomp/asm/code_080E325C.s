@@ -2456,8 +2456,8 @@ DummyFunc: @ 0x080E4448
 	bx lr
 	.byte 0x00, 0x00
 
-	thumb_func_start sub_080E444C
-sub_080E444C: @ 0x080E444C
+	thumb_func_start Demon_GetGfxRecord
+Demon_GetGfxRecord: @ 0x080E444C
 .L080E444C:
 	push {lr}
 	lsls r0, r0, #0x10
@@ -2492,7 +2492,7 @@ sub_080E444C: @ 0x080E444C
 	ldr r1, .L080E4494
 	adds r0, r0, r1
 	b .L080E449A
-.L080E4494: .4byte gUnknown_0872C774
+.L080E4494: .4byte gDemonGfxRecords
 .L080E4498:
 	ldr r0, .L080E44A0
 .L080E449A:

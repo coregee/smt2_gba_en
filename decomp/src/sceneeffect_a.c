@@ -102,12 +102,12 @@ void sub_080BA3DC(void)
     gUnk_0300003A = 0x3F;
 }
 
-// sub_080BA408 @ 0x080BA408
-void sub_080BA408(struct Task *task)
+// Elevator_Init @ 0x080BA408
+void Elevator_Init(struct Task *task)
 {
     struct ElevatorData *d = (struct ElevatorData *)task->data.raw;
-    struct MapHeader *from = sub_080C8B10(gUnk_03004614, d->floors[d->from]);
-    struct MapHeader *to = sub_080C8B10(gUnk_03004614, d->floors[d->to]);
+    struct MapHeader *from = DungeonMap_GetFloor(gUnk_03004614, d->floors[d->from]);
+    struct MapHeader *to = DungeonMap_GetFloor(gUnk_03004614, d->floors[d->to]);
     s16 b = to->unk06;
     s16 a = from->unk06;
     u16 x, y;
@@ -127,9 +127,9 @@ void sub_080BA408(struct Task *task)
         d->dist = (b - a) * 0xA8;
 }
 
-// sub_080BA4C4 @ 0x080BA4C4
+// Elevator_SetScroll @ 0x080BA4C4
 #ifdef NONMATCHING
-void sub_080BA4C4(struct Task *task)
+void Elevator_SetScroll(struct Task *task)
 {
     struct ElevatorData *d = (struct ElevatorData *)task->data.raw;
     u16 x, y;
@@ -142,7 +142,7 @@ void sub_080BA4C4(struct Task *task)
 }
 #else
 NAKED
-void sub_080BA4C4(struct Task *task)
+void Elevator_SetScroll(struct Task *task)
 {
     asm_unified(
         ".L080BA4C4:\n"
@@ -206,8 +206,8 @@ void sub_080BA4C4(struct Task *task)
 }
 #endif
 
-// sub_080BA538 @ 0x080BA538
-void sub_080BA538(struct Task *task)
+// Elevator_Accelerate @ 0x080BA538
+void Elevator_Accelerate(struct Task *task)
 {
     struct ElevatorData *d = (struct ElevatorData *)task->data.raw;
 
@@ -215,24 +215,24 @@ void sub_080BA538(struct Task *task)
     if ((d->speed.full += 0x1000) >> 16 > 8)
         task->result = 1;
     d->pos = d->speed.part.whole + d->pos;
-    sub_080BA4C4(task);
+    Elevator_SetScroll(task);
 }
 
-// sub_080BA56C @ 0x080BA56C
-void sub_080BA56C(struct Task *task)
+// Elevator_Cruise @ 0x080BA56C
+void Elevator_Cruise(struct Task *task)
 {
     struct ElevatorData *d = (struct ElevatorData *)task->data.raw;
 
     task->result = 0;
     d->pos = d->speed.part.whole + d->pos;
-    sub_080BA4C4(task);
+    Elevator_SetScroll(task);
     if (d->pos > d->dist - (d->dist >> 4))
         task->result = 1;
 }
 
-// sub_080BA59C @ 0x080BA59C
+// Elevator_Decelerate @ 0x080BA59C
 #ifdef NONMATCHING
-void sub_080BA59C(struct Task *task)
+void Elevator_Decelerate(struct Task *task)
 {
     struct ElevatorData *d = (struct ElevatorData *)task->data.raw;
 
@@ -244,11 +244,11 @@ void sub_080BA59C(struct Task *task)
         d->pos = d->dist;
         task->result = 1;
     }
-    sub_080BA4C4(task);
+    Elevator_SetScroll(task);
 }
 #else
 NAKED
-void sub_080BA59C(struct Task *task)
+void Elevator_Decelerate(struct Task *task)
 {
     asm_unified(
         "    push {r4, lr}\n"
@@ -279,7 +279,7 @@ void sub_080BA59C(struct Task *task)
         "    strh r0, [r3, #0x1c]\n"
         ".L080BA5CE:\n"
         "    adds r0, r3, #0\n"
-        "    bl sub_080BA4C4\n"
+        "    bl Elevator_SetScroll\n"
         "    pop {r4}\n"
         "    pop {r0}\n"
         "    bx r0\n"

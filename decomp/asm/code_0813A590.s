@@ -404,7 +404,7 @@ ScriptOp_43B: @ 0x0813A8B8
 	strh r0, [r1]
 	movs r0, #1
 	movs r1, #1
-	bl sub_080BA8D8
+	bl SceneEffect_Start
 	ldr r1, .L0813A8E0
 	movs r0, #0x4a
 	strh r0, [r1]

@@ -106,7 +106,7 @@ void sub_080BB5E8(struct Task *task, u32 id)
 {
     struct AffineEffect *d = (struct AffineEffect *)task->data.raw;
 
-    d->wait = (u16 *)sub_080B6DB4(id);
+    d->wait = (u16 *)BgPicture_StartTask(id);
 }
 
 // sub_080BB5FC @ 0x080BB5FC
@@ -157,7 +157,7 @@ void sub_080BB6E0(struct Task *task, u32 id)
 {
     struct AffineEffect2 *d = (struct AffineEffect2 *)task->data.raw;
 
-    d->wait = (u16 *)sub_080B6DB4(id);
+    d->wait = (u16 *)BgPicture_StartTask(id);
 }
 
 // sub_080BB6F4 @ 0x080BB6F4

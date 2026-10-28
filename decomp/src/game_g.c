@@ -44,7 +44,7 @@ void sub_080B366C(void)
 // sub_080B36B4 @ 0x080B36B4
 void sub_080B36B4(u8 *task)
 {
-    struct MapHeader *map = sub_080C8B10(gUnk_03004614, gUnk_03004514);
+    struct MapHeader *map = DungeonMap_GetFloor(gUnk_03004614, gUnk_03004514);
     u32 *rec;
     u16 r;
     u16 *pal;
