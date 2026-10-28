@@ -184,7 +184,7 @@ void BattleSprite_DmaBank0(void);
 void BattleSprite_DmaBank1(void);
 
 void sub_080EA210(void);
-u32 sub_080ED954(void);
+u32 Battle_IsTwoSided(void);
 u32 sub_080EDA24(u32 i);
 u32 sub_080ED9F4(void);
 void sub_080C84A0(void);
@@ -195,7 +195,7 @@ u32 sub_080ED8F4(void);
 void sub_080C700C(void);
 void sub_080C7054(void);
 s32 sub_080EFA9C(void);
-s16 sub_080EF99C(void);
+s16 Battle_ActiveSide(void);
 void sub_080E5A18(u32 a);
 void sub_080E5A3C(void);
 void sub_0813EB84(u16 a, u16 b);
@@ -285,7 +285,7 @@ u16 sub_08131AB0(s16 a, u16 item);
 s32 sub_080CDB74(s16 a, u8 item);
 u8 *Action_GetRecord(u16 id);
 u8 *Equipment_GetRecord36_MidRange(u16 id);
-u8 *sub_080BF32C(u16 id);
+u8 *Item_GetRecord(u16 id);
 
 extern u16 gUnk_030065F8;
 extern u16 gUnk_0203DB62;

@@ -1,10 +1,10 @@
 #include "global.h"
 #include "extras.h"
 
-// sub_080DECEC @ 0x080DECEC
-void sub_080DECEC(void)
+// Mini_UpdateBg2Affine @ 0x080DECEC
+void Mini_UpdateBg2Affine(void)
 {
-    VBlankTask_AddCounted(sub_080DEDD8, 1);
+    VBlankTask_AddCounted(Mini_UploadBg2Affine, 1);
     gC0d9Bg.unk08 = FixedMul8(gSineTable[gC0d9Bg.unk1C + 0x40], FixedInverse8(gC0d9Bg.unk1E));
     gC0d9Bg.unk0A = FixedMul8(gSineTable[gC0d9Bg.unk1C], FixedInverse8(gC0d9Bg.unk1E));
     gC0d9Bg.unk0C = FixedMul8(-gSineTable[gC0d9Bg.unk1C], FixedInverse8(gC0d9Bg.unk20));
@@ -14,9 +14,9 @@ void sub_080DECEC(void)
 }
 
 /* VBlank: BG2 affine registers from gC0d9Bg. */
-// sub_080DEDD8 @ 0x080DEDD8
+// Mini_UploadBg2Affine @ 0x080DEDD8
 #ifdef NONMATCHING
-void sub_080DEDD8(void)
+void Mini_UploadBg2Affine(void)
 {
     vu16 *reg = (vu16 *)(REG_BASE + 0x20);
 
@@ -31,7 +31,7 @@ void sub_080DEDD8(void)
 }
 #else
 NAKED
-void sub_080DEDD8(void)
+void Mini_UploadBg2Affine(void)
 {
     asm_unified(
         "    ldr r1, .L080DEE14\n"
@@ -73,8 +73,8 @@ void sub_080DEDD8(void)
 
 /* Link cable: serial setup in normal mode and copies of the serial/timer interrupt
    handlers into IWRAM. */
-// sub_080DEE20 @ 0x080DEE20
-void sub_080DEE20(void)
+// Link_InitSerial @ 0x080DEE20
+void Link_InitSerial(void)
 {
     u32 zero;
     u8 *link;

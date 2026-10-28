@@ -253,7 +253,7 @@ u16 Settings_GetBattleMsgSpeed(void);
 u16 sub_080C2AFC(void);
 void ScriptVM_SaveFlags(void);
 void ScriptVM_RestoreState(void);
-u8 *sub_080BF648(u16);
+u8 *Demon_GetRecord(u16);
 s32 sub_080C09B0(u16);
 u16 sub_08134C3C(u16);
 u16 sub_0813E804(u16);

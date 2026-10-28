@@ -21,7 +21,7 @@ sub_080DC6D0: @ 0x080DC6D0
 	bl sub_080DC6C8
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r7, r0, #0
 	adds r1, r7, #0
 	adds r1, #0x11

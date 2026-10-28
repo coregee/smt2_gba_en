@@ -2186,13 +2186,13 @@ sub_08159438: @ 0x08159438
 	movs r4, #0xff
 	ands r4, r5
 	adds r0, r4, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0, #1]
 	cmp r0, r7
 	blo .L0815949C
 .L0815946E:
 	adds r0, r4, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0, #1]
 	cmp r0, r7
 	beq .L08159488
@@ -4627,7 +4627,7 @@ sub_0815A6F0: @ 0x0815A6F0
 	adds r0, #0xa0
 	ldrh r7, [r0]
 	adds r0, r7, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r1, [r0, #0x1e]
 	movs r0, #0xf
 	ands r0, r1
@@ -4674,7 +4674,7 @@ sub_0815A6F0: @ 0x0815A6F0
 .L0815A760:
 	adds r0, r7, #0
 	str r3, [sp]
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r0, #0x11
 	adds r0, r0, r6
 	ldrb r0, [r0]
@@ -5270,7 +5270,7 @@ sub_0815ABA8: @ 0x0815ABA8
 .L0815ABC4:
 	movs r0, #0xff
 	ands r0, r4
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r1, [r0, #0x1e]
 	ldr r0, .L0815ABE8
 	adds r0, #0x80
@@ -6237,7 +6237,7 @@ sub_0815B260: @ 0x0815B260
 .L0815B2F4:
 	ldrh r4, [r7]
 	adds r0, r4, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	movs r3, #0xff
 	mov sl, r3
 	ldrb r2, [r0, #1]
@@ -6923,7 +6923,7 @@ sub_0815B824: @ 0x0815B824
 	push {lr}
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r0, #0x21
 	ldrb r2, [r0]
 	ldr r1, .L0815B858
@@ -7095,7 +7095,7 @@ sub_0815B958: @ 0x0815B958
 	push {lr}
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0, #0xc]
 	bl sub_0815B970
 	lsls r0, r0, #0x10
@@ -7144,7 +7144,7 @@ sub_0815B9A0: @ 0x0815B9A0
 	lsls r0, r0, #0x10
 	ands r0, r1
 	lsrs r0, r0, #0x10
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0, #1]
 	pop {r1}
 	bx r1

@@ -262,7 +262,7 @@ void Sprite_Draw(const void *def, u16 layer, u16 palette, u16 priority, u16 tile
 extern u32 gUnk_0300461C;
 extern const u8 gUnknown_08002CAC[], gUnknown_08002C88[], gUnknown_08002C70[], gUnknown_08002D78[], gUnknown_08002DAC[], gUnknown_08002DE8[], gUnknown_08002E24[];
 extern const u8 gUnknown_08160A0C[][0x20], gUnknown_08160E0C[][0x20], gUnknown_0816120C[][0x20], gUnknown_0816160C[][0x20], gUnknown_08161A0C[][0x20], gUnknown_08161E0C[][0x20];
-s32 sub_080B9750(void);
+s32 FieldMap_GetElevatorRecord(void);
 
 /* Save data at 0x030046C0 (only the fields used here; see menu.h/field.h). */
 struct GameState

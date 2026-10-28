@@ -30,8 +30,8 @@ void sub_080DAB04(struct Task *task)
 }
 
 /* Sets the vision flags (300 + i) received in gMenuState.flags and saves. */
-// sub_080DAB28 @ 0x080DAB28
-void sub_080DAB28(void)
+// Vision_ApplyReceivedFlags @ 0x080DAB28
+void Vision_ApplyReceivedFlags(void)
 {
     struct C0d9MenuState *ms = &gMenuState;
     u8 *flags = ms->flags;
@@ -55,7 +55,7 @@ void sub_080DAB88(void)
 {
     union C0d9Code *code = (union C0d9Code *)gUnk_03004740;
 
-    sub_080DABCC(1);
+    Vision_BuildList(1);
     sub_080AE2D0();
     if (code->w[0] == 0 && code->w[1] == 0)
     {
@@ -72,9 +72,9 @@ void sub_080DAB88(void)
 
 /* Fills gUnk_0203B454 with vision ids (300..): mode 0 the ones seen, otherwise all except
    310, 338 and 342. Returns the count. */
-// sub_080DABCC @ 0x080DABCC
+// Vision_BuildList @ 0x080DABCC
 #ifdef NONMATCHING
-u16 sub_080DABCC(u32 all)
+u16 Vision_BuildList(u32 all)
 {
     u16 *list = gUnk_0203B454;
     u32 n = 0;
@@ -112,7 +112,7 @@ u16 sub_080DABCC(u32 all)
 }
 #else
 NAKED
-u16 sub_080DABCC(u32 all)
+u16 Vision_BuildList(u32 all)
 {
     asm_unified(
         ".L080DABCC:\n"
@@ -186,8 +186,8 @@ u16 sub_080DABCC(u32 all)
 }
 #endif
 
-// sub_080DAC4C @ 0x080DAC4C
-u32 sub_080DAC4C(void)
+// Vision_CountListed @ 0x080DAC4C
+u32 Vision_CountListed(void)
 {
     u32 n = 0;
     u32 i;
@@ -208,7 +208,7 @@ void sub_080DAC70(struct Task *task)
     struct C0d9Menu *d = (struct C0d9Menu *)&task->data;
     struct C0d9MenuState *ms = &gMenuState;
     u16 *list = gUnk_0203B454;
-    u16 count = sub_080DAC4C();
+    u16 count = Vision_CountListed();
     u16 rows;
 
     ms->listTask = task;
@@ -322,7 +322,7 @@ void sub_080DAC70(struct Task *task)
         "    ldr r4, .L080DACDC\n"
         "    ldr r0, .L080DACE0\n"
         "    mov r8, r0\n"
-        "    bl sub_080DAC4C\n"
+        "    bl Vision_CountListed\n"
         "    lsls r0, r0, #0x10\n"
         "    lsrs r7, r0, #0x10\n"
         "    movs r1, #0\n"
@@ -529,7 +529,7 @@ void sub_080DAC70(struct Task *task)
 void Vision_DrawItemList(struct Task *task)
 {
     struct C0d9Menu *d = (struct C0d9Menu *)&task->data;
-    u16 count = sub_080DAC4C();
+    u16 count = Vision_CountListed();
     u16 x = 0x6C;
     u16 y = 0x10;
     u32 row, i, n;
@@ -556,7 +556,7 @@ void Vision_DrawItemList(struct Task *task)
         if (sub_080C2734(i + 300))
             n++;
     }
-    sub_080DA764(n, 43, x + 0x25, y + 0x5A);
+    Sprite_DrawFraction(n, 43, x + 0x25, y + 0x5A);
     if (d->unk02 != 0)
         sub_080C4A4C(6, 1, x + 0x60, y - 4);
     if (d->unk02 + 6 <= count - 1)
@@ -576,7 +576,7 @@ void Vision_DrawItemList(struct Task *task)
         "    adds r4, r0, #0\n"
         "    adds r0, #0x24\n"
         "    str r0, [sp, #0xc]\n"
-        "    bl sub_080DAC4C\n"
+        "    bl Vision_CountListed\n"
         "    lsls r0, r0, #0x10\n"
         "    lsrs r0, r0, #0x10\n"
         "    str r0, [sp, #0x10]\n"
@@ -697,7 +697,7 @@ void Vision_DrawItemList(struct Task *task)
         "    mov r3, sb\n"
         "    adds r0, r4, #0\n"
         "    movs r1, #0x2b\n"
-        "    bl sub_080DA764\n"
+        "    bl Sprite_DrawFraction\n"
         "    ldr r1, [sp, #0xc]\n"
         "    ldrh r0, [r1, #2]\n"
         "    cmp r0, #0\n"

@@ -334,6 +334,18 @@ address	name	kind	confidence	note
 080B86B0	Spring_HealMember	func	probable	heals party slot by the spring kind: 0 HP/4, 1 HP/2 (slots 0-2), 2 cure status 4 (slots 0-2), 3 cure status 2 (slots 3+)
 080B8994	Treasure_StartTask	func	probable	creates task gUnknown_08164AD4 with the treasure record in data+0 (called from the step handler with record type 0x14)
 080B968C	Location_GetNameCellFromCoords	func	tentative	from translation patches (lost Ghidra session); verify
+080B9710	Elevator_GetFloorTable	func	probable	returns gUnknown_081655F8[menu->tableId] ({u16 count; {u16 map, floor}[]}); menu data matches the elevator task (Elevator_Init data layout)
+080B9720	Elevator_GetFloorRef	func	probable	&table->floors[i] (table + 2 + i*4)
+080B9738	Elevator_GetFloor	func	probable	DungeonMap_GetFloor of floor i of the elevator table
+080B9750	FieldMap_GetElevatorRecord	func	probable	FieldMap_FindRecord(FieldMap_CellRecordsRel(0, 0), 3); record [1] picks the elevator script (sub_080BA070), [2] the floor list
+080B98DC	Elevator_GetFloorCount	func	probable	table count when useTable, else the built list count (d+0x1C)
+080B98F8	Elevator_SetCursorToCurrentFloor	func	probable	cursor = index of DungeonMap_GetFloor(current map, floor) in the table, else d+0x1E
+080B9A4C	Elevator_DrawFloorLabel	func	probable	draws <n>F / B<n>F (MapHeader+6 < 0) for menu row; y = count*13 - (row*13 + 10)
+080B9BA4	Elevator_DrawMenu	func	probable	draws every floor label of the elevator menu and gUnknown_08165654
+080B9C74	Elevator_HandleInput	func	probable	A/B set task->unk1E 1/2 (se 0x65/0x66); up/down move the cursor (se 0x64); draws the cursor sprite
+080B9D18	Elevator_MoveToSelectedFloor	func	probable	switches 0x03004614/0x03004514 to the selected floor, reloads the map (sub_080AE234/294, sub_080B31C4); result 0 when already there
+080B9F78	Elevator_BuildFloorList	func	probable	scans every floor of the current map for type-3 records with the same id (rec[2]) and lists their floor numbers
+080BA070	Elevator_Start	func	probable	creates the elevator task (gUnknown_08165694 or gUnknown_08173594) in 0x03003FEC from the cell's type-3 record, Field_SetState(0x1A)
 080BA408	Elevator_Init	func	probable	probable: from the floor list (data+0x20, indices data+0x08/0x0C) and sub_080C8B10 map headers computes the travel distance |y0-y1|*0xA8 into data+0x3A and clears speed/position
 080BA4C4	Elevator_SetScroll	func	probable	probable: sets the BG3 V-offset shadow 0x0300000E from the travelled distance mod 0xA8, direction from the floor order (or the special cell 0x40,0x0C)
 080BA538	Elevator_Accelerate	func	probable	probable: speed (16.16 at data+0x34) += 0x1000 until > 8, position += speed, task result 1 when done
@@ -345,9 +357,30 @@ address	name	kind	confidence	note
 080BA958	SceneEffect_End	func	probable	(set, id): ScriptOp_407; for set 0 / id 2 copies the task's data.h[0] to the BG3 V-offset shadow 0x0300000E (and queues sub_080B2880 unless bit 15 of 0x0200AB04), then SceneEffect_Stop
 080BC230	Char_FindById	func	probable	(id): first of the 6 tasks in gCharTasks (0x02036094) whose character id (+0x2A) is id, else NULL
 080BC260	Char_EndById	func	probable	(task, id): sub_080C48F0(Char_FindById(id), 0) when found (probable: sub_080C48F0 ends a character task, see Char_StepAnim)
+080BDA38	Wave_VBlank	func	probable	enables the HBlank IRQ (REG_IE |= 2, DISPSTAT |= 0x10) and advances gFieldState.unk52 every other frame
+080BDA7C	Wave_Disable	func	probable	clears the HBlank IRQ bits and restores gIntrTable[1] = IntrDummy
+080BDAB0	Wave_HBlank	func	probable	HBlank handler: BG3HOFS/BG1HOFS = gSineTable[((phase + VCOUNT) * 4) & 0xFF] / 32 for lines < 100
+080BDB24	Wave_Start	func	probable	installs Wave_HBlank as gIntrTable[1] and queues Wave_VBlank
+080BDB44	Wave_Stop	func	probable	queues Wave_Disable
+080BDB58	Wave_Update	func	probable	starts/stops the wave effect to follow flag 0x108 (state gFieldState.unk50)
+080BE70C	Door_FindAtPlayer	func	probable	searches gUnknown_08198278 {x, y|facing<<6, kind, id} (0xFF-terminated) for the player's cell and facing
+080BE76C	Door_TryOpen	func	probable	kind 1/2 run gUnknown_08198554/08198648, kind 3 (keypad) gUnknown_08198328 unless flag 0x110+id; Field_SetState(0x1A)
+080BE800	Door_CheckKeypadCode	func	probable	compares NumberToDigits(gYesNoResult) with the 4 code digits gUnknown_081982FD[id*4]; sets flag 0x110+id; 3rd failure gives 2
+080BE8B4	Door_CheckStat	func	probable	passes when leader stat (kind>>4) >= id, message gUnknown_08002EFE or gUnknown_0819853C[stat]
+080BE968	Door_CheckAlignment	func	probable	leader alignment (+0x58) < 0x7000 / < 0x9000 / else must match kind bit 6/4/5
 080BEA60	Status_ShowAfflictionMessage	func	tentative	from translation patches (lost Ghidra session); verify
+080BED60	RandomEvent_CheckCell	func	probable	cell/facing table gUnknown_08198978 (48 entries); picks gFieldState.unk62 with sub_080BECCC once flag 0x16 is set
+080BEE24	RandomEvent_Try	func	probable	runs gUnknown_08198A98[gFieldState.unk62] through ScriptVM_RunAlt and starts it (sub_080AF178(0xC)) when it returns 1 or 2
+080BF0C0	Field_WarpToWorldPos	func	probable	finds the map/sub-map whose rectangle (+8..+0xE) holds world (x, y), sets map, floor, position and facing, reloads
+080BF32C	Item_GetRecord	func	probable	36-byte records gUnknown_08198B74 (id & 0xFF when bit 15 set); same table as Equipment_GetRecord36_MidRange
 080BF354	Equipment_GetRecord36_MidRange	func	tentative	from translation patches (lost Ghidra session); verify
+080BF37C	Item_DrawName	func	probable	draws the name (record +0x14, skills Action_GetRecord +0xC) of item/equipment/skill id, at most 8 glyphs
 080BF418	Action_GetRecord	func	tentative	from translation patches (lost Ghidra session); verify
+080BF43C	Bcd_Unpack3	func	probable	unpacks 3 BCD bytes into 6 digit bytes
+080BF468	Item_GetAttribute	func	probable	switch on field over the item/equipment/skill records, -1 for unknown fields, field 5 = Bcd_Unpack3
+080BF648	Demon_GetRecord	func	probable	96-byte records gUnknown_0819CB74; ids 0x106/0x108/0x109/0x10C/0x10E get the combatant's name in a copy at 0x03005FC0
+080BF6D4	Demon_DrawName	func	probable	draws Demon_GetRecord(id)->name (+0x22), at most 8 glyphs
+080BF748	Party_InitMember	func	probable	clears the 0x80-byte combatant, copies gUnknown_081A5A00[who], stats fixed (who 0) or one of 4 random sets, level/exp words
 080C0344	Combatant_DecodeName	func	tentative	from translation patches (lost Ghidra session); verify
 080C068C	Race_GetName	func	tentative	from translation patches (lost Ghidra session); verify
 080C069C	ParentRace_GetName	func	tentative	from translation patches (lost Ghidra session); verify
@@ -440,10 +473,23 @@ address	name	kind	confidence	note
 080D8384	Char_DrawPartyDemon	func	probable	draws the demon loaded by Char_LoadPartyDemonGfx, alternating cells record+8 -> +4 [0]/[2] every 16 frames
 080D878C	Char_FindOther	func	probable	(self, id): first task of the 6-entry table 0x02036094 other than self whose character id (+0x2A) is id, else NULL
 080D95F4	Char_GetRecord	func	probable	returns 0x08568D78 + id*0x2C (event character sprite records)
+080DA1B4	ExtraMenu_BuildRows	func	probable	fills task data +0x24.. with the extra-menu row ids (1 if an SRAM word sub_080C2A84(0..2) is 1, 2 if any of 0x17C demon flags sub_080C2644, 3 if any vision flag sub_080C2734(300..363), 4 as 1, always 5) and stores the count at +0x2B
+080DA764	Sprite_DrawFraction	func	probable	"draws ""a/b"" with sprite digits (NumberToDigits, gUnknown_08582410 digit sprites, gUnknown_08008F68 slash) at (x, y), 1-3 digits each"
+080DAB28	Vision_ApplyReceivedFlags	func	probable	for each set bit i of gMenuState+0x38 (64 bits) sets vision flag 300+i (sub_080C32D4/sub_080C3328) then SaveSlot_Write(gGameState.+0x18B0, &gGameState); gMenuState+0x34 must hold 0x13240800 (sub_080DAB04)
+080DABCC	Vision_BuildList	func	probable	clears gUnk_0203B454 (64 u16) and fills it with vision ids 300+: mode 0 those with sub_080C2734 set, otherwise 300..345 except 310/338/342; returns the count
+080DAC4C	Vision_CountListed	func	probable	counts the nonzero entries of the 64-entry list gUnk_0203B454
 080DADF8	Vision_DrawItemList	func	tentative	from translation patches (lost Ghidra session); verify
 080DAF50	Vision_ComposePrompt	func	tentative	from translation patches (lost Ghidra session); verify
 080DB2C0	DDS_DrawMenuRow	func	tentative	from translation patches (lost Ghidra session); verify
+080DB394	Dict_ApplyReceivedEntries	func	probable	for each set bit i (0..0x17B) of gMenuState+0x38 calls sub_080C2674(i), then saves like Vision_ApplyReceivedFlags; magic 0x10570010 (sub_080DB370)
 080DB4A8	Dict_BuildList	func	tentative	from translation patches (lost Ghidra session); verify
+080DB8A4	Dict_CountListed	func	probable	counts entries != 0xFFFF in the 0x17C-entry compendium list gUnk_0203B554 built by Dict_BuildList
+080DD21C	Dict_GetMapScript	func	probable	returns the event script of gUnknown_08583E84[id] (0x14-byte records: script, two marker positions) for id <= 0x17B, else NULL; the script is run by sub_080DCE4C via sub_080AF218(0x24, ...)
+080DDE2C	Cards_Deal	func	probable	fills 27 bytes at task data +0x15 with 1..27, shuffled with sub_080C2244 when data[4] == 1, and stores at data[0x14] the position of card data[2]
+080DE680	Mini_ZoomBg2Affine	func	probable	as Mini_UpdateBg2Affine after adding the step +0x28 to both scales; stops at 0x100
+080DECEC	Mini_UpdateBg2Affine	func	probable	computes the BG2 rotation/scaling (gSineTable, FixedMul8/FixedInverse8) from angle +0x1C, scale +0x1E/+0x20 and centres +0x18/+0x24 of gUnk_020399E0 and queues Mini_UploadBg2Affine
+080DEDD8	Mini_UploadBg2Affine	func	probable	VBlank task: copies PA..PD and the 28-bit BG2X/BG2Y from gUnk_020399E0+8..+0x17 to REG_BG2PA.. (queued by sub_080DE680/sub_080DECEC)
+080DEE20	Link_InitSerial	func	probable	link cable: disables serial/timer3 IRQs, RCNT=0, SIOCNT=0x2000|0x4003, clears 0x030061C0 (0xF0 bytes), copies arm_08032B7C to 0x030062B0 and SerialTimer3Intr to 0x030060A0, sets up the buffer pointers, re-enables the serial IRQ
 080DF1EC	SerialTimer3Intr	func	proven	IRQ table entries 6-7 (Timer3, Serial): link cable
 080E0A1C	Battle_DrawItemListPage	func	tentative	from translation patches (lost Ghidra session); verify
 080E2364	umul3232H32	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
@@ -576,6 +622,24 @@ address	name	kind	confidence	note
 080ECC30	BattleSprite_DmaBank0	func	probable	DMA3 0x400 words 0x030000B4 -> OBJ VRAM 0x06014000 (queued by sub_080ECC78 with VBlankTask_AddCounted)
 080ECC54	BattleSprite_DmaBank1	func	probable	DMA3 0x400 words 0x030010B4 -> OBJ VRAM 0x06015000
 080ECCB0	BattleSprite_Animate	func	probable	steps the frame list (8-byte entries: sprite, duration, loop-back; -1 ends, duration 0x100 loops back) of the sprite at 0x0203D360 and draws it with Sprite_DrawPlain; id 0xD2 also cycles OBJ palette 12 colors 1-15
+080ED7BC	BattleState_Init	func	probable	points gUnk_03006434 at 0x0203D16C and gUnk_03006438 at 0x0203D328, zero-fills 0x1A0 bytes with CpuSet, sets per-side counters to 8
+080ED954	Battle_IsTwoSided	func	probable	returns BattleState+6 != 0; callers then split enemies into slots 0x10-0x13 / 0x14-0x17 (sub_080ED990, sub_080EDA24)
+080ED9AC	Battle_CountLivingUnits	func	probable	counts BFLOW units[first..first+count) with +0xE != 0 and !(+0x10 & 0x8000)
+080EDB6C	Battle_SortEntriesInsertion	func	probable	insertion sort of {u16 id; s16 key} entries by ascending key
+080EDBCC	Battle_SortEntriesQuick	func	probable	quicksort with explicit 32-entry stack, leaves runs of <=10 then calls sub_080EDB6C
+080EDD1C	Battle_RollSpeed	func	probable	(s8 agility at +0x44 or 60 when +0x10 & 0x800)*2 + level bonus (sub_080C1F94) + rand&15 (+ luck roll for kind 7); used as -key in sub_080EDD8C
+080EDD8C	Battle_BuildActionOrder	func	probable	fills BattleState+0xC with living party members and enemies keyed by -sub_080EDD1C, 0xFFFF end mark, sorts with sub_080EDB6C
+080EE10C	Battle_BuildTargetList	func	probable	fills BattleState+0x130 with target ids (0xFFFF end mark); random keys sorted with sub_080EDB6C
+080EE6BC	Battle_FinishDamage	func	probable	race/luck table gUnknown_0876F6CA, critical x3/x2 (records kind in BFLOW+0x11B0), halving for defender kind 9, random cut of up to 31/128, minimum 1, 0 when defender +0x10 & 0x4000
+080EE864	Battle_PhysicalDamage	func	probable	attack stat (+0x48 / +0x4C) * modifier table / defence (+0x50) then sub_080EE6BC; may set a weapon ailment via sub_080EDA7C
+080EE9F8	Battle_SkillDamage	func	probable	skill ids <=0x67 and 0x9B-0x9C use magic stats (+0x54) with defence term capped at 255, others call sub_080EE864; result in action+0x18
+080EEEE8	Battle_ApplyAffinity	func	probable	scales damage by affinity code from sub_080F3F90: 12/14 halve, 13/15 unchanged, <=8 v*aff/8, 9-11 x1.5/x2/x2.5
+080EF148	Battle_RemoveDefeated	func	probable	kills combatant; for an enemy with arg 1 adds sub_080EF494 to each party member's BattleState+0x68[i] and sub_080EF538/sub_080EF580 to +0x4C/+0x50
+080EF740	Battle_CanUseCommand	func	probable	per command kind 4-12 checks equipment/skills/flag 3; writes the refusal message id (0x162, 0x165, 0x8F, 0x90, 0x393, sub_080F3190) through the third argument and returns 0
+080EF99C	Battle_ActiveSide	func	probable	returns BattleState+0x122, flipping it in two-sided battles to the side whose combatant equals gUnk_0203DB7C; indexes the per-side arrays at +0x128/+0x12C
+080EFC1C	Battle_AddModifierClamped	func	probable	adds to BattleState+0x78 row/slot (sub_080ED8C0 index), clamps to the s8 pair at gUnknown_0876F7CE[row], returns 1 when clamped
+080F0200	Battle_InitEnemyUnit	func	probable	clears BFLOW unit slot (0x80 bytes) and fills it from demon record sub_080BF648(id): level, HP/MP, stats, skills
+080F24F0	Combatant_AddHp	func	probable	adds the argument to the s16 at Battle_GetCombatant(who)+0x18 (HP, as in vm_wait.c) and returns it
 080F2F64	Battle_GetCombatant	func	probable	callers read +0xC (<4 = human: Combatant_DecodeName) and +0x12 (demon id for sub_080BF648) from the returned record
 080F3254	Skill_DrawEquippedRow	func	tentative	from translation patches (lost Ghidra session); verify
 081289B8	Menu_DrawLabeledName	func	tentative	from translation patches (lost Ghidra session); verify

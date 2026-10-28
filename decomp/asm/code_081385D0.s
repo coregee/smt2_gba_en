@@ -1573,7 +1573,7 @@ CasinoPrize_DrawList: @ 0x0813914C
 	b .L08139266
 .L08139260:
 	adds r0, r2, #0
-	bl sub_080BF32C
+	bl Item_GetRecord
 .L08139266:
 	adds r2, r0, #0
 	adds r2, #0x14

@@ -105,7 +105,7 @@ sub_080DBA1C: @ 0x080DBA1C
 	strh r0, [r6, #0x24]
 	b .L080DBC0E
 .L080DBAD8:
-	bl sub_080DB8A4
+	bl Dict_CountListed
 	lsls r0, r0, #0x10
 	lsrs r5, r0, #0x10
 	ldr r0, .L080DBB34

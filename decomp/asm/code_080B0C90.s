@@ -632,7 +632,7 @@ gUnknown_080B0EB0:
 .L080B1214:
 	movs r0, #1
 	bl Field_SetState
-	bl sub_080BE76C
+	bl Door_TryOpen
 	cmp r0, #1
 	beq .L080B1226
 	bl .L080B1A06

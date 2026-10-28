@@ -2,8 +2,8 @@
 #include "extras.h"
 
 /* Number of entries in the compendium list (0xFFFF = none). */
-// sub_080DB8A4 @ 0x080DB8A4
-u32 sub_080DB8A4(void)
+// Dict_CountListed @ 0x080DB8A4
+u32 Dict_CountListed(void)
 {
     u32 n = 0;
     u32 i;
@@ -34,7 +34,7 @@ u32 sub_080DB8D4(void)
 // sub_080DB920 @ 0x080DB920
 void sub_080DB920(struct Task *task)
 {
-    u32 n = sub_080DB8A4();
+    u32 n = Dict_CountListed();
 
     if (n != 0)
         n = 1;
@@ -46,7 +46,7 @@ void sub_080DB920(struct Task *task)
 void sub_080DB938(void)
 {
     struct C0d9Dict *dict = &gDict;
-    u8 *rec = sub_080BF648(dict->selected);
+    u8 *rec = Demon_GetRecord(dict->selected);
     u16 x = 0x7E;
     u16 y = 7;
     const u16 *name;

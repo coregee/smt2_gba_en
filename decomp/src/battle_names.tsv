@@ -1,0 +1,18 @@
+080ED7BC	BattleState_Init	func	points gUnk_03006434 at 0x0203D16C and gUnk_03006438 at 0x0203D328, zero-fills 0x1A0 bytes with CpuSet, sets per-side counters to 8
+080ED954	Battle_IsTwoSided	func	returns BattleState+6 != 0; callers then split enemies into slots 0x10-0x13 / 0x14-0x17 (sub_080ED990, sub_080EDA24)
+080ED9AC	Battle_CountLivingUnits	func	counts BFLOW units[first..first+count) with +0xE != 0 and !(+0x10 & 0x8000)
+080EDB6C	Battle_SortEntriesInsertion	func	insertion sort of {u16 id; s16 key} entries by ascending key
+080EDBCC	Battle_SortEntriesQuick	func	quicksort with explicit 32-entry stack, leaves runs of <=10 then calls sub_080EDB6C
+080EDD1C	Battle_RollSpeed	func	(s8 agility at +0x44 or 60 when +0x10 & 0x800)*2 + level bonus (sub_080C1F94) + rand&15 (+ luck roll for kind 7); used as -key in sub_080EDD8C
+080EDD8C	Battle_BuildActionOrder	func	fills BattleState+0xC with living party members and enemies keyed by -sub_080EDD1C, 0xFFFF end mark, sorts with sub_080EDB6C
+080EE10C	Battle_BuildTargetList	func	fills BattleState+0x130 with target ids (0xFFFF end mark); random keys sorted with sub_080EDB6C
+080EE6BC	Battle_FinishDamage	func	race/luck table gUnknown_0876F6CA, critical x3/x2 (records kind in BFLOW+0x11B0), halving for defender kind 9, random cut of up to 31/128, minimum 1, 0 when defender +0x10 & 0x4000
+080EE864	Battle_PhysicalDamage	func	attack stat (+0x48 / +0x4C) * modifier table / defence (+0x50) then sub_080EE6BC; may set a weapon ailment via sub_080EDA7C
+080EE9F8	Battle_SkillDamage	func	skill ids <=0x67 and 0x9B-0x9C use magic stats (+0x54) with defence term capped at 255, others call sub_080EE864; result in action+0x18
+080EEEE8	Battle_ApplyAffinity	func	scales damage by affinity code from sub_080F3F90: 12/14 halve, 13/15 unchanged, <=8 v*aff/8, 9-11 x1.5/x2/x2.5
+080EF148	Battle_RemoveDefeated	func	kills combatant; for an enemy with arg 1 adds sub_080EF494 to each party member's BattleState+0x68[i] and sub_080EF538/sub_080EF580 to +0x4C/+0x50
+080EF740	Battle_CanUseCommand	func	per command kind 4-12 checks equipment/skills/flag 3; writes the refusal message id (0x162, 0x165, 0x8F, 0x90, 0x393, sub_080F3190) through the third argument and returns 0
+080EF99C	Battle_ActiveSide	func	returns BattleState+0x122, flipping it in two-sided battles to the side whose combatant equals gUnk_0203DB7C; indexes the per-side arrays at +0x128/+0x12C
+080EFC1C	Battle_AddModifierClamped	func	adds to BattleState+0x78 row/slot (sub_080ED8C0 index), clamps to the s8 pair at gUnknown_0876F7CE[row], returns 1 when clamped
+080F0200	Battle_InitEnemyUnit	func	clears BFLOW unit slot (0x80 bytes) and fills it from demon record sub_080BF648(id): level, HP/MP, stats, skills
+080F24F0	Combatant_AddHp	func	adds the argument to the s16 at Battle_GetCombatant(who)+0x18 (HP, as in vm_wait.c) and returns it

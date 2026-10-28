@@ -29,7 +29,7 @@ void sub_080DB1FC(struct Task *task)
         if (task->unk1E == 1)
         {
             Dict_BuildList(task, 0, 0);
-            if (sub_080DB8A4() == 0)
+            if (Dict_CountListed() == 0)
                 task->unk1E = 3;
             else
             {
@@ -110,8 +110,8 @@ void sub_080DB370(struct Task *task)
 }
 
 /* Registers the received compendium entries (one bit per demon) and saves. */
-// sub_080DB394 @ 0x080DB394
-void sub_080DB394(void)
+// Dict_ApplyReceivedEntries @ 0x080DB394
+void Dict_ApplyReceivedEntries(void)
 {
     struct C0d9MenuState *ms = &gMenuState;
     u8 *flags = ms->flags;

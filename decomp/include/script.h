@@ -121,10 +121,10 @@ extern const u16 gUnknown_0878EF04[];
 
 void Combatant_DecodeName(struct PartySlot *, u16 *);
 struct PartySlot *sub_080C10E4(u16);
-u8 *sub_080BF648(u16);
+u8 *Demon_GetRecord(u16);
 u16 *Race_GetName(u16);
 u8 *sub_080BF5C0(u16);
-u8 *sub_080BF32C(u16);
+u8 *Item_GetRecord(u16);
 u8 *Equipment_GetRecord36_MidRange(u16);
 u8 *Action_GetRecord(u16);
 s32 sub_080C0A00(s16);

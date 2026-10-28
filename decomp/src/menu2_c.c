@@ -7,7 +7,7 @@ void sub_080D3F04(struct Task *task, u32 id, u32 vblank)
 {
     u16 x = 0x8A;
     u16 y = 0xD;
-    u8 *rec = sub_080BF648(id);
+    u8 *rec = Demon_GetRecord(id);
     s32 kind = sub_0815B864(id);
     u32 value = sub_080D45B8(id);
     u32 zero;
@@ -87,7 +87,7 @@ void sub_080D4190(struct Task *task)
         u16 id = gUnk_0203B454[list->top + i];
         if (id != 0)
         {
-            u16 *name = (u16 *)(sub_080BF648(id) + 0x22);
+            u16 *name = (u16 *)(Demon_GetRecord(id) + 0x22);
             for (j = 0; j < 8; j++)
                 FontSprite_DrawGlyph(name[j], 0, 0, x + j * 12, i * 12 + y);
         }

@@ -397,7 +397,7 @@ sub_080F2D4C: @ 0x080F2D4C
 	movs r4, #0
 .L080F2DA8:
 	lsrs r0, r6, #0x10
-	bl sub_080BF648
+	bl Demon_GetRecord
 	lsls r1, r4, #0x10
 	asrs r1, r1, #0x10
 	adds r0, #0x11
@@ -863,7 +863,7 @@ sub_080F30E4: @ 0x080F30E4
 	push {lr}
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0, #0x10]
 	lsls r0, r0, #0x18
 	asrs r0, r0, #0x18
@@ -1342,7 +1342,7 @@ gUnknown_080F3418:
 .L080F3468: .4byte gUnknown_08124A62
 .L080F346C: .4byte 0x0000097E
 .L080F3470:
-	bl sub_080ED954
+	bl Battle_IsTwoSided
 	cmp r0, #0
 	beq .L080F3488
 	ldr r0, .L080F3484
@@ -1400,7 +1400,7 @@ gUnknown_080F3418:
 	ldrh r0, [r1]
 	adds r0, #1
 	strh r0, [r1]
-	bl sub_080ED954
+	bl Battle_IsTwoSided
 	cmp r0, #0
 	beq .L080F350C
 	movs r0, #0
@@ -1936,7 +1936,7 @@ sub_080F390C: @ 0x080F390C
 	adds r4, r4, r1
 	adds r0, r0, r4
 	ldrh r0, [r0]
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r7, r0, #0
 	ldrh r0, [r5]
 	lsls r0, r0, #2
@@ -2336,7 +2336,7 @@ sub_080F3C4C: @ 0x080F3C4C
 	adds r1, r4, r2
 	adds r0, r0, r1
 	ldrh r0, [r0]
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r5, r0, #0
 	add r0, sp, #0xc
 	movs r1, #0
@@ -2820,7 +2820,7 @@ sub_080F3F90: @ 0x080F3F90
 	beq .L080F3FEA
 	movs r1, #7
 	mov r2, sp
-	bl sub_080BF468
+	bl Item_GetAttribute
 	ldr r0, [sp]
 	adds r1, r7, #0
 	bl sub_080ED3D0
@@ -3402,7 +3402,7 @@ sub_080F43E0: @ 0x080F43E0
 	adds r1, r5, #0
 	bl sub_080C0E44
 	adds r4, r0, #0
-	bl sub_080ED954
+	bl Battle_IsTwoSided
 	cmp r0, #0
 	beq .L080F4408
 	movs r0, #0x14
@@ -3648,7 +3648,7 @@ sub_080F4548: @ 0x080F4548
 	adds r0, r1, #0
 	movs r1, #0xa
 	mov r2, sp
-	bl sub_080BF468
+	bl Item_GetAttribute
 	ldr r2, [sp]
 	movs r1, #0xc0
 	ands r1, r2

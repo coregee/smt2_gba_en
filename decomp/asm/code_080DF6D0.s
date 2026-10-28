@@ -2539,7 +2539,7 @@ Battle_DrawItemListPage: @ 0x080E0A1C
 	cmp r5, #0x7f
 	bhi .L080E0B08
 	adds r0, r5, #0
-	bl sub_080BF32C
+	bl Item_GetRecord
 	b .L080E0B12
 .L080E0B04: .4byte 0x0203C4D0 @ EWRAM+0x3C4D0
 .L080E0B08:
@@ -3323,7 +3323,7 @@ sub_080E1030: @ 0x080E1030
 	cmp r1, #0x7f
 	bhi .L080E10E8
 	adds r0, r1, #0
-	bl sub_080BF32C
+	bl Item_GetRecord
 	b .L080E10F2
 	.byte 0x00, 0x00
 .L080E10E4: .4byte 0x0000FFFF
@@ -3800,7 +3800,7 @@ sub_080E13E4: @ 0x080E13E4
 	bl Battle_GetCombatant
 	ldrh r4, [r0, #0x12]
 	adds r0, r4, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r3, r0, #0
 	adds r3, #0x22
 	movs r2, #0
@@ -4163,7 +4163,7 @@ sub_080E1644: @ 0x080E1644
 	cmp r1, r0
 	beq .L080E17D6
 	adds r0, r1, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r3, r0, #0
 	adds r3, #0x22
 	movs r2, #0
@@ -5228,7 +5228,7 @@ sub_080E1C20: @ 0x080E1C20
 	lsls r4, r4, #0x10
 	asrs r4, r4, #0x10
 	adds r0, r5, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0, #1]
 	cmp r4, r0
 	bge .L080E1F52

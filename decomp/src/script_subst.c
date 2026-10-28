@@ -80,7 +80,7 @@ void ScriptOp_Substitute(void)
                 p16 = &gUnk_0203DB7C;
             else
                 p16 = &gUnk_0203DB28[0];
-            src = (u16 *)(sub_080BF648(*p16) + 0x22);
+            src = (u16 *)(Demon_GetRecord(*p16) + 0x22);
             for (i = 0; i < 8; i++)
                 gScriptSubstBuf[i] = *src++;
             break;
@@ -89,14 +89,14 @@ void ScriptOp_Substitute(void)
                 p16 = &gUnk_0203DB7C;
             else
                 p16 = &gUnk_0203DB28[0];
-            src = Race_GetName(*(s8 *)sub_080BF648(*p16));
+            src = Race_GetName(*(s8 *)Demon_GetRecord(*p16));
             for (i = 0; i < 8; i++)
                 gScriptSubstBuf[i] = *src++;
             break;
         case 0x327:
             if (val == 0)
             {
-                src = Race_GetName(*(s8 *)sub_080BF648(gUnk_0203DB28[1]));
+                src = Race_GetName(*(s8 *)Demon_GetRecord(gUnk_0203DB28[1]));
                 for (i = 0; i < 8; i++)
                     gScriptSubstBuf[i] = *src++;
             }
@@ -148,7 +148,7 @@ void ScriptOp_Substitute(void)
             else if (gScriptItemCheckId > 0x7F)
                 src = (u16 *)(Equipment_GetRecord36_MidRange(gScriptItemCheckId) + 0x14);
             else
-                src = (u16 *)(sub_080BF32C(gScriptItemCheckId) + 0x14);
+                src = (u16 *)(Item_GetRecord(gScriptItemCheckId) + 0x14);
             for (i = 0; i < 8; i++)
                 gScriptSubstBuf[i] = *src++;
             break;
@@ -157,7 +157,7 @@ void ScriptOp_Substitute(void)
                 c = gUnk_0203DB7E;
             else
                 c = gUnk_0203DB28[1];
-            src = (u16 *)(sub_080BF648(c) + 0x22);
+            src = (u16 *)(Demon_GetRecord(c) + 0x22);
             for (i = 0; i < 8; i++)
                 gScriptSubstBuf[i] = *src++;
             break;
@@ -487,7 +487,7 @@ void ScriptOp_Substitute(void)
         "    ldr r0, .L08132D40\n"
         ".L08132D16:\n"
         "    ldrh r0, [r0]\n"
-        "    bl sub_080BF648\n"
+        "    bl Demon_GetRecord\n"
         "    adds r3, r0, #0\n"
         "    adds r3, #0x22\n"
         "    movs r6, #0\n"
@@ -522,7 +522,7 @@ void ScriptOp_Substitute(void)
         "    ldr r0, .L08132D94\n"
         ".L08132D5E:\n"
         "    ldrh r0, [r0]\n"
-        "    bl sub_080BF648\n"
+        "    bl Demon_GetRecord\n"
         "    ldrb r0, [r0]\n"
         "    lsls r0, r0, #0x18\n"
         "    asrs r0, r0, #0x18\n"
@@ -554,7 +554,7 @@ void ScriptOp_Substitute(void)
         "    bne .L08132DE0\n"
         "    ldr r0, .L08132DD8\n"
         "    ldrh r0, [r0, #2]\n"
-        "    bl sub_080BF648\n"
+        "    bl Demon_GetRecord\n"
         "    ldrb r0, [r0]\n"
         "    lsls r0, r0, #0x18\n"
         "    asrs r0, r0, #0x18\n"
@@ -754,7 +754,7 @@ void ScriptOp_Substitute(void)
         "    b .L08132F36\n"
         ".L08132F30:\n"
         "    ldrh r0, [r1]\n"
-        "    bl sub_080BF32C\n"
+        "    bl Item_GetRecord\n"
         ".L08132F36:\n"
         "    adds r3, r0, #0\n"
         "    adds r3, #0x14\n"
@@ -793,7 +793,7 @@ void ScriptOp_Substitute(void)
         "    ldr r0, .L08132FA4\n"
         "    ldrh r0, [r0, #2]\n"
         ".L08132F7C:\n"
-        "    bl sub_080BF648\n"
+        "    bl Demon_GetRecord\n"
         "    adds r3, r0, #0\n"
         "    adds r3, #0x22\n"
         "    movs r6, #0\n"

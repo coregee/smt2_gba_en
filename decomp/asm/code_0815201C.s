@@ -5043,21 +5043,21 @@ sub_081546E8: @ 0x081546E8
 	lsls r0, r0, #8
 	bl sub_080C0148
 	adds r0, r4, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0]
 	lsls r0, r0, #0x18
 	asrs r0, r0, #0x18
 	cmp r0, #0x1a
 	ble .L08154734
 	adds r0, r5, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0]
 	lsls r0, r0, #0x18
 	asrs r0, r0, #0x18
 	cmp r0, #0x1a
 	ble .L08154734
 	adds r0, r6, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0]
 	lsls r0, r0, #0x18
 	asrs r0, r0, #0x18
@@ -5124,7 +5124,7 @@ sub_0815473C: @ 0x0815473C
 	ldrb r4, [r2, #0xd]
 	adds r4, #9
 	adds r0, r5, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0, #1]
 	cmp r4, r0
 	bge .L081547C8
@@ -5135,7 +5135,7 @@ sub_0815473C: @ 0x0815473C
 .L081547B4: .4byte 0x0203A454 @ EWRAM+0x3A454
 .L081547B8:
 	adds r0, r5, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	mov r2, r8
 	ldrb r1, [r2, #0xd]
 	ldrb r0, [r0, #1]
@@ -5172,7 +5172,7 @@ sub_081547D8: @ 0x081547D8
 	lsrs r3, r3, #0x10
 	mov sl, r3
 	adds r0, r6, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r5, r0, #0
 	movs r0, #0
 	ldrsb r0, [r5, r0]
@@ -5494,7 +5494,7 @@ sub_08154A38: @ 0x08154A38
 	b .L08154EB0
 .L08154A62:
 	ldrh r0, [r0, #0x12]
-	bl sub_080BF648
+	bl Demon_GetRecord
 	mov sl, r0
 	ldrb r0, [r0]
 	lsls r0, r0, #0x18

@@ -7,7 +7,7 @@
 void sub_080DC2B0(struct Task *task)
 {
     struct C0d9Menu *d = (struct C0d9Menu *)&task->data;
-    u16 count = sub_080DB8A4();
+    u16 count = Dict_CountListed();
     u16 x = 0x54;
     u16 y = 0x10;
     u32 row, i;
@@ -25,7 +25,7 @@ void sub_080DC2B0(struct Task *task)
                 const u16 *name;
 
                 if (sub_080C2644(id))
-                    name = (const u16 *)(sub_080BF648(id) + 0x22);
+                    name = (const u16 *)(Demon_GetRecord(id) + 0x22);
                 else
                     name = gUnknown_0858325A;
                 v &= 0x8000;
@@ -63,7 +63,7 @@ void sub_080DC2B0(struct Task *task)
         "    movs r0, #0x24\n"
         "    adds r0, r0, r4\n"
         "    mov sl, r0\n"
-        "    bl sub_080DB8A4\n"
+        "    bl Dict_CountListed\n"
         "    lsls r0, r0, #0x10\n"
         "    lsrs r6, r0, #0x10\n"
         "    ldr r0, .L080DC338\n"
@@ -114,7 +114,7 @@ void sub_080DC2B0(struct Task *task)
         "    cmp r0, #0\n"
         "    beq .L080DC34C\n"
         "    adds r0, r4, #0\n"
-        "    bl sub_080BF648\n"
+        "    bl Demon_GetRecord\n"
         "    adds r0, #0x22\n"
         "    b .L080DC34E\n"
         "    .byte 0x00, 0x00\n"
@@ -255,7 +255,7 @@ void sub_080DC460(struct Task *task)
 {
     struct C0d9Menu *d = (struct C0d9Menu *)&task->data;
     struct Task *parent = Task_GetParent(task);
-    u16 count = sub_080DB8A4();
+    u16 count = Dict_CountListed();
     u32 moved = 0;
     u16 rows;
 
@@ -369,7 +369,7 @@ void sub_080DC460(struct Task *task)
         "    adds r4, #0x24\n"
         "    bl Task_GetParent\n"
         "    mov r8, r0\n"
-        "    bl sub_080DB8A4\n"
+        "    bl Dict_CountListed\n"
         "    lsls r0, r0, #0x10\n"
         "    lsrs r5, r0, #0x10\n"
         "    movs r7, #0\n"
@@ -564,7 +564,7 @@ void sub_080DC5C8(struct Task *task)
 
     if (dict->unk3E == 1)
     {
-        u16 n = sub_080DB8A4();
+        u16 n = Dict_CountListed();
 
         if (n <= 6)
         {

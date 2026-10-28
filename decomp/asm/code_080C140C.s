@@ -1445,7 +1445,7 @@ sub_080C2000: @ 0x080C2000
 	lsls r4, r4, #0x10
 	asrs r4, r4, #0x10
 	adds r0, r5, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0, #1]
 	cmp r4, r0
 	bgt .L080C2080
@@ -1455,7 +1455,7 @@ sub_080C2000: @ 0x080C2000
 	lsls r4, r4, #0x10
 	asrs r4, r4, #0x10
 	adds r0, r6, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0, #1]
 	cmp r4, r0
 	ble .L080C2084
@@ -2163,7 +2163,7 @@ sub_080C2584: @ 0x080C2584
 	adds r4, r0, #0
 	lsls r0, r4, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080BF648
+	bl Demon_GetRecord
 	cmp r4, #0xff
 	bls .L080C259C
 	adds r0, r4, #0
@@ -2308,7 +2308,7 @@ sub_080C2674: @ 0x080C2674
 	lsls r5, r0, #0x10
 	lsrs r4, r5, #0x10
 	adds r0, r4, #0
-	bl sub_080DD21C
+	bl Dict_GetMapScript
 	cmp r0, #0
 	beq .L080C26A8
 	ldr r0, .L080C26B4
@@ -2579,21 +2579,21 @@ sub_080C287C: @ 0x080C287C
 	lsls r0, r0, #0x10
 	lsrs r4, r0, #0x10
 	adds r0, r4, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0]
 	lsls r0, r0, #0x18
 	asrs r0, r0, #0x18
 	cmp r0, #0x1d
 	beq .L080C28C2
 	adds r0, r4, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0]
 	lsls r0, r0, #0x18
 	asrs r0, r0, #0x18
 	cmp r0, #0x1e
 	beq .L080C28C2
 	adds r0, r4, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0]
 	lsls r0, r0, #0x18
 	asrs r0, r0, #0x18

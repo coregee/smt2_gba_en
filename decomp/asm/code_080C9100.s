@@ -300,7 +300,7 @@ sub_080C92C8: @ 0x080C92C8
 	mov r4, sp
 	movs r1, #5
 	mov r2, sp
-	bl sub_080BF468
+	bl Item_GetAttribute
 	mov r0, sp
 	ldrb r1, [r0]
 	adds r0, r5, #0
@@ -1171,7 +1171,7 @@ Status_DrawDemonInfo: @ 0x080C99C4
 	bl sub_080C92C8
 	adds r7, r0, #0
 	ldrh r0, [r7, #0x12]
-	bl sub_080BF648
+	bl Demon_GetRecord
 	mov sl, r0
 	ldrb r0, [r0]
 	lsls r0, r0, #0x18
@@ -1661,7 +1661,7 @@ sub_080C9D84: @ 0x080C9D84
 	adds r0, r5, #0
 	movs r1, #0
 	mov r2, sp
-	bl sub_080BF468
+	bl Item_GetAttribute
 	ldr r0, [sp]
 	strh r0, [r4, #0x32]
 	b .L080C9DFA
@@ -2128,7 +2128,7 @@ sub_080C9F98: @ 0x080C9F98
 	lsrs r0, r0, #0x10
 	movs r1, #0
 	add r2, sp, #0xc
-	bl sub_080BF468
+	bl Item_GetAttribute
 	ldr r0, [sp, #0xc]
 	cmp r0, #0x80
 	beq .L080CA1EC
@@ -5258,7 +5258,7 @@ Status_DrawDropItem: @ 0x080CBA7C
 	bl sub_080C92C8
 	adds r4, r0, #0
 	ldrh r0, [r4, #0x12]
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrh r5, [r0, #0x1a]
 	adds r6, r5, #0
 	ldrh r0, [r4, #0x12]
@@ -7720,7 +7720,7 @@ sub_080CD044: @ 0x080CD044
 	adds r6, r1, #0
 	adds r6, #0x20
 	adds r0, r4, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r5, r0, #0
 	adds r0, r4, #0
 	bl sub_0815B864
@@ -7792,7 +7792,7 @@ sub_080CD0E4: @ 0x080CD0E4
 	push {lr}
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0, #0x1d]
 	movs r1, #0x90
 	movs r2, #0x78
@@ -8040,11 +8040,11 @@ sub_080CD2A0: @ 0x080CD2A0
 	add r0, r8
 	mov sl, r0
 	adds r0, r4, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r6, r0, #0
 	adds r6, #0x32
 	adds r0, r4, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r4, r0, #0
 	adds r4, #0x48
 	movs r7, #0xa
@@ -8114,7 +8114,7 @@ sub_080CD330: @ 0x080CD330
 	mov r8, r1
 	adds r4, r5, #0
 	adds r4, #0x18
-	bl sub_080BF32C
+	bl Item_GetRecord
 	ldrb r0, [r0, #1]
 	mov sb, r0
 	ldr r0, .L080CD388
@@ -8160,7 +8160,7 @@ sub_080CD38C: @ 0x080CD38C
 	mov r8, r1
 	adds r4, r5, #0
 	adds r4, #0x18
-	bl sub_080BF32C
+	bl Item_GetRecord
 	ldrb r0, [r0, #2]
 	mov sb, r0
 	ldr r0, .L080CD3E4

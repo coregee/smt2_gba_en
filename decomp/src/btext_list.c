@@ -83,7 +83,7 @@ u16 *Menu_ExpandListTemplate(u16 *tmpl, u32 arg)
         case 0x321:
             item = arg >> 16;
             if (item < 0x80)
-                name = (u16 *)(sub_080BF32C(item) + 0x14);
+                name = (u16 *)(Item_GetRecord(item) + 0x14);
             else if (item < 0xD0)
                 name = (u16 *)(Equipment_GetRecord36_MidRange(item) + 0x14);
             else if (item < 0xFF)
@@ -128,7 +128,7 @@ u16 *Battle_AppendCombatantName(u16 who, u16 *dst)
     }
     else
     {
-        name = (u16 *)(sub_080BF648(*(u16 *)(actor + 0x12)) + 0x22);
+        name = (u16 *)(Demon_GetRecord(*(u16 *)(actor + 0x12)) + 0x22);
     }
     i = 0;
     while (*name != 0)

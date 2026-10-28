@@ -28,7 +28,7 @@ u16 *Battle_BuildActorPrompt(u8 idx)
     }
     else
     {
-        src = (u16 *)(sub_080BF648(*(u16 *)(actor + 0x12)) + 0x22);
+        src = (u16 *)(Demon_GetRecord(*(u16 *)(actor + 0x12)) + 0x22);
     }
     for (i = 0; i < 8 && *src != 0; i++)
         *dst++ = *src++;
@@ -68,7 +68,7 @@ u16 *sub_080EAE30(u8 *actor)
     }
     else
     {
-        src = (u16 *)(sub_080BF648(*(u16 *)(actor + 0x12)) + 0x22);
+        src = (u16 *)(Demon_GetRecord(*(u16 *)(actor + 0x12)) + 0x22);
     }
     for (i = 0; i < 8 && *src != 0; i++)
         *dst++ = *src++;
@@ -115,7 +115,7 @@ u16 *sub_080EAF1C(u8 *actor, u16 id)
     }
     else
     {
-        src = (u16 *)(sub_080BF648(*(u16 *)(actor + 0x12)) + 0x22);
+        src = (u16 *)(Demon_GetRecord(*(u16 *)(actor + 0x12)) + 0x22);
     }
     for (i = 0; i < 8 && *src != 0; i++)
         *dst++ = *src++;
@@ -187,7 +187,7 @@ u16 *Battle_BuildActorActionText(u8 *actor)
     }
     else
     {
-        src = (u16 *)(sub_080BF648(*(u16 *)(actor + 0x12)) + 0x22);
+        src = (u16 *)(Demon_GetRecord(*(u16 *)(actor + 0x12)) + 0x22);
     }
     for (i = 0; i < 8 && *src != 0; i++)
         *dst++ = *src++;
@@ -232,7 +232,7 @@ u16 *Battle_BuildStatusResultText(u8 *actor)
     }
     else
     {
-        src = (u16 *)(sub_080BF648(*(u16 *)(actor + 0x12)) + 0x22);
+        src = (u16 *)(Demon_GetRecord(*(u16 *)(actor + 0x12)) + 0x22);
     }
     for (i = 0; i < 8 && *src != 0; i++)
         *dst++ = *src++;
@@ -268,7 +268,7 @@ u16 *Battle_BuildCombatActionList(u8 *actor, u8 action)
     }
     else
     {
-        src = (u16 *)(sub_080BF648(*(u16 *)(actor + 0x12)) + 0x22);
+        src = (u16 *)(Demon_GetRecord(*(u16 *)(actor + 0x12)) + 0x22);
     }
     for (i = 0; i < 8 && *src != 0; i++)
         *dst++ = *src++;
@@ -306,7 +306,7 @@ u16 *Battle_BuildNamePrependText(u16 idx, u16 *suffix)
     }
     else
     {
-        src = (u16 *)(sub_080BF648(*(u16 *)(actor + 0x12)) + 0x22);
+        src = (u16 *)(Demon_GetRecord(*(u16 *)(actor + 0x12)) + 0x22);
     }
     i = 0;
     while (*src != 0)
@@ -359,7 +359,7 @@ u16 *Battle_BuildNamePrefixText(u16 idx, u16 *pre)
     }
     else
     {
-        src = (u16 *)(sub_080BF648(*(u16 *)(actor + 0x12)) + 0x22);
+        src = (u16 *)(Demon_GetRecord(*(u16 *)(actor + 0x12)) + 0x22);
     }
     i = 0;
     while (*src != 0)

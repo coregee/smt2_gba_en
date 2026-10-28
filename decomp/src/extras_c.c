@@ -95,8 +95,8 @@ void sub_080DA71C(struct Task *task)
 }
 
 /* Draws "a/b" with sprite digits at (x, y). */
-// sub_080DA764 @ 0x080DA764
-void sub_080DA764(u32 a, u32 b, u16 x, u16 y)
+// Sprite_DrawFraction @ 0x080DA764
+void Sprite_DrawFraction(u32 a, u32 b, u16 x, u16 y)
 {
     u8 *dig;
 
@@ -152,8 +152,8 @@ void sub_080DA958(struct Task *task)
         task->result = 1;
         if (task->unk1E == 1)
         {
-            sub_080DABCC(1);
-            if (sub_080DAC4C() == 0)
+            Vision_BuildList(1);
+            if (Vision_CountListed() == 0)
                 task->unk1E = 3;
         }
     }

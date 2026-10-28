@@ -123,8 +123,8 @@ void sub_080DA190(void)
 }
 
 /* Builds the extra menu's rows from what the save has unlocked; the last row (5) is always there. */
-// sub_080DA1B4 @ 0x080DA1B4
-void sub_080DA1B4(struct Task *task)
+// ExtraMenu_BuildRows @ 0x080DA1B4
+void ExtraMenu_BuildRows(struct Task *task)
 {
     u32 n;
     struct C0d9Menu *d;

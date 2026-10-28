@@ -58,9 +58,9 @@ void sub_080DD208(void)
 }
 
 /* The map record's event script for a demon id, or NULL past the table. */
-// sub_080DD21C @ 0x080DD21C
+// Dict_GetMapScript @ 0x080DD21C
 #ifdef NONMATCHING
-const void *sub_080DD21C(u16 id)
+const void *Dict_GetMapScript(u16 id)
 {
     const void *script;
 
@@ -72,7 +72,7 @@ const void *sub_080DD21C(u16 id)
 }
 #else
 NAKED
-const void *sub_080DD21C(u16 id)
+const void *Dict_GetMapScript(u16 id)
 {
     asm_unified(
         ".L080DD21C:\n"
@@ -116,7 +116,7 @@ u32 sub_080DD248(u16 id)
     if (v <= 0xFE)
         return 1;
     /* called without a prototype in the original: v is passed unnarrowed */
-    return ((u32 (*)())sub_080DD21C)(v);
+    return ((u32 (*)())Dict_GetMapScript)(v);
 }
 #else
 NAKED
@@ -140,7 +140,7 @@ u32 sub_080DD248(u16 id)
         "    cmp r1, #0xfe\n"
         "    bls .L080DD270\n"
         "    adds r0, r1, #0\n"
-        "    bl sub_080DD21C\n"
+        "    bl Dict_GetMapScript\n"
         "    b .L080DD272\n"
         ".L080DD270:\n"
         "    movs r0, #1\n"
@@ -179,7 +179,7 @@ void sub_080DD278(struct Task *task)
     g[0x30] = 0;
     m4aMPlayAllStop();
     gUnk_030031B4 = zero;
-    sub_080DDE2C(task);
+    Cards_Deal(task);
 }
 #else
 NAKED
@@ -216,7 +216,7 @@ void sub_080DD278(struct Task *task)
         "    ldr r0, .L080DD2C0\n"
         "    strh r4, [r0]\n"
         "    adds r0, r5, #0\n"
-        "    bl sub_080DDE2C\n"
+        "    bl Cards_Deal\n"
         "    pop {r4, r5}\n"
         "    pop {r0}\n"
         "    bx r0\n"

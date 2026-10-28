@@ -189,7 +189,7 @@ sub_080E47A8: @ 0x080E47A8
 	ldr r2, .L080E4944
 	adds r0, r7, r2
 	strh r1, [r0]
-	bl sub_080ED7BC
+	bl BattleState_Init
 	ldr r0, .L080E4948
 	ldr r1, [sp]
 	cmp r1, r0
@@ -517,7 +517,7 @@ gUnknown_080E4B04:
 	ldr r0, .L080E4C7C
 	bl sub_080ED938
 .L080E4C04:
-	bl sub_080ED954
+	bl Battle_IsTwoSided
 	cmp r0, #0
 	beq .L080E4C22
 	ldr r2, .L080E4C74
@@ -531,7 +531,7 @@ gUnknown_080E4B04:
 	movs r0, #0
 	bl sub_080ED938
 .L080E4C22:
-	bl sub_080ED954
+	bl Battle_IsTwoSided
 	cmp r0, #0
 	bne .L080E4C84
 	movs r1, #0x98
@@ -616,7 +616,7 @@ gUnknown_080E4B04:
 .L080E4CEC: .4byte 0x00000998
 .L080E4CF0: .4byte 0x0000099A
 .L080E4CF4:
-	bl sub_080ED954
+	bl Battle_IsTwoSided
 	cmp r0, #0
 	bne .L080E4D08
 	ldr r1, .L080E4D04
@@ -669,7 +669,7 @@ gUnknown_080E4B04:
 	movs r0, #4
 	strh r0, [r1]
 .L080E4D66:
-	bl sub_080ED954
+	bl Battle_IsTwoSided
 	cmp r0, #0
 	bne .L080E4DB0
 	movs r2, #0
@@ -687,7 +687,7 @@ gUnknown_080E4B04:
 	adds r0, r6, r2
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_080F0200
+	bl Battle_InitEnemyUnit
 	adds r4, #1
 	lsls r4, r4, #0x10
 	ldr r1, .L080E4DAC
@@ -718,7 +718,7 @@ gUnknown_080E4B04:
 	adds r0, r6, r2
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_080F0200
+	bl Battle_InitEnemyUnit
 	adds r4, #1
 	lsls r4, r4, #0x10
 	ldr r1, .L080E4E48
@@ -744,7 +744,7 @@ gUnknown_080E4B04:
 	ldr r2, .L080E4E50
 	adds r1, r6, r2
 	ldr r1, [r1]
-	bl sub_080F0200
+	bl Battle_InitEnemyUnit
 	adds r4, #1
 	lsls r4, r4, #0x10
 	ldr r1, .L080E4E4C
@@ -760,7 +760,7 @@ gUnknown_080E4B04:
 	lsls r2, r2, #4
 	adds r4, r6, r2
 	ldrh r0, [r4]
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r0, #0x21
 	ldrb r0, [r0]
 	bl sub_080EF8F8
@@ -3530,7 +3530,7 @@ sub_080E6468: @ 0x080E6468
 	asrs r0, r0, #0x18
 	adds r1, r4, #0
 	mov r2, sp
-	bl sub_080EF740
+	bl Battle_CanUseCommand
 	cmp r0, #0
 	beq .L080E651C
 	subs r0, r4, #4
@@ -4698,7 +4698,7 @@ gUnknown_080E6E40:
 	bl sub_080F3060
 	cmp r0, #0
 	beq .L080E6F40
-	bl sub_080ED954
+	bl Battle_IsTwoSided
 	cmp r0, #0
 	beq .L080E6F40
 	ldr r0, .L080E6E8C
@@ -4887,7 +4887,7 @@ gUnknown_080E6FD8:
 	bl sub_080F3060
 	cmp r0, #0
 	beq .L080E70BC
-	bl sub_080ED954
+	bl Battle_IsTwoSided
 	cmp r0, #0
 	beq .L080E70BC
 	movs r0, #1
@@ -5723,7 +5723,7 @@ sub_080E760C: @ 0x080E760C
 	lsrs r5, r0, #0x18
 	cmp r5, #7
 	bls .L080E761C
-	bl sub_080ED954
+	bl Battle_IsTwoSided
 	adds r1, r0, #0
 	cmp r1, #0
 	bne .L080E76F8
@@ -6270,7 +6270,7 @@ sub_080E7A44: @ 0x080E7A44
 	movs r2, #0x10
 	bl memset
 	bl sub_080E7968
-	bl sub_080ED954
+	bl Battle_IsTwoSided
 	cmp r0, #0
 	bne .L080E7AFC
 	movs r5, #0
@@ -6666,7 +6666,7 @@ sub_080E7D58: @ 0x080E7D58
 	sub sp, #0x10
 	ldr r0, .L080E7DE0
 	mov r8, r0
-	bl sub_080ED954
+	bl Battle_IsTwoSided
 	cmp r0, #0
 	bne .L080E7E5C
 	movs r6, #0
@@ -7031,7 +7031,7 @@ sub_080E8034: @ 0x080E8034
 	sub sp, #0x10
 	ldr r0, .L080E80D8
 	mov r8, r0
-	bl sub_080ED954
+	bl Battle_IsTwoSided
 	cmp r0, #0
 	beq .L080E804A
 	b .L080E8210

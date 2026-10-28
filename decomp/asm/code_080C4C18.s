@@ -51,7 +51,7 @@ sub_080C4C60: @ 0x080C4C60
 	lsrs r0, r0, #0x10
 	cmp r0, #0xcf
 	bhi .L080C4C72
-	bl sub_080BF32C
+	bl Item_GetRecord
 	ldr r0, [r0, #0xc]
 	b .L080C4C78
 .L080C4C72:
@@ -69,7 +69,7 @@ sub_080C4C7C: @ 0x080C4C7C
 	lsrs r0, r0, #0x10
 	cmp r0, #0xcf
 	bhi .L080C4C8E
-	bl sub_080BF32C
+	bl Item_GetRecord
 	ldr r0, [r0, #0x10]
 	b .L080C4C94
 .L080C4C8E:

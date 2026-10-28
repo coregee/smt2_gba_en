@@ -104,7 +104,7 @@ void sub_080DCE8C(struct Task *task)
 // sub_080DCF20 @ 0x080DCF20
 void sub_080DCF20(struct Task *task)
 {
-    u16 n = sub_080DB8A4();
+    u16 n = Dict_CountListed();
 
     if (n <= 6)
     {
@@ -131,7 +131,7 @@ void sub_080DCF20(struct Task *task)
 void sub_080DCF80(struct Task *task)
 {
     struct C0d9Menu *d = (struct C0d9Menu *)&task->data;
-    u16 count = sub_080DB8A4();
+    u16 count = Dict_CountListed();
     u32 moved = 0;
 
     task->result = moved;

@@ -518,96 +518,96 @@ u16 Demon_GetField(u16 id, u16 field)
     switch (field)
     {
     case 0:
-        v = sub_080BF648(id)[1];
+        v = Demon_GetRecord(id)[1];
         break;
     case 1:
     case 2:
-        v = *(u16 *)(sub_080BF648(id) + 2);
+        v = *(u16 *)(Demon_GetRecord(id) + 2);
         break;
     case 3:
     case 4:
-        v = *(u16 *)(sub_080BF648(id) + 4);
+        v = *(u16 *)(Demon_GetRecord(id) + 4);
         break;
     case 5:
-        v = (s8)sub_080BF648(id)[6];
+        v = (s8)Demon_GetRecord(id)[6];
         break;
     case 6:
-        v = (s8)sub_080BF648(id)[7];
+        v = (s8)Demon_GetRecord(id)[7];
         break;
     case 7:
-        v = (s8)sub_080BF648(id)[8];
+        v = (s8)Demon_GetRecord(id)[8];
         break;
     case 8:
-        v = (s8)sub_080BF648(id)[9];
+        v = (s8)Demon_GetRecord(id)[9];
         break;
     case 9:
-        v = (s8)sub_080BF648(id)[10];
+        v = (s8)Demon_GetRecord(id)[10];
         break;
     case 10:
-        v = (s8)sub_080BF648(id)[11];
+        v = (s8)Demon_GetRecord(id)[11];
         break;
     case 11:
-        v = sub_080BF648(id)[12];
+        v = Demon_GetRecord(id)[12];
         break;
     case 12:
-        v = sub_080BF648(id)[13];
+        v = Demon_GetRecord(id)[13];
         break;
     case 13:
-        v = (s8)sub_080BF648(id)[14];
+        v = (s8)Demon_GetRecord(id)[14];
         break;
     case 14:
-        v = (s8)sub_080BF648(id)[15];
+        v = (s8)Demon_GetRecord(id)[15];
         break;
     case 15:
-        v = (s8)sub_080BF648(id)[16];
+        v = (s8)Demon_GetRecord(id)[16];
         break;
     case 16:
-        v = sub_080BF648(id)[17];
+        v = Demon_GetRecord(id)[17];
         break;
     case 17:
-        v = sub_080BF648(id)[18];
+        v = Demon_GetRecord(id)[18];
         break;
     case 18:
-        v = sub_080BF648(id)[19];
+        v = Demon_GetRecord(id)[19];
         break;
     case 19:
-        v = sub_080BF648(id)[20];
+        v = Demon_GetRecord(id)[20];
         break;
     case 20:
-        v = sub_080BF648(id)[21];
+        v = Demon_GetRecord(id)[21];
         break;
     case 21:
-        v = sub_080BF648(id)[22];
+        v = Demon_GetRecord(id)[22];
         break;
     case 22:
-        v = sub_080BF648(id)[23];
+        v = Demon_GetRecord(id)[23];
         break;
     case 23:
-        v = sub_080BF648(id)[24];
+        v = Demon_GetRecord(id)[24];
         break;
     case 24:
-        v = sub_080BF648(id)[25];
+        v = Demon_GetRecord(id)[25];
         break;
     case 25:
-        v = *(u16 *)(sub_080BF648(id) + 26);
+        v = *(u16 *)(Demon_GetRecord(id) + 26);
         break;
     case 26:
-        v = sub_080BF648(id)[28];
+        v = Demon_GetRecord(id)[28];
         break;
     case 27:
-        v = sub_080BF648(id)[29];
+        v = Demon_GetRecord(id)[29];
         break;
     case 28:
-        v = sub_080BF648(id)[30];
+        v = Demon_GetRecord(id)[30];
         break;
     case 29:
-        v = sub_080BF648(id)[31];
+        v = Demon_GetRecord(id)[31];
         break;
     case 30:
-        v = sub_080BF648(id)[32];
+        v = Demon_GetRecord(id)[32];
         break;
     case 31:
-        v = sub_080BF648(id)[33];
+        v = Demon_GetRecord(id)[33];
         break;
     }
     return v;

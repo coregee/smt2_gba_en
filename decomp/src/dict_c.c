@@ -17,7 +17,7 @@ void sub_080DBCDC(struct Task *task)
 {
     struct C0d9Menu *d = (struct C0d9Menu *)&task->data;
     u16 y = 0x10;
-    u16 count = sub_080DB8A4();
+    u16 count = Dict_CountListed();
     u16 x = 0x5C;
     u32 row, i;
 
@@ -35,7 +35,7 @@ void sub_080DBCDC(struct Task *task)
                 const u16 *name;
 
                 if (sub_080C2644(id))
-                    name = (const u16 *)(sub_080BF648(id) + 0x22);
+                    name = (const u16 *)(Demon_GetRecord(id) + 0x22);
                 else
                     name = gUnknown_0858325A;
                 for (i = 0; i < 8; i++)
@@ -51,7 +51,7 @@ void sub_080DBCDC(struct Task *task)
     {
         Text_DrawSpriteString(gUnknown_0800974E, 0, 0, x, y, 12);
     }
-    sub_080DA764(sub_080DB8D4(), sub_080DB8A4(), 0x81, 0x6A);
+    Sprite_DrawFraction(sub_080DB8D4(), Dict_CountListed(), 0x81, 0x6A);
     if (d->unk10 == 0)
         Sprite_Draw(d->spr18, 0, 7, 0, 0x100, 0x10, d->cursor * 11 + 14);
     Sprite_Draw(d->spr14, 0, 7, 0, 0, 0x10, 0x10);
@@ -71,7 +71,7 @@ void sub_080DBCDC(struct Task *task)
         "    mov sb, r0\n"
         "    movs r0, #0x10\n"
         "    mov sl, r0\n"
-        "    bl sub_080DB8A4\n"
+        "    bl Dict_CountListed\n"
         "    lsls r0, r0, #0x10\n"
         "    lsrs r4, r0, #0x10\n"
         "    mov r1, sb\n"
@@ -128,7 +128,7 @@ void sub_080DBCDC(struct Task *task)
         "    cmp r0, #0\n"
         "    beq .L080DBD84\n"
         "    adds r0, r4, #0\n"
-        "    bl sub_080BF648\n"
+        "    bl Demon_GetRecord\n"
         "    adds r1, r0, #0\n"
         "    adds r1, #0x22\n"
         "    b .L080DBD86\n"
@@ -214,12 +214,12 @@ void sub_080DBCDC(struct Task *task)
         ".L080DBE14:\n"
         "    bl sub_080DB8D4\n"
         "    adds r4, r0, #0\n"
-        "    bl sub_080DB8A4\n"
+        "    bl Dict_CountListed\n"
         "    adds r1, r0, #0\n"
         "    movs r2, #0x81\n"
         "    movs r3, #0x6a\n"
         "    adds r0, r4, #0\n"
-        "    bl sub_080DA764\n"
+        "    bl Sprite_DrawFraction\n"
         "    mov r2, sb\n"
         "    ldrh r0, [r2, #0x10]\n"
         "    cmp r0, #0\n"

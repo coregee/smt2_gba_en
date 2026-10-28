@@ -657,7 +657,7 @@ sub_080AF8D0: @ 0x080AF8D0
 	adds r0, r4, #0
 	ldr r1, [sp, #0x2c]
 	bl sub_080AF6E4
-	bl sub_080BA070
+	bl Elevator_Start
 	ldr r1, .L080AFE74
 	ldr r2, [sp, #0x2c]
 .L080AFE6C:

@@ -7193,7 +7193,7 @@ sub_0814DB7C: @ 0x0814DB7C
 	cmp r4, sb
 	beq .L0814DC00
 	adds r0, r4, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r0, #0x22
 	add r1, sp, #4
 	bl sub_080C0420
@@ -7498,7 +7498,7 @@ sub_0814DDC8: @ 0x0814DDC8
 	ldrh r0, [r0]
 	cmp r0, r7
 	beq .L0814DE46
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r0, #0x22
 	add r1, sp, #4
 	bl sub_080C0420
@@ -7709,7 +7709,7 @@ sub_0814DF54: @ 0x0814DF54
 	subs r0, #0x48
 	adds r0, r0, r1
 	ldrh r0, [r0]
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r0, #0x22
 	add r1, sp, #4
 	bl sub_080C0420
@@ -7751,7 +7751,7 @@ sub_0814DF54: @ 0x0814DF54
 	subs r0, #0x32
 	adds r0, r0, r1
 	ldrh r0, [r0]
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r0, #0x22
 	add r1, sp, #4
 	bl sub_080C0420
@@ -8237,7 +8237,7 @@ sub_0814E3A8: @ 0x0814E3A8
 	adds r1, #0x98
 	adds r0, r0, r1
 	ldrh r0, [r0]
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r0, #0x22
 	add r1, sp, #4
 	bl sub_080C0420
@@ -8259,7 +8259,7 @@ sub_0814E3A8: @ 0x0814E3A8
 	ldrh r0, [r0]
 	cmp r0, r7
 	beq .L0814E412
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r0, #0x22
 	add r1, sp, #4
 	bl sub_080C0420

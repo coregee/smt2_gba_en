@@ -545,7 +545,7 @@ void Menu_DrawItemNameTriple()
         if (item == 0xFFFF)
             continue;
         if (item < 0xD0)
-            name = (u16 *)(sub_080BF32C(item) + 0x14);
+            name = (u16 *)(Item_GetRecord(item) + 0x14);
         else
             name = (u16 *)(Action_GetRecord(item) + 0xC);
         switch (i)
@@ -584,7 +584,7 @@ void Menu_DrawSkillRowTriple()
 
         if (item == 0xFFFF)
             continue;
-        name = (u16 *)(sub_080BF648(item) + 0x22);
+        name = (u16 *)(Demon_GetRecord(item) + 0x22);
         switch (i)
         {
         case 0:

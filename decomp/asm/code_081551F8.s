@@ -997,7 +997,7 @@ Fusion_DrawMaterialHeader: @ 0x08155998
 	adds r0, r0, r1
 	ldr r0, [r0]
 	ldrh r0, [r0, #0x12]
-	bl sub_080BF648
+	bl Demon_GetRecord
 	mov sb, r0
 	ldrb r0, [r0]
 	lsls r0, r0, #0x18
@@ -1477,7 +1477,7 @@ sub_08155C80: @ 0x08155C80
 .L08155D7E:
 	ldr r0, .L08155DC4
 	ldrh r0, [r0, #6]
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r0, #0x11
 	adds r0, r0, r4
 	ldrb r1, [r0]
@@ -2332,7 +2332,7 @@ sub_081563F4: @ 0x081563F4
 	movs r7, #0x82
 	movs r5, #0x45
 	adds r0, r4, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r6, r0, #0
 	adds r0, r4, #0
 	bl sub_0815B864
@@ -3020,7 +3020,7 @@ sub_08156924: @ 0x08156924
 	ands r4, r0
 	lsls r4, r4, #0x10
 	lsrs r0, r4, #0x10
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r0, #0x22
 	mov sb, r0
 	movs r5, #0
@@ -3713,7 +3713,7 @@ sub_08156ECC: @ 0x08156ECC
 	beq .L08156F7E
 	lsls r0, r6, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0]
 	lsls r0, r0, #0x18
 	asrs r0, r0, #0x18
@@ -3866,7 +3866,7 @@ sub_08156ECC: @ 0x08156ECC
 	adds r0, r3, #0
 	ands r0, r1
 	str r2, [sp, #0xc]
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0, #1]
 	ldr r2, [sp, #0xc]
 	mov r1, r8
@@ -3927,7 +3927,7 @@ sub_08156ECC: @ 0x08156ECC
 	ldr r7, .L08157118
 	adds r0, r7, #0
 	ands r0, r1
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0, #1]
 	cmp r0, r5
 	bhs .L0815711C
@@ -3937,7 +3937,7 @@ sub_08156ECC: @ 0x08156ECC
 	ldrh r1, [r4]
 	adds r0, r7, #0
 	ands r0, r1
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r1, [r0, #1]
 	mov r3, r8
 	lsls r0, r3, #2
@@ -4078,7 +4078,7 @@ sub_081571F0: @ 0x081571F0
 	lsls r0, r0, #0x10
 	lsrs r6, r0, #0x10
 	adds r0, r6, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r5, r0, #0
 	movs r0, #0x80
 	lsls r0, r0, #8
@@ -5135,7 +5135,7 @@ sub_081579D4: @ 0x081579D4
 	ldrh r5, [r0, #6]
 	ldrh r4, [r0, #8]
 	adds r0, r5, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	mov r8, r0
 	movs r6, #0x12
 	movs r7, #0x72
@@ -5904,7 +5904,7 @@ sub_08158030: @ 0x08158030
 	bl sub_08154968
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080BF32C
+	bl Item_GetRecord
 	ldrb r1, [r0]
 	movs r0, #7
 	ands r0, r1

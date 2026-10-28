@@ -5,7 +5,7 @@
 #ifdef NONMATCHING
 void sub_080DF2E8(void)
 {
-    sub_080DEE20();
+    Link_InitSerial();
     gUnk_03006380 = 200;
     gUnk_03006360 = 0;
     gUnk_03006368 = 0;
@@ -18,7 +18,7 @@ void sub_080DF2E8(void)
     asm_unified(
         ".L080DF2E8:\n"
         "    push {lr}\n"
-        "    bl sub_080DEE20\n"
+        "    bl Link_InitSerial\n"
         "    ldr r1, .L080DF30C\n"
         "    movs r3, #0\n"
         "    movs r2, #0\n"

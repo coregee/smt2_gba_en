@@ -245,3 +245,34 @@ No text is drawn here, so nothing limits the translation. Oddities in the origin
 ### More possible original bugs
 
 - `sub_080D9F40` calls `Window_Close` with one argument; the second is whatever is left in r1.
+
+### Field event commands, elevator, doors, records (`0x080B89B0`-`0x080BA1AC`, `0x080BD878`-`0x080BF908`)
+
+- **8-glyph names, 12 px apart:** `sub_080B9150`, `Status_ShowAfflictionMessage` (`0x080BEA60`),
+  `Item_DrawName` (`0x080BF37C`), `sub_080BF5D8`, `Demon_DrawName` (`0x080BF6D4`). The first two
+  decode the name into a `u16[16]` on the stack and place the following text at
+  `x + 12 * glyphs`. The translation patches the first three (checked in the patched build);
+  `sub_080BF5D8` and `Demon_DrawName` are unpatched but dead: no call and no pointer to them
+  anywhere in the ROM.
+- **Elevator floor labels** ("<n>F" / "B<n>F", `0x08165674`/`0x0816567A`, digits
+  `0x0816567E`) are fixed glyph strings at hard-coded x `0x9C`-`0xCC`, at most two digits.
+- **`Demon_GetRecord`** swaps in the party member's own name for ids 0x106/0x108/0x109/0x10C/
+  0x10E inside a 96-byte copy at `0x03005FC0` (name at `+0x22`): the name gets only the record's
+  name field.
+
+### Battle rules (`0x080ED1C8`-`0x080F2AC8`)
+
+- Message 0x172 (`sub_080F0C18`, through `Menu_ExpandListTemplate`) is in the battle budget
+  check: 19 of 64 glyphs in English.
+
+### More possible original bugs
+
+- `Door_TryOpen` (`0x080BE76C`) never checks for a missing door record (reads from address 2).
+- `Field_WarpToWorldPos` (`0x080BF0C0`): uninitialised map/floor when no map contains the point.
+- `sub_080B8BA8` (kind > 4) and `Status_ShowAfflictionMessage` (unknown ailment bit) use
+  uninitialised values; `sub_080BE6E0` falls off its end without a return value.
+- `0x080ED5B4`: with the level above every threshold the table index is a leftover register.
+- Escape check (`0x080EDF0C`): the enemy stat sum is uninitialised when no enemy is alive.
+- `0x080EDD8C` rolls each enemy's speed twice and throws the first roll away (only the random
+  sequence changes); `0x080EEEE8` has unreachable affinity cases 1-7.
+- `0x080EDBCC` passes (lo, n) to an insertion sort that expects (lo, hi); harmless, lo is always 0.

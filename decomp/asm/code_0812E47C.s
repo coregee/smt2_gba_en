@@ -337,7 +337,7 @@ sub_0812E6C4: @ 0x0812E6C4
 	add r2, sp, #0x20
 	adds r0, r4, #0
 	movs r1, #0xc
-	bl sub_080BF468
+	bl Item_GetAttribute
 	ldr r1, [sp, #0x20]
 	cmp r1, #0x7f
 	bgt .L0812E6F8
@@ -429,7 +429,7 @@ sub_0812E780: @ 0x0812E780
 	bne .L0812E7A2
 	add r2, sp, #0x20
 	movs r1, #0xc
-	bl sub_080BF468
+	bl Item_GetAttribute
 .L0812E7A2:
 	ldr r1, [sp, #0x20]
 	adds r0, r1, #0
@@ -817,7 +817,7 @@ sub_0812EA98: @ 0x0812EA98
 	add r2, sp, #0x20
 	ldr r0, [sp, #0x24]
 	movs r1, #0xc
-	bl sub_080BF468
+	bl Item_GetAttribute
 	ldr r0, [sp, #0x24]
 	lsls r0, r0, #2
 	ldr r1, .L0812EAEC
@@ -1056,7 +1056,7 @@ gUnknown_0812EAF4:
 	ldr r0, [sp, #0x24]
 	movs r1, #0xc
 	mov r2, sb
-	bl sub_080BF468
+	bl Item_GetAttribute
 	ldr r1, [sp, #8]
 	movs r0, #1
 	rsbs r0, r0, #0

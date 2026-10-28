@@ -1574,7 +1574,7 @@ gUnknown_08127EF4:
 .L08127F58: .4byte 0x0000FFFF
 .L08127F5C:
 	ldrh r0, [r1, #0x12]
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r0, #0x22
 	adds r1, r6, #0
 	bl sub_081272CC
@@ -1637,7 +1637,7 @@ gUnknown_08127EF4:
 .L08127FDC: .4byte sub_08127D70
 .L08127FE0:
 	adds r0, r4, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r0, #0x22
 	adds r1, r6, #0
 	bl sub_081272CC
@@ -1695,7 +1695,7 @@ gUnknown_08127EF4:
 	movs r5, #6
 .L08128054:
 	ldrh r0, [r4, #0x12]
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r0, #0x22
 	adds r1, r6, #0
 	adds r2, r5, #0
@@ -1794,7 +1794,7 @@ gUnknown_08127EF4:
 	cmp r4, #0x7f
 	bhi .L08128130
 	adds r0, r4, #0
-	bl sub_080BF32C
+	bl Item_GetRecord
 	adds r0, #0x14
 	b .L0812814A
 .L0812812C: .4byte 0x0000FFFF
@@ -1875,7 +1875,7 @@ gUnknown_08127EF4:
 	cmp r4, #0x7f
 	bhi .L081281D0
 	adds r0, r4, #0
-	bl sub_080BF32C
+	bl Item_GetRecord
 	b .L081281DA
 .L081281CC: .4byte 0x0000FFFF
 .L081281D0:
@@ -2190,7 +2190,7 @@ sub_081283C4: @ 0x081283C4
 	cmp r6, #1
 	bne .L0812846E
 	adds r0, r5, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r4, r0, #0
 	ldrh r1, [r4, #2]
 	adds r0, r1, #0
@@ -2207,7 +2207,7 @@ sub_081283C4: @ 0x081283C4
 	bne .L081284B0
 	ldr r0, .L08128498
 	ands r0, r5
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r4, r0, #0
 	movs r0, #0x80
 	lsls r0, r0, #8

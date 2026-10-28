@@ -15,7 +15,7 @@ u16 *MessageBox_ComposeRaceNameText(u32 id, u16 *suffix)
     if (msg->locked == 1)
         return b->msg.compose;
 
-    demon = sub_080BF648(id);
+    demon = Demon_GetRecord(id);
     zero = 0;
     dst = b->msg.compose;
     CpuSet(&zero, dst, 0x05000020);
@@ -49,7 +49,7 @@ u16 *MessageBox_ComposeNameText(u32 id, u16 *suffix)
     if (msg->locked == 1)
         return b->msg.compose;
 
-    demon = sub_080BF648(id);
+    demon = Demon_GetRecord(id);
     zero = 0;
     CpuSet(&zero, b->msg.compose, 0x05000020);
     dst = b->msg.compose;
@@ -82,7 +82,7 @@ u16 *MessageBox_ComposeTwoNamesText(u32 id1, u32 id2, u16 *suffix)
     zero = 0;
     CpuSet(&zero, b->msg.compose, 0x05000020);
     dst = b->msg.compose;
-    src = (u16 *)(sub_080BF648(id1) + 0x22);
+    src = (u16 *)(Demon_GetRecord(id1) + 0x22);
     for (i = 0; i < 8; i++)
     {
         if (*src == 0)
@@ -91,7 +91,7 @@ u16 *MessageBox_ComposeTwoNamesText(u32 id1, u32 id2, u16 *suffix)
     }
     *dst++ = 0x143;
     *dst++ = 0x300;
-    src = (u16 *)(sub_080BF648(id2) + 0x22);
+    src = (u16 *)(Demon_GetRecord(id2) + 0x22);
     for (i = 0; i < 8; i++)
     {
         if (*src == 0)
@@ -137,18 +137,18 @@ u16 *MessageBox_ComposeSpeciesText(u32 id1, u32 id2, s32 v1, s32 v2, u16 *tmpl)
             break;
         case 0x31F:
             if (raceCount++ == 0)
-                demon = sub_080BF648(id1);
+                demon = Demon_GetRecord(id1);
             else
-                demon = sub_080BF648(id2);
+                demon = Demon_GetRecord(id2);
             src = Race_GetName(*(s8 *)demon);
             while (*src != 0)
                 *dst++ = *src++;
             break;
         case 0x31E:
             if (nameCount++ == 0)
-                demon = sub_080BF648(id1);
+                demon = Demon_GetRecord(id1);
             else
-                demon = sub_080BF648(id2);
+                demon = Demon_GetRecord(id2);
             src = (u16 *)(demon + 0x22);
             for (i = 0; i < 8; i++)
             {
@@ -246,13 +246,13 @@ u16 *MessageBox_ComposeSpeciesText(u32 id1, u32 id2, s32 v1, s32 v2, u16 *tmpl)
         "    mov r1, sb\n"
         "    lsls r0, r1, #0x10\n"
         "    lsrs r0, r0, #0x10\n"
-        "    bl sub_080BF648\n"
+        "    bl Demon_GetRecord\n"
         "    b .L080EACB0\n"
         ".L080EACA6:\n"
         "    mov r1, r8\n"
         "    lsls r0, r1, #0x10\n"
         "    lsrs r0, r0, #0x10\n"
-        "    bl sub_080BF648\n"
+        "    bl Demon_GetRecord\n"
         ".L080EACB0:\n"
         "    ldrb r0, [r0]\n"
         "    lsls r0, r0, #0x18\n"
@@ -285,13 +285,13 @@ u16 *MessageBox_ComposeSpeciesText(u32 id1, u32 id2, s32 v1, s32 v2, u16 *tmpl)
         "    mov r1, sb\n"
         "    lsls r0, r1, #0x10\n"
         "    lsrs r0, r0, #0x10\n"
-        "    bl sub_080BF648\n"
+        "    bl Demon_GetRecord\n"
         "    b .L080EACFA\n"
         ".L080EACF0:\n"
         "    mov r1, r8\n"
         "    lsls r0, r1, #0x10\n"
         "    lsrs r0, r0, #0x10\n"
-        "    bl sub_080BF648\n"
+        "    bl Demon_GetRecord\n"
         ".L080EACFA:\n"
         "    adds r2, r0, #0\n"
         "    adds r2, #0x22\n"

@@ -220,7 +220,7 @@ void sub_080DE258(void)
     else
     {
         sub_080DE2C0();
-        sub_080DE680();
+        Mini_ZoomBg2Affine();
     }
 }
 #else
@@ -267,7 +267,7 @@ void sub_080DE258(void)
         ".L080DE2AC: .4byte 0x03002DB0 @ IWRAM+0x2DB0\n"
         ".L080DE2B0:\n"
         "    bl sub_080DE2C0\n"
-        "    bl sub_080DE680\n"
+        "    bl Mini_ZoomBg2Affine\n"
         ".L080DE2B8:\n"
         "    pop {r4}\n"
         "    pop {r0}\n"

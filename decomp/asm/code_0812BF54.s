@@ -720,7 +720,7 @@ sub_0812C4E0: @ 0x0812C4E0
 	cmp r4, #0x3f
 	bls .L0812C546
 	adds r0, r7, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r2, r0, #0
 	movs r1, #0
 .L0812C524:

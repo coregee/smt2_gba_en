@@ -85,7 +85,7 @@ Dict_BuildList: @ 0x080DB4A8
 	lsls r0, r5, #0x10
 	lsrs r4, r0, #0x10
 	adds r0, r4, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0]
 	lsls r0, r0, #0x18
 	asrs r0, r0, #0x18
@@ -134,7 +134,7 @@ Dict_BuildList: @ 0x080DB4A8
 	ldr r2, .L080DB5D4
 	adds r0, r2, #0
 	ands r0, r1
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0]
 	lsls r0, r0, #0x18
 	asrs r0, r0, #0x18
@@ -177,7 +177,7 @@ Dict_BuildList: @ 0x080DB4A8
 .L080DB600:
 	ldrh r0, [r4]
 	ands r0, r6
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0]
 	lsls r0, r0, #0x18
 	asrs r0, r0, #0x18
@@ -329,7 +329,7 @@ Dict_BuildList: @ 0x080DB4A8
 	lsls r0, r5, #0x10
 	lsrs r4, r0, #0x10
 	adds r0, r4, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0, #1]
 	ldr r3, [sp, #4]
 	cmp r0, r3
@@ -384,7 +384,7 @@ Dict_BuildList: @ 0x080DB4A8
 	ldr r2, .L080DB7C4
 	adds r0, r2, #0
 	ands r0, r1
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0, #1]
 	mov r3, sl
 	cmp r3, #0
@@ -450,7 +450,7 @@ Dict_BuildList: @ 0x080DB4A8
 	ldr r7, .L080DB860
 	adds r0, r7, #0
 	ands r0, r1
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0, #1]
 	cmp r0, r6
 	bhs .L080DB864
@@ -460,7 +460,7 @@ Dict_BuildList: @ 0x080DB4A8
 	ldrh r1, [r4]
 	adds r0, r7, #0
 	ands r0, r1
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r1, [r0, #1]
 	mov r3, sl
 	lsls r0, r3, #2

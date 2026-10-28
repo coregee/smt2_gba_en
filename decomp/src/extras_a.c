@@ -6,7 +6,7 @@ void sub_080D977C(void)
 {
     if (gUnk_0300609C == 0)
         Font_ResetGlyphSpriteCache(0x180);
-    sub_080BDB58();
+    Wave_Update();
     Task_RunAll();
 }
 

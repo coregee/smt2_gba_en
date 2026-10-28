@@ -1151,7 +1151,7 @@ sub_080F5490: @ 0x080F5490
 	adds r0, r1, #0
 	bl sub_080EDA24
 	adds r5, r0, #0
-	bl sub_080ED954
+	bl Battle_IsTwoSided
 	movs r1, #8
 	cmp r0, #0
 	beq .L080F54C4
@@ -1191,12 +1191,12 @@ sub_080F54FC: @ 0x080F54FC
 	ldr r1, [r5]
 	movs r0, #1
 	movs r2, #1
-	bl sub_080EFC1C
+	bl Battle_AddModifierClamped
 	adds r4, r0, #0
 	ldr r1, [r5]
 	movs r0, #3
 	movs r2, #1
-	bl sub_080EFC1C
+	bl Battle_AddModifierClamped
 	cmp r4, #0
 	beq .L080F5526
 	cmp r0, #0
@@ -1217,12 +1217,12 @@ sub_080F552C: @ 0x080F552C
 	ldr r1, [r5]
 	movs r0, #2
 	movs r2, #1
-	bl sub_080EFC1C
+	bl Battle_AddModifierClamped
 	adds r4, r0, #0
 	ldr r1, [r5]
 	movs r0, #4
 	movs r2, #1
-	bl sub_080EFC1C
+	bl Battle_AddModifierClamped
 	cmp r4, #0
 	beq .L080F5556
 	cmp r0, #0
@@ -1413,7 +1413,7 @@ sub_080F5690: @ 0x080F5690
 	bl Battle_GetCombatant
 	adds r4, r0, #0
 	ldrh r0, [r4, #0x12]
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrh r1, [r0, #2]
 	movs r2, #0
 	strh r1, [r4, #0x18]
@@ -2184,7 +2184,7 @@ sub_080F5C90: @ 0x080F5C90
 	adds r0, r1, #0
 	movs r1, #0xc
 	mov r2, sp
-	bl sub_080BF468
+	bl Item_GetAttribute
 	ldr r0, [sp]
 	adds r2, r0, #0
 	subs r2, #0x80
@@ -3000,7 +3000,7 @@ sub_080F6294: @ 0x080F6294
 	adds r0, r4, #0
 	subs r0, #0x10
 	movs r1, #0xfb
-	bl sub_080F0200
+	bl Battle_InitEnemyUnit
 	adds r0, r4, #0
 	bl sub_080F4038
 	adds r1, r0, #0
@@ -3015,7 +3015,7 @@ sub_080F6294: @ 0x080F6294
 	adds r4, #1
 	cmp r4, #0x17
 	ble .L080F62C0
-	bl sub_080ED954
+	bl Battle_IsTwoSided
 	cmp r0, #0
 	beq .L080F6322
 	ldr r0, .L080F635C
@@ -3033,7 +3033,7 @@ sub_080F6294: @ 0x080F6294
 	lsls r0, r0, #4
 	adds r4, r5, r0
 	ldrh r0, [r4]
-	bl sub_080BF648
+	bl Demon_GetRecord
 	adds r0, #0x21
 	ldrb r0, [r0]
 	bl sub_080EF8F8

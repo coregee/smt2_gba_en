@@ -22,7 +22,7 @@ u16 *Battle_BuildRaceCountText(u16 id, u16 count, u16 *tmpl)
     zero = 0;
     CpuSet(&zero, b->msg.compose, 0x05000020);
     dst = b->msg.compose;
-    src = (u16 *)(sub_080BF648(id) + 0x22);
+    src = (u16 *)(Demon_GetRecord(id) + 0x22);
     for (i = 0; i < 8; i++)
     {
         if (*src == 0)
@@ -86,7 +86,7 @@ u16 *Battle_BuildRewardText(u8 *actor, u32 value, u16 *tmpl)
     }
     else
     {
-        name = (u16 *)(sub_080BF648(*(u16 *)(actor + 0x12)) + 0x22);
+        name = (u16 *)(Demon_GetRecord(*(u16 *)(actor + 0x12)) + 0x22);
     }
     i = 0;
     while (*name != 0)
@@ -188,7 +188,7 @@ u16 *Battle_BuildItemDropText(u16 item, u16 *tmpl)
         *dst++ = *src++;
     src++;
     if (item < 0x80)
-        name = (u16 *)(sub_080BF32C(item) + 0x14);
+        name = (u16 *)(Item_GetRecord(item) + 0x14);
     else if (item < 0xD0)
         name = (u16 *)(Equipment_GetRecord36_MidRange(item) + 0x14);
     else

@@ -134,7 +134,7 @@ sub_080E8E00: @ 0x080E8E00
 	bne .L080E8EE0
 	ldr r1, [r1]
 	movs r0, #0
-	bl sub_080F0200
+	bl Battle_InitEnemyUnit
 	movs r0, #0
 	bl sub_080ED938
 	ldr r0, .L080E8EC8
@@ -177,7 +177,7 @@ sub_080E8E00: @ 0x080E8E00
 .L080E8EE0:
 	movs r0, #4
 	mov r1, r8
-	bl sub_080F0200
+	bl Battle_InitEnemyUnit
 	movs r0, #1
 	bl sub_080ED938
 	ldr r0, .L080E8F5C
@@ -283,7 +283,7 @@ sub_080E8FA0: @ 0x080E8FA0
 	beq .L080E8FDC
 	b .L080E8FE2
 .L080E8FC0:
-	bl sub_080ED954
+	bl Battle_IsTwoSided
 	cmp r0, #0
 	bne .L080E8FCC
 	movs r0, #0x78
@@ -585,7 +585,7 @@ sub_080E91F0: @ 0x080E91F0
 	adds r0, r4, #0
 	movs r1, #5
 	mov r2, sp
-	bl sub_080EF740
+	bl Battle_CanUseCommand
 	cmp r0, #0
 	beq .L080E9238
 	adds r0, r4, #0
@@ -869,7 +869,7 @@ gUnknown_080E944C:
 	strh r0, [r1]
 	bl sub_080F3120
 	bl sub_080F2D4C
-	bl sub_080EDD8C
+	bl Battle_BuildActionOrder
 	bl sub_080F2F14
 	ldr r4, .L080E94BC
 	adds r1, r6, r4
@@ -1373,7 +1373,7 @@ sub_080E9870: @ 0x080E9870
 	b .L080E98EC
 .L080E988C: .4byte 0x0203C200 @ EWRAM+0x3C200
 .L080E9890:
-	bl sub_080ED954
+	bl Battle_IsTwoSided
 	cmp r0, #1
 	bne .L080E98B8
 	bl sub_080E980C
@@ -1513,7 +1513,7 @@ gUnknown_080E994C:
 	.byte 0x00, 0x00
 .L080E99DC: .4byte 0x00000978
 .L080E99E0:
-	bl sub_080ED954
+	bl Battle_IsTwoSided
 	cmp r0, #0
 	bne .L080E9A30
 	bl sub_080ED8F4

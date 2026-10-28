@@ -36,7 +36,7 @@ extern u8 gUnk_0203C200[];
 
 void BattleMenu_SetMode(u8 mode, u16 *src);
 void Font_ResetGlyphSpriteCache(u32 arg);
-u8 *sub_080BF648(u16 id);
+u8 *Demon_GetRecord(u16 id);
 u16 *Race_GetName(u16 race);
 u8 sub_080EA314(u16 *src);
 struct Task;
@@ -59,7 +59,7 @@ u8 *Battle_GetCombatant(u32 idx);
 void Combatant_DecodeName(u8 *combatant, u16 *dst);
 u8 *sub_080BF5C0(u16 id);
 u8 *Action_GetRecord(u16 id);
-u8 *sub_080BF32C(u16 id);
+u8 *Item_GetRecord(u16 id);
 u8 *Equipment_GetRecord36_MidRange(u16 id);
 bool32 sub_080F3EC8(u16 idx);
 bool32 sub_080C0A00(u16 idx);

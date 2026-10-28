@@ -1010,7 +1010,7 @@ ScriptOp_3C6: @ 0x08137478
 	adds r0, r1, #0
 	movs r1, #6
 	mov r2, sp
-	bl sub_080BF468
+	bl Item_GetAttribute
 	ldr r0, [sp]
 	movs r1, #1
 	ands r0, r1

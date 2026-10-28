@@ -104,7 +104,7 @@ u32 sub_080B2938(void)
     struct MapHeader *map = DungeonMap_GetFloor(gUnk_03004614, gUnk_03004514);
     u32 r;
 
-    if (sub_080B9750() == 0)
+    if (FieldMap_GetElevatorRecord() == 0)
         r = (u32)map->variants[gGameState.unkA38].data[52];
     else
         r = 0;

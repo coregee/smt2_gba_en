@@ -923,7 +923,7 @@ void Shop_InitItemList(u16 first, u16 mode)
         else if (item >= 0x80)
             name = (u16 *)(Equipment_GetRecord36_MidRange(item) + 0x14);
         else
-            name = (u16 *)(sub_080BF32C(item) + 0x14);
+            name = (u16 *)(Item_GetRecord(item) + 0x14);
         for (j = 0; j < 8; j++)
             gScriptSubstBuf[j] = *name++;
         row = i - first;
@@ -1226,7 +1226,7 @@ void Shop_InitItemList(u16 first, u16 mode)
         "    b .L08133D56\n"
         ".L08133D50:\n"
         "    adds r0, r6, #0\n"
-        "    bl sub_080BF32C\n"
+        "    bl Item_GetRecord\n"
         ".L08133D56:\n"
         "    adds r3, r0, #0\n"
         "    adds r3, #0x14\n"

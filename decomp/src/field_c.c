@@ -247,7 +247,7 @@ u32 sub_080B03BC(u16 state)
         void *ev2 = sub_080C1E20();
 
         sub_080C20EC();
-        if (state == 1 && sub_080BE76C() == 1)
+        if (state == 1 && Door_TryOpen() == 1)
         {
             gFieldState.unk00 = 0x1A;
             return 0;
@@ -264,7 +264,7 @@ u32 sub_080B03BC(u16 state)
         return 1;
 
     nothing:
-        if (sub_080BEE24())
+        if (RandomEvent_Try())
             return 1;
         if (sub_080C2280(0) == 1)
         {
@@ -316,7 +316,7 @@ u32 sub_080B03BC(u16 state)
         "    bl sub_080C20EC\n"
         "    cmp r5, #1\n"
         "    bne .L080B0410\n"
-        "    bl sub_080BE76C\n"
+        "    bl Door_TryOpen\n"
         "    cmp r0, #1\n"
         "    bne .L080B0410\n"
         "    ldr r1, .L080B040C\n"
@@ -359,7 +359,7 @@ u32 sub_080B03BC(u16 state)
         "    .byte 0x00, 0x00\n"
         ".L080B0450: .4byte 0x03004550 @ IWRAM+0x4550\n"
         ".L080B0454:\n"
-        "    bl sub_080BEE24\n"
+        "    bl RandomEvent_Try\n"
         "    cmp r0, #0\n"
         "    beq .L080B0460\n"
         "    movs r0, #1\n"

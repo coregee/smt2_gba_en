@@ -293,7 +293,7 @@ void sub_080EC094(void)
         v2 = sub_080ED9F4();
         text = MessageBox_ComposeSpeciesText(b->combatants[0], b->combatants[0], v1, v2, gUnknown_081267E0);
     }
-    else if (sub_080ED954() == 1)
+    else if (Battle_IsTwoSided() == 1)
     {
         v1 = sub_080EDA24(0);
         v2 = sub_080EDA24(1);
@@ -453,7 +453,7 @@ void sub_080EC35C(struct Task *task)
         }
         if (sub_080ED8F4() & 0x80)
         {
-            text = MessageBox_ComposeNameText(b->combatants[sub_080EF99C()], gUnknown_0812466C);
+            text = MessageBox_ComposeNameText(b->combatants[Battle_ActiveSide()], gUnknown_0812466C);
             goto show;
         }
         BattleMenu_SetMode(3, Menu_ExpandListTemplate((u16 *)gUnknown_0812634E, 0));
@@ -464,7 +464,7 @@ void sub_080EC35C(struct Task *task)
     case 1:
         b->substate = 3;
         *(u16 *)(gUnk_03006434 + 0x122) = 0;
-        if (sub_080ED954() == 1)
+        if (Battle_IsTwoSided() == 1)
         {
             if (sub_080EDA24(0) && sub_080EDA24(1))
             {
@@ -730,7 +730,7 @@ void sub_080EC35C(struct Task *task)
         "    ands r1, r0\n"
         "    cmp r1, #0\n"
         "    beq .L080EC47C\n"
-        "    bl sub_080EF99C\n"
+        "    bl Battle_ActiveSide\n"
         "    lsls r0, r0, #0x10\n"
         "    asrs r0, r0, #0xe\n"
         "    movs r2, #0x99\n"
@@ -773,7 +773,7 @@ void sub_080EC35C(struct Task *task)
         "    lsls r3, r3, #1\n"
         "    adds r0, r0, r3\n"
         "    strh r6, [r0]\n"
-        "    bl sub_080ED954\n"
+        "    bl Battle_IsTwoSided\n"
         "    cmp r0, #1\n"
         "    bne .L080EC534\n"
         "    movs r0, #0\n"

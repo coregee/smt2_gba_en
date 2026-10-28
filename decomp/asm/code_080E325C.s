@@ -2692,7 +2692,7 @@ sub_080E4554: @ 0x080E4554
 	adds r1, #4
 	adds r0, r7, r1
 	strh r4, [r0]
-	bl sub_080ED7BC
+	bl BattleState_Init
 	ldr r2, .L080E46F0
 	adds r0, r7, r2
 	strh r4, [r0]

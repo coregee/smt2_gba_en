@@ -235,7 +235,7 @@ gUnknown_080DD37C:
 	strb r0, [r6, #4]
 .L080DD4D0:
 	adds r0, r5, #0
-	bl sub_080DDE2C
+	bl Cards_Deal
 	b .L080DD6E0
 .L080DD4D8:
 	movs r0, #0xf

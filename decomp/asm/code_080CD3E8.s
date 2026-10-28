@@ -24,7 +24,7 @@ sub_080CD3E8: @ 0x080CD3E8
 	mov r8, r5
 	adds r7, r4, #0
 	adds r7, #0x10
-	bl sub_080BF32C
+	bl Item_GetRecord
 	ldrb r0, [r0, #3]
 	adds r1, r0, #0
 	cmp r0, #0xf
@@ -84,7 +84,7 @@ sub_080CD45C: @ 0x080CD45C
 	adds r4, #0x10
 	movs r1, #1
 	mov r2, sp
-	bl sub_080BF468
+	bl Item_GetAttribute
 	ldr r1, [sp]
 	movs r0, #7
 	ands r1, r0
@@ -175,7 +175,7 @@ sub_080CD50C: @ 0x080CD50C
 	mov r8, r1
 	adds r7, r5, #0
 	adds r7, #0x18
-	bl sub_080BF32C
+	bl Item_GetRecord
 	adds r2, r0, #0
 	adds r2, #8
 	ldrh r1, [r0, #8]
@@ -1016,11 +1016,11 @@ sub_080CDB74: @ 0x080CDB74
 	adds r0, r4, #0
 	movs r1, #0
 	mov r2, sp
-	bl sub_080BF468
+	bl Item_GetAttribute
 	add r2, sp, #4
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_080BF468
+	bl Item_GetAttribute
 	adds r0, r5, #0
 	bl sub_080C07FC
 	adds r4, r0, #0
@@ -1179,7 +1179,7 @@ sub_080CDC54: @ 0x080CDC54
 	mov r0, r8
 	movs r1, #6
 	add r2, sp, #4
-	bl sub_080BF468
+	bl Item_GetAttribute
 	ldr r0, [sp, #4]
 	mov r3, sl
 	ands r0, r3
@@ -1478,7 +1478,7 @@ sub_080CDEEC: @ 0x080CDEEC
 	adds r0, r5, #0
 	movs r1, #6
 	mov r2, sp
-	bl sub_080BF468
+	bl Item_GetAttribute
 	ldr r0, [sp]
 	movs r1, #1
 	ands r0, r1
@@ -2642,7 +2642,7 @@ sub_080CE760: @ 0x080CE760
 	ldrb r4, [r0, #0xd]
 	adds r4, #9
 	adds r0, r7, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	ldrb r0, [r0, #1]
 	cmp r4, r0
 	blt .L080CE866
@@ -2654,7 +2654,7 @@ sub_080CE760: @ 0x080CE760
 .L080CE86C: .4byte 0x0203B854 @ EWRAM+0x3B854
 .L080CE870:
 	adds r0, r7, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	mov r2, r8
 	ldrb r1, [r2, #0xd]
 	ldrb r0, [r0, #1]
@@ -4064,7 +4064,7 @@ sub_080CF324: @ 0x080CF324
 	b .L080CF408
 .L080CF3AC:
 	adds r0, r7, #0
-	bl sub_080BF648
+	bl Demon_GetRecord
 	mov r2, r8
 	ldrb r1, [r2, #0xd]
 	ldrb r0, [r0, #1]

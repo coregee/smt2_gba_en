@@ -924,7 +924,7 @@ sub_0812A39C: @ 0x0812A39C
 	lsrs r0, r0, #0x10
 	bl Battle_GetCombatant
 	ldrh r0, [r0, #0x12]
-	bl sub_080BF648
+	bl Demon_GetRecord
 	movs r4, #0
 	adds r1, r0, #0
 	adds r1, #0x22
@@ -2024,7 +2024,7 @@ sub_0812ACE4: @ 0x0812ACE4
 	movs r0, #0
 	adds r1, r4, #0
 	adds r2, r6, #0
-	bl sub_080EDB6C
+	bl Battle_SortEntriesInsertion
 	movs r3, #1
 	rsbs r3, r3, #0
 	adds r1, r6, #0
@@ -2446,7 +2446,7 @@ sub_0812B028: @ 0x0812B028
 	adds r0, r5, #0
 	movs r1, #0xc
 	mov r2, sp
-	bl sub_080BF468
+	bl Item_GetAttribute
 	ldr r0, [sp]
 	cmp r0, #0x7f
 	bgt .L0812B108

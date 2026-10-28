@@ -12,7 +12,7 @@ void sub_080D2F04(u16 id, u16 x, u16 y)
 
     if (id != 0xFFFF)
     {
-        name = (u16 *)(sub_080BF648(id) + 0x22);
+        name = (u16 *)(Demon_GetRecord(id) + 0x22);
         for (i = 0; i < 8 && *name != 0; i++)
         {
             FontSprite_DrawGlyph(*name, 0, 0, x + i * 12, y);
@@ -38,7 +38,7 @@ void sub_080D2F04(u16 id, u16 x, u16 y)
         "    cmp r3, r0\n"
         "    beq .L080D2F52\n"
         "    adds r0, r3, #0\n"
-        "    bl sub_080BF648\n"
+        "    bl Demon_GetRecord\n"
         "    movs r6, #0\n"
         "    adds r1, r0, #0\n"
         "    adds r1, #0x22\n"
@@ -225,7 +225,7 @@ void sub_080D3264(u32 arg0)
     }
     if (menu->page == 0)
     {
-        sub_080BF468(menu->id, 0, &kind);
+        Item_GetAttribute(menu->id, 0, &kind);
         switch (kind)
         {
         case 0xC0:
@@ -403,7 +403,7 @@ void sub_080D3770(struct Task *task)
 {
     struct PrizeList *list = (struct PrizeList *)task->data.w;
 
-    list->count = sub_080DABCC(0);
+    list->count = Vision_BuildList(0);
     Tilemap_CopyRectSkipZero(gUnknown_081B8170, gWindowTilemapBuffer, 0, 0, 0x15, 0, 8, 2);
     task->data.w[0] = (u32)TextWindow_CreateOpen(1, 0, 0xE, 0xB, 1);
 }

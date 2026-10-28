@@ -3,9 +3,9 @@
 
 /* Deals the 27 cards (1..27) into task data +0x15, shuffled when g[4] == 1, and records in
    g[0x14] where card g[2] ended up. */
-// sub_080DDE2C @ 0x080DDE2C
+// Cards_Deal @ 0x080DDE2C
 #ifdef NONMATCHING
-void sub_080DDE2C(struct Task *task)
+void Cards_Deal(struct Task *task)
 {
     struct C0d9Cards *g = (struct C0d9Cards *)&task->data;
     u8 i;
@@ -47,7 +47,7 @@ void sub_080DDE2C(struct Task *task)
 }
 #else
 NAKED
-void sub_080DDE2C(struct Task *task)
+void Cards_Deal(struct Task *task)
 {
     asm_unified(
         ".L080DDE2C:\n"
@@ -184,7 +184,7 @@ void sub_080DDFAC(void)
     struct C0d9Bg *bg;
     u8 *buf;
 
-    gUnk_03000000 = 0;
+    gDispRegs = 0;
     gUnk_03000004 = 0;
     gUnk_03000008 = 0;
     gUnk_0300000C = 0;

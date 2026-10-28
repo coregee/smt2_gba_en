@@ -2,12 +2,12 @@
 #include "extras.h"
 
 /* Zooms by unk28 per frame up to 0x100 and recomputes the BG2 rotation/scaling. */
-// sub_080DE680 @ 0x080DE680
-void sub_080DE680(void)
+// Mini_ZoomBg2Affine @ 0x080DE680
+void Mini_ZoomBg2Affine(void)
 {
     struct C0d9Bg *bg;
 
-    VBlankTask_AddCounted(sub_080DEDD8, 1);
+    VBlankTask_AddCounted(Mini_UploadBg2Affine, 1);
     bg = &gC0d9Bg;
     bg->unk1E += bg->unk28;
     bg->unk20 += bg->unk28;
@@ -56,7 +56,7 @@ void sub_080DE85C(void)
     struct C0d9Bg *bg;
     u8 *buf;
 
-    gUnk_03000000 = 0;
+    gDispRegs = 0;
     gUnk_03000004 = 0;
     gUnk_03000008 = 0;
     gUnk_0300000C = 0;
