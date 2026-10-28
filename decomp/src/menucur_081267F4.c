@@ -1,7 +1,7 @@
 /* Menu cursors (8 slots at 0x03006480) and menu window graphics. */
 
 #include "global.h"
-#include "c126.h"
+#include "menucur.h"
 
 // sub_081267F4 @ 0x081267F4
 void sub_081267F4(void)

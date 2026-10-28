@@ -3500,7 +3500,7 @@ sub_080E1228: @ 0x080E1228
 	movs r0, #0
 	strh r0, [r4, #0x1e]
 	movs r0, #8
-	bl sub_08127A98
+	bl BattleMenu_BuildMemberList
 	lsls r0, r0, #0x10
 	lsrs r3, r0, #0x10
 	adds r5, r3, #0

@@ -1,5 +1,5 @@
-#ifndef GUARD_C126_H
-#define GUARD_C126_H
+#ifndef GUARD_MENUCUR_H
+#define GUARD_MENUCUR_H
 
 /* Code 0x081267F4-0x0812BF54: menu cursors, menu window graphics. Declarations copied from
    other headers where needed (those headers are not included here). */
@@ -125,4 +125,4 @@ void sub_081270CC(u8 x, u8 y, u8 w, u8 h, const u16 *src);
 void sub_0812712C(void);
 void sub_081271C0(void);
 
-#endif /* GUARD_C126_H */
+#endif /* GUARD_MENUCUR_H */

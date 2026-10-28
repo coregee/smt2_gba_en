@@ -3047,7 +3047,7 @@ sub_080E5FF0: @ 0x080E5FF0
 .L080E60B6:
 	movs r0, #0
 	adds r1, r2, #0
-	bl sub_08127960
+	bl MenuCursor_SetIndex
 	ldr r0, .L080E6124
 	adds r4, r6, r0
 	ldrb r0, [r4]

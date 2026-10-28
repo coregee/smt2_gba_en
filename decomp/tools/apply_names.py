@@ -73,6 +73,13 @@ def main():
     if args.dry_run:
         return
     Symbols.save(ROOT / "reference" / "symbols.tsv", rows.values())
+    # Code written before an address was named still uses its address name (sub_X, gUnk_X);
+    # the build would define that as a plain address, and a call to it would get an ARM stub.
+    for a, s in rows.items():
+        aliases = [f"sub_{a:08X}"] if s.kind == "func" else [f"gUnk_{a:08X}", f"gUnknown_{a:08X}"]
+        for alias in aliases:
+            if alias != s.name:
+                renames.setdefault(alias, s.name)
     # Two proposals for one address chain (sub_X -> A, A -> B): every old name goes to the last.
     for k in list(renames):
         seen = {k}

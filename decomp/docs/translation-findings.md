@@ -296,3 +296,20 @@ No text is drawn here, so nothing limits the translation. Oddities in the origin
   capped (bonus stats are, by `Stat_CapBonus`).
 - `sub_080C0E44` and `sub_080C0EC0` return an uninitialised value for a stat index above 5.
 - Play time stops at 255:59:59 (`0x080C22E4`), apparently on purpose.
+
+### Battle command menu (`0x08126F84`-`0x0812BF54`)
+
+- **Names in the lists.** Rows (`0x081272CC`, `0x08127394`) draw at most 8 glyphs, 12 px apart;
+  `Menu_DrawLabeledName` (`0x081289B8`) at most 5, right-aligned; the demon line at `0x0812A39C`
+  puts the string `0x0800354A` after the name at `x = 0x12 + 12 * glyphs`. The translation
+  patches all four (checked in the patched build).
+- **Status names** (`BattleMenu_DrawStatus`, `0x08128828`) are 18 fixed 8-byte entries at
+  `0x08777D54`, drawn with the digit font. They are ASCII already in the Japanese release
+  ("DEAD", "STONE", ...), so the translation leaves them alone.
+- `BattleMenu_DrawListPage` (`0x08127EAC`) decodes names into a 16-byte stack buffer; this is
+  safe, because `Combatant_DecodeName` always writes exactly 8 glyphs.
+
+### More possible original bugs
+
+- `Inventory_Find` (`0x0812BCD4`) has no end check: an id that is not in the table walks past it.
+- `0x0812876C` reads a digit it never uses and always draws at least two level digits.

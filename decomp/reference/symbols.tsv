@@ -72,8 +72,10 @@ address	name	kind	confidence	note
 0300463C	gSceneEffectTask	ram	probable	task created by SceneEffect_Start, cleared by SceneEffect_Stop
 03004688	gOptions	ram	probable	options word, loaded/saved by Options_Load/Options_Save at SRAM 0x0E000010; Settings_GetBattleMsgSpeed tests bit 2
 030046C0	gGameState	ram	probable	0x18F8 bytes written to / read from SRAM by sub_080D1264 / sub_080D1328
+030051AC	gInventory	ram	probable	0x15A (u16 id, u16 count) pairs; ids < 0x80 items (Item_GetRecord), 0x80-0xCF equipment, 0xD0-0xFE actions (Action_GetRecord) in BattleMenu_DrawListPage/sub_0812B260; sorted by Inventory_Sort
 03005808	gMapMarkers	ram	probable	8 automap markers of 8 bytes {u8 x, u8 y, u8 pad, u8 kind, u16 map (0xFF empty), u16 floor}, read by Automap_DrawSprites and written by MarkerMenu_Place/Clear
 03006080	gColorEffect	ram	probable	{s16 r, g, b, desat} read by Color_ApplyEffect
+03006450	gSavedMenuCursor	ram	probable	0x28-byte MenuCursor copy written/read by MenuCursor2_SaveRestore and MenuCursor4_SaveRestore
 03006614	gMsgTextTop	ram	probable	y of text line 0 (0x59/0x61/0x69 from layout 0x0203DB7A in ScriptVM_Init); glyph y = line*13 + top; glyphs above it are not drawn
 0300669C	gMsgGlyphList2Count	ram	probable	s16 entry count of 0x0203DA00 (reset by sub_08133854, set to 0x18 by Shop_InitItemList, incremented by sub_08133724)
 030066B0	gScriptFlagsBackup	ram	probable	0x168-byte copy of the flag array made by ScriptVM_SaveFlags, restored by ScriptVM_RestoreState
@@ -719,7 +721,17 @@ address	name	kind	confidence	note
 080F24F0	Combatant_AddHp	func	probable	adds the argument to the s16 at Battle_GetCombatant(who)+0x18 (HP, as in vm_wait.c) and returns it
 080F2F64	Battle_GetCombatant	func	probable	callers read +0xC (<4 = human: Combatant_DecodeName) and +0x12 (demon id for sub_080BF648) from the returned record
 080F3254	Skill_DrawEquippedRow	func	tentative	from translation patches (lost Ghidra session); verify
+08127960	MenuCursor_SetIndex	func	probable	(id, index): clamps index to count-1, recomputes column/row (index / % perColumn), scrolls top so the index is visible, sets onScreen
+08127A98	BattleMenu_BuildMemberList	func	probable	(mode 0-9): fills the battle block list (+0x2D0) with member slots 0-15 (or 0-255 for mode 5) filtered by sub_080C0148(slot|0x8000)->unkE (0xC000 party / 0x8000 stock), 0xFFFF-terminated; returns the count
+08127EAC	BattleMenu_DrawListPage	func	probable	(mode, start): clears the 0x030000B4 canvas and draws up to five rows of the block list from `start` (names, prices/counts) one row per VBlank via sub_08127D70/sub_08127E04
+081284FC	BattleMenu_DrawHp	func	probable	called with Combatant hp/maxHp (+0x18/+0x1A) or demon record +2; draws cur/max as 3 digits into the 0x03000AB4 panel at y 6
+08128634	BattleMenu_DrawMp	func	probable	called with Combatant mp/maxMp (+0x1C/+0x1E) or demon record +4; same layout as BattleMenu_DrawHp at y 0x12
+08128828	BattleMenu_DrawStatus	func	probable	(flags, race): picks one 8-byte string of gUnknown_08777D54 by the highest-priority Combatant flags bit and draws it at y 0x1E
 081289B8	Menu_DrawLabeledName	func	tentative	from translation patches (lost Ghidra session); verify
+0812AC68	MenuCursor2_SaveRestore	func	probable	mode 0 copies cursor 2 (sub_08126D1C(2)) to 0x03006450, mode 1 copies it back and calls MenuCursor_SetIndex(2, saved index)
+0812ACE4	Inventory_Sort	func	probable	copies the 0x15A (id, count) pairs at 0x030051AC to the canvas as (count, id) with empty slots keyed 0xFFF, Battle_SortEntriesInsertion, then writes the non-empty ones back in order
+0812B440	MenuCursor4_SaveRestore	func	probable	same as MenuCursor2_SaveRestore for cursor 4
+0812BCD4	Inventory_Find	func	probable	returns the address of the (id, count) pair for id in 0x030051AC; no end check
 081321B4	ScriptOp_Nop	func	probable	empty body; table entry for 0x302, 0x314 and ~100 unused opcodes in both tables
 081321B8	ScriptOpAlt_Shared_081321B8	func	probable	gScriptOpAltTable handler for opcode(s) 300,307,30E,310,313,315,316,317,318,31A,31B,31C...
 081321C4	ScriptOpAlt_Shared_081321C4	func	probable	gScriptOpAltTable handler for opcode(s) 305,37B,388,38B,39F,426

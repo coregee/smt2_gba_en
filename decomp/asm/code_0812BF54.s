@@ -12,7 +12,7 @@ sub_0812BF54: @ 0x0812BF54
 	bl sub_08126D1C
 	ldrh r1, [r0, #0xc]
 	movs r0, #6
-	bl sub_08127EAC
+	bl BattleMenu_DrawListPage
 	pop {r0}
 	bx r0
 
@@ -71,7 +71,7 @@ sub_0812BF68: @ 0x0812BF68
 	beq .L0812BFDA
 	ldrh r1, [r5, #0xc]
 	movs r0, #6
-	bl sub_08127EAC
+	bl BattleMenu_DrawListPage
 .L0812BFDA:
 	ldr r0, .L0812C048
 	movs r4, #0
@@ -1029,13 +1029,13 @@ sub_0812C760: @ 0x0812C760
 	beq .L0812C790
 	ldrh r1, [r1, #0xc]
 	movs r0, #7
-	bl sub_08127EAC
+	bl BattleMenu_DrawListPage
 	b .L0812C798
 .L0812C78C: .4byte 0x0203C200 @ EWRAM+0x3C200
 .L0812C790:
 	ldrh r1, [r1, #0xc]
 	movs r0, #8
-	bl sub_08127EAC
+	bl BattleMenu_DrawListPage
 .L0812C798:
 	adds r0, r5, #0
 	bl sub_080BF5C0
@@ -1161,12 +1161,12 @@ sub_0812C7B4: @ 0x0812C7B4
 	beq .L0812C8A6
 	ldrh r1, [r7, #0xc]
 	movs r0, #7
-	bl sub_08127EAC
+	bl BattleMenu_DrawListPage
 	b .L0812C8AE
 .L0812C8A6:
 	ldrh r1, [r7, #0xc]
 	movs r0, #8
-	bl sub_08127EAC
+	bl BattleMenu_DrawListPage
 .L0812C8AE:
 	ldr r1, [sp, #0x10]
 	ldrh r2, [r7, #0x12]
@@ -1389,7 +1389,7 @@ sub_0812CA00: @ 0x0812CA00
 .L0812CA52:
 	movs r0, #6
 .L0812CA54:
-	bl sub_08127A98
+	bl BattleMenu_BuildMemberList
 	lsls r0, r0, #0x10
 	lsrs r5, r0, #0x10
 .L0812CA5C:
@@ -1458,7 +1458,7 @@ sub_0812CADC: @ 0x0812CADC
 	adds r4, r0, #0
 	ldrh r1, [r4, #0xc]
 	movs r0, #0
-	bl sub_08127EAC
+	bl BattleMenu_DrawListPage
 	ldrh r1, [r4, #0x12]
 	movs r0, #0
 	bl sub_081283C4
@@ -1562,7 +1562,7 @@ sub_0812CAFC: @ 0x0812CAFC
 	beq .L0812CBC8
 	ldrh r1, [r5, #0xc]
 	movs r0, #0
-	bl sub_08127EAC
+	bl BattleMenu_DrawListPage
 	ldrh r1, [r5, #0x12]
 	movs r0, #0
 	bl sub_081283C4
@@ -1693,7 +1693,7 @@ sub_0812CCA0: @ 0x0812CCA0
 	str r0, [r5, #0x50]
 	bl sub_081272AC
 	movs r0, #0
-	bl sub_08127A98
+	bl BattleMenu_BuildMemberList
 	lsls r0, r0, #0x10
 	lsrs r3, r0, #0x10
 	cmp r3, #4
@@ -1717,7 +1717,7 @@ sub_0812CCA0: @ 0x0812CCA0
 	adds r0, r5, r1
 	ldrb r1, [r0]
 	movs r0, #2
-	bl sub_08127960
+	bl MenuCursor_SetIndex
 	bl sub_080EA210
 	ldr r1, .L0812CD20
 	movs r0, #4
@@ -1738,7 +1738,7 @@ sub_0812CD24: @ 0x0812CD24
 	adds r4, r0, #0
 	ldrh r1, [r4, #0xc]
 	movs r0, #0
-	bl sub_08127EAC
+	bl BattleMenu_DrawListPage
 	ldrh r1, [r4, #0x12]
 	movs r0, #0
 	bl sub_081283C4
@@ -1836,7 +1836,7 @@ sub_0812CD44: @ 0x0812CD44
 	beq .L0812CE02
 	ldrh r1, [r5, #0xc]
 	movs r0, #0
-	bl sub_08127EAC
+	bl BattleMenu_DrawListPage
 	ldrh r1, [r5, #0x12]
 	movs r0, #0
 	bl sub_081283C4
@@ -2901,7 +2901,7 @@ sub_0812D644: @ 0x0812D644
 	lsls r1, r1, #0x10
 	lsrs r1, r1, #0x10
 	movs r0, #3
-	bl sub_08127960
+	bl MenuCursor_SetIndex
 	ldr r1, .L0812D6B4
 	movs r0, #3
 	bl BattleMenu_SetMode
@@ -3118,7 +3118,7 @@ sub_0812D81C: @ 0x0812D81C
 	lsls r1, r1, #0x10
 	lsrs r1, r1, #0x10
 	movs r0, #3
-	bl sub_08127960
+	bl MenuCursor_SetIndex
 	ldr r1, .L0812D88C
 	movs r0, #3
 	bl BattleMenu_SetMode
@@ -3359,7 +3359,7 @@ sub_0812DA24: @ 0x0812DA24
 	lsls r1, r1, #0x10
 	lsrs r1, r1, #0x10
 	movs r0, #3
-	bl sub_08127960
+	bl MenuCursor_SetIndex
 	ldr r1, .L0812DA90
 	movs r0, #3
 	bl BattleMenu_SetMode
@@ -3672,7 +3672,7 @@ sub_0812DCE0: @ 0x0812DCE0
 	adds r4, r0, #0
 	ldrh r1, [r4, #0xc]
 	movs r0, #0
-	bl sub_08127EAC
+	bl BattleMenu_DrawListPage
 	ldrh r1, [r4, #0x12]
 	movs r0, #0
 	bl sub_081283C4
@@ -3794,7 +3794,7 @@ sub_0812DD0C: @ 0x0812DD0C
 	bl sub_080D367C
 	ldrh r1, [r5, #0xc]
 	movs r0, #0
-	bl sub_08127EAC
+	bl BattleMenu_DrawListPage
 	ldrh r1, [r5, #0x12]
 	movs r0, #0
 	bl sub_081283C4
@@ -3897,7 +3897,7 @@ sub_0812DEB4: @ 0x0812DEB4
 	adds r4, r0, #0
 	ldrh r1, [r4, #0xc]
 	movs r0, #0
-	bl sub_08127EAC
+	bl BattleMenu_DrawListPage
 	ldrh r1, [r4, #0x12]
 	movs r0, #0
 	bl sub_081283C4
@@ -3995,7 +3995,7 @@ sub_0812DED4: @ 0x0812DED4
 	bl sub_0812DC00
 	ldrh r1, [r5, #0xc]
 	movs r0, #0
-	bl sub_08127EAC
+	bl BattleMenu_DrawListPage
 	ldrh r1, [r5, #0x12]
 	movs r0, #0
 	bl sub_081283C4
@@ -4213,7 +4213,7 @@ sub_0812E134: @ 0x0812E134
 	bl sub_08126D1C
 	ldrh r1, [r0, #0xc]
 	movs r0, #1
-	bl sub_08127EAC
+	bl BattleMenu_DrawListPage
 	pop {r0}
 	bx r0
 
@@ -4306,7 +4306,7 @@ sub_0812E148: @ 0x0812E148
 	beq .L0812E1FC
 	ldrh r1, [r5, #0xc]
 	movs r0, #1
-	bl sub_08127EAC
+	bl BattleMenu_DrawListPage
 .L0812E1FC:
 	add sp, #0xc
 	pop {r4, r5, r6}
