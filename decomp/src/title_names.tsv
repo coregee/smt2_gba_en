@@ -1,0 +1,15 @@
+080D6274	Title_LoadScene	func	title/opening scene command (task, mode): stores mode in gMenuState, loads that scene's graphics/palettes/window regs (modes 0..6, 100..129) and queues the VBlank upload sub_080D5C20
+080D693C	Title_DrawPressStart	func	draws the logo, blinks sprite 0x080017A4 at (0x38,0x70) every 20 frames (gMenuState+4/+6), plus the two copyright sprites
+080D6A34	Title_HasExtraUnlocked	func	TRUE if any SRAM word 0x0E000008[0..2] (sub_080C2A84) is 1, or any bit of the 380-entry set at 0x03004690 or the 64-entry set at 0x03006090 is set; decides whether the title menu shows its fifth row (sub_080D6A9C, sub_080D6CEC, sub_080D5B8C)
+080D6A9C	Title_DrawMenu	func	logo + menu rows; rows 1/2 drawn greyed unless gMenuState+8/+0xA == 1, row 4 only when Title_HasExtraUnlocked; cursor sprite 0x0813EE58 at row gMenuState+2
+080D6C8C	Title_WaitPressStart	func	"press start" input: idle timer gMenuState+0xC runs out -> 2 (attract demo), any key -> 1 with the cursor preset to the furthest enabled row
+080D6CEC	Title_HandleMenuInput	func	A returns row+1 (disabled rows ignored; 4 -> 5 when the extra row is hidden), B returns 10, up/down wrap over 4 or 5 rows and reset the 900-frame idle timer, timeout returns 0x80
+080D7A84	Char_DrawBySlot	func	draws a character sprite (task data +0x24) with the OBJ tile base / palette of its slot: 3 layouts (0x300/0x380/0x280) unless sub_080D7A04, then 6 (slots 0..5)
+080D7BE4	Char_StartAnim	func	sets the frame timer from the first frame of Char_GetRecord(id)+0x28 and loads its two gfx halves when frame+0x14 == 1 (sound frame+0x16)
+080D7C30	Char_DrawAnimFrame	func	draws one animation frame (0x18-byte record: gfx[2], sprite, duration, tile, palette, load flag, se); tile/palette 0xFFFF mean "by slot"
+080D7CA8	Char_StepAnim	func	counts down the frame timer (+0x1A), advances frame index +0x18; duration 0xFFFF ends the task (sub_080C48F0), 0xFFFE loops to frame 0
+080D7840	Char_SignalById	func	Task_Signal on every task in the 6-entry table 0x02036094 whose +0x2A matches an id that is never assigned (reads the caller's r6: original bug)
+080D878C	Char_FindOther	func	(self, id): first task of the 6-entry table 0x02036094 other than self whose character id (+0x2A) is id, else NULL
+080D8284	Char_LoadPartyDemonGfx	func	(task, index): HuffUnComp+LZ77 the demon battle sprite of gUnk_0203DB28[index] (gDemonGfxRecords) into character slot 0/1/2 buffers 0x02001000/0x02002000/0x02003000, palette 0x1E0/0x1F0/0x1D0
+080D8384	Char_DrawPartyDemon	func	draws the demon loaded by Char_LoadPartyDemonGfx, alternating cells record+8 -> +4 [0]/[2] every 16 frames
+02036094	gCharTasks	ram	6 task pointers scanned by Char_SignalById / Char_FindOther and compared on their character id (+0x2A)

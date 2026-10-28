@@ -179,3 +179,21 @@ hard-coded glyph IDs at fixed x positions: English labels need code changes.
 - `sub_080D478C` calls `sub_080C4618` with an uninitialised first argument; `sub_080D3B58`
   returns a leftover value that lands in `gYesNoResult`.
 - `sub_08133854` can list a fourth party member after skipping one (inconsistent bound).
+
+## Found in the third conversion round (title screen, opening, event character sprites)
+
+- **Boot notice** (`Intro_DrawDisclaimer`, `0x080D67BC`): exactly 17/16/17 glyph sprites from
+  the list at `0x085096C4`, 13 px apart, rows starting at x 0/13/8. Already handled: the
+  translation swaps the intro step's function pointer (`0x08509EEC`) for its own proportional
+  renderer (`engine/script/patch_introdisclaimer.py`) and points the string literal
+  `0x080D6868` at the English text (checked in the patched build).
+- **Title menu labels** are pre-drawn sprites (`0x0813ED6C`-`0x0813EE08`) at fixed positions,
+  not text; the translation replaces the logo graphics (`patch_titlegfx.py`, literal
+  `0x080D68BC`).
+
+### More possible original bugs
+
+- `sub_080D7840` matches character tasks (`+0x2A`) against a value that is never set (a
+  leftover r6), so which tasks it signals depends on the caller.
+- `sub_080D8384` leaves the tile and palette unset for slots other than 0-2.
+- `sub_080D77FC` looks up the character record and then ignores it.
