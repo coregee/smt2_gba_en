@@ -114,7 +114,7 @@ void ScriptOpAlt_42F(void)
 // ScriptOp_430 @ 0x0813A2F8
 void ScriptOp_430(void)
 {
-    sub_080C5DE0();
+    Party_RestoreHumans();
 }
 
 // ScriptOpAlt_430 @ 0x0813A304
@@ -147,7 +147,7 @@ void ScriptOp_432(void)
     ((s8 *)Battle_GetCombatant(0x8000))[5] = -1;
     ((s8 *)Battle_GetCombatant(0x8000))[6] = -1;
     ((s8 *)Battle_GetCombatant(0x8000))[7] = -1;
-    sub_080C366C();
+    Party_FixFormation();
 }
 #else
 NAKED
@@ -197,7 +197,7 @@ void ScriptOp_432(void)
         "    movs r1, #1\n"
         "    rsbs r1, r1, #0\n"
         "    strb r1, [r0, #7]\n"
-        "    bl sub_080C366C\n"
+        "    bl Party_FixFormation\n"
         "    pop {r4}\n"
         "    pop {r0}\n"
         "    bx r0\n"
@@ -215,7 +215,7 @@ void ScriptOpAlt_432(void)
 // ScriptOp_433 @ 0x0813A394
 void ScriptOp_433(void)
 {
-    sub_080C5DB0();
+    Party_SnapshotHumans();
 }
 
 // ScriptOpAlt_433 @ 0x0813A3A0
@@ -227,7 +227,7 @@ void ScriptOpAlt_433(void)
 void sub_0813A3A4(s32 v)
 {
     if (gUnk_030065F0 == 0)
-        sub_080C30AC(v);
+        Money_Add(v);
 }
 
 /* Pays the fee for gUnk_030065E0 (table gUnknown_08790CC8); jumps when there is not enough. */
@@ -239,7 +239,7 @@ void ScriptOp_434(void)
     u16 fee;
 
     gUnk_0203DB2C = fee = gUnknown_08790CC8[gUnk_030065E0 - 0x61];
-    if (sub_080C3100() < fee)
+    if (Money_Get() < fee)
         gScriptJumpTarget = (u16 *)target;
     else
         sub_0813A3A4(-fee);
@@ -285,7 +285,7 @@ void ScriptOp_435(void)
     else if (mode == 8)
     {
         v = gUnk_030037F0 * gUnk_0203DB84;
-        sub_080C30AC(v);
+        Money_Add(v);
     }
 }
 

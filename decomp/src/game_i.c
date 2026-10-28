@@ -61,7 +61,7 @@ void sub_080B3ED0(void)
         y = 0x50;
         if (bg->unk4C == 0x194 && Flag_Test(0x37))
             y = 0x20;
-        sub_080C4618(0, bg->unk4C, y, 5, 0, 0);
+        CharObj_Create(0, bg->unk4C, y, 5, 0, 0);
     }
 }
 

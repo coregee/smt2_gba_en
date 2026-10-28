@@ -1151,12 +1151,12 @@ sub_080CDC54: @ 0x080CDC54
 	beq .L080CDD78
 	ldrh r1, [r5, #0x30]
 	adds r0, r4, #0
-	bl sub_080C343C
+	bl Combatant_GetEquipSlot
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	mov r8, r0
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	mov r0, sb
 	strh r0, [r5, #0x2c]
 	strh r0, [r5, #0x2e]
@@ -1230,7 +1230,7 @@ sub_080CDC54: @ 0x080CDC54
 	cmp r0, #0xff
 	beq .L080CDD48
 	mov r0, r8
-	bl sub_080C3328
+	bl Inventory_AddItem
 .L080CDD48:
 	adds r0, r6, #0
 	bl sub_080C9CD8
@@ -1257,7 +1257,7 @@ sub_080CDC54: @ 0x080CDC54
 	cmp r0, #0
 	beq .L080CDD8E
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r0, #3
 	strh r0, [r6, #0x1e]
 	b .L080CDE5A
@@ -1276,7 +1276,7 @@ sub_080CDC54: @ 0x080CDC54
 	cmp r0, #1
 	beq .L080CDDC8
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	ldrh r0, [r5, #2]
 	cmp r0, #0
 	beq .L080CDDBA
@@ -1306,7 +1306,7 @@ sub_080CDC54: @ 0x080CDC54
 	cmp r0, #1
 	beq .L080CDE10
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	ldrh r1, [r5, #2]
 	subs r0, r7, #1
 	cmp r1, r0
@@ -1336,7 +1336,7 @@ sub_080CDC54: @ 0x080CDC54
 	cmp r4, #0
 	beq .L080CDE3E
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	ldrh r0, [r5, #0x30]
 	cmp r0, #0
 	beq .L080CDE38
@@ -1355,7 +1355,7 @@ sub_080CDC54: @ 0x080CDC54
 	cmp r0, #0
 	beq .L080CDE5A
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	ldrh r0, [r5, #0x30]
 	cmp r0, #6
 	beq .L080CDE58
@@ -1472,7 +1472,7 @@ sub_080CDEEC: @ 0x080CDEEC
 	lsrs r4, r0, #0x10
 	adds r0, r6, #0
 	adds r1, r4, #0
-	bl sub_080C343C
+	bl Combatant_GetEquipSlot
 	lsls r0, r0, #0x10
 	lsrs r7, r0, #0x10
 	adds r0, r5, #0
@@ -1503,21 +1503,21 @@ sub_080CDEEC: @ 0x080CDEEC
 	cmp r0, #0xff
 	beq .L080CDF98
 	adds r0, r7, #0
-	bl sub_080C3328
+	bl Inventory_AddItem
 	b .L080CDF98
 .L080CDF7A:
 	adds r0, r6, #0
 	adds r1, r4, #0
 	adds r2, r5, #0
-	bl sub_080C34B0
+	bl Combatant_SetEquipSlot
 	adds r0, r5, #0
-	bl sub_080C33AC
+	bl Inventory_RemoveItem
 	movs r0, #0xff
 	ands r0, r7
 	cmp r0, #0xff
 	beq .L080CDF98
 	adds r0, r7, #0
-	bl sub_080C3328
+	bl Inventory_AddItem
 .L080CDF98:
 	ldrb r0, [r6, #0xc]
 	bl Combatant_RecalcStats
@@ -1566,7 +1566,7 @@ sub_080CDFD0: @ 0x080CDFD0
 	bl Party_GetMember
 	ldr r2, .L080CDFF4
 	adds r1, r4, #0
-	bl sub_080C34B0
+	bl Combatant_SetEquipSlot
 	pop {r4}
 	pop {r0}
 	bx r0
@@ -1637,7 +1637,7 @@ sub_080CE038: @ 0x080CE038
 	beq .L080CE0D8
 	ldrh r1, [r7, #0x30]
 	mov r0, r8
-	bl sub_080C343C
+	bl Combatant_GetEquipSlot
 	ldr r2, .L080CE0CC
 	ldrh r0, [r7, #0x2c]
 	ldrh r1, [r7, #0x2e]
@@ -1647,7 +1647,7 @@ sub_080CE038: @ 0x080CE038
 	ldrh r4, [r0]
 	ldrh r1, [r7, #0x30]
 	mov r0, r8
-	bl sub_080C343C
+	bl Combatant_GetEquipSlot
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	cmp r4, r0
@@ -1661,7 +1661,7 @@ sub_080CE038: @ 0x080CE038
 	bne .L080CE0D0
 .L080CE0A6:
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	mov r1, r8
 	ldrb r0, [r1, #0xc]
 	adds r1, r4, #0
@@ -1677,7 +1677,7 @@ sub_080CE038: @ 0x080CE038
 .L080CE0CC: .4byte 0x0203B454 @ EWRAM+0x3B454
 .L080CE0D0:
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080CE246
 .L080CE0D8:
 	ldrh r1, [r2]
@@ -1687,7 +1687,7 @@ sub_080CE038: @ 0x080CE038
 	cmp r0, #0
 	beq .L080CE0F0
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	strh r4, [r6, #0x1e]
 	subs r4, r5, #1
 	b .L080CE1EC
@@ -1699,7 +1699,7 @@ sub_080CE038: @ 0x080CE038
 	cmp r0, #0
 	beq .L080CE122
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	ldrh r0, [r7, #0x2c]
 	cmp r0, #0
 	beq .L080CE110
@@ -1724,7 +1724,7 @@ sub_080CE038: @ 0x080CE038
 	cmp r4, #0
 	beq .L080CE178
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	ldrh r1, [r7, #0x2c]
 	mov r0, sb
 	subs r0, #1
@@ -1766,7 +1766,7 @@ sub_080CE038: @ 0x080CE038
 	cmp r5, #7
 	bls .L080CE1B0
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r0, #1
 	mov sl, r0
 	ldrh r1, [r7, #0x2c]
@@ -1798,7 +1798,7 @@ sub_080CE038: @ 0x080CE038
 	cmp r5, #7
 	bls .L080CE1EC
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r1, #1
 	mov sl, r1
 	ldrh r0, [r7, #0x2c]
@@ -2029,7 +2029,7 @@ sub_080CE300: @ 0x080CE300
 	str r0, [r4, #0x50]
 .L080CE39C:
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080CE4A0
 .L080CE3A4:
 	movs r0, #2
@@ -2103,7 +2103,7 @@ gUnknown_080CE3CC:
 	movs r0, #1
 	mov sb, r0
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080CE4A0
 	.byte 0x00, 0x00
 .L080CE434: .4byte 0x00000101
@@ -2148,7 +2148,7 @@ gUnknown_080CE3CC:
 .L080CE478:
 	strh r0, [r4, #0x2c]
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080CE4A0
 .L080CE482:
 	movs r0, #0x10
@@ -2166,7 +2166,7 @@ gUnknown_080CE3CC:
 	strh r1, [r4, #0x2c]
 .L080CE49A:
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 .L080CE4A0:
 	mov r0, sb
 	cmp r0, #1
@@ -2554,7 +2554,7 @@ sub_080CE760: @ 0x080CE760
 	lsls r5, r5, #0x10
 	lsrs r5, r5, #0x10
 	adds r0, r5, #0
-	bl sub_080C32D4
+	bl Inventory_GetCount
 	adds r4, r0, #0
 	lsls r4, r4, #0x18
 	lsrs r4, r4, #0x18
@@ -2580,7 +2580,7 @@ sub_080CE760: @ 0x080CE760
 	cmp r2, #6
 	bne .L080CE816
 	adds r0, r7, #0
-	bl sub_080C3560
+	bl Stock_FindByDemonId
 	cmp r0, #0
 	bne .L080CE832
 	movs r5, #0
@@ -2609,7 +2609,7 @@ sub_080CE760: @ 0x080CE760
 	b .L080CEAB4
 .L080CE816:
 	adds r0, r7, #0
-	bl sub_080C3560
+	bl Stock_FindByDemonId
 	cmp r0, #0
 	beq .L080CE83A
 	ldrh r0, [r5]
@@ -2689,7 +2689,7 @@ sub_080CE760: @ 0x080CE760
 	movs r1, #1
 	bl Window_Close
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080CEAB4
 	.byte 0x00, 0x00
 .L080CE8BC: .4byte 0x030031B8 @ IWRAM+0x31B8
@@ -3060,7 +3060,7 @@ sub_080CEB60: @ 0x080CEB60
 	cmp r0, #1
 	bne .L080CEBBC
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	ldr r0, .L080CEBB8
 	strh r0, [r4, #0x1e]
 	b .L080CEC20
@@ -3075,7 +3075,7 @@ sub_080CEB60: @ 0x080CEB60
 	cmp r0, #1
 	bne .L080CEBD8
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	ldr r0, .L080CEBD4
 	strh r0, [r4, #0x1e]
 	b .L080CEC20
@@ -3083,7 +3083,7 @@ sub_080CEB60: @ 0x080CEB60
 .L080CEBD4: .4byte 0x00008002
 .L080CEBD8:
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	ldr r0, .L080CEBE4
 	strh r0, [r4, #0x1e]
 	b .L080CEC20
@@ -3097,7 +3097,7 @@ sub_080CEB60: @ 0x080CEB60
 	cmp r0, #0
 	beq .L080CEC08
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r0, #2
 	strh r0, [r4, #0x1e]
 	b .L080CEC20
@@ -3110,7 +3110,7 @@ sub_080CEB60: @ 0x080CEB60
 	cmp r0, #0
 	beq .L080CEC20
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r0, #3
 	strh r0, [r4, #0x1e]
 	ldr r0, .L080CEC44
@@ -3146,7 +3146,7 @@ sub_080CEC4C: @ 0x080CEC4C
 	cmp r0, #0
 	beq .L080CEC62
 	movs r1, #0
-	bl sub_080C3E80
+	bl DemonObj_End
 	movs r0, #0
 	str r0, [r4, #0x3c]
 .L080CEC62:
@@ -3189,7 +3189,7 @@ sub_080CECA8: @ 0x080CECA8
 	cmp r0, #0
 	beq .L080CECBC
 	movs r1, #0
-	bl sub_080C3E80
+	bl DemonObj_End
 	movs r0, #0
 	str r0, [r4, #0x3c]
 .L080CECBC:
@@ -3330,7 +3330,7 @@ sub_080CEDA4: @ 0x080CEDA4
 	cmp r6, #0
 	bne .L080CEDF8
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	ldr r0, .L080CEDF4
 	strh r0, [r5, #0x1e]
 	b .L080CEE1E
@@ -3351,7 +3351,7 @@ sub_080CEDA4: @ 0x080CEDA4
 	beq .L080CEE1E
 .L080CEE0E:
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r0, #3
 	strh r0, [r5, #0x1e]
 	ldr r1, .L080CEE48
@@ -3451,7 +3451,7 @@ sub_080CEEC8: @ 0x080CEEC8
 	cmp r0, #0
 	beq .L080CEEDC
 	movs r1, #0
-	bl sub_080C3E80
+	bl DemonObj_End
 	movs r0, #0
 	str r0, [r4, #0x3c]
 .L080CEEDC:
@@ -3469,7 +3469,7 @@ sub_080CEEE8: @ 0x080CEEE8
 	cmp r0, #0
 	beq .L080CEEFC
 	movs r1, #0
-	bl sub_080C3E80
+	bl DemonObj_End
 	movs r0, #0
 	str r0, [r4, #0x3c]
 .L080CEEFC:
@@ -3703,7 +3703,7 @@ sub_080CF078: @ 0x080CF078
 	cmp r0, #0
 	beq .L080CF0DC
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	strh r6, [r7, #0x1e]
 	b .L080CF19A
 	.byte 0x00, 0x00
@@ -3714,7 +3714,7 @@ sub_080CF078: @ 0x080CF078
 	cmp r4, #0
 	beq .L080CF0F4
 	mov r0, r8
-	bl sub_080C51D4
+	bl Sound_Play
 	ldr r0, .L080CF0F0
 	strh r0, [r7, #0x1e]
 	b .L080CF19A
@@ -3726,7 +3726,7 @@ sub_080CF078: @ 0x080CF078
 	cmp r0, #0
 	beq .L080CF114
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r0, #3
 	strh r0, [r7, #0x1e]
 	ldr r0, .L080CF110
@@ -3749,7 +3749,7 @@ sub_080CF078: @ 0x080CF078
 	cmp r0, #1
 	beq .L080CF154
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	ldrh r0, [r5, #2]
 	cmp r0, #0
 	bne .L080CF13E
@@ -3780,7 +3780,7 @@ sub_080CF078: @ 0x080CF078
 	cmp r0, #1
 	beq .L080CF19A
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	ldrh r1, [r5, #2]
 	mov r0, sb
 	subs r0, #1
@@ -4023,7 +4023,7 @@ sub_080CF324: @ 0x080CF324
 	cmp r0, #0xb
 	bne .L080CF3E8
 	ldr r0, .L080CF374
-	bl sub_080C32D4
+	bl Inventory_GetCount
 	adds r4, r0, #0
 	lsls r4, r4, #0x18
 	lsrs r4, r4, #0x18
@@ -4038,7 +4038,7 @@ sub_080CF324: @ 0x080CF324
 .L080CF370: .4byte 0x0203A454 @ EWRAM+0x3A454
 .L080CF374: .4byte 0x0000011F
 .L080CF378:
-	bl sub_080C3100
+	bl Money_Get
 	adds r4, r0, #0
 	adds r0, r7, #0
 	bl sub_081571DC
@@ -4094,7 +4094,7 @@ sub_080CF324: @ 0x080CF324
 	strh r0, [r6, #0x1e]
 	b .L080CF408
 .L080CF3E8:
-	bl sub_080C3100
+	bl Money_Get
 	adds r4, r0, #0
 	adds r0, r7, #0
 	bl sub_081571DC
@@ -4139,7 +4139,7 @@ sub_080CF414: @ 0x080CF414
 	movs r1, #1
 	bl Window_Close
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080CF4CA
 .L080CF444: .4byte 0x0203A454 @ EWRAM+0x3A454
 .L080CF448: .4byte 0x030031B8 @ IWRAM+0x31B8
@@ -5202,7 +5202,7 @@ sub_080CFD00: @ 0x080CFD00
 	bne .L080CFD58
 	strh r2, [r7, #0x1c]
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080CFEA4
 	.byte 0x00, 0x00
 .L080CFD4C: .4byte 0x0203A454 @ EWRAM+0x3A454
@@ -5236,7 +5236,7 @@ sub_080CFD00: @ 0x080CFD00
 	bl sub_080CF7D8
 .L080CFD8E:
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080CFEA4
 .L080CFD96:
 	ldr r2, .L080CFDC4
@@ -5281,7 +5281,7 @@ sub_080CFD00: @ 0x080CFD00
 	bl sub_080CF7D8
 .L080CFDEA:
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r1, #1
 	mov r8, r1
 	b .L080CFEA4
@@ -5344,7 +5344,7 @@ sub_080CFD00: @ 0x080CFD00
 	mov r8, r1
 .L080CFE62:
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080CFEA4
 .L080CFE6A:
 	mov r0, ip
@@ -5375,7 +5375,7 @@ sub_080CFD00: @ 0x080CFD00
 	movs r1, #1
 	mov r8, r1
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 .L080CFEA4:
 	ldr r4, .L080CFEF4
 	ldr r0, [r4]

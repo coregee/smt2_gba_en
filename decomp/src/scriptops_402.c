@@ -88,7 +88,7 @@ void ScriptOp_405(void)
             break;
         }
     }
-    sub_080C366C();
+    Party_FixFormation();
 }
 
 // ScriptOpAlt_405 @ 0x08138FA8

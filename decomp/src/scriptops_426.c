@@ -23,11 +23,11 @@ void ScriptOp_426(void)
     if (gUnk_03006914 & 0xFF00)
     {
         if (gUnk_03006914 == 0x104)
-            gUnk_030068F0[0] = sub_080C4618(0, 0x15, 0x50, 3, 0, 0);
+            gUnk_030068F0[0] = CharObj_Create(0, 0x15, 0x50, 3, 0, 0);
         else if (gUnk_03006914 > 0x104)
-            gUnk_030068F0[0] = sub_080C4618(0, 0xEF, 0x50, 3, 0, 0);
+            gUnk_030068F0[0] = CharObj_Create(0, 0xEF, 0x50, 3, 0, 0);
         else
-            gUnk_030068F0[0] = sub_080C4618(0, 10, 0x50, 3, 0, 0);
+            gUnk_030068F0[0] = CharObj_Create(0, 10, 0x50, 3, 0, 0);
         gUnk_03006990[0] = gUnk_03006990[1] = gUnk_03006990[2] = gUnk_03006990[3]
             = gUnk_03006990[4] = 0xFFFF;
         e = (u16 *)&gUnknown_08035BB8[(u8)gUnk_03006914 * 2];
@@ -64,7 +64,7 @@ void ScriptOp_426(void)
         for (i = 0; i < 4; i++)
         {
             if ((u8)gUnk_03006990[i] != 0xFF)
-                gUnk_030068F0[i + 1] = sub_080C4618(i + 1, gUnknown_08790C9A[gUnk_03006990[i]],
+                gUnk_030068F0[i + 1] = CharObj_Create(i + 1, gUnknown_08790C9A[gUnk_03006990[i]],
                                                     gUnknown_08790C8A[(k - 1) * 4 + i], 0, 0, 0);
         }
     }
@@ -139,7 +139,7 @@ void ScriptOp_426(void)
         ".L0813A082:\n"
         "    movs r2, #0x50\n"
         "    movs r3, #3\n"
-        "    bl sub_080C4618\n"
+        "    bl CharObj_Create\n"
         "    ldr r1, .L0813A134\n"
         "    str r0, [r1]\n"
         "    ldr r1, .L0813A138\n"
@@ -287,7 +287,7 @@ void ScriptOp_426(void)
         "    str r5, [sp]\n"
         "    str r5, [sp, #4]\n"
         "    movs r3, #0\n"
-        "    bl sub_080C4618\n"
+        "    bl CharObj_Create\n"
         "    ldr r2, .L0813A1DC\n"
         "    lsls r1, r4, #2\n"
         "    adds r1, r1, r2\n"

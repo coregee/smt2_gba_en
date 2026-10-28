@@ -151,7 +151,7 @@ void sub_080DDEC8(struct Task *task)
 // sub_080DDED0 @ 0x080DDED0
 void sub_080DDED0(void)
 {
-    sub_080C5170(13);
+    Music_Play(13);
 }
 
 /* Switches to a separate main loop (sub_080DE0DC): display, window and interrupt setup. */

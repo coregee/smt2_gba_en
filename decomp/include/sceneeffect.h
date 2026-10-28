@@ -186,9 +186,9 @@ extern const u8 gUnknown_08002D08[], gUnknown_08002D44[], gUnknown_08002CAC[], g
 void CpuSet(const void *src, void *dest, u32 control);
 void Tilemap_CopyRectSkipZero(const void *src, void *buf, u32 a2, u32 a3, u32 x, u32 y, u32 w, u32 h);
 u32 BgPicture_StartTask(u32 a);
-void sub_080C48F0(struct Task *t, u32 a);
+void CharObj_End(struct Task *t, u32 a);
 void Window_Close(void *window, u32 arg1);
-struct Task *sub_080C4618(u32 a, u16 b, u16 c, u16 d, u16 e, u32 f);
+struct Task *CharObj_Create(u32 a, u16 b, u16 c, u16 d, u16 e, u32 f);
 void sub_080BA758(void);
 void SceneEffect_Stop(void);
 void sub_080BA9CC(void);
@@ -276,7 +276,7 @@ struct AffineEffect2
 void sub_0815862C(const void **def, u16 scaleX, u16 scaleY, u32 n);
 void Sprite_DrawSharedAffine(const void **def, u16 layer, u16 palette, u16 priority, u16 tile, u16 x, u16 y,
                   u8 matrix);
-void sub_080C51D4(u32 se);
+void Sound_Play(u32 se);
 void sub_080C14FC(void);
 void sub_080C153C(void);
 void Tilemap_FillRect(u32 value, u16 *map, u16 x, u16 y, u16 w, u16 h);
@@ -412,7 +412,7 @@ struct AffineAnim
     u16 y1;             /* 0x12 */
 };
 
-/* Data of the object tasks in gCharTasks (created by sub_080C4618). */
+/* Data of the object tasks in gCharTasks (created by CharObj_Create). */
 struct ObjData
 {
     u16 unk00;

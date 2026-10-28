@@ -15,7 +15,7 @@ u16 sub_080AD608(u16 unused0, u16 unused1)
 // sub_080AD658 @ 0x080AD658
 void sub_080AD658(void)
 {
-    sub_080C5170(sub_080AD608(gUnk_03004614, gUnk_03004514));
+    Music_Play(sub_080AD608(gUnk_03004614, gUnk_03004514));
 }
 
 // sub_080AD67C @ 0x080AD67C
@@ -33,7 +33,7 @@ u16 sub_080AD67C(u16 id)
 // sub_080AD6C8 @ 0x080AD6C8
 void sub_080AD6C8(void)
 {
-    sub_080C5170(sub_080AD67C(gUnk_030069F0[4]));
+    Music_Play(sub_080AD67C(gUnk_030069F0[4]));
 }
 
 // sub_080AD6E4 @ 0x080AD6E4
@@ -49,7 +49,7 @@ void sub_080AD6E4(u16 a)
         if (gFieldState.unk50 == 1)
             gFieldState.unk50 = 2;
         if (a == 0)
-            sub_080C51D4(0x65);
+            Sound_Play(0x65);
     }
     else
     {

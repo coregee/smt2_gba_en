@@ -264,12 +264,12 @@ ScriptOp_438: @ 0x0813A590
 	bne .L0813A7E8
 	ldr r4, .L0813A7D8
 	ldrh r0, [r4]
-	bl sub_080C32FC
+	bl Inventory_IsMaxed
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne .L0813A824
 	ldrh r0, [r4]
-	bl sub_080C3328
+	bl Inventory_AddItem
 	ldr r2, .L0813A7DC
 	ldr r0, .L0813A7E0
 	movs r1, #0
@@ -281,7 +281,7 @@ ScriptOp_438: @ 0x0813A590
 	lsls r0, r0, #1
 	adds r0, r0, r2
 	ldrh r0, [r0]
-	bl sub_080C33AC
+	bl Inventory_RemoveItem
 	b .L0813A828
 .L0813A7D8: .4byte 0x0203DB50 @ EWRAM+0x3DB50
 .L0813A7DC: .4byte 0x0203DB88 @ EWRAM+0x3DB88
@@ -314,7 +314,7 @@ ScriptOp_438: @ 0x0813A590
 	cmp r0, #0
 	beq .L0813A828
 	movs r0, #0x68
-	bl sub_080C51D4
+	bl Sound_Play
 .L0813A824:
 	ldr r0, .L0813A834
 	str r7, [r0]
@@ -1416,10 +1416,10 @@ ScriptOp_442: @ 0x0813ACDC
 .L0813B0E0:
 	ldr r0, .L0813B0FC
 	ldrh r0, [r0]
-	bl sub_080C33AC
+	bl Inventory_RemoveItem
 	ldr r0, .L0813B100
 	ldrh r0, [r0]
-	bl sub_080C33AC
+	bl Inventory_RemoveItem
 	ldr r0, .L0813B104
 	ldrh r0, [r0]
 	bl Stock_AddDemon
@@ -2453,7 +2453,7 @@ ScriptOp_445: @ 0x0813B524
 	lsrs r0, r0, #0x10
 	bl sub_0812F188
 	rsbs r0, r0, #0
-	bl sub_080C30AC
+	bl Money_Add
 	bl Moon_GetPhase
 	movs r1, #0xf0
 	ands r1, r0
@@ -2620,7 +2620,7 @@ ScriptOp_445: @ 0x0813B524
 	beq .L0813BA96
 	b .L0813BC20
 .L0813BA96:
-	bl sub_080C5B3C
+	bl Party_SaveOrderHeroOnly
 	b .L0813BC20
 .L0813BA9C: .4byte 0x0203BB74 @ EWRAM+0x3BB74
 .L0813BAA0:
@@ -2645,7 +2645,7 @@ ScriptOp_445: @ 0x0813B524
 	beq .L0813BACA
 	b .L0813BC20
 .L0813BACA:
-	bl sub_080C5BCC
+	bl Party_RestoreOrder
 	b .L0813BC20
 .L0813BAD0: .4byte 0x0203BB74 @ EWRAM+0x3BB74
 .L0813BAD4:
@@ -3063,7 +3063,7 @@ sub_0813BDCC: @ 0x0813BDCC
 sub_0813BE08: @ 0x0813BE08
 .L0813BE08:
 	push {lr}
-	bl sub_080C3168
+	bl Magnetite_Get
 	ldr r1, .L0813BE1C
 	ldr r1, [r1]
 	cmp r0, r1
@@ -3074,7 +3074,7 @@ sub_0813BE08: @ 0x0813BE08
 .L0813BE1C: .4byte 0x0203DB2C @ EWRAM+0x3DB2C
 .L0813BE20:
 	rsbs r0, r1, #0
-	bl sub_080C3114
+	bl Magnetite_Add
 	movs r0, #0
 .L0813BE28:
 	pop {r1}
@@ -3084,7 +3084,7 @@ sub_0813BE08: @ 0x0813BE08
 sub_0813BE2C: @ 0x0813BE2C
 .L0813BE2C:
 	push {lr}
-	bl sub_080C3100
+	bl Money_Get
 	ldr r1, .L0813BE40
 	ldr r1, [r1]
 	cmp r0, r1
@@ -3095,7 +3095,7 @@ sub_0813BE2C: @ 0x0813BE2C
 .L0813BE40: .4byte 0x0203DB2C @ EWRAM+0x3DB2C
 .L0813BE44:
 	rsbs r0, r1, #0
-	bl sub_080C30AC
+	bl Money_Add
 	movs r0, #0
 .L0813BE4C:
 	pop {r1}
@@ -3849,12 +3849,12 @@ ScriptOp_447: @ 0x0813BF98
 	movs r0, #0xe5
 	strh r0, [r4]
 	movs r0, #0xe5
-	bl sub_080C32D4
+	bl Inventory_GetCount
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq .L0813C4C0
 	ldrh r0, [r4]
-	bl sub_080C33AC
+	bl Inventory_RemoveItem
 	bl sub_0813BEB8
 	b .L0813C4DE
 	.byte 0x00, 0x00
@@ -3872,11 +3872,11 @@ ScriptOp_447: @ 0x0813BF98
 	ands r1, r0
 	lsrs r7, r1, #0x11
 	adds r7, #1
-	bl sub_080C3168
+	bl Magnetite_Get
 	cmp r0, r7
 	blo .L0813C4CC
 	rsbs r0, r7, #0
-	bl sub_080C3114
+	bl Magnetite_Add
 	b .L0813C4DE
 	.byte 0x00, 0x00
 .L0813C46C: .4byte 0x0203DB7C @ EWRAM+0x3DB7C
@@ -4272,12 +4272,12 @@ ScriptOp_448: @ 0x0813C554
 	ldr r0, .L0813C794
 	strh r4, [r0]
 	adds r0, r4, #0
-	bl sub_080C32FC
+	bl Inventory_IsMaxed
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne .L0813C7A4
 	adds r0, r4, #0
-	bl sub_080C3328
+	bl Inventory_AddItem
 	ldr r0, .L0813C798
 	ldr r1, .L0813C79C
 	str r1, [r0]
@@ -4701,12 +4701,12 @@ sub_0813CAD0: @ 0x0813CAD0
 	subs r0, #1
 	strh r0, [r4]
 	ldr r0, .L0813CB00
-	bl sub_080C30AC
+	bl Money_Add
 	movs r1, #0
 	ldrsh r0, [r4, r1]
 	cmp r0, #0
 	bne .L0813CB12
-	bl sub_080C3100
+	bl Money_Get
 	cmp r0, #0
 	beq .L0813CB08
 	movs r1, #1
@@ -4780,7 +4780,7 @@ sub_0813CB60: @ 0x0813CB60
 	ldr r0, .L0813CB98
 	movs r1, #0
 	ldrsh r0, [r0, r1]
-	bl sub_080C30AC
+	bl Money_Add
 	movs r0, #0x1e
 	strh r0, [r4]
 .L0813CB84:
@@ -4911,7 +4911,7 @@ sub_0813CC58: @ 0x0813CC58
 	ldrsh r0, [r0, r1]
 	cmp r0, #4
 	bne .L0813CCC0
-	bl sub_080C3100
+	bl Money_Get
 	adds r4, r0, #0
 	ldr r0, .L0813CCB4
 	ldrh r0, [r0]

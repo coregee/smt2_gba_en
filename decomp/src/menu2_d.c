@@ -8,7 +8,7 @@ void sub_080D4714(struct Task *task)
 
     task->data.h[0] = task->unk1E;
     data[1] = 0;
-    if ((Random_Byte() & 0xFF) == 0 && !sub_080C3560(0xFB))
+    if ((Random_Byte() & 0xFF) == 0 && !Stock_FindByDemonId(0xFB))
         data[1] = 0xFB;
 }
 
@@ -50,7 +50,7 @@ void sub_080D478C(struct Task *task)
     else
         gUnk_0203DB28 = data[1];
     /* The original never sets r0 here: the first argument is whatever was left in it. */
-    *(u32 *)&data[4] = sub_080C4618(0, 0x1C1, 0x50, 4, 0, 0);
+    *(u32 *)&data[4] = CharObj_Create(0, 0x1C1, 0x50, 4, 0, 0);
 }
 #else
 NAKED
@@ -83,7 +83,7 @@ void sub_080D478C(struct Task *task)
         "    str r0, [sp, #4]\n"
         "    movs r2, #0x50\n"
         "    movs r3, #4\n"
-        "    bl sub_080C4618\n"
+        "    bl CharObj_Create\n"
         "    str r0, [r5, #8]\n"
         "    add sp, #8\n"
         "    pop {r4, r5}\n"
@@ -134,9 +134,9 @@ void sub_080D4850(struct Task *task)
     s32 n = sub_080D45B8(task->data.h[0]);
     s32 i;
 
-    sub_080C30AC(-sub_081571DC(task->data.h[0]));
+    Money_Add(-sub_081571DC(task->data.h[0]));
     for (i = 0; i < n; i++)
-        sub_080C33AC(0x11F);
+        Inventory_RemoveItem(0x11F);
     if (data[1] == 0)
         Stock_AddDemon(data[0]);
     else
@@ -147,14 +147,14 @@ void sub_080D4850(struct Task *task)
 void sub_080D489C(struct Task *task)
 {
     if (task->data.w[2] != 0)
-        sub_080C48F0(task->data.w[2], 0);
+        CharObj_End(task->data.w[2], 0);
     sub_080AF178(0xC, gUnknown_0805C3D0);
 }
 
 // sub_080D48BC @ 0x080D48BC
 void sub_080D48BC(void)
 {
-    sub_080C51BC(1);
+    Music_FadeOut(1);
 }
 
 // sub_080D48C8 @ 0x080D48C8
@@ -162,14 +162,14 @@ void sub_080D48C8(struct Task *task)
 {
     u16 *data = task->data.h;
     s32 n = sub_080D45B8(task->data.h[0]);
-    u8 *item = sub_080C3560(task->data.h[0]);
+    u8 *item = Stock_FindByDemonId(task->data.h[0]);
     s32 i;
 
-    sub_080C30AC(-sub_081571DC(task->data.h[0]));
+    Money_Add(-sub_081571DC(task->data.h[0]));
     if (data[1] == 0)
     {
         for (i = 0; i < n; i++)
-            sub_080C3328(0x11F);
+            Inventory_AddItem(0x11F);
     }
     Party_Remove(item[0xC], 1);
 }
@@ -197,7 +197,7 @@ void sub_080D4954(struct Task *task)
 
     Flag_Set(0x10C);
     gUnk_0203DB28 = task->data.h[0];
-    *(u32 *)&data[4] = sub_080C4618(0, 0x1C1, 0x50, 4, 0, 0);
+    *(u32 *)&data[4] = CharObj_Create(0, 0x1C1, 0x50, 4, 0, 0);
 }
 #else
 NAKED
@@ -222,7 +222,7 @@ void sub_080D4954(struct Task *task)
         "    movs r0, #0\n"
         "    movs r2, #0x50\n"
         "    movs r3, #4\n"
-        "    bl sub_080C4618\n"
+        "    bl CharObj_Create\n"
         "    str r0, [r5, #8]\n"
         "    add sp, #8\n"
         "    pop {r4, r5}\n"

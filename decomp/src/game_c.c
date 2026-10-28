@@ -39,7 +39,7 @@ void sub_080B1A4C(u16 a, u16 b)
     else
     {
         gFieldState.unk08 = 0;
-        sub_080C51D4(0x69);
+        Sound_Play(0x69);
         gFieldState.unk3E = 1;
     }
     gFieldState.unk1E = 12;
@@ -163,7 +163,7 @@ void Field_HandleInput(u16 keys)
         }
         if ((gFieldState.unk3A & 8) && sub_080B9568() == 1)
         {
-            sub_080C51D4(0x67);
+            Sound_Play(0x67);
             sub_0812D0FC(0);
             Field_SetState(10);
             gUnk_03003BB8 = 0;
@@ -180,7 +180,7 @@ void Field_HandleInput(u16 keys)
             if (sub_0812A730() != 0)
             {
                 if (sub_080F3190() == 0)
-                    sub_080C51D4(0x65);
+                    Sound_Play(0x65);
                 sub_080B1BC4();
             }
             return;
@@ -407,7 +407,7 @@ void Field_HandleInput(u16 keys)
         "    cmp r0, #1\n"
         "    bne .L080B1D54\n"
         "    movs r0, #0x67\n"
-        "    bl sub_080C51D4\n"
+        "    bl Sound_Play\n"
         "    movs r0, #0\n"
         "    bl sub_0812D0FC\n"
         "    movs r0, #0xa\n"
@@ -463,7 +463,7 @@ void Field_HandleInput(u16 keys)
         "    cmp r0, #0\n"
         "    bne .L080B1D7C\n"
         "    movs r0, #0x65\n"
-        "    bl sub_080C51D4\n"
+        "    bl Sound_Play\n"
         ".L080B1D7C:\n"
         "    bl sub_080B1BC4\n"
         "    b .L080B1FFC\n"

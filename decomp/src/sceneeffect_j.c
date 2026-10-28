@@ -7,13 +7,13 @@ void sub_080BCCB4(struct Task *task, u32 step)
     switch (step)
     {
     case 0:
-        sub_080C4618(1, 0xCB, 0x50, 0x6B, 0, 0);
+        CharObj_Create(1, 0xCB, 0x50, 0x6B, 0, 0);
         break;
     case 1:
         gUnk_0300000E--;
         break;
     case 2:
-        sub_080C4618(0, 0xC6, 0x50, -0x40, 0, 0);
+        CharObj_Create(0, 0xC6, 0x50, -0x40, 0, 0);
         break;
     case 4:
         gUnk_0300000E++;
@@ -28,7 +28,7 @@ void sub_080BCCB4(struct Task *task, u32 step)
         sub_080C3818(1);
         break;
     case 8:
-        gUnk_030068F0[0] = (u32)sub_080C4618(0, 0x1C4, 0x50, 0x6B, 0, 0);
+        gUnk_030068F0[0] = (u32)CharObj_Create(0, 0x1C4, 0x50, 0x6B, 0, 0);
         break;
     case 9:
         sub_080BCE0C(task);
@@ -46,7 +46,7 @@ void sub_080BCD84(void)
 // sub_080BCDA0 @ 0x080BCDA0
 void sub_080BCDA0(struct Task *task, u32 id, u32 arg)
 {
-    sub_080C4618(0, id, 0x50, -45, arg, 0);
+    CharObj_Create(0, id, 0x50, -45, arg, 0);
 }
 
 // sub_080BCDC4 @ 0x080BCDC4

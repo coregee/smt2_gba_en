@@ -85,13 +85,13 @@ void sub_080BD99C(struct Task *task)
 // sub_080BD9B8 @ 0x080BD9B8
 void sub_080BD9B8(void)
 {
-    sub_080C33AC(gScriptItemCheckId);
+    Inventory_RemoveItem(gScriptItemCheckId);
 }
 
 // sub_080BD9CC @ 0x080BD9CC
 void sub_080BD9CC(void)
 {
-    sub_080C3328(gScriptItemCheckId);
+    Inventory_AddItem(gScriptItemCheckId);
 }
 
 // sub_080BD9E0 @ 0x080BD9E0

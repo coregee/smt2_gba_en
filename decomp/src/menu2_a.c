@@ -169,13 +169,13 @@ void sub_080D3264(u32 arg0)
             if (menu->descPage == 0 && (gKeysNew & 0x10))
             {
                 menu->descPage++;
-                sub_080C51D4(100);
+                Sound_Play(100);
                 Item_RenderDescription(arg0);
             }
             else if (menu->descPage == 1 && (gKeysNew & 0x20))
             {
                 menu->descPage--;
-                sub_080C51D4(100);
+                Sound_Play(100);
                 Item_RenderDescription(arg0);
             }
             if (menu->descPage == 0)
@@ -208,7 +208,7 @@ void sub_080D3264(u32 arg0)
     }
     if (changed == 1)
     {
-        sub_080C51D4(100);
+        Sound_Play(100);
         Item_RenderDescription(arg0);
     }
     if (--menu->arrowTimer == 0)

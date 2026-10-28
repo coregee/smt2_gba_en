@@ -3,12 +3,15 @@ address	name	kind	confidence	note
 02005000	gAutomapCells	ram	probable	Automap_Build output: [11][28] cells of 12 bytes {flags, u8 x, u8 y, walls[4]}
 02009004	gTasks	ram	probable	64 x 100-byte script tasks (Task_ClearAll, Task_Create, Task_RunAll)
 0200AB08	gViewCells	ram	probable	View_FillCell output: [11][9] cells of 12 bytes {valid, ?, walls[4]}; View_GetWall reads around [5][4]
+0200AF08	gMiniViewCells	ram	probable	[5][3] cells of 12 bytes {valid, pad, walls[4]} filled by MiniView_SampleSquare, cleared with a 0x2D-word DMA fill
 0200AFC8	gBgPictureBuffer	ram	probable	0x2000-byte decode buffer of BgPicture_LoadPiece (Huffman stage at +0x1000); DMA'd to VRAM by sub_080B3ADC..sub_080B3BE8
 0200DFCC	gAutomapScroll	ram	probable	s16 row offset added/subtracted in Automap_Build
 0200DFD4	gWindowTilemapBuffer	ram	probable	32x32 u16 tilemap built by TextWindow_DrawFrame, DMA'd to VRAM screenblocks by sub_080AB9B0..sub_080ABA18
 0200E8D4	gOpenWindowCount	ram	probable	incremented by TextWindow_Create, decremented by TextWindow_Erase
 02017874	gSaveSlotPreview	ram	probable	sub_080D0498 loads each save slot here (sub_080D1328(slot, 0x02017874, 1)) to draw it
+02036074	gGfxSlots	ram	probable	8 (users, id) u16 pairs: GfxSlot_Acquire, GfxSlot_FindShared, DemonObj_End, CharObj_End
 02036094	gCharTasks	ram	probable	6 task pointers scanned by Char_SignalById / Char_FindOther and compared on their character id (+0x2A)
+020360D4	gPartyOrderSave	ram	probable	6 bytes: gGameState.order saved by Party_SaveOrderHeroOnly, restored by Party_RestoreOrder
 020360DC	gGlyphSpriteCache	ram	probable	{baseTile, count, capacity, uploadPending, codes[64]}: Font_ResetGlyphSpriteCache clears 0x88 bytes
 020361DC	gGlyphSpriteStaging	ram	probable	4bpp staging canvas for cached glyphs, DMA'd to OBJ VRAM by Font_UploadGlyphSpriteTiles
 020381DC	gWindowMap	ram	probable	4 KB 32x64 map buffer for windows
@@ -468,9 +471,64 @@ address	name	kind	confidence	note
 080C2ACC	Options_Get	func	probable	returns 0x03004688
 080C2AD8	Options_Save	func	probable	Sram_WriteVerified of the word to 0x0E000010 and 0x03004688 = v; callers OR in fields (bits 0-1, 2-3, 4-5, 6-8, 9-10, 11-12, 13-15)
 080C2B34	Settings_GetBattleMsgSpeed	func	tentative	from translation patches (lost Ghidra session); verify
+080C30AC	Money_Add	func	probable	adds delta to gGameState+0xAD8, clamped to 0..999999, returns the new value; called with -price by the shop (bmenu_081298DC) and with battle money rewards (battle_080F3254)
+080C3100	Money_Get	func	probable	returns gGameState+0xAD8 (the counter Money_Add clamps to 999999)
+080C3114	Magnetite_Add	func	probable	adds delta to gGameState+0xADC, clamped to 0..99999, returns the new value; battle_080F57F4 subtracts n (upkeep); probable: Treasure_Open 0x9xxxxxxx rewards are Magnetite
+080C3168	Magnetite_Get	func	probable	returns gGameState+0xADC
+080C320C	Inventory_FindEntry	func	probable	returns the gInventory (id, count) pair with count != 0 and that id (bit 15 set: id & 0xFF), NULL if none of the 0x15A
+080C3250	Inventory_FindIndex	func	probable	index of that pair in gGameState+0xAEC, 0 if none
+080C32A8	Inventory_FindFreeEntry	func	probable	first gInventory pair with count 0, NULL if full
+080C32D4	Inventory_GetCount	func	probable	count byte of Inventory_FindEntry(id), 0 if not held
+080C32FC	Inventory_IsMaxed	func	probable	Inventory_GetCount(id) == 99
+080C3328	Inventory_AddItem	func	probable	adds one of id (new pair from Inventory_FindFreeEntry; max 99, ids < 0xD0 also counting sub_08131AB0); ids 300-345 also call sub_080C2764, ids 0x120-0x12B recompute the hero stats
+080C33AC	Inventory_RemoveItem	func	probable	removes one of id, shifting later pairs down when the count reaches 0; ids 300-345 that are not held call sub_080C2790; ids 0x120-0x12B recompute the hero stats
+080C343C	Combatant_GetEquipSlot	func	probable	switch on slot 0-6 returning combatant->equip[slot] (+0x20)
+080C34B0	Combatant_SetEquipSlot	func	probable	switch on slot 0-6 storing combatant->equip[slot] (+0x20)
+080C351C	Stock_CanAddDemon	func	probable	over the 12 stock records (Party_GetMember(0x8004)+i): TRUE if fewer than 12 are used and none has this demon id (+0x12)
+080C3560	Stock_FindByDemonId	func	probable	first used stock record (Party_GetMember(0x8004)+i) with demon id (+0x12) == id, else NULL
+080C3598	Stock_AddCapacity	func	probable	gGameState+0xAC3 += n, capped at 12
+080C363C	Party_SwapSlots	func	probable	swaps gGameState.order[a] and [b] (+0xA20), then Party_BuildMemberNameTiles and sub_080C6FD8
+080C366C	Party_FixFormation	func	probable	per column moves the back-row member forward when the front slot is -1, or swaps when the front member has status 0xA000 and the back one does not
+080C373C	GfxSlot_Acquire	func	probable	finds the gGfxSlots entry already holding id (users++) or claims a free one among slots 0-5 (starting after those reserved by gCharTasks[6]/[7]); returns the slot, 0 if none
+080C37C0	CharTask_Register	func	probable	stores the task in the first free gCharTasks entry (8)
+080C37EC	CharTask_Unregister	func	probable	clears the gCharTasks entry equal to the task
+080C38D4	GfxSlot_FindShared	func	probable	slot whose gGfxSlots users > 1 and id == id, else 0xFFFF
 080C397C	Demon_LoadGfxForTask	func	probable	same record walk as Demon_LoadGfx for a task's demon (+0x2A id); reads 0x0872C780 + half*8 + stage*4
+080C3D84	DemonObj_Create	func	probable	Task_Create(gUnknown_081A647C), GfxSlot_Acquire, CharTask_Register, fills task data (id +6, x +8, y +0xA, priority 2) and a child task gUnknown_081A631C or gUnknown_081A6420 (by sub_080E8AC0), sub_080E8A28
+080C3E80	DemonObj_End	func	probable	releases the gGfxSlots user, CharTask_Unregister, ends the child task and the task
 080C4080	Char_LoadGfxHalf	func	probable	LZ77s one 2 KB half of a character pose to 0x02001000 + slot*0x1000 + half*0x800, palette record +0x24
+080C4240	Color_StepComponent	func	probable	(cur, target, up): up ? min(cur + 1, target) : max(cur - 1, 0)
+080C4274	CharObj_UpdateGlow	func	probable	every 8 frames when data+0x12 == 1 and fades are idle, moves OBJ palette colours 1-15 one Color_StepComponent towards the record palette or black; direction (+0x14) flips every 7 steps (+0x16)
+080C45C0	CharObj_FindInGroup	func	probable	gCharTasks[0-5] entry with (data[0] & 7) == key & 7: returned if its id (+6) matches, otherwise ended with CharObj_End and NULL returned
+080C4618	CharObj_Create	func	probable	creates the character object (key, id, x, y, ...): reuses CharObj_FindInGroup (reloading or fading its palette), else Task_Create by record kind 0-3, GfxSlot_Acquire, flags 0x10B/0x10C/0xC6 select the fade-in, CharTask_Register
+080C48F0	CharObj_End	func	probable	NULL/idle-safe: releases the gGfxSlots user, CharTask_Unregister, sub_080C4598, ends the child task (+0x44) and the task
+080C4CE8	Party_DrainHpFromStrongest	func	probable	moves 1 HP to who from the living party member with the most HP (Combatant_Damage 1); returns that member or 0xFFFF
+080C4E00	Random_ChanceIn16	func	probable	TRUE when chance > 14 or chance >= (Random_Byte() & 15)
+080C4E24	Moon_GetFullness	func	probable	(Moon_GetPhase() & 0xFF) >> 4 folded to 0-8 (16 - p above 8)
+080C4E48	Field_ApplyStepStatusDamage	func	probable	per field step for the six party members: status 0x400 Party_DrainHpFromStrongest, 0x1000 every 2nd step and 4/1 every 4th step Combatant_Damage 1; members brought to 0 HP set in *mask; flash 0x7C1F and sound 0x12B when anyone was hurt
+080C4F88	Field_ApplyStepStatusDamageKill	func	probable	as Field_ApplyStepStatusDamage with Combatant_ChangeHp(-1) and status 0x8000 at 0 HP; result bit 0 hurt, 1 a demon died (sub_080F4190, Party_FixFormation), 2 a human died
+080C5108	Party_HasActiveHuman	func	probable	FALSE when every used human record 0-3 has status 0xA000 or 0 HP (TRUE if none are used)
+080C5170	Music_Play	func	probable	if song != current (0x030031B4): previous (0x030031EC) = current, current = song, m4aSongNumStart
+080C5198	Music_Stop	func	probable	m4aSongNumStop(current), previous = current, current = 0
+080C51BC	Music_FadeOut	func	probable	m4aMPlayFadeOut(0x0203F2E0, speed)
+080C51D4	Sound_Play	func	probable	m4aSongNumStart(n) without touching the current song variables
+080C5320	Encounter_IsAllowed	func	probable	FALSE unless flags 0xCB and 0x163, gGameState+0x18A6 != 0xFFFF, not flag 1/0xAE, demons 0x52/0x53 not in stock, map not 0x42/0x4A/0x4B/0xF, area flags 0xD0/0xD1/0x50, and gGameState+0xAC0 != 1
+080C53F4	MiniView_SampleSquare	func	probable	fills gMiniViewCells[row][col] from map square (x, y): valid unless outside the map or excluded by SubMap_IsOutsideExclusions, walls[i] = square >> gUnknown_0815F2E6[(facing + i) & 3] & 3
+080C54D4	MiniView_SampleAhead	func	probable	clears gMiniViewCells and samples the 3x5 squares in front of the player for the facing (MiniView_SampleSquare)
+080C5604	MiniView_Draw	func	probable	MiniView_SampleAhead then writes sub_080B4448 tiles (or 0x3B4) to the HUD tilemap 0x0200DFD4 rows 6-10 columns 25-27, sets the window registers and queues the DMA
+080C5708	MiniView_Clear	func	probable	clears the same tilemap area, window 0x3F, queues the DMA
+080C57CC	KeyItem_IsObtainable	func	probable	FALSE when key item id (300-345) is held; otherwise per item: story flags, presence of the heroes (sub_080C2A84 0-2) and the hero alignment
+080C5B3C	Party_SaveOrderHeroOnly	func	probable	saves gGameState.order to gPartyOrderSave, Party_Remove of every member but the hero, order = {0, -1 x5}
+080C5BCC	Party_RestoreOrder	func	probable	restores the order saved by Party_SaveOrderHeroOnly, marking the records 0xC000 (in party)
+080C5C50	Stock_HasRoom	func	probable	number of used stock records 4-15 < Stock_GetCapacity()
+080C5DB0	Party_SnapshotHumans	func	probable	CpuSet copies records 0-3 to 16-19 (gGameState+0x800)
+080C5DE0	Party_RestoreHumans	func	probable	restores HP, MP and status of records 0-3 from 16-19 keeping status bit 0, Encounter_SetCounter(0), clears flag 0xDF
+080C6278	CharObj_FindById	func	probable	gCharTasks[0-5] entry whose id (+0x2A) == id, else NULL
+080C65E8	Hud_Init	func	probable	clears the field HUD state 0x0200E7D4 (0x74 bytes) and tilemap 0x0200DFD4, draws the frame pieces by map type (sub_080C8AF8), name and face tiles, sub_080C8440
+080C6804	Hud_Update	func	probable	per-frame field HUD: map-type parts, danger palette, then Hud_DrawMemberPanel for the six slots in an order that rotates every frame (+0x72)
+080C6BE0	Hud_DrawMemberPanel	func	probable	draws a party slot panel: empty frame for order -1, else face, name (sub_080C6AD8), HP and MP bars (sub_080C8214), shaking while +0x48[slot] counts down
 080C6E78	Party_BuildMemberNameTiles	func	tentative	from translation patches (lost Ghidra session); verify
+080C6F30	Hud_LoadMemberFace	func	probable	copies the 4 face tiles (gUnknown_081A81B8 + gUnknown_0834A2EC[sub_080C86B4(slot)].tile words) to 0x02039FE4 + slot * 0x80 and queues sub_080C6F00
 080C8B10	DungeonMap_GetFloor	func	probable	returns gDungeonMaps[map].floors + floor*0x268 (0 if none)
 080C8B7C	MarkerHeader_DrawLocationName	func	tentative	from translation patches (lost Ghidra session); verify
 080C8BFC	MarkerList_DrawLocationName	func	tentative	from translation patches (lost Ghidra session); verify

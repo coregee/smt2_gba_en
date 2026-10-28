@@ -787,7 +787,7 @@ sub_0815C75C: @ 0x0815C75C
 	adds r1, r5, #0
 	adds r2, r6, #0
 	mov r3, r8
-	bl sub_080C4618
+	bl CharObj_Create
 	adds r4, #0xac
 	str r0, [r4]
 	adds r1, r0, #0

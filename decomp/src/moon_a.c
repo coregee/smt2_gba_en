@@ -53,10 +53,10 @@ u32 Moon_PhaseChanged(void)
 void sub_080C1DE0(void)
 {
     Moon_Advance(2);
-    if (sub_080C4F88(gGameState.unkA3E))
+    if (Field_ApplyStepStatusDamageKill(gGameState.unkA3E))
     {
         sub_080B8B68(0x1F, 1);
-        sub_080C51D4(0x12B);
+        Sound_Play(0x12B);
     }
     gGameState.unkA3E++;
 }
@@ -70,7 +70,7 @@ u32 sub_080C1E20(void)
 
     Moon_Advance(1);
     sub_080C1E60(&mask);
-    sub_080C4E48(gGameState.unkA36, &mask);
+    Field_ApplyStepStatusDamage(gGameState.unkA36, &mask);
     gGameState.unkA36++;
     sub_080C4C98();
     return mask;
@@ -82,7 +82,7 @@ void sub_080C1E60(u32 *mask)
     s32 i;
     s32 who;
 
-    if (sub_080C3168())
+    if (Magnetite_Get())
     {
         s32 sum = gGameState.unkAC4;
 
@@ -98,7 +98,7 @@ void sub_080C1E60(u32 *mask)
         gGameState.unkAC4 = sum % 10;
         sum /= 10;
         sum = -sum;
-        if (sub_080C3114(sum) == 0)
+        if (Magnetite_Add(sum) == 0)
             gGameState.unkAC4 = 0;
     }
     else
@@ -121,7 +121,7 @@ void sub_080C1E60(u32 *mask)
             }
         }
         if (gUnk_0200E7D4[0x38])
-            sub_080C51D4(0x12B);
+            Sound_Play(0x12B);
     }
 }
 

@@ -133,7 +133,7 @@ u32 sub_0812A730(void)
         sub_080EA210();
         BattleMenu_SetMode(3, Menu_ExpandListTemplate(Battle_GetMessage(msg), 0));
         sub_080B1BC4();
-        sub_080C51D4(0x68);
+        Sound_Play(0x68);
     }
     return 0;
 }
@@ -156,7 +156,7 @@ void sub_0812A7E4(struct Task *task)
     {
         sub_080EA210();
         BattleMenu_SetMode(3, Menu_ExpandListTemplate(gUnknown_08124A62, 0));
-        sub_080C51D4(0x68);
+        Sound_Play(0x68);
         task->pad1E = 1;
     }
     else

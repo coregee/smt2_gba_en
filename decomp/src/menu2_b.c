@@ -24,7 +24,7 @@ void CasinoPrize_HandleInput(struct Task *task)
         u32 blocked = sub_080C5B10(id);
         if (blocked == 0)
         {
-            sub_080C51D4(0x65);
+            Sound_Play(0x65);
             task->unk1E = 1;
             task->result = 1;
             gYesNoResult = blocked;
@@ -32,11 +32,11 @@ void CasinoPrize_HandleInput(struct Task *task)
             gUnk_0203DB2C = 10000;
         }
         else
-            sub_080C51D4(0x66);
+            Sound_Play(0x66);
     }
     else if (gKeysNew & 2)
     {
-        sub_080C51D4(0x66);
+        Sound_Play(0x66);
         task->result = 1;
         task->unk1E = 0xFFFF;
         gYesNoResult = 1;
@@ -49,7 +49,7 @@ void CasinoPrize_HandleInput(struct Task *task)
             list->top--;
         else
             return;
-        sub_080C51D4(100);
+        Sound_Play(100);
     }
     else if (gRepeatedKeys & 0x80)
     {
@@ -59,7 +59,7 @@ void CasinoPrize_HandleInput(struct Task *task)
             list->top++;
         else
             return;
-        sub_080C51D4(100);
+        Sound_Play(100);
     }
     else if ((gRepeatedKeys & 0x200) && count > 6)
     {
@@ -75,7 +75,7 @@ void CasinoPrize_HandleInput(struct Task *task)
             list->top = v;
         }
         if (cursor != list->cursor || top != list->top)
-            sub_080C51D4(100);
+            Sound_Play(100);
     }
     else if ((gRepeatedKeys & 0x100) && count > 6)
     {
@@ -88,7 +88,7 @@ void CasinoPrize_HandleInput(struct Task *task)
         else
             list->top = count - 6;
         if (cursor != list->cursor || top != list->top)
-            sub_080C51D4(100);
+            Sound_Play(100);
     }
 }
 #else
@@ -130,7 +130,7 @@ void CasinoPrize_HandleInput(struct Task *task)
         "    cmp r5, #0\n"
         "    bne .L080D3944\n"
         "    movs r0, #0x65\n"
-        "    bl sub_080C51D4\n"
+        "    bl Sound_Play\n"
         "    strh r7, [r4, #0x1e]\n"
         "    strh r7, [r4, #0x1c]\n"
         "    ldr r0, .L080D3934\n"
@@ -149,7 +149,7 @@ void CasinoPrize_HandleInput(struct Task *task)
         ".L080D3940: .4byte 0x00002710\n"
         ".L080D3944:\n"
         "    movs r0, #0x66\n"
-        "    bl sub_080C51D4\n"
+        "    bl Sound_Play\n"
         "    b .L080D3A42\n"
         ".L080D394C:\n"
         "    ldrh r1, [r3]\n"
@@ -158,7 +158,7 @@ void CasinoPrize_HandleInput(struct Task *task)
         "    cmp r0, #0\n"
         "    beq .L080D3970\n"
         "    movs r0, #0x66\n"
-        "    bl sub_080C51D4\n"
+        "    bl Sound_Play\n"
         "    strh r7, [r4, #0x1c]\n"
         "    ldr r0, .L080D3968\n"
         "    strh r0, [r4, #0x1e]\n"
@@ -244,7 +244,7 @@ void CasinoPrize_HandleInput(struct Task *task)
         "    beq .L080D3A42\n"
         ".L080D39F8:\n"
         "    movs r0, #0x64\n"
-        "    bl sub_080C51D4\n"
+        "    bl Sound_Play\n"
         "    b .L080D3A42\n"
         ".L080D3A00:\n"
         "    ldrh r1, [r1]\n"
@@ -283,7 +283,7 @@ void CasinoPrize_HandleInput(struct Task *task)
         "    beq .L080D3A42\n"
         ".L080D3A3C:\n"
         "    movs r0, #0x64\n"
-        "    bl sub_080C51D4\n"
+        "    bl Sound_Play\n"
         ".L080D3A42:\n"
         "    pop {r4, r5, r6, r7}\n"
         "    pop {r0}\n"
@@ -517,14 +517,14 @@ void sub_080D3D48(void)
     const struct ComboEntry *e;
     u16 bit;
 
-    sub_080C32D4(0x11F);
+    Inventory_GetCount(0x11F);
     for (e = gUnknown_084F3754; e->id != -1; i++, e++)
     {
-        if (sub_080C3560(e->items[0]))
+        if (Stock_FindByDemonId(e->items[0]))
             continue;
-        if (e->items[1] != 0 && sub_080C3560(e->items[1]))
+        if (e->items[1] != 0 && Stock_FindByDemonId(e->items[1]))
             continue;
-        if (e->items[2] != 0 && sub_080C3560(e->items[2]))
+        if (e->items[2] != 0 && Stock_FindByDemonId(e->items[2]))
             continue;
         if (e->bit == 0)
             continue;

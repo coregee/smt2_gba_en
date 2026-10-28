@@ -187,7 +187,7 @@ void ScriptTask_WaitForKey(struct ScriptTask *task)
     if ((gNewKeys & 1) || (gNewKeys & 0x40) || (gNewKeys & 0x80) || (gNewKeys & 0x10)
         || (gNewKeys & 0x20) || (gNewKeys & 2))
     {
-        sub_080C51D4(0x65);
+        Sound_Play(0x65);
         task->unk1C = 1;
     }
 }

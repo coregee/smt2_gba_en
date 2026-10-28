@@ -662,7 +662,7 @@ void sub_080B7F7C(struct Task *task, u32 n)
             if (gUnk_0300003C > n * 16)
             {
                 d->falling = 1;
-                sub_080C51D4(0x153);
+                Sound_Play(0x153);
             }
         }
         else
@@ -900,7 +900,7 @@ struct Task *sub_080B828C(void)
 
     d->x = 0x60;
     d->y = 0x6A;
-    sub_080C51D4(0x6A);
+    Sound_Play(0x6A);
     return task;
 }
 
@@ -928,7 +928,7 @@ clear:
     id = ((struct ItemTaskData *)task->data)->rec->count;
     d->flag = r;
 done:
-    d->handle = sub_080C4618(0, id, 0x50, 5, 0, 0);
+    d->handle = CharObj_Create(0, id, 0x50, 5, 0, 0);
 }
 
 // sub_080B8324 @ 0x080B8324

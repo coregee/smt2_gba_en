@@ -13,7 +13,7 @@ sub_080C6FD8: @ 0x080C6FD8
 .L080C6FDC:
 	lsls r0, r4, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C6F30
+	bl Hud_LoadMemberFace
 	adds r4, #1
 	cmp r4, #5
 	ble .L080C6FDC
@@ -820,7 +820,7 @@ sub_080C745C: @ 0x080C745C
 	adds r2, r6, #0
 	movs r3, #0
 	bl Sprite_Draw
-	bl sub_080C3168
+	bl Magnetite_Get
 	adds r4, #8
 	lsls r4, r4, #0x10
 	lsrs r4, r4, #0x10
@@ -2724,7 +2724,7 @@ sub_080C8464: @ 0x080C8464
 	adds r2, r2, r3
 	strh r1, [r2]
 	lsrs r0, r0, #0x10
-	bl sub_080C6F30
+	bl Hud_LoadMemberFace
 	pop {r0}
 	bx r0
 .L080C847C: .4byte 0x0200E7D4 @ EWRAM+0xE7D4

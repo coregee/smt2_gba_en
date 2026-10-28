@@ -34,7 +34,7 @@ sub_080DBA1C: @ 0x080DBA1C
 	adds r0, #1
 	strh r0, [r6, #0x1e]
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	strh r5, [r6, #0x1c]
 	ldr r1, .L080DBA70
 	ldrh r2, [r4, #0xc]
@@ -58,7 +58,7 @@ sub_080DBA1C: @ 0x080DBA1C
 	strh r2, [r6, #0x1e]
 	strh r5, [r6, #0x24]
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	strh r5, [r6, #0x1c]
 	b .L080DBC5E
 .L080DBA8E:
@@ -144,7 +144,7 @@ sub_080DBA1C: @ 0x080DBA1C
 	movs r0, #1
 	mov r8, r0
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r0, #3
 	strh r0, [r6, #0x1e]
 	mov r0, r8
@@ -156,7 +156,7 @@ sub_080DBA1C: @ 0x080DBA1C
 .L080DBB40: .4byte 0x00007FFF
 .L080DBB44:
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080DBC5E
 .L080DBB4C:
 	mov r0, sb
@@ -167,7 +167,7 @@ sub_080DBA1C: @ 0x080DBA1C
 	cmp r0, #0
 	beq .L080DBB68
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	strh r7, [r6, #0x1e]
 	movs r0, #1
 	strh r0, [r6, #0x1c]
@@ -266,7 +266,7 @@ sub_080DBA1C: @ 0x080DBA1C
 	mov r8, r0
 .L080DBC0E:
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080DBC5E
 .L080DBC16:
 	mov r0, sl
@@ -308,7 +308,7 @@ sub_080DBA1C: @ 0x080DBA1C
 	movs r0, #1
 	mov r8, r0
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 .L080DBC5E:
 	mov r0, r8
 	cmp r0, #1

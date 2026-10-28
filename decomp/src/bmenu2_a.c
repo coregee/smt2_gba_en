@@ -72,7 +72,7 @@ void sub_0812C07C(struct Task *task)
 // sub_0812C0BC @ 0x0812C0BC
 void sub_0812C0BC(struct Task *task)
 {
-    sub_080C33AC(task->data.raw[0]);
+    Inventory_RemoveItem(task->data.raw[0]);
     BattleMsg_Close();
 }
 
@@ -255,7 +255,7 @@ void sub_0812C2E4(struct Task *task)
         {
             task->result = 1;
             task->pad1E = 0xFE;
-            sub_080C366C();
+            Party_FixFormation();
             Party_BuildMemberNameTiles();
             sub_080C6FD8();
             if (!Battle_IsPartyDefeated())
@@ -423,7 +423,7 @@ void sub_0812C2E4(struct Task *task)
         "    strh r0, [r5, #0x1c]\n"
         "    movs r0, #0xfe\n"
         "    strh r0, [r5, #0x1e]\n"
-        "    bl sub_080C366C\n"
+        "    bl Party_FixFormation\n"
         "    bl Party_BuildMemberNameTiles\n"
         "    bl sub_080C6FD8\n"
         "    bl Battle_IsPartyDefeated\n"

@@ -53,8 +53,8 @@ struct Task *Task_Create(const u32 *script, u32 parent);
 void Task_End(struct Task *task);
 void Task_GotoLabel(struct Task *task, u32 label);
 
-void sub_080C5170(u32 a);
-void sub_080C51D4(u32 se);
+void Music_Play(u32 a);
+void Sound_Play(u32 se);
 void m4aSongNumStop(u16 n);
 u32 Flag_Test(u32 flag);
 

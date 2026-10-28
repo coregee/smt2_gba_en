@@ -98,7 +98,7 @@ void sub_080BB5D0(struct Task *task)
     d->ringOn = 1;
     d->glowOn = 1;
     d->unk20 = 1;
-    sub_080C51D4(0x98);
+    Sound_Play(0x98);
 }
 
 // sub_080BB5E8 @ 0x080BB5E8

@@ -82,7 +82,7 @@ void sub_0812DD0C(struct Task *task)
     }
     else if (c->state == 3)
     {
-        if (BattleMenu_GetPriceList()[c->index] > sub_080C3100())
+        if (BattleMenu_GetPriceList()[c->index] > Money_Get())
             sub_080ECF70(0x66);
         else
             sub_080ECF70(0xE7);

@@ -96,7 +96,7 @@ void sub_08129604(struct Task *task, u32 arg)
         blk->unk692 = blk->list[c->index];
         m = Party_GetMember(blk->unk692 + 0x8000);
         task->pad1E = b;
-        if (arg == 0 && !(blk->unk694 & 2) && sub_0812839C(blk->unk692) > sub_080C3100())
+        if (arg == 0 && !(blk->unk694 & 2) && sub_0812839C(blk->unk692) > Money_Get())
         {
             task->pad1E = ok;
             blk->unk48->data.raw[0] = 0xFF;

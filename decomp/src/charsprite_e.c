@@ -86,7 +86,7 @@ void sub_080D9608(void)
     Task_ClearAll();
     sub_080AE2D0();
     SaveScreen_Open(4, 3);
-    sub_080C5170(0xD);
+    Music_Play(0xD);
     SetMainCallback(sub_080D977C);
 }
 
@@ -112,7 +112,7 @@ void sub_080D96BC(void)
     sub_080AE2D0();
     gUnk_03006098 = 0;
     Task_Create(gUnknown_085816B8, 0xFFFF);
-    sub_080C5170(0xD);
+    Music_Play(0xD);
     gUnk_0300609C = 0;
     SetMainCallback(sub_080D977C);
 }

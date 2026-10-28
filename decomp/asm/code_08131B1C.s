@@ -14,7 +14,7 @@ sub_08131B1C: @ 0x08131B1C
 	push {r5, r6, r7}
 	sub sp, #8
 	str r0, [sp]
-	bl sub_080C3100
+	bl Money_Get
 	adds r6, r0, #0
 	ldr r0, .L08131B78
 	ldr r7, [r0]
@@ -30,7 +30,7 @@ sub_08131B1C: @ 0x08131B1C
 	str r1, [sp, #4]
 	mov r2, r8
 	ldrh r0, [r2]
-	bl sub_080C32D4
+	bl Inventory_GetCount
 	lsls r0, r0, #0x18
 	lsrs r4, r0, #0x18
 	mov sl, r4
@@ -395,7 +395,7 @@ sub_08131B1C: @ 0x08131B1C
 .L08131E54:
 	str r0, [r4, #0x44]
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L08131EB4
 	.byte 0x00, 0x00
 .L08131E60: .4byte 0x03006620 @ IWRAM+0x6620
@@ -436,7 +436,7 @@ sub_08131B1C: @ 0x08131B1C
 	asrs r0, r0, #0x10
 	str r0, [r4, #0x44]
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 .L08131EB4:
 	bl sub_081316FC
 	ldr r2, .L08131F24
@@ -489,7 +489,7 @@ sub_08131B1C: @ 0x08131B1C
 	ldr r0, .L08131F48
 	strh r4, [r0]
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L0813216E
 .L08131F20: .4byte 0x03006620 @ IWRAM+0x6620
 .L08131F24: .4byte 0x0203DB2C @ EWRAM+0x3DB2C
@@ -525,7 +525,7 @@ sub_08131B1C: @ 0x08131B1C
 	str r0, [r1, #0x34]
 	str r2, [r1, #0x44]
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L08131FD4
 	.byte 0x00, 0x00
 .L08131F80: .4byte 0x030068BC @ IWRAM+0x68BC
@@ -565,7 +565,7 @@ sub_08131B1C: @ 0x08131B1C
 	asrs r0, r0, #0x10
 	str r0, [r4, #0x44]
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 .L08131FD4:
 	bl sub_081316FC
 	ldr r2, .L08131FF8
@@ -607,7 +607,7 @@ sub_08131B1C: @ 0x08131B1C
 .L08132024:
 	bl sub_081316FC
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L0813216E
 .L08132030: .4byte 0x030068BC @ IWRAM+0x68BC
 .L08132034:
@@ -630,7 +630,7 @@ sub_08131B1C: @ 0x08131B1C
 	movs r0, #0x35
 	strh r0, [r1]
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L081320C6
 .L08132060: .4byte 0x030065FC @ IWRAM+0x65FC
 .L08132064: .4byte 0x030068A0 @ IWRAM+0x68A0
@@ -670,7 +670,7 @@ sub_08131B1C: @ 0x08131B1C
 	str r1, [r2]
 .L081320B2:
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	ldr r1, .L08132100
 	movs r0, #0x27
 	strh r0, [r1]
@@ -749,7 +749,7 @@ sub_08131B1C: @ 0x08131B1C
 	ldr r0, .L0813219C
 	strh r4, [r0]
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 .L0813216E:
 	add sp, #8
 	pop {r3, r4, r5}

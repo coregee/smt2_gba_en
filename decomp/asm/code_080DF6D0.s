@@ -730,9 +730,9 @@ sub_080DFBFC: @ 0x080DFBFC
 	adds r0, r4, #0
 	bl sub_080E1610
 	str r5, [r4, #0xc]
-	bl sub_080C3100
+	bl Money_Get
 	str r0, [r4, #0x10]
-	bl sub_080C3168
+	bl Magnetite_Get
 	str r0, [r4, #0x18]
 	strb r5, [r4, #0x1c]
 	movs r0, #0xff
@@ -828,7 +828,7 @@ sub_080DFCD8: @ 0x080DFCD8
 	strh r0, [r2, #0x1e]
 	strh r3, [r2, #0x1c]
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080DFD66
 	.byte 0x00, 0x00
 .L080DFD00: .4byte 0x030031B8 @ IWRAM+0x31B8
@@ -842,7 +842,7 @@ sub_080DFCD8: @ 0x080DFCD8
 	strh r0, [r2, #0x1e]
 	strh r3, [r2, #0x1c]
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080DFD66
 .L080DFD1C:
 	ldr r0, .L080DFD44
@@ -863,7 +863,7 @@ sub_080DFCD8: @ 0x080DFCD8
 	subs r0, #1
 	strh r0, [r2, #0x24]
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080DFD66
 .L080DFD44: .4byte 0x03003964 @ IWRAM+0x3964
 .L080DFD48:
@@ -881,7 +881,7 @@ sub_080DFCD8: @ 0x080DFCD8
 	strh r3, [r2, #0x24]
 .L080DFD60:
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 .L080DFD66:
 	pop {r4}
 	pop {r0}
@@ -1097,7 +1097,7 @@ sub_080DFF08: @ 0x080DFF08
 	cmp r0, #0
 	beq .L080E0020
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	strh r7, [r5, #0x1c]
 	ldr r1, [r6, #0x18]
 	ldr r0, [r6, #0x10]
@@ -1201,7 +1201,7 @@ sub_080DFF08: @ 0x080DFF08
 	cmp r4, #0
 	beq .L080E003C
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	strh r7, [r5, #0x1c]
 	movs r0, #0xff
 	strh r0, [r5, #0x1e]
@@ -1213,7 +1213,7 @@ sub_080DFF08: @ 0x080DFF08
 	cmp r0, #0
 	beq .L080E0072
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	str r4, [r6, #0x10]
 	str r4, [r6, #0x14]
 	mov r0, r8
@@ -1292,7 +1292,7 @@ sub_080DFF08: @ 0x080DFF08
 	strb r3, [r1]
 .L080E00DE:
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080E0118
 .L080E00E6:
 	movs r0, #0x80
@@ -1319,7 +1319,7 @@ sub_080DFF08: @ 0x080DFF08
 	strb r0, [r1]
 .L080E0112:
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 .L080E0118:
 	movs r0, #1
 	ldrsb r0, [r6, r0]
@@ -1707,7 +1707,7 @@ sub_080E0434: @ 0x080E0434
 	cmp r0, #0
 	beq .L080E04CC
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	strh r7, [r6, #0x1c]
 	ldr r1, [r5, #0xc]
 	ldr r0, [r5, #8]
@@ -1760,7 +1760,7 @@ sub_080E0434: @ 0x080E0434
 	cmp r4, #0
 	beq .L080E04E8
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	strh r7, [r6, #0x1c]
 	movs r0, #0xff
 	strh r0, [r6, #0x1e]
@@ -1772,7 +1772,7 @@ sub_080E0434: @ 0x080E0434
 	cmp r0, #0
 	beq .L080E0516
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	str r4, [r5, #8]
 	mov r0, r8
 	str r4, [r0, #0x14]
@@ -1846,7 +1846,7 @@ sub_080E0434: @ 0x080E0434
 	strb r3, [r2]
 .L080E0580:
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080E05B8
 .L080E0588:
 	movs r0, #0x80
@@ -1872,7 +1872,7 @@ sub_080E0434: @ 0x080E0434
 	strb r0, [r2]
 .L080E05B2:
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 .L080E05B8:
 	movs r1, #1
 	ldrsb r1, [r5, r1]
@@ -2152,7 +2152,7 @@ sub_080E07D0: @ 0x080E07D0
 	strh r0, [r2, #0x1e]
 	strh r3, [r2, #0x1c]
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080E085E
 	.byte 0x00, 0x00
 .L080E07F8: .4byte 0x030031B8 @ IWRAM+0x31B8
@@ -2166,7 +2166,7 @@ sub_080E07D0: @ 0x080E07D0
 	strh r0, [r2, #0x1e]
 	strh r3, [r2, #0x1c]
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080E085E
 .L080E0814:
 	ldr r0, .L080E083C
@@ -2187,7 +2187,7 @@ sub_080E07D0: @ 0x080E07D0
 	subs r0, #1
 	strh r0, [r2, #0x24]
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080E085E
 .L080E083C: .4byte 0x03003964 @ IWRAM+0x3964
 .L080E0840:
@@ -2205,7 +2205,7 @@ sub_080E07D0: @ 0x080E07D0
 	strh r3, [r2, #0x24]
 .L080E0858:
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 .L080E085E:
 	pop {r4}
 	pop {r0}
@@ -2371,7 +2371,7 @@ sub_080E0980: @ 0x080E0980
 	beq .L080E09A4
 	strh r3, [r2, #0x1c]
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080E09B6
 .L080E09A0: .4byte 0x030031B8 @ IWRAM+0x31B8
 .L080E09A4:
@@ -2382,7 +2382,7 @@ sub_080E0980: @ 0x080E0980
 	beq .L080E09B6
 	strh r3, [r2, #0x1c]
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 .L080E09B6:
 	movs r0, #0x4e
 	movs r1, #0xf
@@ -2729,7 +2729,7 @@ sub_080E0BF4: @ 0x080E0BF4
 	cmp r0, #0
 	beq .L080E0C90
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	strh r6, [r4, #0x1c]
 	b .L080E0CA4
 .L080E0C90:
@@ -3023,14 +3023,14 @@ sub_080E0E34: @ 0x080E0E34
 	cmp r0, #0
 	bne .L080E0E90
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080E0F80
 	.byte 0x00, 0x00
 .L080E0E88: .4byte 0x0203C200 @ EWRAM+0x3C200
 .L080E0E8C: .4byte 0x030031B8 @ IWRAM+0x31B8
 .L080E0E90:
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	strh r6, [r5, #0x1c]
 	mov r1, sb
 	ldrh r0, [r1, #0x12]
@@ -3060,7 +3060,7 @@ sub_080E0E34: @ 0x080E0E34
 	cmp r0, #0
 	beq .L080E0EE8
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	strh r6, [r5, #0x1c]
 	movs r0, #0xff
 	strh r0, [r7, #0x1e]
@@ -3124,7 +3124,7 @@ sub_080E0E34: @ 0x080E0E34
 	strb r3, [r1, #1]
 .L080E0F4C:
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080E0F80
 .L080E0F54:
 	movs r0, #0x80
@@ -3148,7 +3148,7 @@ sub_080E0E34: @ 0x080E0E34
 	strb r0, [r1, #1]
 .L080E0F7A:
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 .L080E0F80:
 	movs r0, #1
 	ldrsb r0, [r4, r0]
@@ -3615,7 +3615,7 @@ sub_080E1280: @ 0x080E1280
 	cmp r0, #0
 	beq .L080E132C
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080E1342
 .L080E132C:
 	ldrh r1, [r6, #2]
@@ -3623,11 +3623,11 @@ sub_080E1280: @ 0x080E1280
 	bl sub_080E1580
 .L080E1334:
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080E1342
 .L080E133C:
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 .L080E1342:
 	pop {r4, r5, r6, r7}
 	pop {r0}
@@ -3648,7 +3648,7 @@ sub_080E1348: @ 0x080E1348
 	beq .L080E136C
 	strh r3, [r2, #0x1c]
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080E137E
 .L080E1368: .4byte 0x030031B8 @ IWRAM+0x31B8
 .L080E136C:
@@ -3659,7 +3659,7 @@ sub_080E1348: @ 0x080E1348
 	beq .L080E137E
 	strh r3, [r2, #0x1c]
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 .L080E137E:
 	movs r0, #0x4e
 	movs r1, #0xf
@@ -4292,7 +4292,7 @@ sub_080E181C: @ 0x080E181C
 	beq .L080E184C
 	strh r2, [r4, #0x1c]
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080E185E
 .L080E1848: .4byte 0x030031B8 @ IWRAM+0x31B8
 .L080E184C:
@@ -4303,7 +4303,7 @@ sub_080E181C: @ 0x080E181C
 	beq .L080E185E
 	strh r2, [r4, #0x1c]
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 .L080E185E:
 	pop {r4}
 	pop {r0}
@@ -4421,7 +4421,7 @@ sub_080E1914: @ 0x080E1914
 	strh r0, [r2, #0x1e]
 	strh r4, [r2, #0x1c]
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080E1996
 	.byte 0x00, 0x00
 .L080E193C: .4byte 0x030031B8 @ IWRAM+0x31B8
@@ -4449,7 +4449,7 @@ sub_080E1914: @ 0x080E1914
 	subs r0, #1
 	strh r0, [r2, #0x24]
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080E1996
 	.byte 0x00, 0x00
 .L080E1974: .4byte 0x03003964 @ IWRAM+0x3964
@@ -4468,7 +4468,7 @@ sub_080E1914: @ 0x080E1914
 	strh r3, [r2, #0x24]
 .L080E1990:
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 .L080E1996:
 	pop {r4}
 	pop {r0}
@@ -4492,7 +4492,7 @@ sub_080E199C: @ 0x080E199C
 	strh r0, [r2, #0x1e]
 	strh r4, [r2, #0x1c]
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080E1A1E
 	.byte 0x00, 0x00
 .L080E19C4: .4byte 0x030031B8 @ IWRAM+0x31B8
@@ -4520,7 +4520,7 @@ sub_080E199C: @ 0x080E199C
 	subs r0, #1
 	strh r0, [r2, #0x24]
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080E1A1E
 	.byte 0x00, 0x00
 .L080E19FC: .4byte 0x03003964 @ IWRAM+0x3964
@@ -4539,7 +4539,7 @@ sub_080E199C: @ 0x080E199C
 	strh r3, [r2, #0x24]
 .L080E1A18:
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 .L080E1A1E:
 	pop {r4}
 	pop {r0}
@@ -4847,7 +4847,7 @@ sub_080E1C20: @ 0x080E1C20
 .L080E1C4C:
 	mov r1, sl
 	str r4, [r1, #0x20]
-	bl sub_080C3168
+	bl Magnetite_Get
 	mov r2, sl
 	ldr r1, [r2, #0x14]
 	subs r0, r0, r1
@@ -4914,7 +4914,7 @@ sub_080E1C20: @ 0x080E1C20
 	lsrs r5, r0, #0x10
 .L080E1CD4:
 	adds r0, r6, #0
-	bl sub_080C32D4
+	bl Inventory_GetCount
 	adds r4, r0, #0
 	lsls r4, r4, #0x18
 	lsrs r4, r4, #0x18
@@ -5295,7 +5295,7 @@ sub_080E1C20: @ 0x080E1C20
 	ldr r3, .L080E2008
 	ldr r4, [r3, #8]
 .L080E1FD4:
-	bl sub_080C3100
+	bl Money_Get
 	mov r2, sl
 	ldr r1, [r2, #8]
 	subs r0, r0, r1
@@ -5371,7 +5371,7 @@ sub_080E2044: @ 0x080E2044
 	beq .L080E2068
 	strh r3, [r2, #0x1c]
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080E207A
 .L080E2064: .4byte 0x030031B8 @ IWRAM+0x31B8
 .L080E2068:
@@ -5382,7 +5382,7 @@ sub_080E2044: @ 0x080E2044
 	beq .L080E207A
 	strh r3, [r2, #0x1c]
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 .L080E207A:
 	pop {r4}
 	pop {r0}
@@ -5519,7 +5519,7 @@ sub_080E2148: @ 0x080E2148
 	mov r1, r8
 	ldr r0, [r1, #8]
 	rsbs r0, r0, #0
-	bl sub_080C30AC
+	bl Money_Add
 	mov r2, sb
 	ldr r4, [r2, #4]
 	cmp r4, #0
@@ -5548,7 +5548,7 @@ sub_080E2148: @ 0x080E2148
 	mov r1, sb
 	ldr r0, [r1, #8]
 .L080E21C0:
-	bl sub_080C30AC
+	bl Money_Add
 .L080E21C4:
 	mov r2, r8
 	ldr r0, [r2, #0x20]
@@ -5564,10 +5564,10 @@ sub_080E2148: @ 0x080E2148
 	mov r1, r8
 	ldr r0, [r1, #0x14]
 	rsbs r0, r0, #0
-	bl sub_080C3114
+	bl Magnetite_Add
 	mov r2, sb
 	ldr r0, [r2, #0x14]
-	bl sub_080C3114
+	bl Magnetite_Add
 .L080E21EC:
 	mov r1, r8
 	ldr r0, [r1, #0x20]
@@ -5598,7 +5598,7 @@ sub_080E2148: @ 0x080E2148
 	bhs .L080E2230
 .L080E2220:
 	adds r0, r6, #0
-	bl sub_080C33AC
+	bl Inventory_RemoveItem
 	adds r0, r4, #1
 	lsls r0, r0, #0x10
 	lsrs r4, r0, #0x10
@@ -5629,7 +5629,7 @@ sub_080E2148: @ 0x080E2148
 	bhs .L080E226A
 .L080E225A:
 	adds r0, r6, #0
-	bl sub_080C3328
+	bl Inventory_AddItem
 	adds r0, r4, #1
 	lsls r0, r0, #0x10
 	lsrs r4, r0, #0x10

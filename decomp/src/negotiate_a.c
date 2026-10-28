@@ -28,7 +28,7 @@ void Negotiate_ReactGiveMoney(void)
 {
     u16 v = sub_0813BDCC();
 
-    sub_080C30AC(gUnk_0203DB2C = sub_08137B1C(v));
+    Money_Add(gUnk_0203DB2C = sub_08137B1C(v));
     sub_0813B328(0x23);
 }
 
@@ -70,7 +70,7 @@ void sub_08137BF4(void)
 {
     u16 v = sub_08137BB8();
 
-    sub_080C3114(gUnk_0203DB2C = sub_08137B1C(v));
+    Magnetite_Add(gUnk_0203DB2C = sub_08137B1C(v));
     sub_0813B328(0x24);
 }
 
@@ -108,9 +108,9 @@ void Negotiate_ReactGiveItem(void)
     }
     else
     {
-        if ((u8)sub_080C32FC(gScriptItemCheckId) == 1)
+        if ((u8)Inventory_IsMaxed(gScriptItemCheckId) == 1)
             goto fail;
-        sub_080C3328(gScriptItemCheckId);
+        Inventory_AddItem(gScriptItemCheckId);
     }
     sub_0813B328(0x26);
 }
@@ -131,9 +131,9 @@ void sub_08137CB4(void)
 void sub_08137CEC(void)
 {
     gScriptItemCheckId = 0xE5;
-    if (!(u8)sub_080C32FC(0xE5))
+    if (!(u8)Inventory_IsMaxed(0xE5))
     {
-        sub_080C3328(gScriptItemCheckId);
+        Inventory_AddItem(gScriptItemCheckId);
         sub_0813B328(0x26);
     }
     else

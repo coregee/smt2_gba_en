@@ -141,7 +141,7 @@ extern u16 gUnk_0200E7D4[];
 extern u32 gUnk_03003BB8;
 
 u8 *Task_Create(const void *script, u32 parent);
-void sub_080C51D4(u32 se);
+void Sound_Play(u32 se);
 s32 View_IsSideOpen(u32 a);
 s32 View_GetWall(u32 a, u32 b, u32 c);
 void Field_Step(u16 a);
@@ -383,7 +383,7 @@ void sub_0815C380(void);
 extern u16 gUnk_03004608;
 extern u16 gUnk_03004600;
 extern const u16 gUnknown_081C25F0[], gUnknown_081C32F4[], gUnknown_081C2C74[], gUnknown_081C25F4[], gUnknown_081C32F8[];
-void sub_080C4618(u32 a, u16 b, u32 c, u32 d, u32 e, u32 f);
+void CharObj_Create(u32 a, u16 b, u32 c, u32 d, u32 e, u32 f);
 
 void sub_080B04BC(void);
 u32 Palette_IsBg13Black(void);

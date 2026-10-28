@@ -246,14 +246,14 @@ void YesNo_HandleInput(struct Task *task)
         gYesNoResult = cur->choice;
         task->result = 1;
         if (gYesNoResult == 0)
-            sub_080C51D4(0x65);
+            Sound_Play(0x65);
         else
-            sub_080C51D4(0x66);
+            Sound_Play(0x66);
     }
     else if (gRepeatedKeys & 0xC0)
     {
         cur->choice = (cur->choice + 1) & 1;
-        sub_080C51D4(0x64);
+        Sound_Play(0x64);
     }
 }
 

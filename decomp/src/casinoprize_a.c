@@ -532,7 +532,7 @@ u16 CasinoPrize_GetSet(void)
 {
     if (Flag_Test(0xB9) == 1)
     {
-        if (sub_080C57CC(0x157) == 1)
+        if (KeyItem_IsObtainable(0x157) == 1)
             return 4;
         goto none;
     }

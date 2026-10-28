@@ -375,7 +375,7 @@ void sub_0812BA38(struct Task *task, u32 mode)
     {
         u16 v;
 
-        sub_080C33AC(0xFB);
+        Inventory_RemoveItem(0xFB);
         v = gGameState.unkAC0;
 
         if (v == 0)

@@ -1417,7 +1417,7 @@ gUnknown_080E5248:
 	cmp r1, r0
 	bne .L080E53B0
 	movs r0, #0x14
-	bl sub_080C5170
+	bl Music_Play
 	b .L080E54CA
 .L080E53B0:
 	ldr r0, .L080E53EC
@@ -1445,7 +1445,7 @@ gUnknown_080E5248:
 	beq .L080E53FC
 .L080E53E2:
 	ldrh r0, [r4]
-	bl sub_080C5170
+	bl Music_Play
 	b .L080E54CA
 	.byte 0x00, 0x00
 .L080E53EC: .4byte 0x030046C0 @ IWRAM+0x46C0
@@ -1454,7 +1454,7 @@ gUnknown_080E5248:
 .L080E53F8: .4byte 0x03004514 @ IWRAM+0x4514
 .L080E53FC:
 	movs r0, #4
-	bl sub_080C51BC
+	bl Music_FadeOut
 	b .L080E54CA
 .L080E5404:
 	ldr r1, .L080E5424
@@ -1468,7 +1468,7 @@ gUnknown_080E5248:
 	cmp r1, r0
 	bne .L080E54CA
 	adds r0, r1, #0
-	bl sub_080C5170
+	bl Music_Play
 	b .L080E54CA
 	.byte 0x00, 0x00
 .L080E5424: .4byte 0x0000118A

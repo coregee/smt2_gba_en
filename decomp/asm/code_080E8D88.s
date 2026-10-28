@@ -111,7 +111,7 @@ sub_080E8E00: @ 0x080E8E00
 .L080E8E40:
 	adds r0, r7, #0
 	mov r1, r8
-	bl sub_080C45C0
+	bl CharObj_FindInGroup
 	ldr r0, .L080E8EC0
 	adds r1, r5, r0
 	movs r0, #0
@@ -366,7 +366,7 @@ sub_080E9044: @ 0x080E9044
 	ldr r5, .L080E9098
 	cmp r4, #0
 	beq .L080E905C
-	bl sub_080C37EC
+	bl CharTask_Unregister
 	adds r0, r4, #0
 	bl Task_End
 .L080E905C:
@@ -938,7 +938,7 @@ gUnknown_080E944C:
 .L080E9508: .4byte 0x00000ECE
 .L080E950C: .4byte 0x0000097A
 .L080E9510:
-	bl sub_080C366C
+	bl Party_FixFormation
 	bl Party_BuildMemberNameTiles
 	bl sub_080C6FD8
 	movs r5, #0
@@ -1737,7 +1737,7 @@ gUnknown_080E994C:
 	movs r4, #0
 	strh r4, [r0]
 	movs r0, #4
-	bl sub_080C51BC
+	bl Music_FadeOut
 	ldr r0, .L080E9C0C
 	strh r4, [r0]
 	bl BattleMenu_Reset

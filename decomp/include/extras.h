@@ -258,7 +258,7 @@ void Sprite_Draw(const void *def, u16 layer, u16 palette, u16 priority, u16 tile
 struct Task *Window_Create(u16 x, u16 y, u16 w, u16 h, u16 bg);
 struct Task *Window_CreateOpen(u16 x, u16 y, u16 w, u16 h, u16 bg);
 void Window_Close(); /* (struct Task *win, u32 erase); some callers pass only the window */
-void sub_080C51D4(u32 se);
+void Sound_Play(u32 se);
 struct Task *Task_Create(const u32 *script, u32 parent);
 struct Task *Task_GetParent(struct Task *task);
 void Text_DrawSpriteString(const u16 *str, u16 a1, u16 a2, u16 x, u16 y, u16 advance);
@@ -270,8 +270,8 @@ void sub_080C4AB0(u32 a0, u32 a1, u32 x, u32 y);
 u8 *NumberToDigits(u32 n);
 void CpuSet(const void *src, void *dst, u32 control);
 void sub_080DF954(u32 a0, void *a1, void *a2);
-u8 sub_080C32D4(u16 id);
-void sub_080C3328(u16 id);
+u8 Inventory_GetCount(u16 id);
+void Inventory_AddItem(u16 id);
 void sub_080AE2D0(void);
 u8 *Action_GetRecord(u16 id);
 void FontSprite_DrawGlyph(u16 glyph, u32 a1, u32 a2, u16 x, u16 y);
@@ -287,7 +287,7 @@ extern const s16 gSineTable[];
 void sub_080D9608(void);
 void sub_080D5B8C(u32 mode);
 u16 Random_Byte(void);
-void sub_080C5170(u32 se);
+void Music_Play(u32 se);
 void Task_ClearAll(void);
 void *memset(void *dst, int c, unsigned long n);
 void *memcpy(void *dst, const void *src, unsigned long n);

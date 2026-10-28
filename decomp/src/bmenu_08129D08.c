@@ -147,7 +147,7 @@ void sub_08129F5C(struct Task *task)
     }
     BattleMenu_SetMode(3, Battle_BuildNamePrependText(i, gUnknown_08124182));
     Party_Remove(blk->list[task->pad1E], 0);
-    sub_080C366C();
+    Party_FixFormation();
     sub_081269B0(2);
 }
 #else
@@ -208,7 +208,7 @@ void sub_08129F5C(struct Task *task)
         "    ldrh r0, [r0]\n"
         "    movs r1, #0\n"
         "    bl Party_Remove\n"
-        "    bl sub_080C366C\n"
+        "    bl Party_FixFormation\n"
         "    movs r0, #2\n"
         "    bl sub_081269B0\n"
         "    pop {r4, r5, r6, r7}\n"
@@ -336,7 +336,7 @@ void sub_0812A228(struct Task *task)
 void sub_0812A248(struct Task *task)
 {
     sub_080F41B0(C127_BLOCK->list[task->data.raw[0]]);
-    sub_080C366C();
+    Party_FixFormation();
     sub_081269B0(2);
 }
 

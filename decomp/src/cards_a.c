@@ -9,12 +9,12 @@ void sub_080DD160(struct Task *task)
     if (gKeysNew & 1)
     {
         task->unk1E = task->data.h[0];
-        sub_080C51D4(0x65);
+        Sound_Play(0x65);
         task->result = 1;
     }
     else if (gKeysNew & 2)
     {
-        sub_080C51D4(0x66);
+        Sound_Play(0x66);
         task->result = 1;
     }
     else
@@ -27,7 +27,7 @@ void sub_080DD160(struct Task *task)
                 task->data.h[0]--;
             else
                 task->data.h[0] = 1;
-            sub_080C51D4(0x64);
+            Sound_Play(0x64);
         }
         else if (gRepeatedKeys & 0x80)
         {
@@ -35,7 +35,7 @@ void sub_080DD160(struct Task *task)
                 task->data.h[0]++;
             else
                 task->data.h[0] = up;
-            sub_080C51D4(0x64);
+            Sound_Play(0x64);
         }
     }
 }

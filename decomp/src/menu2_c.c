@@ -93,7 +93,7 @@ void sub_080D4190(struct Task *task)
         }
     }
     Sprite_Draw(gUnknown_08002A94, 0, 0, 0, 0x170, 0xB2, 0x35);
-    sub_080C8048(sub_080C32D4(0x11F), 0xB8, 0x35, 0);
+    sub_080C8048(Inventory_GetCount(0x11F), 0xB8, 0x35, 0);
     if (list->top != 0)
         sub_080C4A4C(0, 0, x + 0x6E, y + 2);
     if (list->top + 6 <= count - 1)
@@ -123,7 +123,7 @@ void sub_080D429C(struct Task *task)
     if (gKeysNew & 1)
     {
         u16 id = ids[list->cursor + list->top];
-        sub_080C51D4(0x65);
+        Sound_Play(0x65);
         task->unk1E = 1;
         task->result = 1;
         gYesNoResult = 0;
@@ -131,7 +131,7 @@ void sub_080D429C(struct Task *task)
     }
     else if (gKeysNew & 2)
     {
-        sub_080C51D4(0x66);
+        Sound_Play(0x66);
         task->result = 1;
         task->unk1E = 0xFFFF;
         gYesNoResult = 1;
@@ -142,12 +142,12 @@ void sub_080D429C(struct Task *task)
         if (list->cursor != 0)
         {
             list->cursor--;
-            sub_080C51D4(100);
+            Sound_Play(100);
         }
         else if (list->top != 0)
         {
             list->top--;
-            sub_080C51D4(100);
+            Sound_Play(100);
         }
         REDRAW();
     }
@@ -156,12 +156,12 @@ void sub_080D429C(struct Task *task)
         if (list->cursor != rows - 1)
         {
             list->cursor++;
-            sub_080C51D4(100);
+            Sound_Play(100);
         }
         else if (list->cursor == 5 && list->cursor + list->top + 1 <= count - 1)
         {
             list->top++;
-            sub_080C51D4(100);
+            Sound_Play(100);
         }
         REDRAW();
     }
@@ -185,7 +185,7 @@ void sub_080D429C(struct Task *task)
             REDRAW();
         }
         if (cursor != list->cursor || top != list->top)
-            sub_080C51D4(100);
+            Sound_Play(100);
     }
     else if ((gRepeatedKeys & 0x100) && count > 6)
     {
@@ -207,7 +207,7 @@ void sub_080D429C(struct Task *task)
             REDRAW();
         }
         if (cursor != list->cursor || top != list->top)
-            sub_080C51D4(100);
+            Sound_Play(100);
     }
 }
 
@@ -302,18 +302,18 @@ u16 sub_080D45F0(u16 *out, u16 mode)
 
     if (mode == 0)
     {
-        sub_080C32D4(0x11F);
+        Inventory_GetCount(0x11F);
         if (!Flag_Test(0x162))
         {
             for (; e->id != -1; e++)
             {
-                if (sub_080C3560(e->items[0]))
+                if (Stock_FindByDemonId(e->items[0]))
                     continue;
                 if (e->bit != 0)
                     continue;
-                if (e->items[1] != 0 && sub_080C3560(e->items[1]))
+                if (e->items[1] != 0 && Stock_FindByDemonId(e->items[1]))
                     continue;
-                if (e->items[2] != 0 && sub_080C3560(e->items[2]))
+                if (e->items[2] != 0 && Stock_FindByDemonId(e->items[2]))
                     continue;
                 out[n] = e->items[0];
                 n++;
@@ -323,13 +323,13 @@ u16 sub_080D45F0(u16 *out, u16 mode)
         {
             for (; e->id != -1; idx++, e++)
             {
-                if (sub_080C3560(e->items[0]))
+                if (Stock_FindByDemonId(e->items[0]))
                     continue;
                 if (e->bit == 0)
                     continue;
-                if (e->items[1] != 0 && sub_080C3560(e->items[1]))
+                if (e->items[1] != 0 && Stock_FindByDemonId(e->items[1]))
                     continue;
-                if (e->items[2] != 0 && sub_080C3560(e->items[2]))
+                if (e->items[2] != 0 && Stock_FindByDemonId(e->items[2]))
                     continue;
                 if (ComboBits_Test(idx))
                 {
@@ -343,7 +343,7 @@ u16 sub_080D45F0(u16 *out, u16 mode)
     {
         for (; e->id != -1; e++)
         {
-            if (sub_080C3560(e->items[0]))
+            if (Stock_FindByDemonId(e->items[0]))
             {
                 out[n] = e->items[0];
                 n++;

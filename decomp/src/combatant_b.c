@@ -250,7 +250,7 @@ void Combatant_Damage(s32 who, s32 damage)
         Combatant_SetStatus(who, 0x8000);
         if (who > 3)
             sub_080F4190(who);
-        sub_080C366C();
+        Party_FixFormation();
     }
 }
 
@@ -516,7 +516,7 @@ s32 sub_080C10A8(s32 id)
 // sub_080C10B4 @ 0x080C10B4
 s32 sub_080C10B4(s32 item)
 {
-    u8 n = sub_080C32D4(item);
+    u8 n = Inventory_GetCount(item);
 
     return n + Party_CountEquipped(0xFF, item & 0xFF);
 }

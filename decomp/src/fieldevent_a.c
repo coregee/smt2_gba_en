@@ -259,7 +259,7 @@ void sub_080B5FFC(struct Task *task, u32 arg)
         if (gUnk_03004000[1] == 0)
         {
             dir = (dir + v) & 3;
-            sub_080C51D4(0x72);
+            Sound_Play(0x72);
         }
         else
         {

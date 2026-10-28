@@ -50,7 +50,7 @@ void Combatant_RecalcStats(s32 who)
 
             for (i = 0; i < 12; i++)
             {
-                if (sub_080C32D4(i + 0x120) > 8)
+                if (Inventory_GetCount(i + 0x120) > 8)
                 {
                     u8 v = tbl[i].b;
 
@@ -298,7 +298,7 @@ void Combatant_RecalcStats(s32 who)
         "    adds r0, r6, r1\n"
         "    lsls r0, r0, #0x10\n"
         "    lsrs r0, r0, #0x10\n"
-        "    bl sub_080C32D4\n"
+        "    bl Inventory_GetCount\n"
         "    lsls r0, r0, #0x18\n"
         "    lsrs r0, r0, #0x18\n"
         "    cmp r0, #8\n"
@@ -1234,7 +1234,7 @@ s32 Stock_AddDemon(u16 demonId)
 {
     u32 i;
 
-    if (sub_080C351C(demonId) == 0)
+    if (Stock_CanAddDemon(demonId) == 0)
         return -1;
     for (i = 0; i < 12; i++)
     {

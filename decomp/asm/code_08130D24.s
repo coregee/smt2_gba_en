@@ -663,7 +663,7 @@ sub_08130D24: @ 0x08130D24
 	bl sub_080D34A4
 .L08131280:
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L0813134E
 .L08131288: .4byte 0x03006980 @ IWRAM+0x6980
 .L0813128C: .4byte 0x030068A4 @ IWRAM+0x68A4
@@ -689,7 +689,7 @@ sub_08130D24: @ 0x08130D24
 	lsls r0, r0, #1
 	adds r0, r0, r7
 	ldrh r0, [r0]
-	bl sub_080C32D4
+	bl Inventory_GetCount
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne .L08131304
@@ -706,7 +706,7 @@ sub_08130D24: @ 0x08130D24
 	movs r0, #0x30
 	strh r0, [r1]
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L0813134E
 .L081312E4: .4byte 0x030031C4 @ IWRAM+0x31C4
 .L081312E8: .4byte 0x0203DB88 @ EWRAM+0x3DB88
@@ -716,7 +716,7 @@ sub_08130D24: @ 0x08130D24
 .L081312F8: .4byte 0x0203DB5A @ EWRAM+0x3DB5A
 .L081312FC:
 	movs r0, #0x68
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L0813134E
 .L08131304:
 	mov r2, sb
@@ -735,7 +735,7 @@ sub_08130D24: @ 0x08130D24
 	ldrh r0, [r0]
 	strh r0, [r2]
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L0813134E
 	.byte 0x00, 0x00
 .L0813132C: .4byte 0x0203DB5A @ EWRAM+0x3DB5A
@@ -752,7 +752,7 @@ sub_08130D24: @ 0x08130D24
 	movs r0, #0x2f
 	strh r0, [r1]
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 .L0813134E:
 	add sp, #4
 	pop {r3, r4, r5}

@@ -143,7 +143,7 @@ void sub_080BBF9C(struct Task *task)
 // sub_080BBFA8 @ 0x080BBFA8
 void sub_080BBFA8(void)
 {
-    sub_080C4618(0, 0x161, 0x28, 3, 0, 0);
+    CharObj_Create(0, 0x161, 0x28, 3, 0, 0);
 }
 
 // sub_080BBFC8 @ 0x080BBFC8

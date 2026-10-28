@@ -38,12 +38,12 @@ void ScriptOp_32B(void)
     i &= 0xF;
     if (i > 1)
     {
-        sub_080C48F0(gUnk_030068F0[i], 0);
+        CharObj_End(gUnk_030068F0[i], 0);
         gUnk_030068F0[i] = 0;
     }
     else if (gUnk_030068F0[i] != 0)
     {
-        sub_080C48F0(gUnk_030068F0[i], 0);
+        CharObj_End(gUnk_030068F0[i], 0);
         gUnk_030068F0[i] = 0;
     }
     else if (gUnk_030069C0[i] != 0)
@@ -96,7 +96,7 @@ void sub_081333B4(struct Task *task)
         task->result = 1;
 }
 
-/* Jumps when sub_080C3100() < operand. */
+/* Jumps when Money_Get() < operand. */
 // ScriptOp_336 @ 0x081333E4
 void ScriptOp_336(void)
 {
@@ -104,14 +104,14 @@ void ScriptOp_336(void)
     u16 lo = SCRIPT_READ();
     u32 target = SCRIPT_READ() << 16 | lo;
 
-    if (sub_080C3100() < n)
+    if (Money_Get() < n)
         gScriptJumpTarget = (u16 *)target;
 }
 
 // ScriptOp_337 @ 0x08133434
 void ScriptOp_337(void)
 {
-    sub_080C3114(SCRIPT_READ());
+    Magnetite_Add(SCRIPT_READ());
 }
 
 // ScriptOp_338 @ 0x0813345C
@@ -133,9 +133,9 @@ void ScriptOp_32C(void)
 
     gUnk_0203DB62 = v;
     if (neg)
-        sub_080C30AC(-v);
+        Money_Add(-v);
     else
-        sub_080C30AC(v);
+        Money_Add(v);
 }
 
 /* Jumps when Random_Byte() < 0x80 >> operand. */
@@ -173,7 +173,7 @@ void ScriptOp_333(void)
     n = 0;
     for (i = 0; i < 256; i++)
     {
-        if (sub_080C32D4(i))
+        if (Inventory_GetCount(i))
         {
             gShopItemIds[n] = i;
             gShopItemPrices[n] = sub_080C4C7C(i);
@@ -258,7 +258,7 @@ void ScriptOp_333(void)
         "    ldr r6, .L08133678\n"
         ".L081335D4:\n"
         "    adds r0, r4, #0\n"
-        "    bl sub_080C32D4\n"
+        "    bl Inventory_GetCount\n"
         "    lsls r0, r0, #0x18\n"
         "    cmp r0, #0\n"
         "    beq .L081335F8\n"
@@ -827,7 +827,7 @@ void Shop_QueueNameRow(u16 row, u16 pal)
 #ifdef NONMATCHING
 void Shop_InitItemList(u16 first, u16 mode)
 {
-    u32 money = sub_080C3100();
+    u32 money = Money_Get();
     u16 *name;
     u16 item, row, tile, pal;
     s32 ok;
@@ -895,7 +895,7 @@ void Shop_InitItemList(u16 first, u16 mode)
             }
             else
             {
-                j = sub_080C32D4(item);
+                j = Inventory_GetCount(item);
                 j += Party_CountEquipped(0xFF, item);
                 pal = 4;
                 if (j <= 98)
@@ -969,7 +969,7 @@ void Shop_InitItemList(u16 first, u16 mode)
         "    str r0, [sp]\n"
         "    lsls r4, r4, #0x10\n"
         "    lsrs r4, r4, #0x10\n"
-        "    bl sub_080C3100\n"
+        "    bl Money_Get\n"
         "    str r0, [sp, #4]\n"
         "    movs r0, #0xc0\n"
         "    lsls r0, r0, #1\n"
@@ -1155,7 +1155,7 @@ void Shop_InitItemList(u16 first, u16 mode)
         ".L08133CBC: .4byte 0x0203DB5A @ EWRAM+0x3DB5A\n"
         ".L08133CC0:\n"
         "    adds r0, r6, #0\n"
-        "    bl sub_080C32D4\n"
+        "    bl Inventory_GetCount\n"
         "    lsls r0, r0, #0x18\n"
         "    lsrs r4, r0, #0x18\n"
         "    movs r0, #0xff\n"
@@ -1440,7 +1440,7 @@ void sub_08133F14(u16 first)
         y = gUnknown_08790390[i - first + kind];
         MsgGlyphQueue_PushSubstClamped(0x27, y, 0, 8);
         QUEUE_GLYPH(0x115, 0x9A, y);
-        count = sub_080C32D4(gUnk_0203DB88[i]);
+        count = Inventory_GetCount(gUnk_0203DB88[i]);
         if (count > 9)
         {
             QUEUE_GLYPH(gScriptDigitGlyphs[count / 10], 0xA7, y);
@@ -1655,7 +1655,7 @@ void sub_08133F14(u16 first)
         "    ldr r0, .L08134170\n"
         "    adds r0, r6, r0\n"
         "    ldrh r0, [r0]\n"
-        "    bl sub_080C32D4\n"
+        "    bl Inventory_GetCount\n"
         "    lsls r0, r0, #0x18\n"
         "    lsrs r0, r0, #0x18\n"
         "    mov sb, r0\n"

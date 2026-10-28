@@ -67,7 +67,7 @@ void ScriptOp_422(void)
         }
     }
     else if (hi == 0xFF)
-        sub_080C366C();
+        Party_FixFormation();
     else if (Combatant_IsAlive(who) == 1)
     {
         hp = sub_08134DE0(who);
@@ -128,7 +128,7 @@ void ScriptOp_422(void)
         ".L08139EE4:\n"
         "    cmp r2, #0xff\n"
         "    bne .L08139EEE\n"
-        "    bl sub_080C366C\n"
+        "    bl Party_FixFormation\n"
         "    b .L08139F1A\n"
         ".L08139EEE:\n"
         "    adds r0, r5, #0\n"

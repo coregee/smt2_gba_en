@@ -1221,7 +1221,7 @@ u16 EnemyInfo_HandleInput(void)
     memset(name, 0, sizeof(name));
     if (gKeysNew & 3)
     {
-        sub_080C51D4(0x66);
+        Sound_Play(0x66);
         return 1;
     }
     if (gKeysNew & 0x40)
@@ -1230,7 +1230,7 @@ u16 EnemyInfo_HandleInput(void)
         {
             b->unk693--;
             EnemyInfo_DrawPage(b->unk693);
-            sub_080C51D4(0x64);
+            Sound_Play(0x64);
         }
     }
     else if (gKeysNew & 0x80)
@@ -1239,7 +1239,7 @@ u16 EnemyInfo_HandleInput(void)
         {
             b->unk693++;
             EnemyInfo_DrawPage(b->unk693);
-            sub_080C51D4(0x64);
+            Sound_Play(0x64);
         }
     }
     for (i = 0, src = (u16 *)(rec + 0x22); i < 8; i++)
@@ -1301,13 +1301,13 @@ s16 sub_080F3E10(void)
 // sub_080F3E20 @ 0x080F3E20
 void sub_080F3E20(s32 a)
 {
-    sub_080C30AC(a);
+    Money_Add(a);
 }
 
 // sub_080F3E2C @ 0x080F3E2C
 s32 sub_080F3E2C(s32 a)
 {
-    return sub_080C3114(a);
+    return Magnetite_Add(a);
 }
 
 // sub_080F3E38 @ 0x080F3E38

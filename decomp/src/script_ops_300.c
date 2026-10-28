@@ -88,7 +88,7 @@ void sub_08132350(u16 code)
 {
     if (code == 0xFF)
     {
-        sub_080C5170(0);
+        Music_Play(0);
         return;
     }
     if (code == 0xC4)
@@ -105,9 +105,9 @@ void sub_08132350(u16 code)
         if (code != 0xFFFF)
         {
             if (code < 100)
-                sub_080C5170(code);
+                Music_Play(code);
             else
-                sub_080C51D4(code);
+                Sound_Play(code);
         }
     }
 }

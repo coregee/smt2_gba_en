@@ -120,7 +120,7 @@ void Window_Close(void *window, u32 arg1);
 u8 *Party_GetMember(u16 id);
 u16 Combatant_GetStatus(u32 who);
 void Party_Remove(u16 a, u32 b);
-void sub_080C366C(void);
+void Party_FixFormation(void);
 void Party_BuildMemberNameTiles(void);
 void sub_080C6FD8(void);
 u32 Random_Byte(void);

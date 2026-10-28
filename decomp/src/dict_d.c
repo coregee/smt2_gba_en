@@ -269,13 +269,13 @@ void sub_080DC460(struct Task *task)
     if ((gKeysNew & 1) && gDict.unk3E == 1)
     {
         moved = 1;
-        sub_080C51D4(0x65);
+        Sound_Play(0x65);
         task->result = moved;
         parent->unk06 = 0;
     }
     else if (gKeysNew & 2)
     {
-        sub_080C51D4(0x66);
+        Sound_Play(0x66);
         task->result = 1;
         parent->unk06 = 1;
     }
@@ -285,13 +285,13 @@ void sub_080DC460(struct Task *task)
         {
             d->cursor--;
             moved = 1;
-            sub_080C51D4(0x64);
+            Sound_Play(0x64);
         }
         else if (d->unk02 != 0)
         {
             d->unk02--;
             moved = 1;
-            sub_080C51D4(0x64);
+            Sound_Play(0x64);
         }
     }
     else
@@ -304,13 +304,13 @@ void sub_080DC460(struct Task *task)
             {
                 d->cursor++;
                 moved = 1;
-                sub_080C51D4(0x64);
+                Sound_Play(0x64);
             }
             else if (d->cursor == 5 && d->cursor + d->unk02 + 1 <= count - 1)
             {
                 d->unk02++;
                 moved = 1;
-                sub_080C51D4(0x64);
+                Sound_Play(0x64);
             }
         }
         else if ((gRepeatedKeys & 0x200) && count > 6)
@@ -332,7 +332,7 @@ void sub_080DC460(struct Task *task)
             if (cursor != d->cursor || top != d->unk02)
             {
                 moved = 1;
-                sub_080C51D4(0x64);
+                Sound_Play(0x64);
             }
         }
         else if ((gRepeatedKeys & 0x100) && count > 6)
@@ -349,7 +349,7 @@ void sub_080DC460(struct Task *task)
             if (cursor != d->cursor || top != d->unk02)
             {
                 moved = 1;
-                sub_080C51D4(0x64);
+                Sound_Play(0x64);
             }
         }
     }
@@ -397,7 +397,7 @@ void sub_080DC460(struct Task *task)
         "    bne .L080DC4C0\n"
         "    movs r7, #1\n"
         "    movs r0, #0x65\n"
-        "    bl sub_080C51D4\n"
+        "    bl Sound_Play\n"
         "    strh r7, [r6, #0x1c]\n"
         "    movs r0, #0\n"
         "    mov r1, r8\n"
@@ -413,7 +413,7 @@ void sub_080DC460(struct Task *task)
         "    cmp r0, #0\n"
         "    beq .L080DC4DC\n"
         "    movs r0, #0x66\n"
-        "    bl sub_080C51D4\n"
+        "    bl Sound_Play\n"
         "    movs r1, #1\n"
         "    movs r0, #1\n"
         "    strh r0, [r6, #0x1c]\n"
@@ -499,7 +499,7 @@ void sub_080DC460(struct Task *task)
         ".L080DC566:\n"
         "    movs r7, #1\n"
         "    movs r0, #0x64\n"
-        "    bl sub_080C51D4\n"
+        "    bl Sound_Play\n"
         "    b .L080DC5B4\n"
         ".L080DC570:\n"
         "    ldrh r1, [r1]\n"
@@ -539,7 +539,7 @@ void sub_080DC460(struct Task *task)
         ".L080DC5AC:\n"
         "    movs r7, #1\n"
         "    movs r0, #0x64\n"
-        "    bl sub_080C51D4\n"
+        "    bl Sound_Play\n"
         ".L080DC5B4:\n"
         "    cmp r7, #1\n"
         "    bne .L080DC5BE\n"
@@ -596,12 +596,12 @@ void sub_080DC618(struct Task *task)
     if (gKeysNew & 1)
     {
         task->unk1E = task->data.h[0] + 1;
-        sub_080C51D4(0x65);
+        Sound_Play(0x65);
         task->result = 1;
     }
     else if (gKeysNew & 2)
     {
-        sub_080C51D4(0x66);
+        Sound_Play(0x66);
         task->result = 1;
     }
     else
@@ -614,7 +614,7 @@ void sub_080DC618(struct Task *task)
                 task->data.h[0]--;
             else
                 task->data.h[0] = 2;
-            sub_080C51D4(0x64);
+            Sound_Play(0x64);
         }
         else if (gRepeatedKeys & 0x80)
         {
@@ -622,7 +622,7 @@ void sub_080DC618(struct Task *task)
                 task->data.h[0]++;
             else
                 task->data.h[0] = up;
-            sub_080C51D4(0x64);
+            Sound_Play(0x64);
         }
     }
 }

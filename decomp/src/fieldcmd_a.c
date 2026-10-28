@@ -512,7 +512,7 @@ void sub_080B9238(void)
 // sub_080B9244 @ 0x080B9244
 void sub_080B9244(struct Task *task)
 {
-    if (sub_080C5108() == 0)
+    if (Party_HasActiveHuman() == 0)
     {
         if (Flag_Test(1))
             sub_080B9080();

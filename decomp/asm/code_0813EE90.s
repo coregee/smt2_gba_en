@@ -545,7 +545,7 @@ sub_0813F22C: @ 0x0813F22C
 .L0813F2E0:
 	movs r0, #0xad
 	lsls r0, r0, #1
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r1, #0
 	movs r0, #2
 	strh r0, [r6, #4]
@@ -578,7 +578,7 @@ sub_0813F22C: @ 0x0813F22C
 	bne .L0813F32C
 	movs r0, #0xac
 	lsls r0, r0, #1
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r0, #9
 	strh r0, [r6, #4]
 .L0813F32C:
@@ -652,7 +652,7 @@ sub_0813F22C: @ 0x0813F22C
 	bl Sprite_Draw
 	movs r0, #0xad
 	lsls r0, r0, #1
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r0, #2
 	strh r0, [r6, #4]
 	strh r4, [r6, #0x16]
@@ -770,7 +770,7 @@ sub_0813F22C: @ 0x0813F22C
 	rsbs r0, r0, #0
 	strh r0, [r1]
 	ldr r0, .L0813F518
-	bl sub_080C51D4
+	bl Sound_Play
 	ldr r0, .L0813F51C
 	movs r4, #0
 	str r4, [sp]
@@ -1167,7 +1167,7 @@ sub_0813F22C: @ 0x0813F22C
 	cmp r0, #0
 	bne .L0813F7DE
 	ldr r0, .L0813F980
-	bl sub_080C51D4
+	bl Sound_Play
 .L0813F7DE:
 	movs r0, #3
 	strh r0, [r6, #8]
@@ -1190,7 +1190,7 @@ sub_0813F22C: @ 0x0813F22C
 	cmp r0, #0
 	bne .L0813F808
 	ldr r0, .L0813F980
-	bl sub_080C51D4
+	bl Sound_Play
 .L0813F808:
 	movs r0, #4
 	strh r0, [r6, #8]
@@ -1299,7 +1299,7 @@ sub_0813F22C: @ 0x0813F22C
 	cmp r0, #0
 	bne .L0813F8D6
 	ldr r0, .L0813F980
-	bl sub_080C51D4
+	bl Sound_Play
 .L0813F8D6:
 	movs r2, #0
 	movs r0, #4
@@ -1662,18 +1662,18 @@ gUnknown_0813FBA4:
 	.4byte .L0813FBDE
 .L0813FBC8:
 	ldr r0, .L0813FBD0
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L0813FBE6
 .L0813FBD0: .4byte 0x0000015D
 .L0813FBD4:
 	movs r0, #0xaf
 	lsls r0, r0, #1
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L0813FBE6
 .L0813FBDE:
 	movs r0, #0xaf
 	lsls r0, r0, #1
-	bl sub_080C51D4
+	bl Sound_Play
 .L0813FBE6:
 	ldrh r0, [r6, #0x12]
 	cmp r0, #0xa
@@ -1912,7 +1912,7 @@ gUnknown_0813FBA4:
 	bhi .L0813FDF0
 	movs r0, #0xae
 	lsls r0, r0, #1
-	bl sub_080C51D4
+	bl Sound_Play
 	strh r5, [r4]
 	ldrh r0, [r6, #0x1a]
 	adds r0, #1
@@ -1955,7 +1955,7 @@ gUnknown_0813FBA4:
 	bhi .L0813FE44
 	movs r0, #0xae
 	lsls r0, r0, #1
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r0, #1
 	strh r0, [r4]
 	ldrh r0, [r6, #0x1a]
@@ -1998,7 +1998,7 @@ gUnknown_0813FBA4:
 	bhi .L0813FE98
 	movs r0, #0xae
 	lsls r0, r0, #1
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r0, #1
 	strh r0, [r4]
 	ldrh r0, [r6, #0x1a]
@@ -6424,7 +6424,7 @@ sub_081420E0: @ 0x081420E0
 	cmp r1, r0
 	beq .L08142114
 	ldr r0, .L08142110
-	bl sub_080C51D4
+	bl Sound_Play
 	ldr r0, [r4, #0x30]
 	adds r0, #1
 	str r0, [r4, #0x30]
@@ -6699,7 +6699,7 @@ sub_08142200: @ 0x08142200
 	beq .L08142364
 	movs r0, #0xad
 	lsls r0, r0, #1
-	bl sub_080C51D4
+	bl Sound_Play
 	strb r6, [r5, #4]
 	adds r0, r5, #0
 	adds r0, #0xa7
@@ -6739,7 +6739,7 @@ sub_08142200: @ 0x08142200
 .L0814237A:
 	movs r0, #0xac
 	lsls r0, r0, #1
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r0, #0xa
 	strb r0, [r5, #4]
 .L08142386:
@@ -6770,7 +6770,7 @@ sub_08142200: @ 0x08142200
 	bhi .L081423D0
 	movs r0, #0xae
 	lsls r0, r0, #1
-	bl sub_080C51D4
+	bl Sound_Play
 	strb r6, [r5, #9]
 	ldrb r0, [r4]
 	adds r0, #1
@@ -6813,7 +6813,7 @@ sub_08142200: @ 0x08142200
 	bhi .L08142424
 	movs r0, #0xae
 	lsls r0, r0, #1
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r0, #1
 	strb r0, [r5, #0xa]
 	ldrb r0, [r4]
@@ -6855,7 +6855,7 @@ sub_08142200: @ 0x08142200
 	bhi .L08142478
 	movs r0, #0xae
 	lsls r0, r0, #1
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r0, #1
 	strb r0, [r5, #0xb]
 	ldrb r0, [r4]
@@ -6897,7 +6897,7 @@ sub_08142200: @ 0x08142200
 	bhi .L081424CC
 	movs r0, #0xae
 	lsls r0, r0, #1
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r0, #1
 	strb r0, [r5, #0xc]
 	ldrb r0, [r4]
@@ -8595,7 +8595,7 @@ sub_081431F8: @ 0x081431F8
 	cmp r1, #0x64
 	bls .L08143264
 	ldr r0, .L0814323C
-	bl sub_080C51D4
+	bl Sound_Play
 	ldr r0, .L08143240
 	ldrh r1, [r0]
 	movs r2, #1
@@ -8878,7 +8878,7 @@ gUnknown_081432B0:
 	cmp r1, #0
 	bne .L0814343E
 	ldr r0, .L08143448
-	bl sub_080C51D4
+	bl Sound_Play
 .L0814343E:
 	adds r1, r4, #0
 	adds r1, #0x2b
@@ -8917,7 +8917,7 @@ gUnknown_081432B0:
 	cmp r1, #0
 	bne .L08143484
 	ldr r0, .L08143490
-	bl sub_080C51D4
+	bl Sound_Play
 .L08143484:
 	adds r1, r4, #0
 	adds r1, #0x2b
@@ -8950,7 +8950,7 @@ gUnknown_081432B0:
 	cmp r1, #0
 	bne .L081434C0
 	ldr r0, .L081434CC
-	bl sub_080C51D4
+	bl Sound_Play
 .L081434C0:
 	adds r1, r4, #0
 	adds r1, #0x2b
@@ -9022,7 +9022,7 @@ gUnknown_081432B0:
 	cmp r0, #0
 	bne .L08143542
 	ldr r0, .L0814360C
-	bl sub_080C51D4
+	bl Sound_Play
 .L08143542:
 	movs r0, #0
 	movs r1, #2
@@ -9339,18 +9339,18 @@ gUnknown_0814379C:
 	.4byte .L081437D2
 .L081437BC:
 	ldr r0, .L081437C4
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L081437DA
 .L081437C4: .4byte 0x0000015D
 .L081437C8:
 	movs r0, #0xaf
 	lsls r0, r0, #1
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L081437DA
 .L081437D2:
 	movs r0, #0xaf
 	lsls r0, r0, #1
-	bl sub_080C51D4
+	bl Sound_Play
 .L081437DA:
 	add sp, #0xc
 	pop {r4, r5, r6, r7}
@@ -9952,7 +9952,7 @@ sub_08143BF8: @ 0x08143BF8
 	cmp r0, #0
 	beq .L08143C58
 	ldr r0, .L08143C54
-	bl sub_080C51D4
+	bl Sound_Play
 	ldrb r0, [r4]
 	subs r0, #1
 	strb r0, [r4]
@@ -9962,7 +9962,7 @@ sub_08143BF8: @ 0x08143BF8
 .L08143C54: .4byte 0x0000016B
 .L08143C58:
 	ldr r0, .L08143CB0
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r0, #0
 	strb r0, [r6]
 	mov r1, r8
@@ -11158,7 +11158,7 @@ sub_081443F0: @ 0x081443F0
 .L08144580: .4byte gUnknown_0814F1B4
 .L08144584:
 	ldr r0, .L081445C0
-	bl sub_080C51D4
+	bl Sound_Play
 	adds r0, r4, #0
 	adds r0, #0x5f
 	movs r1, #0
@@ -12072,7 +12072,7 @@ sub_08144C0C: @ 0x08144C0C
 .L08144C92:
 	movs r0, #0xb0
 	lsls r0, r0, #1
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r1, #0xec
 	adds r1, r1, r5
 	mov r8, r1
@@ -12104,7 +12104,7 @@ sub_08144C0C: @ 0x08144C0C
 .L08144CD4:
 	movs r0, #0xb0
 	lsls r0, r0, #1
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L08144D64
 .L08144CDE:
 	ldr r2, .L08144D3C
@@ -12133,7 +12133,7 @@ sub_08144C0C: @ 0x08144C0C
 	blo .L08144D90
 	movs r0, #0xad
 	lsls r0, r0, #1
-	bl sub_080C51D4
+	bl Sound_Play
 	bl sub_081457FC
 	adds r0, r5, #0
 	adds r0, #0xa4
@@ -12153,7 +12153,7 @@ sub_08144C0C: @ 0x08144C0C
 .L08144D40:
 	movs r0, #0xad
 	lsls r0, r0, #1
-	bl sub_080C51D4
+	bl Sound_Play
 	bl sub_081457FC
 	adds r0, r5, #0
 	adds r0, #0xa4
@@ -12186,7 +12186,7 @@ sub_08144C0C: @ 0x08144C0C
 	bne .L08144D90
 	movs r0, #0xac
 	lsls r0, r0, #1
-	bl sub_080C51D4
+	bl Sound_Play
 	bl sub_08145260
 .L08144D90:
 	ldrh r0, [r5]

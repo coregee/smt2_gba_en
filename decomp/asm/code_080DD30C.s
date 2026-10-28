@@ -50,7 +50,7 @@ sub_080DD30C: @ 0x080DD30C
 	b .L080DD4E2
 .L080DD358:
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r0, #1
 	ldrsb r0, [r6, r0]
 	cmp r0, #6
@@ -110,7 +110,7 @@ gUnknown_080DD37C:
 	b .L080DD710
 .L080DD3D6:
 	ldrh r0, [r6, #0x12]
-	bl sub_080C5170
+	bl Music_Play
 	ldr r1, .L080DD3E8
 	movs r0, #0
 	strh r0, [r1]
@@ -153,7 +153,7 @@ gUnknown_080DD37C:
 	movs r4, #0
 	strh r0, [r6, #0x12]
 	ldrh r0, [r6, #0x12]
-	bl sub_080C5170
+	bl Music_Play
 	ldr r0, .L080DD44C
 	strh r5, [r0]
 	movs r0, #1
@@ -201,7 +201,7 @@ gUnknown_080DD37C:
 	b .L080DD710
 .L080DD490:
 	ldrh r0, [r6, #0x12]
-	bl sub_080C5170
+	bl Music_Play
 	ldr r0, .L080DD4A8
 	strh r7, [r0]
 .L080DD49A:
@@ -267,7 +267,7 @@ gUnknown_080DD37C:
 	strh r4, [r0]
 .L080DD50E:
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080DD6E0
 	.byte 0x00, 0x00
 .L080DD518: .4byte 0x030031B4 @ IWRAM+0x31B4
@@ -291,7 +291,7 @@ gUnknown_080DD37C:
 	movs r4, #0
 	strh r0, [r6, #0x12]
 	ldrh r0, [r6, #0x12]
-	bl sub_080C5170
+	bl Music_Play
 	ldr r0, .L080DD55C
 	strh r5, [r0]
 	movs r0, #1
@@ -402,7 +402,7 @@ gUnknown_080DD37C:
 	strb r0, [r6, #1]
 .L080DD610:
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080DD6E0
 .L080DD618:
 	movs r0, #0x80
@@ -443,7 +443,7 @@ gUnknown_080DD37C:
 	cmp r4, #1
 	bne .L080DD672
 	ldrh r0, [r6, #0x12]
-	bl sub_080C5170
+	bl Music_Play
 	ldr r0, .L080DD680
 	strh r7, [r0]
 	strb r4, [r6]
@@ -452,7 +452,7 @@ gUnknown_080DD37C:
 	strb r5, [r6, #0xc]
 .L080DD672:
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080DD6E0
 	.byte 0x00, 0x00
 .L080DD67C: .4byte gUnknown_085861C8
@@ -493,7 +493,7 @@ gUnknown_080DD37C:
 	cmp r4, #1
 	bne .L080DD6DA
 	ldrh r0, [r6, #0x12]
-	bl sub_080C5170
+	bl Music_Play
 	ldr r0, .L080DD740
 	mov r1, r8
 	strh r1, [r0]
@@ -503,7 +503,7 @@ gUnknown_080DD37C:
 	strb r5, [r6, #0xc]
 .L080DD6DA:
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 .L080DD6E0:
 	ldrb r0, [r6]
 	adds r3, r0, #0
@@ -549,7 +549,7 @@ gUnknown_080DD37C:
 	cmp r0, #0
 	bne .L080DD744
 	movs r0, #8
-	bl sub_080C51BC
+	bl Music_FadeOut
 	b .L080DD7BE
 .L080DD73C: .4byte gUnknown_085861C8
 .L080DD740: .4byte 0x030031B4 @ IWRAM+0x31B4
@@ -589,7 +589,7 @@ gUnknown_080DD37C:
 	movs r4, #0
 	strh r0, [r6, #0x12]
 	ldrh r0, [r6, #0x12]
-	bl sub_080C5170
+	bl Music_Play
 	ldr r0, .L080DD79C
 	strh r7, [r0]
 	strb r5, [r6]

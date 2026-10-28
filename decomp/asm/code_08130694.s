@@ -167,7 +167,7 @@ sub_08130694: @ 0x08130694
 .L081307EA:
 	strh r0, [r6]
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	ldr r0, .L08130818
 	ldr r0, [r0]
 	ldr r1, .L0813081C
@@ -367,7 +367,7 @@ sub_08130694: @ 0x08130694
 	movs r1, #1
 	bl sub_080D34A4
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L081309FA
 .L081309A0: .4byte 0x03006940 @ IWRAM+0x6940
 .L081309A4: .4byte 0x030068A4 @ IWRAM+0x68A4
@@ -411,7 +411,7 @@ sub_08130694: @ 0x08130694
 	movs r1, #1
 	bl sub_080D34A4
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 .L081309FA:
 	ldr r0, .L08130A1C
 	ldrh r0, [r0]
@@ -466,7 +466,7 @@ sub_08130694: @ 0x08130694
 	ldrh r0, [r0]
 	mov r1, r8
 	strh r0, [r1]
-	bl sub_080C3100
+	bl Money_Get
 	ldr r3, .L08130AB4
 	movs r2, #0
 	ldrsh r1, [r6, r2]
@@ -511,7 +511,7 @@ sub_08130694: @ 0x08130694
 	adds r0, r0, r2
 	ldrh r6, [r0]
 	adds r0, r6, #0
-	bl sub_080C32D4
+	bl Inventory_GetCount
 	adds r4, r0, #0
 	movs r0, #0xff
 	adds r1, r6, #0
@@ -537,7 +537,7 @@ sub_08130694: @ 0x08130694
 	adds r0, r6, #0
 	bl sub_080C4C60
 	adds r4, r0, #0
-	bl sub_080C3100
+	bl Money_Get
 	cmp r4, r0
 	bls .L08130B38
 	ldr r1, .L08130B34
@@ -547,7 +547,7 @@ sub_08130694: @ 0x08130694
 	strh r5, [r6]
 .L08130B2A:
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L08130C1A
 	.byte 0x00, 0x00
 .L08130B34: .4byte 0x0203DAC8 @ EWRAM+0x3DAC8
@@ -589,7 +589,7 @@ sub_08130694: @ 0x08130694
 	strh r5, [r0]
 .L08130B82:
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L08130C1A
 	.byte 0x00, 0x00
 .L08130B8C: .4byte 0x0203DAC8 @ EWRAM+0x3DAC8
@@ -650,7 +650,7 @@ sub_08130694: @ 0x08130694
 	ldr r0, [r0]
 	bl sub_080D34F0
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 .L08130C1A:
 	pop {r3, r4, r5}
 	mov r8, r3

@@ -67,7 +67,7 @@ extern const u16 gUnknown_0879041E[];
 
 u32 sub_080B4420(u16, u16);
 void sub_080ECF80(void);
-bool8 sub_080C32D4(u16 item);
+bool8 Inventory_GetCount(u16 item);
 u16 Party_CountEquipped(s16 a, u16 item);
 void Window_Close(u32 window, u32 now);
 void Font_ResetGlyphSpriteCache(u32 arg);
@@ -76,7 +76,7 @@ void sub_080C4580(u32);
 void MsgWindow_SaveGlyphs(void);
 void sub_0812F2B4(u32);
 struct Task *Task_Create(const void *script, u32 parent);
-void sub_080C30AC(s32 v);
+void Money_Add(s32 v);
 u32 sub_080B8020(void);
 
 struct C136FieldState
@@ -103,8 +103,8 @@ void Combatant_AddAlignment(s32 who, s32 d);
 u32 sub_080D2268(u16 id);
 u32 Combatant_GetEquip(s32 who, s32 slot);
 void Item_GetAttribute(s32 id, s32 field, s32 *out);
-void sub_080C33AC(u16 id);
-void sub_080C3328(u16 id);
+void Inventory_RemoveItem(u16 id);
+void Inventory_AddItem(u16 id);
 u32 Moon_GetPhase(void);
 u16 Demon_GetField(u16, u16);
 u32 sub_0815B958(u16);
@@ -137,8 +137,8 @@ s32 Stock_GetCapacity(void);
 u32 sub_0813BDCC(void);
 void sub_0813B328(u32);
 s32 sub_0813B268(void);
-void sub_080C3114(s32 a);
-u32 sub_080C32FC(u16 a);
+void Magnetite_Add(s32 a);
+u32 Inventory_IsMaxed(u16 a);
 void sub_0815B9B8(u16, u8 *, u8 *);
 extern const u8 gUnknown_08790458[];
 
@@ -193,7 +193,7 @@ void Keypad_OpenNumberEntry(u32 bet);
 struct Task *sub_080BE6E0(u16 id);
 s32 Stock_AddDemon(u16 demonId);
 void Party_Remove(u16 who, u32 release);
-void sub_080C366C(void);
+void Party_FixFormation(void);
 void CasinoPrize_DrawList(u16);
 u16 CasinoPrize_GetSet(void);
 
@@ -212,7 +212,7 @@ u8 *Equipment_GetRecord36_MidRange(u16 id);
 u8 *Item_GetRecord(u16 id);
 void MsgWindow_RestoreGlyphs(void);
 void MsgGlyphQueue_PushSubstClamped(u16 x, u16 y, u16 pal, u16 n);
-s32 sub_080C57CC(u16);
+s32 KeyItem_IsObtainable(u16);
 
 /* Appends one entry to the 64-entry glyph queue gMsgGlyphQueue (count clamped to 63). */
 #define QUEUE_GLYPH(glyph, x, y)                {                                                   u16 c_ = gMsgGlyphCount;                        u16 k_ = c_ * 4;                                gMsgGlyphQueue[k_++] = (glyph);                 gMsgGlyphQueue[k_++] = (x);                     gMsgGlyphQueue[k_++] = (y);                     gMsgGlyphQueue[k_] = 0;                         gMsgGlyphCount = c_ + 1;                        if (gMsgGlyphCount > 0x3F)                          gMsgGlyphCount = 0x3F;                  }
@@ -260,9 +260,9 @@ extern const u16 gUnknown_08790CC8[];
 extern const u16 gUnknown_0878FDB4[];
 extern const u16 gUnknown_0878FDCC[];
 u32 Warp_ToWorldPosition(u16 mode, u16 x, u16 y, u16 dir, u16 flag);
-void sub_080C5DE0(void);
-void sub_080C5DB0(void);
-u32 sub_080C3100(void);
+void Party_RestoreHumans(void);
+void Party_SnapshotHumans(void);
+u32 Money_Get(void);
 void sub_080C31B4(u32);
 void sub_080D53FC(void);
 
@@ -270,7 +270,7 @@ extern const u16 gUnknown_08035BB8[];
 extern const u8 gUnknown_08790C8A[];
 extern const u16 gUnknown_08790C9A[];
 extern u32 gUnk_030068B0;
-u32 sub_080C4618(u16, u16, u16, u16, u32, u32);
+u32 CharObj_Create(u16, u16, u16, u16, u32, u32);
 u32 BgPicture_StartTask(u16);
 
 extern const u16 gUnknown_08790C1C[];
@@ -280,7 +280,7 @@ s32 sub_080D3AA0(u32);
 void sub_080D3CAC(void);
 void sub_080D3DF0(void);
 u32 YesNo_Create(u32 a);
-s32 sub_080C5C50(void);
+s32 Stock_HasRoom(void);
 u32 sub_080C5C7C(void);
 u16 sub_081397D8(void);
 u16 sub_081398C8(void);

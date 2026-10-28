@@ -219,8 +219,8 @@ void sub_080C27F0(void)
     Sram_ReadVerified(sram + 0x44, gUnk_03006090, 8);
     for (i = 0; i < 64; i++)
     {
-        if (sub_080C2734(i + 0x12C) && !sub_080C32D4(i + 0x12C))
-            sub_080C3328(i + 0x12C);
+        if (sub_080C2734(i + 0x12C) && !Inventory_GetCount(i + 0x12C))
+            Inventory_AddItem(i + 0x12C);
     }
     Sram_ReadVerified(sram + 0x6CAC, gUnk_03004680, 8);
     for (i = 0; i < 64; i++)

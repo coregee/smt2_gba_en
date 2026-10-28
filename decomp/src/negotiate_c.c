@@ -27,7 +27,7 @@ u16 sub_08138640(void)
 
     for (i = 0x12C; i <= 0x159; i++)
     {
-        if (sub_080C32D4(i))
+        if (Inventory_GetCount(i))
             return 1;
     }
     return 0;
@@ -36,7 +36,7 @@ u16 sub_08138640(void)
 // sub_08138670 @ 0x08138670
 u16 sub_08138670(void)
 {
-    if (sub_080C32D4(0x11F))
+    if (Inventory_GetCount(0x11F))
         return 1;
     return 0;
 }

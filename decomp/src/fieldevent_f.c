@@ -73,8 +73,8 @@ void sub_080B8440(struct Task *task)
         task->unk1E = 1;
     else
         task->unk1E = 0;
-    d->handle2 = sub_080C4618(1, d->rec->count + 1, 0x50, 5, 0, 0);
-    sub_080C51D4(0x73);
+    d->handle2 = CharObj_Create(1, d->rec->count + 1, 0x50, 5, 0, 0);
+    Sound_Play(0x73);
 }
 
 // Text_CopyToMenuBuffer @ 0x080B8490
@@ -115,7 +115,7 @@ void Treasure_Open(struct Task *task)
         sub_080C7648();
         task->unk1E = 2;
     }
-    else if ((u8)sub_080C32FC(v) == 1)
+    else if ((u8)Inventory_IsMaxed(v) == 1)
     {
         sub_080B832C(task, gUnknown_08003502);
         gScriptItemCheckId = v;
@@ -133,7 +133,7 @@ void Treasure_Open(struct Task *task)
             if (ITEM_DATA(task)->rec->unk8 == 0xFF)
                 gGameState.unk18D4 = 1;
         }
-        sub_080C3328(d->rec->u.id);
+        Inventory_AddItem(d->rec->u.id);
     }
 }
 
@@ -145,9 +145,9 @@ void sub_080B8584(struct Task *task)
 
     task->unk1E = 0;
     if (kind == 0x80000000)
-        sub_080C3114(v & 0x0FFFFFFF);
+        Magnetite_Add(v & 0x0FFFFFFF);
     else if (kind == 0x90000000)
-        sub_080C30AC(v & 0x0FFFFFFF);
+        Money_Add(v & 0x0FFFFFFF);
 }
 
 // sub_080B85C8 @ 0x080B85C8
@@ -577,7 +577,7 @@ void sub_080B88A4(struct Task *task)
 {
     struct ItemTaskData *d = ITEM_DATA(task);
 
-    d->unk10 = (const u16 *)sub_080C4618(5, 0xF5, 0x50, 0xFFED, 0, 0);
+    d->unk10 = (const u16 *)CharObj_Create(5, 0xF5, 0x50, 0xFFED, 0, 0);
 }
 
 // sub_080B88CC @ 0x080B88CC
@@ -596,7 +596,7 @@ void sub_080B88E4(struct Task *task)
 
     if (d->handle != 0)
     {
-        sub_080C48F0(d->handle, 0);
+        CharObj_End(d->handle, 0);
         d->handle = 0;
     }
 }
@@ -605,7 +605,7 @@ void sub_080B88E4(struct Task *task)
 void sub_080B8900(struct Task *task)
 {
     if (ITEM_DATA(task)->handle2 != 0)
-        sub_080C48F0(ITEM_DATA(task)->handle2, 0);
+        CharObj_End(ITEM_DATA(task)->handle2, 0);
     sub_080C3818(1);
     Field_SetState(1);
 }

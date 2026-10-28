@@ -297,7 +297,7 @@ void Keypad_HandleInput(struct Task *task)
                 menu->glyphs[menu->slot] = Keypad_GetSelectedKey();
                 menu->flash = 10;
             }
-            sub_080C51D4(0x65);
+            Sound_Play(0x65);
             return;
         }
         if (gKeysNew & 2)
@@ -305,7 +305,7 @@ void Keypad_HandleInput(struct Task *task)
             if (menu->slot != 0)
                 menu->slot--;
             menu->glyphs[menu->slot] = 0xFFFF;
-            sub_080C51D4(0x66);
+            Sound_Play(0x66);
             return;
         }
     }
@@ -315,12 +315,12 @@ void Keypad_HandleInput(struct Task *task)
         {
             if (!(gKeysNew & 1))
                 return;
-            sub_080C30AC(Keypad_GetNumber() * menu->bet);
+            Money_Add(Keypad_GetNumber() * menu->bet);
             for (i = 0; i < 8; i++)
                 menu->digits[i] |= 0xFF;
             gUnk_030037F0 = 0;
             menu->unk1C = 0;
-            sub_080C51D4(0x65);
+            Sound_Play(0x65);
             return;
         }
         if (menu->flash != 0 && --menu->flash != 0)
@@ -336,7 +336,7 @@ void Keypad_HandleInput(struct Task *task)
                 if (n != 0 || d != 0)
                 {
                     u8 *p;
-                    sub_080C30AC(Keypad_GetNumber() * menu->bet);
+                    Money_Add(Keypad_GetNumber() * menu->bet);
                     p = &SLOT_MENU->digits[n];
                     *p = d;
                     if (!Keypad_CanAfford(Keypad_GetNumber()))
@@ -351,10 +351,10 @@ void Keypad_HandleInput(struct Task *task)
                         if (gUnk_030037F0 > 49999)
                             task->result = 1;
                     }
-                    sub_080C30AC(-(Keypad_GetNumber() * menu->bet));
+                    Money_Add(-(Keypad_GetNumber() * menu->bet));
                 }
             }
-            sub_080C51D4(0x65);
+            Sound_Play(0x65);
             return;
         }
         if (gKeysNew & 2)
@@ -362,11 +362,11 @@ void Keypad_HandleInput(struct Task *task)
             n = Keypad_CountDigits();
             if (n != 0)
                 n--;
-            sub_080C30AC(Keypad_GetNumber() * menu->bet);
+            Money_Add(Keypad_GetNumber() * menu->bet);
             menu->digits[n] = 0xFF;
-            sub_080C30AC(-(Keypad_GetNumber() * menu->bet));
+            Money_Add(-(Keypad_GetNumber() * menu->bet));
             gUnk_030037F0 = Keypad_GetNumber();
-            sub_080C51D4(0x66);
+            Sound_Play(0x66);
             return;
         }
     }
@@ -377,7 +377,7 @@ void Keypad_HandleInput(struct Task *task)
             menu->col--;
         else
             menu->col = 3;
-        sub_080C51D4(100);
+        Sound_Play(100);
     }
     else if (gRepeatedKeys & 0x80)
     {
@@ -385,7 +385,7 @@ void Keypad_HandleInput(struct Task *task)
             menu->col++;
         else
             menu->col = 0;
-        sub_080C51D4(100);
+        Sound_Play(100);
     }
     if (gRepeatedKeys & 0x20)
     {
@@ -397,7 +397,7 @@ void Keypad_HandleInput(struct Task *task)
         }
         else
             menu->row = 2;
-        sub_080C51D4(100);
+        Sound_Play(100);
     }
     else if (gRepeatedKeys & 0x10)
     {
@@ -409,6 +409,6 @@ void Keypad_HandleInput(struct Task *task)
         }
         else
             menu->row = 0;
-        sub_080C51D4(100);
+        Sound_Play(100);
     }
 }

@@ -69,7 +69,7 @@ void sub_080C1560(void)
     Font_ResetGlyphSpriteCache(0x180);
     sub_080C14FC();
     sub_080C153C();
-    sub_080C65E8();
+    Hud_Init();
     sub_080C6734();
     sub_080AD7F0();
     if (gUnk_03004544 == 0)
@@ -127,13 +127,13 @@ void sub_080C1684(void)
     if (gGameState.unkAC0 == 0)
     {
         if (sub_080D0E74() == 1)
-            sub_080C5170(0);
+            Music_Play(0);
         else
-            sub_080C5170(sub_080AD608(*(u16 *)&gUnk_03004614, *(u16 *)&gUnk_03004514));
+            Music_Play(sub_080AD608(*(u16 *)&gUnk_03004614, *(u16 *)&gUnk_03004514));
     }
     else
     {
-        sub_080C5170(sub_080AD67C(gUnk_030069F0[4]));
+        Music_Play(sub_080AD67C(gUnk_030069F0[4]));
     }
     sub_080E44A4();
     if (gUnk_03004544 != 5)
@@ -181,7 +181,7 @@ void FieldMain_Loop(void)
     sub_080E5220();
     sub_080B0C90();
     Task_RunAll();
-    sub_080C6804();
+    Hud_Update();
     PlayTime_Tick();
 }
 
@@ -224,14 +224,14 @@ void sub_080C1880(void)
     Task_ClearAll();
     sub_080C7CC8();
     sub_08151EEC(*(u16 *)&gUnk_03003FC4, *(u16 *)&gUnk_03004618, *(u16 *)&gUnk_03004624);
-    sub_080C5170(sub_080AD67C(gUnk_030069F0[4]));
+    Music_Play(sub_080AD67C(gUnk_030069F0[4]));
     SetMainCallback(sub_080C1A58);
 }
 
 // sub_080C1A58 @ 0x080C1A58
 void sub_080C1A58(void)
 {
-    if (sub_080C5108() == 0)
+    if (Party_HasActiveHuman() == 0)
     {
         sub_080B9058();
         sub_080C1A9C();

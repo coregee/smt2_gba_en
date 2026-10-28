@@ -792,7 +792,7 @@ ScriptOp_33F: @ 0x081348B8
 	adds r5, r1, #0
 .L081348CA:
 	ldrh r0, [r6]
-	bl sub_080C3328
+	bl Inventory_AddItem
 	adds r0, r4, #1
 	lsls r0, r0, #0x10
 	lsrs r4, r0, #0x10
@@ -990,12 +990,12 @@ ScriptOp_352: @ 0x08134A48
 	ldrh r0, [r0]
 	cmp r0, #0x63
 	bhi .L08134A70
-	bl sub_080C5170
+	bl Music_Play
 	b .L08134A74
 .L08134A68: .4byte 0x0203DB40 @ EWRAM+0x3DB40
 .L08134A6C: .4byte 0x03006950 @ IWRAM+0x6950
 .L08134A70:
-	bl sub_080C51D4
+	bl Sound_Play
 .L08134A74:
 	pop {r0}
 	bx r0
@@ -3369,7 +3369,7 @@ ScriptOp_372: @ 0x08135BA0
 	adds r6, r0, #0
 	adds r5, r6, #0
 	ldrh r0, [r4]
-	bl sub_080C32D4
+	bl Inventory_GetCount
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	muls r6, r0, r6
@@ -3378,10 +3378,10 @@ ScriptOp_372: @ 0x08135BA0
 .L08135D38: .4byte 0x0203DB50 @ EWRAM+0x3DB50
 .L08135D3C:
 	ldrh r0, [r4]
-	bl sub_080C33AC
+	bl Inventory_RemoveItem
 .L08135D42:
 	ldrh r0, [r4]
-	bl sub_080C32D4
+	bl Inventory_GetCount
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne .L08135D3C
@@ -3404,7 +3404,7 @@ ScriptOp_372: @ 0x08135BA0
 	adds r6, r0, #0
 	adds r5, r6, #0
 	ldrh r0, [r4]
-	bl sub_080C32D4
+	bl Inventory_GetCount
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	muls r6, r0, r6
@@ -3415,10 +3415,10 @@ ScriptOp_372: @ 0x08135BA0
 .L08135D8C: .4byte 0x0203DB50 @ EWRAM+0x3DB50
 .L08135D90:
 	ldrh r0, [r4]
-	bl sub_080C33AC
+	bl Inventory_RemoveItem
 .L08135D96:
 	ldrh r0, [r4]
-	bl sub_080C32D4
+	bl Inventory_GetCount
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne .L08135D90
@@ -3437,7 +3437,7 @@ ScriptOp_372: @ 0x08135BA0
 	adds r1, r4, #0
 	bl sub_080CDFF8
 	adds r0, r6, #0
-	bl sub_080C30AC
+	bl Money_Add
 	b .L08135DFC
 	.byte 0x00, 0x00
 .L08135DCC: .4byte 0x0203DB50 @ EWRAM+0x3DB50
@@ -3873,7 +3873,7 @@ sub_08136114: @ 0x08136114
 	bl sub_080CDFF8
 	lsls r0, r4, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C3328
+	bl Inventory_AddItem
 .L08136152:
 	add sp, #4
 	pop {r4}
@@ -4611,7 +4611,7 @@ ScriptOp_378: @ 0x08136718
 	movs r1, #1
 	bl Party_Remove
 .L08136780:
-	bl sub_080C366C
+	bl Party_FixFormation
 	pop {r4}
 	pop {r0}
 	bx r0
@@ -4636,7 +4636,7 @@ ScriptOp_379: @ 0x08136790
 	adds r5, r1, #0
 .L081367AC:
 	ldrh r0, [r6]
-	bl sub_080C3328
+	bl Inventory_AddItem
 	adds r0, r4, #1
 	lsls r0, r0, #0x10
 	lsrs r4, r0, #0x10
@@ -4652,7 +4652,7 @@ ScriptOp_379: @ 0x08136790
 .L081367D0:
 	ldr r0, .L081367E0
 	ldrh r0, [r0]
-	bl sub_080C3328
+	bl Inventory_AddItem
 .L081367D8:
 	pop {r4, r5, r6}
 	pop {r0}
@@ -4677,12 +4677,12 @@ ScriptOp_37A: @ 0x081367E4
 	ldr r7, .L0813681C
 .L081367FE:
 	ldrh r0, [r7]
-	bl sub_080C32D4
+	bl Inventory_GetCount
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq .L08136820
 	ldrh r0, [r7]
-	bl sub_080C33AC
+	bl Inventory_RemoveItem
 	adds r6, #1
 	b .L0813685E
 .L08136814: .4byte 0x030068A0 @ IWRAM+0x68A0
@@ -4732,7 +4732,7 @@ ScriptOp_37A: @ 0x081367E4
 .L08136874:
 	ldr r0, .L08136884
 	ldrh r0, [r0]
-	bl sub_080C33AC
+	bl Inventory_RemoveItem
 .L0813687C:
 	pop {r4, r5, r6, r7}
 	pop {r0}

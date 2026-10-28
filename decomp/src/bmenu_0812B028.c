@@ -66,7 +66,7 @@ void sub_0812B138(struct Task *task)
     struct MenuCursor *c;
 
     task->result = 1;
-    if (!sub_080C32D4(gUnk_03006440))
+    if (!Inventory_GetCount(gUnk_03006440))
     {
         n = sub_0812B260(0);
         if (n != 0)

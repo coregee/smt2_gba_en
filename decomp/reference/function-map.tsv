@@ -1154,198 +1154,198 @@ address	mode	size	name	confidence	state	file
 080C2C9C	thumb	36			c	src/flags_a.c
 080C2CC0	thumb	24			c	src/flags_a.c
 080C2CD8	thumb	112			c	src/flags_a.c
-080C2D48	thumb	48			asm	asm/code_080C2D48.s
-080C2D78	thumb	72			asm	asm/code_080C2D48.s
-080C2DC0	thumb	32			asm	asm/code_080C2D48.s
-080C2DE0	thumb	48			asm	asm/code_080C2D48.s
-080C2E10	thumb	52			asm	asm/code_080C2D48.s
-080C2E44	thumb	48			asm	asm/code_080C2D48.s
-080C2E74	thumb	136			asm	asm/code_080C2D48.s
-080C2EFC	thumb	56			asm	asm/code_080C2D48.s
-080C2F34	thumb	16			asm	asm/code_080C2D48.s
-080C2F44	thumb	340			asm	asm/code_080C2D48.s
-080C3098	thumb	14			asm	asm/code_080C2D48.s
-080C30A8	thumb	4			asm	asm/code_080C2D48.s
-080C30AC	thumb	84			asm	asm/code_080C2D48.s
-080C3100	thumb	20			asm	asm/code_080C2D48.s
-080C3114	thumb	84			asm	asm/code_080C2D48.s
-080C3168	thumb	20			asm	asm/code_080C2D48.s
-080C317C	thumb	56			asm	asm/code_080C2D48.s
-080C31B4	thumb	58			asm	asm/code_080C2D48.s
-080C31F0	thumb	12			asm	asm/code_080C2D48.s
-080C31FC	thumb	16			asm	asm/code_080C2D48.s
-080C320C	thumb	68			asm	asm/code_080C2D48.s
-080C3250	thumb	86			asm	asm/code_080C2D48.s
-080C32A8	thumb	42			asm	asm/code_080C2D48.s
-080C32D4	thumb	40			asm	asm/code_080C2D48.s
-080C32FC	thumb	44			asm	asm/code_080C2D48.s
-080C3328	thumb	132			asm	asm/code_080C2D48.s
-080C33AC	thumb	144			asm	asm/code_080C2D48.s
-080C343C	thumb	114			asm	asm/code_080C2D48.s
-080C34B0	thumb	106			asm	asm/code_080C2D48.s
-080C351C	thumb	68			asm	asm/code_080C2D48.s
-080C3560	thumb	56			asm	asm/code_080C2D48.s
-080C3598	thumb	44			asm	asm/code_080C2D48.s
-080C35C4	thumb	32			asm	asm/code_080C2D48.s
-080C35E4	thumb	28			asm	asm/code_080C2D48.s
-080C3600	thumb	32			asm	asm/code_080C2D48.s
-080C3620	thumb	28			asm	asm/code_080C2D48.s
-080C363C	thumb	48			asm	asm/code_080C2D48.s
-080C366C	thumb	208			asm	asm/code_080C2D48.s
-080C373C	thumb	130			asm	asm/code_080C2D48.s
-080C37C0	thumb	44			asm	asm/code_080C2D48.s
-080C37EC	thumb	44			asm	asm/code_080C2D48.s
-080C3818	thumb	188			asm	asm/code_080C2D48.s
-080C38D4	thumb	60			asm	asm/code_080C2D48.s
-080C3910	thumb	36			asm	asm/code_080C2D48.s
-080C3934	thumb	36			asm	asm/code_080C2D48.s
-080C3958	thumb	36			asm	asm/code_080C2D48.s
-080C397C	thumb	516	Demon_LoadGfxForTask	probable	named	asm/code_080C2D48.s
-080C3B80	thumb	68			asm	asm/code_080C2D48.s
-080C3BC4	thumb	164			asm	asm/code_080C2D48.s
-080C3C68	thumb	244			asm	asm/code_080C2D48.s
-080C3D5C	thumb	38			asm	asm/code_080C2D48.s
-080C3D84	thumb	188			asm	asm/code_080C2D48.s
-080C3E40	thumb	4			asm	asm/code_080C2D48.s
-080C3E44	thumb	24			asm	asm/code_080C2D48.s
-080C3E5C	thumb	8			asm	asm/code_080C2D48.s
-080C3E64	thumb	26			asm	asm/code_080C2D48.s
-080C3E80	thumb	60			asm	asm/code_080C2D48.s
-080C3EBC	thumb	36			asm	asm/code_080C2D48.s
-080C3EE0	thumb	36			asm	asm/code_080C2D48.s
-080C3F04	thumb	36			asm	asm/code_080C2D48.s
-080C3F28	thumb	36			asm	asm/code_080C2D48.s
-080C3F4C	thumb	308			asm	asm/code_080C2D48.s
-080C4080	thumb	304	Char_LoadGfxHalf	probable	named	asm/code_080C2D48.s
-080C41B0	thumb	66			asm	asm/code_080C2D48.s
-080C41F4	thumb	72			asm	asm/code_080C2D48.s
-080C423C	thumb	4			asm	asm/code_080C2D48.s
-080C4240	thumb	50			asm	asm/code_080C2D48.s
-080C4274	thumb	276			asm	asm/code_080C2D48.s
-080C4388	thumb	44			asm	asm/code_080C2D48.s
-080C43B4	thumb	68			asm	asm/code_080C2D48.s
-080C43F8	thumb	184			asm	asm/code_080C2D48.s
-080C44B0	thumb	28			asm	asm/code_080C2D48.s
-080C44CC	thumb	174			asm	asm/code_080C2D48.s
-080C457C	thumb	4			asm	asm/code_080C2D48.s
-080C4580	thumb	12			asm	asm/code_080C2D48.s
-080C458C	thumb	12			asm	asm/code_080C2D48.s
-080C4598	thumb	38			asm	asm/code_080C2D48.s
-080C45C0	thumb	82			asm	asm/code_080C2D48.s
-080C4614	thumb	2			asm	asm/code_080C2D48.s
-080C4618	thumb	664			asm	asm/code_080C2D48.s
-080C48B0	thumb	4			asm	asm/code_080C2D48.s
-080C48B4	thumb	24			asm	asm/code_080C2D48.s
-080C48CC	thumb	8			asm	asm/code_080C2D48.s
-080C48D4	thumb	26			asm	asm/code_080C2D48.s
-080C48F0	thumb	72			asm	asm/code_080C2D48.s
-080C4938	thumb	180			asm	asm/code_080C2D48.s
-080C49EC	thumb	48			asm	asm/code_080C2D48.s
-080C4A1C	thumb	48			asm	asm/code_080C2D48.s
-080C4A4C	thumb	100			asm	asm/code_080C2D48.s
-080C4AB0	thumb	100			asm	asm/code_080C2D48.s
-080C4B14	thumb	100			asm	asm/code_080C2D48.s
-080C4B78	thumb	100			asm	asm/code_080C2D48.s
-080C4BDC	thumb	4			asm	asm/code_080C2D48.s
-080C4BE0	thumb	2			asm	asm/code_080C2D48.s
-080C4BE4	thumb	28			asm	asm/code_080C2D48.s
-080C4C00	thumb	24			asm	asm/code_080C2D48.s
-080C4C18	thumb	36			asm	asm/code_080C4C18.s
-080C4C3C	thumb	36			asm	asm/code_080C4C18.s
-080C4C60	thumb	28			asm	asm/code_080C4C18.s
-080C4C7C	thumb	28			asm	asm/code_080C4C18.s
-080C4C98	thumb	80			asm	asm/code_080C4C18.s
-080C4CE8	thumb	140			asm	asm/code_080C4C18.s
-080C4D74	thumb	140			asm	asm/code_080C4C18.s
-080C4E00	thumb	34			asm	asm/code_080C4C18.s
-080C4E24	thumb	34			asm	asm/code_080C4C18.s
-080C4E48	thumb	320			asm	asm/code_080C4C18.s
-080C4F88	thumb	384			asm	asm/code_080C4C18.s
-080C5108	thumb	80			asm	asm/code_080C4C18.s
-080C5158	thumb	22			asm	asm/code_080C4C18.s
-080C5170	thumb	40			asm	asm/code_080C4C18.s
-080C5198	thumb	36			asm	asm/code_080C4C18.s
-080C51BC	thumb	24			asm	asm/code_080C4C18.s
-080C51D4	thumb	14			asm	asm/code_080C4C18.s
-080C51E4	thumb	12			asm	asm/code_080C4C18.s
-080C51F0	thumb	52			asm	asm/code_080C4C18.s
-080C5224	thumb	28			asm	asm/code_080C4C18.s
-080C5240	thumb	74			asm	asm/code_080C4C18.s
-080C528C	thumb	12			asm	asm/code_080C4C18.s
-080C5298	thumb	108			asm	asm/code_080C4C18.s
-080C5304	thumb	28			asm	asm/code_080C4C18.s
-080C5320	thumb	208			asm	asm/code_080C4C18.s
-080C53F0	thumb	2			asm	asm/code_080C4C18.s
-080C53F4	thumb	224			asm	asm/code_080C4C18.s
-080C54D4	thumb	268			asm	asm/code_080C4C18.s
-080C55E0	thumb	36			asm	asm/code_080C4C18.s
-080C5604	thumb	260			asm	asm/code_080C4C18.s
-080C5708	thumb	100			asm	asm/code_080C4C18.s
-080C576C	thumb	72			asm	asm/code_080C4C18.s
-080C57B4	thumb	24			asm	asm/code_080C4C18.s
-080C57CC	thumb	836			asm	asm/code_080C4C18.s
-080C5B10	thumb	44			asm	asm/code_080C4C18.s
-080C5B3C	thumb	144			asm	asm/code_080C4C18.s
-080C5BCC	thumb	72			asm	asm/code_080C4C18.s
-080C5C14	thumb	60			asm	asm/code_080C4C18.s
-080C5C50	thumb	44			asm	asm/code_080C4C18.s
-080C5C7C	thumb	68			asm	asm/code_080C4C18.s
-080C5CC0	thumb	76			asm	asm/code_080C4C18.s
-080C5D0C	thumb	60			asm	asm/code_080C4C18.s
-080C5D48	thumb	16			asm	asm/code_080C4C18.s
-080C5D58	thumb	64			asm	asm/code_080C4C18.s
-080C5D98	thumb	24			asm	asm/code_080C4C18.s
-080C5DB0	thumb	48			asm	asm/code_080C4C18.s
-080C5DE0	thumb	100			asm	asm/code_080C4C18.s
-080C5E44	thumb	20			asm	asm/code_080C4C18.s
-080C5E58	thumb	152			asm	asm/code_080C4C18.s
-080C5EF0	thumb	20			asm	asm/code_080C4C18.s
-080C5F04	thumb	60			asm	asm/code_080C4C18.s
-080C5F40	thumb	32			asm	asm/code_080C4C18.s
-080C5F60	thumb	24			asm	asm/code_080C4C18.s
-080C5F78	thumb	60			asm	asm/code_080C4C18.s
-080C5FB4	thumb	40			asm	asm/code_080C4C18.s
-080C5FDC	thumb	84			asm	asm/code_080C4C18.s
-080C6030	thumb	48			asm	asm/code_080C4C18.s
-080C6060	thumb	12			asm	asm/code_080C4C18.s
-080C606C	thumb	62			asm	asm/code_080C4C18.s
-080C60AC	thumb	52			asm	asm/code_080C4C18.s
-080C60E0	thumb	56			asm	asm/code_080C4C18.s
-080C6118	thumb	10			asm	asm/code_080C4C18.s
-080C6124	thumb	48			asm	asm/code_080C4C18.s
-080C6154	thumb	56			asm	asm/code_080C4C18.s
-080C618C	thumb	36			asm	asm/code_080C4C18.s
-080C61B0	thumb	36			asm	asm/code_080C4C18.s
-080C61D4	thumb	164			asm	asm/code_080C4C18.s
-080C6278	thumb	48			asm	asm/code_080C4C18.s
-080C62A8	thumb	72			asm	asm/code_080C4C18.s
-080C62F0	thumb	68			asm	asm/code_080C4C18.s
-080C6334	thumb	156			asm	asm/code_080C4C18.s
-080C63D0	thumb	36			asm	asm/code_080C4C18.s
-080C63F4	thumb	36			asm	asm/code_080C4C18.s
-080C6418	thumb	164			asm	asm/code_080C4C18.s
-080C64BC	thumb	36			asm	asm/code_080C4C18.s
-080C64E0	thumb	64			asm	asm/code_080C4C18.s
-080C6520	thumb	56			asm	asm/code_080C4C18.s
-080C6558	thumb	76			asm	asm/code_080C4C18.s
-080C65A4	thumb	36			asm	asm/code_080C4C18.s
-080C65C8	thumb	32			asm	asm/code_080C4C18.s
-080C65E8	thumb	332			asm	asm/code_080C4C18.s
-080C6734	thumb	48			asm	asm/code_080C4C18.s
-080C6764	thumb	60			asm	asm/code_080C4C18.s
-080C67A0	thumb	32			asm	asm/code_080C4C18.s
-080C67C0	thumb	68			asm	asm/code_080C4C18.s
-080C6804	thumb	724			asm	asm/code_080C4C18.s
-080C6AD8	thumb	104			asm	asm/code_080C4C18.s
-080C6B40	thumb	104			asm	asm/code_080C4C18.s
-080C6BA8	thumb	56			asm	asm/code_080C4C18.s
-080C6BE0	thumb	592			asm	asm/code_080C4C18.s
-080C6E30	thumb	36			asm	asm/code_080C4C18.s
-080C6E54	thumb	36			asm	asm/code_080C4C18.s
-080C6E78	thumb	136	Party_BuildMemberNameTiles	tentative	named	asm/code_080C4C18.s
-080C6F00	thumb	48			asm	asm/code_080C4C18.s
-080C6F30	thumb	136			asm	asm/code_080C4C18.s
-080C6FB8	thumb	32			asm	asm/code_080C4C18.s
+080C2D48	thumb	48			c	src/inventory_a.c
+080C2D78	thumb	72			c	src/inventory_a.c
+080C2DC0	thumb	32			c	src/inventory_a.c
+080C2DE0	thumb	48			c	src/inventory_a.c
+080C2E10	thumb	52			c	src/inventory_a.c
+080C2E44	thumb	48			c	src/inventory_a.c
+080C2E74	thumb	136			c	src/inventory_a.c
+080C2EFC	thumb	56			c	src/inventory_a.c
+080C2F34	thumb	16			c	src/inventory_a.c
+080C2F44	thumb	340			c	src/inventory_a.c
+080C3098	thumb	14			c	src/inventory_a.c
+080C30A8	thumb	4			c	src/inventory_a.c
+080C30AC	thumb	84	Money_Add	probable	c	src/inventory_a.c
+080C3100	thumb	20	Money_Get	probable	c	src/inventory_a.c
+080C3114	thumb	84	Magnetite_Add	probable	c	src/inventory_a.c
+080C3168	thumb	20	Magnetite_Get	probable	c	src/inventory_a.c
+080C317C	thumb	56			nonmatching	src/inventory_a.c
+080C31B4	thumb	58			c	src/inventory_a.c
+080C31F0	thumb	12			c	src/inventory_a.c
+080C31FC	thumb	16			c	src/inventory_a.c
+080C320C	thumb	68	Inventory_FindEntry	probable	c	src/inventory_a.c
+080C3250	thumb	86	Inventory_FindIndex	probable	c	src/inventory_a.c
+080C32A8	thumb	42	Inventory_FindFreeEntry	probable	c	src/inventory_a.c
+080C32D4	thumb	40	Inventory_GetCount	probable	c	src/inventory_a.c
+080C32FC	thumb	44	Inventory_IsMaxed	probable	c	src/inventory_a.c
+080C3328	thumb	132	Inventory_AddItem	probable	c	src/inventory_a.c
+080C33AC	thumb	144	Inventory_RemoveItem	probable	c	src/inventory_a.c
+080C343C	thumb	114	Combatant_GetEquipSlot	probable	c	src/inventory_a.c
+080C34B0	thumb	106	Combatant_SetEquipSlot	probable	c	src/inventory_a.c
+080C351C	thumb	68	Stock_CanAddDemon	probable	c	src/inventory_a.c
+080C3560	thumb	56	Stock_FindByDemonId	probable	c	src/inventory_a.c
+080C3598	thumb	44	Stock_AddCapacity	probable	c	src/inventory_a.c
+080C35C4	thumb	32			c	src/inventory_a.c
+080C35E4	thumb	28			c	src/inventory_a.c
+080C3600	thumb	32			c	src/inventory_a.c
+080C3620	thumb	28			c	src/inventory_a.c
+080C363C	thumb	48	Party_SwapSlots	probable	c	src/inventory_a.c
+080C366C	thumb	208	Party_FixFormation	probable	c	src/charobj_a.c
+080C373C	thumb	130	GfxSlot_Acquire	probable	c	src/charobj_a.c
+080C37C0	thumb	44	CharTask_Register	probable	c	src/charobj_a.c
+080C37EC	thumb	44	CharTask_Unregister	probable	c	src/charobj_a.c
+080C3818	thumb	188			c	src/charobj_a.c
+080C38D4	thumb	60	GfxSlot_FindShared	probable	c	src/charobj_a.c
+080C3910	thumb	36			c	src/charobj_a.c
+080C3934	thumb	36			c	src/charobj_a.c
+080C3958	thumb	36			c	src/charobj_a.c
+080C397C	thumb	516	Demon_LoadGfxForTask	probable	c	src/charobj_a.c
+080C3B80	thumb	68			c	src/charobj_a.c
+080C3BC4	thumb	164			c	src/charobj_a.c
+080C3C68	thumb	244			c	src/charobj_a.c
+080C3D5C	thumb	38			c	src/charobj_a.c
+080C3D84	thumb	188	DemonObj_Create	probable	nonmatching	src/charobj_a.c
+080C3E40	thumb	4			c	src/charobj_a.c
+080C3E44	thumb	24			c	src/charobj_a.c
+080C3E5C	thumb	8			c	src/charobj_a.c
+080C3E64	thumb	26			c	src/charobj_a.c
+080C3E80	thumb	60	DemonObj_End	probable	c	src/charobj_a.c
+080C3EBC	thumb	36			c	src/charobj_a.c
+080C3EE0	thumb	36			c	src/charobj_a.c
+080C3F04	thumb	36			c	src/charobj_a.c
+080C3F28	thumb	36			c	src/charobj_a.c
+080C3F4C	thumb	308			c	src/charobj_a.c
+080C4080	thumb	304	Char_LoadGfxHalf	probable	c	src/charobj_b.c
+080C41B0	thumb	66			c	src/charobj_b.c
+080C41F4	thumb	72			c	src/charobj_b.c
+080C423C	thumb	4			c	src/charobj_b.c
+080C4240	thumb	50	Color_StepComponent	probable	c	src/charobj_b.c
+080C4274	thumb	276	CharObj_UpdateGlow	probable	c	src/charobj_b.c
+080C4388	thumb	44			c	src/charobj_b.c
+080C43B4	thumb	68			c	src/charobj_b.c
+080C43F8	thumb	184			c	src/charobj_b.c
+080C44B0	thumb	28			c	src/charobj_b.c
+080C44CC	thumb	174			c	src/charobj_b.c
+080C457C	thumb	4			c	src/charobj_b.c
+080C4580	thumb	12			c	src/charobj_b.c
+080C458C	thumb	12			c	src/charobj_b.c
+080C4598	thumb	38			c	src/charobj_b.c
+080C45C0	thumb	82	CharObj_FindInGroup	probable	c	src/charobj_b.c
+080C4614	thumb	2			c	src/charobj_b.c
+080C4618	thumb	664	CharObj_Create	probable	c	src/charobj_c.c
+080C48B0	thumb	4			c	src/charobj_c.c
+080C48B4	thumb	24			c	src/charobj_c.c
+080C48CC	thumb	8			c	src/charobj_c.c
+080C48D4	thumb	26			c	src/charobj_c.c
+080C48F0	thumb	72	CharObj_End	probable	c	src/charobj_c.c
+080C4938	thumb	180			c	src/charobj_c.c
+080C49EC	thumb	48			c	src/charobj_c.c
+080C4A1C	thumb	48			c	src/charobj_c.c
+080C4A4C	thumb	100			c	src/charobj_c.c
+080C4AB0	thumb	100			c	src/charobj_c.c
+080C4B14	thumb	100			c	src/charobj_c.c
+080C4B78	thumb	100			c	src/charobj_c.c
+080C4BDC	thumb	4			c	src/charobj_c.c
+080C4BE0	thumb	2			c	src/charobj_c.c
+080C4BE4	thumb	28			c	src/charobj_c.c
+080C4C00	thumb	24			c	src/charobj_c.c
+080C4C18	thumb	36			c	src/fieldstep_a.c
+080C4C3C	thumb	36			c	src/fieldstep_a.c
+080C4C60	thumb	28			c	src/fieldstep_a.c
+080C4C7C	thumb	28			c	src/fieldstep_a.c
+080C4C98	thumb	80			c	src/fieldstep_a.c
+080C4CE8	thumb	140	Party_DrainHpFromStrongest	probable	c	src/fieldstep_a.c
+080C4D74	thumb	140			nonmatching	src/fieldstep_a.c
+080C4E00	thumb	34	Random_ChanceIn16	probable	c	src/fieldstep_a.c
+080C4E24	thumb	34	Moon_GetFullness	probable	c	src/fieldstep_a.c
+080C4E48	thumb	320	Field_ApplyStepStatusDamage	probable	c	src/fieldstep_a.c
+080C4F88	thumb	384	Field_ApplyStepStatusDamageKill	probable	c	src/fieldstep_a.c
+080C5108	thumb	80	Party_HasActiveHuman	probable	c	src/fieldstep_a.c
+080C5158	thumb	22			c	src/fieldstep_a.c
+080C5170	thumb	40	Music_Play	probable	c	src/fieldstep_a.c
+080C5198	thumb	36	Music_Stop	probable	c	src/fieldstep_a.c
+080C51BC	thumb	24	Music_FadeOut	probable	c	src/fieldstep_a.c
+080C51D4	thumb	14	Sound_Play	probable	c	src/fieldstep_a.c
+080C51E4	thumb	12			c	src/fieldstep_a.c
+080C51F0	thumb	52			c	src/fieldstep_a.c
+080C5224	thumb	28			c	src/fieldstep_a.c
+080C5240	thumb	74			c	src/fieldstep_a.c
+080C528C	thumb	12			c	src/fieldstep_a.c
+080C5298	thumb	108			c	src/fieldstep_a.c
+080C5304	thumb	28			c	src/fieldstep_a.c
+080C5320	thumb	208	Encounter_IsAllowed	probable	c	src/fieldstep_b.c
+080C53F0	thumb	2			c	src/fieldstep_b.c
+080C53F4	thumb	224	MiniView_SampleSquare	probable	nonmatching	src/fieldstep_b.c
+080C54D4	thumb	268	MiniView_SampleAhead	probable	nonmatching	src/fieldstep_b.c
+080C55E0	thumb	36			c	src/fieldstep_b.c
+080C5604	thumb	260	MiniView_Draw	probable	nonmatching	src/fieldstep_b.c
+080C5708	thumb	100	MiniView_Clear	probable	nonmatching	src/fieldstep_b.c
+080C576C	thumb	72			c	src/fieldstep_b.c
+080C57B4	thumb	24			c	src/fieldstep_b.c
+080C57CC	thumb	836	KeyItem_IsObtainable	probable	nonmatching	src/fieldstep_b.c
+080C5B10	thumb	44			c	src/fieldstep_b.c
+080C5B3C	thumb	144	Party_SaveOrderHeroOnly	probable	c	src/fieldstep_b.c
+080C5BCC	thumb	72	Party_RestoreOrder	probable	c	src/fieldstep_b.c
+080C5C14	thumb	60			c	src/fieldstep_b.c
+080C5C50	thumb	44	Stock_HasRoom	probable	c	src/fieldstep_b.c
+080C5C7C	thumb	68			c	src/fieldstep_b.c
+080C5CC0	thumb	76			nonmatching	src/fieldstep_b.c
+080C5D0C	thumb	60			c	src/fieldmisc_c.c
+080C5D48	thumb	16			c	src/fieldmisc_c.c
+080C5D58	thumb	64			c	src/fieldmisc_c.c
+080C5D98	thumb	24			c	src/fieldmisc_c.c
+080C5DB0	thumb	48	Party_SnapshotHumans	probable	c	src/fieldmisc_c.c
+080C5DE0	thumb	100	Party_RestoreHumans	probable	nonmatching	src/fieldmisc_c.c
+080C5E44	thumb	20			c	src/fieldmisc_c.c
+080C5E58	thumb	152			nonmatching	src/fieldmisc_c.c
+080C5EF0	thumb	20			c	src/fieldmisc_c.c
+080C5F04	thumb	60			c	src/fieldmisc_c.c
+080C5F40	thumb	32			c	src/fieldmisc_c.c
+080C5F60	thumb	24			c	src/fieldmisc_c.c
+080C5F78	thumb	60			c	src/fieldmisc_c.c
+080C5FB4	thumb	40			c	src/fieldmisc_c.c
+080C5FDC	thumb	84			c	src/fieldbg_a.c
+080C6030	thumb	48			c	src/fieldbg_a.c
+080C6060	thumb	12			c	src/fieldbg_a.c
+080C606C	thumb	62			c	src/fieldbg_a.c
+080C60AC	thumb	52			c	src/fieldbg_a.c
+080C60E0	thumb	56			c	src/fieldbg_a.c
+080C6118	thumb	10			c	src/fieldbg_a.c
+080C6124	thumb	48			c	src/fieldbg_a.c
+080C6154	thumb	56			c	src/fieldbg_a.c
+080C618C	thumb	36			c	src/fieldbg_a.c
+080C61B0	thumb	36			c	src/fieldbg_a.c
+080C61D4	thumb	164			c	src/fieldbg_a.c
+080C6278	thumb	48	CharObj_FindById	probable	c	src/fieldbg_a.c
+080C62A8	thumb	72			c	src/fieldbg_a.c
+080C62F0	thumb	68			c	src/fieldbg_a.c
+080C6334	thumb	156			nonmatching	src/fieldbg_a.c
+080C63D0	thumb	36			c	src/fieldbg_a.c
+080C63F4	thumb	36			c	src/fieldbg_a.c
+080C6418	thumb	164			c	src/fieldbg_a.c
+080C64BC	thumb	36			c	src/fieldbg_a.c
+080C64E0	thumb	64			c	src/fieldbg_a.c
+080C6520	thumb	56			c	src/fieldbg_a.c
+080C6558	thumb	76			c	src/fieldbg_a.c
+080C65A4	thumb	36			c	src/fieldbg_a.c
+080C65C8	thumb	32			c	src/fieldbg_a.c
+080C65E8	thumb	332	Hud_Init	probable	nonmatching	src/hud_a.c
+080C6734	thumb	48			c	src/hud_a.c
+080C6764	thumb	60			c	src/hud_a.c
+080C67A0	thumb	32			c	src/hud_a.c
+080C67C0	thumb	68			nonmatching	src/hud_a.c
+080C6804	thumb	724	Hud_Update	probable	c	src/hud_a.c
+080C6AD8	thumb	104			c	src/hud_b.c
+080C6B40	thumb	104			nonmatching	src/hud_b.c
+080C6BA8	thumb	56			nonmatching	src/hud_b.c
+080C6BE0	thumb	592	Hud_DrawMemberPanel	probable	nonmatching	src/hud_b.c
+080C6E30	thumb	36			c	src/hud_b.c
+080C6E54	thumb	36			c	src/hud_b.c
+080C6E78	thumb	136	Party_BuildMemberNameTiles	tentative	nonmatching	src/hud_b.c
+080C6F00	thumb	48			c	src/hud_b.c
+080C6F30	thumb	136	Hud_LoadMemberFace	probable	nonmatching	src/hud_b.c
+080C6FB8	thumb	32			c	src/hud_b.c
 080C6FD8	thumb	24			asm	asm/code_080C6FD8.s
 080C6FF0	thumb	28			asm	asm/code_080C6FD8.s
 080C700C	thumb	44			asm	asm/code_080C6FD8.s

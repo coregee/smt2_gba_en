@@ -133,8 +133,8 @@ void sub_0812D0B4(void)
         Task_End((struct Task *)blk->unk50);
         blk->unk50 = 0;
     }
-    sub_080C363C(blk->unk691, blk->unk692);
-    sub_080C366C();
+    Party_SwapSlots(blk->unk691, blk->unk692);
+    Party_FixFormation();
 }
 
 // sub_0812D0FC @ 0x0812D0FC

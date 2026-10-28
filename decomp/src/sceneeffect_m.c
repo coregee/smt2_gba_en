@@ -85,9 +85,9 @@ void sub_080BD758(void)
     u16 zero = 0;
 
     ids[0] = 0x22;
-    gUnk_030068F0[0] = (u32)sub_080C4618(0, 0x1C1, 0x50, 0x43, zero, zero);
+    gUnk_030068F0[0] = (u32)CharObj_Create(0, 0x1C1, 0x50, 0x43, zero, zero);
     ids[1] = 0x47;
-    gUnk_030068F0[1] = (u32)sub_080C4618(1, 0x1C0, 0x50, 0x43, zero, zero);
+    gUnk_030068F0[1] = (u32)CharObj_Create(1, 0x1C0, 0x50, 0x43, zero, zero);
 }
 
 // sub_080BD7A4 @ 0x080BD7A4

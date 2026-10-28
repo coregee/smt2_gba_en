@@ -89,7 +89,7 @@ void ScriptOp_38C(void)
 // ScriptOp_38D @ 0x08136DD4
 void ScriptOp_38D(void)
 {
-    u8 have = sub_080C32D4(gScriptItemCheckId);
+    u8 have = Inventory_GetCount(gScriptItemCheckId);
     u16 lo = SCRIPT_READ();
     u32 target = SCRIPT_READ() << 16 | lo;
 
@@ -372,14 +372,14 @@ void ScriptOp_39F(void)
 // ScriptOp_3A3 @ 0x081370C0
 void ScriptOp_3A3(void)
 {
-    sub_080C30AC(-gUnk_0203DB2C);
+    Money_Add(-gUnk_0203DB2C);
 }
 
 // ScriptOp_3A4 @ 0x081370D4
 void ScriptOp_3A4(void)
 {
     gUnk_0300699C = 0;
-    sub_080C30AC(gUnk_0203DB2C);
+    Money_Add(gUnk_0203DB2C);
 }
 
 // ScriptOp_3A5 @ 0x081370F0
@@ -390,7 +390,7 @@ void ScriptOp_3A5(void)
     u16 i;
 
     target = target << 16 | lo;
-    for (i = 0; i < 0x100 && !sub_080C32D4(i); i++)
+    for (i = 0; i < 0x100 && !Inventory_GetCount(i); i++)
         ;
     if (i == 0x100)
         gScriptJumpTarget = (u16 *)target;
@@ -456,7 +456,7 @@ void ScriptOp_3B6(void)
     n = 0;
     for (i = 0x40; i < 0x50; i++)
     {
-        if (sub_080C32D4(i))
+        if (Inventory_GetCount(i))
             n++;
     }
     if (n)
@@ -636,20 +636,20 @@ void sub_08137518(u16 id, s16 n)
     if (n >= 0)
     {
         for (i = 0; i < n; i++)
-            sub_080C3328(id);
+            Inventory_AddItem(id);
     }
     else
     {
         n = -n;
         for (i = 0; i < n; i++)
-            sub_080C33AC(id);
+            Inventory_RemoveItem(id);
     }
 }
 
 // sub_0813756C @ 0x0813756C
 u8 sub_0813756C(u16 id)
 {
-    return sub_080C32D4(id + 0x120);
+    return Inventory_GetCount(id + 0x120);
 }
 
 // ScriptOp_3CA @ 0x08137584

@@ -2,7 +2,7 @@
 #include "battle2.h"
 
 // sub_080F3E54 @ 0x080F3E54
-/* Calls sub_080C3328(id) n times, or sub_080C33AC(id) -n times; returns n. */
+/* Calls Inventory_AddItem(id) n times, or Inventory_RemoveItem(id) -n times; returns n. */
 s32 sub_080F3E54(s32 id, s32 n)
 {
     s32 i;
@@ -12,12 +12,12 @@ s32 sub_080F3E54(s32 id, s32 n)
     if (n > 0)
     {
         for (i = 0; i < n; i++)
-            sub_080C3328(id);
+            Inventory_AddItem(id);
     }
     else
     {
         for (i = 0; i > n; i--)
-            sub_080C33AC(id);
+            Inventory_RemoveItem(id);
     }
     return n;
 }
@@ -25,7 +25,7 @@ s32 sub_080F3E54(s32 id, s32 n)
 // sub_080F3E98 @ 0x080F3E98
 u32 sub_080F3E98(u32 n)
 {
-    if (sub_080C3100() >= n)
+    if (Money_Get() >= n)
         return 1;
     return 0;
 }
@@ -33,7 +33,7 @@ u32 sub_080F3E98(u32 n)
 // sub_080F3EB0 @ 0x080F3EB0
 u32 sub_080F3EB0(u32 n)
 {
-    if (sub_080C3168() >= n)
+    if (Magnetite_Get() >= n)
         return 1;
     return 0;
 }

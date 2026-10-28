@@ -319,12 +319,12 @@ void sub_080DBF7C(struct Task *task, u32 n)
     if (gKeysNew & 1)
     {
         task->unk1E = task->data.h[0] + 1;
-        sub_080C51D4(0x65);
+        Sound_Play(0x65);
         task->result = 1;
     }
     else if (gKeysNew & 2)
     {
-        sub_080C51D4(0x66);
+        Sound_Play(0x66);
         task->result = 1;
     }
     else if (gRepeatedKeys & 0x40)
@@ -332,12 +332,12 @@ void sub_080DBF7C(struct Task *task, u32 n)
         if (task->data.h[0] != 0)
         {
             task->data.h[0]--;
-            sub_080C51D4(0x64);
+            Sound_Play(0x64);
         }
         else if (d->unk02 != 0)
         {
             d->unk02--;
-            sub_080C51D4(0x64);
+            Sound_Play(0x64);
         }
     }
     else
@@ -349,12 +349,12 @@ void sub_080DBF7C(struct Task *task, u32 n)
             if (task->data.h[0] != rows - 1)
             {
                 task->data.h[0]++;
-                sub_080C51D4(0x64);
+                Sound_Play(0x64);
             }
             else if (task->data.h[0] == 5 && task->data.h[0] + d->unk02 + 1 <= count - 1)
             {
                 d->unk02++;
-                sub_080C51D4(0x64);
+                Sound_Play(0x64);
             }
         }
         else if ((gRepeatedKeys & 0x200) && count > 6)
@@ -375,7 +375,7 @@ void sub_080DBF7C(struct Task *task, u32 n)
                 d->unk02 = t;
             }
             if (cursor != d->cursor || top != d->unk02)
-                sub_080C51D4(0x64);
+                Sound_Play(0x64);
         }
         else if ((gRepeatedKeys & 0x100) && count > 6)
         {
@@ -389,7 +389,7 @@ void sub_080DBF7C(struct Task *task, u32 n)
             else
                 d->unk02 = count - 6;
             if (cursor != d->cursor || top != d->unk02)
-                sub_080C51D4(0x64);
+                Sound_Play(0x64);
         }
     }
 }
@@ -434,7 +434,7 @@ void sub_080DBF7C(struct Task *task, u32 n)
         "    beq .L080DBFC8\n"
         "    movs r0, #0x66\n"
         ".L080DBFC0:\n"
-        "    bl sub_080C51D4\n"
+        "    bl Sound_Play\n"
         "    strh r6, [r4, #0x1c]\n"
         "    b .L080DC09A\n"
         ".L080DBFC8:\n"
@@ -514,7 +514,7 @@ void sub_080DBF7C(struct Task *task, u32 n)
         "    beq .L080DC09A\n"
         ".L080DC050:\n"
         "    movs r0, #0x64\n"
-        "    bl sub_080C51D4\n"
+        "    bl Sound_Play\n"
         "    b .L080DC09A\n"
         ".L080DC058:\n"
         "    ldrh r1, [r1]\n"
@@ -553,7 +553,7 @@ void sub_080DBF7C(struct Task *task, u32 n)
         "    beq .L080DC09A\n"
         ".L080DC094:\n"
         "    movs r0, #0x64\n"
-        "    bl sub_080C51D4\n"
+        "    bl Sound_Play\n"
         ".L080DC09A:\n"
         "    pop {r4, r5, r6, r7}\n"
         "    pop {r0}\n"

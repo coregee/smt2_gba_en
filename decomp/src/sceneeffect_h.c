@@ -8,10 +8,10 @@ void sub_080BC5A8(struct Task *task, u32 step)
     {
         struct Task *t;
 
-        sub_080C4618(2, 0xD9, 0x78, 0x46, 0, 0);
+        CharObj_Create(2, 0xD9, 0x78, 0x46, 0, 0);
         t = Char_FindById(0xD8);
         if (t != NULL)
-            sub_080C48F0(t, 0);
+            CharObj_End(t, 0);
         LZ77UnCompWram(gUnknown_08554E10, gUnk_02001000);
         LZ77UnCompWram(gUnknown_08555260, gUnk_02001000 + 0x800);
         Palette_CopyWithEffect(3, gUnknown_08555694, &gPaletteBuffer[0x1F0], 0x20, 0x20);
@@ -20,8 +20,8 @@ void sub_080BC5A8(struct Task *task, u32 step)
     }
     else if (step == 1)
     {
-        sub_080C4618(4, 0x16B, 0x78, 0x36, 0, 0);
-        sub_080C4618(5, 0x16C, 0x78, 0x46, 0, 0);
+        CharObj_Create(4, 0x16B, 0x78, 0x36, 0, 0);
+        CharObj_Create(5, 0x16C, 0x78, 0x46, 0, 0);
         LZ77UnCompWram(gUnknown_08552CE0, gUnk_02001000);
         LZ77UnCompWram(gUnknown_085537C8, gUnk_02001000 + 0x1000);
         LZ77UnCompWram(gUnknown_08554300, gUnk_02001000 + 0x2000);
@@ -33,9 +33,9 @@ void sub_080BC5A8(struct Task *task, u32 step)
     }
     else if (step == 2)
     {
-        sub_080C4618(2, 0x1BE, 0x78, 0x46, 0, 0);
-        sub_080C4618(3, 0x1BF, 0x78, 0x46, 0, 0);
-        sub_080C4618(0, 0x16D, 0x78, 0x36, 0, 0);
+        CharObj_Create(2, 0x1BE, 0x78, 0x46, 0, 0);
+        CharObj_Create(3, 0x1BF, 0x78, 0x46, 0, 0);
+        CharObj_Create(0, 0x16D, 0x78, 0x36, 0, 0);
     }
 }
 
@@ -110,7 +110,7 @@ void sub_080BC864(void)
 // sub_080BC8B8 @ 0x080BC8B8
 void sub_080BC8B8(void)
 {
-    sub_080C4618(3, 0x1BB, 0x78, 0x46, 0, 0);
+    CharObj_Create(3, 0x1BB, 0x78, 0x46, 0, 0);
 }
 
 // sub_080BC8D8 @ 0x080BC8D8
@@ -133,9 +133,9 @@ void sub_080BC8D8(struct Task *task, u32 frame)
 void sub_080BC924(void)
 {
     sub_080B8AE0(0x7FFF, 1);
-    sub_080C4618(4, 0x1BD, 0x78, 0x46, 0, 0);
-    sub_080C4618(5, 0x1B9, 0x78, 0x36, 0, 0);
-    sub_080C4618(6, 0x1BA, 0x78, 0x3E, 0, 0);
+    CharObj_Create(4, 0x1BD, 0x78, 0x46, 0, 0);
+    CharObj_Create(5, 0x1B9, 0x78, 0x36, 0, 0);
+    CharObj_Create(6, 0x1BA, 0x78, 0x3E, 0, 0);
 }
 
 // sub_080BC978 @ 0x080BC978

@@ -297,7 +297,7 @@ void NameEntry_Backspace(struct MenuTask *task)
 {
     struct SaveMenu *menu = &gMenuState;
 
-    sub_080C51D4(0x66);
+    Sound_Play(0x66);
     if (menu->u.name.nameLen != 7)
     {
         if (menu->u.name.nameLen != 0)
@@ -344,7 +344,7 @@ void NameEntry_HandleInput(struct MenuTask *task)
         /* cursor in the character grid */
         if (gKeysNew & 1)
         {
-            sub_080C51D4(0x65);
+            Sound_Play(0x65);
             menu->u.name.name[menu->u.name.nameLen] =
                 sub_080C03A8(gNameEntryCharGrid[(menu->cursor + menu->unk08) * 11 + menu->unk04]);
             NameEntry_RenderName(task);
@@ -358,7 +358,7 @@ void NameEntry_HandleInput(struct MenuTask *task)
             goto backspace;
         else if (gKeysNew & 8)
         {
-            sub_080C51D4(0x65);
+            Sound_Play(0x65);
             menu->unk0A = 0;
             menu->u.name.menuCursor = 3;
             menu->unk02 = 1;
@@ -466,7 +466,7 @@ void NameEntry_HandleInput(struct MenuTask *task)
         /* cursor in the side menu */
         if (gKeysNew & 1)
         {
-            sub_080C51D4(0x65);
+            Sound_Play(0x65);
             if (menu->unk0A == 0)
             {
                 if (menu->u.name.menuCursor == 0)
@@ -486,7 +486,7 @@ void NameEntry_HandleInput(struct MenuTask *task)
         }
         else if (gKeysNew & 8)
         {
-            sub_080C51D4(0x65);
+            Sound_Play(0x65);
             menu->unk0A = 0;
             menu->u.name.menuCursor = 3;
         }
@@ -522,7 +522,7 @@ void NameEntry_HandleInput(struct MenuTask *task)
         }
     }
     if (moved == TRUE)
-        sub_080C51D4(0x64);
+        Sound_Play(0x64);
 }
 #else
 NAKED
@@ -572,7 +572,7 @@ void NameEntry_HandleInput(struct MenuTask *task)
         "    cmp r0, #0\n"
         "    beq .L080D18C4\n"
         "    movs r0, #0x65\n"
-        "    bl sub_080C51D4\n"
+        "    bl Sound_Play\n"
         "    ldr r2, .L080D18B8\n"
         "    ldrh r0, [r4, #6]\n"
         "    ldrh r1, [r4, #8]\n"
@@ -621,7 +621,7 @@ void NameEntry_HandleInput(struct MenuTask *task)
         "    cmp r0, #0\n"
         "    beq .L080D18EA\n"
         "    movs r0, #0x65\n"
-        "    bl sub_080C51D4\n"
+        "    bl Sound_Play\n"
         "    strh r5, [r4, #0xa]\n"
         "    movs r0, #3\n"
         "    strh r0, [r4, #0xc]\n"
@@ -791,7 +791,7 @@ void NameEntry_HandleInput(struct MenuTask *task)
         "    cmp r0, #0\n"
         "    beq .L080D1A40\n"
         "    movs r0, #0x65\n"
-        "    bl sub_080C51D4\n"
+        "    bl Sound_Play\n"
         "    ldrh r0, [r4, #0xa]\n"
         "    cmp r0, #0\n"
         "    bne .L080D1AC6\n"
@@ -836,7 +836,7 @@ void NameEntry_HandleInput(struct MenuTask *task)
         "    cmp r0, #0\n"
         "    beq .L080D1A6A\n"
         "    movs r0, #0x65\n"
-        "    bl sub_080C51D4\n"
+        "    bl Sound_Play\n"
         "    strh r5, [r4, #0xa]\n"
         "    movs r0, #3\n"
         "    strh r0, [r4, #0xc]\n"
@@ -898,7 +898,7 @@ void NameEntry_HandleInput(struct MenuTask *task)
         "    cmp r5, #1\n"
         "    bne .L080D1AD0\n"
         "    movs r0, #0x64\n"
-        "    bl sub_080C51D4\n"
+        "    bl Sound_Play\n"
         ".L080D1AD0:\n"
         "    pop {r4, r5, r6, r7}\n"
         "    pop {r0}\n"

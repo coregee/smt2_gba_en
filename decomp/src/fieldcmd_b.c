@@ -670,12 +670,12 @@ void Elevator_HandleInput(struct Task *task)
     task->unk1E = 0;
     if (gFieldState.unk3A & 1)
     {
-        sub_080C51D4(0x65);
+        Sound_Play(0x65);
         task->unk1E = 1;
     }
     else if (gFieldState.unk3A & 2)
     {
-        sub_080C51D4(0x66);
+        Sound_Play(0x66);
         task->unk1E = 2;
     }
     else if (gFieldState.unk3C & 0x40)
@@ -683,7 +683,7 @@ void Elevator_HandleInput(struct Task *task)
         if (d->cursor != n - 1)
         {
             d->cursor++;
-            sub_080C51D4(0x64);
+            Sound_Play(0x64);
         }
     }
     else if (gFieldState.unk3C & 0x80)
@@ -691,7 +691,7 @@ void Elevator_HandleInput(struct Task *task)
         if (d->cursor != 0)
         {
             d->cursor--;
-            sub_080C51D4(0x64);
+            Sound_Play(0x64);
         }
     }
     sub_080C49EC(6, 0, 0, 0x9C, n * 13 - (u16)(d->cursor * 13 + 10));

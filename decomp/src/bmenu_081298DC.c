@@ -67,10 +67,10 @@ void sub_081299C8(struct Task *task, u32 arg)
         if (slot != -1)
             Party_Remove(slot, 0);
         m = blk->unk692;
-        sub_080C30AC(-sub_0812839C(m));
+        Money_Add(-sub_0812839C(m));
         BattleMenu_SetMode(3, Menu_ExpandListTemplate(Battle_GetMessage(0xE9), m));
         Party_AddAt(m, task->pad1E);
-        sub_080C366C();
+        Party_FixFormation();
         Party_BuildMemberNameTiles();
         sub_080C6FD8();
         r = 1;
@@ -89,7 +89,7 @@ void sub_081299C8(struct Task *task, u32 arg)
         m = blk->unk692;
         BattleMenu_SetMode(3, Menu_ExpandListTemplate(Battle_GetMessage(0xE9), m));
         Party_AddAt(m, task->pad1E);
-        sub_080C366C();
+        Party_FixFormation();
         Party_BuildMemberNameTiles();
         sub_080C6FD8();
         r = 1;
@@ -166,7 +166,7 @@ void sub_081299C8(struct Task *task, u32 arg)
         "    adds r0, r5, #0\n"
         "    bl sub_0812839C\n"
         "    rsbs r0, r0, #0\n"
-        "    bl sub_080C30AC\n"
+        "    bl Money_Add\n"
         "    movs r0, #0xe9\n"
         "    bl Battle_GetMessage\n"
         "    adds r1, r5, #0\n"
@@ -177,7 +177,7 @@ void sub_081299C8(struct Task *task, u32 arg)
         "    ldrh r1, [r6, #0x1e]\n"
         "    adds r0, r5, #0\n"
         "    bl Party_AddAt\n"
-        "    bl sub_080C366C\n"
+        "    bl Party_FixFormation\n"
         "    bl Party_BuildMemberNameTiles\n"
         "    bl sub_080C6FD8\n"
         "    movs r0, #1\n"
@@ -245,7 +245,7 @@ void sub_081299C8(struct Task *task, u32 arg)
         "    ldrh r1, [r6, #0x1e]\n"
         "    adds r0, r5, #0\n"
         "    bl Party_AddAt\n"
-        "    bl sub_080C366C\n"
+        "    bl Party_FixFormation\n"
         "    bl Party_BuildMemberNameTiles\n"
         "    bl sub_080C6FD8\n"
         "    movs r0, #1\n"

@@ -2240,7 +2240,7 @@ sub_080C9F98: @ 0x080C9F98
 	adds r0, r4, r1
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C32D4
+	bl Inventory_GetCount
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, #8
@@ -2303,7 +2303,7 @@ sub_080C9F98: @ 0x080C9F98
 	cmp r0, #7
 	bne .L080CA320
 	ldrh r0, [r7, #0x12]
-	bl sub_080C3560
+	bl Stock_FindByDemonId
 	ldrh r1, [r0, #0x10]
 .L080CA320:
 	movs r0, #0x80
@@ -2860,7 +2860,7 @@ sub_080CA718: @ 0x080CA718
 	cmp r0, #1
 	bne .L080CA790
 	adds r0, r6, #0
-	bl sub_080C51D4
+	bl Sound_Play
 	ldr r0, .L080CA78C
 	strh r0, [r5, #0x1e]
 	b .L080CA83E
@@ -2873,7 +2873,7 @@ sub_080CA718: @ 0x080CA718
 	cmp r0, #1
 	bne .L080CA7AC
 	adds r0, r6, #0
-	bl sub_080C51D4
+	bl Sound_Play
 	ldr r0, .L080CA7A8
 	strh r0, [r5, #0x1e]
 	b .L080CA83E
@@ -2881,7 +2881,7 @@ sub_080CA718: @ 0x080CA718
 .L080CA7A8: .4byte 0x00008002
 .L080CA7AC:
 	adds r0, r6, #0
-	bl sub_080C51D4
+	bl Sound_Play
 	ldr r0, .L080CA7B8
 	strh r0, [r5, #0x1e]
 	b .L080CA83E
@@ -2894,7 +2894,7 @@ sub_080CA718: @ 0x080CA718
 	cmp r0, #0
 	beq .L080CA7D4
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r0, #3
 	strh r0, [r5, #0x1e]
 	b .L080CA83E
@@ -2912,7 +2912,7 @@ sub_080CA718: @ 0x080CA718
 	cmp r0, #1
 	beq .L080CA80C
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r0, #1
 	rsbs r0, r0, #0
 	mov r1, sb
@@ -2937,7 +2937,7 @@ sub_080CA718: @ 0x080CA718
 	cmp r0, #1
 	beq .L080CA83E
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r0, #1
 	mov r1, sb
 	bl sub_080CA694
@@ -3102,13 +3102,13 @@ sub_080CA8EC: @ 0x080CA8EC
 	cmp r0, #0
 	bne .L080CA97C
 	movs r0, #0x68
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080CAA68
 	.byte 0x00, 0x00
 .L080CA978: .4byte 0x00000159
 .L080CA97C:
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r1, #0
 	movs r0, #1
 	strh r0, [r6, #0x1e]
@@ -3125,7 +3125,7 @@ sub_080CA8EC: @ 0x080CA8EC
 	cmp r7, #0
 	beq .L080CA9A8
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	strh r5, [r6, #0x1e]
 	b .L080CAA22
 .L080CA9A8:
@@ -3141,7 +3141,7 @@ sub_080CA8EC: @ 0x080CA8EC
 	beq .L080CA9DE
 .L080CA9BC:
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	ldrh r0, [r4, #0x2c]
 	cmp r0, #0
 	beq .L080CAA20
@@ -3166,7 +3166,7 @@ sub_080CA8EC: @ 0x080CA8EC
 	cmp r5, #0
 	beq .L080CAA04
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	ldrh r0, [r4, #0x2c]
 	cmp r0, #0
 	beq .L080CA9FE
@@ -3184,7 +3184,7 @@ sub_080CA8EC: @ 0x080CA8EC
 	cmp r0, #0
 	beq .L080CAA22
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	ldrh r0, [r4, #0x2c]
 	cmp r0, #3
 	beq .L080CAA20
@@ -3272,7 +3272,7 @@ sub_080CAA78: @ 0x080CAA78
 	cmp r0, #0
 	beq .L080CAAC0
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	mov r0, sb
 	strh r5, [r0, #0x1e]
 	strh r7, [r6, #0x1c]
@@ -3290,7 +3290,7 @@ sub_080CAA78: @ 0x080CAA78
 	cmp r0, #0
 	beq .L080CAADA
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	mov r0, sb
 	strh r5, [r0, #0x1e]
 	subs r5, r4, #1
@@ -3303,7 +3303,7 @@ sub_080CAA78: @ 0x080CAA78
 	cmp r0, #0
 	beq .L080CAB08
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	ldrh r0, [r6, #0x2c]
 	cmp r0, #0
 	beq .L080CAAFC
@@ -3324,7 +3324,7 @@ sub_080CAA78: @ 0x080CAA78
 	cmp r0, #0
 	beq .L080CAB40
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	ldrh r1, [r6, #0x2c]
 	mov r0, r8
 	subs r0, #1
@@ -3358,7 +3358,7 @@ sub_080CAA78: @ 0x080CAA78
 	cmp r4, #7
 	bls .L080CAB76
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	ldrh r1, [r6, #0x2c]
 	cmp r1, #0
 	beq .L080CAB60
@@ -3389,7 +3389,7 @@ sub_080CAA78: @ 0x080CAA78
 	cmp r4, #7
 	bls .L080CABB0
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	ldrh r0, [r6, #0x2c]
 	cmp r0, #6
 	beq .L080CAB9A
@@ -3517,7 +3517,7 @@ sub_080CAC00: @ 0x080CAC00
 	cmp r0, #0
 	beq .L080CACC8
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r1, #0
 	movs r0, #1
 	strh r0, [r7, #0x1e]
@@ -3538,7 +3538,7 @@ sub_080CAC00: @ 0x080CAC00
 	cmp r0, #0
 	beq .L080CACB8
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	strh r4, [r7, #0x1e]
 .L080CACB8:
 	movs r0, #0x82
@@ -3584,7 +3584,7 @@ sub_080CACD4: @ 0x080CACD4
 	cmp r0, #0
 	beq .L080CAD1C
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	mov r1, sb
 	strh r5, [r1, #0x1e]
 	subs r5, r4, #1
@@ -3600,7 +3600,7 @@ sub_080CACD4: @ 0x080CACD4
 	cmp r0, #0
 	beq .L080CAD36
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	mov r0, sb
 	strh r5, [r0, #0x1e]
 	subs r5, r4, #1
@@ -3613,7 +3613,7 @@ sub_080CACD4: @ 0x080CACD4
 	cmp r0, #0
 	beq .L080CAD6A
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	ldrh r0, [r6, #0x2c]
 	cmp r0, #0
 	beq .L080CAD58
@@ -3637,7 +3637,7 @@ sub_080CACD4: @ 0x080CACD4
 	cmp r0, #0
 	beq .L080CADA2
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	ldrh r1, [r6, #0x2c]
 	subs r0, r7, #1
 	cmp r1, r0
@@ -3670,7 +3670,7 @@ sub_080CACD4: @ 0x080CACD4
 	cmp r4, #7
 	bls .L080CADDC
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	ldrh r1, [r6, #0x2c]
 	cmp r1, #0
 	beq .L080CADC4
@@ -3703,7 +3703,7 @@ sub_080CACD4: @ 0x080CACD4
 	cmp r4, #7
 	bls .L080CAE18
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	ldrh r0, [r6, #0x2c]
 	cmp r0, #6
 	beq .L080CAE00
@@ -3780,7 +3780,7 @@ sub_080CAE68: @ 0x080CAE68
 	cmp r0, #0
 	beq .L080CAE8C
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r0, #1
 	strh r0, [r4, #0x1e]
 	b .L080CAEAE
@@ -3802,7 +3802,7 @@ sub_080CAE68: @ 0x080CAE68
 	beq .L080CAEAE
 	movs r0, #0x64
 .L080CAEA8:
-	bl sub_080C51D4
+	bl Sound_Play
 	strh r5, [r4, #0x1e]
 .L080CAEAE:
 	movs r0, #0
@@ -3833,7 +3833,7 @@ sub_080CAEC0: @ 0x080CAEC0
 	cmp r0, #0
 	beq .L080CAEF0
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	strh r5, [r4, #0x1e]
 	b .L080CAF04
 	.byte 0x00, 0x00
@@ -3845,7 +3845,7 @@ sub_080CAEC0: @ 0x080CAEC0
 	cmp r0, #0
 	beq .L080CAF04
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	movs r0, #3
 	strh r0, [r4, #0x1e]
 .L080CAF04:
@@ -3916,7 +3916,7 @@ sub_080CAF6C: @ 0x080CAF6C
 	cmp r0, #0
 	beq .L080CAF80
 	movs r1, #0
-	bl sub_080C3E80
+	bl DemonObj_End
 	movs r0, #0
 	str r0, [r4, #0x3c]
 .L080CAF80:
@@ -4086,7 +4086,7 @@ sub_080CB0B8: @ 0x080CB0B8
 	cmp r0, #0
 	beq .L080CB0E0
 	movs r1, #0
-	bl sub_080C3E80
+	bl DemonObj_End
 	movs r0, #0
 	mov r2, r8
 	str r0, [r2, #0x3c]
@@ -4484,7 +4484,7 @@ sub_080CB0B8: @ 0x080CB0B8
 .L080CB450: .4byte gUnknown_084F0190
 .L080CB454:
 	ldrh r0, [r7, #0x12]
-	bl sub_080C3560
+	bl Stock_FindByDemonId
 	cmp r0, #0
 	beq .L080CB46A
 	ldrb r0, [r0, #0xc]
@@ -4511,10 +4511,10 @@ sub_080CB0B8: @ 0x080CB0B8
 	cmp r0, #7
 	bne .L080CB4A4
 	ldrh r0, [r7, #0x12]
-	bl sub_080C3560
+	bl Stock_FindByDemonId
 	ldrh r4, [r0, #0x18]
 	ldrh r0, [r7, #0x12]
-	bl sub_080C3560
+	bl Stock_FindByDemonId
 	ldrh r6, [r0, #0x1c]
 	b .L080CB500
 .L080CB4A0: .4byte gUnknown_084F0178
@@ -4792,7 +4792,7 @@ sub_080CB0B8: @ 0x080CB0B8
 	str r0, [sp]
 	str r0, [sp, #4]
 	movs r3, #0x18
-	bl sub_080C3D84
+	bl DemonObj_Create
 	mov r3, r8
 	str r0, [r3, #0x3c]
 	movs r1, #1
@@ -4916,7 +4916,7 @@ sub_080CB7A0: @ 0x080CB7A0
 	bhi .L080CB84C
 	ldrh r1, [r2, #0x30]
 	ldr r0, [sp]
-	bl sub_080C343C
+	bl Combatant_GetEquipSlot
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	cmp r0, r5
@@ -4975,7 +4975,7 @@ sub_080CB7A0: @ 0x080CB7A0
 	adds r6, #2
 .L080CB862:
 	lsrs r0, r4, #0x10
-	bl sub_080C32D4
+	bl Inventory_GetCount
 	lsls r0, r0, #0x18
 	lsrs r4, r0, #0x18
 	cmp r4, #0x63
@@ -5098,7 +5098,7 @@ sub_080CB928: @ 0x080CB928
 	bne .L080CB968
 	ldr r1, [sp, #8]
 	ldrh r0, [r1, #0x12]
-	bl sub_080C3560
+	bl Stock_FindByDemonId
 	adds r7, r0, #0
 	adds r7, #0x5d
 	b .L080CB97C
@@ -6161,7 +6161,7 @@ sub_080CBC8C: @ 0x080CBC8C
 	cmp r0, #7
 	bne .L080CC338
 	ldrh r0, [r7, #0x12]
-	bl sub_080C3560
+	bl Stock_FindByDemonId
 	adds r7, r0, #0
 .L080CC338:
 	ldr r0, .L080CC478
@@ -6786,7 +6786,7 @@ sub_080CC844: @ 0x080CC844
 	cmp r0, #7
 	bne .L080CC87A
 	ldrh r0, [r5, #0x12]
-	bl sub_080C3560
+	bl Stock_FindByDemonId
 	ldrh r1, [r0, #0x10]
 .L080CC87A:
 	movs r0, #0x80

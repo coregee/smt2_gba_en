@@ -86,19 +86,19 @@ void ScriptOp_410(void)
         /* jump 1 when no item 0x12C-0x159 is owned */
         for (i = 0x12C; i <= 0x159; i++)
         {
-            if (sub_080C32D4(i))
+            if (Inventory_GetCount(i))
                 return;
         }
         gScriptJumpTarget = (u16 *)t1;
     }
     else if (mode == 13)
     {
-        if (sub_080C3100() < gUnk_0203DB2C)
+        if (Money_Get() < gUnk_0203DB2C)
             gScriptJumpTarget = (u16 *)t1;
     }
     else if (mode == 14)
     {
-        if (Combatant_GetLevel(0) > 20 && sub_080C32D4(0x11F))
+        if (Combatant_GetLevel(0) > 20 && Inventory_GetCount(0x11F))
             gScriptJumpTarget = (u16 *)t1;
     }
     else if (mode == 15)
@@ -163,7 +163,7 @@ void ScriptOp_410(void)
     }
     else if (mode == 21)
     {
-        if (sub_080C32D4(0x11F) && Combatant_IsAlive(0) == 1 && Combatant_GetLevel(0) > 20)
+        if (Inventory_GetCount(0x11F) && Combatant_IsAlive(0) == 1 && Combatant_GetLevel(0) > 20)
         {
             /* the results are ignored: this loop has no effect */
             for (i = 0; i < 12; i++)
@@ -184,7 +184,7 @@ void ScriptOp_410(void)
     }
     else if (mode == 23)
     {
-        if (!sub_080C5C50())
+        if (!Stock_HasRoom())
             gScriptJumpTarget = (u16 *)t1;
         else if (sub_080C5C7C() > 2)
             gScriptJumpTarget = (u16 *)t2;

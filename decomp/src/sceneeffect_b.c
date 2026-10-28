@@ -446,7 +446,7 @@ void sub_080BADC4(void)
         struct Task *t = gCharTasks[i];
 
         if (t != NULL && t->data.h[3] == 0x157)
-            sub_080C48F0(t, 0);
+            CharObj_End(t, 0);
     }
 }
 
@@ -492,5 +492,5 @@ void sub_080BAE60(struct Task *task)
 // sub_080BAE78 @ 0x080BAE78
 void sub_080BAE78(struct Task *task, u16 a, u16 b, u16 c, u16 d)
 {
-    sub_080C4618(a, b, c, d, 0, 0);
+    CharObj_Create(a, b, c, d, 0, 0);
 }

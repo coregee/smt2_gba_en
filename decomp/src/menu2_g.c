@@ -117,7 +117,7 @@ void Debug_SetupTestGame(void)
     for (i = 0; i < 0xFF; i++)
     {
         for (j = 0; j < 50; j++)
-            sub_080C3328(i);
+            Inventory_AddItem(i);
     }
     Stock_AddDemon(0x6E);
     Stock_AddDemon(0x71);
@@ -174,7 +174,7 @@ void sub_080D5A48(void)
     REG_IE = 0x2003;
     REG_DISPSTAT = 0x18;
     REG_IME = 1;
-    sub_080C5170(0);
+    Music_Play(0);
     gUnk_0203DB6A = 0;
     Font_ResetGlyphSpriteCache(0x180);
     Task_ClearAll();

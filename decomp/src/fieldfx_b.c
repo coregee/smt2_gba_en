@@ -275,7 +275,7 @@ void sub_080BE3F4(struct Task *task)
 // sub_080BE484 @ 0x080BE484
 void sub_080BE484(void)
 {
-    sub_080C51BC(1);
+    Music_FadeOut(1);
 }
 
 // sub_080BE490 @ 0x080BE490

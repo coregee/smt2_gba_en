@@ -133,7 +133,7 @@ void sub_080D09D8(u16 *obj, u32 keys)
     if (keys & gKeysNew)
     {
         obj[14] = 1;
-        sub_080C51D4(0x65);
+        Sound_Play(0x65);
     }
     else
         obj[14] = 0;
@@ -174,16 +174,16 @@ void SaveScreen_HandleInput(struct MenuTask *task)
         {
             task->unk1C = 1;
             task->unk1E = 1;
-            sub_080C51D4(0x65);
+            Sound_Play(0x65);
         }
         else
-            sub_080C51D4(0x66);
+            Sound_Play(0x66);
     }
     else if (gKeysNew & 2)
     {
         task->unk1C = 1;
         task->unk1E = 0x80;
-        sub_080C51D4(0x66);
+        Sound_Play(0x66);
     }
     else if (gRepeatedKeys & 0x40)
     {
@@ -191,7 +191,7 @@ void SaveScreen_HandleInput(struct MenuTask *task)
             menu->cursor--;
         else
             menu->cursor = 2;
-        sub_080C51D4(0x64);
+        Sound_Play(0x64);
     }
     else if (gRepeatedKeys & 0x80)
     {
@@ -199,7 +199,7 @@ void SaveScreen_HandleInput(struct MenuTask *task)
             menu->cursor++;
         else
             menu->cursor = 0;
-        sub_080C51D4(0x64);
+        Sound_Play(0x64);
     }
     menu->unk08 = 1;
 }
@@ -455,13 +455,13 @@ void sub_080D0DD0(struct MenuTask *task)
     {
         task->unk1C = 1;
         task->unk1E = 1;
-        sub_080C51D4(0x65);
+        Sound_Play(0x65);
     }
     else if (gKeysNew & 2)
     {
         task->unk1C = 1;
         task->unk1E = 0x80;
-        sub_080C51D4(0x66);
+        Sound_Play(0x66);
         gYesNoResult = 1;
     }
     else if (gRepeatedKeys & 0x40)
@@ -470,7 +470,7 @@ void sub_080D0DD0(struct MenuTask *task)
             menu->cursor--;
         else
             menu->cursor = 2;
-        sub_080C51D4(0x64);
+        Sound_Play(0x64);
     }
     else if (gRepeatedKeys & 0x80)
     {
@@ -478,7 +478,7 @@ void sub_080D0DD0(struct MenuTask *task)
             menu->cursor++;
         else
             menu->cursor = 0;
-        sub_080C51D4(0x64);
+        Sound_Play(0x64);
     }
     menu->unk08 = 1;
 }
@@ -647,7 +647,7 @@ void SaveScreen_Close(void)
         Window_Close(menu->u.save.unk20, 1);
 
     if (menu->unk02 == 0)
-        sub_080C5170(menu->unk0A);
+        Music_Play(menu->unk0A);
     if (menu->unk02 == 0)
     {
         if (menu->mode == 0)
@@ -663,7 +663,7 @@ void SaveScreen_Close(void)
     {
         *(u32 *)(menu->u.save.unk0C + 0xC) = 1;
         if (menu->mode == 2)
-            sub_080C5170(menu->unk0A);
+            Music_Play(menu->unk0A);
     }
     else if (menu->unk02 == 2)
         *(u32 *)(menu->u.save.unk0C + 0xC) = 1;
@@ -700,7 +700,7 @@ void sub_080D1098(void)
     struct SaveMenu *menu = &gMenuState;
 
     if (menu->unk02 == 0 || menu->mode == 2)
-        sub_080C51BC(4);
+        Music_FadeOut(4);
 }
 
 // sub_080D10B8 @ 0x080D10B8
@@ -709,19 +709,19 @@ void sub_080D10B8(void)
     struct SaveMenu *menu = &gMenuState;
 
     if (menu->unk02 == 0)
-        sub_080C5170(0x16);
+        Music_Play(0x16);
     else if (menu->mode == 2)
     {
         switch (Combatant_GetAlignment(0))
         {
         case 0:
-            sub_080C5170(0x0E);
+            Music_Play(0x0E);
             break;
         case 1:
-            sub_080C5170(7);
+            Music_Play(7);
             break;
         case 2:
-            sub_080C5170(0x14);
+            Music_Play(0x14);
             break;
         }
     }

@@ -846,7 +846,7 @@ sub_0815571C: @ 0x0815571C
 	strh r3, [r0]
 .L0815587E:
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L0815590C
 	.byte 0x00, 0x00
 .L08155888: .4byte 0x030031CC @ IWRAM+0x31CC
@@ -861,7 +861,7 @@ sub_0815571C: @ 0x0815571C
 	strh r5, [r1, #0x1e]
 .L0815589C:
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L0815590C
 .L081558A4:
 	ldr r0, .L081558BC
@@ -901,7 +901,7 @@ sub_0815571C: @ 0x0815571C
 	strh r0, [r7, #4]
 .L081558E6:
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L0815590C
 .L081558EE:
 	cmp r1, #5
@@ -917,7 +917,7 @@ sub_0815571C: @ 0x0815571C
 	movs r0, #1
 	str r0, [sp, #0xc]
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 .L0815590C:
 	ldr r4, .L08155934
 	ldr r0, .L08155938
@@ -1602,7 +1602,7 @@ sub_08155E24: @ 0x08155E24
 	adds r0, r2, #1
 	strh r0, [r4, #4]
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L08155EAA
 .L08155E8E:
 	cmp r2, #5
@@ -1617,7 +1617,7 @@ sub_08155E24: @ 0x08155E24
 	movs r7, #1
 	mov sb, r7
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 .L08155EAA:
 	mov r0, sb
 	cmp r0, #1
@@ -1898,7 +1898,7 @@ sub_08156088: @ 0x08156088
 	movs r5, #0
 .L081560CA:
 	mov r0, r8
-	bl sub_080C32D4
+	bl Inventory_GetCount
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq .L08156104
@@ -2102,7 +2102,7 @@ sub_08156218: @ 0x08156218
 	movs r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
-	bl sub_080C3D84
+	bl DemonObj_Create
 	str r0, [r4, #8]
 	movs r1, #0
 	bl sub_080C3E40
@@ -2179,7 +2179,7 @@ sub_081562D0: @ 0x081562D0
 	bl Window_Close
 	ldr r0, [r4, #8]
 	movs r1, #0
-	bl sub_080C3E80
+	bl DemonObj_End
 	pop {r4}
 	pop {r0}
 	bx r0
@@ -2992,7 +2992,7 @@ sub_08156924: @ 0x08156924
 	movs r2, #0
 	movs r3, #0
 	bl Sprite_Draw
-	bl sub_080C3168
+	bl Magnetite_Get
 	str r4, [sp]
 	movs r1, #0xb8
 	movs r2, #5
@@ -3160,7 +3160,7 @@ sub_08156AB0: @ 0x08156AB0
 	strh r4, [r2, #0x1c]
 	strh r5, [r2, #0x1e]
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L08156B6A
 .L08156AF8: .4byte 0x0203A454 @ EWRAM+0x3A454
 .L08156AFC: .4byte 0x00000664
@@ -3176,7 +3176,7 @@ sub_08156AB0: @ 0x08156AB0
 	strh r4, [r2, #0x1c]
 	strh r4, [r2, #0x1e]
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	mov r0, r8
 	strh r4, [r0]
 	b .L08156B6A
@@ -3198,7 +3198,7 @@ sub_08156AB0: @ 0x08156AB0
 .L08156B42:
 	strb r0, [r7]
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L08156B6A
 .L08156B4C:
 	movs r0, #0x80
@@ -3216,7 +3216,7 @@ sub_08156AB0: @ 0x08156AB0
 	strb r1, [r7]
 .L08156B64:
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 .L08156B6A:
 	pop {r3}
 	mov r8, r3
@@ -3275,7 +3275,7 @@ sub_08156B74: @ 0x08156B74
 	cmp r0, #0
 	bne .L08156BE8
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L08156DA4
 	.byte 0x00, 0x00
 .L08156BDC: .4byte 0x030031B8 @ IWRAM+0x31B8
@@ -3287,7 +3287,7 @@ sub_08156B74: @ 0x08156B74
 	movs r0, #1
 	strh r0, [r5, #0x1c]
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L08156DA4
 .L08156BF8:
 	ldrh r1, [r2]
@@ -3298,7 +3298,7 @@ sub_08156B74: @ 0x08156B74
 	mov r0, r8
 	strh r0, [r5, #0x1e]
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	mov r1, r8
 	strh r1, [r5, #0x1c]
 	b .L08156DA4
@@ -3318,7 +3318,7 @@ sub_08156B74: @ 0x08156B74
 	subs r0, #1
 	strb r0, [r7]
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	mov r2, sl
 	cmp r2, #1
 	beq .L08156C3E
@@ -3351,7 +3351,7 @@ sub_08156B74: @ 0x08156B74
 	adds r0, r1, #1
 	strb r0, [r7]
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	mov r1, sl
 	cmp r1, #1
 	beq .L08156C7E
@@ -3377,7 +3377,7 @@ sub_08156B74: @ 0x08156B74
 .L08156C9A:
 	strb r0, [r3]
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	mov r0, sl
 	cmp r0, #1
 	bne .L08156DA4
@@ -3445,7 +3445,7 @@ sub_08156B74: @ 0x08156B74
 	beq .L08156DA4
 .L08156D20:
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L08156DA4
 .L08156D28:
 	ldrh r1, [r1]
@@ -3510,7 +3510,7 @@ sub_08156B74: @ 0x08156B74
 	beq .L08156DA4
 .L08156D9E:
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 .L08156DA4:
 	add sp, #8
 	pop {r3, r4, r5}
@@ -4095,7 +4095,7 @@ sub_081571F0: @ 0x081571F0
 	bl sub_0815BA28
 	cmp r0, #0
 	beq .L0815722E
-	bl sub_080C3100
+	bl Money_Get
 	cmp r0, r7
 	blo .L0815722E
 	movs r0, #1
@@ -4144,7 +4144,7 @@ sub_08157238: @ 0x08157238
 	mov r8, r0
 .L0815726C:
 	adds r0, r5, #0
-	bl sub_080C32D4
+	bl Inventory_GetCount
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq .L0815728A
@@ -4357,7 +4357,7 @@ sub_0815739C: @ 0x0815739C
 	strh r2, [r1]
 	strh r2, [r1, #2]
 	movs r0, #0x10
-	bl sub_080C5170
+	bl Music_Play
 	pop {r4, r5, r6}
 	pop {r0}
 	bx r0
@@ -4782,7 +4782,7 @@ sub_081576E4: @ 0x081576E4
 	str r0, [sp, #4]
 	adds r2, r3, #0
 	adds r3, r6, #0
-	bl sub_080C3D84
+	bl DemonObj_Create
 	lsls r2, r4, #2
 	mov r1, r8
 	adds r1, #0x20
@@ -5011,7 +5011,7 @@ sub_08157888: @ 0x08157888
 	adds r0, r0, r1
 	ldr r0, [r0]
 	movs r1, #0
-	bl sub_080C3E80
+	bl DemonObj_End
 	movs r0, #1
 	strh r0, [r7, #0x1c]
 .L08157954:
@@ -5101,7 +5101,7 @@ sub_081579D4: @ 0x081579D4
 	cmp r1, #0
 	beq .L08157A0C
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	ldr r0, [r6, #0x34]
 	movs r1, #1
 	bl Window_Close
@@ -5338,7 +5338,7 @@ sub_08157BB8: @ 0x08157BB8
 	bne .L08157BF8
 	ldr r0, [r4, #0x2c]
 	movs r1, #0
-	bl sub_080C3E80
+	bl DemonObj_End
 	ldr r0, .L08157BF0
 	ldr r2, [r4, #0x14]
 	str r2, [r0]
@@ -5448,19 +5448,19 @@ sub_08157C90: @ 0x08157C90
 	bne .L08157CD8
 	movs r0, #0x85
 	lsls r0, r0, #1
-	bl sub_080C33AC
+	bl Inventory_RemoveItem
 	ldr r0, .L08157CCC
-	bl sub_080C33AC
+	bl Inventory_RemoveItem
 	movs r0, #0x86
 	lsls r0, r0, #1
-	bl sub_080C33AC
+	bl Inventory_RemoveItem
 	ldr r0, .L08157CD0
-	bl sub_080C33AC
+	bl Inventory_RemoveItem
 	movs r0, #0x87
 	lsls r0, r0, #1
-	bl sub_080C33AC
+	bl Inventory_RemoveItem
 	ldr r0, .L08157CD4
-	bl sub_080C33AC
+	bl Inventory_RemoveItem
 	b .L08157E6E
 	.byte 0x00, 0x00
 .L08157CC8: .4byte 0x0203A454 @ EWRAM+0x3A454
@@ -5476,7 +5476,7 @@ sub_08157C90: @ 0x08157C90
 	ldrh r0, [r4, #6]
 	bl sub_081571DC
 	rsbs r0, r0, #0
-	bl sub_080C30AC
+	bl Money_Add
 	b .L08157D76
 	.byte 0x00, 0x00
 .L08157CF4: .4byte 0x0203B854 @ EWRAM+0x3B854
@@ -5489,7 +5489,7 @@ sub_08157C90: @ 0x08157C90
 	bl sub_08154968
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C33AC
+	bl Inventory_RemoveItem
 	ldrh r0, [r5, #2]
 	b .L08157D5C
 	.byte 0x00, 0x00
@@ -5501,12 +5501,12 @@ sub_08157C90: @ 0x08157C90
 	bl sub_08154968
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C33AC
+	bl Inventory_RemoveItem
 	ldrh r0, [r5, #2]
 	bl sub_08154968
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C33AC
+	bl Inventory_RemoveItem
 	b .L08157D68
 .L08157D3A:
 	cmp r0, #5
@@ -5515,12 +5515,12 @@ sub_08157C90: @ 0x08157C90
 	bl sub_08154968
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C33AC
+	bl Inventory_RemoveItem
 	ldrh r0, [r5, #2]
 	bl sub_08154968
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C33AC
+	bl Inventory_RemoveItem
 	ldrh r0, [r5, #4]
 .L08157D5C:
 	bl Stock_FindDemon
@@ -5532,10 +5532,10 @@ sub_08157C90: @ 0x08157C90
 	bl sub_08154968
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C3328
+	bl Inventory_AddItem
 .L08157D76:
 	movs r0, #0xf
-	bl sub_080C5170
+	bl Music_Play
 	b .L08157E6E
 .L08157D7E:
 	movs r6, #0
@@ -5580,7 +5580,7 @@ sub_08157C90: @ 0x08157C90
 	ldrh r0, [r4, #6]
 	bl Stock_AddDemon
 	ldrh r0, [r4, #6]
-	bl sub_080C3560
+	bl Stock_FindByDemonId
 	adds r3, r0, #0
 	adds r0, r7, #0
 	adds r0, #0x80
@@ -5649,9 +5649,9 @@ sub_08157C90: @ 0x08157C90
 	bl sub_080E5DA0
 	bl sub_0815B3F4
 	movs r0, #0xf
-	bl sub_080C5170
+	bl Music_Play
 .L08157E6E:
-	bl sub_080C366C
+	bl Party_FixFormation
 	ldr r1, [r7, #0x10]
 	movs r0, #1
 	str r0, [r1, #0xc]
@@ -6180,7 +6180,7 @@ sub_08158268: @ 0x08158268
 	movs r1, #0
 	bl sub_08157F94
 	ldr r0, .L081582B8
-	bl sub_080C51D4
+	bl Sound_Play
 .L081582A6:
 	ldrh r0, [r4]
 	adds r0, #1

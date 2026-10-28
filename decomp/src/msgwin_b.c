@@ -45,33 +45,33 @@ void sub_081301D8(struct Task *task)
         if (gUnk_0300696C == 0)
             return;
         gUnk_0300696C--;
-        sub_080C51D4(0x64);
+        Sound_Play(0x64);
     }
     else if (gRepeatedKeys & 0x80)
     {
         if (gUnk_0300696C == gUnk_03006688 - 1)
             return;
         gUnk_0300696C++;
-        sub_080C51D4(0x64);
+        Sound_Play(0x64);
     }
     else if (gNewKeys & 1)
     {
         if (gUnk_030069D8[gUnk_0300696C] & 0xF0)
         {
-            sub_080C51D4(0x68);
+            Sound_Play(0x68);
             return;
         }
         task->result = 1;
         gScriptWaitState = 0x21;
         gUnk_03006850 = gUnk_03006898 = gUnk_030069D8[gUnk_0300696C];
-        sub_080C51D4(0x65);
+        Sound_Play(0x65);
     }
     else if (gNewKeys & 2)
     {
         task->result = 1;
         gScriptWaitState = 0x20;
         gUnk_0300699C = 0;
-        sub_080C51D4(0x66);
+        Sound_Play(0x66);
     }
 }
 
@@ -217,7 +217,7 @@ void sub_081303E8(struct Task *task)
             gUnk_0300696C = 1;
         else
             gUnk_0300696C = 0;
-        sub_080C51D4(0x64);
+        Sound_Play(0x64);
     }
     else if (gNewKeys & 1)
     {
@@ -239,18 +239,18 @@ void sub_081303E8(struct Task *task)
         gScriptWaitState = 0;
         if (sub_08130364(gUnk_03006898, gUnk_030065E0))
         {
-            sub_080C51D4(0x68);
+            Sound_Play(0x68);
             gScriptJumpTarget = gUnk_0203DAC8[1];
         }
         else
-            sub_080C51D4(0x65);
+            Sound_Play(0x65);
     }
     else if (gNewKeys & 2)
     {
         task->result = 1;
         gScriptWaitState = 0;
         gScriptJumpTarget = gUnk_0203DAC8[0];
-        sub_080C51D4(0x66);
+        Sound_Play(0x66);
     }
 }
 
@@ -275,7 +275,7 @@ void sub_08130550(struct Task *task)
 // MsgWindow_DrawItemCount @ 0x08130578
 void MsgWindow_DrawItemCount(u16 item)
 {
-    u16 n = sub_080C32D4(item) + Party_CountEquipped(0xFF, item);
+    u16 n = Inventory_GetCount(item) + Party_CountEquipped(0xFF, item);
 
     gMsgGlyphQueue[13 * 4] = gScriptDigitGlyphs[(u16)(n / 10)];
     gMsgGlyphQueue[14 * 4] = gScriptDigitGlyphs[(u16)(n % 10)];

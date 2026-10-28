@@ -143,7 +143,7 @@ void sub_080AD598(struct Task *task)
 // sub_080AD59C @ 0x080AD59C
 void sub_080AD59C(struct Task *task)
 {
-    sub_080C5170(*(u16 *)gTaskOpArgs);
+    Music_Play(*(u16 *)gTaskOpArgs);
     task->pc++;
 }
 
@@ -156,7 +156,7 @@ void sub_080AD5BC(struct Task *task)
 // TaskOp_PlaySe @ 0x080AD5C0
 void TaskOp_PlaySe(struct Task *task)
 {
-    sub_080C51D4(*(u16 *)gTaskOpArgs);
+    Sound_Play(*(u16 *)gTaskOpArgs);
     task->pc++;
 }
 

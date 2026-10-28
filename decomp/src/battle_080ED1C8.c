@@ -54,7 +54,7 @@ void sub_080ED260(void)
     }
     if (changed == 1)
     {
-        sub_080C366C();
+        Party_FixFormation();
         Party_BuildMemberNameTiles();
         sub_080C6FD8();
     }

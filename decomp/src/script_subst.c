@@ -113,7 +113,7 @@ void ScriptOp_Substitute(void)
             }
             else if (val == 3)
             {
-                val = sub_080C32D4(0x11F);
+                val = Inventory_GetCount(0x11F);
                 goto number;
             }
             break;
@@ -620,7 +620,7 @@ void ScriptOp_Substitute(void)
         "    b .L081331DA\n"
         ".L08132E2A:\n"
         "    ldr r0, .L08132E38\n"
-        "    bl sub_080C32D4\n"
+        "    bl Inventory_GetCount\n"
         "    lsls r0, r0, #0x18\n"
         "    lsrs r5, r0, #0x18\n"
         "    b .L08132FB0\n"

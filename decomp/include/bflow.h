@@ -226,7 +226,7 @@ u32 sub_080C8890(u16 a);
 u32 sub_080C88A8(u16 a);
 u32 sub_080C88D8(u16 a);
 s32 sub_080C88F0(u32 h);
-void sub_080C5170(u16 se);
+void Music_Play(u16 se);
 void sub_080E845C(u8 a, s8 b, s8 c);
 
 extern const u16 *const gUnknown_0876FB54[];
@@ -269,13 +269,13 @@ extern u16 gNewKeys;
 #define SCRIPT_READ() (gScriptBase[gScriptPc++])
 
 void sub_080C3818(u32 a);
-void sub_080C48F0(u32 h, u32 a);
+void CharObj_End(u32 h, u32 a);
 void sub_080E9044(u32 h, u16 i);
-u32 sub_080C3100(void);
-void sub_080C3114(u16 a);
-void sub_080C30AC(s32 v);
+u32 Money_Get(void);
+void Magnetite_Add(u16 a);
+void Money_Add(s32 v);
 u16 Random_Byte(void);
-bool8 sub_080C32D4(u16 item);
+bool8 Inventory_GetCount(u16 item);
 u32 sub_080C4C7C(u16 item);
 u32 sub_080D3400(u32 a, u32 b, u16 c);
 u32 sub_080D2268(u16 id);

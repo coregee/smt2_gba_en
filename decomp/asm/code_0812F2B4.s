@@ -20,7 +20,7 @@ sub_0812F2B4: @ 0x0812F2B4
 	str r0, [sp]
 	movs r1, #0
 	str r1, [sp, #0xc]
-	bl sub_080C3100
+	bl Money_Get
 	str r0, [sp, #0x10]
 	ldr r1, .L0812F38C
 	movs r0, #0xa
@@ -1797,7 +1797,7 @@ sub_0812F54C: @ 0x0812F54C
 	mov r6, r8
 	strh r2, [r6, #0x1c]
 	movs r0, #0x65
-	bl sub_080C51D4
+	bl Sound_Play
 	ldr r3, .L081300C8
 	ldr r2, .L081300CC
 	ldr r0, .L081300D0
@@ -1841,7 +1841,7 @@ sub_0812F54C: @ 0x0812F54C
 	mov r6, r8
 	strh r2, [r6, #0x1c]
 	movs r0, #0x66
-	bl sub_080C51D4
+	bl Sound_Play
 	ldr r1, .L08130110
 	movs r7, #0
 	ldrsh r0, [r1, r7]
@@ -1876,7 +1876,7 @@ sub_0812F54C: @ 0x0812F54C
 	bl sub_0812F2B4
 .L0813013A:
 	movs r0, #0x64
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L08130146
 .L08130142:
 	movs r0, #0x1c

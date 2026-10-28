@@ -164,7 +164,7 @@ void sub_08128EB4(void)
         blk->unk44 = Task_Create(gUnknown_0877812C, 0xFFFF);
         sub_080EA210();
         BattleMenu_SetMode(3, Menu_ExpandListTemplate(Battle_GetMessage(msg), 0));
-        sub_080C51D4(0x68);
+        Sound_Play(0x68);
     }
     else
     {

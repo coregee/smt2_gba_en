@@ -134,7 +134,7 @@ void sub_080BB164(struct Task *task)
                 break;
         }
         if (i != 6)
-            sub_080C4618(i, 0x177, (Random_Byte() + 0x40) & 0x7F, d[2] + 0xE, 0, 0);
+            CharObj_Create(i, 0x177, (Random_Byte() + 0x40) & 0x7F, d[2] + 0xE, 0, 0);
     }
 }
 
@@ -165,7 +165,7 @@ void sub_080BB218(struct Task *task, u32 id, s32 dx)
 {
     u16 *d = task->data.h;
 
-    task->data.w[0] = (u32)sub_080C4618(0, id, d[2], d[3], 0, 0);
+    task->data.w[0] = (u32)CharObj_Create(0, id, d[2], d[3], 0, 0);
     d[2] -= dx;
 }
 
@@ -181,7 +181,7 @@ void sub_080BB248(struct Task *task, s32 dx)
 // sub_080BB264 @ 0x080BB264
 void sub_080BB264(struct Task *task)
 {
-    sub_080C48F0((struct Task *)task->data.w[0], 0);
+    CharObj_End((struct Task *)task->data.w[0], 0);
 }
 
 // sub_080BB274 @ 0x080BB274

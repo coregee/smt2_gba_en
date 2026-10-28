@@ -43,8 +43,8 @@ void Vision_ApplyReceivedFlags(void)
         {
             u16 id = i + 300;
 
-            if (!sub_080C32D4(id))
-                sub_080C3328(id);
+            if (!Inventory_GetCount(id))
+                Inventory_AddItem(id);
         }
     }
     SaveSlot_Write(gGameState.saveSlot, &gGameState);
@@ -225,17 +225,17 @@ void sub_080DAC70(struct Task *task)
         {
             Font_ResetGlyphSpriteCache(0x180);
             task->unk1E = task->data.h[0] + d->unk02 + 1;
-            sub_080C51D4(0x65);
+            Sound_Play(0x65);
             task->result = 1;
         }
         else
         {
-            sub_080C51D4(0x66);
+            Sound_Play(0x66);
         }
     }
     else if (gKeysNew & 2)
     {
-        sub_080C51D4(0x66);
+        Sound_Play(0x66);
         task->result = 1;
     }
     else if (gRepeatedKeys & 0x40)
@@ -243,12 +243,12 @@ void sub_080DAC70(struct Task *task)
         if (task->data.h[0] != 0)
         {
             task->data.h[0]--;
-            sub_080C51D4(0x64);
+            Sound_Play(0x64);
         }
         else if (d->unk02 != 0)
         {
             d->unk02--;
-            sub_080C51D4(0x64);
+            Sound_Play(0x64);
         }
         Font_ResetGlyphSpriteCache(0x180);
     }
@@ -261,12 +261,12 @@ void sub_080DAC70(struct Task *task)
             if (task->data.h[0] != rows - 1)
             {
                 task->data.h[0]++;
-                sub_080C51D4(0x64);
+                Sound_Play(0x64);
             }
             else if (task->data.h[0] == 5 && task->data.h[0] + d->unk02 + 1 <= count - 1)
             {
                 d->unk02++;
-                sub_080C51D4(0x64);
+                Sound_Play(0x64);
             }
             Font_ResetGlyphSpriteCache(0x180);
         }
@@ -288,7 +288,7 @@ void sub_080DAC70(struct Task *task)
                 d->unk02 = t;
             }
             if (cursor != d->cursor || top != d->unk02)
-                sub_080C51D4(0x64);
+                Sound_Play(0x64);
             Font_ResetGlyphSpriteCache(0x180);
         }
         else if ((gRepeatedKeys & 0x100) && count > 6)
@@ -303,7 +303,7 @@ void sub_080DAC70(struct Task *task)
             else
                 d->unk02 = count - 6;
             if (cursor != d->cursor || top != d->unk02)
-                sub_080C51D4(0x64);
+                Sound_Play(0x64);
             Font_ResetGlyphSpriteCache(0x180);
         }
     }
@@ -370,7 +370,7 @@ void sub_080DAC70(struct Task *task)
         ".L080DACE4: .4byte 0x030031B8 @ IWRAM+0x31B8\n"
         ".L080DACE8:\n"
         "    movs r0, #0x66\n"
-        "    bl sub_080C51D4\n"
+        "    bl Sound_Play\n"
         "    b .L080DADEE\n"
         ".L080DACF0:\n"
         "    ldrh r1, [r2]\n"
@@ -380,7 +380,7 @@ void sub_080DAC70(struct Task *task)
         "    beq .L080DAD04\n"
         "    movs r0, #0x66\n"
         ".L080DACFC:\n"
-        "    bl sub_080C51D4\n"
+        "    bl Sound_Play\n"
         "    strh r4, [r5, #0x1c]\n"
         "    b .L080DADEE\n"
         ".L080DAD04:\n"
@@ -397,7 +397,7 @@ void sub_080DAC70(struct Task *task)
         ".L080DAD18:\n"
         "    strh r0, [r5, #0x24]\n"
         "    movs r0, #0x64\n"
-        "    bl sub_080C51D4\n"
+        "    bl Sound_Play\n"
         "    b .L080DAD9A\n"
         "    .byte 0x00, 0x00\n"
         ".L080DAD24: .4byte 0x03003964 @ IWRAM+0x3964\n"
@@ -464,7 +464,7 @@ void sub_080DAC70(struct Task *task)
         "    beq .L080DAD9A\n"
         ".L080DAD94:\n"
         "    movs r0, #0x64\n"
-        "    bl sub_080C51D4\n"
+        "    bl Sound_Play\n"
         ".L080DAD9A:\n"
         "    movs r0, #0xc0\n"
         "    lsls r0, r0, #1\n"
@@ -507,7 +507,7 @@ void sub_080DAC70(struct Task *task)
         "    beq .L080DADE6\n"
         ".L080DADE0:\n"
         "    movs r0, #0x64\n"
-        "    bl sub_080C51D4\n"
+        "    bl Sound_Play\n"
         ".L080DADE6:\n"
         "    movs r0, #0xc0\n"
         "    lsls r0, r0, #1\n"

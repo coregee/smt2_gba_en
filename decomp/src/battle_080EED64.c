@@ -204,7 +204,7 @@ void sub_080EEF98(void)
         if (b->unk118E != 0xFFFF)
         {
             sub_080F41B0();
-            sub_080C366C();
+            Party_FixFormation();
             b->unk118E |= 0xFFFF;
         }
         Stock_AddDemon(gUnk_0203DB7C);

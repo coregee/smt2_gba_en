@@ -46,8 +46,8 @@ extern const u16 gUnknown_08790180[];
 void sub_0813EB6C(u32);
 void Font_ResetGlyphSpriteCache(u32);
 void Task_End(u32);
-void sub_080C5170(u32);
-void sub_080C51D4(u32);
+void Music_Play(u32);
+void Sound_Play(u32);
 
 extern u16 gUnk_0203DB28[];  /* [0],[1]: ids for the two display slots (ScriptOp_308/309,
                                 sub_08132890); 0x31E/0x322 use them as demon ids */
@@ -81,15 +81,15 @@ extern struct PartySlot gGameState[];
 extern const u16 gUnknown_087900A0[];
 extern const u16 gUnknown_087900EC[];
 
-u32 sub_080C4618(u16, u16, u16, u16, u32, u32);
+u32 CharObj_Create(u16, u16, u16, u16, u32, u32);
 u8 *Char_GetRecord(u16);
 u32 BgPicture_StartTask(u16);
 void sub_080E9044(u32, u16);
-void sub_080C48F0(u32, u32);
+void CharObj_End(u32, u32);
 u32 sub_080E8E00(u16, u16);
-s32 sub_080C57CC(u16);
-void sub_080C3328(u16);
-bool8 sub_080C32D4(u16);
+s32 KeyItem_IsObtainable(u16);
+void Inventory_AddItem(u16);
+bool8 Inventory_GetCount(u16);
 u16 sub_080C2A84(u32);
 s32 Flag_Test(u16);
 s32 Combatant_IsUsed(u32);

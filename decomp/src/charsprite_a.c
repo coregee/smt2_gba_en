@@ -77,7 +77,7 @@ void Char_StartAnim(struct Task *task)
         sub_080D77FC(task, frame->gfx, 0, 0, 0);
         sub_080D77FC(task, frame->gfx, 0, 0, load);
         if (frame->se != 0)
-            sub_080C51D4(frame->se);
+            Sound_Play(frame->se);
     }
 }
 
@@ -137,7 +137,7 @@ void Char_StepAnim(struct Task *task)
         frame += obj->frame;
         if (frame->duration == 0xFFFF)
         {
-            sub_080C48F0(task, 0);
+            CharObj_End(task, 0);
             return;
         }
         if (frame->duration == 0xFFFE)
@@ -151,7 +151,7 @@ void Char_StepAnim(struct Task *task)
             sub_080D77FC(task, frame->gfx, 1, 0, 0);
             sub_080D77FC(task, frame->gfx, 1, 0, load);
             if (frame->se != 0)
-                sub_080C51D4(frame->se);
+                Sound_Play(frame->se);
         }
         Char_DrawAnimFrame(task, frame);
     }

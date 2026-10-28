@@ -12,7 +12,7 @@ sub_081316FC: @ 0x081316FC
 	mov r7, sb
 	mov r6, r8
 	push {r6, r7}
-	bl sub_080C3100
+	bl Money_Get
 	mov r8, r0
 	ldr r0, .L08131760
 	ldr r7, [r0]
@@ -24,7 +24,7 @@ sub_081316FC: @ 0x081316FC
 	lsrs r4, r0, #0x10
 	adds r5, r4, #0
 	ldrh r0, [r6]
-	bl sub_080C32D4
+	bl Inventory_GetCount
 	lsls r0, r0, #0x18
 	lsrs r2, r0, #0x18
 	adds r3, r2, #0
@@ -69,7 +69,7 @@ sub_081316FC: @ 0x081316FC
 	cmp r0, #1
 	bgt .L081317D8
 	ldrh r0, [r6]
-	bl sub_080C32D4
+	bl Inventory_GetCount
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, #1
@@ -110,7 +110,7 @@ sub_081316FC: @ 0x081316FC
 	movs r3, #0
 	ldrsh r4, [r5, r3]
 	ldrh r0, [r6]
-	bl sub_080C32D4
+	bl Inventory_GetCount
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r4, r0
@@ -176,7 +176,7 @@ sub_081316FC: @ 0x081316FC
 	beq .L081318E8
 	adds r5, #1
 	ldrh r0, [r6]
-	bl sub_080C32D4
+	bl Inventory_GetCount
 	adds r4, r0, #0
 	ldrh r1, [r6]
 	movs r0, #0xff

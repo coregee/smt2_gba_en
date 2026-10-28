@@ -11,20 +11,20 @@ void sub_080DCC04(struct Task *task, u32 side)
         return;
     if (gKeysNew & 2)
     {
-        sub_080C51D4(0x66);
+        Sound_Play(0x66);
         task->result = 1;
     }
     else if ((gRepeatedKeys & 0x40) && side == 1)
     {
         task->result = side;
         task->unk1E = side;
-        sub_080C51D4(0x64);
+        Sound_Play(0x64);
     }
     else if ((gRepeatedKeys & 0x80) && side == 0)
     {
         task->result = 1;
         task->unk1E = 1;
-        sub_080C51D4(0x64);
+        Sound_Play(0x64);
     }
 }
 
@@ -141,17 +141,17 @@ void sub_080DCF80(struct Task *task)
         if (sub_080C2644(gDict.selected))
         {
             task->unk1E = task->data.h[0] + 1;
-            sub_080C51D4(0x65);
+            Sound_Play(0x65);
             task->result = 1;
         }
         else
         {
-            sub_080C51D4(0x66);
+            Sound_Play(0x66);
         }
     }
     else if ((gKeysNew & 2) && d->unk12 == 0)
     {
-        sub_080C51D4(0x66);
+        Sound_Play(0x66);
         task->result = 1;
     }
     else if ((gRepeatedKeys & 0x40) && d->unk12 == 0)
@@ -160,7 +160,7 @@ void sub_080DCF80(struct Task *task)
             d->cursor--;
         else
             d->cursor = 1;
-        sub_080C51D4(0x64);
+        Sound_Play(0x64);
     }
     else if ((gRepeatedKeys & 0x80) && d->unk12 == 0)
     {
@@ -168,7 +168,7 @@ void sub_080DCF80(struct Task *task)
             d->cursor++;
         else
             d->cursor = d->unk12;
-        sub_080C51D4(0x64);
+        Sound_Play(0x64);
     }
     else if ((gRepeatedKeys & 0x100) && d->unk12 == 0)
     {

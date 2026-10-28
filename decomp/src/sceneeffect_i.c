@@ -70,7 +70,7 @@ void sub_080BCB90(struct Task *task, u32 step)
 {
     if (step == 0)
     {
-        sub_080C4618(0, 0x195, 0xF0, -13, 0, 0);
+        CharObj_Create(0, 0x195, 0xF0, -13, 0, 0);
     }
     else
     {
@@ -86,7 +86,7 @@ void sub_080BCBD8(struct Task *task, u32 step)
 {
     if (step == 0)
     {
-        sub_080C4618(1, 0xC0, 0x50, -45, 0, 0);
+        CharObj_Create(1, 0xC0, 0x50, -45, 0, 0);
     }
     else
     {

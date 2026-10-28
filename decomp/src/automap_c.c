@@ -134,7 +134,7 @@ void MarkerMenu_HandleList(struct Task *task)
     {
         struct MapMarker *m = &gMapMarkers[d->cursor];
 
-        sub_080C51D4(0x65);
+        Sound_Play(0x65);
         if (m->map == 0xFF)
         {
             task->unk1E = 1;
@@ -150,14 +150,14 @@ void MarkerMenu_HandleList(struct Task *task)
     }
     else if (gFieldState.unk3A & 2)
     {
-        sub_080C51D4(0x66);
+        Sound_Play(0x66);
         task->unk1E = 2;
     }
     else if (gFieldState.unk3C & 0x40)
     {
         if (d->cursor != 0)
         {
-            sub_080C51D4(0x64);
+            Sound_Play(0x64);
             d->cursor--;
             if (d->top > d->cursor)
                 d->top--;
@@ -167,7 +167,7 @@ void MarkerMenu_HandleList(struct Task *task)
     {
         if (d->cursor != 7)
         {
-            sub_080C51D4(0x64);
+            Sound_Play(0x64);
             d->cursor++;
             if (d->cursor - d->top > 3)
                 d->top++;
@@ -188,7 +188,7 @@ void MarkerMenu_HandleList(struct Task *task)
             {
                 d->cursor -= n;
             }
-            sub_080C51D4(0x64);
+            Sound_Play(0x64);
         }
     }
     else if (gRepeatedKeys & 0x100)
@@ -206,7 +206,7 @@ void MarkerMenu_HandleList(struct Task *task)
             {
                 d->cursor += n;
             }
-            sub_080C51D4(0x64);
+            Sound_Play(0x64);
         }
     }
 
@@ -262,7 +262,7 @@ void MarkerMenu_HandleCursor(struct Task *task)
     {
         if (gFieldState.unk3A & 1)
         {
-            sub_080C51D4(0x65);
+            Sound_Play(0x65);
             Automap_BuildAroundPlayer();
             if (MarkerMenu_CanPlace(task) == 1)
             {
@@ -279,13 +279,13 @@ void MarkerMenu_HandleCursor(struct Task *task)
         {
             task->unk1E = 2;
             MarkerMenu_SetState(task, 0);
-            sub_080C51D4(0x66);
+            Sound_Play(0x66);
         }
         else if (gRepeatedKeys & 0x40)
         {
             if (d->y != 0)
             {
-                sub_080C51D4(0x64);
+                Sound_Play(0x64);
                 d->y--;
             }
             else if (gUnk_0200DFCA == 1)
@@ -305,7 +305,7 @@ void MarkerMenu_HandleCursor(struct Task *task)
         {
             if (d->y != 10)
             {
-                sub_080C51D4(0x64);
+                Sound_Play(0x64);
                 d->y++;
             }
             else if (gUnk_0200DFC8 == 1)
@@ -325,7 +325,7 @@ void MarkerMenu_HandleCursor(struct Task *task)
         {
             if (d->x != 0)
             {
-                sub_080C51D4(0x64);
+                Sound_Play(0x64);
                 d->x--;
             }
         }
@@ -333,7 +333,7 @@ void MarkerMenu_HandleCursor(struct Task *task)
         {
             if (d->x != 0x1B)
             {
-                sub_080C51D4(0x64);
+                Sound_Play(0x64);
                 d->x++;
             }
         }
@@ -387,13 +387,13 @@ void MarkerMenu_HandleKind(struct Task *task)
         task->unk1E = 1;
         MarkerMenu_SetState(task, 0);
         MarkerMenu_Place(task);
-        sub_080C51D4(0x65);
+        Sound_Play(0x65);
     }
     else if (gFieldState.unk3A & 2)
     {
         task->unk1E = 2;
         MarkerMenu_SetState(task, 1);
-        sub_080C51D4(0x66);
+        Sound_Play(0x66);
         if (d->window1 != 0)
             TextWindow_Close(d->window1, 1);
         if (d->window2 != 0)
@@ -403,7 +403,7 @@ void MarkerMenu_HandleKind(struct Task *task)
     {
         if (d->kind != 0)
         {
-            sub_080C51D4(0x64);
+            Sound_Play(0x64);
             d->kind--;
         }
     }
@@ -411,7 +411,7 @@ void MarkerMenu_HandleKind(struct Task *task)
     {
         if (d->kind != 4)
         {
-            sub_080C51D4(0x64);
+            Sound_Play(0x64);
             d->kind++;
         }
     }

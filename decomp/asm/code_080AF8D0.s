@@ -161,7 +161,7 @@ sub_080AF8D0: @ 0x080AF8D0
 	cmp r5, #0
 	beq .L080AFA8C
 	ldrh r0, [r5, #4]
-	bl sub_080C57CC
+	bl KeyItem_IsObtainable
 	cmp r0, #1
 	bne .L080AFA8C
 	mov r2, r8

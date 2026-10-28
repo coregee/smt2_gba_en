@@ -48,9 +48,9 @@ void sub_080BC198(void)
 
     if (!odd)
     {
-        sub_080C4618(3, 0xC8, (Random_Byte() & 0x7F) + 0x30, 0, odd, odd);
-        sub_080C4618(4, 0xC9, (Random_Byte() & 0x7F) + 0x30, 0, odd, odd);
-        sub_080C4618(5, 0xCA, (Random_Byte() & 0x7F) + 0x30, 0, odd, odd);
+        CharObj_Create(3, 0xC8, (Random_Byte() & 0x7F) + 0x30, 0, odd, odd);
+        CharObj_Create(4, 0xC9, (Random_Byte() & 0x7F) + 0x30, 0, odd, odd);
+        CharObj_Create(5, 0xCA, (Random_Byte() & 0x7F) + 0x30, 0, odd, odd);
     }
 }
 
@@ -83,7 +83,7 @@ void Char_EndById(struct Task *task, u16 id)
     struct Task *t = Char_FindById(id);
 
     if (t != NULL)
-        sub_080C48F0(t, 0);
+        CharObj_End(t, 0);
 }
 
 // sub_080BC278 @ 0x080BC278
@@ -95,17 +95,17 @@ void sub_080BC278(struct Task *task, u32 step)
     case 0:
         Char_EndById(task, 0xB0);
         Char_EndById(task, 0xB1);
-        sub_080C4618(2, 0xC5, 0x51, 0x40, 0, 0);
+        CharObj_Create(2, 0xC5, 0x51, 0x40, 0, 0);
         break;
     case 1:
-        sub_080C4618(2, 0xC6, 0x51, 0x40, 0, 0);
+        CharObj_Create(2, 0xC6, 0x51, 0x40, 0, 0);
         break;
     case 2:
         sub_080BAD88(task, 0xC6, 0, -1);
         break;
     case 3:
     case 4:
-        sub_080C4618(2, 0xC7, 0x50, -0x90, 0, 0);
+        CharObj_Create(2, 0xC7, 0x50, -0x90, 0, 0);
         break;
     case 5:
         break;
@@ -139,7 +139,7 @@ void sub_080BC4C8(struct Task *task, u32 step)
     {
         t = Char_FindById(0xD8);
         if (t != NULL)
-            sub_080C48F0(t, 0);
+            CharObj_End(t, 0);
     }
     else if (step == 1)
     {
@@ -148,7 +148,7 @@ void sub_080BC4C8(struct Task *task, u32 step)
     {
         t = Char_FindById(0xD9);
         if (t != NULL)
-            sub_080C48F0(t, 0);
+            CharObj_End(t, 0);
     }
 }
 

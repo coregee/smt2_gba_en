@@ -313,7 +313,7 @@ gUnknown_080F1854:
 	adds r0, r4, #0
 	bl sub_080F4190
 .L080F1A70:
-	bl sub_080C366C
+	bl Party_FixFormation
 	b .L080F20C6
 .L080F1A76:
 	adds r0, r1, #0
@@ -921,7 +921,7 @@ gUnknown_080F1D64:
 	bhi .L080F1FA0
 	adds r0, r1, #0
 	bl sub_080F4190
-	bl sub_080C366C
+	bl Party_FixFormation
 	b .L080F1FA0
 .L080F1F94: .4byte 0x03000088 @ IWRAM+0x88
 .L080F1F98:

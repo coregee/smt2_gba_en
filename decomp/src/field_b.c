@@ -322,7 +322,7 @@ void sub_080AF2E8(void)
 void sub_080AF300(void)
 {
     sub_080C3818(1);
-    sub_080C5170(sub_080AD608(gUnk_03004614, gUnk_03004514));
+    Music_Play(sub_080AD608(gUnk_03004614, gUnk_03004514));
     sub_080AE234();
     sub_080AE574(gFieldState.unk02, 0);
     if (Palette_IsBg13Black() == 1)
@@ -376,7 +376,7 @@ void sub_080AF300(void)
         "    bl sub_080AD608\n"
         "    lsls r0, r0, #0x10\n"
         "    lsrs r0, r0, #0x10\n"
-        "    bl sub_080C5170\n"
+        "    bl Music_Play\n"
         "    bl sub_080AE234\n"
         "    ldr r0, .L080AF340\n"
         "    ldrh r0, [r0, #2]\n"

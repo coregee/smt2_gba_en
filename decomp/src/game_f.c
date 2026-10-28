@@ -887,9 +887,9 @@ void sub_080B350C(void)
 void sub_080B3560(u32 unused)
 {
     if (gUnk_03004614 != 0x42)
-        sub_080C51D4(0x6B);
+        Sound_Play(0x6B);
     else
-        sub_080C51D4(0x6C);
+        Sound_Play(0x6C);
 }
 
 // sub_080B3584 @ 0x080B3584
@@ -910,7 +910,7 @@ void sub_080B3584(u32 a)
     else
     {
         VBlankTask_AddCounted(sub_080AE1FC, 1);
-        sub_080C51D4(0x6D);
+        Sound_Play(0x6D);
     }
     if (Palette_IsBg13Black() == 0)
     {

@@ -81,7 +81,7 @@ void Automap_Update(void)
             Window_Close(gUnk_030045F8, 1);
             if (gFieldState.unk32 == 0)
                 sub_080C7C94();
-            sub_080C51D4(0x66);
+            Sound_Play(0x66);
             break;
         }
         if ((gFieldState.unk3C & 0x80) && gUnk_0200DFC8 == 1)
@@ -106,14 +106,14 @@ void Automap_Update(void)
         {
             gUnk_03003FF0 = Window_CreateOpen(2, 2, 0x1A, 8, 0);
             gFieldState.unk1E = 0x35;
-            sub_080C51D4(0x65);
+            Sound_Play(0x65);
         }
         else if (gFieldState.unk3A & 1)
         {
             sub_080B5D00();
             gFieldState.unk1E = 0x36;
             MarkerHeader_DrawLocationName(0, 0, 0x12, 0x59, 0xC);
-            sub_080C51D4(0x65);
+            Sound_Play(0x65);
         }
         Automap_DrawSprites();
         break;
@@ -125,17 +125,17 @@ void Automap_Update(void)
                 Window_Close(gUnk_03003FF0, 1);
                 gFieldState.unk1E = 0x34;
                 gUnk_0200DFD0 = 0;
-                sub_080C51D4(0x66);
+                Sound_Play(0x66);
             }
             else if (gUnk_0200DFD0 == 0 && (gFieldState.unk3A & 0x80))
             {
                 gUnk_0200DFD0 = 1;
-                sub_080C51D4(0x64);
+                Sound_Play(0x64);
             }
             else if (gUnk_0200DFD0 == 1 && (gFieldState.unk3A & 0x40))
             {
                 gUnk_0200DFD0 = 0;
-                sub_080C51D4(0x64);
+                Sound_Play(0x64);
             }
 
             if (gUnk_0200DFD0 == 0)

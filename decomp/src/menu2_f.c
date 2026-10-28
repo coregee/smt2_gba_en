@@ -112,7 +112,7 @@ void sub_080D540C(void)
     Task_ClearAll();
     VBlankTasks_Init();
     Task_Create(gUnknown_084F9A28, 0xFFFF);
-    sub_080C5170(0x1C);
+    Music_Play(0x1C);
     gUnk_0203DB6A = 0;
     SetMainCallback(sub_080D54F0);
 }

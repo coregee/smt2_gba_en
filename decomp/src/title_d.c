@@ -345,7 +345,7 @@ void Char_SignalById(void)
 // sub_080D786C @ 0x080D786C
 void sub_080D786C(struct Task *task)
 {
-    sub_080C48F0(task, 0);
+    CharObj_End(task, 0);
 }
 
 // sub_080D7878 @ 0x080D7878

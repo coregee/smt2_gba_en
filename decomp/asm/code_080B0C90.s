@@ -381,7 +381,7 @@ gUnknown_080B0EB0:
 	b .L080B16AC
 .L080B0FF2:
 	movs r0, #0x69
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080B16AC
 .L080B0FFA:
 	adds r1, r2, #0
@@ -432,7 +432,7 @@ gUnknown_080B0EB0:
 	bl sub_080AD608
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C5170
+	bl Music_Play
 .L080B1066:
 	ldr r0, .L080B1074
 	adds r0, #0x46
@@ -725,7 +725,7 @@ gUnknown_080B0EB0:
 	cmp r0, #1
 	beq .L080B12F8
 	movs r0, #0x69
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080B16AC
 .L080B12EE:
 	movs r0, #3
@@ -738,7 +738,7 @@ gUnknown_080B0EB0:
 	b .L080B16AC
 .L080B1300:
 	movs r0, #0x69
-	bl sub_080C51D4
+	bl Sound_Play
 	b .L080B16AC
 .L080B1308:
 	cmp r4, #0
@@ -950,7 +950,7 @@ gUnknown_080B0EB0:
 .L080B14AE:
 	bl sub_080B0820
 	movs r0, #0x6e
-	bl sub_080C51D4
+	bl Sound_Play
 	ldr r4, .L080B14D4
 	ldrh r0, [r4]
 	cmp r0, #0xd
@@ -1063,7 +1063,7 @@ gUnknown_080B0EB0:
 	bne .L080B1628
 	bl sub_080B0820
 	movs r0, #0x6e
-	bl sub_080C51D4
+	bl Sound_Play
 	ldr r4, .L080B15D8
 	ldrh r0, [r4]
 	cmp r0, #0xe
@@ -1291,7 +1291,7 @@ gUnknown_080B0EB0:
 	bl sub_080C7414
 .L080B17B4:
 	movs r0, #1
-	bl sub_080C51BC
+	bl Music_FadeOut
 	b .L080B1A06
 .L080B17BC: .4byte 0x03003BB8 @ IWRAM+0x3BB8
 .L080B17C0:

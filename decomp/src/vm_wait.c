@@ -704,7 +704,7 @@ bool32 sub_0813DA6C(void)
         return FALSE;
     if (sel == 0xFF)
         goto cancel;
-    money = sub_080C3100();
+    money = Money_Get();
     cost = sub_08135064(sel, gUnk_0300668C);
     if (money < cost)
     {
@@ -712,7 +712,7 @@ bool32 sub_0813DA6C(void)
         gScriptJumpTarget = gUnk_0203DAC8[0];
         return TRUE;
     }
-    sub_080C30AC(-cost);
+    Money_Add(-cost);
     sub_081350CC(sel, gUnk_0300668C);
     sub_080C84A0();
     gUnk_0203DB34 = 1;

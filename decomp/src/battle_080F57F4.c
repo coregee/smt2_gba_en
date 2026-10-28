@@ -116,17 +116,17 @@ void sub_080F5988(struct Action *a)
 }
 
 // sub_080F59CC @ 0x080F59CC
-/* Halves the party's money-like counter sub_080C3168 (at least 1 lost). */
+/* Halves the party's money-like counter Magnetite_Get (at least 1 lost). */
 void sub_080F59CC(struct Action *a)
 {
-    s32 n = sub_080C3168();
+    s32 n = Magnetite_Get();
 
     if (n)
     {
         n /= 2;
         if (n == 0)
             n = 1;
-        sub_080C3114(-n);
+        Magnetite_Add(-n);
     }
     else
         a->unkC = n;
@@ -271,7 +271,7 @@ void sub_080F5B98(struct Action *a)
         if ((u32)(who - 4) <= 11)
         {
             sub_080F4190(who);
-            sub_080C366C();
+            Party_FixFormation();
         }
         else
         {

@@ -5262,7 +5262,7 @@ sub_0815ABA8: @ 0x0815ABA8
 	b .L0815AD80
 .L0815ABB6:
 	adds r0, r4, #0
-	bl sub_080C3560
+	bl Stock_FindByDemonId
 	adds r5, r0, #0
 	cmp r5, #0
 	bne .L0815ABC4
@@ -6110,7 +6110,7 @@ sub_0815B11C: @ 0x0815B11C
 	cmp r2, r0
 	blo .L0815B20E
 	adds r0, r6, #0
-	bl sub_080C3560
+	bl Stock_FindByDemonId
 	cmp r0, #0
 	beq .L0815B218
 .L0815B20E:
@@ -6124,7 +6124,7 @@ sub_0815B11C: @ 0x0815B11C
 	bne .L0815B228
 	movs r6, #0xfb
 	movs r0, #0xfb
-	bl sub_080C3560
+	bl Stock_FindByDemonId
 	cmp r0, #0
 	bne .L0815B1CA
 .L0815B228:
@@ -6156,7 +6156,7 @@ sub_0815B24C: @ 0x0815B24C
 	ldr r0, .L0815B25C
 	adds r0, #0xa5
 	ldrb r0, [r0]
-	bl sub_080C3560
+	bl Stock_FindByDemonId
 	pop {r1}
 	bx r1
 .L0815B25C: .4byte 0x0203B868 @ EWRAM+0x3B868
@@ -6224,7 +6224,7 @@ sub_0815B260: @ 0x0815B260
 	bl sub_0815A6F0
 	bl sub_0815B248
 	ldrh r0, [r7]
-	bl sub_080C3560
+	bl Stock_FindByDemonId
 	cmp r0, #0
 	beq .L0815B2F4
 	movs r0, #4

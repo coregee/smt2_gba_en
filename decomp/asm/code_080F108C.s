@@ -816,7 +816,7 @@ sub_080F1678: @ 0x080F1678
 .L080F1760:
 	adds r0, r5, #0
 	bl sub_080C8490
-	bl sub_080C366C
+	bl Party_FixFormation
 	bl Party_BuildMemberNameTiles
 	mov r2, r8
 	asrs r0, r2, #0x10

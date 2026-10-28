@@ -3331,7 +3331,7 @@ gUnknown_081539A8:
 	movs r2, #4
 	bl PalFade_FadeRangeToBlack
 	movs r0, #2
-	bl sub_080C51BC
+	bl Music_FadeOut
 	b .L08153A8A
 .L08153A06:
 	ldr r4, .L08153A38
@@ -3353,7 +3353,7 @@ gUnknown_081539A8:
 	bl sub_080AD67C
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C5170
+	bl Music_Play
 	b .L08153A62
 	.byte 0x00, 0x00
 .L08153A38: .4byte 0x030069F0 @ IWRAM+0x69F0
@@ -3373,7 +3373,7 @@ gUnknown_081539A8:
 	bl sub_080AD67C
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C5170
+	bl Music_Play
 .L08153A62:
 	ldr r0, .L08153A6C
 	movs r1, #1
@@ -5094,7 +5094,7 @@ sub_0815473C: @ 0x0815473C
 	ldr r0, .L081547B4
 	mov sb, r0
 	adds r0, r5, #0
-	bl sub_080C3560
+	bl Stock_FindByDemonId
 	cmp r0, #0
 	beq .L08154778
 	cmp r7, r5
@@ -5690,7 +5690,7 @@ sub_08154A38: @ 0x08154A38
 	bl sub_08154968
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C32D4
+	bl Inventory_GetCount
 	lsls r0, r0, #0x18
 	lsrs r4, r0, #0x18
 	ldr r0, .L08154C70
@@ -5821,7 +5821,7 @@ sub_08154A38: @ 0x08154A38
 	bl Font_DrawGlyphTinted
 	ldrh r0, [r6]
 .L08154CFC:
-	bl sub_080C32D4
+	bl Inventory_GetCount
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	adds r2, r7, #3

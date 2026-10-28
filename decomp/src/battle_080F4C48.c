@@ -425,7 +425,7 @@ void sub_080F5090(struct Action *a)
         sub_080F40C4(Combatant_GetDemonId(who));
         if ((u32)(who - 4) <= 11)
             sub_080F4190(who);
-        sub_080C366C();
+        Party_FixFormation();
         a->unkC = 1;
         sub_080E760C();
     }
@@ -468,7 +468,7 @@ void sub_080F5194(struct Action *a)
 // sub_080F51B4 @ 0x080F51B4
 void sub_080F51B4(struct Action *a)
 {
-    s32 r = sub_080C5320();
+    s32 r = Encounter_IsAllowed();
 
     if (r == 1)
     {

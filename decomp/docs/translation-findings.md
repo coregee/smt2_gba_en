@@ -378,3 +378,23 @@ No text is drawn here, so nothing limits the translation. Oddities in the origin
 
 - `ScriptOp_40D` (`0x081396F0`) tests member 1 twice instead of falling back to member 2.
 - `ScriptOp_410` mode 0x15 calls `Combatant_IsUsed` 12 times and discards the results.
+
+### Inventory, character objects, field steps, field HUD (`0x080C2D48`-`0x080C6FD8`)
+
+- **Field HUD names** (`Party_BuildMemberNameTiles`, `0x080C6E78`): exactly 8 single-tile
+  (8x8) glyphs per member from the table at `0x081AF7B8`, indexed by the name byte, into a
+  0x100-byte buffer per slot at `0x020399E4`. The translation hooks the function and repoints
+  both references to the table (`0x080C6ECC`, `0x080D0310`; checked in the patched build).
+- **Inventory:** 0x15A (id, count) pairs, at most 99 per item; for ids below 0xD0 the copies
+  reported by `sub_08131AB0` (probably equipped) count towards the 99. Money caps at 999,999,
+  the `+0xADC` counter (probably Magnetite) at 99,999.
+
+### More possible original bugs
+
+- `sub_080C4C00` computes the cleared bit mask of `gGameState+0xAC8` and returns it without
+  storing it: a "clear" that never clears.
+- `sub_080C3F4C` writes a fade's delay and timer when flag 0xFD is set even if no fade was
+  started (through a null pointer, offsets +4/+6).
+- `CharObj_Create` (`0x080C4618`) writes through an uninitialised task pointer for record kinds
+  other than 0-3; `sub_080C343C` returns a leftover register for slots above 6.
+- `Inventory_RemoveItem` (`0x080C33AC`) runs a key item's clear hook even when the item isn't held.

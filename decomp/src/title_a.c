@@ -4,7 +4,7 @@
 // sub_080D6264 @ 0x080D6264
 void sub_080D6264(struct Task *task, u16 se)
 {
-    sub_080C5170(se);
+    Music_Play(se);
 }
 
 /* Title screen scene setup: loads graphics/palettes for gMenuState.mode, then queues the
@@ -308,7 +308,7 @@ void Title_WaitPressStart(struct Task *task)
     else if (gKeysNew & 0x3FF)
     {
         task->unk1E = 1;
-        sub_080C51D4(0x65);
+        Sound_Play(0x65);
         if (menu->unk0A == 1)
             menu->cursor = 2;
         else if (menu->unk08 == 1)
@@ -343,17 +343,17 @@ void Title_HandleMenuInput(struct Task *task)
         task->unk1E = menu->cursor + 1;
         if (Title_HasExtraUnlocked() == 0 && task->unk1E == 4)
             task->unk1E = 5;
-        sub_080C51D4(0x65);
+        Sound_Play(0x65);
     }
     else if (gKeysNew & 2)
     {
         task->unk1E = 10;
-        sub_080C51D4(0x66);
+        Sound_Play(0x66);
     }
     else if ((keys = gKeysNew & 0x40) != 0)
     {
         menu->idle = 900;
-        sub_080C51D4(0x64);
+        Sound_Play(0x64);
         if (menu->cursor != 0)
             menu->cursor--;
         else
@@ -362,7 +362,7 @@ void Title_HandleMenuInput(struct Task *task)
     else if (gKeysNew & 0x80)
     {
         menu->idle = 900;
-        sub_080C51D4(0x64);
+        Sound_Play(0x64);
         if (menu->cursor != rows - 1)
             menu->cursor++;
         else
@@ -413,7 +413,7 @@ void sub_080D6E2C(void)
 // sub_080D6E40 @ 0x080D6E40
 void sub_080D6E40(void)
 {
-    sub_080C51BC(8);
+    Music_FadeOut(8);
 }
 
 // sub_080D6E4C @ 0x080D6E4C

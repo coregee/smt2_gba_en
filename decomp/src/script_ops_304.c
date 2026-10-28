@@ -16,7 +16,7 @@ void ScriptOp_304(void)
     u16 f2 = a & 0x20;
     u32 t2 = f2 != 0;
 
-    gUnk_030068F0[a & 0xF] = sub_080C4618(a, b, hi, lo, t1, t2);
+    gUnk_030068F0[a & 0xF] = CharObj_Create(a, b, hi, lo, t1, t2);
     if (*(u32 *)(Char_GetRecord(b) + 0x28) != 0)
         gScriptYield = 1;
 }
@@ -47,7 +47,7 @@ void ScriptOp_307(void)
     }
     else
     {
-        sub_080C48F0(gUnk_030068F0[i], 0);
+        CharObj_End(gUnk_030068F0[i], 0);
         gUnk_030068F0[i] = 0;
     }
 }
@@ -103,14 +103,14 @@ void ScriptOp_JumpIfItemMissing(void)
     target = target << 16 | lo;
     if (flag > 299)
     {
-        if (sub_080C57CC(flag) == 1)
+        if (KeyItem_IsObtainable(flag) == 1)
         {
-            sub_080C3328(flag);
+            Inventory_AddItem(flag);
             gScriptItemCheckId = flag;
             return;
         }
     }
-    else if (sub_080C32D4(flag))
+    else if (Inventory_GetCount(flag))
         return;
     gScriptJumpTarget = (u16 *)target;
 }
@@ -125,13 +125,13 @@ void ScriptOpAlt_30B(void)
     target = target << 16 | lo;
     if (flag > 299)
     {
-        if (sub_080C57CC(flag) == 1)
+        if (KeyItem_IsObtainable(flag) == 1)
         {
             gScriptItemCheckId = flag;
             return;
         }
     }
-    else if (sub_080C32D4(flag))
+    else if (Inventory_GetCount(flag))
         return;
     gScriptJumpTarget = (u16 *)target;
 }

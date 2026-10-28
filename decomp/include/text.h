@@ -73,7 +73,7 @@ void Tilemap_FillRect(u32 val, u16 *buf, u16 x, u16 y, u16 w, u16 h);
 struct Task *Task_Create(const u32 *script, u32 parent);
 void Task_End(struct Task *task);
 void sub_080C7E24(void *dst, const void *src);
-void sub_080C51D4(u32 se);
+void Sound_Play(u32 se);
 void Sprite_Draw(const void *a0, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5, s32 a6);
 /* OAM_EmitSprite (rom_layout.py): one sprite from a 3-u16 attribute template. */
 void Sprite_DrawSingle(const void *tmpl, u16 a1, u16 palette, u16 a3, u16 tile, u16 x, u16 y);

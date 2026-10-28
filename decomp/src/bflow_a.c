@@ -1862,7 +1862,7 @@ void sub_080ECF10(void)
 // sub_080ECF60 @ 0x080ECF60
 void sub_080ECF60(u16 se)
 {
-    sub_080C5170(se);
+    Music_Play(se);
 }
 
 // sub_080ECF70 @ 0x080ECF70
