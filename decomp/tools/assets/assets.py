@@ -10,7 +10,9 @@
 assets/manifest.json lists one entry per asset:
     name    file stem under assets/ (family folder + name)
     addr    ROM address;  len: bytes it occupies in the ROM (stream + zero padding)
-    codec   lz77 | huff | rle | raw       (BIOS formats; see bios.py)
+    codec   lz77 | huff | huff+lz77 | rle | raw   (BIOS formats; huff+lz77 = an LZ77 stream
+            Huffman-coded again, as the area graphics loader 0x080B3C5C reads them)
+    inner_len  huff+lz77 only: length of the inner LZ77 stream as stored
     tree    Huffman only: the original serialized tree, so unedited data re-encodes exactly
     format  4bpp | 8bpp | pal | bin       content of the decompressed data
     width   4bpp/8bpp: image width in tiles
@@ -286,7 +288,10 @@ def payload(e, rom):
     o = int(e["addr"], 16) - BASE
     if e["codec"] == "raw":
         return rom[o:o + e["len"]]
-    return bios.decode(rom, o)[0]
+    data = bios.decode(rom, o)[0]
+    if e["codec"] == "huff+lz77":                  # Huffman around an LZ77 stream
+        data = bios.lz77(data, 0)[0]
+    return data
 
 
 def extract_one(e, rom, by_name):
@@ -319,7 +324,11 @@ def encode_one(e):
     c = e["codec"]
     if c == "lz77":
         out = bios.lz77_compress(data)
-    elif c == "huff":
+    elif c in ("huff", "huff+lz77"):
+        if c == "huff+lz77":
+            data = bios.lz77_compress(data)
+            n = e["inner_len"]                     # the LZ77 stream as stored (with padding)
+            data = data[:n] + bytes(max(0, n - len(data)))
         tree = bytes.fromhex(e["tree"])
         try:
             out = bios.huffman_compress(data, tree, e.get("bits", 4))
