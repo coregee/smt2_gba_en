@@ -24,7 +24,8 @@ def main():
     layout = json.loads((ROOT / "layout.json").read_text())
     c_funcs = {}
     nonmatching = set()
-    for p in (ROOT / "src").rglob("*.c") if (ROOT / "src").exists() else []:
+    # Only C the build uses (layout.json); files still being written are left out.
+    for p in [ROOT / e["file"] for e in layout if e["file"].endswith(".c")]:
         text = p.read_text(encoding="utf-8")
         for m in re.finditer(r"//\s*(\w+)\s*@\s*0x([0-9A-Fa-f]{8})\s*\n(#ifdef NONMATCHING)?", text):
             a = int(m.group(2), 16)

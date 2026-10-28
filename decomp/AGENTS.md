@@ -40,6 +40,8 @@ The compiler is pret's `agbcc` (GCC 2.9, `-mthumb-interwork -O2`; the m4a librar
 directly above it (a file's functions must be consecutive in the ROM), check it with
 `python tools/match.py src/<module>.c --diff`, then `python tools/disasm.py && python build.py`:
 the generator drops those functions from `asm/` and places the C in `layout.json` by itself.
+While other files in `src/` are still being written, leave them out with
+`tools/disasm.py --exclude 'prefix_*'` so the build only uses finished C.
 The sha1 check is the proof of equivalence. Use `reference/ghidra-c/` as the starting point,
 never as the answer. Functions that resist matching stay readable under `#ifdef NONMATCHING`
 with the original instructions as a NAKED body (`tools/naked.py`). Names proposed while

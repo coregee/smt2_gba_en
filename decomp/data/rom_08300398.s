@@ -361,201 +361,201 @@ gUnknown_0834A768: @ 0x0834A768
 gUnknown_0834A7C4: @ 0x0834A7C4
 	.incbin "baserom.gba", 0x34A7C4, 0xDC
 .Lspan_0834A8A0:
-	.incbin "build/assets/0834A8A0.bin" @ rom_08340000/0834A8A0
+	.incbin "build/assets/0834A8A0.bin" @ dungeon/map01_floor00_objCC
 .Lspan_0834AAD8:
-	.incbin "build/assets/0834AAD8.bin" @ rom_08340000/0834AAD8
+	.incbin "build/assets/0834AAD8.bin" @ dungeon/map01_floor00_setC
 .Lspan_0834B234:
-	.incbin "build/assets/0834B234.bin" @ rom_08340000/0834B234
+	.incbin "build/assets/0834B234.bin" @ dungeon/map01_floor00_setD
 .Lspan_0834C0AC:
-	.incbin "build/assets/0834C0AC.bin" @ rom_08340000/0834C0AC
+	.incbin "build/assets/0834C0AC.bin" @ dungeon/map01_floor00_setE
 .Lspan_0834D0C8:
-	.incbin "build/assets/0834D0C8.bin" @ rom_08340000/0834D0C8
+	.incbin "build/assets/0834D0C8.bin" @ dungeon/map01_floor00_setA
 .Lspan_0834E188:
-	.incbin "build/assets/0834E188.bin" @ rom_08340000/0834E188
+	.incbin "build/assets/0834E188.bin" @ dungeon/map01_floor00_setB
 .Lspan_0834ED48:
-	.incbin "build/assets/0834ED48.bin" @ rom_08340000/0834ED48
+	.incbin "build/assets/0834ED48.bin" @ dungeon/map01_floor00_setF
 	.incbin "baserom.gba", 0x351504, 0x80
 .Lspan_08351584:
-	.incbin "build/assets/08351584.bin" @ rom_08350000/08351584
+	.incbin "build/assets/08351584.bin" @ dungeon/map00_floor00_objCC
 .Lspan_083519C0:
-	.incbin "build/assets/083519C0.bin" @ rom_08350000/083519C0
+	.incbin "build/assets/083519C0.bin" @ dungeon/map00_floor00_setC
 .Lspan_083530E0:
-	.incbin "build/assets/083530E0.bin" @ rom_08350000/083530E0
+	.incbin "build/assets/083530E0.bin" @ dungeon/map00_floor00_setD
 .Lspan_0835573C:
-	.incbin "build/assets/0835573C.bin" @ rom_08350000/0835573C
+	.incbin "build/assets/0835573C.bin" @ dungeon/map00_floor00_setE
 .Lspan_08357E00:
-	.incbin "build/assets/08357E00.bin" @ rom_08350000/08357E00
+	.incbin "build/assets/08357E00.bin" @ dungeon/map00_floor00_setA
 .Lspan_0835A448:
-	.incbin "build/assets/0835A448.bin" @ rom_08350000/0835A448
+	.incbin "build/assets/0835A448.bin" @ dungeon/map00_floor00_setB
 .Lspan_0835BC44:
-	.incbin "build/assets/0835BC44.bin" @ rom_08350000/0835BC44
+	.incbin "build/assets/0835BC44.bin" @ dungeon/map00_floor00_setF
 	.incbin "baserom.gba", 0x35F594, 0x80
 .Lspan_0835F614:
-	.incbin "build/assets/0835F614.bin" @ rom_08350000/0835F614
+	.incbin "build/assets/0835F614.bin" @ dungeon/map04_floor00_setF
 	.incbin "baserom.gba", 0x360218, 0x80
 .Lspan_08360298:
-	.incbin "build/assets/08360298.bin" @ rom_08360000/08360298
+	.incbin "build/assets/08360298.bin" @ dungeon/map16_floor00_objCC
 .Lspan_08360A48:
-	.incbin "build/assets/08360A48.bin" @ rom_08360000/08360A48
+	.incbin "build/assets/08360A48.bin" @ dungeon/map16_floor00_setC
 .Lspan_08362934:
-	.incbin "build/assets/08362934.bin" @ rom_08360000/08362934
+	.incbin "build/assets/08362934.bin" @ dungeon/map16_floor00_setD
 .Lspan_083661D4:
-	.incbin "build/assets/083661D4.bin" @ rom_08360000/083661D4
+	.incbin "build/assets/083661D4.bin" @ dungeon/map16_floor00_setE
 .Lspan_08369598:
-	.incbin "build/assets/08369598.bin" @ rom_08360000/08369598
+	.incbin "build/assets/08369598.bin" @ dungeon/map16_floor00_setA
 .Lspan_0836C628:
-	.incbin "build/assets/0836C628.bin" @ rom_08360000/0836C628
+	.incbin "build/assets/0836C628.bin" @ dungeon/map16_floor00_setB
 .Lspan_0836E374:
-	.incbin "build/assets/0836E374.bin" @ rom_08360000/0836E374
+	.incbin "build/assets/0836E374.bin" @ dungeon/map16_floor00_setF
 	.incbin "baserom.gba", 0x37153C, 0x80
 .Lspan_083715BC:
-	.incbin "build/assets/083715BC.bin" @ rom_08370000/083715BC
+	.incbin "build/assets/083715BC.bin" @ dungeon/map09_floor00_objCC
 .Lspan_08371BBC:
-	.incbin "build/assets/08371BBC.bin" @ rom_08370000/08371BBC
+	.incbin "build/assets/08371BBC.bin" @ dungeon/map09_floor00_setC
 .Lspan_0837328C:
-	.incbin "build/assets/0837328C.bin" @ rom_08370000/0837328C
+	.incbin "build/assets/0837328C.bin" @ dungeon/map09_floor00_setD
 .Lspan_08375F30:
-	.incbin "build/assets/08375F30.bin" @ rom_08370000/08375F30
+	.incbin "build/assets/08375F30.bin" @ dungeon/map09_floor00_setE
 .Lspan_08378B10:
-	.incbin "build/assets/08378B10.bin" @ rom_08370000/08378B10
+	.incbin "build/assets/08378B10.bin" @ dungeon/map09_floor00_setA
 .Lspan_0837B460:
-	.incbin "build/assets/0837B460.bin" @ rom_08370000/0837B460
+	.incbin "build/assets/0837B460.bin" @ dungeon/map09_floor00_setB
 .Lspan_0837CC70:
-	.incbin "build/assets/0837CC70.bin" @ rom_08370000/0837CC70
+	.incbin "build/assets/0837CC70.bin" @ dungeon/map09_floor00_setF
 	.incbin "baserom.gba", 0x38007C, 0x80
 .Lspan_083800FC:
-	.incbin "build/assets/083800FC.bin" @ rom_08380000/083800FC
+	.incbin "build/assets/083800FC.bin" @ dungeon/map19_floor01_objCC
 	.incbin "baserom.gba", 0x38066C, 0x400
 .Lspan_08380A6C:
-	.incbin "build/assets/08380A6C.bin" @ rom_08380000/08380A6C
+	.incbin "build/assets/08380A6C.bin" @ dungeon/map19_floor01_setC
 .Lspan_08382BB4:
-	.incbin "build/assets/08382BB4.bin" @ rom_08380000/08382BB4
+	.incbin "build/assets/08382BB4.bin" @ dungeon/map19_floor01_setD
 .Lspan_08385F40:
-	.incbin "build/assets/08385F40.bin" @ rom_08380000/08385F40
+	.incbin "build/assets/08385F40.bin" @ dungeon/map19_floor01_setE
 .Lspan_08389470:
-	.incbin "build/assets/08389470.bin" @ rom_08380000/08389470
+	.incbin "build/assets/08389470.bin" @ dungeon/map19_floor01_setA
 .Lspan_0838D1F8:
-	.incbin "build/assets/0838D1F8.bin" @ rom_08380000/0838D1F8
+	.incbin "build/assets/0838D1F8.bin" @ dungeon/map19_floor01_setB
 .Lspan_0838F390:
-	.incbin "build/assets/0838F390.bin" @ rom_08380000/0838F390
+	.incbin "build/assets/0838F390.bin" @ dungeon/map19_floor01_setF
 	.incbin "baserom.gba", 0x392904, 0x80
 .Lspan_08392984:
-	.incbin "build/assets/08392984.bin" @ rom_08390000/08392984
+	.incbin "build/assets/08392984.bin" @ dungeon/map14_floor00_objCC
 .Lspan_08392E78:
-	.incbin "build/assets/08392E78.bin" @ rom_08390000/08392E78
+	.incbin "build/assets/08392E78.bin" @ dungeon/map14_floor00_setC
 .Lspan_08394974:
-	.incbin "build/assets/08394974.bin" @ rom_08390000/08394974
+	.incbin "build/assets/08394974.bin" @ dungeon/map14_floor00_setD
 .Lspan_083977E8:
-	.incbin "build/assets/083977E8.bin" @ rom_08390000/083977E8
+	.incbin "build/assets/083977E8.bin" @ dungeon/map14_floor00_setE
 .Lspan_0839A1D8:
-	.incbin "build/assets/0839A1D8.bin" @ rom_08390000/0839A1D8
+	.incbin "build/assets/0839A1D8.bin" @ dungeon/map14_floor00_setA
 .Lspan_0839C8C0:
-	.incbin "build/assets/0839C8C0.bin" @ rom_08390000/0839C8C0
+	.incbin "build/assets/0839C8C0.bin" @ dungeon/map14_floor00_setB
 .Lspan_0839E05C:
-	.incbin "build/assets/0839E05C.bin" @ rom_08390000/0839E05C
+	.incbin "build/assets/0839E05C.bin" @ dungeon/map14_floor00_setF
 	.incbin "baserom.gba", 0x3A10C8, 0x80
 .Lspan_083A1148:
-	.incbin "build/assets/083A1148.bin" @ rom_083A0000/083A1148
+	.incbin "build/assets/083A1148.bin" @ dungeon/map17_floor00_objCC
 .Lspan_083A1610:
-	.incbin "build/assets/083A1610.bin" @ rom_083A0000/083A1610
+	.incbin "build/assets/083A1610.bin" @ dungeon/map17_floor00_setC
 .Lspan_083A3164:
-	.incbin "build/assets/083A3164.bin" @ rom_083A0000/083A3164
+	.incbin "build/assets/083A3164.bin" @ dungeon/map17_floor00_setD
 .Lspan_083A5B40:
-	.incbin "build/assets/083A5B40.bin" @ rom_083A0000/083A5B40
+	.incbin "build/assets/083A5B40.bin" @ dungeon/map17_floor00_setE
 .Lspan_083A85F4:
-	.incbin "build/assets/083A85F4.bin" @ rom_083A0000/083A85F4
+	.incbin "build/assets/083A85F4.bin" @ dungeon/map17_floor00_setA
 .Lspan_083AAB40:
-	.incbin "build/assets/083AAB40.bin" @ rom_083A0000/083AAB40
+	.incbin "build/assets/083AAB40.bin" @ dungeon/map17_floor00_setB
 .Lspan_083AC3F4:
-	.incbin "build/assets/083AC3F4.bin" @ rom_083A0000/083AC3F4
+	.incbin "build/assets/083AC3F4.bin" @ dungeon/map17_floor00_setF
 	.incbin "baserom.gba", 0x3AF5A8, 0x80
 .Lspan_083AF628:
-	.incbin "build/assets/083AF628.bin" @ rom_083A0000/083AF628
+	.incbin "build/assets/083AF628.bin" @ dungeon/map18_floor00_objCC
 .Lspan_083AFAB4:
-	.incbin "build/assets/083AFAB4.bin" @ rom_083A0000/083AFAB4
+	.incbin "build/assets/083AFAB4.bin" @ dungeon/map18_floor00_setC
 .Lspan_083B13F8:
-	.incbin "build/assets/083B13F8.bin" @ rom_083B0000/083B13F8
+	.incbin "build/assets/083B13F8.bin" @ dungeon/map18_floor00_setD
 .Lspan_083B4120:
-	.incbin "build/assets/083B4120.bin" @ rom_083B0000/083B4120
+	.incbin "build/assets/083B4120.bin" @ dungeon/map18_floor00_setE
 .Lspan_083B66A8:
-	.incbin "build/assets/083B66A8.bin" @ rom_083B0000/083B66A8
+	.incbin "build/assets/083B66A8.bin" @ dungeon/map18_floor00_setA
 .Lspan_083B8B24:
-	.incbin "build/assets/083B8B24.bin" @ rom_083B0000/083B8B24
+	.incbin "build/assets/083B8B24.bin" @ dungeon/map18_floor00_setB
 .Lspan_083BA120:
-	.incbin "build/assets/083BA120.bin" @ rom_083B0000/083BA120
+	.incbin "build/assets/083BA120.bin" @ dungeon/map18_floor00_setF
 	.incbin "baserom.gba", 0x3BD64C, 0x80
 .Lspan_083BD6CC:
-	.incbin "build/assets/083BD6CC.bin" @ rom_083B0000/083BD6CC
+	.incbin "build/assets/083BD6CC.bin" @ dungeon/map20_floor00_objCC
 .Lspan_083BDB8C:
-	.incbin "build/assets/083BDB8C.bin" @ rom_083B0000/083BDB8C
+	.incbin "build/assets/083BDB8C.bin" @ dungeon/map20_floor00_setC
 .Lspan_083BF68C:
-	.incbin "build/assets/083BF68C.bin" @ rom_083B0000/083BF68C
+	.incbin "build/assets/083BF68C.bin" @ dungeon/map20_floor00_setD
 .Lspan_083C2268:
-	.incbin "build/assets/083C2268.bin" @ rom_083C0000/083C2268
+	.incbin "build/assets/083C2268.bin" @ dungeon/map20_floor00_setE
 .Lspan_083C4B6C:
-	.incbin "build/assets/083C4B6C.bin" @ rom_083C0000/083C4B6C
+	.incbin "build/assets/083C4B6C.bin" @ dungeon/map20_floor00_setA
 .Lspan_083C6F90:
-	.incbin "build/assets/083C6F90.bin" @ rom_083C0000/083C6F90
+	.incbin "build/assets/083C6F90.bin" @ dungeon/map20_floor00_setB
 .Lspan_083C8808:
-	.incbin "build/assets/083C8808.bin" @ rom_083C0000/083C8808
+	.incbin "build/assets/083C8808.bin" @ dungeon/map20_floor00_setF
 	.incbin "baserom.gba", 0x3CBCB8, 0x80
 .Lspan_083CBD38:
-	.incbin "build/assets/083CBD38.bin" @ rom_083C0000/083CBD38
+	.incbin "build/assets/083CBD38.bin" @ dungeon/map26_floor01_objCC
 .Lspan_083CC190:
-	.incbin "build/assets/083CC190.bin" @ rom_083C0000/083CC190
+	.incbin "build/assets/083CC190.bin" @ dungeon/map26_floor01_setC
 .Lspan_083CD784:
-	.incbin "build/assets/083CD784.bin" @ rom_083C0000/083CD784
+	.incbin "build/assets/083CD784.bin" @ dungeon/map26_floor01_setD
 .Lspan_083CFE30:
-	.incbin "build/assets/083CFE30.bin" @ rom_083C0000/083CFE30
+	.incbin "build/assets/083CFE30.bin" @ dungeon/map26_floor01_setE
 .Lspan_083D2510:
-	.incbin "build/assets/083D2510.bin" @ rom_083D0000/083D2510
+	.incbin "build/assets/083D2510.bin" @ dungeon/map26_floor01_setA
 .Lspan_083D4978:
-	.incbin "build/assets/083D4978.bin" @ rom_083D0000/083D4978
+	.incbin "build/assets/083D4978.bin" @ dungeon/map26_floor01_setB
 .Lspan_083D5FC4:
-	.incbin "build/assets/083D5FC4.bin" @ rom_083D0000/083D5FC4
+	.incbin "build/assets/083D5FC4.bin" @ dungeon/map37_floor00_setF
 	.incbin "baserom.gba", 0x3D8DD8, 0x1A0
 	.global gUnknown_083D8F78
 gUnknown_083D8F78: @ 0x083D8F78
 	.incbin "baserom.gba", 0x3D8F78, 0xE0
 .Lspan_083D9058:
-	.incbin "build/assets/083D9058.bin" @ rom_083D0000/083D9058
+	.incbin "build/assets/083D9058.bin" @ dungeon/map26_floor01_setF
 	.incbin "baserom.gba", 0x3DCCA8, 0x80
 .Lspan_083DCD28:
-	.incbin "build/assets/083DCD28.bin" @ rom_083D0000/083DCD28
+	.incbin "build/assets/083DCD28.bin" @ dungeon/map19_floor00_objCC
 .Lspan_083DD2F4:
-	.incbin "build/assets/083DD2F4.bin" @ rom_083D0000/083DD2F4
+	.incbin "build/assets/083DD2F4.bin" @ dungeon/map19_floor00_setC
 .Lspan_083DE798:
-	.incbin "build/assets/083DE798.bin" @ rom_083D0000/083DE798
+	.incbin "build/assets/083DE798.bin" @ dungeon/map19_floor00_setD
 .Lspan_083E1080:
-	.incbin "build/assets/083E1080.bin" @ rom_083E0000/083E1080
+	.incbin "build/assets/083E1080.bin" @ dungeon/map19_floor00_setE
 .Lspan_083E3648:
-	.incbin "build/assets/083E3648.bin" @ rom_083E0000/083E3648
+	.incbin "build/assets/083E3648.bin" @ dungeon/map19_floor00_setA
 .Lspan_083E5EF0:
-	.incbin "build/assets/083E5EF0.bin" @ rom_083E0000/083E5EF0
+	.incbin "build/assets/083E5EF0.bin" @ dungeon/map19_floor00_setB
 .Lspan_083E77F4:
-	.incbin "build/assets/083E77F4.bin" @ rom_083E0000/083E77F4
+	.incbin "build/assets/083E77F4.bin" @ dungeon/map19_floor00_setF
 	.incbin "baserom.gba", 0x3EA890, 0x40
 .Lspan_083EA8D0:
-	.incbin "build/assets/083EA8D0.bin" @ rom_083E0000/083EA8D0
+	.incbin "build/assets/083EA8D0.bin" @ dungeon/map29_floor00_objCC
 .Lspan_083EAD88:
-	.incbin "build/assets/083EAD88.bin" @ rom_083E0000/083EAD88
+	.incbin "build/assets/083EAD88.bin" @ dungeon/map29_floor00_setC
 .Lspan_083EC9FC:
-	.incbin "build/assets/083EC9FC.bin" @ rom_083E0000/083EC9FC
+	.incbin "build/assets/083EC9FC.bin" @ dungeon/map29_floor00_setD
 .Lspan_083EF858:
-	.incbin "build/assets/083EF858.bin" @ rom_083E0000/083EF858
+	.incbin "build/assets/083EF858.bin" @ dungeon/map29_floor00_setE
 .Lspan_083F2328:
-	.incbin "build/assets/083F2328.bin" @ rom_083F0000/083F2328
+	.incbin "build/assets/083F2328.bin" @ dungeon/map29_floor00_setA
 .Lspan_083F49AC:
-	.incbin "build/assets/083F49AC.bin" @ rom_083F0000/083F49AC
+	.incbin "build/assets/083F49AC.bin" @ dungeon/map29_floor00_setB
 	.incbin "baserom.gba", 0x3F61B4, 0x80
 .Lspan_083F6234:
-	.incbin "build/assets/083F6234.bin" @ rom_083F0000/083F6234
+	.incbin "build/assets/083F6234.bin" @ dungeon/map33_floor00_setF
 	.incbin "baserom.gba", 0x3F9CC0, 0x80
 .Lspan_083F9D40:
-	.incbin "build/assets/083F9D40.bin" @ rom_083F0000/083F9D40
+	.incbin "build/assets/083F9D40.bin" @ dungeon/map44_floor00_objCC
 .Lspan_083FA190:
-	.incbin "build/assets/083FA190.bin" @ rom_083F0000/083FA190
+	.incbin "build/assets/083FA190.bin" @ dungeon/map44_floor00_setC
 .Lspan_083FB7B4:
-	.incbin "build/assets/083FB7B4.bin" @ rom_083F0000/083FB7B4
+	.incbin "build/assets/083FB7B4.bin" @ dungeon/map44_floor00_setD
 .Lspan_083FDF48:
-	.incbin "build/assets/083FDF48.bin" @ rom_083F0000/083FDF48
+	.incbin "build/assets/083FDF48.bin" @ dungeon/map44_floor00_setE

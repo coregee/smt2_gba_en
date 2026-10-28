@@ -406,33 +406,33 @@ gUnknown_08165AB4: @ 0x08165AB4
 	.global gUnknown_08165AD4
 gUnknown_08165AD4: @ 0x08165AD4
 .Lspan_08165AD4:
-	.incbin "build/assets/08165AD4.bin" @ rom_08160000/08165AD4
+	.incbin "build/assets/08165AD4.bin" @ event_fx/080BA21C_00
 	.global gUnknown_081660D4
 gUnknown_081660D4: @ 0x081660D4
 .Lspan_081660D4:
-	.incbin "build/assets/081660D4.bin" @ rom_08160000/081660D4
+	.incbin "build/assets/081660D4.bin" @ event_fx/080BA21C_01
 .Lspan_081664F4:
-	.incbin "build/assets/081664F4.bin" @ rom_08160000/081664F4
+	.incbin "build/assets/081664F4.bin" @ event_fx/080BA0E0_00
 .Lspan_081673D4:
-	.incbin "build/assets/081673D4.bin" @ rom_08160000/081673D4
+	.incbin "build/assets/081673D4.bin" @ event_fx/080BA0E0_01
 .Lspan_08168470:
-	.incbin "build/assets/08168470.bin" @ rom_08160000/08168470
+	.incbin "build/assets/08168470.bin" @ event_fx/080BA0E0_02
 .Lspan_08169440:
-	.incbin "build/assets/08169440.bin" @ rom_08160000/08169440
+	.incbin "build/assets/08169440.bin" @ event_fx/080BA0E0_03
 .Lspan_0816A668:
-	.incbin "build/assets/0816A668.bin" @ rom_08160000/0816A668
+	.incbin "build/assets/0816A668.bin" @ event_fx/080BA0E0_04
 .Lspan_0816B4A0:
-	.incbin "build/assets/0816B4A0.bin" @ rom_08160000/0816B4A0
+	.incbin "build/assets/0816B4A0.bin" @ event_fx/080BA0E0_05
 .Lspan_0816C070:
-	.incbin "build/assets/0816C070.bin" @ rom_08160000/0816C070
+	.incbin "build/assets/0816C070.bin" @ event_fx/080BA0E0_06
 .Lspan_0816D2EC:
-	.incbin "build/assets/0816D2EC.bin" @ rom_08160000/0816D2EC
+	.incbin "build/assets/0816D2EC.bin" @ event_fx/080BA0E0_07
 .Lspan_0816DA74:
-	.incbin "build/assets/0816DA74.bin" @ rom_08160000/0816DA74
+	.incbin "build/assets/0816DA74.bin" @ event_fx/080BA0E0_08
 .Lspan_0816F488:
-	.incbin "build/assets/0816F488.bin" @ rom_08160000/0816F488
+	.incbin "build/assets/0816F488.bin" @ event_fx/080BA0E0_09
 .Lspan_08170CC0:
-	.incbin "build/assets/08170CC0.bin" @ rom_08170000/08170CC0
+	.incbin "build/assets/08170CC0.bin" @ event_fx/080BA0E0_10
 	.incbin "baserom.gba", 0x172388, 0x1100
 	.global gUnknown_08173488
 gUnknown_08173488: @ 0x08173488
@@ -475,7 +475,7 @@ gUnknown_0817417C: @ 0x0817417C
 	.global gUnknown_08174294
 gUnknown_08174294: @ 0x08174294
 .Lspan_08174294:
-	.incbin "build/assets/08174294.bin" @ rom_08170000/08174294
+	.incbin "build/assets/08174294.bin" @ event_fx/080BBD20_00
 	.global gUnknown_08174CF8
 gUnknown_08174CF8: @ 0x08174CF8
 	.byte 0x83, 0x02, 0x36, 0x19, 0x78, 0x19, 0xB9, 0x1D, 0xFB, 0x1D, 0x1D, 0x1E, 0x5F, 0x1E, 0xDF, 0x2E
@@ -483,168 +483,168 @@ gUnknown_08174CF8: @ 0x08174CF8
 	.global gUnknown_08174D18
 gUnknown_08174D18: @ 0x08174D18
 .Lspan_08174D18:
-	.incbin "build/assets/08174D18.bin" @ rom_08170000/08174D18
+	.incbin "build/assets/08174D18.bin" @ event_fx/080BBD20_01
 	.global gUnknown_081755F0
 gUnknown_081755F0: @ 0x081755F0
 	.byte 0xE7, 0x1E, 0xE7, 0x1C, 0xE7, 0x1C, 0xE7, 0x1C, 0xE7, 0x1C, 0xE7, 0x1C, 0xE7, 0x1C, 0xE7, 0x1C
 	.byte 0xE7, 0x1C, 0xE7, 0x1C, 0x49, 0x31, 0x4D, 0x25, 0x12, 0x25, 0x16, 0x21, 0x1A, 0x1D, 0xBA, 0x21
 .Lspan_08175610:
-	.incbin "build/assets/08175610.bin" @ rom_08170000/08175610
+	.incbin "build/assets/08175610.bin" @ event_fx/080BBD20_02
 .Lspan_08175B3C:
-	.incbin "build/assets/08175B3C.bin" @ rom_08170000/08175B3C
+	.incbin "build/assets/08175B3C.bin" @ event_fx/080BBD20_03
 .Lspan_081760A8:
-	.incbin "build/assets/081760A8.bin" @ rom_08170000/081760A8
+	.incbin "build/assets/081760A8.bin" @ event_fx/080BBD20_04
 .Lspan_081765F8:
-	.incbin "build/assets/081765F8.bin" @ rom_08170000/081765F8
+	.incbin "build/assets/081765F8.bin" @ event_fx/080BBD20_05
 .Lspan_08176B54:
-	.incbin "build/assets/08176B54.bin" @ rom_08170000/08176B54
+	.incbin "build/assets/08176B54.bin" @ event_fx/080BBD20_06
 .Lspan_08177004:
-	.incbin "build/assets/08177004.bin" @ rom_08170000/08177004
+	.incbin "build/assets/08177004.bin" @ event_fx/080BBD20_07
 .Lspan_081773D0:
-	.incbin "build/assets/081773D0.bin" @ rom_08170000/081773D0
+	.incbin "build/assets/081773D0.bin" @ event_fx/080BBD20_08
 	.global gUnknown_0817748C
 gUnknown_0817748C: @ 0x0817748C
 	.byte 0xC3, 0x0E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x6C, 0x25, 0xAE, 0x2D, 0xCF, 0x31, 0x11, 0x3A
 	.byte 0x14, 0x3E, 0x76, 0x4A, 0xB9, 0x4E, 0xFC, 0x5A, 0x3E, 0x67, 0xDE, 0x73, 0xFE, 0x7F, 0xFE, 0x7F
 .Lspan_081774AC:
-	.incbin "build/assets/081774AC.bin" @ rom_08170000/081774AC
+	.incbin "build/assets/081774AC.bin" @ event_fx/080BBA64_00
 .Lspan_081776E8:
-	.incbin "build/assets/081776E8.bin" @ rom_08170000/081776E8
+	.incbin "build/assets/081776E8.bin" @ event_fx/080BBA64_01
 .Lspan_0817794C:
-	.incbin "build/assets/0817794C.bin" @ rom_08170000/0817794C
+	.incbin "build/assets/0817794C.bin" @ event_fx/080BBA64_02
 .Lspan_08177C04:
-	.incbin "build/assets/08177C04.bin" @ rom_08170000/08177C04
+	.incbin "build/assets/08177C04.bin" @ event_fx/080BBA64_03
 .Lspan_08177E1C:
-	.incbin "build/assets/08177E1C.bin" @ rom_08170000/08177E1C
+	.incbin "build/assets/08177E1C.bin" @ event_fx/080BBA64_04
 .Lspan_08177FF8:
-	.incbin "build/assets/08177FF8.bin" @ rom_08170000/08177FF8
+	.incbin "build/assets/08177FF8.bin" @ event_fx/080BBA64_05
 .Lspan_08178240:
-	.incbin "build/assets/08178240.bin" @ rom_08170000/08178240
+	.incbin "build/assets/08178240.bin" @ event_fx/080BBA64_06
 .Lspan_081784D0:
-	.incbin "build/assets/081784D0.bin" @ rom_08170000/081784D0
+	.incbin "build/assets/081784D0.bin" @ event_fx/080BBA64_07
 .Lspan_08178740:
-	.incbin "build/assets/08178740.bin" @ rom_08170000/08178740
+	.incbin "build/assets/08178740.bin" @ event_fx/080BBA64_08
 .Lspan_08178A50:
-	.incbin "build/assets/08178A50.bin" @ rom_08170000/08178A50
+	.incbin "build/assets/08178A50.bin" @ event_fx/080BBA64_09
 .Lspan_08178D64:
-	.incbin "build/assets/08178D64.bin" @ rom_08170000/08178D64
+	.incbin "build/assets/08178D64.bin" @ event_fx/080BBA64_10
 .Lspan_08179090:
-	.incbin "build/assets/08179090.bin" @ rom_08170000/08179090
+	.incbin "build/assets/08179090.bin" @ event_fx/080BBA64_11
 .Lspan_0817940C:
-	.incbin "build/assets/0817940C.bin" @ rom_08170000/0817940C
+	.incbin "build/assets/0817940C.bin" @ event_fx/080BBA64_12
 .Lspan_0817970C:
-	.incbin "build/assets/0817970C.bin" @ rom_08170000/0817970C
+	.incbin "build/assets/0817970C.bin" @ event_fx/080BBA64_13
 	.incbin "baserom.gba", 0x179998, 0x1A0
 .Lspan_08179B38:
-	.incbin "build/assets/08179B38.bin" @ rom_08170000/08179B38
+	.incbin "build/assets/08179B38.bin" @ event_fx/080BBA64_14
 .Lspan_08179D6C:
-	.incbin "build/assets/08179D6C.bin" @ rom_08170000/08179D6C
+	.incbin "build/assets/08179D6C.bin" @ event_fx/080BBA64_15
 .Lspan_08179F7C:
-	.incbin "build/assets/08179F7C.bin" @ rom_08170000/08179F7C
+	.incbin "build/assets/08179F7C.bin" @ event_fx/080BBA64_16
 .Lspan_0817A1C0:
-	.incbin "build/assets/0817A1C0.bin" @ rom_08170000/0817A1C0
+	.incbin "build/assets/0817A1C0.bin" @ event_fx/080BBA64_17
 .Lspan_0817A3E8:
-	.incbin "build/assets/0817A3E8.bin" @ rom_08170000/0817A3E8
+	.incbin "build/assets/0817A3E8.bin" @ event_fx/080BBA64_18
 .Lspan_0817A658:
-	.incbin "build/assets/0817A658.bin" @ rom_08170000/0817A658
+	.incbin "build/assets/0817A658.bin" @ event_fx/080BBA64_19
 .Lspan_0817A8BC:
-	.incbin "build/assets/0817A8BC.bin" @ rom_08170000/0817A8BC
+	.incbin "build/assets/0817A8BC.bin" @ event_fx/080BBA64_20
 .Lspan_0817AB4C:
-	.incbin "build/assets/0817AB4C.bin" @ rom_08170000/0817AB4C
+	.incbin "build/assets/0817AB4C.bin" @ event_fx/080BBA64_21
 .Lspan_0817AD68:
-	.incbin "build/assets/0817AD68.bin" @ rom_08170000/0817AD68
+	.incbin "build/assets/0817AD68.bin" @ event_fx/080BBA64_22
 .Lspan_0817AF70:
-	.incbin "build/assets/0817AF70.bin" @ rom_08170000/0817AF70
+	.incbin "build/assets/0817AF70.bin" @ event_fx/080BBA64_23
 .Lspan_0817B198:
-	.incbin "build/assets/0817B198.bin" @ rom_08170000/0817B198
+	.incbin "build/assets/0817B198.bin" @ event_fx/080BBA64_24
 .Lspan_0817B408:
-	.incbin "build/assets/0817B408.bin" @ rom_08170000/0817B408
+	.incbin "build/assets/0817B408.bin" @ event_fx/080BBA64_25
 .Lspan_0817B69C:
-	.incbin "build/assets/0817B69C.bin" @ rom_08170000/0817B69C
+	.incbin "build/assets/0817B69C.bin" @ event_fx/080BBA64_26
 .Lspan_0817B900:
-	.incbin "build/assets/0817B900.bin" @ rom_08170000/0817B900
+	.incbin "build/assets/0817B900.bin" @ event_fx/080BBA64_27
 	.incbin "baserom.gba", 0x17BBB8, 0x1A0
 .Lspan_0817BD58:
-	.incbin "build/assets/0817BD58.bin" @ rom_08170000/0817BD58
+	.incbin "build/assets/0817BD58.bin" @ event_fx/080BBA64_28
 .Lspan_0817C00C:
-	.incbin "build/assets/0817C00C.bin" @ rom_08170000/0817C00C
+	.incbin "build/assets/0817C00C.bin" @ event_fx/080BBA64_29
 .Lspan_0817C290:
-	.incbin "build/assets/0817C290.bin" @ rom_08170000/0817C290
+	.incbin "build/assets/0817C290.bin" @ event_fx/080BBA64_30
 .Lspan_0817C4F8:
-	.incbin "build/assets/0817C4F8.bin" @ rom_08170000/0817C4F8
+	.incbin "build/assets/0817C4F8.bin" @ event_fx/080BBA64_31
 .Lspan_0817C764:
-	.incbin "build/assets/0817C764.bin" @ rom_08170000/0817C764
+	.incbin "build/assets/0817C764.bin" @ event_fx/080BBA64_32
 .Lspan_0817C9D8:
-	.incbin "build/assets/0817C9D8.bin" @ rom_08170000/0817C9D8
+	.incbin "build/assets/0817C9D8.bin" @ event_fx/080BBA64_33
 .Lspan_0817CC74:
-	.incbin "build/assets/0817CC74.bin" @ rom_08170000/0817CC74
+	.incbin "build/assets/0817CC74.bin" @ event_fx/080BBA64_34
 .Lspan_0817CF3C:
-	.incbin "build/assets/0817CF3C.bin" @ rom_08170000/0817CF3C
+	.incbin "build/assets/0817CF3C.bin" @ event_fx/080BBA64_35
 .Lspan_0817D20C:
-	.incbin "build/assets/0817D20C.bin" @ rom_08170000/0817D20C
+	.incbin "build/assets/0817D20C.bin" @ event_fx/080BBA64_36
 .Lspan_0817D510:
-	.incbin "build/assets/0817D510.bin" @ rom_08170000/0817D510
+	.incbin "build/assets/0817D510.bin" @ event_fx/080BBA64_37
 .Lspan_0817D810:
-	.incbin "build/assets/0817D810.bin" @ rom_08170000/0817D810
+	.incbin "build/assets/0817D810.bin" @ event_fx/080BBA64_38
 .Lspan_0817DAC8:
-	.incbin "build/assets/0817DAC8.bin" @ rom_08170000/0817DAC8
+	.incbin "build/assets/0817DAC8.bin" @ event_fx/080BBA64_39
 .Lspan_0817DD14:
-	.incbin "build/assets/0817DD14.bin" @ rom_08170000/0817DD14
+	.incbin "build/assets/0817DD14.bin" @ event_fx/080BBA64_40
 .Lspan_0817DF68:
-	.incbin "build/assets/0817DF68.bin" @ rom_08170000/0817DF68
+	.incbin "build/assets/0817DF68.bin" @ event_fx/080BBA64_41
 	.incbin "baserom.gba", 0x17E1A8, 0x1A0
 .Lspan_0817E348:
-	.incbin "build/assets/0817E348.bin" @ rom_08170000/0817E348
+	.incbin "build/assets/0817E348.bin" @ event_fx/080BBA64_42
 .Lspan_0817E6C0:
-	.incbin "build/assets/0817E6C0.bin" @ rom_08170000/0817E6C0
+	.incbin "build/assets/0817E6C0.bin" @ event_fx/080BBA64_43
 .Lspan_0817EA38:
-	.incbin "build/assets/0817EA38.bin" @ rom_08170000/0817EA38
+	.incbin "build/assets/0817EA38.bin" @ event_fx/080BBA64_44
 .Lspan_0817EDB4:
-	.incbin "build/assets/0817EDB4.bin" @ rom_08170000/0817EDB4
+	.incbin "build/assets/0817EDB4.bin" @ event_fx/080BBA64_45
 .Lspan_0817F124:
-	.incbin "build/assets/0817F124.bin" @ rom_08170000/0817F124
+	.incbin "build/assets/0817F124.bin" @ event_fx/080BBA64_46
 .Lspan_0817F48C:
-	.incbin "build/assets/0817F48C.bin" @ rom_08170000/0817F48C
+	.incbin "build/assets/0817F48C.bin" @ event_fx/080BBA64_47
 .Lspan_0817F764:
-	.incbin "build/assets/0817F764.bin" @ rom_08170000/0817F764
+	.incbin "build/assets/0817F764.bin" @ event_fx/080BBA64_48
 .Lspan_0817F96C:
-	.incbin "build/assets/0817F96C.bin" @ rom_08170000/0817F96C
+	.incbin "build/assets/0817F96C.bin" @ event_fx/080BBA64_49
 .Lspan_0817FC14:
-	.incbin "build/assets/0817FC14.bin" @ rom_08170000/0817FC14
+	.incbin "build/assets/0817FC14.bin" @ event_fx/080BBA64_50
 .Lspan_0817FE5C:
-	.incbin "build/assets/0817FE5C.bin" @ rom_08170000/0817FE5C
+	.incbin "build/assets/0817FE5C.bin" @ event_fx/080BBA64_51
 .Lspan_0818009C:
-	.incbin "build/assets/0818009C.bin" @ rom_08180000/0818009C
+	.incbin "build/assets/0818009C.bin" @ event_fx/080BBA64_52
 .Lspan_081802F8:
-	.incbin "build/assets/081802F8.bin" @ rom_08180000/081802F8
+	.incbin "build/assets/081802F8.bin" @ event_fx/080BBA64_53
 .Lspan_08180508:
-	.incbin "build/assets/08180508.bin" @ rom_08180000/08180508
+	.incbin "build/assets/08180508.bin" @ event_fx/080BBA64_54
 .Lspan_08180760:
-	.incbin "build/assets/08180760.bin" @ rom_08180000/08180760
+	.incbin "build/assets/08180760.bin" @ event_fx/080BBA64_55
 	.incbin "baserom.gba", 0x180A00, 0x1A0
 	.global gUnknown_08180BA0
 gUnknown_08180BA0: @ 0x08180BA0
 .Lspan_08180BA0:
-	.incbin "build/assets/08180BA0.bin" @ rom_08180000/08180BA0
+	.incbin "build/assets/08180BA0.bin" @ event_fx/080BBAC0_00
 	.global gUnknown_08181138
 gUnknown_08181138: @ 0x08181138
 	.incbin "baserom.gba", 0x181138, 0x100
 	.global gUnknown_08181238
 gUnknown_08181238: @ 0x08181238
 .Lspan_08181238:
-	.incbin "build/assets/08181238.bin" @ rom_08180000/08181238
+	.incbin "build/assets/08181238.bin" @ event_fx/080BB964_00
 	.global gUnknown_08181F84
 gUnknown_08181F84: @ 0x08181F84
 .Lspan_08181F84:
-	.incbin "build/assets/08181F84.bin" @ rom_08180000/08181F84
+	.incbin "build/assets/08181F84.bin" @ event_fx/080BB964_01
 	.global gUnknown_08182270
 gUnknown_08182270: @ 0x08182270
 .Lspan_08182270:
-	.incbin "build/assets/08182270.bin" @ rom_08180000/08182270
+	.incbin "build/assets/08182270.bin" @ event_fx/080BA7A0_00
 	.global gUnknown_08182688
 gUnknown_08182688: @ 0x08182688
 .Lspan_08182688:
-	.incbin "build/assets/08182688.bin" @ rom_08180000/08182688
+	.incbin "build/assets/08182688.bin" @ event_fx/080BA7A0_01
 	.global gUnknown_08182AA0
 gUnknown_08182AA0: @ 0x08182AA0
 	.incbin "baserom.gba", 0x182AA0, 0x80
@@ -660,15 +660,15 @@ gUnknown_08182B54: @ 0x08182B54
 	.global gUnknown_08182CC4
 gUnknown_08182CC4: @ 0x08182CC4
 .Lspan_08182CC4:
-	.incbin "build/assets/08182CC4.bin" @ rom_08180000/08182CC4
+	.incbin "build/assets/08182CC4.bin" @ event_fx/080BABBC_00
 	.global gUnknown_08182F4C
 gUnknown_08182F4C: @ 0x08182F4C
 .Lspan_08182F4C:
-	.incbin "build/assets/08182F4C.bin" @ rom_08180000/08182F4C
+	.incbin "build/assets/08182F4C.bin" @ event_fx/080BA9F0_00
 	.global gUnknown_081831B4
 gUnknown_081831B4: @ 0x081831B4
 .Lspan_081831B4:
-	.incbin "build/assets/081831B4.bin" @ rom_08180000/081831B4
+	.incbin "build/assets/081831B4.bin" @ event_fx/080BAA14_00
 	.global gUnknown_08183434
 gUnknown_08183434: @ 0x08183434
 	.byte 0x00, 0x00, 0x89, 0x52, 0x8A, 0x52, 0x08, 0x42, 0x86, 0x31, 0xCC, 0x5A, 0x8C, 0x52, 0x09, 0x42
@@ -680,16 +680,16 @@ gUnknown_08183454: @ 0x08183454
 	.global gUnknown_08183474
 gUnknown_08183474: @ 0x08183474
 .Lspan_08183474:
-	.incbin "build/assets/08183474.bin" @ rom_08180000/08183474
+	.incbin "build/assets/08183474.bin" @ event_fx/080BAAAC_00
 	.incbin "baserom.gba", 0x183724, 0x2D0
 	.global gUnknown_081839F4
 gUnknown_081839F4: @ 0x081839F4
 .Lspan_081839F4:
-	.incbin "build/assets/081839F4.bin" @ rom_08180000/081839F4
+	.incbin "build/assets/081839F4.bin" @ event_fx/080BAEF0_00
 	.global gUnknown_081845E4
 gUnknown_081845E4: @ 0x081845E4
 .Lspan_081845E4:
-	.incbin "build/assets/081845E4.bin" @ rom_08180000/081845E4
+	.incbin "build/assets/081845E4.bin" @ event_fx/080BAEF0_01
 	.global gUnknown_08184BA4
 gUnknown_08184BA4: @ 0x08184BA4
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x8E, 0x31, 0xB0, 0x2D, 0xB3, 0x2D, 0xD4, 0x29, 0xD7, 0x25, 0xBA, 0x25
@@ -697,32 +697,32 @@ gUnknown_08184BA4: @ 0x08184BA4
 	.global gUnknown_08184BC4
 gUnknown_08184BC4: @ 0x08184BC4
 .Lspan_08184BC4:
-	.incbin "build/assets/08184BC4.bin" @ rom_08180000/08184BC4
+	.incbin "build/assets/08184BC4.bin" @ event_fx/080BAFB8_00
 	.global gUnknown_0818596C
 gUnknown_0818596C: @ 0x0818596C
 .Lspan_0818596C:
-	.incbin "build/assets/0818596C.bin" @ rom_08180000/0818596C
+	.incbin "build/assets/0818596C.bin" @ event_fx/080BAFB8_01
 	.global gUnknown_08186524
 gUnknown_08186524: @ 0x08186524
 .Lspan_08186524:
-	.incbin "build/assets/08186524.bin" @ rom_08180000/08186524
+	.incbin "build/assets/08186524.bin" @ event_fx/080BAFB8_02
 	.incbin "baserom.gba", 0x1869C8, 0x4E8
 	.global gUnknown_08186EB0
 gUnknown_08186EB0: @ 0x08186EB0
 .Lspan_08186EB0:
-	.incbin "build/assets/08186EB0.bin" @ rom_08180000/08186EB0
+	.incbin "build/assets/08186EB0.bin" @ event_fx/080BB33C_00
 	.global gUnknown_081873FC
 gUnknown_081873FC: @ 0x081873FC
 .Lspan_081873FC:
-	.incbin "build/assets/081873FC.bin" @ rom_08180000/081873FC
+	.incbin "build/assets/081873FC.bin" @ event_fx/080BB33C_01
 	.global gUnknown_08187D00
 gUnknown_08187D00: @ 0x08187D00
 .Lspan_08187D00:
-	.incbin "build/assets/08187D00.bin" @ rom_08180000/08187D00
+	.incbin "build/assets/08187D00.bin" @ event_fx/080BB33C_02
 	.global gUnknown_081892C8
 gUnknown_081892C8: @ 0x081892C8
 .Lspan_081892C8:
-	.incbin "build/assets/081892C8.bin" @ rom_08180000/081892C8
+	.incbin "build/assets/081892C8.bin" @ event_fx/080BB33C_03
 	.global gUnknown_08189434
 gUnknown_08189434: @ 0x08189434
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x2D, 0x4A, 0x6E, 0x56
@@ -749,7 +749,7 @@ gUnknown_081894C8: @ 0x081894C8
 	.global gUnknown_08189570
 gUnknown_08189570: @ 0x08189570
 .Lspan_08189570:
-	.incbin "build/assets/08189570.bin" @ rom_08180000/08189570
+	.incbin "build/assets/08189570.bin" @ event_fx/080BB640_00
 	.global gUnknown_08189BDC
 gUnknown_08189BDC: @ 0x08189BDC
 	.byte 0x00, 0x00, 0x28, 0x29, 0x6A, 0x2D, 0xCE, 0x35, 0x11, 0x46, 0x52, 0x56, 0x59, 0x22, 0xB5, 0x56
@@ -757,7 +757,7 @@ gUnknown_08189BDC: @ 0x08189BDC
 	.global gUnknown_08189BFC
 gUnknown_08189BFC: @ 0x08189BFC
 .Lspan_08189BFC:
-	.incbin "build/assets/08189BFC.bin" @ rom_08180000/08189BFC
+	.incbin "build/assets/08189BFC.bin" @ event_fx/080BB640_01
 	.global gUnknown_0818B1C0
 gUnknown_0818B1C0: @ 0x0818B1C0
 	.incbin "baserom.gba", 0x18B1C0, 0x120
@@ -783,7 +783,7 @@ gUnknown_0818B960: @ 0x0818B960
 	.global gUnknown_0818C0C8
 gUnknown_0818C0C8: @ 0x0818C0C8
 .Lspan_0818C0C8:
-	.incbin "build/assets/0818C0C8.bin" @ rom_08180000/0818C0C8
+	.incbin "build/assets/0818C0C8.bin" @ event_fx/080BC04C_00
 	.global gUnknown_0818C5E0
 gUnknown_0818C5E0: @ 0x0818C5E0
 	.byte 0x00, 0x00, 0xFF, 0x7F, 0xFF, 0x7F, 0xFF, 0x7B, 0xFF, 0x77, 0xFF, 0x73, 0xFF, 0x6F, 0xFF, 0x6B
@@ -792,57 +792,57 @@ gUnknown_0818C5E0: @ 0x0818C5E0
 gUnknown_0818C600: @ 0x0818C600
 	.incbin "baserom.gba", 0x18C600, 0x10C
 .Lspan_0818C70C:
-	.incbin "build/assets/0818C70C.bin" @ rom_08180000/0818C70C
+	.incbin "build/assets/0818C70C.bin" @ event_fx/080BC170_00
 .Lspan_0818C86C:
-	.incbin "build/assets/0818C86C.bin" @ rom_08180000/0818C86C
+	.incbin "build/assets/0818C86C.bin" @ event_fx/080BC170_01
 .Lspan_0818CA0C:
-	.incbin "build/assets/0818CA0C.bin" @ rom_08180000/0818CA0C
+	.incbin "build/assets/0818CA0C.bin" @ event_fx/080BC170_02
 .Lspan_0818CBB8:
-	.incbin "build/assets/0818CBB8.bin" @ rom_08180000/0818CBB8
+	.incbin "build/assets/0818CBB8.bin" @ event_fx/080BC170_03
 .Lspan_0818CD6C:
-	.incbin "build/assets/0818CD6C.bin" @ rom_08180000/0818CD6C
+	.incbin "build/assets/0818CD6C.bin" @ event_fx/080BC170_04
 .Lspan_0818CF38:
-	.incbin "build/assets/0818CF38.bin" @ rom_08180000/0818CF38
+	.incbin "build/assets/0818CF38.bin" @ event_fx/080BC170_05
 .Lspan_0818D0E4:
-	.incbin "build/assets/0818D0E4.bin" @ rom_08180000/0818D0E4
+	.incbin "build/assets/0818D0E4.bin" @ event_fx/080BC170_06
 .Lspan_0818D29C:
-	.incbin "build/assets/0818D29C.bin" @ rom_08180000/0818D29C
+	.incbin "build/assets/0818D29C.bin" @ event_fx/080BC170_07
 .Lspan_0818D478:
-	.incbin "build/assets/0818D478.bin" @ rom_08180000/0818D478
+	.incbin "build/assets/0818D478.bin" @ event_fx/080BC170_08
 .Lspan_0818D650:
-	.incbin "build/assets/0818D650.bin" @ rom_08180000/0818D650
+	.incbin "build/assets/0818D650.bin" @ event_fx/080BC170_09
 .Lspan_0818D820:
-	.incbin "build/assets/0818D820.bin" @ rom_08180000/0818D820
+	.incbin "build/assets/0818D820.bin" @ event_fx/080BC170_10
 .Lspan_0818D994:
-	.incbin "build/assets/0818D994.bin" @ rom_08180000/0818D994
+	.incbin "build/assets/0818D994.bin" @ event_fx/080BC170_11
 .Lspan_0818DAD8:
-	.incbin "build/assets/0818DAD8.bin" @ rom_08180000/0818DAD8
+	.incbin "build/assets/0818DAD8.bin" @ event_fx/080BC170_12
 .Lspan_0818DC3C:
-	.incbin "build/assets/0818DC3C.bin" @ rom_08180000/0818DC3C
+	.incbin "build/assets/0818DC3C.bin" @ event_fx/080BC170_13
 .Lspan_0818DDB8:
-	.incbin "build/assets/0818DDB8.bin" @ rom_08180000/0818DDB8
+	.incbin "build/assets/0818DDB8.bin" @ event_fx/080BC170_14
 .Lspan_0818DF3C:
-	.incbin "build/assets/0818DF3C.bin" @ rom_08180000/0818DF3C
+	.incbin "build/assets/0818DF3C.bin" @ event_fx/080BC170_15
 .Lspan_0818E0A8:
-	.incbin "build/assets/0818E0A8.bin" @ rom_08180000/0818E0A8
+	.incbin "build/assets/0818E0A8.bin" @ event_fx/080BC170_16
 .Lspan_0818E20C:
-	.incbin "build/assets/0818E20C.bin" @ rom_08180000/0818E20C
+	.incbin "build/assets/0818E20C.bin" @ event_fx/080BC170_17
 .Lspan_0818E370:
-	.incbin "build/assets/0818E370.bin" @ rom_08180000/0818E370
+	.incbin "build/assets/0818E370.bin" @ event_fx/080BC170_18
 .Lspan_0818E4D0:
-	.incbin "build/assets/0818E4D0.bin" @ rom_08180000/0818E4D0
+	.incbin "build/assets/0818E4D0.bin" @ event_fx/080BC170_19
 .Lspan_0818E62C:
-	.incbin "build/assets/0818E62C.bin" @ rom_08180000/0818E62C
+	.incbin "build/assets/0818E62C.bin" @ event_fx/080BC170_20
 .Lspan_0818E798:
-	.incbin "build/assets/0818E798.bin" @ rom_08180000/0818E798
+	.incbin "build/assets/0818E798.bin" @ event_fx/080BC170_21
 .Lspan_0818E90C:
-	.incbin "build/assets/0818E90C.bin" @ rom_08180000/0818E90C
+	.incbin "build/assets/0818E90C.bin" @ event_fx/080BC170_22
 .Lspan_0818EA7C:
-	.incbin "build/assets/0818EA7C.bin" @ rom_08180000/0818EA7C
+	.incbin "build/assets/0818EA7C.bin" @ event_fx/080BC170_23
 .Lspan_0818EBE0:
-	.incbin "build/assets/0818EBE0.bin" @ rom_08180000/0818EBE0
+	.incbin "build/assets/0818EBE0.bin" @ event_fx/080BC170_24
 .Lspan_0818ED44:
-	.incbin "build/assets/0818ED44.bin" @ rom_08180000/0818ED44
+	.incbin "build/assets/0818ED44.bin" @ event_fx/080BC170_25
 	.global gUnknown_0818EEA0
 gUnknown_0818EEA0: @ 0x0818EEA0
 	.incbin "baserom.gba", 0x18EEA0, 0x170
@@ -867,42 +867,42 @@ gUnknown_0818F650: @ 0x0818F650
 gUnknown_0818F760: @ 0x0818F760
 	.incbin "baserom.gba", 0x18F760, 0x4E0
 .Lspan_0818FC40:
-	.incbin "build/assets/0818FC40.bin" @ rom_08180000/0818FC40
+	.incbin "build/assets/0818FC40.bin" @ event_fx/080BD1C4_00
 .Lspan_08190B08:
-	.incbin "build/assets/08190B08.bin" @ rom_08190000/08190B08
+	.incbin "build/assets/08190B08.bin" @ event_fx/080BD1C4_01
 .Lspan_08191B50:
-	.incbin "build/assets/08191B50.bin" @ rom_08190000/08191B50
+	.incbin "build/assets/08191B50.bin" @ event_fx/080BD1C4_02
 .Lspan_08192BD0:
-	.incbin "build/assets/08192BD0.bin" @ rom_08190000/08192BD0
+	.incbin "build/assets/08192BD0.bin" @ event_fx/080BD1C4_03
 .Lspan_08193C18:
-	.incbin "build/assets/08193C18.bin" @ rom_08190000/08193C18
+	.incbin "build/assets/08193C18.bin" @ event_fx/080BD1C4_04
 .Lspan_081949BC:
-	.incbin "build/assets/081949BC.bin" @ rom_08190000/081949BC
+	.incbin "build/assets/081949BC.bin" @ event_fx/080BD1C4_05
 	.global gUnknown_08194C78
 gUnknown_08194C78: @ 0x08194C78
 .Lspan_08194C78:
-	.incbin "build/assets/08194C78.bin" @ rom_08190000/08194C78
+	.incbin "build/assets/08194C78.bin" @ event_fx/080BD0E0_00
 	.global gUnknown_08195278
 gUnknown_08195278: @ 0x08195278
 	.incbin "baserom.gba", 0x195278, 0x100
 .Lspan_08195378:
-	.incbin "build/assets/08195378.bin" @ rom_08190000/08195378
+	.incbin "build/assets/08195378.bin" @ event_fx/080BD1C4_06
 .Lspan_0819556C:
-	.incbin "build/assets/0819556C.bin" @ rom_08190000/0819556C
+	.incbin "build/assets/0819556C.bin" @ event_fx/080BD1C4_07
 .Lspan_08195B58:
-	.incbin "build/assets/08195B58.bin" @ rom_08190000/08195B58
+	.incbin "build/assets/08195B58.bin" @ event_fx/080BD1C4_08
 .Lspan_08195E30:
-	.incbin "build/assets/08195E30.bin" @ rom_08190000/08195E30
+	.incbin "build/assets/08195E30.bin" @ event_fx/080BD1C4_09
 .Lspan_081962C4:
-	.incbin "build/assets/081962C4.bin" @ rom_08190000/081962C4
+	.incbin "build/assets/081962C4.bin" @ event_fx/080BD1C4_10
 	.global gUnknown_08196438
 gUnknown_08196438: @ 0x08196438
 	.byte 0x00, 0x00, 0x09, 0x2D, 0x69, 0x25, 0x4B, 0x31, 0x6C, 0x35, 0x8D, 0x41, 0xCF, 0x49, 0xB6, 0x21
 	.byte 0xF1, 0x55, 0x4F, 0x52, 0x52, 0x5E, 0x5E, 0x22, 0xB3, 0x62, 0x39, 0x6F, 0x9C, 0x7B, 0xFF, 0x7F
 .Lspan_08196458:
-	.incbin "build/assets/08196458.bin" @ rom_08190000/08196458
+	.incbin "build/assets/08196458.bin" @ event_fx/080BD1C4_11
 .Lspan_081969CC:
-	.incbin "build/assets/081969CC.bin" @ rom_08190000/081969CC
+	.incbin "build/assets/081969CC.bin" @ event_fx/080BD1C4_12
 	.global gUnknown_08196C80
 gUnknown_08196C80: @ 0x08196C80
 	.byte 0x00, 0x00, 0xC6, 0x18, 0x2B, 0x25, 0x4C, 0x21, 0x6F, 0x21, 0xAD, 0x29, 0x54, 0x1D, 0xBC, 0x19
@@ -911,7 +911,7 @@ gUnknown_08196C80: @ 0x08196C80
 gUnknown_08196CA0: @ 0x08196CA0
 	.incbin "baserom.gba", 0x196CA0, 0x48C
 .Lspan_0819712C:
-	.incbin "build/assets/0819712C.bin" @ rom_08190000/0819712C
+	.incbin "build/assets/0819712C.bin" @ event_fx/080BD550_00
 	.global gUnknown_081974F4
 gUnknown_081974F4: @ 0x081974F4
 	.incbin "baserom.gba", 0x1974F4, 0xC34
@@ -1225,13 +1225,13 @@ gUnknown_081B1DB8: @ 0x081B1DB8
 gUnknown_081B28B8: @ 0x081B28B8
 	.incbin "baserom.gba", 0x1B28B8, 0xB00
 .Lspan_081B33B8:
-	.incbin "build/assets/081B33B8.bin" @ rom_081B0000/081B33B8
+	.incbin "build/assets/081B33B8.bin" @ ui/title_menu_tiles0
 .Lspan_081B36BC:
-	.incbin "build/assets/081B36BC.bin" @ rom_081B0000/081B36BC
+	.incbin "build/assets/081B36BC.bin" @ ui/title_menu_tiles1
 .Lspan_081B39B4:
-	.incbin "build/assets/081B39B4.bin" @ rom_081B0000/081B39B4
+	.incbin "build/assets/081B39B4.bin" @ ui/title_menu_tiles2
 .Lspan_081B3CD0:
-	.incbin "build/assets/081B3CD0.bin" @ rom_081B0000/081B3CD0
+	.incbin "build/assets/081B3CD0.bin" @ ui/title_menu_tiles3
 	.global gUnknown_081B3F10
 gUnknown_081B3F10: @ 0x081B3F10
 	.incbin "baserom.gba", 0x1B3F10, 0x1000
@@ -1250,27 +1250,27 @@ gUnknown_081B5810: @ 0x081B5810
 	.global gUnknown_081B5870
 gUnknown_081B5870: @ 0x081B5870
 .Lspan_081B5870:
-	.incbin "build/assets/081B5870.bin" @ rom_081B0000/081B5870
+	.incbin "build/assets/081B5870.bin" @ ui/080C947C_00
 	.global gUnknown_081B5DD4
 gUnknown_081B5DD4: @ 0x081B5DD4
 .Lspan_081B5DD4:
-	.incbin "build/assets/081B5DD4.bin" @ rom_081B0000/081B5DD4
+	.incbin "build/assets/081B5DD4.bin" @ ui/080D6274_00
 	.global gUnknown_081B6270
 gUnknown_081B6270: @ 0x081B6270
 .Lspan_081B6270:
-	.incbin "build/assets/081B6270.bin" @ rom_081B0000/081B6270
+	.incbin "build/assets/081B6270.bin" @ ui/0815C1A8_00
 	.global gUnknown_081B6594
 gUnknown_081B6594: @ 0x081B6594
 .Lspan_081B6594:
-	.incbin "build/assets/081B6594.bin" @ rom_081B0000/081B6594
+	.incbin "build/assets/081B6594.bin" @ ui/0815C1A8_01
 	.global gUnknown_081B68BC
 gUnknown_081B68BC: @ 0x081B68BC
 .Lspan_081B68BC:
-	.incbin "build/assets/081B68BC.bin" @ rom_081B0000/081B68BC
+	.incbin "build/assets/081B68BC.bin" @ ui/0815C1A8_02
 	.global gUnknown_081B6A64
 gUnknown_081B6A64: @ 0x081B6A64
 .Lspan_081B6A64:
-	.incbin "build/assets/081B6A64.bin" @ rom_081B0000/081B6A64
+	.incbin "build/assets/081B6A64.bin" @ ui/080DA658_00
 	.global gUnknown_081B6C30
 gUnknown_081B6C30: @ 0x081B6C30
 	.incbin "baserom.gba", 0x1B6C30, 0x200

@@ -5,15 +5,15 @@
 	.global gUnknown_085029CC
 gUnknown_085029CC: @ 0x085029CC
 .Lspan_085029CC:
-	.incbin "build/assets/085029CC.bin" @ rom_08500000/085029CC
+	.incbin "build/assets/085029CC.bin" @ event_bg/bg_6C_rle
 	.global gUnknown_0850485C
 gUnknown_0850485C: @ 0x0850485C
 .Lspan_0850485C:
-	.incbin "build/assets/0850485C.bin" @ rom_08500000/0850485C
+	.incbin "build/assets/0850485C.bin" @ event_bg/bg_65_rle
 	.global gUnknown_08508AC0
 gUnknown_08508AC0: @ 0x08508AC0
 .Lspan_08508AC0:
-	.incbin "build/assets/08508AC0.bin" @ rom_08500000/08508AC0
+	.incbin "build/assets/08508AC0.bin" @ event_bg/bg_6E_rle
 	.global gUnknown_08509640
 gUnknown_08509640: @ 0x08509640
 	.byte 0x01, 0x5A, 0x83, 0x98, 0xAB, 0xC0, 0x73, 0x00
@@ -59,946 +59,946 @@ gUnknown_08509CD0: @ 0x08509CD0
 gUnknown_08509CF8: @ 0x08509CF8
 	.incbin "baserom.gba", 0x509CF8, 0x950
 .Lspan_0850A648:
-	.incbin "build/assets/0850A648.bin" @ rom_08500000/0850A648
+	.incbin "build/assets/0850A648.bin" @ characters/char_000_pose0_half0
 .Lspan_0850A83C:
-	.incbin "build/assets/0850A83C.bin" @ rom_08500000/0850A83C
+	.incbin "build/assets/0850A83C.bin" @ characters/char_000_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0xAD, 0x51, 0xB5, 0x6A, 0x77, 0x6F, 0x7F, 0x17, 0xD6, 0x15, 0x5B, 0x16
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0xDF, 0x15, 0x3B, 0x15, 0xB6, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_0850A9F4:
-	.incbin "build/assets/0850A9F4.bin" @ rom_08500000/0850A9F4
+	.incbin "build/assets/0850A9F4.bin" @ characters/char_001_pose0_half0
 .Lspan_0850AB84:
-	.incbin "build/assets/0850AB84.bin" @ rom_08500000/0850AB84
+	.incbin "build/assets/0850AB84.bin" @ characters/char_001_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x31, 0xA5, 0x24, 0xAD, 0x51, 0xB5, 0x6A, 0x29, 0x39, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0xDF, 0x15, 0x3B, 0x15, 0xB6, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_0850ACF4:
-	.incbin "build/assets/0850ACF4.bin" @ rom_08500000/0850ACF4
+	.incbin "build/assets/0850ACF4.bin" @ characters/char_002_pose0_half0
 .Lspan_0850AE84:
-	.incbin "build/assets/0850AE84.bin" @ rom_08500000/0850AE84
+	.incbin "build/assets/0850AE84.bin" @ characters/char_002_pose0_half1
 	.byte 0x00, 0x00, 0x37, 0x2A, 0x7A, 0x3E, 0xFB, 0x46, 0x30, 0x25, 0xB3, 0x35, 0xA5, 0x14, 0xA5, 0x14
 	.byte 0xA5, 0x14, 0xA5, 0x14, 0xA5, 0x14, 0xA5, 0x14, 0xA5, 0x14, 0xA5, 0x14, 0xA5, 0x14, 0xA5, 0x14
 .Lspan_0850B028:
-	.incbin "build/assets/0850B028.bin" @ rom_08500000/0850B028
+	.incbin "build/assets/0850B028.bin" @ characters/char_003_pose0_half0
 .Lspan_0850B230:
-	.incbin "build/assets/0850B230.bin" @ rom_08500000/0850B230
+	.incbin "build/assets/0850B230.bin" @ characters/char_003_pose0_half1
 	.byte 0x00, 0x00, 0x29, 0x39, 0xA5, 0x24, 0xCE, 0x49, 0x52, 0x5E, 0x27, 0x45, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0xDF, 0x15, 0x3B, 0x15, 0xB6, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_0850B43C:
-	.incbin "build/assets/0850B43C.bin" @ rom_08500000/0850B43C
+	.incbin "build/assets/0850B43C.bin" @ characters/char_004_pose0_half0
 .Lspan_0850B5A0:
-	.incbin "build/assets/0850B5A0.bin" @ rom_08500000/0850B5A0
+	.incbin "build/assets/0850B5A0.bin" @ characters/char_004_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0xA5, 0x24, 0x25, 0x39, 0x0C, 0x56, 0xB0, 0x76, 0xAF, 0x6A, 0xB9, 0x7F
 	.byte 0x25, 0x25, 0x2E, 0x15, 0xD2, 0x25, 0x56, 0x3A, 0x80, 0x01, 0x80, 0x01, 0x80, 0x01, 0x80, 0x01
 .Lspan_0850B758:
-	.incbin "build/assets/0850B758.bin" @ rom_08500000/0850B758
+	.incbin "build/assets/0850B758.bin" @ characters/char_005_pose0_half0
 .Lspan_0850B8D0:
-	.incbin "build/assets/0850B8D0.bin" @ rom_08500000/0850B8D0
+	.incbin "build/assets/0850B8D0.bin" @ characters/char_005_pose0_half1
 	.byte 0x00, 0x00, 0xFB, 0x46, 0x7A, 0x3E, 0x37, 0x2A, 0xB3, 0x35, 0x30, 0x25, 0xA5, 0x14, 0xA5, 0x14
 	.byte 0xA5, 0x14, 0xA5, 0x14, 0xA5, 0x14, 0xA5, 0x14, 0xA5, 0x14, 0xA5, 0x14, 0xA5, 0x14, 0xA5, 0x14
 .Lspan_0850BA54:
-	.incbin "build/assets/0850BA54.bin" @ rom_08500000/0850BA54
+	.incbin "build/assets/0850BA54.bin" @ characters/char_006_pose0_half0
 .Lspan_0850BC40:
-	.incbin "build/assets/0850BC40.bin" @ rom_08500000/0850BC40
+	.incbin "build/assets/0850BC40.bin" @ characters/char_006_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x48, 0xA5, 0x14, 0xCE, 0x49, 0xF7, 0x6E, 0x25, 0x6D, 0xA5, 0x59, 0x76, 0x6F
 	.byte 0x52, 0x16, 0xDB, 0x16, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x08, 0x21
 .Lspan_0850BE48:
-	.incbin "build/assets/0850BE48.bin" @ rom_08500000/0850BE48
+	.incbin "build/assets/0850BE48.bin" @ characters/char_007_pose0_half0
 .Lspan_0850BFF0:
-	.incbin "build/assets/0850BFF0.bin" @ rom_08500000/0850BFF0
+	.incbin "build/assets/0850BFF0.bin" @ characters/char_007_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0xCE, 0x49, 0xF7, 0x6E, 0x29, 0x39, 0x77, 0x6F, 0x25, 0x25, 0x30, 0x1D
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0x3B, 0x15, 0xB6, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x80, 0x01
 .Lspan_0850C16C:
-	.incbin "build/assets/0850C16C.bin" @ rom_08500000/0850C16C
+	.incbin "build/assets/0850C16C.bin" @ characters/char_008_pose0_half0
 .Lspan_0850C30C:
-	.incbin "build/assets/0850C30C.bin" @ rom_08500000/0850C30C
+	.incbin "build/assets/0850C30C.bin" @ characters/char_008_pose0_half1
 	.byte 0x00, 0x00, 0x29, 0x39, 0xA5, 0x14, 0x52, 0x5E, 0xF7, 0x6E, 0xCE, 0x49, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0850C4D8:
-	.incbin "build/assets/0850C4D8.bin" @ rom_08500000/0850C4D8
+	.incbin "build/assets/0850C4D8.bin" @ characters/char_009_pose0_half0
 .Lspan_0850C698:
-	.incbin "build/assets/0850C698.bin" @ rom_08500000/0850C698
+	.incbin "build/assets/0850C698.bin" @ characters/char_009_pose0_half1
 	.byte 0x00, 0x00, 0x3B, 0x15, 0xA5, 0x14, 0xCE, 0x49, 0xF7, 0x6E, 0xA5, 0x48, 0xA5, 0x59, 0x77, 0x6F
 	.byte 0x3D, 0x1F, 0x19, 0x1E, 0x57, 0x3A, 0xFB, 0x3A, 0xB6, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_0850C854:
-	.incbin "build/assets/0850C854.bin" @ rom_08500000/0850C854
+	.incbin "build/assets/0850C854.bin" @ characters/char_010_pose0_half0
 	.byte 0x00, 0x00, 0xA5, 0x14, 0xAD, 0x51, 0xB5, 0x6A, 0x77, 0x6F, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15
 	.byte 0xD2, 0x25, 0xFF, 0x7F, 0x80, 0x01, 0x80, 0x01, 0x80, 0x01, 0x80, 0x01, 0x80, 0x01, 0x80, 0x01
 .Lspan_0850CA5C:
-	.incbin "build/assets/0850CA5C.bin" @ rom_08500000/0850CA5C
+	.incbin "build/assets/0850CA5C.bin" @ characters/char_021_pose0_half0
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x0C, 0x56, 0xB0, 0x76, 0xB9, 0x7F, 0x77, 0x6F
 	.byte 0xDF, 0x15, 0x3B, 0x15, 0xB6, 0x14, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_0850CC58:
-	.incbin "build/assets/0850CC58.bin" @ rom_08500000/0850CC58
+	.incbin "build/assets/0850CC58.bin" @ characters/char_012_pose0_half0
 .Lspan_0850CE50:
-	.incbin "build/assets/0850CE50.bin" @ rom_08500000/0850CE50
+	.incbin "build/assets/0850CE50.bin" @ characters/char_012_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x75, 0x6F, 0x45, 0x26, 0xC5, 0x25, 0x25, 0x25
 	.byte 0x3D, 0x1F, 0x19, 0x1E, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x08, 0x21
 .Lspan_0850D004:
-	.incbin "build/assets/0850D004.bin" @ rom_08500000/0850D004
+	.incbin "build/assets/0850D004.bin" @ characters/char_013_pose0_half0
 .Lspan_0850D180:
-	.incbin "build/assets/0850D180.bin" @ rom_08500000/0850D180
+	.incbin "build/assets/0850D180.bin" @ characters/char_013_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xAD, 0x51, 0xB5, 0x6A, 0x29, 0x39, 0x77, 0x6F, 0x25, 0x25, 0x30, 0x1D
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0x7B, 0x15, 0xB6, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x08, 0x21
 .Lspan_0850D2EC:
-	.incbin "build/assets/0850D2EC.bin" @ rom_08500000/0850D2EC
+	.incbin "build/assets/0850D2EC.bin" @ characters/char_014_pose0_half0
 .Lspan_0850D490:
-	.incbin "build/assets/0850D490.bin" @ rom_08500000/0850D490
+	.incbin "build/assets/0850D490.bin" @ characters/char_014_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x77, 0x6F, 0x57, 0x3A, 0xDF, 0x15, 0x3B, 0x15
 	.byte 0xB6, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_0850D654:
-	.incbin "build/assets/0850D654.bin" @ rom_08500000/0850D654
+	.incbin "build/assets/0850D654.bin" @ characters/char_015_pose0_half0
 .Lspan_0850D818:
-	.incbin "build/assets/0850D818.bin" @ rom_08500000/0850D818
+	.incbin "build/assets/0850D818.bin" @ characters/char_015_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x77, 0x6F, 0x3D, 0x1F, 0x90, 0x1D, 0x19, 0x1E
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0xDF, 0x15, 0x3B, 0x15, 0xB6, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_0850D9E8:
-	.incbin "build/assets/0850D9E8.bin" @ rom_08500000/0850D9E8
+	.incbin "build/assets/0850D9E8.bin" @ characters/char_016_pose0_half0
 .Lspan_0850DBE0:
-	.incbin "build/assets/0850DBE0.bin" @ rom_08500000/0850DBE0
+	.incbin "build/assets/0850DBE0.bin" @ characters/char_016_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x77, 0x6F, 0x45, 0x26, 0xC5, 0x25, 0x25, 0x25
 	.byte 0x7F, 0x17, 0x90, 0x1D, 0x19, 0x1E, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_0850DDBC:
-	.incbin "build/assets/0850DDBC.bin" @ rom_08500000/0850DDBC
+	.incbin "build/assets/0850DDBC.bin" @ characters/char_017_pose0_half0
 .Lspan_0850DF68:
-	.incbin "build/assets/0850DF68.bin" @ rom_08500000/0850DF68
+	.incbin "build/assets/0850DF68.bin" @ characters/char_017_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0xCE, 0x49, 0x52, 0x5E, 0xF7, 0x6E, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x89, 0x26, 0x0B, 0x26, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00
 .Lspan_0850E130:
-	.incbin "build/assets/0850E130.bin" @ rom_08500000/0850E130
+	.incbin "build/assets/0850E130.bin" @ characters/char_018_pose0_half0
 .Lspan_0850E324:
-	.incbin "build/assets/0850E324.bin" @ rom_08500000/0850E324
+	.incbin "build/assets/0850E324.bin" @ characters/char_018_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x61, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x6D, 0xA5, 0x59
 	.byte 0xA5, 0x48, 0x77, 0x6F, 0x25, 0x25, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_0850E548:
-	.incbin "build/assets/0850E548.bin" @ rom_08500000/0850E548
+	.incbin "build/assets/0850E548.bin" @ characters/char_019_pose0_half0
 .Lspan_0850E71C:
-	.incbin "build/assets/0850E71C.bin" @ rom_08500000/0850E71C
+	.incbin "build/assets/0850E71C.bin" @ characters/char_019_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0xCE, 0x49, 0x52, 0x5E, 0x29, 0x39, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x3D, 0x1F, 0x90, 0x1D, 0x19, 0x1E, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_0850E910:
-	.incbin "build/assets/0850E910.bin" @ rom_08500000/0850E910
+	.incbin "build/assets/0850E910.bin" @ characters/char_020_pose0_half0
 .Lspan_0850EAD8:
-	.incbin "build/assets/0850EAD8.bin" @ rom_08500000/0850EAD8
+	.incbin "build/assets/0850EAD8.bin" @ characters/char_020_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0x48, 0x29
 	.byte 0xFB, 0x16, 0xB3, 0x15, 0x3B, 0x16, 0x37, 0x2A, 0x7A, 0x3E, 0x30, 0x25, 0xB3, 0x35, 0x7B, 0x6F
 .Lspan_0850ECA4:
-	.incbin "build/assets/0850ECA4.bin" @ rom_08500000/0850ECA4
+	.incbin "build/assets/0850ECA4.bin" @ characters/char_022_pose0_half0
 .Lspan_0850EE24:
-	.incbin "build/assets/0850EE24.bin" @ rom_08500000/0850EE24
+	.incbin "build/assets/0850EE24.bin" @ characters/char_022_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0xCE, 0x49, 0x52, 0x5E, 0x29, 0x39, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_0850EFE0:
-	.incbin "build/assets/0850EFE0.bin" @ rom_08500000/0850EFE0
+	.incbin "build/assets/0850EFE0.bin" @ characters/char_024_pose0_half0
 .Lspan_0850F124:
-	.incbin "build/assets/0850F124.bin" @ rom_08500000/0850F124
+	.incbin "build/assets/0850F124.bin" @ characters/char_024_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0xCE, 0x49, 0x52, 0x5E, 0x29, 0x39, 0x0C, 0x56, 0xB0, 0x76
 	.byte 0xB9, 0x7F, 0x77, 0x6F, 0x25, 0x25, 0xB6, 0x14, 0xDF, 0x15, 0x3B, 0x15, 0x00, 0x00, 0x00, 0x00
 .Lspan_0850F2E0:
-	.incbin "build/assets/0850F2E0.bin" @ rom_08500000/0850F2E0
+	.incbin "build/assets/0850F2E0.bin" @ characters/char_025_pose0_half0
 .Lspan_0850F4DC:
-	.incbin "build/assets/0850F4DC.bin" @ rom_08500000/0850F4DC
+	.incbin "build/assets/0850F4DC.bin" @ characters/char_025_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0xCE, 0x49, 0x29, 0x39, 0x27, 0x45, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0xDF, 0x15, 0x3B, 0x15, 0xB6, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0x08, 0x21
 .Lspan_0850F6A8:
-	.incbin "build/assets/0850F6A8.bin" @ rom_08500000/0850F6A8
+	.incbin "build/assets/0850F6A8.bin" @ characters/char_026_pose0_half0
 .Lspan_0850F818:
-	.incbin "build/assets/0850F818.bin" @ rom_08500000/0850F818
+	.incbin "build/assets/0850F818.bin" @ characters/char_026_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x0C, 0x56, 0xB0, 0x76, 0xB9, 0x7F, 0x77, 0x6F, 0xDF, 0x15
 	.byte 0x3B, 0x15, 0xB6, 0x14, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_0850F9CC:
-	.incbin "build/assets/0850F9CC.bin" @ rom_08500000/0850F9CC
+	.incbin "build/assets/0850F9CC.bin" @ characters/char_027_pose0_half0
 .Lspan_0850FB78:
-	.incbin "build/assets/0850FB78.bin" @ rom_08500000/0850FB78
+	.incbin "build/assets/0850FB78.bin" @ characters/char_027_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0xCE, 0x49, 0x52, 0x5E, 0x29, 0x39, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0xBB, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x08, 0x21, 0x08, 0x21
 .Lspan_0850FD24:
-	.incbin "build/assets/0850FD24.bin" @ rom_08500000/0850FD24
+	.incbin "build/assets/0850FD24.bin" @ characters/char_028_pose0_half0
 .Lspan_0850FED4:
-	.incbin "build/assets/0850FED4.bin" @ rom_08500000/0850FED4
+	.incbin "build/assets/0850FED4.bin" @ characters/char_028_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0xCE, 0x49, 0x52, 0x5E, 0x29, 0x39, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0xBB, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00
 .Lspan_08510088:
-	.incbin "build/assets/08510088.bin" @ rom_08510000/08510088
+	.incbin "build/assets/08510088.bin" @ characters/char_029_pose0_half0
 .Lspan_08510268:
-	.incbin "build/assets/08510268.bin" @ rom_08510000/08510268
+	.incbin "build/assets/08510268.bin" @ characters/char_029_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0xCE, 0x49, 0x52, 0x5E, 0x29, 0x39, 0x77, 0x6F, 0x25, 0x25
 	.byte 0xB6, 0x14, 0x57, 0x3A, 0xFB, 0x3A, 0xDF, 0x15, 0x3B, 0x15, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_08510470:
-	.incbin "build/assets/08510470.bin" @ rom_08510000/08510470
+	.incbin "build/assets/08510470.bin" @ characters/char_030_pose0_half0
 .Lspan_085105C0:
-	.incbin "build/assets/085105C0.bin" @ rom_08510000/085105C0
+	.incbin "build/assets/085105C0.bin" @ characters/char_030_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0xB6, 0x14, 0x57, 0x3A, 0xFB, 0x3A, 0xDF, 0x15, 0x3B, 0x15, 0x2E, 0x15
 	.byte 0xD2, 0x25, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_08510768:
-	.incbin "build/assets/08510768.bin" @ rom_08510000/08510768
+	.incbin "build/assets/08510768.bin" @ characters/char_031_pose0_half0
 .Lspan_08510904:
-	.incbin "build/assets/08510904.bin" @ rom_08510000/08510904
+	.incbin "build/assets/08510904.bin" @ characters/char_031_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0xCE, 0x49, 0x52, 0x5E, 0x29, 0x39, 0x77, 0x6F, 0x25, 0x25
 	.byte 0xC5, 0x25, 0x45, 0x26, 0x25, 0x25, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_08510AD8:
-	.incbin "build/assets/08510AD8.bin" @ rom_08510000/08510AD8
+	.incbin "build/assets/08510AD8.bin" @ characters/char_032_pose0_half0
 .Lspan_08510C88:
-	.incbin "build/assets/08510C88.bin" @ rom_08510000/08510C88
+	.incbin "build/assets/08510C88.bin" @ characters/char_032_pose0_half1
 	.byte 0x00, 0x00, 0x29, 0x39, 0xA5, 0x14, 0xCE, 0x49, 0x52, 0x5E, 0x25, 0x6D, 0xA5, 0x59, 0xA5, 0x48
 	.byte 0x77, 0x6F, 0x25, 0x25, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x08, 0x21
 .Lspan_08510E68:
-	.incbin "build/assets/08510E68.bin" @ rom_08510000/08510E68
+	.incbin "build/assets/08510E68.bin" @ characters/char_033_pose0_half0
 .Lspan_08510FDC:
-	.incbin "build/assets/08510FDC.bin" @ rom_08510000/08510FDC
+	.incbin "build/assets/08510FDC.bin" @ characters/char_033_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x77, 0x6F, 0x5B, 0x16, 0x57, 0x3A, 0xFB, 0x3A
 	.byte 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_08511188:
-	.incbin "build/assets/08511188.bin" @ rom_08510000/08511188
+	.incbin "build/assets/08511188.bin" @ characters/char_034_pose0_half0
 .Lspan_0851136C:
-	.incbin "build/assets/0851136C.bin" @ rom_08510000/0851136C
+	.incbin "build/assets/0851136C.bin" @ characters/char_034_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x48, 0xA5, 0x14, 0xCE, 0x49, 0x52, 0x5E, 0x25, 0x6D, 0xA5, 0x59, 0x77, 0x6F
 	.byte 0x5B, 0x16, 0x7F, 0x17, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00
 .Lspan_08511560:
-	.incbin "build/assets/08511560.bin" @ rom_08510000/08511560
+	.incbin "build/assets/08511560.bin" @ characters/char_035_pose0_half0
 .Lspan_08511764:
-	.incbin "build/assets/08511764.bin" @ rom_08510000/08511764
+	.incbin "build/assets/08511764.bin" @ characters/char_035_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x29, 0x08, 0x25, 0x8C, 0x51, 0x94, 0x6E, 0x28, 0x45, 0x76, 0x6F, 0x48, 0x29
 	.byte 0x3B, 0x17, 0x94, 0x19, 0x1B, 0x16, 0x17, 0x26, 0x9B, 0x36, 0x2F, 0x25, 0x93, 0x31, 0x7B, 0x6F
 .Lspan_08511940:
-	.incbin "build/assets/08511940.bin" @ rom_08510000/08511940
+	.incbin "build/assets/08511940.bin" @ characters/char_036_pose0_half0
 .Lspan_08511B48:
-	.incbin "build/assets/08511B48.bin" @ rom_08510000/08511B48
+	.incbin "build/assets/08511B48.bin" @ characters/char_036_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0x48, 0x29
 	.byte 0xFB, 0x16, 0xB3, 0x15, 0x3B, 0x16, 0x37, 0x2A, 0x7A, 0x3E, 0x30, 0x25, 0xB3, 0x35, 0x7B, 0x6F
 .Lspan_08511CFC:
-	.incbin "build/assets/08511CFC.bin" @ rom_08510000/08511CFC
+	.incbin "build/assets/08511CFC.bin" @ characters/char_037_pose0_half0
 .Lspan_08511F3C:
-	.incbin "build/assets/08511F3C.bin" @ rom_08510000/08511F3C
+	.incbin "build/assets/08511F3C.bin" @ characters/char_037_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x48, 0xA5, 0x14, 0xCE, 0x49, 0x52, 0x5E, 0x25, 0x6D, 0xA5, 0x59, 0x77, 0x6F
 	.byte 0xD6, 0x15, 0x5B, 0x16, 0x7F, 0x17, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_0851213C:
-	.incbin "build/assets/0851213C.bin" @ rom_08510000/0851213C
+	.incbin "build/assets/0851213C.bin" @ characters/char_038_pose0_half0
 .Lspan_08512348:
-	.incbin "build/assets/08512348.bin" @ rom_08510000/08512348
+	.incbin "build/assets/08512348.bin" @ characters/char_038_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0xCE, 0x49, 0x52, 0x5E, 0x29, 0x39, 0x77, 0x6F, 0x25, 0x25
 	.byte 0xC5, 0x25, 0x45, 0x26, 0x25, 0x25, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_08512540:
-	.incbin "build/assets/08512540.bin" @ rom_08510000/08512540
+	.incbin "build/assets/08512540.bin" @ characters/char_039_pose0_half0
 .Lspan_08512764:
-	.incbin "build/assets/08512764.bin" @ rom_08510000/08512764
+	.incbin "build/assets/08512764.bin" @ characters/char_039_pose0_half1
 	.incbin "baserom.gba", 0x512970, 0x80
 .Lspan_085129F0:
-	.incbin "build/assets/085129F0.bin" @ rom_08510000/085129F0
+	.incbin "build/assets/085129F0.bin" @ characters/char_043_pose0_half0
 .Lspan_08512BB0:
-	.incbin "build/assets/08512BB0.bin" @ rom_08510000/08512BB0
+	.incbin "build/assets/08512BB0.bin" @ characters/char_043_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0xCE, 0x49, 0x52, 0x5E, 0x29, 0x39, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x3D, 0x1F, 0x19, 0x1E, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00
 .Lspan_08512D68:
-	.incbin "build/assets/08512D68.bin" @ rom_08510000/08512D68
+	.incbin "build/assets/08512D68.bin" @ characters/char_044_pose0_half0
 .Lspan_08512F14:
-	.incbin "build/assets/08512F14.bin" @ rom_08510000/08512F14
+	.incbin "build/assets/08512F14.bin" @ characters/char_044_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x77, 0x6F, 0x25, 0x25, 0x45, 0x26
 	.byte 0xC5, 0x25, 0x57, 0x3A, 0xFB, 0x3A, 0x3B, 0x15, 0xB6, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_085130CC:
-	.incbin "build/assets/085130CC.bin" @ rom_08510000/085130CC
+	.incbin "build/assets/085130CC.bin" @ characters/char_045_pose0_half0
 .Lspan_0851323C:
-	.incbin "build/assets/0851323C.bin" @ rom_08510000/0851323C
+	.incbin "build/assets/0851323C.bin" @ characters/char_045_pose0_half1
 .Lspan_085133BC:
-	.incbin "build/assets/085133BC.bin" @ rom_08510000/085133BC
+	.incbin "build/assets/085133BC.bin" @ characters/char_046_pose0_half0
 	.byte 0x00, 0x00, 0xA5, 0x48, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x6D, 0xA5, 0x59, 0x77, 0x6F
 	.byte 0x19, 0x1E, 0x3D, 0x1F, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00
 .Lspan_085136A4:
-	.incbin "build/assets/085136A4.bin" @ rom_08510000/085136A4
+	.incbin "build/assets/085136A4.bin" @ characters/char_047_pose0_half0
 .Lspan_085138B4:
-	.incbin "build/assets/085138B4.bin" @ rom_08510000/085138B4
+	.incbin "build/assets/085138B4.bin" @ characters/char_047_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x48, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x6D, 0xA5, 0x59, 0x77, 0x6F
 	.byte 0x19, 0x1E, 0x3D, 0x1F, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x08, 0x21
 .Lspan_08513A84:
-	.incbin "build/assets/08513A84.bin" @ rom_08510000/08513A84
+	.incbin "build/assets/08513A84.bin" @ characters/char_048_pose0_half0
 .Lspan_08513CDC:
-	.incbin "build/assets/08513CDC.bin" @ rom_08510000/08513CDC
+	.incbin "build/assets/08513CDC.bin" @ characters/char_049_pose0_half0
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x52, 0x5E, 0x52, 0x5E, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x45, 0x26, 0xC5, 0x25, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00
 .Lspan_08513F28:
-	.incbin "build/assets/08513F28.bin" @ rom_08510000/08513F28
+	.incbin "build/assets/08513F28.bin" @ characters/char_050_pose0_half0
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0x48, 0x29
 	.byte 0xFB, 0x16, 0xB3, 0x15, 0x3B, 0x16, 0x37, 0x2A, 0x7A, 0x3E, 0x30, 0x25, 0xB3, 0x35, 0x7B, 0x6F
 .Lspan_0851418C:
-	.incbin "build/assets/0851418C.bin" @ rom_08510000/0851418C
+	.incbin "build/assets/0851418C.bin" @ characters/char_051_pose0_half0
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x77, 0x6F, 0x25, 0x25, 0x45, 0x26
 	.byte 0xC5, 0x25, 0xDF, 0x15, 0x3B, 0x15, 0xB6, 0x14, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_085143D0:
-	.incbin "build/assets/085143D0.bin" @ rom_08510000/085143D0
+	.incbin "build/assets/085143D0.bin" @ characters/char_052_pose0_half0
 .Lspan_08514604:
-	.incbin "build/assets/08514604.bin" @ rom_08510000/08514604
+	.incbin "build/assets/08514604.bin" @ characters/char_053_pose0_half0
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x52, 0x5E, 0xF7, 0x6E, 0x25, 0x25, 0xC5, 0x25
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_085147DC:
-	.incbin "build/assets/085147DC.bin" @ rom_08510000/085147DC
+	.incbin "build/assets/085147DC.bin" @ characters/char_054_pose0_half0
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0xA5, 0x38, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x3D, 0x1F, 0x90, 0x1D, 0x19, 0x1E, 0x57, 0x3A, 0xFB, 0x3A, 0xD2, 0x25, 0x00, 0x00, 0x00, 0x00
 .Lspan_085149CC:
-	.incbin "build/assets/085149CC.bin" @ rom_08510000/085149CC
+	.incbin "build/assets/085149CC.bin" @ characters/char_055_pose0_half0
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x25, 0x25, 0x3B, 0x15, 0xB6, 0x14, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_08514B9C:
-	.incbin "build/assets/08514B9C.bin" @ rom_08510000/08514B9C
+	.incbin "build/assets/08514B9C.bin" @ characters/char_056_pose0_half0
 .Lspan_08514DDC:
-	.incbin "build/assets/08514DDC.bin" @ rom_08510000/08514DDC
+	.incbin "build/assets/08514DDC.bin" @ characters/char_056_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x77, 0x6F, 0x7F, 0x17, 0xD6, 0x15, 0x5B, 0x16
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0xDF, 0x15, 0x3B, 0x15, 0xB6, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_08515010:
-	.incbin "build/assets/08515010.bin" @ rom_08510000/08515010
+	.incbin "build/assets/08515010.bin" @ characters/char_057_pose0_half0
 .Lspan_085152C4:
-	.incbin "build/assets/085152C4.bin" @ rom_08510000/085152C4
+	.incbin "build/assets/085152C4.bin" @ characters/char_057_pose0_half1
 	.byte 0x40, 0x03, 0xF3, 0x28, 0x34, 0x29, 0x94, 0x31, 0xF4, 0x39, 0x56, 0x46, 0x77, 0x4E, 0x98, 0x52
 	.byte 0xB9, 0x56, 0xDA, 0x5A, 0x3B, 0x5F, 0x3C, 0x63, 0xDA, 0x1F, 0x5D, 0x67, 0x7D, 0x6B, 0x21, 0x04
 .Lspan_08515628:
-	.incbin "build/assets/08515628.bin" @ rom_08510000/08515628
+	.incbin "build/assets/08515628.bin" @ characters/char_058_pose0_half0
 .Lspan_085158E0:
-	.incbin "build/assets/085158E0.bin" @ rom_08510000/085158E0
+	.incbin "build/assets/085158E0.bin" @ characters/char_058_pose0_half1
 .Lspan_08515C28:
-	.incbin "build/assets/08515C28.bin" @ rom_08510000/08515C28
+	.incbin "build/assets/08515C28.bin" @ characters/char_235_gfx_08515C28
 .Lspan_08515EE4:
-	.incbin "build/assets/08515EE4.bin" @ rom_08510000/08515EE4
+	.incbin "build/assets/08515EE4.bin" @ characters/char_235_gfx_08515EE4
 .Lspan_08516230:
-	.incbin "build/assets/08516230.bin" @ rom_08510000/08516230
+	.incbin "build/assets/08516230.bin" @ characters/char_235_gfx_08516230
 .Lspan_085164E8:
-	.incbin "build/assets/085164E8.bin" @ rom_08510000/085164E8
+	.incbin "build/assets/085164E8.bin" @ characters/char_235_gfx_085164E8
 .Lspan_08516834:
-	.incbin "build/assets/08516834.bin" @ rom_08510000/08516834
+	.incbin "build/assets/08516834.bin" @ characters/char_235_gfx_08516834
 .Lspan_08516A18:
-	.incbin "build/assets/08516A18.bin" @ rom_08510000/08516A18
+	.incbin "build/assets/08516A18.bin" @ characters/char_235_gfx_08516A18
 .Lspan_08516C5C:
-	.incbin "build/assets/08516C5C.bin" @ rom_08510000/08516C5C
+	.incbin "build/assets/08516C5C.bin" @ characters/char_235_gfx_08516C5C
 .Lspan_08516DE8:
-	.incbin "build/assets/08516DE8.bin" @ rom_08510000/08516DE8
+	.incbin "build/assets/08516DE8.bin" @ characters/char_235_gfx_08516DE8
 .Lspan_08516FB4:
-	.incbin "build/assets/08516FB4.bin" @ rom_08510000/08516FB4
+	.incbin "build/assets/08516FB4.bin" @ characters/char_235_gfx_08516FB4
 .Lspan_085170B0:
-	.incbin "build/assets/085170B0.bin" @ rom_08510000/085170B0
+	.incbin "build/assets/085170B0.bin" @ characters/char_235_frame_08564FF8_half0
 	.global gUnknown_085171C4
 gUnknown_085171C4: @ 0x085171C4
 .Lspan_085171C4:
-	.incbin "build/assets/085171C4.bin" @ rom_08510000/085171C4
+	.incbin "build/assets/085171C4.bin" @ characters/char_059_pose0_half0
 	.global gUnknown_08517414
 gUnknown_08517414: @ 0x08517414
 	.byte 0x00, 0x00, 0xA5, 0x24, 0x25, 0x25, 0x45, 0x26, 0xA5, 0x48, 0xC6, 0x6D, 0x7F, 0x17, 0xD6, 0x15
 	.byte 0xDF, 0x15, 0xB0, 0x14, 0x67, 0x51, 0xA5, 0x38, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_08517434:
-	.incbin "build/assets/08517434.bin" @ rom_08510000/08517434
+	.incbin "build/assets/08517434.bin" @ characters/char_068_pose0_half0
 .Lspan_085175CC:
-	.incbin "build/assets/085175CC.bin" @ rom_08510000/085175CC
+	.incbin "build/assets/085175CC.bin" @ characters/char_068_pose0_half1
 .Lspan_0851773C:
-	.incbin "build/assets/0851773C.bin" @ rom_08510000/0851773C
+	.incbin "build/assets/0851773C.bin" @ characters/char_068_frame_08565208_half0
 .Lspan_085178E4:
-	.incbin "build/assets/085178E4.bin" @ rom_08510000/085178E4
+	.incbin "build/assets/085178E4.bin" @ characters/char_068_frame_08565208_half1
 	.byte 0x47, 0x02, 0xC6, 0x18, 0xC8, 0x14, 0x09, 0x25, 0xEC, 0x18, 0x2D, 0x1D, 0x4C, 0x2D, 0x6F, 0x1D
 	.byte 0x8D, 0x39, 0x51, 0x59, 0x13, 0x69, 0xB4, 0x1D, 0xCF, 0x45, 0x57, 0x6D, 0x55, 0x2A, 0xFA, 0x79
 .Lspan_08517A84:
-	.incbin "build/assets/08517A84.bin" @ rom_08510000/08517A84
+	.incbin "build/assets/08517A84.bin" @ characters/char_069_pose0_half0
 	.byte 0x00, 0x00, 0xC7, 0x18, 0x2A, 0x21, 0x2D, 0x25, 0x90, 0x29, 0xD3, 0x2D, 0x13, 0x32, 0x15, 0x32
 	.byte 0x36, 0x3A, 0x56, 0x42, 0xB9, 0x46, 0xDA, 0x52, 0x3C, 0x5B, 0x7F, 0x5F, 0xBF, 0x6F, 0xFF, 0x7B
 .Lspan_08517D94:
-	.incbin "build/assets/08517D94.bin" @ rom_08510000/08517D94
+	.incbin "build/assets/08517D94.bin" @ characters/char_070_pose0_half0
 .Lspan_08517F6C:
-	.incbin "build/assets/08517F6C.bin" @ rom_08510000/08517F6C
+	.incbin "build/assets/08517F6C.bin" @ characters/char_070_pose0_half1
 .Lspan_08518140:
-	.incbin "build/assets/08518140.bin" @ rom_08510000/08518140
+	.incbin "build/assets/08518140.bin" @ characters/char_070_frame_08565298_half0
 .Lspan_0851831C:
-	.incbin "build/assets/0851831C.bin" @ rom_08510000/0851831C
+	.incbin "build/assets/0851831C.bin" @ characters/char_070_frame_08565298_half1
 	.byte 0x00, 0x00, 0x08, 0x21, 0x08, 0x21, 0x6B, 0x1D, 0xCE, 0x25, 0x8D, 0x21, 0xD3, 0x29, 0x9B, 0x15
 	.byte 0x37, 0x32, 0x09, 0x21, 0x1B, 0x36, 0x2B, 0x21, 0x9B, 0x2D, 0x3B, 0x15, 0xF8, 0x1C, 0xEF, 0x1C
 .Lspan_08518514:
-	.incbin "build/assets/08518514.bin" @ rom_08510000/08518514
+	.incbin "build/assets/08518514.bin" @ characters/char_071_pose0_half0
 .Lspan_08518620:
-	.incbin "build/assets/08518620.bin" @ rom_08510000/08518620
+	.incbin "build/assets/08518620.bin" @ characters/char_071_pose0_half1
 .Lspan_08518730:
-	.incbin "build/assets/08518730.bin" @ rom_08510000/08518730
+	.incbin "build/assets/08518730.bin" @ characters/char_071_frame_085652E0_half0
 .Lspan_08518840:
-	.incbin "build/assets/08518840.bin" @ rom_08510000/08518840
+	.incbin "build/assets/08518840.bin" @ characters/char_071_frame_085652E0_half1
 .Lspan_08518960:
-	.incbin "build/assets/08518960.bin" @ rom_08510000/08518960
+	.incbin "build/assets/08518960.bin" @ characters/char_071_frame_085652F8_half0
 .Lspan_08518A70:
-	.incbin "build/assets/08518A70.bin" @ rom_08510000/08518A70
+	.incbin "build/assets/08518A70.bin" @ characters/char_071_frame_085652F8_half1
 .Lspan_08518B88:
-	.incbin "build/assets/08518B88.bin" @ rom_08510000/08518B88
+	.incbin "build/assets/08518B88.bin" @ characters/char_071_frame_08565310_half0
 .Lspan_08518C8C:
-	.incbin "build/assets/08518C8C.bin" @ rom_08510000/08518C8C
+	.incbin "build/assets/08518C8C.bin" @ characters/char_071_frame_08565310_half1
 	.byte 0x00, 0x00, 0xAD, 0x51, 0x52, 0x5E, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 	.byte 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_08518DBC:
-	.incbin "build/assets/08518DBC.bin" @ rom_08510000/08518DBC
+	.incbin "build/assets/08518DBC.bin" @ characters/char_072_pose0_half0
 .Lspan_08518F80:
-	.incbin "build/assets/08518F80.bin" @ rom_08510000/08518F80
+	.incbin "build/assets/08518F80.bin" @ characters/char_072_pose0_half1
 	.byte 0x00, 0x00, 0x25, 0x39, 0x25, 0x25, 0xA5, 0x24, 0x29, 0x39, 0x52, 0x5E, 0x57, 0x3A, 0xFB, 0x3A
 	.byte 0x2E, 0x15, 0xD2, 0x25, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_08519118:
-	.incbin "build/assets/08519118.bin" @ rom_08510000/08519118
+	.incbin "build/assets/08519118.bin" @ characters/char_073_pose0_half0
 .Lspan_085192C0:
-	.incbin "build/assets/085192C0.bin" @ rom_08510000/085192C0
+	.incbin "build/assets/085192C0.bin" @ characters/char_073_pose0_half1
 	.byte 0x80, 0x01, 0xA5, 0x48, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x6D, 0xA5, 0x59, 0x77, 0x6F
 	.byte 0x7F, 0x17, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x08, 0x21, 0x08, 0x21
 .Lspan_085194C0:
-	.incbin "build/assets/085194C0.bin" @ rom_08510000/085194C0
+	.incbin "build/assets/085194C0.bin" @ characters/char_074_pose0_half0
 .Lspan_08519644:
-	.incbin "build/assets/08519644.bin" @ rom_08510000/08519644
+	.incbin "build/assets/08519644.bin" @ characters/char_074_pose0_half1
 	.byte 0x80, 0x01, 0xA5, 0x48, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x6D, 0xA5, 0x59, 0x77, 0x6F
 	.byte 0x7F, 0x17, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x08, 0x21, 0x08, 0x21
 .Lspan_085197EC:
-	.incbin "build/assets/085197EC.bin" @ rom_08510000/085197EC
+	.incbin "build/assets/085197EC.bin" @ characters/char_075_pose0_half0
 .Lspan_085199AC:
-	.incbin "build/assets/085199AC.bin" @ rom_08510000/085199AC
+	.incbin "build/assets/085199AC.bin" @ characters/char_075_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x39, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_08519B4C:
-	.incbin "build/assets/08519B4C.bin" @ rom_08510000/08519B4C
+	.incbin "build/assets/08519B4C.bin" @ characters/char_076_pose0_half0
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0x48, 0x29
 	.byte 0xFB, 0x16, 0xB3, 0x15, 0x3B, 0x16, 0x37, 0x2A, 0x7A, 0x3E, 0x30, 0x25, 0xB3, 0x35, 0x7B, 0x6F
 .Lspan_08519DA8:
-	.incbin "build/assets/08519DA8.bin" @ rom_08510000/08519DA8
+	.incbin "build/assets/08519DA8.bin" @ characters/char_077_pose0_half0
 .Lspan_08519FB0:
-	.incbin "build/assets/08519FB0.bin" @ rom_08510000/08519FB0
+	.incbin "build/assets/08519FB0.bin" @ characters/char_079_pose0_half0
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0x48, 0x29
 	.byte 0xFB, 0x16, 0xB3, 0x15, 0x3B, 0x16, 0x37, 0x2A, 0x7A, 0x3E, 0xB3, 0x35, 0x7B, 0x6F, 0x08, 0x21
 .Lspan_0851A1B0:
-	.incbin "build/assets/0851A1B0.bin" @ rom_08510000/0851A1B0
+	.incbin "build/assets/0851A1B0.bin" @ characters/char_080_pose0_half0
 .Lspan_0851A3A4:
-	.incbin "build/assets/0851A3A4.bin" @ rom_08510000/0851A3A4
+	.incbin "build/assets/0851A3A4.bin" @ characters/char_081_pose0_half0
 	.byte 0x00, 0x00, 0xA5, 0x48, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x6D, 0xA5, 0x59, 0x77, 0x6F
 	.byte 0x57, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_0851A5FC:
-	.incbin "build/assets/0851A5FC.bin" @ rom_08510000/0851A5FC
+	.incbin "build/assets/0851A5FC.bin" @ characters/char_082_pose0_half0
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0x48, 0x29
 	.byte 0xFB, 0x16, 0xB3, 0x15, 0x3B, 0x16, 0x37, 0x2A, 0x7A, 0x3E, 0x30, 0x25, 0xB3, 0x35, 0x7B, 0x6F
 .Lspan_0851A8D0:
-	.incbin "build/assets/0851A8D0.bin" @ rom_08510000/0851A8D0
+	.incbin "build/assets/0851A8D0.bin" @ characters/char_083_pose0_half0
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0x48, 0x29
 	.byte 0xFB, 0x16, 0xB3, 0x15, 0x3B, 0x16, 0x37, 0x2A, 0x7A, 0x3E, 0x30, 0x25, 0xB3, 0x35, 0x7B, 0x6F
 .Lspan_0851AB98:
-	.incbin "build/assets/0851AB98.bin" @ rom_08510000/0851AB98
+	.incbin "build/assets/0851AB98.bin" @ characters/char_084_pose0_half0
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0x48, 0x29
 	.byte 0xFB, 0x16, 0xB3, 0x15, 0x3B, 0x16, 0x37, 0x2A, 0x7A, 0x3E, 0x30, 0x25, 0xB3, 0x35, 0x7B, 0x6F
 .Lspan_0851AE50:
-	.incbin "build/assets/0851AE50.bin" @ rom_08510000/0851AE50
+	.incbin "build/assets/0851AE50.bin" @ characters/char_085_pose0_half0
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0xAD, 0x51, 0xB5, 0x6A, 0x29, 0x39, 0x77, 0x6F, 0x25, 0x25
 	.byte 0xD6, 0x15, 0x5B, 0x16, 0x2E, 0x15, 0xD2, 0x25, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_0851B0AC:
-	.incbin "build/assets/0851B0AC.bin" @ rom_08510000/0851B0AC
+	.incbin "build/assets/0851B0AC.bin" @ characters/char_086_pose0_half0
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x77, 0x6F, 0x7F, 0x17, 0xD6, 0x15
 	.byte 0x5B, 0x16, 0x57, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_0851B330:
-	.incbin "build/assets/0851B330.bin" @ rom_08510000/0851B330
+	.incbin "build/assets/0851B330.bin" @ characters/char_087_pose0_half0
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x29, 0x39, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x7F, 0x17, 0xD6, 0x15, 0x5B, 0x16, 0x57, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00
 .Lspan_0851B5D0:
-	.incbin "build/assets/0851B5D0.bin" @ rom_08510000/0851B5D0
+	.incbin "build/assets/0851B5D0.bin" @ characters/char_088_pose0_half0
 .Lspan_0851B7AC:
-	.incbin "build/assets/0851B7AC.bin" @ rom_08510000/0851B7AC
+	.incbin "build/assets/0851B7AC.bin" @ characters/char_088_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x29, 0x39, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x16, 0x26, 0xDF, 0x15, 0x3B, 0x15, 0xF1, 0x1C, 0x30, 0x25, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00
 .Lspan_0851B97C:
-	.incbin "build/assets/0851B97C.bin" @ rom_08510000/0851B97C
+	.incbin "build/assets/0851B97C.bin" @ characters/char_089_pose0_half0
 .Lspan_0851BB14:
-	.incbin "build/assets/0851BB14.bin" @ rom_08510000/0851BB14
+	.incbin "build/assets/0851BB14.bin" @ characters/char_089_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x77, 0x6F, 0x45, 0x26, 0xC5, 0x25, 0x25, 0x25
 	.byte 0x7F, 0x17, 0xD6, 0x15, 0x5B, 0x16, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_0851BCE0:
-	.incbin "build/assets/0851BCE0.bin" @ rom_08510000/0851BCE0
+	.incbin "build/assets/0851BCE0.bin" @ characters/char_090_pose0_half0
 .Lspan_0851BF74:
-	.incbin "build/assets/0851BF74.bin" @ rom_08510000/0851BF74
+	.incbin "build/assets/0851BF74.bin" @ characters/char_090_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x25, 0xCE, 0x19, 0x52, 0x26, 0xB5, 0x3E, 0x39, 0x4B, 0x7B, 0x5B, 0xB5, 0x56
 	.byte 0x52, 0x4A, 0xAD, 0x35, 0x29, 0x25, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0851C16C:
-	.incbin "build/assets/0851C16C.bin" @ rom_08510000/0851C16C
+	.incbin "build/assets/0851C16C.bin" @ characters/char_091_pose0_half0
 .Lspan_0851C400:
-	.incbin "build/assets/0851C400.bin" @ rom_08510000/0851C400
+	.incbin "build/assets/0851C400.bin" @ characters/char_091_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x29, 0xCE, 0x1D, 0x52, 0x2E, 0xB5, 0x3E, 0x18, 0x4B, 0x7B, 0x57, 0xB5, 0x56
 	.byte 0x52, 0x4A, 0xCE, 0x39, 0x29, 0x25, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0851C5F8:
-	.incbin "build/assets/0851C5F8.bin" @ rom_08510000/0851C5F8
+	.incbin "build/assets/0851C5F8.bin" @ characters/char_092_pose0_half0
 .Lspan_0851C88C:
-	.incbin "build/assets/0851C88C.bin" @ rom_08510000/0851C88C
+	.incbin "build/assets/0851C88C.bin" @ characters/char_092_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x29, 0xCE, 0x1D, 0x52, 0x2E, 0xB5, 0x3E, 0x18, 0x4B, 0x7B, 0x57, 0xB5, 0x56
 	.byte 0x52, 0x4A, 0xCE, 0x39, 0x29, 0x25, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0851CA84:
-	.incbin "build/assets/0851CA84.bin" @ rom_08510000/0851CA84
+	.incbin "build/assets/0851CA84.bin" @ characters/char_093_pose0_half0
 .Lspan_0851CD14:
-	.incbin "build/assets/0851CD14.bin" @ rom_08510000/0851CD14
+	.incbin "build/assets/0851CD14.bin" @ characters/char_093_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x29, 0xCE, 0x1D, 0x52, 0x2E, 0xB5, 0x3E, 0x18, 0x4B, 0x7B, 0x57, 0xB5, 0x56
 	.byte 0x52, 0x4A, 0xCE, 0x39, 0x29, 0x25, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0851CF24:
-	.incbin "build/assets/0851CF24.bin" @ rom_08510000/0851CF24
+	.incbin "build/assets/0851CF24.bin" @ characters/char_094_pose0_half0
 .Lspan_0851D1B8:
-	.incbin "build/assets/0851D1B8.bin" @ rom_08510000/0851D1B8
+	.incbin "build/assets/0851D1B8.bin" @ characters/char_094_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x29, 0xCE, 0x1D, 0x52, 0x2E, 0xB5, 0x3E, 0x18, 0x4B, 0x7B, 0x57, 0xB5, 0x56
 	.byte 0x52, 0x4A, 0xCE, 0x39, 0x29, 0x25, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0851D3B4:
-	.incbin "build/assets/0851D3B4.bin" @ rom_08510000/0851D3B4
+	.incbin "build/assets/0851D3B4.bin" @ characters/char_095_pose0_half0
 .Lspan_0851D5D8:
-	.incbin "build/assets/0851D5D8.bin" @ rom_08510000/0851D5D8
+	.incbin "build/assets/0851D5D8.bin" @ characters/char_095_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x77, 0x6F, 0xD2, 0x15, 0xFB, 0x16, 0x2E, 0x15
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0xDF, 0x15, 0x3B, 0x15, 0xB6, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_0851D7A8:
-	.incbin "build/assets/0851D7A8.bin" @ rom_08510000/0851D7A8
+	.incbin "build/assets/0851D7A8.bin" @ characters/char_096_pose0_half0
 .Lspan_0851DA14:
-	.incbin "build/assets/0851DA14.bin" @ rom_08510000/0851DA14
+	.incbin "build/assets/0851DA14.bin" @ characters/char_096_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x29, 0xCE, 0x1D, 0x52, 0x2E, 0xB5, 0x3E, 0x18, 0x4B, 0x7B, 0x57, 0xB5, 0x56
 	.byte 0x52, 0x4A, 0xCE, 0x39, 0x29, 0x25, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0851DC60:
-	.incbin "build/assets/0851DC60.bin" @ rom_08510000/0851DC60
+	.incbin "build/assets/0851DC60.bin" @ characters/char_097_pose0_half0
 .Lspan_0851DE08:
-	.incbin "build/assets/0851DE08.bin" @ rom_08510000/0851DE08
+	.incbin "build/assets/0851DE08.bin" @ characters/char_097_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x48, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x6D, 0xA5, 0x59
 	.byte 0x25, 0x39, 0x77, 0x6F, 0x25, 0x25, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_0851DF78:
-	.incbin "build/assets/0851DF78.bin" @ rom_08510000/0851DF78
+	.incbin "build/assets/0851DF78.bin" @ characters/char_098_pose0_half0
 .Lspan_0851E0E8:
-	.incbin "build/assets/0851E0E8.bin" @ rom_08510000/0851E0E8
+	.incbin "build/assets/0851E0E8.bin" @ characters/char_098_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x48, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x6D, 0xA5, 0x59, 0x77, 0x6F
 	.byte 0x5B, 0x16, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00
 .Lspan_0851E294:
-	.incbin "build/assets/0851E294.bin" @ rom_08510000/0851E294
+	.incbin "build/assets/0851E294.bin" @ characters/char_099_pose0_half0
 .Lspan_0851E430:
-	.incbin "build/assets/0851E430.bin" @ rom_08510000/0851E430
+	.incbin "build/assets/0851E430.bin" @ characters/char_099_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x48, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x6D, 0xA5, 0x59, 0x77, 0x6F
 	.byte 0x5B, 0x16, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00
 .Lspan_0851E624:
-	.incbin "build/assets/0851E624.bin" @ rom_08510000/0851E624
+	.incbin "build/assets/0851E624.bin" @ characters/char_100_pose0_half0
 .Lspan_0851E830:
-	.incbin "build/assets/0851E830.bin" @ rom_08510000/0851E830
+	.incbin "build/assets/0851E830.bin" @ characters/char_100_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x49, 0x08, 0x29, 0x29, 0x6D, 0x29, 0x59, 0x29, 0x41, 0x27, 0x45, 0xC8, 0x51
 	.byte 0x48, 0x29, 0x29, 0x25, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0851EA30:
-	.incbin "build/assets/0851EA30.bin" @ rom_08510000/0851EA30
+	.incbin "build/assets/0851EA30.bin" @ characters/char_101_pose0_half0
 .Lspan_0851EC28:
-	.incbin "build/assets/0851EC28.bin" @ rom_08510000/0851EC28
+	.incbin "build/assets/0851EC28.bin" @ characters/char_101_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x25, 0x49, 0x25, 0x25, 0x4E, 0x4A, 0x77, 0x6F, 0xFB, 0x3A
 	.byte 0x2E, 0x15, 0xD2, 0x25, 0x57, 0x3A, 0xB6, 0x14, 0x0C, 0x21, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00
 .Lspan_0851EE68:
-	.incbin "build/assets/0851EE68.bin" @ rom_08510000/0851EE68
+	.incbin "build/assets/0851EE68.bin" @ characters/char_102_pose0_half0
 .Lspan_0851F050:
-	.incbin "build/assets/0851F050.bin" @ rom_08510000/0851F050
+	.incbin "build/assets/0851F050.bin" @ characters/char_102_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x48, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x6D, 0xA5, 0x59, 0x77, 0x6F
 	.byte 0x5B, 0x16, 0x7F, 0x17, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00
 .Lspan_0851F258:
-	.incbin "build/assets/0851F258.bin" @ rom_08510000/0851F258
+	.incbin "build/assets/0851F258.bin" @ characters/char_103_pose0_half0
 .Lspan_0851F454:
-	.incbin "build/assets/0851F454.bin" @ rom_08510000/0851F454
+	.incbin "build/assets/0851F454.bin" @ characters/char_103_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x48, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x6D, 0x77, 0x6F, 0x5B, 0x16
 	.byte 0x7F, 0x17, 0x57, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x80, 0x01, 0x80, 0x01, 0x80, 0x01
 .Lspan_0851F614:
-	.incbin "build/assets/0851F614.bin" @ rom_08510000/0851F614
+	.incbin "build/assets/0851F614.bin" @ characters/char_104_pose0_half0
 .Lspan_0851F7E0:
-	.incbin "build/assets/0851F7E0.bin" @ rom_08510000/0851F7E0
+	.incbin "build/assets/0851F7E0.bin" @ characters/char_104_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0x48, 0x29
 	.byte 0x06, 0x26, 0x85, 0x1E, 0x67, 0x1D, 0x37, 0x2A, 0x7A, 0x3E, 0x30, 0x25, 0xB3, 0x35, 0x7B, 0x6F
 .Lspan_0851F974:
-	.incbin "build/assets/0851F974.bin" @ rom_08510000/0851F974
+	.incbin "build/assets/0851F974.bin" @ characters/char_105_pose0_half0
 .Lspan_0851FB28:
-	.incbin "build/assets/0851FB28.bin" @ rom_08510000/0851FB28
+	.incbin "build/assets/0851FB28.bin" @ characters/char_105_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x48, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x6D, 0xA5, 0x59, 0x77, 0x6F
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x80, 0x01, 0x80, 0x01, 0x80, 0x01
 .Lspan_0851FCB4:
-	.incbin "build/assets/0851FCB4.bin" @ rom_08510000/0851FCB4
+	.incbin "build/assets/0851FCB4.bin" @ characters/char_106_pose0_half0
 .Lspan_0851FE1C:
-	.incbin "build/assets/0851FE1C.bin" @ rom_08510000/0851FE1C
+	.incbin "build/assets/0851FE1C.bin" @ characters/char_106_pose0_half1
 	.byte 0x00, 0x00, 0x29, 0x21, 0x6B, 0x1D, 0xFF, 0x7B, 0xFF, 0x7F, 0xFF, 0x5B, 0xDF, 0x4B, 0xFF, 0x77
 	.byte 0xBD, 0x6B, 0xF8, 0x16, 0x7C, 0x33, 0xFF, 0x67, 0xEF, 0x25, 0xFF, 0x6F, 0xF9, 0x46, 0xFF, 0x7F
 .Lspan_0851FF78:
-	.incbin "build/assets/0851FF78.bin" @ rom_08510000/0851FF78
+	.incbin "build/assets/0851FF78.bin" @ characters/char_107_pose0_half0
 .Lspan_08520168:
-	.incbin "build/assets/08520168.bin" @ rom_08520000/08520168
+	.incbin "build/assets/08520168.bin" @ characters/char_107_pose0_half1
 .Lspan_08520300:
-	.incbin "build/assets/08520300.bin" @ rom_08520000/08520300
+	.incbin "build/assets/08520300.bin" @ characters/char_108_pose0_half0
 .Lspan_08520530:
-	.incbin "build/assets/08520530.bin" @ rom_08520000/08520530
+	.incbin "build/assets/08520530.bin" @ characters/char_108_pose0_half1
 .Lspan_08520758:
-	.incbin "build/assets/08520758.bin" @ rom_08520000/08520758
+	.incbin "build/assets/08520758.bin" @ characters/char_109_pose0_half0
 .Lspan_08520960:
-	.incbin "build/assets/08520960.bin" @ rom_08520000/08520960
+	.incbin "build/assets/08520960.bin" @ characters/char_109_pose0_half1
 	.byte 0x00, 0x00, 0x25, 0x6D, 0xA5, 0x48, 0xA5, 0x48, 0xA5, 0x24, 0x29, 0x39, 0x52, 0x5E, 0x75, 0x6F
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x80, 0x01, 0x80, 0x01, 0x80, 0x01
 .Lspan_08520B58:
-	.incbin "build/assets/08520B58.bin" @ rom_08520000/08520B58
+	.incbin "build/assets/08520B58.bin" @ characters/char_110_pose0_half0
 .Lspan_08520D24:
-	.incbin "build/assets/08520D24.bin" @ rom_08520000/08520D24
+	.incbin "build/assets/08520D24.bin" @ characters/char_110_pose0_half1
 	.byte 0x00, 0x00, 0x25, 0x6D, 0xA5, 0x48, 0xA5, 0x38, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x77, 0x6F
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x80, 0x01, 0x80, 0x01, 0x80, 0x01
 .Lspan_08520EF8:
-	.incbin "build/assets/08520EF8.bin" @ rom_08520000/08520EF8
+	.incbin "build/assets/08520EF8.bin" @ characters/char_111_pose0_half0
 .Lspan_085210B4:
-	.incbin "build/assets/085210B4.bin" @ rom_08520000/085210B4
+	.incbin "build/assets/085210B4.bin" @ characters/char_111_pose0_half1
 	.byte 0x00, 0x00, 0x25, 0x6D, 0xA5, 0x48, 0xA5, 0x38, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x57, 0x3A
 	.byte 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0x80, 0x01, 0x80, 0x01, 0x80, 0x01, 0x80, 0x01, 0x80, 0x01
 .Lspan_08521280:
-	.incbin "build/assets/08521280.bin" @ rom_08520000/08521280
+	.incbin "build/assets/08521280.bin" @ characters/char_112_pose0_half0
 .Lspan_0852142C:
-	.incbin "build/assets/0852142C.bin" @ rom_08520000/0852142C
+	.incbin "build/assets/0852142C.bin" @ characters/char_112_pose0_half1
 	.byte 0x00, 0x00, 0x25, 0x6D, 0xA5, 0x48, 0xA5, 0x38, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x77, 0x6F
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0xDF, 0x15, 0x3B, 0x15, 0xB6, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_085215F8:
-	.incbin "build/assets/085215F8.bin" @ rom_08520000/085215F8
+	.incbin "build/assets/085215F8.bin" @ characters/char_113_pose0_half0
 .Lspan_08521818:
-	.incbin "build/assets/08521818.bin" @ rom_08520000/08521818
+	.incbin "build/assets/08521818.bin" @ characters/char_113_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0x48, 0x29
 	.byte 0xFB, 0x16, 0xB3, 0x15, 0x3B, 0x16, 0x37, 0x2A, 0x7A, 0x3E, 0x30, 0x25, 0xB3, 0x35, 0x7B, 0x6F
 .Lspan_08521B10:
-	.incbin "build/assets/08521B10.bin" @ rom_08520000/08521B10
+	.incbin "build/assets/08521B10.bin" @ characters/char_114_pose0_half0
 .Lspan_08521D34:
-	.incbin "build/assets/08521D34.bin" @ rom_08520000/08521D34
+	.incbin "build/assets/08521D34.bin" @ characters/char_114_pose0_half1
 .Lspan_0852200C:
-	.incbin "build/assets/0852200C.bin" @ rom_08520000/0852200C
+	.incbin "build/assets/0852200C.bin" @ characters/char_114_frame_08563204_half0
 .Lspan_08522228:
-	.incbin "build/assets/08522228.bin" @ rom_08520000/08522228
+	.incbin "build/assets/08522228.bin" @ characters/char_114_frame_08563204_half1
 .Lspan_08522504:
-	.incbin "build/assets/08522504.bin" @ rom_08520000/08522504
+	.incbin "build/assets/08522504.bin" @ characters/char_114_frame_0856321C_half0
 .Lspan_08522724:
-	.incbin "build/assets/08522724.bin" @ rom_08520000/08522724
+	.incbin "build/assets/08522724.bin" @ characters/char_114_frame_0856321C_half1
 .Lspan_08522A00:
-	.incbin "build/assets/08522A00.bin" @ rom_08520000/08522A00
+	.incbin "build/assets/08522A00.bin" @ characters/char_114_frame_08563234_half0
 .Lspan_08522C20:
-	.incbin "build/assets/08522C20.bin" @ rom_08520000/08522C20
+	.incbin "build/assets/08522C20.bin" @ characters/char_114_frame_08563234_half1
 	.byte 0x00, 0x00, 0xE7, 0x28, 0xE7, 0x24, 0x6B, 0x49, 0x52, 0x5E, 0x06, 0x3D, 0x12, 0x63, 0x27, 0x25
 	.byte 0x98, 0x12, 0x71, 0x11, 0xF8, 0x11, 0xF4, 0x25, 0x37, 0x36, 0x0E, 0x21, 0x71, 0x2D, 0x18, 0x63
 .Lspan_08522F1C:
-	.incbin "build/assets/08522F1C.bin" @ rom_08520000/08522F1C
+	.incbin "build/assets/08522F1C.bin" @ characters/char_116_pose0_half0
 .Lspan_08523030:
-	.incbin "build/assets/08523030.bin" @ rom_08520000/08523030
+	.incbin "build/assets/08523030.bin" @ characters/char_116_pose0_half1
 .Lspan_0852314C:
-	.incbin "build/assets/0852314C.bin" @ rom_08520000/0852314C
+	.incbin "build/assets/0852314C.bin" @ characters/char_116_frame_0856327C_half0
 .Lspan_08523264:
-	.incbin "build/assets/08523264.bin" @ rom_08520000/08523264
+	.incbin "build/assets/08523264.bin" @ characters/char_116_frame_0856327C_half1
 	.byte 0x00, 0x00, 0xAD, 0x51, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 	.byte 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_08523394:
-	.incbin "build/assets/08523394.bin" @ rom_08520000/08523394
+	.incbin "build/assets/08523394.bin" @ characters/char_117_pose0_half0
 .Lspan_08523578:
-	.incbin "build/assets/08523578.bin" @ rom_08520000/08523578
+	.incbin "build/assets/08523578.bin" @ characters/char_117_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0x48, 0x29
 	.byte 0xFB, 0x16, 0xB3, 0x15, 0x3B, 0x16, 0x37, 0x2A, 0x7A, 0x3E, 0x30, 0x25, 0xB3, 0x35, 0x7B, 0x6F
 .Lspan_0852376C:
-	.incbin "build/assets/0852376C.bin" @ rom_08520000/0852376C
+	.incbin "build/assets/0852376C.bin" @ characters/char_118_pose0_half0
 .Lspan_08523954:
-	.incbin "build/assets/08523954.bin" @ rom_08520000/08523954
+	.incbin "build/assets/08523954.bin" @ characters/char_118_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0x48, 0x29
 	.byte 0xFB, 0x16, 0xB3, 0x15, 0x3B, 0x16, 0x37, 0x2A, 0x7A, 0x3E, 0x30, 0x25, 0xB3, 0x35, 0x7B, 0x6F
 .Lspan_08523B50:
-	.incbin "build/assets/08523B50.bin" @ rom_08520000/08523B50
+	.incbin "build/assets/08523B50.bin" @ characters/char_119_pose0_half0
 .Lspan_08523C58:
-	.incbin "build/assets/08523C58.bin" @ rom_08520000/08523C58
+	.incbin "build/assets/08523C58.bin" @ characters/char_119_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x27, 0x45, 0x77, 0x6F, 0x57, 0x3A
 	.byte 0xFB, 0x3A, 0xDB, 0x18, 0x2E, 0x15, 0xD2, 0x25, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_08523D90:
-	.incbin "build/assets/08523D90.bin" @ rom_08520000/08523D90
+	.incbin "build/assets/08523D90.bin" @ characters/char_120_pose0_half0
 .Lspan_08523EA4:
-	.incbin "build/assets/08523EA4.bin" @ rom_08520000/08523EA4
+	.incbin "build/assets/08523EA4.bin" @ characters/char_120_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0x37, 0x2A
 	.byte 0x7A, 0x3E, 0xDB, 0x18, 0xF2, 0x1C, 0xB3, 0x35, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_08524004:
-	.incbin "build/assets/08524004.bin" @ rom_08520000/08524004
+	.incbin "build/assets/08524004.bin" @ characters/char_121_pose0_half0
 .Lspan_08524114:
-	.incbin "build/assets/08524114.bin" @ rom_08520000/08524114
+	.incbin "build/assets/08524114.bin" @ characters/char_121_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0x37, 0x2A
 	.byte 0x7A, 0x3E, 0xDB, 0x18, 0xF2, 0x1C, 0xB3, 0x35, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_08524264:
-	.incbin "build/assets/08524264.bin" @ rom_08520000/08524264
+	.incbin "build/assets/08524264.bin" @ characters/char_122_pose0_half0
 .Lspan_08524474:
-	.incbin "build/assets/08524474.bin" @ rom_08520000/08524474
+	.incbin "build/assets/08524474.bin" @ characters/char_122_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x77, 0x6F, 0x45, 0x26, 0xC5, 0x25, 0x7F, 0x17
 	.byte 0x5B, 0x16, 0x57, 0x3A, 0xFB, 0x3A, 0x3B, 0x15, 0xB6, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_0852467C:
-	.incbin "build/assets/0852467C.bin" @ rom_08520000/0852467C
+	.incbin "build/assets/0852467C.bin" @ characters/char_123_pose0_half0
 .Lspan_08524848:
-	.incbin "build/assets/08524848.bin" @ rom_08520000/08524848
+	.incbin "build/assets/08524848.bin" @ characters/char_123_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x75, 0x6F, 0x85, 0x1E, 0x07, 0x1E, 0x3B, 0x17
 	.byte 0x3B, 0x16, 0x37, 0x2A, 0x7A, 0x3E, 0xF6, 0x1C, 0xF2, 0x1C, 0x30, 0x25, 0xB3, 0x35, 0x7B, 0x6F
 .Lspan_08524A2C:
-	.incbin "build/assets/08524A2C.bin" @ rom_08520000/08524A2C
+	.incbin "build/assets/08524A2C.bin" @ characters/char_124_pose0_half0
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x39, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x30, 0x1D, 0x3B, 0x15, 0xB6, 0x14, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_08524D00:
-	.incbin "build/assets/08524D00.bin" @ rom_08520000/08524D00
+	.incbin "build/assets/08524D00.bin" @ characters/char_125_pose0_half0
 .Lspan_08525014:
-	.incbin "build/assets/08525014.bin" @ rom_08520000/08525014
+	.incbin "build/assets/08525014.bin" @ characters/char_126_pose0_half0
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x39, 0x25, 0x25, 0x7F, 0x17
 	.byte 0xD6, 0x15, 0x5B, 0x16, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00
 .Lspan_08525250:
-	.incbin "build/assets/08525250.bin" @ rom_08520000/08525250
+	.incbin "build/assets/08525250.bin" @ characters/char_127_pose0_half0
 .Lspan_08525488:
-	.incbin "build/assets/08525488.bin" @ rom_08520000/08525488
+	.incbin "build/assets/08525488.bin" @ characters/char_128_pose0_half0
 .Lspan_0852573C:
-	.incbin "build/assets/0852573C.bin" @ rom_08520000/0852573C
+	.incbin "build/assets/0852573C.bin" @ characters/char_129_pose0_half0
 .Lspan_08525900:
-	.incbin "build/assets/08525900.bin" @ rom_08520000/08525900
+	.incbin "build/assets/08525900.bin" @ characters/char_130_pose0_half0
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x29, 0x39, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x30, 0x1D, 0x57, 0x3A, 0xFB, 0x3A, 0x3B, 0x15, 0xB6, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_08525BC4:
-	.incbin "build/assets/08525BC4.bin" @ rom_08520000/08525BC4
+	.incbin "build/assets/08525BC4.bin" @ characters/char_131_pose0_half0
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0x48, 0x29
 	.byte 0x37, 0x2A, 0x7A, 0x3E, 0xDB, 0x18, 0xF2, 0x1C, 0x30, 0x25, 0xB3, 0x35, 0x7B, 0x6F, 0x08, 0x21
 .Lspan_08525E60:
-	.incbin "build/assets/08525E60.bin" @ rom_08520000/08525E60
+	.incbin "build/assets/08525E60.bin" @ characters/char_132_pose0_half0
 .Lspan_085260C4:
-	.incbin "build/assets/085260C4.bin" @ rom_08520000/085260C4
+	.incbin "build/assets/085260C4.bin" @ characters/char_133_pose0_half0
 .Lspan_085262A0:
-	.incbin "build/assets/085262A0.bin" @ rom_08520000/085262A0
+	.incbin "build/assets/085262A0.bin" @ characters/char_134_pose0_half0
 .Lspan_08526440:
-	.incbin "build/assets/08526440.bin" @ rom_08520000/08526440
+	.incbin "build/assets/08526440.bin" @ characters/char_134_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x52, 0x5E, 0x29, 0x39, 0x25, 0x25, 0xC5, 0x25, 0x45, 0x26
 	.byte 0xF2, 0x1C, 0x3B, 0x15, 0xB6, 0x14, 0xDF, 0x15, 0x7B, 0x6F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_08526604:
-	.incbin "build/assets/08526604.bin" @ rom_08520000/08526604
+	.incbin "build/assets/08526604.bin" @ characters/char_135_pose0_half0
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x52, 0x5E, 0x29, 0x39, 0x77, 0x6F, 0x25, 0x25, 0x57, 0x3A
 	.byte 0xFB, 0x3A, 0xB6, 0x14, 0x3B, 0x15, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00
 .Lspan_08526830:
-	.incbin "build/assets/08526830.bin" @ rom_08520000/08526830
+	.incbin "build/assets/08526830.bin" @ characters/char_136_pose0_half0
 .Lspan_085269B4:
-	.incbin "build/assets/085269B4.bin" @ rom_08520000/085269B4
+	.incbin "build/assets/085269B4.bin" @ characters/char_136_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x77, 0x6F, 0x45, 0x26, 0xC5, 0x25, 0x25, 0x25
 	.byte 0x7F, 0x17, 0xD6, 0x15, 0x5B, 0x16, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0x00, 0x00
 .Lspan_08526AF4:
-	.incbin "build/assets/08526AF4.bin" @ rom_08520000/08526AF4
+	.incbin "build/assets/08526AF4.bin" @ characters/char_137_pose0_half0
 .Lspan_08526CE4:
-	.incbin "build/assets/08526CE4.bin" @ rom_08520000/08526CE4
+	.incbin "build/assets/08526CE4.bin" @ characters/char_137_pose0_half1
 	.incbin "baserom.gba", 0x526ED0, 0x40
 .Lspan_08526F10:
-	.incbin "build/assets/08526F10.bin" @ rom_08520000/08526F10
+	.incbin "build/assets/08526F10.bin" @ characters/char_139_pose0_half0
 .Lspan_085270C0:
-	.incbin "build/assets/085270C0.bin" @ rom_08520000/085270C0
+	.incbin "build/assets/085270C0.bin" @ characters/char_139_pose0_half1
 	.incbin "baserom.gba", 0x527280, 0x40
 .Lspan_085272C0:
-	.incbin "build/assets/085272C0.bin" @ rom_08520000/085272C0
+	.incbin "build/assets/085272C0.bin" @ characters/char_145_pose0_half0
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x39, 0x77, 0x6F, 0x25, 0x25, 0x57, 0x3A
 	.byte 0xFB, 0x3A, 0x3B, 0x15, 0xDF, 0x15, 0xB6, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00
 .Lspan_08527534:
-	.incbin "build/assets/08527534.bin" @ rom_08520000/08527534
+	.incbin "build/assets/08527534.bin" @ characters/char_147_pose0_half0
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x39, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x7F, 0x17, 0xD6, 0x15, 0x5B, 0x16, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0x00, 0x00
 .Lspan_085277EC:
-	.incbin "build/assets/085277EC.bin" @ rom_08520000/085277EC
+	.incbin "build/assets/085277EC.bin" @ characters/char_149_pose0_half0
 .Lspan_08527A24:
-	.incbin "build/assets/08527A24.bin" @ rom_08520000/08527A24
+	.incbin "build/assets/08527A24.bin" @ characters/char_151_pose0_half0
 .Lspan_08527CA0:
-	.incbin "build/assets/08527CA0.bin" @ rom_08520000/08527CA0
+	.incbin "build/assets/08527CA0.bin" @ characters/char_153_pose0_half0
 .Lspan_08527E60:
-	.incbin "build/assets/08527E60.bin" @ rom_08520000/08527E60
+	.incbin "build/assets/08527E60.bin" @ characters/char_153_pose0_half1
 	.incbin "baserom.gba", 0x527FE0, 0x40
 .Lspan_08528020:
-	.incbin "build/assets/08528020.bin" @ rom_08520000/08528020
+	.incbin "build/assets/08528020.bin" @ characters/char_155_pose0_half0
 .Lspan_085281D8:
-	.incbin "build/assets/085281D8.bin" @ rom_08520000/085281D8
+	.incbin "build/assets/085281D8.bin" @ characters/char_155_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x49, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0x3B, 0x15, 0xB6, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x08, 0x21
 .Lspan_08528394:
-	.incbin "build/assets/08528394.bin" @ rom_08520000/08528394
+	.incbin "build/assets/08528394.bin" @ characters/char_156_pose0_half0
 .Lspan_08528528:
-	.incbin "build/assets/08528528.bin" @ rom_08520000/08528528
+	.incbin "build/assets/08528528.bin" @ characters/char_156_pose0_half1
 .Lspan_085286C0:
-	.incbin "build/assets/085286C0.bin" @ rom_08520000/085286C0
+	.incbin "build/assets/085286C0.bin" @ characters/char_157_pose0_half0
 .Lspan_0852884C:
-	.incbin "build/assets/0852884C.bin" @ rom_08520000/0852884C
+	.incbin "build/assets/0852884C.bin" @ characters/char_157_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0x48, 0x29
 	.byte 0x37, 0x2A, 0x7A, 0x3E, 0xDB, 0x18, 0xF2, 0x1C, 0x30, 0x25, 0xB3, 0x35, 0x7B, 0x6F, 0x08, 0x21
 .Lspan_085289F0:
-	.incbin "build/assets/085289F0.bin" @ rom_08520000/085289F0
+	.incbin "build/assets/085289F0.bin" @ characters/char_158_pose0_half0
 .Lspan_08528B7C:
-	.incbin "build/assets/08528B7C.bin" @ rom_08520000/08528B7C
+	.incbin "build/assets/08528B7C.bin" @ characters/char_158_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0x48, 0x29
 	.byte 0x37, 0x2A, 0x7A, 0x3E, 0xDB, 0x18, 0xF2, 0x1C, 0x30, 0x25, 0xB3, 0x35, 0x7B, 0x6F, 0x08, 0x21
 .Lspan_08528D24:
-	.incbin "build/assets/08528D24.bin" @ rom_08520000/08528D24
+	.incbin "build/assets/08528D24.bin" @ characters/char_159_pose0_half0
 .Lspan_08528E4C:
-	.incbin "build/assets/08528E4C.bin" @ rom_08520000/08528E4C
+	.incbin "build/assets/08528E4C.bin" @ characters/char_159_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x49, 0x7B, 0x47, 0xBB, 0x14, 0x08, 0x21
 	.byte 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_08528F70:
-	.incbin "build/assets/08528F70.bin" @ rom_08520000/08528F70
+	.incbin "build/assets/08528F70.bin" @ characters/char_160_pose0_half0
 .Lspan_08529074:
-	.incbin "build/assets/08529074.bin" @ rom_08520000/08529074
+	.incbin "build/assets/08529074.bin" @ characters/char_160_pose0_half1
 	.byte 0x00, 0x00, 0x75, 0x6F, 0xBB, 0x14, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 	.byte 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_08529190:
-	.incbin "build/assets/08529190.bin" @ rom_08520000/08529190
+	.incbin "build/assets/08529190.bin" @ characters/char_161_pose0_half0
 .Lspan_08529314:
-	.incbin "build/assets/08529314.bin" @ rom_08520000/08529314
+	.incbin "build/assets/08529314.bin" @ characters/char_161_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x77, 0x6F, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15
 	.byte 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_08529474:
-	.incbin "build/assets/08529474.bin" @ rom_08520000/08529474
+	.incbin "build/assets/08529474.bin" @ characters/char_162_pose0_half0
 	.byte 0x00, 0x00, 0x0B, 0x4E, 0x0C, 0x4E, 0x2D, 0x52, 0x4E, 0x52, 0x6F, 0x56, 0x90, 0x5A, 0xB1, 0x5A
 	.byte 0xD3, 0x5E, 0xD4, 0x62, 0xF5, 0x62, 0x16, 0x67, 0x37, 0x6B, 0x58, 0x6B, 0x79, 0x6F, 0x9B, 0x73
 .Lspan_085297C8:
-	.incbin "build/assets/085297C8.bin" @ rom_08520000/085297C8
+	.incbin "build/assets/085297C8.bin" @ characters/char_163_pose0_half0
 .Lspan_08529974:
-	.incbin "build/assets/08529974.bin" @ rom_08520000/08529974
+	.incbin "build/assets/08529974.bin" @ characters/char_163_pose0_half1
 .Lspan_08529B10:
-	.incbin "build/assets/08529B10.bin" @ rom_08520000/08529B10
+	.incbin "build/assets/08529B10.bin" @ characters/char_163_frame_08565464_half0
 .Lspan_08529CC0:
-	.incbin "build/assets/08529CC0.bin" @ rom_08520000/08529CC0
+	.incbin "build/assets/08529CC0.bin" @ characters/char_163_frame_08565464_half1
 	.byte 0x00, 0x00, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x75, 0x6F, 0xFB, 0x16, 0xB3, 0x15, 0x3B, 0x16
 	.byte 0x37, 0x2A, 0x7A, 0x3E, 0x7B, 0x15, 0xFB, 0x18, 0xF2, 0x1C, 0x30, 0x25, 0xB3, 0x35, 0x08, 0x21
 .Lspan_08529E78:
-	.incbin "build/assets/08529E78.bin" @ rom_08520000/08529E78
+	.incbin "build/assets/08529E78.bin" @ characters/char_164_pose0_half0
 .Lspan_0852A094:
-	.incbin "build/assets/0852A094.bin" @ rom_08520000/0852A094
+	.incbin "build/assets/0852A094.bin" @ characters/char_164_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x77, 0x6F, 0x45, 0x26, 0xC5, 0x25, 0x25, 0x25
 	.byte 0x7F, 0x17, 0x94, 0x19, 0xD6, 0x15, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_0852A284:
-	.incbin "build/assets/0852A284.bin" @ rom_08520000/0852A284
+	.incbin "build/assets/0852A284.bin" @ characters/char_165_pose0_half0
 .Lspan_0852A430:
-	.incbin "build/assets/0852A430.bin" @ rom_08520000/0852A430
+	.incbin "build/assets/0852A430.bin" @ characters/char_165_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x75, 0x6F, 0x85, 0x1E, 0x07, 0x1E, 0x67, 0x1D
 	.byte 0x3B, 0x17, 0xB3, 0x15, 0x3B, 0x16, 0x37, 0x2A, 0x7A, 0x3E, 0x30, 0x25, 0xB3, 0x35, 0x7B, 0x6F
 .Lspan_0852A610:
-	.incbin "build/assets/0852A610.bin" @ rom_08520000/0852A610
+	.incbin "build/assets/0852A610.bin" @ characters/char_166_pose0_half0
 .Lspan_0852A7AC:
-	.incbin "build/assets/0852A7AC.bin" @ rom_08520000/0852A7AC
+	.incbin "build/assets/0852A7AC.bin" @ characters/char_166_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x49, 0xC8, 0x51, 0x4B, 0x62, 0xAF, 0x6A
 	.byte 0x77, 0x6F, 0x25, 0x25, 0xCE, 0x1D, 0x57, 0x16, 0xFB, 0x3A, 0xFF, 0x7F, 0x08, 0x21, 0x08, 0x21
 .Lspan_0852A990:
-	.incbin "build/assets/0852A990.bin" @ rom_08520000/0852A990
+	.incbin "build/assets/0852A990.bin" @ characters/char_167_pose0_half0
 .Lspan_0852AB84:
-	.incbin "build/assets/0852AB84.bin" @ rom_08520000/0852AB84
+	.incbin "build/assets/0852AB84.bin" @ characters/char_167_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x75, 0x6F, 0x05, 0x17, 0x85, 0x16, 0x5B, 0x16
 	.byte 0x7F, 0x17, 0xD6, 0x15, 0x3B, 0x15, 0xB6, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x08, 0x21
 .Lspan_0852ADDC:
-	.incbin "build/assets/0852ADDC.bin" @ rom_08520000/0852ADDC
+	.incbin "build/assets/0852ADDC.bin" @ characters/char_168_pose0_half0
 .Lspan_0852B018:
-	.incbin "build/assets/0852B018.bin" @ rom_08520000/0852B018
+	.incbin "build/assets/0852B018.bin" @ characters/char_168_pose0_half1
 .Lspan_0852B354:
-	.incbin "build/assets/0852B354.bin" @ rom_08520000/0852B354
+	.incbin "build/assets/0852B354.bin" @ characters/char_168_frame_085654AC_half0
 .Lspan_0852B590:
-	.incbin "build/assets/0852B590.bin" @ rom_08520000/0852B590
+	.incbin "build/assets/0852B590.bin" @ characters/char_168_frame_085654AC_half1
 	.byte 0x00, 0x00, 0x08, 0x35, 0x08, 0x31, 0x6A, 0x61, 0x71, 0x6E, 0x27, 0x51, 0x72, 0x6F, 0x28, 0x35
 	.byte 0xF3, 0x3D, 0x56, 0x4A, 0x2B, 0x2D, 0x71, 0x49, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0852B8E8:
-	.incbin "build/assets/0852B8E8.bin" @ rom_08520000/0852B8E8
+	.incbin "build/assets/0852B8E8.bin" @ characters/char_169_pose0_half0
 .Lspan_0852BB34:
-	.incbin "build/assets/0852BB34.bin" @ rom_08520000/0852BB34
+	.incbin "build/assets/0852BB34.bin" @ characters/char_169_pose0_half1
 .Lspan_0852BE80:
-	.incbin "build/assets/0852BE80.bin" @ rom_08520000/0852BE80
+	.incbin "build/assets/0852BE80.bin" @ characters/char_169_frame_085654F4_half0
 .Lspan_0852C0CC:
-	.incbin "build/assets/0852C0CC.bin" @ rom_08520000/0852C0CC
+	.incbin "build/assets/0852C0CC.bin" @ characters/char_169_frame_085654F4_half1
 	.byte 0x00, 0x00, 0x08, 0x35, 0x08, 0x31, 0x6A, 0x61, 0x71, 0x6E, 0x27, 0x51, 0x72, 0x6F, 0x28, 0x35
 	.byte 0xF3, 0x3D, 0x56, 0x4A, 0x2B, 0x2D, 0x71, 0x49, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 	.global gUnknown_0852C434
 gUnknown_0852C434: @ 0x0852C434
 .Lspan_0852C434:
-	.incbin "build/assets/0852C434.bin" @ rom_08520000/0852C434
+	.incbin "build/assets/0852C434.bin" @ characters/char_172_pose0_half0
 	.global gUnknown_0852C8CC
 gUnknown_0852C8CC: @ 0x0852C8CC
 .Lspan_0852C8CC:
-	.incbin "build/assets/0852C8CC.bin" @ rom_08520000/0852C8CC
+	.incbin "build/assets/0852C8CC.bin" @ characters/char_172_pose0_half1
 	.global gUnknown_0852CC0C
 gUnknown_0852CC0C: @ 0x0852CC0C
 	.incbin "baserom.gba", 0x52CC0C, 0x80
 .Lspan_0852CC8C:
-	.incbin "build/assets/0852CC8C.bin" @ rom_08520000/0852CC8C
+	.incbin "build/assets/0852CC8C.bin" @ characters/char_176_pose0_half0
 	.byte 0x00, 0x00, 0x32, 0x2D, 0x29, 0x35, 0x29, 0x2D, 0x49, 0x49, 0x09, 0x42, 0x69, 0x2D, 0xE9, 0x3D
 	.byte 0x2C, 0x25, 0x29, 0x25, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xC6, 0x18, 0xC6, 0x18
 .Lspan_0852D080:
-	.incbin "build/assets/0852D080.bin" @ rom_08520000/0852D080
+	.incbin "build/assets/0852D080.bin" @ characters/char_177_pose0_half0
 .Lspan_0852D444:
-	.incbin "build/assets/0852D444.bin" @ rom_08520000/0852D444
+	.incbin "build/assets/0852D444.bin" @ characters/char_178_pose0_half0
 .Lspan_0852D5CC:
-	.incbin "build/assets/0852D5CC.bin" @ rom_08520000/0852D5CC
+	.incbin "build/assets/0852D5CC.bin" @ characters/char_178_pose0_half1
 .Lspan_0852D72C:
-	.incbin "build/assets/0852D72C.bin" @ rom_08520000/0852D72C
+	.incbin "build/assets/0852D72C.bin" @ characters/char_178_frame_08566228_half0
 .Lspan_0852D8C4:
-	.incbin "build/assets/0852D8C4.bin" @ rom_08520000/0852D8C4
+	.incbin "build/assets/0852D8C4.bin" @ characters/char_178_frame_08566228_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x39, 0x77, 0x6F, 0x25, 0x25, 0x57, 0x3A
 	.byte 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x7B, 0x6F, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00
 .Lspan_0852DA58:
-	.incbin "build/assets/0852DA58.bin" @ rom_08520000/0852DA58
+	.incbin "build/assets/0852DA58.bin" @ characters/char_179_pose0_half0
 .Lspan_0852DC80:
-	.incbin "build/assets/0852DC80.bin" @ rom_08520000/0852DC80
+	.incbin "build/assets/0852DC80.bin" @ characters/char_179_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x29, 0x48, 0x29, 0xAF, 0x56, 0x32, 0x67, 0x76, 0x6F, 0xCE, 0x39, 0x08, 0x21
 	.byte 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0852DEA4:
-	.incbin "build/assets/0852DEA4.bin" @ rom_08520000/0852DEA4
+	.incbin "build/assets/0852DEA4.bin" @ characters/char_180_pose0_half0
 .Lspan_0852DFF8:
-	.incbin "build/assets/0852DFF8.bin" @ rom_08520000/0852DFF8
+	.incbin "build/assets/0852DFF8.bin" @ characters/char_180_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x27, 0x45, 0x77, 0x6F, 0x7F, 0x17, 0xD6, 0x15
 	.byte 0x5B, 0x16, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00
 .Lspan_0852E19C:
-	.incbin "build/assets/0852E19C.bin" @ rom_08520000/0852E19C
+	.incbin "build/assets/0852E19C.bin" @ characters/char_181_pose0_half0
 .Lspan_0852E2E8:
-	.incbin "build/assets/0852E2E8.bin" @ rom_08520000/0852E2E8
+	.incbin "build/assets/0852E2E8.bin" @ characters/char_181_pose0_half1
 .Lspan_0852E45C:
-	.incbin "build/assets/0852E45C.bin" @ rom_08520000/0852E45C
+	.incbin "build/assets/0852E45C.bin" @ characters/char_182_pose0_half0
 .Lspan_0852E564:
-	.incbin "build/assets/0852E564.bin" @ rom_08520000/0852E564
+	.incbin "build/assets/0852E564.bin" @ characters/char_182_pose0_half1
 .Lspan_0852E670:
-	.incbin "build/assets/0852E670.bin" @ rom_08520000/0852E670
+	.incbin "build/assets/0852E670.bin" @ characters/char_182_frame_085662E8_half0
 .Lspan_0852E778:
-	.incbin "build/assets/0852E778.bin" @ rom_08520000/0852E778
+	.incbin "build/assets/0852E778.bin" @ characters/char_182_frame_085662E8_half1
 .Lspan_0852E884:
-	.incbin "build/assets/0852E884.bin" @ rom_08520000/0852E884
+	.incbin "build/assets/0852E884.bin" @ characters/char_183_pose0_half0
 .Lspan_0852EA48:
-	.incbin "build/assets/0852EA48.bin" @ rom_08520000/0852EA48
+	.incbin "build/assets/0852EA48.bin" @ characters/char_183_pose0_half1
 	.byte 0x00, 0x00, 0x55, 0x66, 0xF0, 0x45, 0x31, 0x52, 0x31, 0x6E, 0x8C, 0x51, 0x8C, 0x45, 0x29, 0x39
 	.byte 0xB5, 0x6E, 0x52, 0x5E, 0x31, 0x4A, 0x58, 0x6F, 0x7B, 0x6F, 0x7B, 0x6F, 0x7B, 0x6F, 0x7B, 0x6F
 .Lspan_0852EC30:
-	.incbin "build/assets/0852EC30.bin" @ rom_08520000/0852EC30
+	.incbin "build/assets/0852EC30.bin" @ characters/char_184_pose0_half0
 .Lspan_0852EE30:
-	.incbin "build/assets/0852EE30.bin" @ rom_08520000/0852EE30
+	.incbin "build/assets/0852EE30.bin" @ characters/char_184_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0xFB, 0x16, 0xB3, 0x15
 	.byte 0x3B, 0x16, 0x37, 0x2A, 0x7A, 0x3E, 0x30, 0x25, 0xB3, 0x35, 0x7B, 0x6F, 0x08, 0x21, 0x08, 0x21
 .Lspan_0852F06C:
-	.incbin "build/assets/0852F06C.bin" @ rom_08520000/0852F06C
+	.incbin "build/assets/0852F06C.bin" @ characters/char_185_pose0_half0
 .Lspan_0852F170:
-	.incbin "build/assets/0852F170.bin" @ rom_08520000/0852F170
+	.incbin "build/assets/0852F170.bin" @ characters/char_185_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x29, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 	.byte 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0852F28C:
-	.incbin "build/assets/0852F28C.bin" @ rom_08520000/0852F28C
+	.incbin "build/assets/0852F28C.bin" @ characters/char_186_pose0_half0
 .Lspan_0852F498:
-	.incbin "build/assets/0852F498.bin" @ rom_08520000/0852F498
+	.incbin "build/assets/0852F498.bin" @ characters/char_186_pose0_half1
 	.byte 0x00, 0x00, 0xD2, 0x51, 0x54, 0x5A, 0x6E, 0x55, 0x2B, 0x41, 0xE7, 0x6C, 0x08, 0x49, 0x7B, 0x6F
 	.byte 0x6A, 0x6D, 0x50, 0x6E, 0x27, 0x6D, 0x66, 0x6D, 0x30, 0x6F, 0x87, 0x25, 0xEE, 0x1D, 0x55, 0x16
 .Lspan_0852F72C:
-	.incbin "build/assets/0852F72C.bin" @ rom_08520000/0852F72C
+	.incbin "build/assets/0852F72C.bin" @ characters/char_187_pose0_half0
 .Lspan_0852F960:
-	.incbin "build/assets/0852F960.bin" @ rom_08520000/0852F960
+	.incbin "build/assets/0852F960.bin" @ characters/char_187_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x35, 0x08, 0x31, 0x6A, 0x61, 0x71, 0x6E, 0x27, 0x51, 0x72, 0x6F, 0x28, 0x35
 	.byte 0xF3, 0x3D, 0x56, 0x4A, 0x2B, 0x2D, 0x71, 0x49, 0x7B, 0x6F, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0852FBC8:
-	.incbin "build/assets/0852FBC8.bin" @ rom_08520000/0852FBC8
+	.incbin "build/assets/0852FBC8.bin" @ characters/char_188_pose0_half0
 .Lspan_0852FE04:
-	.incbin "build/assets/0852FE04.bin" @ rom_08520000/0852FE04
+	.incbin "build/assets/0852FE04.bin" @ characters/char_188_pose0_half1
 .Lspan_08530058:
-	.incbin "build/assets/08530058.bin" @ rom_08530000/08530058
+	.incbin "build/assets/08530058.bin" @ characters/char_188_frame_08566330_half0
 .Lspan_085302A4:
-	.incbin "build/assets/085302A4.bin" @ rom_08530000/085302A4
+	.incbin "build/assets/085302A4.bin" @ characters/char_188_frame_08566330_half1
 	.byte 0x00, 0x00, 0x08, 0x35, 0x08, 0x31, 0x8B, 0x61, 0x91, 0x72, 0x27, 0x55, 0x73, 0x73, 0x28, 0x35
 	.byte 0xF4, 0x3D, 0x77, 0x4E, 0x70, 0x2D, 0x2C, 0x31, 0x91, 0x49, 0x9C, 0x73, 0x08, 0x21, 0x08, 0x21
 .Lspan_08530504:
-	.incbin "build/assets/08530504.bin" @ rom_08530000/08530504
+	.incbin "build/assets/08530504.bin" @ characters/char_189_pose0_half0
 .Lspan_08530748:
-	.incbin "build/assets/08530748.bin" @ rom_08530000/08530748
+	.incbin "build/assets/08530748.bin" @ characters/char_189_pose0_half1
 .Lspan_08530990:
-	.incbin "build/assets/08530990.bin" @ rom_08530000/08530990
+	.incbin "build/assets/08530990.bin" @ characters/char_189_frame_08566378_half0
 .Lspan_08530BC8:
-	.incbin "build/assets/08530BC8.bin" @ rom_08530000/08530BC8
+	.incbin "build/assets/08530BC8.bin" @ characters/char_189_frame_08566378_half1
 	.byte 0x00, 0x00, 0x08, 0x35, 0x08, 0x31, 0x6A, 0x61, 0x71, 0x6E, 0x27, 0x51, 0x72, 0x6F, 0x28, 0x35
 	.byte 0xF3, 0x3D, 0x56, 0x4A, 0x50, 0x29, 0xF7, 0x1C, 0x0D, 0x21, 0x2B, 0x2D, 0x71, 0x49, 0x7B, 0x6F
 .Lspan_08530E30:
-	.incbin "build/assets/08530E30.bin" @ rom_08530000/08530E30
+	.incbin "build/assets/08530E30.bin" @ characters/char_190_pose0_half0
 .Lspan_08531088:
-	.incbin "build/assets/08531088.bin" @ rom_08530000/08531088
+	.incbin "build/assets/08531088.bin" @ characters/char_190_pose0_half1
 	.byte 0x00, 0x00, 0x00, 0x10, 0x84, 0x20, 0x80, 0x10, 0x08, 0x11, 0x8C, 0x21, 0x10, 0x32, 0x94, 0x42
 	.byte 0x9C, 0x63, 0x08, 0x21, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.global gUnknown_0853131C
 gUnknown_0853131C: @ 0x0853131C
 .Lspan_0853131C:
-	.incbin "build/assets/0853131C.bin" @ rom_08530000/0853131C
+	.incbin "build/assets/0853131C.bin" @ characters/char_192_pose0_half0
 	.global gUnknown_08531914
 gUnknown_08531914: @ 0x08531914
 .Lspan_08531914:
-	.incbin "build/assets/08531914.bin" @ rom_08530000/08531914
+	.incbin "build/assets/08531914.bin" @ characters/char_192_pose0_half1
 	.global gUnknown_08532034
 gUnknown_08532034: @ 0x08532034
 .Lspan_08532034:
-	.incbin "build/assets/08532034.bin" @ rom_08530000/08532034
+	.incbin "build/assets/08532034.bin" @ characters/char_192_pose1_half0
 	.global gUnknown_08532744
 gUnknown_08532744: @ 0x08532744
 .Lspan_08532744:
-	.incbin "build/assets/08532744.bin" @ rom_08530000/08532744
+	.incbin "build/assets/08532744.bin" @ characters/char_192_pose1_half1
 	.global gUnknown_08532A9C
 gUnknown_08532A9C: @ 0x08532A9C
 	.byte 0x00, 0x00, 0xE0, 0x03, 0x80, 0x41, 0x02, 0x52, 0x85, 0x62, 0x6F, 0x77, 0xD7, 0x7F, 0xFC, 0x7F
@@ -1006,354 +1006,354 @@ gUnknown_08532A9C: @ 0x08532A9C
 	.global gUnknown_08532ABC
 gUnknown_08532ABC: @ 0x08532ABC
 .Lspan_08532ABC:
-	.incbin "build/assets/08532ABC.bin" @ rom_08530000/08532ABC
+	.incbin "build/assets/08532ABC.bin" @ characters/char_193_pose0_half0
 	.global gUnknown_08532D50
 gUnknown_08532D50: @ 0x08532D50
 	.byte 0x00, 0x00, 0x48, 0x4D, 0xAB, 0x59, 0x0C, 0x6A, 0xAE, 0x7A, 0x0F, 0x7F, 0x50, 0x7F, 0x72, 0x7F
 	.byte 0x74, 0x7F, 0x96, 0x7F, 0xB9, 0x7F, 0xDA, 0x7F, 0xDB, 0x7F, 0xFC, 0x7F, 0xFE, 0x7F, 0xFF, 0x7F
 .Lspan_08532D70:
-	.incbin "build/assets/08532D70.bin" @ rom_08530000/08532D70
+	.incbin "build/assets/08532D70.bin" @ characters/char_195_pose0_half0
 .Lspan_08532ED4:
-	.incbin "build/assets/08532ED4.bin" @ rom_08530000/08532ED4
+	.incbin "build/assets/08532ED4.bin" @ characters/char_195_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x49, 0x77, 0x6F, 0x25, 0x25
 	.byte 0xD6, 0x15, 0x5B, 0x16, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00
 .Lspan_08533090:
-	.incbin "build/assets/08533090.bin" @ rom_08530000/08533090
+	.incbin "build/assets/08533090.bin" @ characters/char_196_pose0_half0
 .Lspan_0853318C:
-	.incbin "build/assets/0853318C.bin" @ rom_08530000/0853318C
+	.incbin "build/assets/0853318C.bin" @ characters/char_196_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x21, 0x2A, 0x25, 0x6B, 0x29, 0x8D, 0x2D, 0xAE, 0x31, 0xEF, 0x35, 0x10, 0x3A
 	.byte 0x33, 0x3E, 0x74, 0x4E, 0xB6, 0x4E, 0xD8, 0x52, 0x1A, 0x57, 0x5D, 0x5B, 0x7D, 0x63, 0x9E, 0x67
 	.global gUnknown_085332EC
 gUnknown_085332EC: @ 0x085332EC
 .Lspan_085332EC:
-	.incbin "build/assets/085332EC.bin" @ rom_08530000/085332EC
+	.incbin "build/assets/085332EC.bin" @ characters/char_197_pose0_half0
 	.global gUnknown_08533788
 gUnknown_08533788: @ 0x08533788
 .Lspan_08533788:
-	.incbin "build/assets/08533788.bin" @ rom_08530000/08533788
+	.incbin "build/assets/08533788.bin" @ characters/char_197_pose0_half1
 	.global gUnknown_08533C94
 gUnknown_08533C94: @ 0x08533C94
 .Lspan_08533C94:
-	.incbin "build/assets/08533C94.bin" @ rom_08530000/08533C94
+	.incbin "build/assets/08533C94.bin" @ characters/char_197_pose1_half0
 	.global gUnknown_085340D8
 gUnknown_085340D8: @ 0x085340D8
 	.byte 0x00, 0x00, 0x38, 0x29, 0x32, 0x2D, 0x29, 0x35, 0x29, 0x2D, 0x49, 0x49, 0x09, 0x42, 0x69, 0x2D
 	.byte 0xE9, 0x3D, 0x6C, 0x4E, 0x09, 0x26, 0x2C, 0x25, 0x29, 0x25, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_085340F8:
-	.incbin "build/assets/085340F8.bin" @ rom_08530000/085340F8
+	.incbin "build/assets/085340F8.bin" @ characters/char_198_pose0_half0
 .Lspan_08534458:
-	.incbin "build/assets/08534458.bin" @ rom_08530000/08534458
+	.incbin "build/assets/08534458.bin" @ characters/char_197_gfx_08534458
 .Lspan_08534810:
-	.incbin "build/assets/08534810.bin" @ rom_08530000/08534810
+	.incbin "build/assets/08534810.bin" @ characters/char_197_gfx_08534810
 .Lspan_08534BF0:
-	.incbin "build/assets/08534BF0.bin" @ rom_08530000/08534BF0
+	.incbin "build/assets/08534BF0.bin" @ characters/char_197_gfx_08534BF0
 .Lspan_08534F70:
-	.incbin "build/assets/08534F70.bin" @ rom_08530000/08534F70
+	.incbin "build/assets/08534F70.bin" @ characters/char_197_frame_085659BC_half0
 .Lspan_085352F8:
-	.incbin "build/assets/085352F8.bin" @ rom_08530000/085352F8
+	.incbin "build/assets/085352F8.bin" @ characters/char_199_pose0_half0
 	.global gUnknown_08535510
 gUnknown_08535510: @ 0x08535510
 .Lspan_08535510:
-	.incbin "build/assets/08535510.bin" @ rom_08530000/08535510
+	.incbin "build/assets/08535510.bin" @ characters/char_200_pose0_half0
 	.global gUnknown_08535988
 gUnknown_08535988: @ 0x08535988
 .Lspan_08535988:
-	.incbin "build/assets/08535988.bin" @ rom_08530000/08535988
+	.incbin "build/assets/08535988.bin" @ characters/char_200_pose0_half1
 	.global gUnknown_08535FB8
 gUnknown_08535FB8: @ 0x08535FB8
 .Lspan_08535FB8:
-	.incbin "build/assets/08535FB8.bin" @ rom_08530000/08535FB8
+	.incbin "build/assets/08535FB8.bin" @ characters/char_200_pose1_half0
 	.global gUnknown_08536318
 gUnknown_08536318: @ 0x08536318
 	.byte 0x00, 0x00, 0xC6, 0x18, 0x07, 0x19, 0x6B, 0x25, 0xAC, 0x29, 0xCF, 0x2D, 0xF0, 0x2D, 0x31, 0x32
 	.byte 0x52, 0x32, 0x74, 0x36, 0x95, 0x3A, 0xD6, 0x3E, 0x17, 0x47, 0x38, 0x4B, 0x7A, 0x5B, 0xBD, 0x5F
 .Lspan_08536338:
-	.incbin "build/assets/08536338.bin" @ rom_08530000/08536338
+	.incbin "build/assets/08536338.bin" @ characters/char_203_pose0_half0
 .Lspan_08536538:
-	.incbin "build/assets/08536538.bin" @ rom_08530000/08536538
+	.incbin "build/assets/08536538.bin" @ characters/char_203_pose0_half1
 .Lspan_08536770:
-	.incbin "build/assets/08536770.bin" @ rom_08530000/08536770
+	.incbin "build/assets/08536770.bin" @ characters/char_204_pose0_half0
 .Lspan_085368E0:
-	.incbin "build/assets/085368E0.bin" @ rom_08530000/085368E0
+	.incbin "build/assets/085368E0.bin" @ characters/char_204_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x39, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x5B, 0x16, 0xD6, 0x15, 0x7F, 0x17, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_08536AA0:
-	.incbin "build/assets/08536AA0.bin" @ rom_08530000/08536AA0
+	.incbin "build/assets/08536AA0.bin" @ characters/char_205_pose0_half0
 .Lspan_08536D34:
-	.incbin "build/assets/08536D34.bin" @ rom_08530000/08536D34
+	.incbin "build/assets/08536D34.bin" @ characters/char_205_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x49, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_0853702C:
-	.incbin "build/assets/0853702C.bin" @ rom_08530000/0853702C
+	.incbin "build/assets/0853702C.bin" @ characters/char_206_pose0_half0
 .Lspan_08537218:
-	.incbin "build/assets/08537218.bin" @ rom_08530000/08537218
+	.incbin "build/assets/08537218.bin" @ characters/char_206_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0xB5, 0x6A, 0xF7, 0x6E, 0x25, 0x25, 0x45, 0x26
 	.byte 0xC5, 0x25, 0x25, 0x25, 0x7F, 0x17, 0x5B, 0x16, 0xD6, 0x15, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00
 .Lspan_08537418:
-	.incbin "build/assets/08537418.bin" @ rom_08530000/08537418
+	.incbin "build/assets/08537418.bin" @ characters/char_207_pose0_half0
 .Lspan_085375D4:
-	.incbin "build/assets/085375D4.bin" @ rom_08530000/085375D4
+	.incbin "build/assets/085375D4.bin" @ characters/char_207_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x49, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_085377F0:
-	.incbin "build/assets/085377F0.bin" @ rom_08530000/085377F0
+	.incbin "build/assets/085377F0.bin" @ characters/char_208_pose0_half0
 .Lspan_085379C0:
-	.incbin "build/assets/085379C0.bin" @ rom_08530000/085379C0
+	.incbin "build/assets/085379C0.bin" @ characters/char_208_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0xCE, 0x49, 0x52, 0x5E, 0xF7, 0x6E, 0x27, 0x45, 0x77, 0x6F
 	.byte 0x25, 0x25, 0x29, 0x39, 0xDF, 0x15, 0x3B, 0x15, 0xB6, 0x14, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00
 .Lspan_08537B74:
-	.incbin "build/assets/08537B74.bin" @ rom_08530000/08537B74
+	.incbin "build/assets/08537B74.bin" @ characters/char_209_pose0_half0
 .Lspan_08537CD0:
-	.incbin "build/assets/08537CD0.bin" @ rom_08530000/08537CD0
+	.incbin "build/assets/08537CD0.bin" @ characters/char_209_pose0_half1
 .Lspan_08537E68:
-	.incbin "build/assets/08537E68.bin" @ rom_08530000/08537E68
+	.incbin "build/assets/08537E68.bin" @ characters/char_218_pose0_half0
 .Lspan_08538044:
-	.incbin "build/assets/08538044.bin" @ rom_08530000/08538044
+	.incbin "build/assets/08538044.bin" @ characters/char_218_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x49, 0x77, 0x6F, 0x25, 0x25
 	.byte 0xB6, 0x14, 0x57, 0x3A, 0xFB, 0x3A, 0xDF, 0x15, 0x3B, 0x15, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_08538220:
-	.incbin "build/assets/08538220.bin" @ rom_08530000/08538220
+	.incbin "build/assets/08538220.bin" @ characters/char_219_pose0_half0
 .Lspan_085383F4:
-	.incbin "build/assets/085383F4.bin" @ rom_08530000/085383F4
+	.incbin "build/assets/085383F4.bin" @ characters/char_219_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x49, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_085385BC:
-	.incbin "build/assets/085385BC.bin" @ rom_08530000/085385BC
+	.incbin "build/assets/085385BC.bin" @ characters/char_220_pose0_half0
 .Lspan_0853878C:
-	.incbin "build/assets/0853878C.bin" @ rom_08530000/0853878C
+	.incbin "build/assets/0853878C.bin" @ characters/char_220_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0x48, 0x29
 	.byte 0x37, 0x2A, 0x7A, 0x3E, 0x30, 0x25, 0xB3, 0x35, 0x7B, 0x6F, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0853895C:
-	.incbin "build/assets/0853895C.bin" @ rom_08530000/0853895C
+	.incbin "build/assets/0853895C.bin" @ characters/char_221_pose0_half0
 .Lspan_08538B44:
-	.incbin "build/assets/08538B44.bin" @ rom_08530000/08538B44
+	.incbin "build/assets/08538B44.bin" @ characters/char_221_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x49, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x7F, 0x17, 0xD6, 0x15, 0x5B, 0x16, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_08538D28:
-	.incbin "build/assets/08538D28.bin" @ rom_08530000/08538D28
+	.incbin "build/assets/08538D28.bin" @ characters/char_222_pose0_half0
 .Lspan_08538F34:
-	.incbin "build/assets/08538F34.bin" @ rom_08530000/08538F34
+	.incbin "build/assets/08538F34.bin" @ characters/char_222_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0x48, 0x29
 	.byte 0x37, 0x2A, 0x7A, 0x3E, 0xBB, 0x14, 0xDB, 0x18, 0xF2, 0x1C, 0x30, 0x25, 0xB3, 0x35, 0x7B, 0x6F
 .Lspan_085390EC:
-	.incbin "build/assets/085390EC.bin" @ rom_08530000/085390EC
+	.incbin "build/assets/085390EC.bin" @ characters/char_223_pose0_half0
 .Lspan_085392F0:
-	.incbin "build/assets/085392F0.bin" @ rom_08530000/085392F0
+	.incbin "build/assets/085392F0.bin" @ characters/char_223_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0x48, 0x29
 	.byte 0xFB, 0x16, 0xB3, 0x15, 0x3B, 0x16, 0x37, 0x2A, 0x7A, 0x3E, 0x30, 0x25, 0xB3, 0x35, 0x7B, 0x6F
 .Lspan_0853949C:
-	.incbin "build/assets/0853949C.bin" @ rom_08530000/0853949C
+	.incbin "build/assets/0853949C.bin" @ characters/char_224_pose0_half0
 .Lspan_08539684:
-	.incbin "build/assets/08539684.bin" @ rom_08530000/08539684
+	.incbin "build/assets/08539684.bin" @ characters/char_224_pose0_half1
 .Lspan_08539834:
-	.incbin "build/assets/08539834.bin" @ rom_08530000/08539834
+	.incbin "build/assets/08539834.bin" @ characters/char_225_pose0_half0
 .Lspan_085399B0:
-	.incbin "build/assets/085399B0.bin" @ rom_08530000/085399B0
+	.incbin "build/assets/085399B0.bin" @ characters/char_225_pose0_half1
 	.byte 0x00, 0x00, 0x29, 0x25, 0x29, 0x25, 0x29, 0x2D, 0x69, 0x31, 0x89, 0x49, 0x09, 0x46, 0x29, 0x4A
 	.byte 0xA9, 0x3A, 0xC9, 0x3E, 0xA9, 0x4A, 0xAB, 0x52, 0x8D, 0x5A, 0x71, 0x62, 0x54, 0x6E, 0x11, 0x6B
 .Lspan_08539BC8:
-	.incbin "build/assets/08539BC8.bin" @ rom_08530000/08539BC8
+	.incbin "build/assets/08539BC8.bin" @ characters/char_226_pose0_half0
 .Lspan_08539D70:
-	.incbin "build/assets/08539D70.bin" @ rom_08530000/08539D70
+	.incbin "build/assets/08539D70.bin" @ characters/char_226_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x52, 0x5E, 0xF7, 0x6E, 0xC8, 0x39, 0xCE, 0x1D, 0x57, 0x16, 0x7A, 0x3E
 	.byte 0x7B, 0x6F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_08539F4C:
-	.incbin "build/assets/08539F4C.bin" @ rom_08530000/08539F4C
+	.incbin "build/assets/08539F4C.bin" @ characters/char_227_pose0_half0
 .Lspan_0853A0E4:
-	.incbin "build/assets/0853A0E4.bin" @ rom_08530000/0853A0E4
+	.incbin "build/assets/0853A0E4.bin" @ characters/char_227_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x29, 0x52, 0x5E, 0xF7, 0x6E, 0xC8, 0x39, 0xCE, 0x1D, 0x57, 0x16, 0x7A, 0x3E
 	.byte 0x7B, 0x6F, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0853A2BC:
-	.incbin "build/assets/0853A2BC.bin" @ rom_08530000/0853A2BC
+	.incbin "build/assets/0853A2BC.bin" @ characters/char_228_pose0_half0
 	.byte 0x00, 0x00, 0x08, 0x29, 0x52, 0x5E, 0xF7, 0x6E, 0xC8, 0x39, 0xCE, 0x1D, 0x57, 0x16, 0x7A, 0x3E
 	.byte 0x7B, 0x6F, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0853A51C:
-	.incbin "build/assets/0853A51C.bin" @ rom_08530000/0853A51C
+	.incbin "build/assets/0853A51C.bin" @ characters/char_229_pose0_half0
 .Lspan_0853A744:
-	.incbin "build/assets/0853A744.bin" @ rom_08530000/0853A744
+	.incbin "build/assets/0853A744.bin" @ characters/char_230_pose0_half0
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x25, 0x39, 0x25, 0x25, 0x5B, 0x16, 0x7F, 0x17, 0xD6, 0x15
 	.byte 0xFB, 0x3A, 0x3B, 0x15, 0xB6, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0x57, 0x3A, 0x00, 0x00, 0x00, 0x00
 .Lspan_0853A9C8:
-	.incbin "build/assets/0853A9C8.bin" @ rom_08530000/0853A9C8
+	.incbin "build/assets/0853A9C8.bin" @ characters/char_231_pose0_half0
 .Lspan_0853ABF8:
-	.incbin "build/assets/0853ABF8.bin" @ rom_08530000/0853ABF8
+	.incbin "build/assets/0853ABF8.bin" @ characters/char_232_pose0_half0
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0xF7, 0x6E, 0x25, 0x49, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x2E, 0x15, 0xD2, 0x25, 0x57, 0x3A, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_0853AE7C:
-	.incbin "build/assets/0853AE7C.bin" @ rom_08530000/0853AE7C
+	.incbin "build/assets/0853AE7C.bin" @ characters/char_233_pose0_half0
 .Lspan_0853B0DC:
-	.incbin "build/assets/0853B0DC.bin" @ rom_08530000/0853B0DC
+	.incbin "build/assets/0853B0DC.bin" @ characters/char_234_pose0_half0
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x52, 0x5E, 0xF7, 0x6E, 0x25, 0x39, 0x25, 0x25, 0xC8, 0x39
 	.byte 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_0853B358:
-	.incbin "build/assets/0853B358.bin" @ rom_08530000/0853B358
+	.incbin "build/assets/0853B358.bin" @ characters/char_235_pose0_half0
 .Lspan_0853B56C:
-	.incbin "build/assets/0853B56C.bin" @ rom_08530000/0853B56C
+	.incbin "build/assets/0853B56C.bin" @ characters/char_236_pose0_half0
 .Lspan_0853B6C8:
-	.incbin "build/assets/0853B6C8.bin" @ rom_08530000/0853B6C8
+	.incbin "build/assets/0853B6C8.bin" @ characters/char_236_pose0_half1
 .Lspan_0853B850:
-	.incbin "build/assets/0853B850.bin" @ rom_08530000/0853B850
+	.incbin "build/assets/0853B850.bin" @ characters/char_237_pose0_half0
 .Lspan_0853B9B0:
-	.incbin "build/assets/0853B9B0.bin" @ rom_08530000/0853B9B0
+	.incbin "build/assets/0853B9B0.bin" @ characters/char_237_pose0_half1
 .Lspan_0853BB3C:
-	.incbin "build/assets/0853BB3C.bin" @ rom_08530000/0853BB3C
+	.incbin "build/assets/0853BB3C.bin" @ characters/char_238_pose0_half0
 .Lspan_0853BC8C:
-	.incbin "build/assets/0853BC8C.bin" @ rom_08530000/0853BC8C
+	.incbin "build/assets/0853BC8C.bin" @ characters/char_238_pose0_half1
 .Lspan_0853BE28:
-	.incbin "build/assets/0853BE28.bin" @ rom_08530000/0853BE28
+	.incbin "build/assets/0853BE28.bin" @ characters/char_239_pose0_half0
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0xAD, 0x51, 0x52, 0x5E, 0xB5, 0x6A, 0xF7, 0x6E, 0x27, 0x45
 	.byte 0x75, 0x6F, 0x25, 0x25, 0x4E, 0x4A, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_0853C044:
-	.incbin "build/assets/0853C044.bin" @ rom_08530000/0853C044
+	.incbin "build/assets/0853C044.bin" @ characters/char_240_pose0_half0
 .Lspan_0853C21C:
-	.incbin "build/assets/0853C21C.bin" @ rom_08530000/0853C21C
+	.incbin "build/assets/0853C21C.bin" @ characters/char_240_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0x27, 0x45, 0x48, 0x29, 0x57, 0x16, 0xFB, 0x16, 0x30, 0x1D
 	.byte 0xFB, 0x46, 0xF6, 0x1C, 0xF2, 0x1C, 0x30, 0x25, 0xB3, 0x35, 0x37, 0x46, 0x08, 0x21, 0x08, 0x21
 .Lspan_0853C3DC:
-	.incbin "build/assets/0853C3DC.bin" @ rom_08530000/0853C3DC
+	.incbin "build/assets/0853C3DC.bin" @ characters/char_241_pose0_half0
 .Lspan_0853C58C:
-	.incbin "build/assets/0853C58C.bin" @ rom_08530000/0853C58C
+	.incbin "build/assets/0853C58C.bin" @ characters/char_241_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0x52, 0x5E, 0xF7, 0x6E, 0x27, 0x45, 0x48, 0x29, 0xC8, 0x39
 	.byte 0x7B, 0x6F, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0853C784:
-	.incbin "build/assets/0853C784.bin" @ rom_08530000/0853C784
+	.incbin "build/assets/0853C784.bin" @ characters/char_244_pose0_half0
 .Lspan_0853C94C:
-	.incbin "build/assets/0853C94C.bin" @ rom_08530000/0853C94C
+	.incbin "build/assets/0853C94C.bin" @ characters/char_244_pose0_half1
 .Lspan_0853CAFC:
-	.incbin "build/assets/0853CAFC.bin" @ rom_08530000/0853CAFC
+	.incbin "build/assets/0853CAFC.bin" @ characters/char_244_frame_085663C0_half0
 .Lspan_0853CCC0:
-	.incbin "build/assets/0853CCC0.bin" @ rom_08530000/0853CCC0
+	.incbin "build/assets/0853CCC0.bin" @ characters/char_244_frame_085663C0_half1
 .Lspan_0853CE68:
-	.incbin "build/assets/0853CE68.bin" @ rom_08530000/0853CE68
+	.incbin "build/assets/0853CE68.bin" @ characters/char_244_frame_085663D8_half0
 .Lspan_0853D028:
-	.incbin "build/assets/0853D028.bin" @ rom_08530000/0853D028
+	.incbin "build/assets/0853D028.bin" @ characters/char_244_frame_085663D8_half1
 	.byte 0x00, 0x00, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x75, 0x6F, 0x37, 0x2A, 0x7A, 0x3E, 0xBB, 0x14
 	.byte 0xDB, 0x18, 0xF2, 0x1C, 0x30, 0x25, 0xB3, 0x35, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0853D1F0:
-	.incbin "build/assets/0853D1F0.bin" @ rom_08530000/0853D1F0
+	.incbin "build/assets/0853D1F0.bin" @ characters/char_245_pose0_half0
 .Lspan_0853D30C:
-	.incbin "build/assets/0853D30C.bin" @ rom_08530000/0853D30C
+	.incbin "build/assets/0853D30C.bin" @ characters/char_245_pose0_half1
 .Lspan_0853D430:
-	.incbin "build/assets/0853D430.bin" @ rom_08530000/0853D430
+	.incbin "build/assets/0853D430.bin" @ characters/char_245_frame_08566438_half0
 .Lspan_0853D5C8:
-	.incbin "build/assets/0853D5C8.bin" @ rom_08530000/0853D5C8
+	.incbin "build/assets/0853D5C8.bin" @ characters/char_245_frame_08566438_half1
 .Lspan_0853D710:
-	.incbin "build/assets/0853D710.bin" @ rom_08530000/0853D710
+	.incbin "build/assets/0853D710.bin" @ characters/char_245_frame_08566450_half0
 .Lspan_0853D8EC:
-	.incbin "build/assets/0853D8EC.bin" @ rom_08530000/0853D8EC
+	.incbin "build/assets/0853D8EC.bin" @ characters/char_245_frame_08566450_half1
 .Lspan_0853DA38:
-	.incbin "build/assets/0853DA38.bin" @ rom_08530000/0853DA38
+	.incbin "build/assets/0853DA38.bin" @ characters/char_245_frame_08566468_half0
 .Lspan_0853DBA4:
-	.incbin "build/assets/0853DBA4.bin" @ rom_08530000/0853DBA4
+	.incbin "build/assets/0853DBA4.bin" @ characters/char_245_frame_08566468_half1
 .Lspan_0853DCB4:
-	.incbin "build/assets/0853DCB4.bin" @ rom_08530000/0853DCB4
+	.incbin "build/assets/0853DCB4.bin" @ characters/char_245_frame_08566480_half0
 .Lspan_0853DDC0:
-	.incbin "build/assets/0853DDC0.bin" @ rom_08530000/0853DDC0
+	.incbin "build/assets/0853DDC0.bin" @ characters/char_245_frame_08566480_half1
 	.byte 0x00, 0x00, 0x39, 0x67, 0x39, 0x67, 0x39, 0x67, 0x18, 0x63, 0xD6, 0x5A, 0xD6, 0x5A, 0x94, 0x52
 	.byte 0x94, 0x52, 0x73, 0x4E, 0x52, 0x4A, 0x31, 0x46, 0x8C, 0x31, 0x29, 0x25, 0x08, 0x21, 0x08, 0x21
 .Lspan_0853DEEC:
-	.incbin "build/assets/0853DEEC.bin" @ rom_08530000/0853DEEC
+	.incbin "build/assets/0853DEEC.bin" @ characters/char_246_pose0_half0
 .Lspan_0853E04C:
-	.incbin "build/assets/0853E04C.bin" @ rom_08530000/0853E04C
+	.incbin "build/assets/0853E04C.bin" @ characters/char_246_pose0_half1
 	.byte 0x00, 0x00, 0x10, 0x41, 0x08, 0x29, 0x06, 0x42, 0x48, 0x29, 0xC8, 0x39, 0x18, 0x63, 0xB5, 0x56
 	.byte 0x52, 0x4A, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0853E1B0:
-	.incbin "build/assets/0853E1B0.bin" @ rom_08530000/0853E1B0
+	.incbin "build/assets/0853E1B0.bin" @ characters/char_247_pose0_half0
 .Lspan_0853E310:
-	.incbin "build/assets/0853E310.bin" @ rom_08530000/0853E310
+	.incbin "build/assets/0853E310.bin" @ characters/char_247_pose0_half1
 	.byte 0x00, 0x00, 0x10, 0x41, 0x08, 0x29, 0x06, 0x42, 0x48, 0x29, 0xC8, 0x39, 0x18, 0x63, 0xB5, 0x56
 	.byte 0x52, 0x4A, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0853E4A4:
-	.incbin "build/assets/0853E4A4.bin" @ rom_08530000/0853E4A4
+	.incbin "build/assets/0853E4A4.bin" @ characters/char_248_pose0_half0
 .Lspan_0853E620:
-	.incbin "build/assets/0853E620.bin" @ rom_08530000/0853E620
+	.incbin "build/assets/0853E620.bin" @ characters/char_248_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x29, 0x4A, 0x1D, 0x7B, 0x17, 0x7B, 0x3B, 0xBA, 0x16, 0x57, 0x16, 0x30, 0x1D
 	.byte 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0853E7B8:
-	.incbin "build/assets/0853E7B8.bin" @ rom_08530000/0853E7B8
+	.incbin "build/assets/0853E7B8.bin" @ characters/char_249_pose0_half0
 .Lspan_0853E934:
-	.incbin "build/assets/0853E934.bin" @ rom_08530000/0853E934
+	.incbin "build/assets/0853E934.bin" @ characters/char_249_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x29, 0x4A, 0x1D, 0x7B, 0x17, 0x7B, 0x3B, 0xBA, 0x16, 0x57, 0x16, 0x30, 0x1D
 	.byte 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0853EAC0:
-	.incbin "build/assets/0853EAC0.bin" @ rom_08530000/0853EAC0
+	.incbin "build/assets/0853EAC0.bin" @ characters/char_250_pose0_half0
 .Lspan_0853EC4C:
-	.incbin "build/assets/0853EC4C.bin" @ rom_08530000/0853EC4C
+	.incbin "build/assets/0853EC4C.bin" @ characters/char_250_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x29, 0xB3, 0x15, 0x37, 0x2A, 0x0C, 0x21, 0x30, 0x25, 0x08, 0x21, 0x08, 0x21
 	.byte 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0853EDA4:
-	.incbin "build/assets/0853EDA4.bin" @ rom_08530000/0853EDA4
+	.incbin "build/assets/0853EDA4.bin" @ characters/char_251_pose0_half0
 .Lspan_0853EF30:
-	.incbin "build/assets/0853EF30.bin" @ rom_08530000/0853EF30
+	.incbin "build/assets/0853EF30.bin" @ characters/char_251_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x29, 0xB3, 0x15, 0x37, 0x2A, 0x0C, 0x21, 0x30, 0x25, 0x08, 0x21, 0x08, 0x21
 	.byte 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0853F0B4:
-	.incbin "build/assets/0853F0B4.bin" @ rom_08530000/0853F0B4
+	.incbin "build/assets/0853F0B4.bin" @ characters/char_252_pose0_half0
 .Lspan_0853F1FC:
-	.incbin "build/assets/0853F1FC.bin" @ rom_08530000/0853F1FC
+	.incbin "build/assets/0853F1FC.bin" @ characters/char_252_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x29, 0xB3, 0x15, 0x37, 0x2A, 0xF6, 0x1C, 0x30, 0x25, 0x08, 0x21, 0x08, 0x21
 	.byte 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0853F350:
-	.incbin "build/assets/0853F350.bin" @ rom_08530000/0853F350
+	.incbin "build/assets/0853F350.bin" @ characters/char_253_pose0_half0
 .Lspan_0853F498:
-	.incbin "build/assets/0853F498.bin" @ rom_08530000/0853F498
+	.incbin "build/assets/0853F498.bin" @ characters/char_253_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x29, 0xB3, 0x15, 0x37, 0x2A, 0xF6, 0x1C, 0x30, 0x25, 0x08, 0x21, 0x08, 0x21
 	.byte 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0853F604:
-	.incbin "build/assets/0853F604.bin" @ rom_08530000/0853F604
+	.incbin "build/assets/0853F604.bin" @ characters/char_254_pose0_half0
 .Lspan_0853F7F4:
-	.incbin "build/assets/0853F7F4.bin" @ rom_08530000/0853F7F4
+	.incbin "build/assets/0853F7F4.bin" @ characters/char_254_pose0_half1
 	.byte 0x00, 0x00, 0xF2, 0x24, 0x0B, 0x2D, 0x10, 0x41, 0x08, 0x31, 0x08, 0x29, 0x7B, 0x43, 0xBA, 0x1E
 	.byte 0x37, 0x2A, 0xB3, 0x35, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0853F998:
-	.incbin "build/assets/0853F998.bin" @ rom_08530000/0853F998
+	.incbin "build/assets/0853F998.bin" @ characters/char_255_pose0_half0
 .Lspan_0853FB88:
-	.incbin "build/assets/0853FB88.bin" @ rom_08530000/0853FB88
+	.incbin "build/assets/0853FB88.bin" @ characters/char_255_pose0_half1
 	.byte 0x00, 0x00, 0xF2, 0x24, 0x0B, 0x2D, 0x10, 0x41, 0x08, 0x31, 0x08, 0x29, 0x7B, 0x43, 0xBA, 0x1E
 	.byte 0x37, 0x2A, 0xB3, 0x35, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0853FD20:
-	.incbin "build/assets/0853FD20.bin" @ rom_08530000/0853FD20
+	.incbin "build/assets/0853FD20.bin" @ characters/char_274_pose0_half0
 .Lspan_0853FE34:
-	.incbin "build/assets/0853FE34.bin" @ rom_08530000/0853FE34
+	.incbin "build/assets/0853FE34.bin" @ characters/char_274_pose0_half1
 .Lspan_0853FF38:
-	.incbin "build/assets/0853FF38.bin" @ rom_08530000/0853FF38
+	.incbin "build/assets/0853FF38.bin" @ characters/char_274_frame_085664C8_half0
 .Lspan_08540048:
-	.incbin "build/assets/08540048.bin" @ rom_08540000/08540048
+	.incbin "build/assets/08540048.bin" @ characters/char_274_frame_085664C8_half1
 	.byte 0x00, 0x00, 0x08, 0x29, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 	.byte 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0854016C:
-	.incbin "build/assets/0854016C.bin" @ rom_08540000/0854016C
+	.incbin "build/assets/0854016C.bin" @ characters/char_275_pose0_half0
 .Lspan_08540344:
-	.incbin "build/assets/08540344.bin" @ rom_08540000/08540344
+	.incbin "build/assets/08540344.bin" @ characters/char_275_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0xAD, 0x51, 0xB5, 0x6A, 0x29, 0x39, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0xDF, 0x15, 0x3B, 0x15, 0xB6, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_08540550:
-	.incbin "build/assets/08540550.bin" @ rom_08540000/08540550
+	.incbin "build/assets/08540550.bin" @ characters/char_276_pose0_half0
 .Lspan_0854067C:
-	.incbin "build/assets/0854067C.bin" @ rom_08540000/0854067C
+	.incbin "build/assets/0854067C.bin" @ characters/char_276_pose0_half1
 	.incbin "baserom.gba", 0x540790, 0xE0
 .Lspan_08540870:
-	.incbin "build/assets/08540870.bin" @ rom_08540000/08540870
+	.incbin "build/assets/08540870.bin" @ characters/char_283_pose0_half0
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0xC5, 0x25, 0x45, 0x26, 0x25, 0x25, 0xD6, 0x15
 	.byte 0x5B, 0x16, 0x7F, 0x17, 0xD2, 0x25, 0xDF, 0x15, 0x3B, 0x15, 0xB6, 0x14, 0xC9, 0x18, 0x2E, 0x15
 .Lspan_08540CF4:
-	.incbin "build/assets/08540CF4.bin" @ rom_08540000/08540CF4
+	.incbin "build/assets/08540CF4.bin" @ characters/char_287_gfx_08540CF4
 .Lspan_085411B0:
-	.incbin "build/assets/085411B0.bin" @ rom_08540000/085411B0
+	.incbin "build/assets/085411B0.bin" @ characters/char_287_gfx_085411B0
 .Lspan_085412D4:
-	.incbin "build/assets/085412D4.bin" @ rom_08540000/085412D4
+	.incbin "build/assets/085412D4.bin" @ characters/char_287_gfx_085412D4
 .Lspan_08541404:
-	.incbin "build/assets/08541404.bin" @ rom_08540000/08541404
+	.incbin "build/assets/08541404.bin" @ characters/char_287_gfx_08541404
 	.byte 0x00, 0x00, 0x00, 0x08, 0x03, 0x00, 0x87, 0x00, 0xEC, 0x00, 0xF0, 0x00, 0x95, 0x01, 0x99, 0x01
 	.byte 0x1F, 0x02, 0xDE, 0x02, 0x3E, 0x03, 0xDE, 0x03, 0xDE, 0x23, 0xDE, 0x37, 0xDE, 0x47, 0xFF, 0x7F
 .Lspan_085414E0:
-	.incbin "build/assets/085414E0.bin" @ rom_08540000/085414E0
+	.incbin "build/assets/085414E0.bin" @ characters/char_288_gfx_085414E0
 .Lspan_08541A88:
-	.incbin "build/assets/08541A88.bin" @ rom_08540000/08541A88
+	.incbin "build/assets/08541A88.bin" @ characters/char_288_gfx_08541A88
 .Lspan_08541F84:
-	.incbin "build/assets/08541F84.bin" @ rom_08540000/08541F84
+	.incbin "build/assets/08541F84.bin" @ characters/char_288_gfx_08541F84
 .Lspan_08542480:
-	.incbin "build/assets/08542480.bin" @ rom_08540000/08542480
+	.incbin "build/assets/08542480.bin" @ characters/char_288_gfx_08542480
 	.byte 0x00, 0x00, 0x02, 0x04, 0xFF, 0x03, 0x9C, 0x03, 0xFF, 0x23, 0x9C, 0x2B, 0xFF, 0x47, 0x3D, 0x03
 	.byte 0xDF, 0x02, 0x9C, 0x02, 0x3F, 0x02, 0x31, 0x01, 0x99, 0x01, 0x88, 0x00, 0xFF, 0x7F, 0x9C, 0x73
 	.global gUnknown_085426E0
@@ -1361,313 +1361,313 @@ gUnknown_085426E0: @ 0x085426E0
 	.byte 0x00, 0x00, 0xEE, 0x2C, 0xE0, 0x03, 0x5A, 0x4B, 0xE0, 0x03, 0xD6, 0x5A, 0xE0, 0x03, 0x52, 0x4A
 	.byte 0xE0, 0x03, 0xD6, 0x5A, 0xE0, 0x03, 0xCE, 0x1D, 0x52, 0x4A, 0x30, 0x1D, 0xE0, 0x03, 0x7B, 0x5F
 .Lspan_08542700:
-	.incbin "build/assets/08542700.bin" @ rom_08540000/08542700
+	.incbin "build/assets/08542700.bin" @ characters/char_290_gfx_08542700
 .Lspan_08542AB4:
-	.incbin "build/assets/08542AB4.bin" @ rom_08540000/08542AB4
+	.incbin "build/assets/08542AB4.bin" @ characters/char_290_gfx_08542AB4
 .Lspan_08542F10:
-	.incbin "build/assets/08542F10.bin" @ rom_08540000/08542F10
+	.incbin "build/assets/08542F10.bin" @ characters/char_290_gfx_08542F10
 .Lspan_085431CC:
-	.incbin "build/assets/085431CC.bin" @ rom_08540000/085431CC
+	.incbin "build/assets/085431CC.bin" @ characters/char_290_gfx_085431CC
 	.incbin "baserom.gba", 0x543388, 0x40
 .Lspan_085433C8:
-	.incbin "build/assets/085433C8.bin" @ rom_08540000/085433C8
+	.incbin "build/assets/085433C8.bin" @ characters/char_291_gfx_085433C8
 .Lspan_08543884:
-	.incbin "build/assets/08543884.bin" @ rom_08540000/08543884
+	.incbin "build/assets/08543884.bin" @ characters/char_291_gfx_08543884
 .Lspan_08543C94:
-	.incbin "build/assets/08543C94.bin" @ rom_08540000/08543C94
+	.incbin "build/assets/08543C94.bin" @ characters/char_291_gfx_08543C94
 .Lspan_08543DD0:
-	.incbin "build/assets/08543DD0.bin" @ rom_08540000/08543DD0
+	.incbin "build/assets/08543DD0.bin" @ characters/char_291_gfx_08543DD0
 .Lspan_08543EFC:
-	.incbin "build/assets/08543EFC.bin" @ rom_08540000/08543EFC
+	.incbin "build/assets/08543EFC.bin" @ characters/char_291_gfx_08543EFC
 	.byte 0x00, 0x00, 0x00, 0x08, 0x03, 0x00, 0x87, 0x00, 0xEC, 0x00, 0xF0, 0x00, 0x95, 0x01, 0x99, 0x01
 	.byte 0x1F, 0x02, 0xBA, 0x02, 0xDE, 0x02, 0x3E, 0x03, 0xDE, 0x03, 0xDE, 0x23, 0xDE, 0x47, 0xFF, 0x7F
 .Lspan_0854401C:
-	.incbin "build/assets/0854401C.bin" @ rom_08540000/0854401C
+	.incbin "build/assets/0854401C.bin" @ characters/char_292_pose0_half0
 .Lspan_08544130:
-	.incbin "build/assets/08544130.bin" @ rom_08540000/08544130
+	.incbin "build/assets/08544130.bin" @ characters/char_292_pose0_half1
 .Lspan_08544234:
-	.incbin "build/assets/08544234.bin" @ rom_08540000/08544234
+	.incbin "build/assets/08544234.bin" @ characters/char_292_frame_08566570_half0
 .Lspan_0854433C:
-	.incbin "build/assets/0854433C.bin" @ rom_08540000/0854433C
+	.incbin "build/assets/0854433C.bin" @ characters/char_292_frame_08566570_half1
 .Lspan_08544438:
-	.incbin "build/assets/08544438.bin" @ rom_08540000/08544438
+	.incbin "build/assets/08544438.bin" @ characters/char_292_frame_085665A0_half0
 .Lspan_08544548:
-	.incbin "build/assets/08544548.bin" @ rom_08540000/08544548
+	.incbin "build/assets/08544548.bin" @ characters/char_292_frame_085665A0_half1
 	.byte 0x00, 0x00, 0xB5, 0x6A, 0x75, 0x6F, 0x7B, 0x6F, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 	.byte 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_08544670:
-	.incbin "build/assets/08544670.bin" @ rom_08540000/08544670
+	.incbin "build/assets/08544670.bin" @ characters/char_293_pose0_half0
 .Lspan_08544784:
-	.incbin "build/assets/08544784.bin" @ rom_08540000/08544784
+	.incbin "build/assets/08544784.bin" @ characters/char_293_pose0_half1
 .Lspan_0854488C:
-	.incbin "build/assets/0854488C.bin" @ rom_08540000/0854488C
+	.incbin "build/assets/0854488C.bin" @ characters/char_293_frame_08566600_half0
 .Lspan_0854499C:
-	.incbin "build/assets/0854499C.bin" @ rom_08540000/0854499C
+	.incbin "build/assets/0854499C.bin" @ characters/char_293_frame_08566600_half1
 .Lspan_08544AA4:
-	.incbin "build/assets/08544AA4.bin" @ rom_08540000/08544AA4
+	.incbin "build/assets/08544AA4.bin" @ characters/char_293_frame_08566618_half0
 .Lspan_08544BA8:
-	.incbin "build/assets/08544BA8.bin" @ rom_08540000/08544BA8
+	.incbin "build/assets/08544BA8.bin" @ characters/char_293_frame_08566618_half1
 .Lspan_08544CA4:
-	.incbin "build/assets/08544CA4.bin" @ rom_08540000/08544CA4
+	.incbin "build/assets/08544CA4.bin" @ characters/char_294_pose0_half0
 .Lspan_08544DB4:
-	.incbin "build/assets/08544DB4.bin" @ rom_08540000/08544DB4
+	.incbin "build/assets/08544DB4.bin" @ characters/char_294_pose0_half1
 .Lspan_08544ED4:
-	.incbin "build/assets/08544ED4.bin" @ rom_08540000/08544ED4
+	.incbin "build/assets/08544ED4.bin" @ characters/char_294_frame_08566660_half0
 .Lspan_08544FE8:
-	.incbin "build/assets/08544FE8.bin" @ rom_08540000/08544FE8
+	.incbin "build/assets/08544FE8.bin" @ characters/char_294_frame_08566660_half1
 .Lspan_08545110:
-	.incbin "build/assets/08545110.bin" @ rom_08540000/08545110
+	.incbin "build/assets/08545110.bin" @ characters/char_295_pose0_half0
 .Lspan_08545230:
-	.incbin "build/assets/08545230.bin" @ rom_08540000/08545230
+	.incbin "build/assets/08545230.bin" @ characters/char_295_pose0_half1
 .Lspan_08545368:
-	.incbin "build/assets/08545368.bin" @ rom_08540000/08545368
+	.incbin "build/assets/08545368.bin" @ characters/char_295_frame_085666A8_half0
 .Lspan_08545490:
-	.incbin "build/assets/08545490.bin" @ rom_08540000/08545490
+	.incbin "build/assets/08545490.bin" @ characters/char_295_frame_085666A8_half1
 .Lspan_085455C0:
-	.incbin "build/assets/085455C0.bin" @ rom_08540000/085455C0
+	.incbin "build/assets/085455C0.bin" @ characters/char_295_frame_085666C0_half0
 .Lspan_085456D8:
-	.incbin "build/assets/085456D8.bin" @ rom_08540000/085456D8
+	.incbin "build/assets/085456D8.bin" @ characters/char_295_frame_085666C0_half1
 .Lspan_085457F8:
-	.incbin "build/assets/085457F8.bin" @ rom_08540000/085457F8
+	.incbin "build/assets/085457F8.bin" @ characters/char_300_pose0_half0
 .Lspan_085459C4:
-	.incbin "build/assets/085459C4.bin" @ rom_08540000/085459C4
+	.incbin "build/assets/085459C4.bin" @ characters/char_300_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x39, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0xDF, 0x15, 0x3B, 0x15, 0xB6, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_08545BC8:
-	.incbin "build/assets/08545BC8.bin" @ rom_08540000/08545BC8
+	.incbin "build/assets/08545BC8.bin" @ characters/char_301_pose0_half0
 .Lspan_08545D80:
-	.incbin "build/assets/08545D80.bin" @ rom_08540000/08545D80
+	.incbin "build/assets/08545D80.bin" @ characters/char_301_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x39, 0x77, 0x6F, 0x25, 0x25, 0x57, 0x3A
 	.byte 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_08545F50:
-	.incbin "build/assets/08545F50.bin" @ rom_08540000/08545F50
+	.incbin "build/assets/08545F50.bin" @ characters/char_302_pose0_half0
 .Lspan_08546100:
-	.incbin "build/assets/08546100.bin" @ rom_08540000/08546100
+	.incbin "build/assets/08546100.bin" @ characters/char_302_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x61, 0xA5, 0x24, 0xA5, 0x14, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x6D, 0xC6, 0x6D
 	.byte 0x27, 0x45, 0x77, 0x6F, 0x25, 0x25, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_085462D0:
-	.incbin "build/assets/085462D0.bin" @ rom_08540000/085462D0
+	.incbin "build/assets/085462D0.bin" @ characters/char_305_pose0_half0
 .Lspan_0854647C:
-	.incbin "build/assets/0854647C.bin" @ rom_08540000/0854647C
+	.incbin "build/assets/0854647C.bin" @ characters/char_305_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0x48, 0x29
 	.byte 0xFB, 0x16, 0xB3, 0x15, 0x3B, 0x16, 0x37, 0x2A, 0x7A, 0x3E, 0x30, 0x25, 0xB3, 0x35, 0x7B, 0x6F
 .Lspan_08546640:
-	.incbin "build/assets/08546640.bin" @ rom_08540000/08546640
+	.incbin "build/assets/08546640.bin" @ characters/char_306_pose0_half0
 .Lspan_08546884:
-	.incbin "build/assets/08546884.bin" @ rom_08540000/08546884
+	.incbin "build/assets/08546884.bin" @ characters/char_306_pose0_half1
 .Lspan_08546BBC:
-	.incbin "build/assets/08546BBC.bin" @ rom_08540000/08546BBC
+	.incbin "build/assets/08546BBC.bin" @ characters/char_306_frame_08566870_half0
 .Lspan_08546E00:
-	.incbin "build/assets/08546E00.bin" @ rom_08540000/08546E00
+	.incbin "build/assets/08546E00.bin" @ characters/char_306_frame_08566870_half1
 .Lspan_08547134:
-	.incbin "build/assets/08547134.bin" @ rom_08540000/08547134
+	.incbin "build/assets/08547134.bin" @ characters/char_307_pose0_half0
 .Lspan_085472D4:
-	.incbin "build/assets/085472D4.bin" @ rom_08540000/085472D4
+	.incbin "build/assets/085472D4.bin" @ characters/char_307_pose0_half1
 	.byte 0x00, 0x00, 0xB5, 0x6A, 0x75, 0x6F, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 	.byte 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_08547424:
-	.incbin "build/assets/08547424.bin" @ rom_08540000/08547424
+	.incbin "build/assets/08547424.bin" @ characters/char_308_pose0_half0
 .Lspan_0854759C:
-	.incbin "build/assets/0854759C.bin" @ rom_08540000/0854759C
+	.incbin "build/assets/0854759C.bin" @ characters/char_308_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0x48, 0x29
 	.byte 0x7B, 0x6F, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_08547764:
-	.incbin "build/assets/08547764.bin" @ rom_08540000/08547764
+	.incbin "build/assets/08547764.bin" @ characters/char_309_pose0_half0
 .Lspan_08547954:
-	.incbin "build/assets/08547954.bin" @ rom_08540000/08547954
+	.incbin "build/assets/08547954.bin" @ characters/char_309_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x6D, 0x27, 0x59, 0x27, 0x45
 	.byte 0xAF, 0x6A, 0x77, 0x6F, 0x25, 0x25, 0x5B, 0x16, 0xD6, 0x15, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00
 .Lspan_08547B70:
-	.incbin "build/assets/08547B70.bin" @ rom_08540000/08547B70
+	.incbin "build/assets/08547B70.bin" @ characters/char_319_pose0_half0
 .Lspan_08547CE4:
-	.incbin "build/assets/08547CE4.bin" @ rom_08540000/08547CE4
+	.incbin "build/assets/08547CE4.bin" @ characters/char_319_pose0_half1
 	.byte 0x00, 0x00, 0x68, 0x6D, 0x0D, 0x52, 0xF0, 0x6E, 0x77, 0x6F, 0x52, 0x5E, 0x2E, 0x6F, 0x76, 0x6F
 	.byte 0xA8, 0x4D, 0x4A, 0x6E, 0x7B, 0x6F, 0x65, 0x17, 0x65, 0x17, 0x65, 0x17, 0x65, 0x17, 0x65, 0x17
 .Lspan_08547E90:
-	.incbin "build/assets/08547E90.bin" @ rom_08540000/08547E90
+	.incbin "build/assets/08547E90.bin" @ characters/char_320_pose0_half0
 .Lspan_085480EC:
-	.incbin "build/assets/085480EC.bin" @ rom_08540000/085480EC
+	.incbin "build/assets/085480EC.bin" @ characters/char_320_pose0_half1
 	.incbin "baserom.gba", 0x5483B4, 0x40
 .Lspan_085483F4:
-	.incbin "build/assets/085483F4.bin" @ rom_08540000/085483F4
+	.incbin "build/assets/085483F4.bin" @ characters/char_322_pose0_half0
 .Lspan_085485B4:
-	.incbin "build/assets/085485B4.bin" @ rom_08540000/085485B4
+	.incbin "build/assets/085485B4.bin" @ characters/char_322_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x27, 0x45, 0xB6, 0x14, 0x0C, 0x21, 0x3B, 0x15, 0x25, 0x25
 	.byte 0x7F, 0x17, 0x5B, 0x16, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xDF, 0x15, 0x00, 0x00
 .Lspan_08548768:
-	.incbin "build/assets/08548768.bin" @ rom_08540000/08548768
+	.incbin "build/assets/08548768.bin" @ characters/char_323_pose0_half0
 .Lspan_08548954:
-	.incbin "build/assets/08548954.bin" @ rom_08540000/08548954
+	.incbin "build/assets/08548954.bin" @ characters/char_323_pose0_half1
 	.incbin "baserom.gba", 0x548B10, 0x40
 .Lspan_08548B50:
-	.incbin "build/assets/08548B50.bin" @ rom_08540000/08548B50
+	.incbin "build/assets/08548B50.bin" @ characters/char_326_pose0_half0
 .Lspan_08548D2C:
-	.incbin "build/assets/08548D2C.bin" @ rom_08540000/08548D2C
+	.incbin "build/assets/08548D2C.bin" @ characters/char_326_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0x48, 0x29
 	.byte 0xFB, 0x16, 0xB3, 0x15, 0x3B, 0x16, 0x37, 0x2A, 0x7A, 0x3E, 0x30, 0x25, 0xB3, 0x35, 0x7B, 0x6F
 .Lspan_08548F1C:
-	.incbin "build/assets/08548F1C.bin" @ rom_08540000/08548F1C
+	.incbin "build/assets/08548F1C.bin" @ characters/char_327_pose0_half0
 .Lspan_085490FC:
-	.incbin "build/assets/085490FC.bin" @ rom_08540000/085490FC
+	.incbin "build/assets/085490FC.bin" @ characters/char_327_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x31, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0x48, 0x29
 	.byte 0xFB, 0x16, 0xB3, 0x15, 0x3B, 0x16, 0x37, 0x2A, 0x7A, 0x3E, 0x30, 0x25, 0xB3, 0x35, 0x7B, 0x6F
 .Lspan_085492F0:
-	.incbin "build/assets/085492F0.bin" @ rom_08540000/085492F0
+	.incbin "build/assets/085492F0.bin" @ characters/char_328_pose0_half0
 .Lspan_085494F4:
-	.incbin "build/assets/085494F4.bin" @ rom_08540000/085494F4
+	.incbin "build/assets/085494F4.bin" @ characters/char_328_pose0_half1
 .Lspan_08549694:
-	.incbin "build/assets/08549694.bin" @ rom_08540000/08549694
+	.incbin "build/assets/08549694.bin" @ characters/char_329_pose0_half0
 .Lspan_08549884:
-	.incbin "build/assets/08549884.bin" @ rom_08540000/08549884
+	.incbin "build/assets/08549884.bin" @ characters/char_329_pose0_half1
 .Lspan_08549A30:
-	.incbin "build/assets/08549A30.bin" @ rom_08540000/08549A30
+	.incbin "build/assets/08549A30.bin" @ characters/char_331_pose0_half0
 .Lspan_08549C70:
-	.incbin "build/assets/08549C70.bin" @ rom_08540000/08549C70
+	.incbin "build/assets/08549C70.bin" @ characters/char_331_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0xE7, 0x1C, 0x4B, 0x2D, 0xF1, 0x28, 0x8A, 0x3D, 0x6C, 0x31, 0xF6, 0x20
 	.byte 0xAA, 0x45, 0xAD, 0x35, 0xCC, 0x41, 0xCE, 0x35, 0xEE, 0x45, 0xF0, 0x45, 0x30, 0x4A, 0x71, 0x56
 .Lspan_08549EFC:
-	.incbin "build/assets/08549EFC.bin" @ rom_08540000/08549EFC
+	.incbin "build/assets/08549EFC.bin" @ characters/char_332_pose0_half0
 .Lspan_0854A188:
-	.incbin "build/assets/0854A188.bin" @ rom_08540000/0854A188
+	.incbin "build/assets/0854A188.bin" @ characters/char_332_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x49, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_0854A450:
-	.incbin "build/assets/0854A450.bin" @ rom_08540000/0854A450
+	.incbin "build/assets/0854A450.bin" @ characters/char_333_pose0_half0
 .Lspan_0854A70C:
-	.incbin "build/assets/0854A70C.bin" @ rom_08540000/0854A70C
+	.incbin "build/assets/0854A70C.bin" @ characters/char_333_pose0_half1
 .Lspan_0854A8DC:
-	.incbin "build/assets/0854A8DC.bin" @ rom_08540000/0854A8DC
+	.incbin "build/assets/0854A8DC.bin" @ characters/char_341_pose0_half0
 .Lspan_0854AAEC:
-	.incbin "build/assets/0854AAEC.bin" @ rom_08540000/0854AAEC
+	.incbin "build/assets/0854AAEC.bin" @ characters/char_341_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x75, 0x6F, 0x30, 0x1D, 0x37, 0x2A, 0x7A, 0x3E
 	.byte 0x7B, 0x15, 0xFB, 0x18, 0x30, 0x25, 0xB3, 0x35, 0x7B, 0x6F, 0x08, 0x21, 0x08, 0x21, 0x08, 0x21
 .Lspan_0854ACE0:
-	.incbin "build/assets/0854ACE0.bin" @ rom_08540000/0854ACE0
+	.incbin "build/assets/0854ACE0.bin" @ characters/char_342_pose0_half0
 .Lspan_0854AEB8:
-	.incbin "build/assets/0854AEB8.bin" @ rom_08540000/0854AEB8
+	.incbin "build/assets/0854AEB8.bin" @ characters/char_342_pose0_half1
 	.byte 0x00, 0x00, 0x08, 0x29, 0xAD, 0x51, 0xB5, 0x6A, 0x27, 0x45, 0x75, 0x6F, 0x48, 0x29, 0x37, 0x2A
 	.byte 0x7A, 0x3E, 0xBB, 0x14, 0xDB, 0x18, 0xF2, 0x1C, 0x30, 0x25, 0xB3, 0x35, 0x7B, 0x6F, 0x08, 0x21
 .Lspan_0854B0AC:
-	.incbin "build/assets/0854B0AC.bin" @ rom_08540000/0854B0AC
+	.incbin "build/assets/0854B0AC.bin" @ characters/char_343_pose0_half0
 .Lspan_0854B5C4:
-	.incbin "build/assets/0854B5C4.bin" @ rom_08540000/0854B5C4
+	.incbin "build/assets/0854B5C4.bin" @ characters/char_343_pose0_half1
 	.byte 0x00, 0x00, 0x88, 0x0C, 0x8B, 0x14, 0x6D, 0x18, 0x8F, 0x1C, 0x71, 0x20, 0x92, 0x20, 0xB3, 0x1C
 	.byte 0xB5, 0x1C, 0xD7, 0x1C, 0xF9, 0x20, 0x3B, 0x29, 0x90, 0x09, 0xF2, 0x05, 0x56, 0x02, 0xFB, 0x12
 .Lspan_0854B9F4:
-	.incbin "build/assets/0854B9F4.bin" @ rom_08540000/0854B9F4
+	.incbin "build/assets/0854B9F4.bin" @ characters/char_353_pose0_half0
 .Lspan_0854BB48:
-	.incbin "build/assets/0854BB48.bin" @ rom_08540000/0854BB48
+	.incbin "build/assets/0854BB48.bin" @ characters/char_353_pose0_half1
 .Lspan_0854BC94:
-	.incbin "build/assets/0854BC94.bin" @ rom_08540000/0854BC94
+	.incbin "build/assets/0854BC94.bin" @ characters/char_306_gfx_0854BC94
 .Lspan_0854BE40:
-	.incbin "build/assets/0854BE40.bin" @ rom_08540000/0854BE40
+	.incbin "build/assets/0854BE40.bin" @ characters/char_306_gfx_0854BE40
 .Lspan_0854BFE0:
-	.incbin "build/assets/0854BFE0.bin" @ rom_08540000/0854BFE0
+	.incbin "build/assets/0854BFE0.bin" @ characters/char_306_gfx_0854BFE0
 .Lspan_0854C1D8:
-	.incbin "build/assets/0854C1D8.bin" @ rom_08540000/0854C1D8
+	.incbin "build/assets/0854C1D8.bin" @ characters/char_306_gfx_0854C1D8
 .Lspan_0854C3B8:
-	.incbin "build/assets/0854C3B8.bin" @ rom_08540000/0854C3B8
+	.incbin "build/assets/0854C3B8.bin" @ characters/char_306_gfx_0854C3B8
 .Lspan_0854C628:
-	.incbin "build/assets/0854C628.bin" @ rom_08540000/0854C628
+	.incbin "build/assets/0854C628.bin" @ characters/char_306_gfx_0854C628
 .Lspan_0854C870:
-	.incbin "build/assets/0854C870.bin" @ rom_08540000/0854C870
+	.incbin "build/assets/0854C870.bin" @ characters/char_306_gfx_0854C870
 .Lspan_0854CB54:
-	.incbin "build/assets/0854CB54.bin" @ rom_08540000/0854CB54
+	.incbin "build/assets/0854CB54.bin" @ characters/char_306_gfx_0854CB54
 .Lspan_0854CE14:
-	.incbin "build/assets/0854CE14.bin" @ rom_08540000/0854CE14
+	.incbin "build/assets/0854CE14.bin" @ characters/char_306_gfx_0854CE14
 .Lspan_0854D184:
-	.incbin "build/assets/0854D184.bin" @ rom_08540000/0854D184
+	.incbin "build/assets/0854D184.bin" @ characters/char_306_gfx_0854D184
 .Lspan_0854D4AC:
-	.incbin "build/assets/0854D4AC.bin" @ rom_08540000/0854D4AC
+	.incbin "build/assets/0854D4AC.bin" @ characters/char_306_gfx_0854D4AC
 .Lspan_0854D8A0:
-	.incbin "build/assets/0854D8A0.bin" @ rom_08540000/0854D8A0
+	.incbin "build/assets/0854D8A0.bin" @ characters/char_306_gfx_0854D8A0
 .Lspan_0854DC24:
-	.incbin "build/assets/0854DC24.bin" @ rom_08540000/0854DC24
+	.incbin "build/assets/0854DC24.bin" @ characters/char_306_gfx_0854DC24
 .Lspan_0854E06C:
-	.incbin "build/assets/0854E06C.bin" @ rom_08540000/0854E06C
+	.incbin "build/assets/0854E06C.bin" @ characters/char_306_gfx_0854E06C
 .Lspan_0854E420:
-	.incbin "build/assets/0854E420.bin" @ rom_08540000/0854E420
+	.incbin "build/assets/0854E420.bin" @ characters/char_386_pose0_half0
 .Lspan_0854E940:
-	.incbin "build/assets/0854E940.bin" @ rom_08540000/0854E940
+	.incbin "build/assets/0854E940.bin" @ characters/char_386_pose0_half1
 	.incbin "baserom.gba", 0x54EDC8, 0x598
 .Lspan_0854F360:
-	.incbin "build/assets/0854F360.bin" @ rom_08540000/0854F360
+	.incbin "build/assets/0854F360.bin" @ characters/char_398_pose0_half0
 .Lspan_0854F6C0:
-	.incbin "build/assets/0854F6C0.bin" @ rom_08540000/0854F6C0
+	.incbin "build/assets/0854F6C0.bin" @ characters/char_398_pose0_half1
 	.byte 0x00, 0x00, 0x4A, 0x29, 0x6C, 0x31, 0xAD, 0x35, 0xCE, 0x39, 0xF0, 0x41, 0x11, 0x46, 0x32, 0x4A
 	.byte 0x53, 0x4A, 0x74, 0x52, 0xB6, 0x56, 0xF7, 0x5E, 0x18, 0x63, 0x3A, 0x6B, 0x7B, 0x6F, 0xBD, 0x77
 .Lspan_0854F964:
-	.incbin "build/assets/0854F964.bin" @ rom_08540000/0854F964
+	.incbin "build/assets/0854F964.bin" @ characters/char_404_pose0_half0
 .Lspan_0854FEB0:
-	.incbin "build/assets/0854FEB0.bin" @ rom_08540000/0854FEB0
+	.incbin "build/assets/0854FEB0.bin" @ characters/char_404_pose0_half1
 	.byte 0x00, 0x00, 0x65, 0x0C, 0xB9, 0x0E, 0x34, 0x0E, 0x63, 0x0C, 0xAF, 0x0D, 0x89, 0x0C, 0x0A, 0x0D
 	.byte 0x2D, 0x0D, 0xCA, 0x0C, 0x65, 0x0C, 0x63, 0x0C, 0x63, 0x0C, 0x63, 0x0C, 0x63, 0x0C, 0x63, 0x0C
 	.global gUnknown_08550398
 gUnknown_08550398: @ 0x08550398
 .Lspan_08550398:
-	.incbin "build/assets/08550398.bin" @ rom_08550000/08550398
+	.incbin "build/assets/08550398.bin" @ characters/char_405_pose0_half0
 	.global gUnknown_08550EBC
 gUnknown_08550EBC: @ 0x08550EBC
 	.incbin "baserom.gba", 0x550EBC, 0x40
 .Lspan_08550EFC:
-	.incbin "build/assets/08550EFC.bin" @ rom_08550000/08550EFC
+	.incbin "build/assets/08550EFC.bin" @ characters/char_312_pose0_half0
 .Lspan_085510C0:
-	.incbin "build/assets/085510C0.bin" @ rom_08550000/085510C0
+	.incbin "build/assets/085510C0.bin" @ characters/char_312_pose0_half1
 	.byte 0x00, 0x00, 0x25, 0x49, 0xA5, 0x38, 0xA5, 0x24, 0xAD, 0x51, 0xB5, 0x6A, 0x57, 0x3A, 0xFB, 0x3A
 	.byte 0x2E, 0x15, 0xD2, 0x25, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_08551258:
-	.incbin "build/assets/08551258.bin" @ rom_08550000/08551258
+	.incbin "build/assets/08551258.bin" @ characters/char_313_pose0_half0
 .Lspan_08551400:
-	.incbin "build/assets/08551400.bin" @ rom_08550000/08551400
+	.incbin "build/assets/08551400.bin" @ characters/char_313_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x48, 0xA5, 0x14, 0xAD, 0x51, 0xB5, 0x6A, 0x25, 0x6D, 0xA5, 0x59, 0x77, 0x6F
 	.byte 0x3D, 0x1F, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00
 .Lspan_08551600:
-	.incbin "build/assets/08551600.bin" @ rom_08550000/08551600
+	.incbin "build/assets/08551600.bin" @ characters/char_314_pose0_half0
 .Lspan_085517AC:
-	.incbin "build/assets/085517AC.bin" @ rom_08550000/085517AC
+	.incbin "build/assets/085517AC.bin" @ characters/char_314_pose0_half1
 	.byte 0x00, 0x00, 0xE7, 0x6C, 0x08, 0x49, 0x08, 0x31, 0xA5, 0x24, 0xAD, 0x51, 0xB5, 0x6A, 0x77, 0x6F
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0xDF, 0x15, 0x3B, 0x15, 0xB6, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_08551978:
-	.incbin "build/assets/08551978.bin" @ rom_08550000/08551978
+	.incbin "build/assets/08551978.bin" @ characters/char_315_pose0_half0
 .Lspan_08551B44:
-	.incbin "build/assets/08551B44.bin" @ rom_08550000/08551B44
+	.incbin "build/assets/08551B44.bin" @ characters/char_315_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x77, 0x6F, 0x45, 0x26, 0xC5, 0x25, 0x7F, 0x17
 	.byte 0x5B, 0x16, 0x57, 0x3A, 0xFB, 0x3A, 0x3B, 0x15, 0xB6, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_08551D28:
-	.incbin "build/assets/08551D28.bin" @ rom_08550000/08551D28
+	.incbin "build/assets/08551D28.bin" @ characters/char_316_pose0_half0
 .Lspan_08551F38:
-	.incbin "build/assets/08551F38.bin" @ rom_08550000/08551F38
+	.incbin "build/assets/08551F38.bin" @ characters/char_316_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x77, 0x6F, 0x45, 0x26, 0xC5, 0x25, 0x7F, 0x17
 	.byte 0x5B, 0x16, 0x57, 0x3A, 0xFB, 0x3A, 0x3B, 0x15, 0xB6, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_08552140:
-	.incbin "build/assets/08552140.bin" @ rom_08550000/08552140
+	.incbin "build/assets/08552140.bin" @ characters/char_317_pose0_half0
 .Lspan_08552300:
-	.incbin "build/assets/08552300.bin" @ rom_08550000/08552300
+	.incbin "build/assets/08552300.bin" @ characters/char_317_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x25, 0x49, 0x77, 0x6F, 0x25, 0x25
 	.byte 0x7F, 0x17, 0x5B, 0x16, 0x57, 0x3A, 0xFB, 0x3A, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F, 0x00, 0x00
 .Lspan_085524B8:
-	.incbin "build/assets/085524B8.bin" @ rom_08550000/085524B8
+	.incbin "build/assets/085524B8.bin" @ characters/char_318_pose0_half0
 .Lspan_085526F8:
-	.incbin "build/assets/085526F8.bin" @ rom_08550000/085526F8
+	.incbin "build/assets/085526F8.bin" @ characters/char_318_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x29, 0x39, 0x52, 0x5E, 0x77, 0x6F, 0x7F, 0x17, 0xD6, 0x15, 0x5B, 0x16
 	.byte 0x57, 0x3A, 0xFB, 0x3A, 0xDF, 0x15, 0x3B, 0x15, 0xB6, 0x14, 0x2E, 0x15, 0xD2, 0x25, 0xFF, 0x7F
 .Lspan_0855292C:
-	.incbin "build/assets/0855292C.bin" @ rom_08550000/0855292C
+	.incbin "build/assets/0855292C.bin" @ characters/char_340_pose0_half0
 .Lspan_08552AD8:
-	.incbin "build/assets/08552AD8.bin" @ rom_08550000/08552AD8
+	.incbin "build/assets/08552AD8.bin" @ characters/char_340_pose0_half1
 	.incbin "baserom.gba", 0x552C80, 0x60
 	.global gUnknown_08552CE0
 gUnknown_08552CE0: @ 0x08552CE0
 .Lspan_08552CE0:
-	.incbin "build/assets/08552CE0.bin" @ rom_08550000/08552CE0
+	.incbin "build/assets/08552CE0.bin" @ characters/set_080BC5A8_0
 	.global gUnknown_085537C8
 gUnknown_085537C8: @ 0x085537C8
 .Lspan_085537C8:
-	.incbin "build/assets/085537C8.bin" @ rom_08550000/085537C8
+	.incbin "build/assets/085537C8.bin" @ characters/set_080BC5A8_1
 	.global gUnknown_08554300
 gUnknown_08554300: @ 0x08554300
 .Lspan_08554300:
-	.incbin "build/assets/08554300.bin" @ rom_08550000/08554300
+	.incbin "build/assets/08554300.bin" @ characters/set_080BC5A8_2
 	.global gUnknown_08554AC4
 gUnknown_08554AC4: @ 0x08554AC4
 	.byte 0x00, 0x03, 0xAD, 0x35, 0xEF, 0x3D, 0x31, 0x46, 0x73, 0x4E, 0xB5, 0x56, 0xF7, 0x5E, 0x39, 0x67
@@ -1675,7 +1675,7 @@ gUnknown_08554AC4: @ 0x08554AC4
 	.global gUnknown_08554AE4
 gUnknown_08554AE4: @ 0x08554AE4
 .Lspan_08554AE4:
-	.incbin "build/assets/08554AE4.bin" @ rom_08550000/08554AE4
+	.incbin "build/assets/08554AE4.bin" @ characters/set_080BC5A8_3
 	.global gUnknown_08554DF0
 gUnknown_08554DF0: @ 0x08554DF0
 	.byte 0x00, 0x00, 0xFF, 0x67, 0xBF, 0x0F, 0xDF, 0x23, 0x3E, 0x0F, 0x3F, 0x0F, 0x7F, 0x0E, 0xFD, 0x0D
@@ -1683,242 +1683,242 @@ gUnknown_08554DF0: @ 0x08554DF0
 	.global gUnknown_08554E10
 gUnknown_08554E10: @ 0x08554E10
 .Lspan_08554E10:
-	.incbin "build/assets/08554E10.bin" @ rom_08550000/08554E10
+	.incbin "build/assets/08554E10.bin" @ characters/char_216_pose0_half0
 	.global gUnknown_08555260
 gUnknown_08555260: @ 0x08555260
 .Lspan_08555260:
-	.incbin "build/assets/08555260.bin" @ rom_08550000/08555260
+	.incbin "build/assets/08555260.bin" @ characters/char_216_pose0_half1
 .Lspan_0855539C:
-	.incbin "build/assets/0855539C.bin" @ rom_08550000/0855539C
+	.incbin "build/assets/0855539C.bin" @ characters/char_441_pose0_half0
 .Lspan_0855556C:
-	.incbin "build/assets/0855556C.bin" @ rom_08550000/0855556C
+	.incbin "build/assets/0855556C.bin" @ characters/char_441_pose0_half1
 	.global gUnknown_08555694
 gUnknown_08555694: @ 0x08555694
 	.incbin "baserom.gba", 0x555694, 0x40
 .Lspan_085556D4:
-	.incbin "build/assets/085556D4.bin" @ rom_08550000/085556D4
+	.incbin "build/assets/085556D4.bin" @ characters/char_453_pose0_half0
 .Lspan_085558C4:
-	.incbin "build/assets/085558C4.bin" @ rom_08550000/085558C4
+	.incbin "build/assets/085558C4.bin" @ characters/char_453_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x14, 0x2E, 0x15, 0x29, 0x39, 0xA5, 0x59, 0x5B, 0x16, 0xD2, 0x25
 	.byte 0xD6, 0x15, 0x57, 0x3A, 0x52, 0x5E, 0x57, 0x3A, 0x7F, 0x17, 0xFB, 0x3A, 0x77, 0x6F, 0xFF, 0x7F
 .Lspan_08555A8C:
-	.incbin "build/assets/08555A8C.bin" @ rom_08550000/08555A8C
+	.incbin "build/assets/08555A8C.bin" @ characters/char_454_pose0_half0
 .Lspan_08555CBC:
-	.incbin "build/assets/08555CBC.bin" @ rom_08550000/08555CBC
+	.incbin "build/assets/08555CBC.bin" @ characters/char_454_pose0_half1
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0xA5, 0x14, 0x08, 0x49, 0x25, 0x25, 0x2E, 0x15, 0x29, 0x39, 0x52, 0x5E, 0x77, 0x6F, 0xFF, 0x7F
 .Lspan_08555F2C:
-	.incbin "build/assets/08555F2C.bin" @ rom_08550000/08555F2C
+	.incbin "build/assets/08555F2C.bin" @ characters/char_455_pose0_half0
 .Lspan_085560B0:
-	.incbin "build/assets/085560B0.bin" @ rom_08550000/085560B0
+	.incbin "build/assets/085560B0.bin" @ characters/char_455_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x24, 0xA5, 0x48, 0x2E, 0x15, 0x25, 0x25, 0x3B, 0x15, 0xAD, 0x51, 0xD6, 0x15
 	.byte 0xD2, 0x25, 0x25, 0x6D, 0x57, 0x3A, 0xB5, 0x6A, 0xFB, 0x3A, 0x7F, 0x17, 0x77, 0x6F, 0xFF, 0x7F
 .Lspan_0855629C:
-	.incbin "build/assets/0855629C.bin" @ rom_08550000/0855629C
+	.incbin "build/assets/0855629C.bin" @ characters/char_456_pose0_half0
 .Lspan_08556408:
-	.incbin "build/assets/08556408.bin" @ rom_08550000/08556408
+	.incbin "build/assets/08556408.bin" @ characters/char_456_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0xA5, 0x38, 0x25, 0x25, 0x2E, 0x15, 0x25, 0x49, 0xC5, 0x25, 0x45, 0x26
 	.byte 0xD2, 0x25, 0x57, 0x3A, 0x5B, 0x16, 0xB5, 0x6A, 0xFB, 0x3A, 0x7F, 0x17, 0x77, 0x6F, 0xFF, 0x7F
 .Lspan_085565B0:
-	.incbin "build/assets/085565B0.bin" @ rom_08550000/085565B0
+	.incbin "build/assets/085565B0.bin" @ characters/char_457_pose0_half0
 .Lspan_08556710:
-	.incbin "build/assets/08556710.bin" @ rom_08550000/08556710
+	.incbin "build/assets/08556710.bin" @ characters/char_457_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0xB6, 0x14, 0x3B, 0x15, 0x2E, 0x15, 0xDF, 0x15, 0xAD, 0x51, 0xD2, 0x25
 	.byte 0x90, 0x1D, 0x57, 0x3A, 0x19, 0x1E, 0x3D, 0x1F, 0xB5, 0x6A, 0xFB, 0x3A, 0x77, 0x6F, 0xFF, 0x7F
 .Lspan_085568CC:
-	.incbin "build/assets/085568CC.bin" @ rom_08550000/085568CC
+	.incbin "build/assets/085568CC.bin" @ characters/char_458_pose0_half0
 .Lspan_08556A6C:
-	.incbin "build/assets/08556A6C.bin" @ rom_08550000/08556A6C
+	.incbin "build/assets/08556A6C.bin" @ characters/char_458_pose0_half1
 	.byte 0x80, 0x01, 0xA5, 0x14, 0xA5, 0x24, 0xA5, 0x48, 0x25, 0x25, 0x25, 0x6D, 0xD1, 0x28, 0x2E, 0x15
 	.byte 0xAD, 0x51, 0xA5, 0x59, 0xD2, 0x25, 0x57, 0x3A, 0xB5, 0x6A, 0xFB, 0x3A, 0x77, 0x6F, 0xFF, 0x7F
 .Lspan_08556C54:
-	.incbin "build/assets/08556C54.bin" @ rom_08550000/08556C54
+	.incbin "build/assets/08556C54.bin" @ characters/char_459_pose0_half0
 .Lspan_08556E58:
-	.incbin "build/assets/08556E58.bin" @ rom_08550000/08556E58
+	.incbin "build/assets/08556E58.bin" @ characters/char_459_pose0_half1
 	.byte 0x80, 0x01, 0xE0, 0x17, 0xE0, 0x17, 0xA5, 0x14, 0xA5, 0x38, 0x25, 0x25, 0x25, 0x25, 0x2E, 0x15
 	.byte 0xAD, 0x51, 0xC5, 0x25, 0x45, 0x26, 0xD2, 0x25, 0x57, 0x3A, 0xB5, 0x6A, 0xFB, 0x3A, 0x77, 0x6F
 .Lspan_08557074:
-	.incbin "build/assets/08557074.bin" @ rom_08550000/08557074
+	.incbin "build/assets/08557074.bin" @ characters/char_461_pose0_half0
 .Lspan_08557254:
-	.incbin "build/assets/08557254.bin" @ rom_08550000/08557254
+	.incbin "build/assets/08557254.bin" @ characters/char_461_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x49, 0x48, 0xAD, 0x54, 0x25, 0x25, 0xF3, 0x60, 0xD2, 0x25, 0x2E, 0x15
 	.byte 0x39, 0x57, 0xD6, 0x15, 0x57, 0x3A, 0x7F, 0x17, 0xB5, 0x6A, 0xFB, 0x3A, 0x77, 0x6F, 0xFF, 0x7F
 .Lspan_08557440:
-	.incbin "build/assets/08557440.bin" @ rom_08550000/08557440
+	.incbin "build/assets/08557440.bin" @ characters/char_462_pose0_half0
 .Lspan_08557664:
-	.incbin "build/assets/08557664.bin" @ rom_08550000/08557664
+	.incbin "build/assets/08557664.bin" @ characters/char_462_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0xB6, 0x14, 0xF1, 0x20, 0x2E, 0x15, 0xDF, 0x15, 0x3B, 0x15, 0xAD, 0x51
 	.byte 0xD2, 0x25, 0x57, 0x3A, 0x5B, 0x16, 0xB5, 0x6A, 0xFB, 0x3A, 0x7F, 0x17, 0x77, 0x6F, 0xFF, 0x7F
 .Lspan_0855782C:
-	.incbin "build/assets/0855782C.bin" @ rom_08550000/0855782C
+	.incbin "build/assets/0855782C.bin" @ characters/char_463_pose0_half0
 .Lspan_08557A18:
-	.incbin "build/assets/08557A18.bin" @ rom_08550000/08557A18
+	.incbin "build/assets/08557A18.bin" @ characters/char_463_pose0_half1
 	.byte 0x00, 0x00, 0xA5, 0x14, 0x25, 0x39, 0x25, 0x25, 0x2E, 0x15, 0xAD, 0x51, 0xC5, 0x25, 0x45, 0x26
 	.byte 0xD2, 0x25, 0x57, 0x3A, 0x19, 0x1E, 0xB5, 0x6A, 0xFB, 0x3A, 0x3D, 0x1F, 0x77, 0x6F, 0xFF, 0x7F
 .Lspan_08557C08:
-	.incbin "build/assets/08557C08.bin" @ rom_08550000/08557C08
+	.incbin "build/assets/08557C08.bin" @ characters/char_464_pose0_half0
 .Lspan_08557E84:
-	.incbin "build/assets/08557E84.bin" @ rom_08550000/08557E84
+	.incbin "build/assets/08557E84.bin" @ characters/char_464_pose0_half1
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x08, 0x25
 	.byte 0x2A, 0x29, 0xAE, 0x39, 0xEE, 0x15, 0x92, 0x1A, 0x53, 0x4E, 0xD5, 0x3E, 0x59, 0x4B, 0x7B, 0x5B
 .Lspan_085580D0:
-	.incbin "build/assets/085580D0.bin" @ rom_08550000/085580D0
+	.incbin "build/assets/085580D0.bin" @ characters/char_465_pose0_half0
 .Lspan_08558238:
-	.incbin "build/assets/08558238.bin" @ rom_08550000/08558238
+	.incbin "build/assets/08558238.bin" @ characters/char_465_pose0_half1
 	.byte 0x00, 0x00, 0xFF, 0x7F, 0x77, 0x6F, 0xB5, 0x6A, 0x29, 0x39, 0xA5, 0x24, 0xA5, 0x14, 0xBF, 0x0E
 	.byte 0x97, 0x0D, 0x2E, 0x15, 0x0D, 0x0D, 0x25, 0x25, 0xFB, 0x3A, 0x57, 0x3A, 0xD2, 0x25, 0xA5, 0x14
 .Lspan_085583EC:
-	.incbin "build/assets/085583EC.bin" @ rom_08550000/085583EC
+	.incbin "build/assets/085583EC.bin" @ characters/char_466_pose0_half0
 .Lspan_08558564:
-	.incbin "build/assets/08558564.bin" @ rom_08550000/08558564
+	.incbin "build/assets/08558564.bin" @ characters/char_466_pose0_half1
 	.byte 0x00, 0x00, 0xFF, 0x7F, 0x77, 0x6F, 0xB5, 0x6A, 0xAD, 0x51, 0x29, 0x39, 0x25, 0x25, 0xBF, 0x0E
 	.byte 0x97, 0x0D, 0x2E, 0x15, 0x0D, 0x0D, 0xA5, 0x14, 0xFB, 0x3A, 0x57, 0x3A, 0xD2, 0x25, 0xA5, 0x24
 .Lspan_085586CC:
-	.incbin "build/assets/085586CC.bin" @ rom_08550000/085586CC
+	.incbin "build/assets/085586CC.bin" @ characters/char_467_pose0_half0
 .Lspan_08558A20:
-	.incbin "build/assets/08558A20.bin" @ rom_08550000/08558A20
+	.incbin "build/assets/08558A20.bin" @ characters/char_467_pose0_half1
 	.byte 0x00, 0x00, 0x8B, 0x3E, 0x07, 0x2E, 0x07, 0x1E, 0x83, 0x1D, 0x03, 0x0D, 0x95, 0x10, 0x8D, 0x10
 	.byte 0x89, 0x10, 0x7B, 0x6F, 0xF3, 0x5E, 0xEB, 0x3D, 0x63, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_08558DA4:
-	.incbin "build/assets/08558DA4.bin" @ rom_08550000/08558DA4
+	.incbin "build/assets/08558DA4.bin" @ characters/char_468_pose0_half0
 .Lspan_08558F1C:
-	.incbin "build/assets/08558F1C.bin" @ rom_08550000/08558F1C
+	.incbin "build/assets/08558F1C.bin" @ characters/char_468_pose0_half1
 	.byte 0x00, 0x00, 0x49, 0x04, 0xB6, 0x14, 0x3B, 0x15, 0xD6, 0x15, 0x2E, 0x15, 0xDF, 0x15, 0xAD, 0x51
 	.byte 0xD2, 0x25, 0x5B, 0x16, 0x57, 0x3A, 0xB5, 0x6A, 0x3D, 0x1F, 0xFB, 0x3A, 0x77, 0x6F, 0xFF, 0x7F
 .Lspan_08559084:
-	.incbin "build/assets/08559084.bin" @ rom_08550000/08559084
+	.incbin "build/assets/08559084.bin" @ characters/char_469_pose0_half0
 .Lspan_085592C8:
-	.incbin "build/assets/085592C8.bin" @ rom_08550000/085592C8
+	.incbin "build/assets/085592C8.bin" @ characters/char_469_pose0_half1
 	.incbin "baserom.gba", 0x5594C4, 0x40
 .Lspan_08559504:
-	.incbin "build/assets/08559504.bin" @ rom_08550000/08559504
+	.incbin "build/assets/08559504.bin" @ characters/char_471_pose0_half0
 .Lspan_0855969C:
-	.incbin "build/assets/0855969C.bin" @ rom_08550000/0855969C
+	.incbin "build/assets/0855969C.bin" @ characters/char_471_pose0_half1
 	.incbin "baserom.gba", 0x559840, 0x40
 .Lspan_08559880:
-	.incbin "build/assets/08559880.bin" @ rom_08550000/08559880
+	.incbin "build/assets/08559880.bin" @ characters/char_297_pose0_half0
 .Lspan_08559A98:
-	.incbin "build/assets/08559A98.bin" @ rom_08550000/08559A98
+	.incbin "build/assets/08559A98.bin" @ characters/char_297_pose0_half1
 .Lspan_08559C70:
-	.incbin "build/assets/08559C70.bin" @ rom_08550000/08559C70
+	.incbin "build/assets/08559C70.bin" @ characters/char_297_frame_08566708_half0
 .Lspan_08559E8C:
-	.incbin "build/assets/08559E8C.bin" @ rom_08550000/08559E8C
+	.incbin "build/assets/08559E8C.bin" @ characters/char_297_frame_08566708_half1
 .Lspan_0855A064:
-	.incbin "build/assets/0855A064.bin" @ rom_08550000/0855A064
+	.incbin "build/assets/0855A064.bin" @ characters/char_297_frame_08566720_half0
 .Lspan_0855A274:
-	.incbin "build/assets/0855A274.bin" @ rom_08550000/0855A274
+	.incbin "build/assets/0855A274.bin" @ characters/char_297_frame_08566720_half1
 .Lspan_0855A450:
-	.incbin "build/assets/0855A450.bin" @ rom_08550000/0855A450
+	.incbin "build/assets/0855A450.bin" @ characters/char_297_frame_08566738_half0
 .Lspan_0855A658:
-	.incbin "build/assets/0855A658.bin" @ rom_08550000/0855A658
+	.incbin "build/assets/0855A658.bin" @ characters/char_297_frame_08566738_half1
 .Lspan_0855A830:
-	.incbin "build/assets/0855A830.bin" @ rom_08550000/0855A830
+	.incbin "build/assets/0855A830.bin" @ characters/char_297_frame_08566750_half0
 .Lspan_0855AA20:
-	.incbin "build/assets/0855AA20.bin" @ rom_08550000/0855AA20
+	.incbin "build/assets/0855AA20.bin" @ characters/char_297_frame_08566750_half1
 .Lspan_0855ABF4:
-	.incbin "build/assets/0855ABF4.bin" @ rom_08550000/0855ABF4
+	.incbin "build/assets/0855ABF4.bin" @ characters/char_297_frame_08566768_half0
 .Lspan_0855ADC8:
-	.incbin "build/assets/0855ADC8.bin" @ rom_08550000/0855ADC8
+	.incbin "build/assets/0855ADC8.bin" @ characters/char_297_frame_08566768_half1
 .Lspan_0855AF70:
-	.incbin "build/assets/0855AF70.bin" @ rom_08550000/0855AF70
+	.incbin "build/assets/0855AF70.bin" @ characters/char_297_frame_08566780_half0
 .Lspan_0855B120:
-	.incbin "build/assets/0855B120.bin" @ rom_08550000/0855B120
+	.incbin "build/assets/0855B120.bin" @ characters/char_297_frame_08566780_half1
 .Lspan_0855B284:
-	.incbin "build/assets/0855B284.bin" @ rom_08550000/0855B284
+	.incbin "build/assets/0855B284.bin" @ characters/char_297_frame_08566798_half0
 .Lspan_0855B3F8:
-	.incbin "build/assets/0855B3F8.bin" @ rom_08550000/0855B3F8
+	.incbin "build/assets/0855B3F8.bin" @ characters/char_297_frame_08566798_half1
 .Lspan_0855B550:
-	.incbin "build/assets/0855B550.bin" @ rom_08550000/0855B550
+	.incbin "build/assets/0855B550.bin" @ characters/char_297_frame_085667B0_half0
 .Lspan_0855B698:
-	.incbin "build/assets/0855B698.bin" @ rom_08550000/0855B698
+	.incbin "build/assets/0855B698.bin" @ characters/char_297_frame_085667B0_half1
 .Lspan_0855B7E8:
-	.incbin "build/assets/0855B7E8.bin" @ rom_08550000/0855B7E8
+	.incbin "build/assets/0855B7E8.bin" @ characters/char_297_frame_085667C8_half0
 .Lspan_0855B940:
-	.incbin "build/assets/0855B940.bin" @ rom_08550000/0855B940
+	.incbin "build/assets/0855B940.bin" @ characters/char_297_frame_085667C8_half1
 .Lspan_0855BA6C:
-	.incbin "build/assets/0855BA6C.bin" @ rom_08550000/0855BA6C
+	.incbin "build/assets/0855BA6C.bin" @ characters/char_297_frame_085667E0_half0
 .Lspan_0855BBBC:
-	.incbin "build/assets/0855BBBC.bin" @ rom_08550000/0855BBBC
+	.incbin "build/assets/0855BBBC.bin" @ characters/char_297_frame_085667E0_half1
 .Lspan_0855BCE4:
-	.incbin "build/assets/0855BCE4.bin" @ rom_08550000/0855BCE4
+	.incbin "build/assets/0855BCE4.bin" @ characters/char_297_frame_085667F8_half0
 .Lspan_0855BE04:
-	.incbin "build/assets/0855BE04.bin" @ rom_08550000/0855BE04
+	.incbin "build/assets/0855BE04.bin" @ characters/char_297_frame_085667F8_half1
 .Lspan_0855BF20:
-	.incbin "build/assets/0855BF20.bin" @ rom_08550000/0855BF20
+	.incbin "build/assets/0855BF20.bin" @ characters/char_297_frame_08566810_half0
 .Lspan_0855C024:
-	.incbin "build/assets/0855C024.bin" @ rom_08550000/0855C024
+	.incbin "build/assets/0855C024.bin" @ characters/char_297_frame_08566810_half1
 .Lspan_0855C148:
-	.incbin "build/assets/0855C148.bin" @ rom_08550000/0855C148
+	.incbin "build/assets/0855C148.bin" @ characters/char_297_frame_08566828_half0
 .Lspan_0855C244:
-	.incbin "build/assets/0855C244.bin" @ rom_08550000/0855C244
+	.incbin "build/assets/0855C244.bin" @ characters/char_297_frame_08566828_half1
 	.byte 0x00, 0x00, 0xDD, 0x26, 0x31, 0x25, 0xD5, 0x25, 0x59, 0x2A, 0x32, 0x25, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lspan_0855C374:
-	.incbin "build/assets/0855C374.bin" @ rom_08550000/0855C374
+	.incbin "build/assets/0855C374.bin" @ characters/char_285_pose0_half0
 	.byte 0x00, 0x00, 0x55, 0x32, 0x77, 0x32, 0x98, 0x36, 0xBA, 0x32, 0xDB, 0x36, 0x1D, 0x3B, 0x3F, 0x3B
 	.byte 0x7F, 0x3F, 0xBF, 0x43, 0xFF, 0x4B, 0xFF, 0x57, 0xFF, 0x5F, 0xFF, 0x6B, 0xFF, 0x7B, 0xFF, 0x7F
 .Lspan_0855C64C:
-	.incbin "build/assets/0855C64C.bin" @ rom_08550000/0855C64C
+	.incbin "build/assets/0855C64C.bin" @ characters/char_286_pose0_half0
 	.byte 0x00, 0x00, 0x7F, 0x0E, 0x9F, 0x0E, 0xBF, 0x0E, 0xFF, 0x12, 0x3F, 0x13, 0x5F, 0x13, 0x5F, 0x13
 	.byte 0x7F, 0x13, 0x7F, 0x13, 0x9F, 0x13, 0x9F, 0x13, 0xBF, 0x17, 0xDF, 0x17, 0xDF, 0x17, 0xFF, 0x17
 .Lspan_0855C938:
-	.incbin "build/assets/0855C938.bin" @ rom_08550000/0855C938
+	.incbin "build/assets/0855C938.bin" @ characters/char_170_pose0_half0
 .Lspan_0855CE18:
-	.incbin "build/assets/0855CE18.bin" @ rom_08550000/0855CE18
+	.incbin "build/assets/0855CE18.bin" @ characters/char_170_pose0_half1
 	.byte 0x00, 0x00, 0x02, 0x45, 0x03, 0x51, 0x24, 0x59, 0x46, 0x65, 0x87, 0x6D, 0xC7, 0x6D, 0xEB, 0x71
 	.byte 0x68, 0x76, 0x88, 0x7A, 0x2B, 0x7F, 0x8E, 0x7F, 0xD0, 0x7F, 0xF2, 0x7F, 0xF6, 0x7F, 0xF8, 0x7F
 .Lspan_0855D0E0:
-	.incbin "build/assets/0855D0E0.bin" @ rom_08550000/0855D0E0
+	.incbin "build/assets/0855D0E0.bin" @ characters/char_171_pose0_half0
 .Lspan_0855D1FC:
-	.incbin "build/assets/0855D1FC.bin" @ rom_08550000/0855D1FC
+	.incbin "build/assets/0855D1FC.bin" @ characters/char_171_frame_08565644_half1
 .Lspan_0855D2F8:
-	.incbin "build/assets/0855D2F8.bin" @ rom_08550000/0855D2F8
+	.incbin "build/assets/0855D2F8.bin" @ characters/char_171_frame_0856565C_half0
 .Lspan_0855D440:
-	.incbin "build/assets/0855D440.bin" @ rom_08550000/0855D440
+	.incbin "build/assets/0855D440.bin" @ characters/char_171_frame_0856565C_half1
 .Lspan_0855D55C:
-	.incbin "build/assets/0855D55C.bin" @ rom_08550000/0855D55C
+	.incbin "build/assets/0855D55C.bin" @ characters/char_171_frame_08565674_half0
 .Lspan_0855D6AC:
-	.incbin "build/assets/0855D6AC.bin" @ rom_08550000/0855D6AC
+	.incbin "build/assets/0855D6AC.bin" @ characters/char_171_frame_08565674_half1
 .Lspan_0855D828:
-	.incbin "build/assets/0855D828.bin" @ rom_08550000/0855D828
+	.incbin "build/assets/0855D828.bin" @ characters/char_171_frame_0856568C_half0
 .Lspan_0855D9E0:
-	.incbin "build/assets/0855D9E0.bin" @ rom_08550000/0855D9E0
+	.incbin "build/assets/0855D9E0.bin" @ characters/char_171_frame_0856568C_half1
 .Lspan_0855DB98:
-	.incbin "build/assets/0855DB98.bin" @ rom_08550000/0855DB98
+	.incbin "build/assets/0855DB98.bin" @ characters/char_171_frame_085656A4_half0
 .Lspan_0855DD60:
-	.incbin "build/assets/0855DD60.bin" @ rom_08550000/0855DD60
+	.incbin "build/assets/0855DD60.bin" @ characters/char_171_frame_085656A4_half1
 .Lspan_0855DF2C:
-	.incbin "build/assets/0855DF2C.bin" @ rom_08550000/0855DF2C
+	.incbin "build/assets/0855DF2C.bin" @ characters/char_171_frame_085656BC_half0
 .Lspan_0855E0D4:
-	.incbin "build/assets/0855E0D4.bin" @ rom_08550000/0855E0D4
+	.incbin "build/assets/0855E0D4.bin" @ characters/char_171_frame_085656BC_half1
 .Lspan_0855E2C8:
-	.incbin "build/assets/0855E2C8.bin" @ rom_08550000/0855E2C8
+	.incbin "build/assets/0855E2C8.bin" @ characters/char_171_frame_085656D4_half0
 .Lspan_0855E4F4:
-	.incbin "build/assets/0855E4F4.bin" @ rom_08550000/0855E4F4
+	.incbin "build/assets/0855E4F4.bin" @ characters/char_171_frame_085656D4_half1
 .Lspan_0855E764:
-	.incbin "build/assets/0855E764.bin" @ rom_08550000/0855E764
+	.incbin "build/assets/0855E764.bin" @ characters/char_171_frame_085656EC_half0
 .Lspan_0855E928:
-	.incbin "build/assets/0855E928.bin" @ rom_08550000/0855E928
+	.incbin "build/assets/0855E928.bin" @ characters/char_171_frame_085656EC_half1
 .Lspan_0855EAA8:
-	.incbin "build/assets/0855EAA8.bin" @ rom_08550000/0855EAA8
+	.incbin "build/assets/0855EAA8.bin" @ characters/char_171_frame_08565704_half0
 .Lspan_0855EC44:
-	.incbin "build/assets/0855EC44.bin" @ rom_08550000/0855EC44
+	.incbin "build/assets/0855EC44.bin" @ characters/char_171_frame_08565704_half1
 .Lspan_0855ED90:
-	.incbin "build/assets/0855ED90.bin" @ rom_08550000/0855ED90
+	.incbin "build/assets/0855ED90.bin" @ characters/char_171_frame_0856571C_half0
 .Lspan_0855EECC:
-	.incbin "build/assets/0855EECC.bin" @ rom_08550000/0855EECC
+	.incbin "build/assets/0855EECC.bin" @ characters/char_171_frame_0856571C_half1
 .Lspan_0855EFD4:
-	.incbin "build/assets/0855EFD4.bin" @ rom_08550000/0855EFD4
+	.incbin "build/assets/0855EFD4.bin" @ characters/char_171_frame_08565734_half0
 .Lspan_0855F1B8:
-	.incbin "build/assets/0855F1B8.bin" @ rom_08550000/0855F1B8
+	.incbin "build/assets/0855F1B8.bin" @ characters/char_171_frame_08565734_half1
 .Lspan_0855F33C:
-	.incbin "build/assets/0855F33C.bin" @ rom_08550000/0855F33C
+	.incbin "build/assets/0855F33C.bin" @ characters/char_171_frame_0856574C_half0
 .Lspan_0855F4E8:
-	.incbin "build/assets/0855F4E8.bin" @ rom_08550000/0855F4E8
+	.incbin "build/assets/0855F4E8.bin" @ characters/char_171_frame_0856574C_half1
 .Lspan_0855F69C:
-	.incbin "build/assets/0855F69C.bin" @ rom_08550000/0855F69C
+	.incbin "build/assets/0855F69C.bin" @ characters/char_171_frame_08565764_half0
 .Lspan_0855F874:
-	.incbin "build/assets/0855F874.bin" @ rom_08550000/0855F874
+	.incbin "build/assets/0855F874.bin" @ characters/char_171_frame_08565764_half1
 	.byte 0x40, 0x02, 0xE0, 0x03, 0x0F, 0x4E, 0x30, 0x52, 0x51, 0x56, 0x72, 0x5A, 0x93, 0x5E, 0xB4, 0x62
 	.byte 0xB5, 0x5E, 0x76, 0x6A, 0xF8, 0x6E, 0x9C, 0x77, 0xDE, 0x7F, 0xFF, 0x7F, 0xFF, 0x7F, 0xFF, 0x7F
 	.global gUnknown_0855FA84
@@ -1958,7 +1958,7 @@ gUnknown_0856313C: @ 0x0856313C
 	.global gUnknown_085632F4
 gUnknown_085632F4: @ 0x085632F4
 .Lspan_085632F4:
-	.incbin "build/assets/085632F4.bin" @ rom_08560000/085632F4
+	.incbin "build/assets/085632F4.bin" @ characters/set_080D7F20_0
 	.global gUnknown_08563A5C
 gUnknown_08563A5C: @ 0x08563A5C
 	.incbin "baserom.gba", 0x563A5C, 0x64
@@ -1968,7 +1968,7 @@ gUnknown_08563AC0: @ 0x08563AC0
 	.global gUnknown_08563BD8
 gUnknown_08563BD8: @ 0x08563BD8
 .Lspan_08563BD8:
-	.incbin "build/assets/08563BD8.bin" @ rom_08560000/08563BD8
+	.incbin "build/assets/08563BD8.bin" @ characters/set_080D80C8_0
 	.global gUnknown_08564358
 gUnknown_08564358: @ 0x08564358
 	.incbin "baserom.gba", 0x564358, 0x64
@@ -2001,19 +2001,19 @@ gUnknown_08565FE4: @ 0x08565FE4
 	.global gUnknown_08566C34
 gUnknown_08566C34: @ 0x08566C34
 .Lspan_08566C34:
-	.incbin "build/assets/08566C34.bin" @ rom_08560000/08566C34
+	.incbin "build/assets/08566C34.bin" @ characters/set_080D920C_0
 	.global gUnknown_08567060
 gUnknown_08567060: @ 0x08567060
 .Lspan_08567060:
-	.incbin "build/assets/08567060.bin" @ rom_08560000/08567060
+	.incbin "build/assets/08567060.bin" @ characters/set_080D920C_1
 	.global gUnknown_085673D0
 gUnknown_085673D0: @ 0x085673D0
 .Lspan_085673D0:
-	.incbin "build/assets/085673D0.bin" @ rom_08560000/085673D0
+	.incbin "build/assets/085673D0.bin" @ characters/set_080D920C_2
 	.global gUnknown_085677A4
 gUnknown_085677A4: @ 0x085677A4
 .Lspan_085677A4:
-	.incbin "build/assets/085677A4.bin" @ rom_08560000/085677A4
+	.incbin "build/assets/085677A4.bin" @ characters/set_080D920C_3
 	.global gUnknown_08567894
 gUnknown_08567894: @ 0x08567894
 	.byte 0x81, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -2027,15 +2027,15 @@ gUnknown_0856793C: @ 0x0856793C
 	.global gUnknown_08567A04
 gUnknown_08567A04: @ 0x08567A04
 .Lspan_08567A04:
-	.incbin "build/assets/08567A04.bin" @ rom_08560000/08567A04
+	.incbin "build/assets/08567A04.bin" @ characters/set_080D9344_0
 	.global gUnknown_08567F4C
 gUnknown_08567F4C: @ 0x08567F4C
 .Lspan_08567F4C:
-	.incbin "build/assets/08567F4C.bin" @ rom_08560000/08567F4C
+	.incbin "build/assets/08567F4C.bin" @ characters/set_080D9344_1
 	.global gUnknown_08568218
 gUnknown_08568218: @ 0x08568218
 .Lspan_08568218:
-	.incbin "build/assets/08568218.bin" @ rom_08560000/08568218
+	.incbin "build/assets/08568218.bin" @ characters/set_080D9344_2
 	.global gUnknown_085683D0
 gUnknown_085683D0: @ 0x085683D0
 	.byte 0xC6, 0x1A, 0x2B, 0x41, 0x11, 0x2D, 0x8C, 0x31, 0x73, 0x52, 0x74, 0x52, 0x74, 0x52, 0x94, 0x56

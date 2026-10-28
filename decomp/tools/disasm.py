@@ -16,6 +16,7 @@ link comparison instead.
 from __future__ import annotations
 
 import argparse
+import fnmatch
 import json
 import re
 import struct
@@ -463,13 +464,15 @@ def split_points(m: Model):
 C_MARK = re.compile(r"^//\s*(\w+)\s*@\s*0x([0-9A-Fa-f]{8})\s*$", re.M)
 
 
-def c_units(m: Model):
+def c_units(m: Model, exclude=()):
     """Decompiled C: every src/**/*.c lists its functions with `// Name @ 0xADDR` lines.  A file's
     functions must be consecutive in the ROM; the unit runs from the first entry to the
     4-aligned end of the last function (agbcc pads with zeros to the next `.align 2`)."""
     units = []
     entries = sorted(a for a in m.funcs)
     for p in sorted((ROOT / "src").rglob("*.c")) if (ROOT / "src").exists() else []:
+        if any(fnmatch.fnmatch(p.name, g) for g in exclude):
+            continue
         marks = [(int(a, 16), n) for n, a in C_MARK.findall(p.read_text(encoding="utf-8"))]
         if not marks:
             continue
@@ -503,6 +506,8 @@ def main(argv=None):
     ap.add_argument("--rom", default=str(ROOT / "baserom.gba"))
     ap.add_argument("--trace", default=str(ROOT / "build" / "trace.json"))
     ap.add_argument("--out", default=str(ROOT))
+    ap.add_argument("--exclude", action="append", default=[],
+                    help="glob of src/ files to leave out (work in progress, e.g. 'c0b4_*')")
     args = ap.parse_args(argv)
     rom = Path(args.rom).read_bytes()
     trace = json.loads(Path(args.trace).read_text())
@@ -555,7 +560,7 @@ def main(argv=None):
 
     # Data before the program.
     data_with_stray(ROM_BASE + 0x200, TEXT_START)
-    units = c_units(m)
+    units = c_units(m, args.exclude)
     cuts = sorted(set(split_points(m)) | {u[0] for u in units} | {u[1] for u in units})
     for lo, hi in zip(cuts, cuts[1:]):
         u = next((u for u in units if u[0] == lo), None)
