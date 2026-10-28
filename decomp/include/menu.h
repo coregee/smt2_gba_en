@@ -160,7 +160,7 @@ struct Unk03004550
 };
 
 extern struct GameState gGameState;
-extern struct Unk03004550 gUnk_03004550;
+extern struct Unk03004550 gFieldState;
 extern u16 gRepeatedKeys;
 extern u32 gUnk_03004614;
 extern u32 gUnk_03004514;
@@ -190,7 +190,7 @@ extern u8 gWindowTilemapBuffer[];
 extern u8 gUnk_02018874[];
 void Window_Close(u32 window, u32 a1);
 void TextWindow_Close(u32 window, u32 a1);
-void sub_080B02A0(u16 a);
+void Field_Step(u16 a);
 u16 sub_080B1A1C(u16 a);
 s32 sub_080C06BC(u32 a);
 void Flag_Set(u32 flag);
@@ -233,7 +233,7 @@ void sub_080C27F0(void);
 void sub_080C2950(void);
 void sub_080C2968(void);
 void sub_080C2980(void);
-void sub_080D3E10(void);
+void ComboBits_Clear(void);
 void sub_0815CB50(const void *src, void *dst, u32 size);
 void sub_0815CBB4(const void *src, void *dst, u32 size);
 u32 sub_0815CC24(const void *a, const void *b, u32 size);
@@ -244,7 +244,7 @@ extern u8 gUnknown_084F2974[];
 extern u8 gUnknown_084F2DBC[];
 extern u8 gUnknown_081B6E90[];
 extern u16 gUnk_0200E7D4[];
-extern u8 gUnk_0200AFC8[];
+extern u8 gBgPictureBuffer[];
 extern u16 gUnk_03000004;
 extern u16 gUnk_03002E10[0x200];       /* palette buffer (BG then OBJ) */
 extern u8 gUnk_02000000[];

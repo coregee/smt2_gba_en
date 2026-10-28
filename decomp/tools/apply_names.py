@@ -24,6 +24,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--skip", action="append", default=[],
+                    help="prefix of a *_names.tsv to leave out (e.g. one still being written)")
     args = ap.parse_args()
     syms = Symbols.load(ROOT / "reference" / "symbols.tsv")
     rows = dict(syms.by_addr)
@@ -31,6 +33,8 @@ def main():
     renames = {}
     skipped = []
     for tsv in sorted((ROOT / "src").glob("*_names.tsv")):
+        if any(tsv.name.startswith(k + "_") for k in args.skip):
+            continue
         for ln in tsv.read_text(encoding="utf-8").splitlines():
             if not ln.strip() or ln.startswith("#") or ln.lower().startswith("address"):
                 continue

@@ -2172,7 +2172,7 @@ sub_080EDF0C: @ 0x080EDF0C
 	movs r0, #2
 	movs r1, #0
 	movs r2, #0
-	bl sub_080B0248
+	bl View_GetWall
 	cmp r0, #1
 	bne .L080EDF60
 	movs r0, #0xa3

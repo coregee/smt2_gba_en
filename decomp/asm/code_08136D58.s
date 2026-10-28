@@ -1167,7 +1167,7 @@ ScriptOp_3CD: @ 0x081375D4
 	ldr r0, .L08137644
 	ldrh r0, [r0]
 	movs r1, #0xb
-	bl sub_0813E60C
+	bl Demon_GetField
 	lsls r0, r0, #0x10
 	lsrs r1, r0, #0x10
 	adds r0, r1, #0
@@ -1335,7 +1335,7 @@ sub_08137720: @ 0x08137720
 	ldr r0, .L08137758
 	ldrh r0, [r0]
 	movs r1, #0
-	bl sub_0813E60C
+	bl Demon_GetField
 	movs r1, #0xff
 	ands r1, r0
 	cmp r6, r1
@@ -1348,7 +1348,7 @@ sub_08137720: @ 0x08137720
 	ldr r0, .L0813777C
 	ldrh r0, [r0]
 	movs r1, #0
-	bl sub_0813E60C
+	bl Demon_GetField
 	adds r4, r0, #0
 	bl sub_080C2244
 	lsls r4, r4, #0x10
@@ -1364,7 +1364,7 @@ sub_08137720: @ 0x08137720
 	ldr r0, .L0813779C
 	ldrh r0, [r0]
 	movs r1, #0
-	bl sub_0813E60C
+	bl Demon_GetField
 	adds r4, r0, #0
 	bl sub_080C2244
 	lsls r4, r4, #0x10
@@ -1378,7 +1378,7 @@ sub_08137720: @ 0x08137720
 	ldr r0, .L081377CC
 	ldrh r0, [r0]
 	movs r1, #0
-	bl sub_0813E60C
+	bl Demon_GetField
 	adds r4, r0, #0
 	bl sub_080C2244
 	lsls r4, r4, #0x10
@@ -1926,12 +1926,12 @@ sub_08137BB8: @ 0x08137BB8
 	ldr r4, .L08137BE0
 	ldrh r0, [r4]
 	movs r1, #0x1a
-	bl sub_0813E60C
+	bl Demon_GetField
 	movs r5, #0xf
 	ands r5, r0
 	ldrh r0, [r4]
 	movs r1, #0
-	bl sub_0813E60C
+	bl Demon_GetField
 	movs r1, #0xff
 	ands r1, r0
 	lsls r0, r1, #2
@@ -2002,7 +2002,7 @@ sub_08137C44: @ 0x08137C44
 	ldr r5, .L08137C88
 	ldrh r0, [r5]
 	movs r1, #0x19
-	bl sub_0813E60C
+	bl Demon_GetField
 	movs r1, #0xff
 	ands r1, r0
 	cmp r1, #0xff
@@ -2011,7 +2011,7 @@ sub_08137C44: @ 0x08137C44
 	strh r1, [r4]
 	ldrh r0, [r5]
 	movs r1, #0x1d
-	bl sub_0813E60C
+	bl Demon_GetField
 	movs r1, #1
 	ands r1, r0
 	lsls r1, r1, #8
@@ -2121,13 +2121,13 @@ sub_08137D2C: @ 0x08137D2C
 	ldr r4, .L08137D84
 	ldrh r0, [r4]
 	movs r1, #0x18
-	bl sub_0813E60C
+	bl Demon_GetField
 	movs r1, #0xf0
 	ands r1, r0
 	lsrs r6, r1, #4
 	ldrh r0, [r4]
 	movs r1, #0
-	bl sub_0813E60C
+	bl Demon_GetField
 	movs r1, #0xff
 	ands r1, r0
 	adds r4, r1, #0
@@ -2240,7 +2240,7 @@ sub_08137E14: @ 0x08137E14
 	ldr r0, .L08137E50
 	ldrh r0, [r0]
 	movs r1, #0x1f
-	bl sub_0813E60C
+	bl Demon_GetField
 	movs r1, #0xf0
 	ands r1, r0
 	cmp r1, #0x20

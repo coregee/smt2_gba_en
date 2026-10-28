@@ -1732,7 +1732,7 @@ sub_080BAEF0: @ 0x080BAEF0
 	adds r4, r4, r1
 	adds r1, r4, #0
 	bl LZ77UnCompWram
-	bl sub_080B098C
+	bl Palette_IsBg13Black
 	cmp r0, #0
 	bne .L080BAF40
 	ldr r1, .L080BAF38

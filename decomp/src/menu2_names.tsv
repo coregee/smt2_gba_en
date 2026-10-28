@@ -1,0 +1,18 @@
+080D31F8	Sprite_DrawNumber8	func	NumberToDigits(n), then 8 digit sprites (template 0x084F3174) 8 px apart, leading zeros skipped, last digit always drawn
+080D37BC	CasinoPrize_DrawRows	func	confirms the harvested name: draws 6 rows of Action_GetRecord(id)+0xC names from the list at 0x0203B454 (greyed via palette 2 when sub_080C5B10 says unavailable), money window, scroll arrows
+080D38D0	CasinoPrize_HandleInput	func	A: picks list[cursor+top] (sets gScriptItemCheckId, gYesNoResult=0); B: gYesNoResult=1; up/down/L/R move cursor/top over 6 rows of the 0x0203B454 list
+080D3E10	ComboBits_Clear	func	zeroes the 4-byte bitfield at 0x0203BB6C
+080D3E24	ComboBits_Set	func	sets bit i of the bitfield at 0x0203BB6C (i = index into the 12-byte table at 0x084F3754)
+080D3E44	ComboBits_Test	func	returns bit i of the bitfield at 0x0203BB6C
+080D4B80	Keypad_GetKeyPalette	func	returns palette 0xC/0xD for the key under the (row, col) cursor (gMenuState+0xE/+0x10), 0xB otherwise; keys 0..10 on a 3x4 grid
+080D4D14	Keypad_DrawKeys	func	draws keys 1..9 as a 3x3 grid (sprites 0x084F3FB0[pos]) plus key 0 and key 10 below, coloured by Keypad_GetKeyPalette
+080D4DF4	Keypad_Draw	func	gMenuState+0xC==0: prompt 0x084F3FDC and the four entered digits (0xFFFF = blank); else the coin entry prompt with up to 8 digits at +0x20 and the money/total window
+080D4F20	Keypad_CountDigits	func	index of the first 0xFF in the 8 digit bytes at gMenuState+0x20
+080D4F48	Keypad_GetNumber	func	decimal value of the digit bytes at gMenuState+0x20..+0x27 (0xFF skipped), last byte = units
+080D4F7C	Keypad_CanAfford	func	gGameState+0xAD8 (money) >= gMenuState+0x18 (unit price) * n
+080D4FA8	Keypad_GetSelectedKey	func	first key 0..10 whose Keypad_GetKeyPalette is not 0xB
+080D4FD0	Keypad_HandleInput	func	A enters the selected key as the next digit (door code: 4 digits; coin entry: up to 8 digits, total limited to 49999 and to the money), B deletes, d-pad moves the cursor
+080D529C	Keypad_StoreResult	func	door mode: gYesNoResult = sum(digit[i] * 0x084F404C[i]) or 0xFFFF if a digit is blank; coin mode: count -> 0x030037F0
+080D5374	Keypad_OpenNumberEntry	func	creates task 0x084F40D8, clears gMenuState, mode 1, unit price arg -> +0x18, 8 blank digits
+080D5918	Debug_SetupTestGame	func	sets gGameState+0xD = 50 and +8 = 208250, calls sub_080C3328(i) 50 times for every i < 0xFF, calls sub_080C062C with 12 fixed ids, sets the three counters at gGameState+0xAD8/+0xADC/+0xAE0 to 10000
+080D624C	Task_SetDataByte	func	task->data[i] = value

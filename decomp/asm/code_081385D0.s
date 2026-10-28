@@ -753,7 +753,7 @@ ScriptOp_3E3: @ 0x08138B9C
 	ldr r0, .L08138BF8
 	ldrh r0, [r0]
 	movs r1, #9
-	bl sub_0813E60C
+	bl Demon_GetField
 	lsls r0, r0, #0x10
 	lsrs r4, r0, #0x10
 	adds r6, r4, #0
@@ -1054,7 +1054,7 @@ ScriptOp_402: @ 0x08138DC8
 	str r0, [r5, #8]
 	ldr r0, .L08138E54
 	ldrh r0, [r0]
-	bl sub_080D5374
+	bl Keypad_OpenNumberEntry
 	ldr r1, .L08138E58
 	movs r0, #0x4d
 	strh r0, [r1]
@@ -1627,7 +1627,7 @@ CasinoPrize_DrawList: @ 0x0813914C
 	movs r0, #0x1a
 	movs r2, #0
 	movs r3, #8
-	bl sub_08133E70
+	bl MsgGlyphQueue_PushSubstClamped
 	adds r0, r5, #2
 	lsls r0, r0, #1
 	ldr r2, [sp, #0x28]

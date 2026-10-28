@@ -70,7 +70,7 @@ void ScriptOp_End(struct ScriptTask *task)
     }
     else
     {
-        gUnk_0203DB3E = 0;
+        gMsgGlyphCount = 0;
         gTextColumn = 0;
         gTextLine = 0;
         gScriptPc = 0;

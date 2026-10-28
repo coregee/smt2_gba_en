@@ -236,7 +236,7 @@ sub_080B4610: @ 0x080B4610
 	lsrs r5, r1, #0x10
 	adds r0, r6, #0
 	adds r1, r5, #0
-	bl sub_080AF68C
+	bl Automap_IsVisitedUnchecked
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	beq .L080B4664
@@ -495,7 +495,7 @@ sub_080B47CC: @ 0x080B47CC
 	lsrs r2, r2, #1
 .L080B4828:
 	adds r0, r4, #0
-	bl sub_080AEDB4
+	bl Automap_Build
 	b .L080B484C
 .L080B4830:
 	cmp r4, #0
@@ -513,7 +513,7 @@ sub_080B47CC: @ 0x080B47CC
 	lsrs r2, r0, #1
 .L080B4846:
 	adds r0, r4, #0
-	bl sub_080AEDB4
+	bl Automap_Build
 .L080B484C:
 	pop {r4}
 	pop {r0}
@@ -548,7 +548,7 @@ sub_080B4854: @ 0x080B4854
 .L080B4884:
 	adds r0, r6, #0
 	adds r1, r7, #0
-	bl sub_080B3000
+	bl FieldMap_CellRecordsAt
 	adds r4, r0, #0
 	lsls r0, r7, #5
 	adds r0, r0, r6
@@ -557,7 +557,7 @@ sub_080B4854: @ 0x080B4854
 	adds r5, r1, r0
 	adds r0, r4, #0
 	movs r1, #0x23
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	cmp r0, #0
 	beq .L080B48AA
 	ldrh r0, [r0, #2]
@@ -566,7 +566,7 @@ sub_080B4854: @ 0x080B4854
 .L080B48AA:
 	adds r0, r4, #0
 	movs r1, #4
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	cmp r0, #0
 	beq .L080B48BA
 	movs r0, #0xf
@@ -574,7 +574,7 @@ sub_080B4854: @ 0x080B4854
 .L080B48BA:
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	cmp r0, #0
 	beq .L080B48D2
 	ldrh r0, [r0, #2]
@@ -587,7 +587,7 @@ sub_080B4854: @ 0x080B4854
 .L080B48D2:
 	adds r0, r4, #0
 	movs r1, #2
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	cmp r0, #0
 	beq .L080B48EA
 	ldrh r0, [r0, #2]
@@ -600,7 +600,7 @@ sub_080B4854: @ 0x080B4854
 .L080B48EA:
 	adds r0, r4, #0
 	movs r1, #0x1b
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	cmp r0, #0
 	beq .L080B4902
 	ldrh r0, [r0, #2]
@@ -613,7 +613,7 @@ sub_080B4854: @ 0x080B4854
 .L080B4902:
 	adds r0, r4, #0
 	movs r1, #0x1c
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	cmp r0, #0
 	beq .L080B491A
 	ldrh r0, [r0, #2]
@@ -626,7 +626,7 @@ sub_080B4854: @ 0x080B4854
 .L080B491A:
 	adds r0, r4, #0
 	movs r1, #0x10
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	cmp r0, #0
 	beq .L080B492A
 	movs r0, #0xb
@@ -634,7 +634,7 @@ sub_080B4854: @ 0x080B4854
 .L080B492A:
 	adds r0, r4, #0
 	movs r1, #3
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	cmp r0, #0
 	beq .L080B493A
 	movs r0, #0xa
@@ -642,7 +642,7 @@ sub_080B4854: @ 0x080B4854
 .L080B493A:
 	adds r0, r4, #0
 	movs r1, #0x22
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	cmp r0, #0
 	beq .L080B494A
 	movs r0, #0x11
@@ -650,12 +650,12 @@ sub_080B4854: @ 0x080B4854
 .L080B494A:
 	adds r0, r4, #0
 	movs r1, #0xb
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	cmp r0, #0
 	beq .L080B497C
 	adds r0, r4, #0
 	movs r1, #0xb
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	ldrh r0, [r0, #8]
 	cmp r0, #7
 	bne .L080B4968
@@ -677,7 +677,7 @@ sub_080B4854: @ 0x080B4854
 .L080B497C:
 	adds r0, r4, #0
 	movs r1, #0xc
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	cmp r0, #0
 	beq .L080B498C
 	movs r0, #7
@@ -685,7 +685,7 @@ sub_080B4854: @ 0x080B4854
 .L080B498C:
 	adds r0, r4, #0
 	movs r1, #0xd
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	cmp r0, #0
 	beq .L080B49C0
 	ldr r0, .L080B49B8
@@ -709,7 +709,7 @@ sub_080B4854: @ 0x080B4854
 .L080B49C0:
 	adds r0, r4, #0
 	movs r1, #0xe
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	cmp r0, #0
 	beq .L080B49D0
 	movs r0, #0xd
@@ -717,7 +717,7 @@ sub_080B4854: @ 0x080B4854
 .L080B49D0:
 	adds r0, r4, #0
 	movs r1, #0xf
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	cmp r0, #0
 	beq .L080B49E0
 	movs r0, #0xe
@@ -725,7 +725,7 @@ sub_080B4854: @ 0x080B4854
 .L080B49E0:
 	adds r0, r4, #0
 	movs r1, #0x11
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	cmp r0, #0
 	beq .L080B49F0
 	movs r0, #0x14
@@ -733,7 +733,7 @@ sub_080B4854: @ 0x080B4854
 .L080B49F0:
 	adds r0, r4, #0
 	movs r1, #0x25
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	cmp r0, #0
 	beq .L080B4A00
 	movs r0, #0x22
@@ -741,7 +741,7 @@ sub_080B4854: @ 0x080B4854
 .L080B4A00:
 	adds r0, r4, #0
 	movs r1, #0x26
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	cmp r0, #0
 	beq .L080B4A10
 	movs r0, #0x23
@@ -749,7 +749,7 @@ sub_080B4854: @ 0x080B4854
 .L080B4A10:
 	adds r0, r4, #0
 	movs r1, #0x27
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	cmp r0, #0
 	beq .L080B4A20
 	movs r0, #0x24
@@ -3171,9 +3171,9 @@ sub_080B5D48: @ 0x080B5D48
 	strh r0, [r1]
 	movs r0, #0
 	movs r1, #0
-	bl sub_080B2EFC
+	bl FieldMap_CellRecordsRel
 	movs r1, #0x20
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	adds r1, r0, #0
 	cmp r1, #0
 	beq .L080B5D84
@@ -3202,7 +3202,7 @@ sub_080B5D48: @ 0x080B5D48
 	beq .L080B5DCC
 	ldr r0, [r7]
 	ldr r1, [r6]
-	bl sub_080ADCCC
+	bl Map_SetGraphicsPointers
 	bl sub_080AE234
 	bl sub_080AD7F0
 	movs r0, #0
@@ -3276,14 +3276,14 @@ sub_080B5E2C: @ 0x080B5E2C
 	push {lr}
 	movs r0, #0
 	movs r1, #0
-	bl sub_080B2EFC
+	bl FieldMap_CellRecordsRel
 	movs r1, #9
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	cmp r0, #0
 	bne .L080B5E48
 	ldr r0, .L080B5E4C
 	ldrh r0, [r0, #2]
-	bl sub_080B02A0
+	bl Field_Step
 .L080B5E48:
 	pop {r0}
 	bx r0
@@ -3372,7 +3372,7 @@ sub_080B5EEC: @ 0x080B5EEC
 	ldr r0, [r4]
 	ldr r1, .L080B5F1C
 	ldr r1, [r1]
-	bl sub_080ADCCC
+	bl Map_SetGraphicsPointers
 	bl sub_080AE234
 	bl sub_080AE294
 	ldrh r0, [r4]
@@ -3422,7 +3422,7 @@ sub_080B5F48: @ 0x080B5F48
 	movs r0, #1
 	b .L080B5F72
 	.byte 0x00, 0x00
-.L080B5F64: .4byte sub_080AE0BC
+.L080B5F64: .4byte Field_LoadGraphicsStep
 .L080B5F68: .4byte 0x03003BBC @ IWRAM+0x3BBC
 .L080B5F6C: .4byte 0x0000FFFF
 .L080B5F70:
@@ -3471,14 +3471,14 @@ sub_080B5FB4: @ 0x080B5FB4
 	push {lr}
 	movs r0, #0
 	movs r1, #0
-	bl sub_080B2EFC
+	bl FieldMap_CellRecordsRel
 	movs r1, #2
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	cmp r0, #0
 	bne .L080B5FD0
 	ldr r0, .L080B5FD4
 	ldrh r0, [r0, #2]
-	bl sub_080B02A0
+	bl Field_Step
 .L080B5FD0:
 	pop {r0}
 	bx r0
@@ -3594,14 +3594,14 @@ sub_080B60A4: @ 0x080B60A4
 	adds r6, r0, #0
 	movs r0, #0
 	movs r1, #0
-	bl sub_080B2EFC
+	bl FieldMap_CellRecordsRel
 	adds r4, r0, #0
 	movs r1, #0x19
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	adds r5, r0, #0
 	adds r0, r4, #0
 	movs r1, #0x14
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	cmp r5, #0
 	beq .L080B60E4
 	ldr r0, .L080B60E0
@@ -3614,7 +3614,7 @@ sub_080B60A4: @ 0x080B60A4
 	ldrh r1, [r0, #0x3c]
 	strh r2, [r0, #0x3c]
 	ldrh r0, [r0, #0x38]
-	bl sub_080B1C18
+	bl Field_HandleInput
 	b .L080B60F6
 .L080B60E0: .4byte 0x03004550 @ IWRAM+0x4550
 .L080B60E4:
@@ -3708,9 +3708,9 @@ sub_080B6170: @ 0x080B6170
 	mov r8, r0
 	movs r0, #0
 	movs r1, #0
-	bl sub_080B2EFC
+	bl FieldMap_CellRecordsRel
 	movs r1, #0x28
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	cmp r0, #0
 	beq .L080B61A4
 	ldrh r0, [r0, #2]
@@ -4692,7 +4692,7 @@ gUnknown_080B68EC:
 	cmp r1, r0
 	beq .L080B694C
 	movs r0, #0
-	bl sub_080B3C5C
+	bl BgPicture_LoadPiece
 	b .L080B6980
 	.byte 0x00, 0x00
 .L080B6944: .4byte 0x03003BAC @ IWRAM+0x3BAC
@@ -4717,7 +4717,7 @@ gUnknown_080B68EC:
 	bl VBlankTask_AddCounted
 	b .L080B6980
 	.byte 0x00, 0x00
-.L080B6974: .4byte sub_080B3F1C
+.L080B6974: .4byte BgPicture_BuildTilemap
 .L080B6978:
 	ldr r0, .L080B6988
 	movs r1, #1

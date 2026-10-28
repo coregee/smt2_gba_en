@@ -3983,7 +3983,7 @@ sub_080C8D30: @ 0x080C8D30
 	ands r0, r1
 	cmp r0, #0
 	bne .L080C8DFA
-	bl sub_080B098C
+	bl Palette_IsBg13Black
 	cmp r0, #1
 	beq .L080C8DFA
 	ldr r1, .L080C8D6C

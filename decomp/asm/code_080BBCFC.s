@@ -897,7 +897,7 @@ gUnknown_080BC298:
 	.byte 0x00, 0x00
 .L080BC498: .4byte 0x0300000E @ IWRAM+0xE
 .L080BC49C:
-	bl sub_080B4140
+	bl BgPicture_LoadPalette
 	bl sub_080B0778
 	b .L080BC4BE
 .L080BC4A6:
@@ -2053,7 +2053,7 @@ sub_080BCE0C: @ 0x080BCE0C
 	b .L080BCE44
 .L080BCE30: .4byte 0x0200AB04 @ EWRAM+0xAB04
 .L080BCE34:
-	bl sub_080B4140
+	bl BgPicture_LoadPalette
 	movs r0, #0x80
 	movs r1, #0x80
 	movs r2, #2

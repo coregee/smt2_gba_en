@@ -16,7 +16,7 @@ extern u16 gScriptPc;    /* program counter, in words from gScriptBase */
 extern u16 *gScriptJumpTarget;   /* pending jump: picked up by ScriptVM_Run (pc := 0) */
 extern u16 gTextColumn;    /* text cursor column */
 extern u16 gTextLine;    /* text cursor line */
-extern u16 gUnk_0203DB3E;    /* queued glyph count */
+extern u16 gMsgGlyphCount;    /* queued glyph count */
 extern u16 gUnk_0203DB46;
 extern u16 gUnk_0203DB4A;
 extern u16 gScriptWaitState;    /* VM wait state, indexes the table at 0x08790FDC */
@@ -58,8 +58,8 @@ extern u16 gScriptItemCheckId;    /* item id tested by ScriptOp_JumpIfItemMissin
 extern u16 gScriptSubstSavedPc;
 extern u16 *gScriptSubstSavedBase;
 extern s16 gUnk_0203DB48;    /* message skip (B held) */
-extern s16 gUnk_0203DB6C;    /* message window open */
-extern u32 gUnk_03006968;
+extern s16 gMsgWindowOpen;    /* message window open */
+extern u32 gMsgWindow;
 extern u16 gUnk_0203DB52;
 extern u16 gUnk_0203DB54;
 extern u16 gUnk_0203DB56;

@@ -1,0 +1,17 @@
+0813DE44	ScriptTask_WaitForKey	func	task-script entry at 0x08790108 (script 0x087900EC, started by op 0x316): when gNewKeys has A/B/Up/Down/Right/Left it plays SE 0x65 and sets task->unk1C = 1
+0813DE9C	ScriptVM_ScrollGlyphsUp	func	subtracts 13 from the y of every queued glyph (0x0203D800[i*4+2], i < count); task-script entry 0x087900B4 (page scroll of op 0x317)
+0813DE04	ScriptVM_ClearPage	func	clears glyph count, column and line, sets wait state 6, Font_ResetGlyphSpriteCache(0x180), reloads 0x0203DB48 from ScriptVM_GetTextSpeed; task-script entry 0x087900E4 after the 0x317 scroll
+0813DED8	ScriptVM_DrawTask	func	per-frame callback of the task script gUnknown_0878FB48 created by ScriptVM_Init: draws the queued message glyphs with FontSprite_DrawGlyphTinted (only y >= 0x03006614), the second glyph list 0x0203DA00, sprite slots 0x03006620, number/icon slots, and sets task->unk1C when 0x0203DB46 == 1
+0813E184	ScriptVM_Init	func	(script, inBattle): sets gScriptBase, clears pc/jump/wait/return-stack/glyph queue/handles, text top 0x59/0x61/0x69 by layout 0x0203DB7A, glyph delay 2, creates the VM task (0x08790024, ScriptVM_Run), draw task (0x0878FB48) and 0x0878FB84; called by field code with event scripts
+0813E408	ScriptVM_GetTextSpeed	func	returns Settings_GetBattleMsgSpeed() in battle (0x03006670 == 1), else sub_080C2AFC(); stored in 0x0203DB48 (1 = instant text)
+0813E544	ScriptVM_SaveFlags	func	copies the 0x168-byte flag array 0x03005CA8 to 0x030066B0; called by ScriptVM_RunAlt before the pre-scan
+0813E574	ScriptVM_RestoreState	func	copies 0x030066B0 back to the flag array 0x03005CA8 and restores gScriptBase/gScriptPc/0x0203DB72/0x0203DB74 saved by ScriptVM_RunAlt; clears 0x030065F0
+0813E60C	Demon_GetField	func	(id, field 0-31) switch reading byte/halfword fields 1..0x21 of the record sub_080BF648(id) (fields 5-10 and 13-15 signed bytes); field 0x1F (byte 0x21) is used as alignment nibble by sub_0813E914
+03006858	gScriptWaitBusy	ram	set by every wait handler (table 0x08790FDC); ScriptVM_Run returns without executing when it is 1
+0203D800	gMsgGlyphQueue	ram	message glyph queue, entries {glyph, x, y, attr} as u16[4]; written by ScriptVM_Run (index count*4), drawn by ScriptVM_DrawTask
+0203DB3E	gMsgGlyphCount	ram	number of queued glyphs; ScriptVM_Run caps it at 0x3F, ScriptVM_DrawTask draws entries [0, count)
+03006614	gMsgTextTop	ram	y of text line 0 (0x59/0x61/0x69 from layout 0x0203DB7A in ScriptVM_Init); glyph y = line*13 + top; glyphs above it are not drawn
+0203DB82	gMsgGlyphDelay	ram	frames between glyphs: ScriptVM_Run copies it to the wait timer 0x0203DB5C with wait state 15; ScriptVM_Init sets 2
+0203DB6C	gMsgWindowOpen	ram	1 after ScriptVM_Run created the message window (handle 0x03006968); cleared when it is closed
+03006968	gMsgWindow	ram	message window handle from Window_Create in ScriptVM_Run; tested with Window_IsIdle, closed with Window_Close
+030066B0	gScriptFlagsBackup	ram	0x168-byte copy of the flag array made by ScriptVM_SaveFlags, restored by ScriptVM_RestoreState

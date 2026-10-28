@@ -798,7 +798,7 @@ sub_080D87C0: @ 0x080D87C0
 	adds r2, r7, #0
 	movs r3, #0x20
 	bl Palette_CopyWithEffect
-	bl sub_080B098C
+	bl Palette_IsBg13Black
 	cmp r0, #0
 	bne .L080D88D0
 	ldr r0, .L080D88C4

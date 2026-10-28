@@ -731,458 +731,458 @@ gUnknown_086BF86C: @ 0x086BF86C
 	.global gUnknown_086BF890
 gUnknown_086BF890: @ 0x086BF890
 .Lspan_086BF890:
-	.incbin "build/assets/086BF890.bin" @ rom_086B0000/086BF890
+	.incbin "build/assets/086BF890.bin" @ demons/demon_000
 .Lspan_086BFBE0:
-	.incbin "build/assets/086BFBE0.bin" @ rom_086B0000/086BFBE0
+	.incbin "build/assets/086BFBE0.bin" @ demons/demon_001
 .Lspan_086C025C:
-	.incbin "build/assets/086C025C.bin" @ rom_086C0000/086C025C
+	.incbin "build/assets/086C025C.bin" @ demons/demon_002
 .Lspan_086C0810:
-	.incbin "build/assets/086C0810.bin" @ rom_086C0000/086C0810
+	.incbin "build/assets/086C0810.bin" @ demons/demon_003
 .Lspan_086C0C28:
-	.incbin "build/assets/086C0C28.bin" @ rom_086C0000/086C0C28
+	.incbin "build/assets/086C0C28.bin" @ demons/demon_004
 .Lspan_086C0FF4:
-	.incbin "build/assets/086C0FF4.bin" @ rom_086C0000/086C0FF4
+	.incbin "build/assets/086C0FF4.bin" @ demons/demon_005
 .Lspan_086C14A8:
-	.incbin "build/assets/086C14A8.bin" @ rom_086C0000/086C14A8
+	.incbin "build/assets/086C14A8.bin" @ demons/demon_006
 .Lspan_086C19A8:
-	.incbin "build/assets/086C19A8.bin" @ rom_086C0000/086C19A8
+	.incbin "build/assets/086C19A8.bin" @ demons/demon_007
 .Lspan_086C1DAC:
-	.incbin "build/assets/086C1DAC.bin" @ rom_086C0000/086C1DAC
+	.incbin "build/assets/086C1DAC.bin" @ demons/demon_008
 .Lspan_086C2228:
-	.incbin "build/assets/086C2228.bin" @ rom_086C0000/086C2228
+	.incbin "build/assets/086C2228.bin" @ demons/demon_009
 .Lspan_086C2728:
-	.incbin "build/assets/086C2728.bin" @ rom_086C0000/086C2728
+	.incbin "build/assets/086C2728.bin" @ demons/demon_010
 .Lspan_086C2FC8:
-	.incbin "build/assets/086C2FC8.bin" @ rom_086C0000/086C2FC8
+	.incbin "build/assets/086C2FC8.bin" @ demons/demon_011
 .Lspan_086C3390:
-	.incbin "build/assets/086C3390.bin" @ rom_086C0000/086C3390
+	.incbin "build/assets/086C3390.bin" @ demons/demon_012
 .Lspan_086C3758:
-	.incbin "build/assets/086C3758.bin" @ rom_086C0000/086C3758
+	.incbin "build/assets/086C3758.bin" @ demons/demon_013
 .Lspan_086C3D54:
-	.incbin "build/assets/086C3D54.bin" @ rom_086C0000/086C3D54
+	.incbin "build/assets/086C3D54.bin" @ demons/demon_014
 .Lspan_086C4248:
-	.incbin "build/assets/086C4248.bin" @ rom_086C0000/086C4248
+	.incbin "build/assets/086C4248.bin" @ demons/demon_015
 .Lspan_086C4708:
-	.incbin "build/assets/086C4708.bin" @ rom_086C0000/086C4708
+	.incbin "build/assets/086C4708.bin" @ demons/demon_016
 .Lspan_086C4BE8:
-	.incbin "build/assets/086C4BE8.bin" @ rom_086C0000/086C4BE8
+	.incbin "build/assets/086C4BE8.bin" @ demons/demon_017
 .Lspan_086C5120:
-	.incbin "build/assets/086C5120.bin" @ rom_086C0000/086C5120
+	.incbin "build/assets/086C5120.bin" @ demons/demon_018
 .Lspan_086C553C:
-	.incbin "build/assets/086C553C.bin" @ rom_086C0000/086C553C
+	.incbin "build/assets/086C553C.bin" @ demons/demon_019
 .Lspan_086C57D8:
-	.incbin "build/assets/086C57D8.bin" @ rom_086C0000/086C57D8
+	.incbin "build/assets/086C57D8.bin" @ demons/demon_020
 .Lspan_086C5AC8:
-	.incbin "build/assets/086C5AC8.bin" @ rom_086C0000/086C5AC8
+	.incbin "build/assets/086C5AC8.bin" @ demons/demon_021
 .Lspan_086C5F48:
-	.incbin "build/assets/086C5F48.bin" @ rom_086C0000/086C5F48
+	.incbin "build/assets/086C5F48.bin" @ demons/demon_022
 .Lspan_086C63A0:
-	.incbin "build/assets/086C63A0.bin" @ rom_086C0000/086C63A0
+	.incbin "build/assets/086C63A0.bin" @ demons/demon_023
 .Lspan_086C6850:
-	.incbin "build/assets/086C6850.bin" @ rom_086C0000/086C6850
+	.incbin "build/assets/086C6850.bin" @ demons/demon_024
 .Lspan_086C6D48:
-	.incbin "build/assets/086C6D48.bin" @ rom_086C0000/086C6D48
+	.incbin "build/assets/086C6D48.bin" @ demons/demon_025
 .Lspan_086C71A4:
-	.incbin "build/assets/086C71A4.bin" @ rom_086C0000/086C71A4
+	.incbin "build/assets/086C71A4.bin" @ demons/demon_026
 .Lspan_086C75CC:
-	.incbin "build/assets/086C75CC.bin" @ rom_086C0000/086C75CC
+	.incbin "build/assets/086C75CC.bin" @ demons/demon_027
 .Lspan_086C7994:
-	.incbin "build/assets/086C7994.bin" @ rom_086C0000/086C7994
+	.incbin "build/assets/086C7994.bin" @ demons/demon_028
 .Lspan_086C7E24:
-	.incbin "build/assets/086C7E24.bin" @ rom_086C0000/086C7E24
+	.incbin "build/assets/086C7E24.bin" @ demons/demon_029
 .Lspan_086C82C8:
-	.incbin "build/assets/086C82C8.bin" @ rom_086C0000/086C82C8
+	.incbin "build/assets/086C82C8.bin" @ demons/demon_030
 .Lspan_086C87C4:
-	.incbin "build/assets/086C87C4.bin" @ rom_086C0000/086C87C4
+	.incbin "build/assets/086C87C4.bin" @ demons/demon_031
 .Lspan_086C8C24:
-	.incbin "build/assets/086C8C24.bin" @ rom_086C0000/086C8C24
+	.incbin "build/assets/086C8C24.bin" @ demons/demon_032
 .Lspan_086C92F0:
-	.incbin "build/assets/086C92F0.bin" @ rom_086C0000/086C92F0
+	.incbin "build/assets/086C92F0.bin" @ demons/demon_033
 .Lspan_086C9710:
-	.incbin "build/assets/086C9710.bin" @ rom_086C0000/086C9710
+	.incbin "build/assets/086C9710.bin" @ demons/demon_034
 .Lspan_086C9CEC:
-	.incbin "build/assets/086C9CEC.bin" @ rom_086C0000/086C9CEC
+	.incbin "build/assets/086C9CEC.bin" @ demons/demon_035
 .Lspan_086CA0F8:
-	.incbin "build/assets/086CA0F8.bin" @ rom_086C0000/086CA0F8
+	.incbin "build/assets/086CA0F8.bin" @ demons/demon_036
 .Lspan_086CA704:
-	.incbin "build/assets/086CA704.bin" @ rom_086C0000/086CA704
+	.incbin "build/assets/086CA704.bin" @ demons/demon_037
 .Lspan_086CAC94:
-	.incbin "build/assets/086CAC94.bin" @ rom_086C0000/086CAC94
+	.incbin "build/assets/086CAC94.bin" @ demons/demon_038
 .Lspan_086CB1F0:
-	.incbin "build/assets/086CB1F0.bin" @ rom_086C0000/086CB1F0
+	.incbin "build/assets/086CB1F0.bin" @ demons/demon_039
 .Lspan_086CB6C4:
-	.incbin "build/assets/086CB6C4.bin" @ rom_086C0000/086CB6C4
+	.incbin "build/assets/086CB6C4.bin" @ demons/demon_040
 .Lspan_086CBB58:
-	.incbin "build/assets/086CBB58.bin" @ rom_086C0000/086CBB58
+	.incbin "build/assets/086CBB58.bin" @ demons/demon_041
 .Lspan_086CC0C0:
-	.incbin "build/assets/086CC0C0.bin" @ rom_086C0000/086CC0C0
+	.incbin "build/assets/086CC0C0.bin" @ demons/demon_042
 .Lspan_086CC618:
-	.incbin "build/assets/086CC618.bin" @ rom_086C0000/086CC618
+	.incbin "build/assets/086CC618.bin" @ demons/demon_043
 .Lspan_086CCA9C:
-	.incbin "build/assets/086CCA9C.bin" @ rom_086C0000/086CCA9C
+	.incbin "build/assets/086CCA9C.bin" @ demons/demon_044
 .Lspan_086CCFBC:
-	.incbin "build/assets/086CCFBC.bin" @ rom_086C0000/086CCFBC
+	.incbin "build/assets/086CCFBC.bin" @ demons/demon_045
 .Lspan_086CD600:
-	.incbin "build/assets/086CD600.bin" @ rom_086C0000/086CD600
+	.incbin "build/assets/086CD600.bin" @ demons/demon_046
 .Lspan_086CDA84:
-	.incbin "build/assets/086CDA84.bin" @ rom_086C0000/086CDA84
+	.incbin "build/assets/086CDA84.bin" @ demons/demon_047
 .Lspan_086CDEE4:
-	.incbin "build/assets/086CDEE4.bin" @ rom_086C0000/086CDEE4
+	.incbin "build/assets/086CDEE4.bin" @ demons/demon_048
 .Lspan_086CE36C:
-	.incbin "build/assets/086CE36C.bin" @ rom_086C0000/086CE36C
+	.incbin "build/assets/086CE36C.bin" @ demons/demon_049
 .Lspan_086CE60C:
-	.incbin "build/assets/086CE60C.bin" @ rom_086C0000/086CE60C
+	.incbin "build/assets/086CE60C.bin" @ demons/demon_050
 .Lspan_086CE848:
-	.incbin "build/assets/086CE848.bin" @ rom_086C0000/086CE848
+	.incbin "build/assets/086CE848.bin" @ demons/demon_051
 .Lspan_086CEB20:
-	.incbin "build/assets/086CEB20.bin" @ rom_086C0000/086CEB20
+	.incbin "build/assets/086CEB20.bin" @ demons/demon_052
 .Lspan_086CEDC4:
-	.incbin "build/assets/086CEDC4.bin" @ rom_086C0000/086CEDC4
+	.incbin "build/assets/086CEDC4.bin" @ demons/demon_053
 .Lspan_086CF064:
-	.incbin "build/assets/086CF064.bin" @ rom_086C0000/086CF064
+	.incbin "build/assets/086CF064.bin" @ demons/demon_054
 .Lspan_086CF380:
-	.incbin "build/assets/086CF380.bin" @ rom_086C0000/086CF380
+	.incbin "build/assets/086CF380.bin" @ demons/demon_055
 .Lspan_086CF650:
-	.incbin "build/assets/086CF650.bin" @ rom_086C0000/086CF650
+	.incbin "build/assets/086CF650.bin" @ demons/demon_056
 .Lspan_086CF954:
-	.incbin "build/assets/086CF954.bin" @ rom_086C0000/086CF954
+	.incbin "build/assets/086CF954.bin" @ demons/demon_057
 .Lspan_086CFC24:
-	.incbin "build/assets/086CFC24.bin" @ rom_086C0000/086CFC24
+	.incbin "build/assets/086CFC24.bin" @ demons/demon_058
 .Lspan_086D0278:
-	.incbin "build/assets/086D0278.bin" @ rom_086D0000/086D0278
+	.incbin "build/assets/086D0278.bin" @ demons/demon_059
 .Lspan_086D0660:
-	.incbin "build/assets/086D0660.bin" @ rom_086D0000/086D0660
+	.incbin "build/assets/086D0660.bin" @ demons/demon_060
 .Lspan_086D0AF8:
-	.incbin "build/assets/086D0AF8.bin" @ rom_086D0000/086D0AF8
+	.incbin "build/assets/086D0AF8.bin" @ demons/demon_061
 .Lspan_086D0F18:
-	.incbin "build/assets/086D0F18.bin" @ rom_086D0000/086D0F18
+	.incbin "build/assets/086D0F18.bin" @ demons/demon_062
 .Lspan_086D14F0:
-	.incbin "build/assets/086D14F0.bin" @ rom_086D0000/086D14F0
+	.incbin "build/assets/086D14F0.bin" @ demons/demon_063
 .Lspan_086D1D40:
-	.incbin "build/assets/086D1D40.bin" @ rom_086D0000/086D1D40
+	.incbin "build/assets/086D1D40.bin" @ demons/demon_064
 .Lspan_086D24E4:
-	.incbin "build/assets/086D24E4.bin" @ rom_086D0000/086D24E4
+	.incbin "build/assets/086D24E4.bin" @ demons/demon_065
 .Lspan_086D28DC:
-	.incbin "build/assets/086D28DC.bin" @ rom_086D0000/086D28DC
+	.incbin "build/assets/086D28DC.bin" @ demons/demon_066
 .Lspan_086D2EA8:
-	.incbin "build/assets/086D2EA8.bin" @ rom_086D0000/086D2EA8
+	.incbin "build/assets/086D2EA8.bin" @ demons/demon_067
 .Lspan_086D32F8:
-	.incbin "build/assets/086D32F8.bin" @ rom_086D0000/086D32F8
+	.incbin "build/assets/086D32F8.bin" @ demons/demon_068
 .Lspan_086D3904:
-	.incbin "build/assets/086D3904.bin" @ rom_086D0000/086D3904
+	.incbin "build/assets/086D3904.bin" @ demons/demon_069
 .Lspan_086D4068:
-	.incbin "build/assets/086D4068.bin" @ rom_086D0000/086D4068
+	.incbin "build/assets/086D4068.bin" @ demons/demon_070
 .Lspan_086D45A4:
-	.incbin "build/assets/086D45A4.bin" @ rom_086D0000/086D45A4
+	.incbin "build/assets/086D45A4.bin" @ demons/demon_071
 .Lspan_086D4A08:
-	.incbin "build/assets/086D4A08.bin" @ rom_086D0000/086D4A08
+	.incbin "build/assets/086D4A08.bin" @ demons/demon_072
 .Lspan_086D4FBC:
-	.incbin "build/assets/086D4FBC.bin" @ rom_086D0000/086D4FBC
+	.incbin "build/assets/086D4FBC.bin" @ demons/demon_073
 .Lspan_086D53F8:
-	.incbin "build/assets/086D53F8.bin" @ rom_086D0000/086D53F8
+	.incbin "build/assets/086D53F8.bin" @ demons/demon_074
 .Lspan_086D586C:
-	.incbin "build/assets/086D586C.bin" @ rom_086D0000/086D586C
+	.incbin "build/assets/086D586C.bin" @ demons/demon_075
 .Lspan_086D5F2C:
-	.incbin "build/assets/086D5F2C.bin" @ rom_086D0000/086D5F2C
+	.incbin "build/assets/086D5F2C.bin" @ demons/demon_076
 .Lspan_086D6300:
-	.incbin "build/assets/086D6300.bin" @ rom_086D0000/086D6300
+	.incbin "build/assets/086D6300.bin" @ demons/demon_077
 .Lspan_086D6844:
-	.incbin "build/assets/086D6844.bin" @ rom_086D0000/086D6844
+	.incbin "build/assets/086D6844.bin" @ demons/demon_078
 .Lspan_086D6CA4:
-	.incbin "build/assets/086D6CA4.bin" @ rom_086D0000/086D6CA4
+	.incbin "build/assets/086D6CA4.bin" @ demons/demon_079
 .Lspan_086D7194:
-	.incbin "build/assets/086D7194.bin" @ rom_086D0000/086D7194
+	.incbin "build/assets/086D7194.bin" @ demons/demon_081
 .Lspan_086D765C:
-	.incbin "build/assets/086D765C.bin" @ rom_086D0000/086D765C
+	.incbin "build/assets/086D765C.bin" @ demons/demon_082
 .Lspan_086D7844:
-	.incbin "build/assets/086D7844.bin" @ rom_086D0000/086D7844
+	.incbin "build/assets/086D7844.bin" @ demons/demon_083
 .Lspan_086D7D6C:
-	.incbin "build/assets/086D7D6C.bin" @ rom_086D0000/086D7D6C
+	.incbin "build/assets/086D7D6C.bin" @ demons/demon_084
 .Lspan_086D8228:
-	.incbin "build/assets/086D8228.bin" @ rom_086D0000/086D8228
+	.incbin "build/assets/086D8228.bin" @ demons/demon_085
 .Lspan_086D8668:
-	.incbin "build/assets/086D8668.bin" @ rom_086D0000/086D8668
+	.incbin "build/assets/086D8668.bin" @ demons/demon_086
 .Lspan_086D8B3C:
-	.incbin "build/assets/086D8B3C.bin" @ rom_086D0000/086D8B3C
+	.incbin "build/assets/086D8B3C.bin" @ demons/demon_090
 .Lspan_086D8FF0:
-	.incbin "build/assets/086D8FF0.bin" @ rom_086D0000/086D8FF0
+	.incbin "build/assets/086D8FF0.bin" @ demons/demon_091
 .Lspan_086D9324:
-	.incbin "build/assets/086D9324.bin" @ rom_086D0000/086D9324
+	.incbin "build/assets/086D9324.bin" @ demons/demon_092
 .Lspan_086D9704:
-	.incbin "build/assets/086D9704.bin" @ rom_086D0000/086D9704
+	.incbin "build/assets/086D9704.bin" @ demons/demon_093
 .Lspan_086D9A68:
-	.incbin "build/assets/086D9A68.bin" @ rom_086D0000/086D9A68
+	.incbin "build/assets/086D9A68.bin" @ demons/demon_094
 .Lspan_086D9E1C:
-	.incbin "build/assets/086D9E1C.bin" @ rom_086D0000/086D9E1C
+	.incbin "build/assets/086D9E1C.bin" @ demons/demon_095
 .Lspan_086DA284:
-	.incbin "build/assets/086DA284.bin" @ rom_086D0000/086DA284
+	.incbin "build/assets/086DA284.bin" @ demons/demon_096
 .Lspan_086DA5C0:
-	.incbin "build/assets/086DA5C0.bin" @ rom_086D0000/086DA5C0
+	.incbin "build/assets/086DA5C0.bin" @ demons/demon_097
 .Lspan_086DAA34:
-	.incbin "build/assets/086DAA34.bin" @ rom_086D0000/086DAA34
+	.incbin "build/assets/086DAA34.bin" @ demons/demon_098
 .Lspan_086DAE74:
-	.incbin "build/assets/086DAE74.bin" @ rom_086D0000/086DAE74
+	.incbin "build/assets/086DAE74.bin" @ demons/demon_099
 .Lspan_086DB344:
-	.incbin "build/assets/086DB344.bin" @ rom_086D0000/086DB344
+	.incbin "build/assets/086DB344.bin" @ demons/demon_100
 .Lspan_086DB768:
-	.incbin "build/assets/086DB768.bin" @ rom_086D0000/086DB768
+	.incbin "build/assets/086DB768.bin" @ demons/demon_101
 .Lspan_086DBB20:
-	.incbin "build/assets/086DBB20.bin" @ rom_086D0000/086DBB20
+	.incbin "build/assets/086DBB20.bin" @ demons/demon_102
 .Lspan_086DBF3C:
-	.incbin "build/assets/086DBF3C.bin" @ rom_086D0000/086DBF3C
+	.incbin "build/assets/086DBF3C.bin" @ demons/demon_103
 .Lspan_086DC3EC:
-	.incbin "build/assets/086DC3EC.bin" @ rom_086D0000/086DC3EC
+	.incbin "build/assets/086DC3EC.bin" @ demons/demon_105
 .Lspan_086DC964:
-	.incbin "build/assets/086DC964.bin" @ rom_086D0000/086DC964
+	.incbin "build/assets/086DC964.bin" @ demons/demon_106
 .Lspan_086DCE44:
-	.incbin "build/assets/086DCE44.bin" @ rom_086D0000/086DCE44
+	.incbin "build/assets/086DCE44.bin" @ demons/demon_108
 .Lspan_086DD354:
-	.incbin "build/assets/086DD354.bin" @ rom_086D0000/086DD354
+	.incbin "build/assets/086DD354.bin" @ demons/demon_109
 .Lspan_086DD850:
-	.incbin "build/assets/086DD850.bin" @ rom_086D0000/086DD850
+	.incbin "build/assets/086DD850.bin" @ demons/demon_111
 .Lspan_086DDD74:
-	.incbin "build/assets/086DDD74.bin" @ rom_086D0000/086DDD74
+	.incbin "build/assets/086DDD74.bin" @ demons/demon_112
 .Lspan_086DE2A8:
-	.incbin "build/assets/086DE2A8.bin" @ rom_086D0000/086DE2A8
+	.incbin "build/assets/086DE2A8.bin" @ demons/demon_113
 .Lspan_086DE60C:
-	.incbin "build/assets/086DE60C.bin" @ rom_086D0000/086DE60C
+	.incbin "build/assets/086DE60C.bin" @ demons/demon_114
 .Lspan_086DEAF8:
-	.incbin "build/assets/086DEAF8.bin" @ rom_086D0000/086DEAF8
+	.incbin "build/assets/086DEAF8.bin" @ demons/demon_115
 .Lspan_086DF114:
-	.incbin "build/assets/086DF114.bin" @ rom_086D0000/086DF114
+	.incbin "build/assets/086DF114.bin" @ demons/demon_116
 .Lspan_086DF5B4:
-	.incbin "build/assets/086DF5B4.bin" @ rom_086D0000/086DF5B4
+	.incbin "build/assets/086DF5B4.bin" @ demons/demon_117
 .Lspan_086DFA10:
-	.incbin "build/assets/086DFA10.bin" @ rom_086D0000/086DFA10
+	.incbin "build/assets/086DFA10.bin" @ demons/demon_121
 .Lspan_086DFCC0:
-	.incbin "build/assets/086DFCC0.bin" @ rom_086D0000/086DFCC0
+	.incbin "build/assets/086DFCC0.bin" @ demons/demon_122
 .Lspan_086E00BC:
-	.incbin "build/assets/086E00BC.bin" @ rom_086E0000/086E00BC
+	.incbin "build/assets/086E00BC.bin" @ demons/demon_123
 .Lspan_086E0418:
-	.incbin "build/assets/086E0418.bin" @ rom_086E0000/086E0418
+	.incbin "build/assets/086E0418.bin" @ demons/demon_125
 .Lspan_086E07B4:
-	.incbin "build/assets/086E07B4.bin" @ rom_086E0000/086E07B4
+	.incbin "build/assets/086E07B4.bin" @ demons/demon_126
 .Lspan_086E0BC8:
-	.incbin "build/assets/086E0BC8.bin" @ rom_086E0000/086E0BC8
+	.incbin "build/assets/086E0BC8.bin" @ demons/demon_127
 .Lspan_086E0DEC:
-	.incbin "build/assets/086E0DEC.bin" @ rom_086E0000/086E0DEC
+	.incbin "build/assets/086E0DEC.bin" @ demons/demon_128
 .Lspan_086E113C:
-	.incbin "build/assets/086E113C.bin" @ rom_086E0000/086E113C
+	.incbin "build/assets/086E113C.bin" @ demons/demon_129
 .Lspan_086E13F0:
-	.incbin "build/assets/086E13F0.bin" @ rom_086E0000/086E13F0
+	.incbin "build/assets/086E13F0.bin" @ demons/demon_130
 .Lspan_086E1934:
-	.incbin "build/assets/086E1934.bin" @ rom_086E0000/086E1934
+	.incbin "build/assets/086E1934.bin" @ demons/demon_132
 .Lspan_086E1F6C:
-	.incbin "build/assets/086E1F6C.bin" @ rom_086E0000/086E1F6C
+	.incbin "build/assets/086E1F6C.bin" @ demons/demon_133
 .Lspan_086E22AC:
-	.incbin "build/assets/086E22AC.bin" @ rom_086E0000/086E22AC
+	.incbin "build/assets/086E22AC.bin" @ demons/demon_134
 .Lspan_086E2724:
-	.incbin "build/assets/086E2724.bin" @ rom_086E0000/086E2724
+	.incbin "build/assets/086E2724.bin" @ demons/demon_135
 .Lspan_086E29E4:
-	.incbin "build/assets/086E29E4.bin" @ rom_086E0000/086E29E4
+	.incbin "build/assets/086E29E4.bin" @ demons/demon_136
 .Lspan_086E2F00:
-	.incbin "build/assets/086E2F00.bin" @ rom_086E0000/086E2F00
+	.incbin "build/assets/086E2F00.bin" @ demons/demon_137
 .Lspan_086E3414:
-	.incbin "build/assets/086E3414.bin" @ rom_086E0000/086E3414
+	.incbin "build/assets/086E3414.bin" @ demons/demon_138
 .Lspan_086E3824:
-	.incbin "build/assets/086E3824.bin" @ rom_086E0000/086E3824
+	.incbin "build/assets/086E3824.bin" @ demons/demon_139
 .Lspan_086E3A60:
-	.incbin "build/assets/086E3A60.bin" @ rom_086E0000/086E3A60
+	.incbin "build/assets/086E3A60.bin" @ demons/demon_140
 .Lspan_086E3DAC:
-	.incbin "build/assets/086E3DAC.bin" @ rom_086E0000/086E3DAC
+	.incbin "build/assets/086E3DAC.bin" @ demons/demon_141
 .Lspan_086E41F0:
-	.incbin "build/assets/086E41F0.bin" @ rom_086E0000/086E41F0
+	.incbin "build/assets/086E41F0.bin" @ demons/demon_142
 .Lspan_086E44D0:
-	.incbin "build/assets/086E44D0.bin" @ rom_086E0000/086E44D0
+	.incbin "build/assets/086E44D0.bin" @ demons/demon_143
 .Lspan_086E4808:
-	.incbin "build/assets/086E4808.bin" @ rom_086E0000/086E4808
+	.incbin "build/assets/086E4808.bin" @ demons/demon_144
 .Lspan_086E4AB4:
-	.incbin "build/assets/086E4AB4.bin" @ rom_086E0000/086E4AB4
+	.incbin "build/assets/086E4AB4.bin" @ demons/demon_145
 .Lspan_086E4E84:
-	.incbin "build/assets/086E4E84.bin" @ rom_086E0000/086E4E84
+	.incbin "build/assets/086E4E84.bin" @ demons/demon_146
 .Lspan_086E52D0:
-	.incbin "build/assets/086E52D0.bin" @ rom_086E0000/086E52D0
+	.incbin "build/assets/086E52D0.bin" @ demons/demon_147
 .Lspan_086E585C:
-	.incbin "build/assets/086E585C.bin" @ rom_086E0000/086E585C
+	.incbin "build/assets/086E585C.bin" @ demons/demon_148
 .Lspan_086E5E34:
-	.incbin "build/assets/086E5E34.bin" @ rom_086E0000/086E5E34
+	.incbin "build/assets/086E5E34.bin" @ demons/demon_149
 .Lspan_086E61D0:
-	.incbin "build/assets/086E61D0.bin" @ rom_086E0000/086E61D0
+	.incbin "build/assets/086E61D0.bin" @ demons/demon_150
 .Lspan_086E6508:
-	.incbin "build/assets/086E6508.bin" @ rom_086E0000/086E6508
+	.incbin "build/assets/086E6508.bin" @ demons/demon_151
 .Lspan_086E697C:
-	.incbin "build/assets/086E697C.bin" @ rom_086E0000/086E697C
+	.incbin "build/assets/086E697C.bin" @ demons/demon_152
 .Lspan_086E6E80:
-	.incbin "build/assets/086E6E80.bin" @ rom_086E0000/086E6E80
+	.incbin "build/assets/086E6E80.bin" @ demons/demon_153
 .Lspan_086E74F0:
-	.incbin "build/assets/086E74F0.bin" @ rom_086E0000/086E74F0
+	.incbin "build/assets/086E74F0.bin" @ demons/demon_154
 .Lspan_086E7998:
-	.incbin "build/assets/086E7998.bin" @ rom_086E0000/086E7998
+	.incbin "build/assets/086E7998.bin" @ demons/demon_155
 .Lspan_086E7FEC:
-	.incbin "build/assets/086E7FEC.bin" @ rom_086E0000/086E7FEC
+	.incbin "build/assets/086E7FEC.bin" @ demons/demon_156
 .Lspan_086E834C:
-	.incbin "build/assets/086E834C.bin" @ rom_086E0000/086E834C
+	.incbin "build/assets/086E834C.bin" @ demons/demon_157
 .Lspan_086E8824:
-	.incbin "build/assets/086E8824.bin" @ rom_086E0000/086E8824
+	.incbin "build/assets/086E8824.bin" @ demons/demon_158
 .Lspan_086E8BAC:
-	.incbin "build/assets/086E8BAC.bin" @ rom_086E0000/086E8BAC
+	.incbin "build/assets/086E8BAC.bin" @ demons/demon_159
 .Lspan_086E90FC:
-	.incbin "build/assets/086E90FC.bin" @ rom_086E0000/086E90FC
+	.incbin "build/assets/086E90FC.bin" @ demons/demon_160
 .Lspan_086E9700:
-	.incbin "build/assets/086E9700.bin" @ rom_086E0000/086E9700
+	.incbin "build/assets/086E9700.bin" @ demons/demon_161
 .Lspan_086E9C24:
-	.incbin "build/assets/086E9C24.bin" @ rom_086E0000/086E9C24
+	.incbin "build/assets/086E9C24.bin" @ demons/demon_162
 .Lspan_086EA0B0:
-	.incbin "build/assets/086EA0B0.bin" @ rom_086E0000/086EA0B0
+	.incbin "build/assets/086EA0B0.bin" @ demons/demon_164
 .Lspan_086EA47C:
-	.incbin "build/assets/086EA47C.bin" @ rom_086E0000/086EA47C
+	.incbin "build/assets/086EA47C.bin" @ demons/demon_165
 .Lspan_086EA82C:
-	.incbin "build/assets/086EA82C.bin" @ rom_086E0000/086EA82C
+	.incbin "build/assets/086EA82C.bin" @ demons/demon_166
 .Lspan_086EADBC:
-	.incbin "build/assets/086EADBC.bin" @ rom_086E0000/086EADBC
+	.incbin "build/assets/086EADBC.bin" @ demons/demon_167
 .Lspan_086EB338:
-	.incbin "build/assets/086EB338.bin" @ rom_086E0000/086EB338
+	.incbin "build/assets/086EB338.bin" @ demons/demon_168
 .Lspan_086EB7B4:
-	.incbin "build/assets/086EB7B4.bin" @ rom_086E0000/086EB7B4
+	.incbin "build/assets/086EB7B4.bin" @ demons/demon_169
 .Lspan_086EBB80:
-	.incbin "build/assets/086EBB80.bin" @ rom_086E0000/086EBB80
+	.incbin "build/assets/086EBB80.bin" @ demons/demon_170
 .Lspan_086EBEEC:
-	.incbin "build/assets/086EBEEC.bin" @ rom_086E0000/086EBEEC
+	.incbin "build/assets/086EBEEC.bin" @ demons/demon_172
 .Lspan_086EC264:
-	.incbin "build/assets/086EC264.bin" @ rom_086E0000/086EC264
+	.incbin "build/assets/086EC264.bin" @ demons/demon_173
 .Lspan_086EC714:
-	.incbin "build/assets/086EC714.bin" @ rom_086E0000/086EC714
+	.incbin "build/assets/086EC714.bin" @ demons/demon_174
 .Lspan_086ECC94:
-	.incbin "build/assets/086ECC94.bin" @ rom_086E0000/086ECC94
+	.incbin "build/assets/086ECC94.bin" @ demons/demon_175
 .Lspan_086ED0B0:
-	.incbin "build/assets/086ED0B0.bin" @ rom_086E0000/086ED0B0
+	.incbin "build/assets/086ED0B0.bin" @ demons/demon_176
 .Lspan_086ED454:
-	.incbin "build/assets/086ED454.bin" @ rom_086E0000/086ED454
+	.incbin "build/assets/086ED454.bin" @ demons/demon_177
 .Lspan_086ED8B8:
-	.incbin "build/assets/086ED8B8.bin" @ rom_086E0000/086ED8B8
+	.incbin "build/assets/086ED8B8.bin" @ demons/demon_178
 .Lspan_086EE120:
-	.incbin "build/assets/086EE120.bin" @ rom_086E0000/086EE120
+	.incbin "build/assets/086EE120.bin" @ demons/demon_179
 .Lspan_086EE6B0:
-	.incbin "build/assets/086EE6B0.bin" @ rom_086E0000/086EE6B0
+	.incbin "build/assets/086EE6B0.bin" @ demons/demon_180
 .Lspan_086EEB7C:
-	.incbin "build/assets/086EEB7C.bin" @ rom_086E0000/086EEB7C
+	.incbin "build/assets/086EEB7C.bin" @ demons/demon_181
 .Lspan_086EF124:
-	.incbin "build/assets/086EF124.bin" @ rom_086E0000/086EF124
+	.incbin "build/assets/086EF124.bin" @ demons/demon_182
 .Lspan_086EF6F8:
-	.incbin "build/assets/086EF6F8.bin" @ rom_086E0000/086EF6F8
+	.incbin "build/assets/086EF6F8.bin" @ demons/demon_183
 .Lspan_086EF9E8:
-	.incbin "build/assets/086EF9E8.bin" @ rom_086E0000/086EF9E8
+	.incbin "build/assets/086EF9E8.bin" @ demons/demon_184
 .Lspan_086EFE60:
-	.incbin "build/assets/086EFE60.bin" @ rom_086E0000/086EFE60
+	.incbin "build/assets/086EFE60.bin" @ demons/demon_185
 .Lspan_086F01F8:
-	.incbin "build/assets/086F01F8.bin" @ rom_086F0000/086F01F8
+	.incbin "build/assets/086F01F8.bin" @ demons/demon_186
 .Lspan_086F0590:
-	.incbin "build/assets/086F0590.bin" @ rom_086F0000/086F0590
+	.incbin "build/assets/086F0590.bin" @ demons/demon_187
 .Lspan_086F089C:
-	.incbin "build/assets/086F089C.bin" @ rom_086F0000/086F089C
+	.incbin "build/assets/086F089C.bin" @ demons/demon_188
 .Lspan_086F0D5C:
-	.incbin "build/assets/086F0D5C.bin" @ rom_086F0000/086F0D5C
+	.incbin "build/assets/086F0D5C.bin" @ demons/demon_189
 .Lspan_086F12F4:
-	.incbin "build/assets/086F12F4.bin" @ rom_086F0000/086F12F4
+	.incbin "build/assets/086F12F4.bin" @ demons/demon_190
 .Lspan_086F1730:
-	.incbin "build/assets/086F1730.bin" @ rom_086F0000/086F1730
+	.incbin "build/assets/086F1730.bin" @ demons/demon_191
 .Lspan_086F1AEC:
-	.incbin "build/assets/086F1AEC.bin" @ rom_086F0000/086F1AEC
+	.incbin "build/assets/086F1AEC.bin" @ demons/demon_192
 .Lspan_086F1FB4:
-	.incbin "build/assets/086F1FB4.bin" @ rom_086F0000/086F1FB4
+	.incbin "build/assets/086F1FB4.bin" @ demons/demon_193
 .Lspan_086F22D4:
-	.incbin "build/assets/086F22D4.bin" @ rom_086F0000/086F22D4
+	.incbin "build/assets/086F22D4.bin" @ demons/demon_194
 .Lspan_086F262C:
-	.incbin "build/assets/086F262C.bin" @ rom_086F0000/086F262C
+	.incbin "build/assets/086F262C.bin" @ demons/demon_195
 .Lspan_086F298C:
-	.incbin "build/assets/086F298C.bin" @ rom_086F0000/086F298C
+	.incbin "build/assets/086F298C.bin" @ demons/demon_196
 .Lspan_086F2EB0:
-	.incbin "build/assets/086F2EB0.bin" @ rom_086F0000/086F2EB0
+	.incbin "build/assets/086F2EB0.bin" @ demons/demon_197
 .Lspan_086F33B0:
-	.incbin "build/assets/086F33B0.bin" @ rom_086F0000/086F33B0
+	.incbin "build/assets/086F33B0.bin" @ demons/demon_198
 .Lspan_086F3758:
-	.incbin "build/assets/086F3758.bin" @ rom_086F0000/086F3758
+	.incbin "build/assets/086F3758.bin" @ demons/demon_199
 .Lspan_086F3C34:
-	.incbin "build/assets/086F3C34.bin" @ rom_086F0000/086F3C34
+	.incbin "build/assets/086F3C34.bin" @ demons/demon_200
 .Lspan_086F4210:
-	.incbin "build/assets/086F4210.bin" @ rom_086F0000/086F4210
+	.incbin "build/assets/086F4210.bin" @ demons/demon_201
 .Lspan_086F46EC:
-	.incbin "build/assets/086F46EC.bin" @ rom_086F0000/086F46EC
+	.incbin "build/assets/086F46EC.bin" @ demons/demon_202
 .Lspan_086F4BF8:
-	.incbin "build/assets/086F4BF8.bin" @ rom_086F0000/086F4BF8
+	.incbin "build/assets/086F4BF8.bin" @ demons/demon_203
 .Lspan_086F4F5C:
-	.incbin "build/assets/086F4F5C.bin" @ rom_086F0000/086F4F5C
+	.incbin "build/assets/086F4F5C.bin" @ demons/demon_205
 .Lspan_086F53B4:
-	.incbin "build/assets/086F53B4.bin" @ rom_086F0000/086F53B4
+	.incbin "build/assets/086F53B4.bin" @ demons/demon_206
 .Lspan_086F5B98:
-	.incbin "build/assets/086F5B98.bin" @ rom_086F0000/086F5B98
+	.incbin "build/assets/086F5B98.bin" @ demons/demon_207
 .Lspan_086F5EBC:
-	.incbin "build/assets/086F5EBC.bin" @ rom_086F0000/086F5EBC
+	.incbin "build/assets/086F5EBC.bin" @ demons/demon_208
 .Lspan_086F64CC:
-	.incbin "build/assets/086F64CC.bin" @ rom_086F0000/086F64CC
+	.incbin "build/assets/086F64CC.bin" @ demons/demon_209
 .Lspan_086F6958:
-	.incbin "build/assets/086F6958.bin" @ rom_086F0000/086F6958
+	.incbin "build/assets/086F6958.bin" @ demons/demon_210
 .Lspan_086F6E4C:
-	.incbin "build/assets/086F6E4C.bin" @ rom_086F0000/086F6E4C
+	.incbin "build/assets/086F6E4C.bin" @ demons/demon_211
 .Lspan_086F724C:
-	.incbin "build/assets/086F724C.bin" @ rom_086F0000/086F724C
+	.incbin "build/assets/086F724C.bin" @ demons/demon_212
 .Lspan_086F79B0:
-	.incbin "build/assets/086F79B0.bin" @ rom_086F0000/086F79B0
+	.incbin "build/assets/086F79B0.bin" @ demons/demon_213
 .Lspan_086F7E30:
-	.incbin "build/assets/086F7E30.bin" @ rom_086F0000/086F7E30
+	.incbin "build/assets/086F7E30.bin" @ demons/demon_214
 .Lspan_086F80C8:
-	.incbin "build/assets/086F80C8.bin" @ rom_086F0000/086F80C8
+	.incbin "build/assets/086F80C8.bin" @ demons/demon_215
 .Lspan_086F863C:
-	.incbin "build/assets/086F863C.bin" @ rom_086F0000/086F863C
+	.incbin "build/assets/086F863C.bin" @ demons/demon_216
 .Lspan_086F8B38:
-	.incbin "build/assets/086F8B38.bin" @ rom_086F0000/086F8B38
+	.incbin "build/assets/086F8B38.bin" @ demons/demon_217
 .Lspan_086F8E58:
-	.incbin "build/assets/086F8E58.bin" @ rom_086F0000/086F8E58
+	.incbin "build/assets/086F8E58.bin" @ demons/demon_218
 .Lspan_086F9208:
-	.incbin "build/assets/086F9208.bin" @ rom_086F0000/086F9208
+	.incbin "build/assets/086F9208.bin" @ demons/demon_219
 .Lspan_086F96A8:
-	.incbin "build/assets/086F96A8.bin" @ rom_086F0000/086F96A8
+	.incbin "build/assets/086F96A8.bin" @ demons/demon_220
 .Lspan_086F99D0:
-	.incbin "build/assets/086F99D0.bin" @ rom_086F0000/086F99D0
+	.incbin "build/assets/086F99D0.bin" @ demons/demon_221
 .Lspan_086F9CFC:
-	.incbin "build/assets/086F9CFC.bin" @ rom_086F0000/086F9CFC
+	.incbin "build/assets/086F9CFC.bin" @ demons/demon_222
 .Lspan_086FA1C0:
-	.incbin "build/assets/086FA1C0.bin" @ rom_086F0000/086FA1C0
+	.incbin "build/assets/086FA1C0.bin" @ demons/demon_223
 .Lspan_086FA6B4:
-	.incbin "build/assets/086FA6B4.bin" @ rom_086F0000/086FA6B4
+	.incbin "build/assets/086FA6B4.bin" @ demons/demon_224
 .Lspan_086FAC74:
-	.incbin "build/assets/086FAC74.bin" @ rom_086F0000/086FAC74
+	.incbin "build/assets/086FAC74.bin" @ demons/demon_225
 .Lspan_086FB2A0:
-	.incbin "build/assets/086FB2A0.bin" @ rom_086F0000/086FB2A0
+	.incbin "build/assets/086FB2A0.bin" @ demons/demon_226
 .Lspan_086FB884:
-	.incbin "build/assets/086FB884.bin" @ rom_086F0000/086FB884
+	.incbin "build/assets/086FB884.bin" @ demons/demon_227
 .Lspan_086FBC8C:
-	.incbin "build/assets/086FBC8C.bin" @ rom_086F0000/086FBC8C
+	.incbin "build/assets/086FBC8C.bin" @ demons/demon_228
 .Lspan_086FC184:
-	.incbin "build/assets/086FC184.bin" @ rom_086F0000/086FC184
+	.incbin "build/assets/086FC184.bin" @ demons/demon_229
 .Lspan_086FC660:
-	.incbin "build/assets/086FC660.bin" @ rom_086F0000/086FC660
+	.incbin "build/assets/086FC660.bin" @ demons/demon_230
 .Lspan_086FCDF4:
-	.incbin "build/assets/086FCDF4.bin" @ rom_086F0000/086FCDF4
+	.incbin "build/assets/086FCDF4.bin" @ demons/demon_231
 .Lspan_086FD5D8:
-	.incbin "build/assets/086FD5D8.bin" @ rom_086F0000/086FD5D8
+	.incbin "build/assets/086FD5D8.bin" @ demons/demon_232
 .Lspan_086FDA70:
-	.incbin "build/assets/086FDA70.bin" @ rom_086F0000/086FDA70
+	.incbin "build/assets/086FDA70.bin" @ demons/demon_233
 .Lspan_086FDE94:
-	.incbin "build/assets/086FDE94.bin" @ rom_086F0000/086FDE94
+	.incbin "build/assets/086FDE94.bin" @ demons/demon_235
 .Lspan_086FE3B8:
-	.incbin "build/assets/086FE3B8.bin" @ rom_086F0000/086FE3B8
+	.incbin "build/assets/086FE3B8.bin" @ demons/demon_236
 .Lspan_086FE6FC:
-	.incbin "build/assets/086FE6FC.bin" @ rom_086F0000/086FE6FC
+	.incbin "build/assets/086FE6FC.bin" @ demons/demon_237
 .Lspan_086FEB4C:
-	.incbin "build/assets/086FEB4C.bin" @ rom_086F0000/086FEB4C
+	.incbin "build/assets/086FEB4C.bin" @ demons/demon_238
 .Lspan_086FEEC4:
-	.incbin "build/assets/086FEEC4.bin" @ rom_086F0000/086FEEC4
+	.incbin "build/assets/086FEEC4.bin" @ demons/demon_239
 .Lspan_086FF1FC:
-	.incbin "build/assets/086FF1FC.bin" @ rom_086F0000/086FF1FC
+	.incbin "build/assets/086FF1FC.bin" @ demons/demon_240
 .Lspan_086FF518:
-	.incbin "build/assets/086FF518.bin" @ rom_086F0000/086FF518
+	.incbin "build/assets/086FF518.bin" @ demons/demon_241
 .Lspan_086FFB74:
-	.incbin "build/assets/086FFB74.bin" @ rom_086F0000/086FFB74
+	.incbin "build/assets/086FFB74.bin" @ demons/demon_242
 .Lspan_086FFF18:
-	.incbin "build/assets/086FFF18.bin" @ rom_086F0000/086FFF18
+	.incbin "build/assets/086FFF18.bin" @ demons/demon_243

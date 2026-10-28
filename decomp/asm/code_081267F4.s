@@ -4954,7 +4954,7 @@ sub_08128EB4: @ 0x08128EB4
 	bl sub_080EA210
 	lsls r0, r5, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080EC038
+	bl Battle_GetMessage
 	movs r1, #0
 	bl Menu_ExpandListTemplate
 	adds r1, r0, #0
@@ -5563,7 +5563,7 @@ gUnknown_08129374:
 .L081293C0:
 	bl sub_080EA210
 	movs r0, #0x5b
-	bl sub_080EC038
+	bl Battle_GetMessage
 	movs r1, #0
 	bl Menu_ExpandListTemplate
 	adds r1, r0, #0
@@ -5733,7 +5733,7 @@ sub_081294B0: @ 0x081294B0
 	ble .L0812952C
 .L08129510:
 	movs r0, #0x92
-	bl sub_080EC038
+	bl Battle_GetMessage
 	movs r1, #0
 	bl Menu_ExpandListTemplate
 	adds r1, r0, #0
@@ -6383,7 +6383,7 @@ gUnknown_08129A0C:
 	rsbs r0, r0, #0
 	bl sub_080C30AC
 	movs r0, #0xe9
-	bl sub_080EC038
+	bl Battle_GetMessage
 	adds r1, r5, #0
 	bl Menu_ExpandListTemplate
 	adds r1, r0, #0
@@ -6451,7 +6451,7 @@ gUnknown_08129A0C:
 	adds r0, r7, r4
 	ldrb r5, [r0]
 	movs r0, #0xe9
-	bl sub_080EC038
+	bl Battle_GetMessage
 	adds r1, r5, #0
 	bl Menu_ExpandListTemplate
 	adds r1, r0, #0
@@ -6511,7 +6511,7 @@ sub_08129B58: @ 0x08129B58
 	push {lr}
 	lsls r0, r1, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080EC038
+	bl Battle_GetMessage
 	movs r1, #0
 	bl Menu_ExpandListTemplate
 	adds r1, r0, #0
@@ -6572,7 +6572,7 @@ sub_08129B74: @ 0x08129B74
 	adds r3, r5, #0
 	bl sub_08126928
 	movs r0, #0x6a
-	bl sub_080EC038
+	bl Battle_GetMessage
 	movs r1, #0
 	bl Menu_ExpandListTemplate
 	adds r1, r0, #0

@@ -462,7 +462,7 @@ sub_080BDBB8: @ 0x080BDBB8
 	thumb_func_start sub_080BDBC8
 sub_080BDBC8: @ 0x080BDBC8
 	push {lr}
-	bl sub_080B098C
+	bl Palette_IsBg13Black
 	cmp r0, #0
 	bne .L080BDBE0
 	movs r0, #0x80
@@ -509,7 +509,7 @@ sub_080BDBF0: @ 0x080BDBF0
 	thumb_func_start sub_080BDC28
 sub_080BDC28: @ 0x080BDC28
 	push {lr}
-	bl sub_080B098C
+	bl Palette_IsBg13Black
 	cmp r0, #0
 	bne .L080BDC42
 	movs r0, #0xe8
@@ -1651,7 +1651,7 @@ sub_080BE57C: @ 0x080BE57C
 .L080BE6A8: .4byte 0x03004510 @ IWRAM+0x4510
 .L080BE6AC: .4byte sub_080BE530
 .L080BE6B0:
-	bl sub_080B437C
+	bl BgPicture_LoadAll
 	b .L080BE6D4
 .L080BE6B6:
 	ldr r1, .L080BE6C4
@@ -3085,7 +3085,7 @@ sub_080BF0C0: @ 0x080BF0C0
 	bl sub_080AE234
 	ldr r0, [r5]
 	ldr r1, [r4]
-	bl sub_080ADCCC
+	bl Map_SetGraphicsPointers
 	add sp, #0xc
 	pop {r3, r4, r5}
 	mov r8, r3
@@ -3143,7 +3143,7 @@ sub_080BF1FC: @ 0x080BF1FC
 	ldrh r0, [r0]
 	ldr r1, .L080BF224
 	ldrh r1, [r1]
-	bl sub_080AD824
+	bl Map_LoadGraphicsStep
 	movs r0, #0
 	strh r0, [r4, #0x1c]
 	b .L080BF240
@@ -3236,7 +3236,7 @@ sub_080BF278: @ 0x080BF278
 	movs r2, #0xd
 	movs r3, #1
 	bl Tilemap_OffsetRect
-	bl sub_080AE330
+	bl Field_CopyIwramCode
 	ldr r0, .L080BF2FC
 	movs r1, #1
 	bl VBlankTask_AddCounted

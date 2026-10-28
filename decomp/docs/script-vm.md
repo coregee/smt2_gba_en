@@ -148,3 +148,65 @@ then searches back from word 14 for the last non-zero word and puts 0x318 after 
   16-word buffer into 0x0203DB28 and the words after it, drawing glyph 0 until it reaches a
   word that is an opcode. The event banks contain no 0x326, and every 0x327 there has
   operand 2. Opcodes may also be built at run time, e.g. battle text, which was not checked.
+
+## VM core and message window (src/vm_wait.c, src/vm_run.c)
+
+Names proposed in `src/vm_names.tsv`; the C still uses the address names.
+
+**Start-up.** `sub_0813E184` (ScriptVM_Init, `(script, inBattle)`) resets all VM state and
+creates three tasks: 0x08790024 (runs `ScriptVM_Run` every frame), 0x0878FB48 (runs
+`sub_0813DED8`, the per-frame draw) and 0x0878FB84. It sets the glyph delay 0x0203DB82 to 2,
+the instant-text flag 0x0203DB48 from the text-speed setting (`sub_0813E408`), and the y of
+text line 0 (0x03006614) from the layout 0x0203DB7A: 0x59 (0), 0x61 (1), 0x69 (2). It also
+writes 0x318 at `gScriptSubstBuf[8]`.
+
+**ScriptVM_Run.** First the wait handler `table_0x08790FDC[gScriptWaitState](task)` runs. Every
+handler sets 0x03006858 (wait busy); if it is 1 the VM returns for this frame. Then it loops
+(see Dispatch). A word that is not an opcode is a glyph:
+
+1. If no message window is open and not in battle, it creates one —
+   `Window_Create(2, 11, 26, 8, 0)` for layout 0, `Window_Create(1, 12, 28, 7, 0)` otherwise —
+   steps pc back by one, sets wait state 1 and returns. The glyph is read again next time.
+2. Otherwise it appends `{glyph, column*13 + 17, line*13 + top, 0}` to the queue at 0x0203D800
+   (index count*4) and increments the count 0x0203DB3E, capped at 0x3F. The column counter
+   advances by one.
+3. If 0x0203DB48 is 1 (instant text) it goes on with the next word; otherwise it sets wait
+   state 15 with timer 0x0203DB5C = 0x0203DB82 and returns, and if B is held
+   (`gHeldKeys & 2`) it sets 0x0203DB48 to 1 for the rest of the message.
+
+**sub_0813DED8 (draw task).** Every frame: each queued glyph i < count whose y >= the text top
+is drawn with `FontSprite_DrawGlyphTinted(glyph, 0, 0, x, y, attr)`. Then it draws the second
+list at 0x0203DA00 (0x0300669C entries, when 0x0300699C is set), the five 16-byte sprite slots
+at 0x03006620 (`sub_080D31F8`), one to three `sub_080C6B40` slots (0x030069D0 = count, ids at
+0x030069D8, y 0x66/0x74/0x83), three 8-byte slots at 0x03006920 (`sub_080D3170`, y
+0x66/0x74/0x83), and some single sprites (0x03006958, 0x03006678, the prompt 0x0203DB52 at
+(0xD5, 0x8D), and 0x03006848 / 0x03006680 through the tables 0x087923DC / 0x087923FC). When
+0x0203DB46 is 1 (set by 0x301 at the end of the message) it ends the task.
+
+**Paging.** Op 0x317 starts task script 0x087900A0: `sub_0813DE9C` moves every queued glyph up
+13 pixels, `sub_0813DDDC` repeats that 0x0203DB4A times (the number of 0x300 newlines on the
+page), and `sub_0813DE04` clears the queue, column and line. Glyphs that moved above the text
+top are no longer drawn. Op 0x316 starts 0x087900EC, whose `sub_0813DE44` waits for A, B or a
+direction key and plays SE 0x65.
+
+**ScriptVM_RunAlt** (pre-scan). It saves the flag array 0x03005CA8 (0x168 bytes) in
+0x030066B0 and saves pc, base, 0x0203DB72 and 0x0203DB74. Then it runs the alternative table on
+the given string until a glyph, a yield, or a handler sets 0x0203DB5E. It restores everything
+(`sub_0813E574`) and returns 1 (0x0203DB5E = 1 and 0x0203DB60 = 1), 0 (0x0203DB5E = 2), or
+2 otherwise. The handler argument is the pointer in 0x030068B0, not the VM task.
+
+### Notes for the translation
+
+* **At most 63 glyphs per page.** The queue holds 64 entries, but the count is capped at 0x3F
+  and the draw loop stops at i < count. The 64th glyph goes into entry 63, which is never drawn,
+  and every later glyph overwrites it. Text past the 63rd glyph since the last page clear
+  (0x317 scroll, 0x310, end of message) silently disappears. The count includes all lines of
+  the page; newlines (0x300) and other opcodes take no entry.
+* **Fixed 13-pixel cells, no automatic wrap.** x = column*13 + 17 and y = line*13 + top.
+  Glyph width is never consulted, and nothing checks the column against the window width. Long
+  lines run past the window edge; line breaks must be explicit 0x300. The layout-0 window is 26
+  tiles (208 px) wide at x = 16 px, so (224 - 17) / 13, about 15 cells, fit on a line.
+* Lines are only drawn when y >= the text top. There is no bottom check, so a page with more
+  lines than the window holds draws below the window until 0x317 scrolls it.
+* The window is created only when the first glyph arrives (outside battle), so a message that
+  starts with opcodes runs them before the window exists.

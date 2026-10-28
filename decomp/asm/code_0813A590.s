@@ -895,7 +895,7 @@ sub_0813AC98: @ 0x0813AC98
 	ldr r0, .L0813ACC8
 	ldrh r0, [r0]
 	movs r1, #0xc
-	bl sub_0813E60C
+	bl Demon_GetField
 	movs r1, #0xf
 	ands r1, r0
 	lsrs r1, r1, #3
@@ -1044,7 +1044,7 @@ ScriptOp_442: @ 0x0813ACDC
 	ldr r0, .L0813ADE4
 	ldrh r0, [r0]
 	movs r1, #0xb
-	bl sub_0813E60C
+	bl Demon_GetField
 	movs r4, #0xff
 	ands r4, r0
 	cmp r4, #0x6f
@@ -1287,7 +1287,7 @@ ScriptOp_442: @ 0x0813ACDC
 	lsrs r3, r3, #0x10
 	movs r0, #0x27
 	movs r2, #0
-	bl sub_08133E70
+	bl MsgGlyphQueue_PushSubstClamped
 	movs r3, #0
 	ldr r2, .L0813B004
 	movs r1, #0
@@ -1357,7 +1357,7 @@ ScriptOp_442: @ 0x0813ACDC
 	lsrs r3, r3, #0x10
 	movs r0, #0x27
 	movs r2, #0
-	bl sub_08133E70
+	bl MsgGlyphQueue_PushSubstClamped
 	ldr r1, .L0813B084
 	movs r0, #0x48
 	strh r0, [r1]
@@ -1519,7 +1519,7 @@ ScriptOp_443: @ 0x0813B138
 	ldr r4, .L0813B1D8
 	ldrh r0, [r6]
 	movs r1, #0
-	bl sub_0813E60C
+	bl Demon_GetField
 	movs r1, #0xff
 	ands r1, r0
 	lsls r1, r1, #1
@@ -1545,7 +1545,7 @@ ScriptOp_443: @ 0x0813B138
 	mov r8, r2
 	ldrh r0, [r6]
 	movs r1, #0
-	bl sub_0813E60C
+	bl Demon_GetField
 	movs r1, #0xff
 	ands r1, r0
 	mov r3, r8
@@ -2078,7 +2078,7 @@ ScriptOp_445: @ 0x0813B524
 	ldr r0, .L0813B650
 	ldrh r0, [r0]
 	movs r1, #0
-	bl sub_0813E60C
+	bl Demon_GetField
 	movs r1, #0xff
 	ands r1, r0
 	ldr r2, .L0813B654
@@ -2109,7 +2109,7 @@ ScriptOp_445: @ 0x0813B524
 	ldr r0, .L0813B68C
 	ldrh r0, [r0]
 	movs r1, #0
-	bl sub_0813E60C
+	bl Demon_GetField
 	adds r0, r5, r0
 	lsls r0, r0, #0x10
 	movs r1, #0xff
@@ -2132,7 +2132,7 @@ ScriptOp_445: @ 0x0813B524
 	ldr r0, .L0813B6C4
 	ldrh r0, [r0]
 	movs r1, #0
-	bl sub_0813E60C
+	bl Demon_GetField
 	movs r1, #0xff
 	ands r1, r0
 	lsls r5, r1, #1
@@ -2160,7 +2160,7 @@ ScriptOp_445: @ 0x0813B524
 	ldr r0, .L0813B6F0
 	ldrh r0, [r0]
 	movs r1, #0
-	bl sub_0813E60C
+	bl Demon_GetField
 	movs r1, #0xff
 	ands r1, r0
 	lsrs r1, r1, #2
@@ -2308,7 +2308,7 @@ ScriptOp_445: @ 0x0813B524
 	ldr r0, .L0813B83C
 	ldrh r0, [r0]
 	movs r1, #5
-	bl sub_0813E60C
+	bl Demon_GetField
 	movs r1, #0xff
 	ands r1, r0
 	str r1, [r4]
@@ -3034,13 +3034,13 @@ sub_0813BDCC: @ 0x0813BDCC
 	ldr r4, .L0813BDF4
 	ldrh r0, [r4]
 	movs r1, #0x1a
-	bl sub_0813E60C
+	bl Demon_GetField
 	movs r1, #0xf0
 	ands r1, r0
 	lsrs r5, r1, #4
 	ldrh r0, [r4]
 	movs r1, #0
-	bl sub_0813E60C
+	bl Demon_GetField
 	movs r1, #0xff
 	ands r1, r0
 	lsls r0, r1, #3
@@ -3337,7 +3337,7 @@ ScriptOp_447: @ 0x0813BF98
 .L0813C00E:
 	ldrh r0, [r4]
 	movs r1, #0xb
-	bl sub_0813E60C
+	bl Demon_GetField
 	movs r4, #0xff
 	adds r6, r4, #0
 	ands r6, r0
@@ -3595,7 +3595,7 @@ ScriptOp_447: @ 0x0813BF98
 	ldr r0, .L0813C228
 	ldrh r0, [r0]
 	movs r1, #7
-	bl sub_0813E60C
+	bl Demon_GetField
 	movs r1, #0xff
 	ands r1, r0
 	adds r5, r5, r1
@@ -3865,7 +3865,7 @@ ScriptOp_447: @ 0x0813BF98
 	ldr r0, .L0813C46C
 	ldrh r0, [r0]
 	movs r1, #0x1b
-	bl sub_0813E60C
+	bl Demon_GetField
 	lsls r0, r0, #0x10
 	movs r1, #0xff
 	lsls r1, r1, #0x10
@@ -4058,7 +4058,7 @@ ScriptOp_448: @ 0x0813C554
 	ldr r0, .L0813C5DC
 	ldrh r0, [r0]
 	movs r1, #6
-	bl sub_0813E60C
+	bl Demon_GetField
 	adds r4, r0, #0
 	bl sub_080C2244
 	movs r1, #3
@@ -4078,7 +4078,7 @@ ScriptOp_448: @ 0x0813C554
 	ldr r0, .L0813C60C
 	ldrh r0, [r0]
 	movs r1, #6
-	bl sub_0813E60C
+	bl Demon_GetField
 	adds r4, r0, #0
 	bl sub_080C2244
 	movs r1, #3
@@ -4098,7 +4098,7 @@ ScriptOp_448: @ 0x0813C554
 	ldr r0, .L0813C640
 	ldrh r0, [r0]
 	movs r1, #6
-	bl sub_0813E60C
+	bl Demon_GetField
 	adds r0, r5, r0
 	lsls r0, r0, #0x10
 	lsrs r5, r0, #0x10
@@ -4127,7 +4127,7 @@ ScriptOp_448: @ 0x0813C554
 	ldr r0, .L0813C68C
 	ldrh r0, [r0]
 	movs r1, #7
-	bl sub_0813E60C
+	bl Demon_GetField
 	lsls r0, r0, #0x10
 	lsrs r6, r0, #0x10
 	cmp r4, #1
@@ -4623,7 +4623,7 @@ sub_0813C9F8: @ 0x0813C9F8
 	lsls r0, r0, #1
 	bl Font_ResetGlyphSpriteCache
 	ldr r4, .L0813CA60
-	bl sub_0813E408
+	bl ScriptVM_GetTextSpeed
 	strh r0, [r4]
 	ldr r0, .L0813CA64
 	ldrh r0, [r0]
@@ -5286,7 +5286,7 @@ sub_0813CF80: @ 0x0813CF80
 	ldr r1, .L0813CFC8
 	strh r0, [r1]
 	movs r1, #0x1f
-	bl sub_0813E60C
+	bl Demon_GetField
 	strb r0, [r4]
 	movs r0, #0
 	bl sub_08138390

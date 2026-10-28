@@ -631,7 +631,7 @@ sub_0812A1C8: @ 0x0812A1C8
 	cmp r1, #0
 	blt .L0812A21E
 	movs r0, #0x6e
-	bl sub_080EC038
+	bl Battle_GetMessage
 	movs r1, #0
 	bl Menu_ExpandListTemplate
 	adds r1, r0, #0
@@ -735,7 +735,7 @@ sub_0812A298: @ 0x0812A298
 	movs r0, #3
 	bl BattleMenu_SetMode
 	movs r0, #1
-	bl sub_080EC99C
+	bl BattleMsg_SetDone
 	pop {r4, r5, r6}
 	pop {r0}
 	bx r0
@@ -1331,7 +1331,7 @@ sub_0812A730: @ 0x0812A730
 	bl sub_080EA210
 	lsls r0, r4, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080EC038
+	bl Battle_GetMessage
 	movs r1, #0
 	bl Menu_ExpandListTemplate
 	adds r1, r0, #0
@@ -2469,7 +2469,7 @@ sub_0812B028: @ 0x0812B028
 	lsls r4, r4, #0x10
 	lsrs r4, r4, #0x10
 	movs r0, #0xe9
-	bl sub_080EC038
+	bl Battle_GetMessage
 	ldr r1, .L0812B104
 	movs r2, #0xa2
 	lsls r2, r2, #4
@@ -2987,13 +2987,13 @@ sub_0812B490: @ 0x0812B490
 	cmp r0, #0
 	beq .L0812B4D4
 	ldr r0, .L0812B4D0
-	bl sub_080EC038
+	bl Battle_GetMessage
 	b .L0812B4FE
 .L0812B4CC: .4byte 0x0203C200 @ EWRAM+0x3C200
 .L0812B4D0: .4byte 0x00000392
 .L0812B4D4:
 	movs r0, #0x74
-	bl sub_080EC038
+	bl Battle_GetMessage
 	movs r1, #0
 	bl Menu_ExpandListTemplate
 	adds r1, r0, #0
@@ -3700,7 +3700,7 @@ sub_0812BA38: @ 0x0812BA38
 	movs r0, #0
 	movs r1, #0
 	movs r2, #6
-	bl sub_080B3078
+	bl FieldMap_HasRecordRel
 	cmp r0, #1
 	beq .L0812BA9A
 	ldr r0, [r5]
@@ -4302,7 +4302,7 @@ sub_0812BEB8: @ 0x0812BEB8
 	movs r0, #3
 	bl BattleMenu_SetMode
 	movs r0, #1
-	bl sub_080EC99C
+	bl BattleMsg_SetDone
 .L0812BF46:
 	add sp, #4
 	pop {r4, r5, r6, r7}

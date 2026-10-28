@@ -240,7 +240,7 @@ sub_080F2AC8: @ 0x080F2AC8
 .L080F2C78:
 	lsls r0, r5, #0x10
 	asrs r0, r0, #0x10
-	bl sub_080EC038
+	bl Battle_GetMessage
 	lsls r1, r6, #0x10
 	asrs r1, r1, #0x10
 	bl Menu_ExpandListTemplate
@@ -1488,7 +1488,7 @@ gUnknown_080F3418:
 	movs r0, #3
 	bl BattleMenu_SetMode
 	movs r0, #1
-	bl sub_080EC99C
+	bl BattleMsg_SetDone
 	movs r0, #1
 	bl sub_080E6DBC
 	ldr r0, .L080F35D4

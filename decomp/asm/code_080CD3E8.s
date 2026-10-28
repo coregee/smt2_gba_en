@@ -4546,7 +4546,7 @@ gUnknown_080CF728:
 	ands r0, r1
 	cmp r0, #0
 	beq .L080CF798
-	bl sub_080B4140
+	bl BgPicture_LoadPalette
 	b .L080CF79C
 	.byte 0x00, 0x00
 .L080CF794: .4byte 0x0200AB04 @ EWRAM+0xAB04

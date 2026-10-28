@@ -1885,7 +1885,7 @@ sub_080E5678: @ 0x080E5678
 .L080E5754: .4byte sub_080D977C
 .L080E5758: .4byte gUnknown_086BE584
 .L080E575C:
-	bl sub_080B098C
+	bl Palette_IsBg13Black
 	cmp r0, #0
 	bne .L080E577A
 .L080E5764:
@@ -2928,7 +2928,7 @@ sub_080E5DD4: @ 0x080E5DD4
 	movs r0, #3
 	bl BattleMenu_SetMode
 	movs r0, #1
-	bl sub_080EC99C
+	bl BattleMsg_SetDone
 	b .L080E5FDE
 .L080E5FC8: .4byte gUnknown_086BE5DA
 .L080E5FCC:
@@ -3056,7 +3056,7 @@ sub_080E5FF0: @ 0x080E5FF0
 	movs r0, #3
 	bl BattleMenu_SetMode
 	movs r0, #1
-	bl sub_080EC99C
+	bl BattleMsg_SetDone
 	movs r1, #0
 	ldrsh r0, [r4, r1]
 	bl sub_080C8490
@@ -3251,7 +3251,7 @@ sub_080E6164: @ 0x080E6164
 	movs r0, #3
 	bl BattleMenu_SetMode
 	movs r0, #1
-	bl sub_080EC99C
+	bl BattleMsg_SetDone
 	b .L080E62AA
 .L080E6272:
 	ldr r0, .L080E6284
@@ -3322,7 +3322,7 @@ sub_080E62E8: @ 0x080E62E8
 	movs r0, #3
 	bl BattleMenu_SetMode
 	movs r0, #1
-	bl sub_080EC99C
+	bl BattleMsg_SetDone
 	pop {r4}
 	pop {r0}
 	bx r0
@@ -3574,7 +3574,7 @@ gUnknown_080E64E8:
 	ldr r0, [sp]
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080EC038
+	bl Battle_GetMessage
 	movs r2, #0
 	ldrsh r1, [r7, r2]
 	adds r1, r1, r5
@@ -3952,7 +3952,7 @@ gUnknown_080E678C:
 	movs r0, #3
 	bl BattleMenu_SetMode
 	movs r0, #1
-	bl sub_080EC99C
+	bl BattleMsg_SetDone
 	ldr r3, .L080E685C
 	adds r1, r4, r3
 	movs r0, #1
@@ -4048,7 +4048,7 @@ gUnknown_080E678C:
 	movs r0, #3
 	bl BattleMenu_SetMode
 	movs r0, #1
-	bl sub_080EC99C
+	bl BattleMsg_SetDone
 	b .L080E6958
 	.byte 0x00, 0x00
 .L080E6920: .4byte 0x00000F66
@@ -4702,14 +4702,14 @@ gUnknown_080E6E40:
 	cmp r0, #0
 	beq .L080E6F40
 	ldr r0, .L080E6E8C
-	bl sub_080EC038
+	bl Battle_GetMessage
 	movs r1, #0
 	bl Menu_ExpandListTemplate
 	adds r1, r0, #0
 	movs r0, #3
 	bl BattleMenu_SetMode
 	movs r0, #1
-	bl sub_080EC99C
+	bl BattleMsg_SetDone
 	movs r0, #1
 	bl sub_080E6DBC
 	ldr r1, .L080E6E90
@@ -7584,7 +7584,7 @@ sub_080E847C: @ 0x080E847C
 	lsrs r0, r0, #0x10
 	cmp r0, #1
 	bne .L080E8580
-	bl sub_080B098C
+	bl Palette_IsBg13Black
 	cmp r0, #1
 	beq .L080E8580
 	ldrb r1, [r5, #5]
@@ -7737,7 +7737,7 @@ sub_080E8590: @ 0x080E8590
 	lsrs r0, r0, #0x10
 	cmp r0, #1
 	bne .L080E86A4
-	bl sub_080B098C
+	bl Palette_IsBg13Black
 	cmp r0, #1
 	beq .L080E86A4
 	ldrb r1, [r5, #5]

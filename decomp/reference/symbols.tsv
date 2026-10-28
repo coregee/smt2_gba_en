@@ -1,6 +1,10 @@
 address	name	kind	confidence	note
 00000004	gNumMusicPlayers	ram	proven	absolute symbol: number of music players (literal 4 read as an address)
+02005000	gAutomapCells	ram	probable	Automap_Build output: [11][28] cells of 12 bytes {flags, u8 x, u8 y, walls[4]}
 02009004	gTasks	ram	probable	64 x 100-byte script tasks (Task_ClearAll, Task_Create, Task_RunAll)
+0200AB08	gViewCells	ram	probable	View_FillCell output: [11][9] cells of 12 bytes {valid, ?, walls[4]}; View_GetWall reads around [5][4]
+0200AFC8	gBgPictureBuffer	ram	probable	0x2000-byte decode buffer of BgPicture_LoadPiece (Huffman stage at +0x1000); DMA'd to VRAM by sub_080B3ADC..sub_080B3BE8
+0200DFCC	gAutomapScroll	ram	probable	s16 row offset added/subtracted in Automap_Build
 0200DFD4	gWindowTilemapBuffer	ram	probable	32x32 u16 tilemap built by TextWindow_DrawFrame, DMA'd to VRAM screenblocks by sub_080AB9B0..sub_080ABA18
 0200E8D4	gOpenWindowCount	ram	probable	incremented by TextWindow_Create, decremented by TextWindow_Erase
 02017874	gSaveSlotPreview	ram	probable	sub_080D0498 loads each save slot here (sub_080D1328(slot, 0x02017874, 1)) to draw it
@@ -10,16 +14,23 @@ address	name	kind	confidence	note
 020391DC	gWindowCount	ram	probable	sub_080AB7D4 increments, sub_080AB660 decrements; first window clears the buffer
 020391E0	gGlyphBitmap	ram	probable	Font_GetGlyphBitmap output (2x2 tiles in a 32-tile-wide canvas)
 0203A454	gMenuState	ram	probable	shared state block of the save, name entry and status screens (cleared with CpuSet 0x200 words)
+0203BB74	gShopItemIds	ram	probable	u16[256] item ids of the shop list, 0xFFFF = end (filled by ScriptOp_333 from held items, read by Shop_InitItemList)
+0203BD74	gShopItemPrices	ram	probable	u32[256] prices parallel to 0x0203BB74 (sub_080C4C7C per item in ScriptOp_333; -1 = none)
 0203C9E0	gBattleMsg	ram	probable	battle message window state (mode, delay, typed, done, row, lines, locked, src, text/text2/compose u16[64] buffers, auto-close); base+0x7E0 of the EWRAM block at 0x0203C200
+0203D800	gMsgGlyphQueue	ram	probable	message glyph queue, entries {glyph, x, y, attr} as u16[4]; written by ScriptVM_Run (index count*4), drawn by ScriptVM_DrawTask
+0203DA00	gMsgGlyphList2	ram	probable	second glyph list {glyph, x, y, attr} as u16[4]; cleared as 100 u16 (25 entries) by sub_08133854, rows of 8 entries written by sub_08133A80, drawn by ScriptVM_DrawTask
 0203DB08	gScriptSubstBuf	ram	probable	u16[16] built by ScriptOp_DrawCharOrSubstitute, ended with 0x318
 0203DB38	gTextColumn	ram	probable	ScriptVM_Run x = col*13+0x11; zeroed by ScriptOp_300
 0203DB3A	gTextLine	ram	probable	ScriptVM_Run y = line*13+base; incremented by ScriptOp_300
+0203DB3E	gMsgGlyphCount	ram	probable	number of queued glyphs; ScriptVM_Run caps it at 0x3F, ScriptVM_DrawTask draws entries [0, count)
 0203DB40	gScriptPc	ram	probable	word index into gScriptBase, incremented per operand read
 0203DB44	gScriptCurOp	ram	probable	ScriptVM_Run stores the fetched opcode; ScriptOp_DrawCharOrSubstitute switches on it
 0203DB4E	gScriptSubstSavedPc	ram	probable	saved by ScriptOp_DrawCharOrSubstitute, restored by ScriptOp_318
 0203DB50	gScriptItemCheckId	ram	probable	set by ScriptOp_30A, tested by ScriptOp_30B
 0203DB5A	gScriptWaitState	ram	probable	indexes handler table 0x08790FDC called at the start of ScriptVM_Run
+0203DB6C	gMsgWindowOpen	ram	probable	1 after ScriptVM_Run created the message window (handle 0x03006968); cleared when it is closed
 0203DB6E	gScriptYield	ram	probable	set to 1 by handlers; ScriptVM_Run returns after the handler when 1
+0203DB82	gMsgGlyphDelay	ram	probable	frames between glyphs: ScriptVM_Run copies it to the wait timer 0x0203DB5C with wait state 15; ScriptVM_Init sets 2
 0203E7D0	gSoundInfo	ram	proven	m4aSoundInit: SoundInit argument
 0203F1E0	gCgbChans	ram	proven	m4aSoundInit: MPlayExtender argument
 0203F3A0	gMPlayMemAccArea	ram	proven	m4aSoundInit: mplayInfo->memAccArea
@@ -51,11 +62,19 @@ address	name	kind	confidence	note
 03003980	gIntrMainBuffer	ram	probable	IntrMain is copied here; address stored to 0x03007FFC
 03003B80	gVBlankFlag	ram	probable	bit 0 set by VBlankIntr, polled by sub_080A999C
 03003B84	gTaskOpArgs	ram	probable	pointer to the current task op's argument words, set by Task_RunAll before each op handler
+03003BAC	gBgPicturePiece	ram	probable	piece index of BgPicture_LoadPiece; bit 15 = Huffman stage pending, 0xFFFF = done
+03003BBC	gFieldLoadStep	ram	probable	step counter of Field_LoadGraphicsStep (0xFFFF = done)
+03004550	gFieldState	ram	probable	0xA4-byte field state: +0 state (Field_SetState), +2 facing, +0x12/0x14 position, +0x16/0x18 previous, +0x1A/0x1C map size, +0x20 map squares; cleared by sub_080AE364 (DMA 0x29 words)
 030046C0	gGameState	ram	probable	0x18F8 bytes written to / read from SRAM by sub_080D1264 / sub_080D1328
 03006080	gColorEffect	ram	probable	{s16 r, g, b, desat} read by Color_ApplyEffect
+03006614	gMsgTextTop	ram	probable	y of text line 0 (0x59/0x61/0x69 from layout 0x0203DB7A in ScriptVM_Init); glyph y = line*13 + top; glyphs above it are not drawn
+0300669C	gMsgGlyphList2Count	ram	probable	s16 entry count of 0x0203DA00 (reset by sub_08133854, set to 0x18 by Shop_InitItemList, incremented by sub_08133724)
+030066B0	gScriptFlagsBackup	ram	probable	0x168-byte copy of the flag array made by ScriptVM_SaveFlags, restored by ScriptVM_RestoreState
+03006858	gScriptWaitBusy	ram	probable	set by every wait handler (table 0x08790FDC); ScriptVM_Run returns without executing when it is 1
 030068CC	gScriptSubstSavedBase	ram	probable	saved by ScriptOp_DrawCharOrSubstitute, restored by ScriptOp_318
 030068E4	gScriptJumpTarget	ram	probable	written by jump handlers; ScriptVM_Run moves it into 03006950 and zeroes pc
 03006950	gScriptBase	ram	probable	ScriptVM_Run reads words at gScriptBase[pc]; every operand read in ScriptOp_3xx
+03006968	gMsgWindow	ram	probable	message window handle from Window_Create in ScriptVM_Run; tested with Window_IsIdle, closed with Window_Close
 03007000	SoundMainRAM_Buffer	ram	proven	m4aSoundInit: CpuSet destination for SoundMainRAM
 080000C0	Start	func	proven	AGB SDK crt0 reset entry (ARM)
 080000FC	IntrMain	func	proven	AGB SDK crt0 IRQ dispatcher, address stored to 0x03007FFC
@@ -222,7 +241,57 @@ address	name	kind	confidence	note
 080AD3CC	TaskOp_Call2	func	probable	op table entry 12: func(task, arg1, arg2)
 080AD3F0	TaskOp_Call3	func	probable	op table entry 13: func(task, arg1..arg3)
 080AD418	TaskOp_Call4	func	probable	op table entry 14: func(task, arg1..arg4)
+080AD448	TaskOp_Call5	func	probable	gTaskOpTable entry 15 start: func = arg0, func(task, arg1..arg5), pc += 6
+080AD47C	TaskOp_Call6	func	probable	gTaskOpTable entry 16 start: func = arg0, func(task, arg1..arg6), pc += 7
+080AD4B4	TaskOp_SetCompareValue	func	probable	gTaskOpTable entry 17 start: task->unk1E = arg (value tested by entry 18)
+080AD4D0	TaskOp_CompareGoto	func	probable	gTaskOpTable entry 18 start: args cmp (0 ==, 1 !=, 2 >=, 3 <), value, label; Task_GotoLabel when task->unk1E cmp value holds, else pc += 3
+080AD540	TaskOp_SetOnFrame	func	probable	gTaskOpTable entry 19 start: task->onFrame = arg
+080AD558	TaskOp_CallFunc	func	probable	gTaskOpTable entry 20 start: func = arg, pc++, func(task) (same as entry 10)
+080AD578	TaskOp_SpawnChild	func	probable	gTaskOpTable entry 21 start: Task_Create(arg script, task->id)
+080AD5C0	TaskOp_PlaySe	func	probable	gTaskOpTable entry 23 start: sub_080C51D4(arg) (the SE call YesNo_HandleInput uses)
+080AD5E4	TaskOp_StopSong	func	probable	gTaskOpTable entry 24 start: m4aSongNumStop(arg)
 080AD78C	Field_SetState	func	tentative	from translation patches (lost Ghidra session); verify
+080AD7E4	Field_GetState	func	probable	returns the u16 at 0x03004550 that Field_SetState writes
+080AD824	Map_LoadGraphicsStep	func	probable	*step 1..39: CpuSet-clears and LZ77-decompresses one map graphics block per call into EWRAM 0x0200F874.. from the map variant pointers, then palettes; *step = 0 when done
+080ADCCC	Map_SetGraphicsPointers	func	probable	sets the IWRAM pointers (03003FC0, 03003BB0, 03004604, ...) to the EWRAM buffers and the map variant palettes, then Palette_CopyDarkened x3
+080ADE54	Palette_CopyDarkened	func	probable	DMA count colors src->dst, then subtracts 18 (23 on map 0x4D) from each RGB channel of dst, clamped at 0
+080AE0BC	Field_LoadGraphicsStep	func	probable	one step of sub_080ADFEC per call, counter 03003BBC, 0xFFFF when done
+080AE2A8	Field_SetPosition	func	probable	writes x,y to 03004550+0x12/0x14 and the previous position +0x16/0x18 (Field_Step moves +0x12/0x14 by direction)
+080AE2C0	Field_SavePrevPosition	func	probable	copies position +0x12/+0x14 to +0x16/+0x18
+080AE330	Field_CopyIwramCode	func	probable	CpuSet copies sub_080B210C (0x400 bytes) to 03003BC0 and sub_080B23D0 (0x500 bytes) to 03004010
+080AE4AC	View_FillCell	func	probable	view cell [row][col] (0x0200AB08, 12 bytes, 9 per row) = four 2-bit wall codes of map square (x,y) rotated to the facing direction; valid = 0 outside the map
+080AECD4	Automap_FillCell	func	probable	automap cell [row][col] (0x02005000, 28 per row) from map square if Automap_IsVisited; wall code 3 shown as 2; bit 15 for event squares
+080AEDB4	Automap_Build	func	probable	clears 0x02005000 (28x11 cells) and fills it around (x,y) rotated by direction, scrolled by 0x0200DFCC; sets 0x0200DFC8/0x0200DFCA scroll flags
+080AF4B8	Automap_SetVisitedRaw	func	probable	sets bit (x&7) of gGameState+0x1188 + y*16 + x/8
+080AF4EC	Automap_SetVisited	func	probable	map-local (x,y) + map header origin (+8/+0xA), checked by sub_080B7944, then Automap_SetVisitedRaw
+080AF538	Automap_ClearVisitedRaw	func	probable	clears bit (x&7) of gGameState+0x1188 + y*16 + x/8
+080AF56C	Automap_ClearVisited	func	probable	as Automap_SetVisited with Automap_ClearVisitedRaw
+080AF5B8	Automap_SetVisitedAhead	func	probable	Automap_SetVisited on the square next to (x,y) in direction dir (0 y+1, 1 x-1, 2 y-1, 3 x+1) when inside the map
+080AF620	Automap_IsVisited	func	probable	visited bit of map-local (x,y) (0 when sub_080B7944 rejects the square)
+080AF68C	Automap_IsVisitedUnchecked	func	probable	visited bit of map-local (x,y) without the sub_080B7944 check
+080B0204	View_IsSideOpen	func	probable	view cell [5][4] (player square) walls[dir] == 0
+080B0248	View_GetWall	func	probable	walls[dir] of view cell [5+dy][4+dx] (0x0200AD54 = player cell); 0 for dir > 3
+080B02A0	Field_Step	func	probable	moves position 03004550+0x12/0x14 one square in dir clamped to map size +0x1A/+0x1C, Automap_SetVisited, 03003FF4 = 1
+080B098C	Palette_IsBg13Black	func	probable	TRUE when the 32 bytes at 0x03002F50 (gPaletteBuffer colours 0xD0-0xDF) are all zero
+080B0BBC	Field_HBlankWobble	func	probable	installed as gIntrTable[1] by sub_080B0C38; sets BG2VOFS/BG3VOFS from gSineTable[(phase+VCOUNT)&0xFF]/4&3 on lines <100
+080B1C18	Field_HandleInput	func	probable	called by the field main loop with the keys; checks events under the player, A/menu/map keys, then moves/turns from the D-pad via tables 0x0815F2FC/0x0815F31C/0x0815F324
+080B200C	Field_SetFacing	func	probable	stores the old facing (+4) and new facing (+2) of 0x03004550; returns 1 if already facing that way
+080B210C	FieldView_BlitPixels	func	probable	4bpp pixel copy into the view tile buffer skipping non-zero destination nibbles, x clipped to 8..0xE7, mirrored when dir != 1
+080B23D0	FieldView_BlitTiles	func	probable	whole-tile (8 words) copy, or nibble-reversed copy for mirrored layers, same clipping as sub_080B210C
+080B2D94	FieldView_DrawLayer	func	probable	called per 0x20-byte layer by sub_080B28F8; draws a layer through the IWRAM blitters 0x03003BC1/0x03004011 or sub_080B6F40 when its condition flags allow
+080B2EFC	FieldMap_CellRecordsRel	func	probable	walks the map cell list (MapHeader+0x94: {x,y,records...,-2}, -1 end) for the cell fwd/side squares from the player in his facing direction
+080B2FDC	FieldMap_CellRecordsOffset	func	probable	FieldMap_CellRecordsRel with the facing forced to 0, i.e. an absolute offset from the player
+080B3000	FieldMap_CellRecordsAt	func	probable	FieldMap_CellRecordsRel(0,0) with position temporarily set to (x,y) and facing 0
+080B3038	FieldMap_FindRecord	func	probable	scans a cell's records (length table 0x0816222C) for the first one whose type (low half of the first word) matches
+080B3078	FieldMap_HasRecordRel	func	probable	FieldMap_FindRecord(FieldMap_CellRecordsRel(fwd, side), type) != NULL
+080B3348	FieldMap_FindRecordInMap	func	probable	searches every sub-map and square of a map for a record type, restoring map/sub-map/position afterwards
+080B3C5C	BgPicture_LoadPiece	func	probable	decompresses piece gUnk_03003BAC of picture gUnk_03004534 (LZ77, or Huffman then LZ77 over two calls) into 0x0200AFC8 and queues its VRAM upload via table 0x081625D4
+080B3E3C	BgPicture_BeginLoad	func	probable	sets bit 15 of 0x0200AB04, clears the piece index 0x03003BAC, sets 0x03003BA0 when the picture has a 9th piece
+080B3EA4	BgPicture_LoadStep	func	probable	returns 1 once the piece index is 0xFFFF, else loads one piece (BgPicture_LoadPiece)
+080B3F1C	BgPicture_BuildTilemap	func	probable	copies a base tilemap from ROM to 0x02000000, adds per-tile palettes ((attr&0xF)+8)<<12 and DMAs it to 0x06003000
+080B4140	BgPicture_LoadPalette	func	probable	copies the picture palette (sub_080C5F60) to gPaletteTarget colours 0x80.. (0x70.. for picture 0xDA); clears them for picture 0x77
+080B41F8	BgPicture_SetupStepTask	func	probable	VBlank task: one picture setup step per call selected by 0x0300456E (begin load, tilemap, palette, DISPCNT BG3 on)
+080B437C	BgPicture_LoadAll	func	probable	runs every picture setup step at once (loads all pieces in a loop)
 080B968C	Location_GetNameCellFromCoords	func	tentative	from translation patches (lost Ghidra session); verify
 080BEA60	Status_ShowAfflictionMessage	func	tentative	from translation patches (lost Ghidra session); verify
 080BF354	Equipment_GetRecord36_MidRange	func	tentative	from translation patches (lost Ghidra session); verify
@@ -281,8 +350,25 @@ address	name	kind	confidence	note
 080D2C44	Menu_DrawSkillRowTriple	func	tentative	from translation patches (lost Ghidra session); verify
 080D2D04	Action_CountDescriptionBreaks	func	probable	counts 0x300 codes in the description of action id (> 0xD0) up to 0/0x301
 080D2D80	Item_RenderDescription	func	tentative	from translation patches (lost Ghidra session); verify
-080D37BC	CasinoPrize_DrawRows	func	tentative	from translation patches (lost Ghidra session); verify
+080D31F8	Sprite_DrawNumber8	func	probable	NumberToDigits(n), then 8 digit sprites (template 0x084F3174) 8 px apart, leading zeros skipped, last digit always drawn
+080D37BC	CasinoPrize_DrawRows	func	probable	confirms the harvested name: draws 6 rows of Action_GetRecord(id)+0xC names from the list at 0x0203B454 (greyed via palette 2 when sub_080C5B10 says unavailable), money window, scroll arrows
+080D38D0	CasinoPrize_HandleInput	func	probable	A: picks list[cursor+top] (sets gScriptItemCheckId, gYesNoResult=0); B: gYesNoResult=1; up/down/L/R move cursor/top over 6 rows of the 0x0203B454 list
+080D3E10	ComboBits_Clear	func	probable	zeroes the 4-byte bitfield at 0x0203BB6C
+080D3E24	ComboBits_Set	func	probable	sets bit i of the bitfield at 0x0203BB6C (i = index into the 12-byte table at 0x084F3754)
+080D3E44	ComboBits_Test	func	probable	returns bit i of the bitfield at 0x0203BB6C
+080D4B80	Keypad_GetKeyPalette	func	probable	returns palette 0xC/0xD for the key under the (row, col) cursor (gMenuState+0xE/+0x10), 0xB otherwise; keys 0..10 on a 3x4 grid
+080D4D14	Keypad_DrawKeys	func	probable	draws keys 1..9 as a 3x3 grid (sprites 0x084F3FB0[pos]) plus key 0 and key 10 below, coloured by Keypad_GetKeyPalette
+080D4DF4	Keypad_Draw	func	probable	gMenuState+0xC==0: prompt 0x084F3FDC and the four entered digits (0xFFFF = blank); else the coin entry prompt with up to 8 digits at +0x20 and the money/total window
+080D4F20	Keypad_CountDigits	func	probable	index of the first 0xFF in the 8 digit bytes at gMenuState+0x20
+080D4F48	Keypad_GetNumber	func	probable	decimal value of the digit bytes at gMenuState+0x20..+0x27 (0xFF skipped), last byte = units
+080D4F7C	Keypad_CanAfford	func	probable	gGameState+0xAD8 (money) >= gMenuState+0x18 (unit price) * n
+080D4FA8	Keypad_GetSelectedKey	func	probable	first key 0..10 whose Keypad_GetKeyPalette is not 0xB
+080D4FD0	Keypad_HandleInput	func	probable	A enters the selected key as the next digit (door code: 4 digits; coin entry: up to 8 digits, total limited to 49999 and to the money), B deletes, d-pad moves the cursor
+080D529C	Keypad_StoreResult	func	probable	door mode: gYesNoResult = sum(digit[i] * 0x084F404C[i]) or 0xFFFF if a digit is blank; coin mode: count -> 0x030037F0
 080D5324	Door_KeypadInitInputState	func	tentative	from translation patches (lost Ghidra session); verify
+080D5374	Keypad_OpenNumberEntry	func	probable	creates task 0x084F40D8, clears gMenuState, mode 1, unit price arg -> +0x18, 8 blank digits
+080D5918	Debug_SetupTestGame	func	probable	sets gGameState+0xD = 50 and +8 = 208250, calls sub_080C3328(i) 50 times for every i < 0xFF, calls sub_080C062C with 12 fixed ids, sets the three counters at gGameState+0xAD8/+0xADC/+0xAE0 to 10000
+080D624C	Task_SetDataByte	func	probable	task->data[i] = value
 080D67BC	Intro_DrawDisclaimer	func	tentative	from translation patches (lost Ghidra session); verify
 080DADF8	Vision_DrawItemList	func	tentative	from translation patches (lost Ghidra session); verify
 080DAF50	Vision_ComposePrompt	func	tentative	from translation patches (lost Ghidra session); verify
@@ -412,6 +498,12 @@ address	name	kind	confidence	note
 080EBCA4	Menu_ExpandListTemplate	func	tentative	from translation patches (lost Ghidra session); verify
 080EBE7C	Battle_AppendCombatantName	func	probable	appends the (<=8 char) name of combatant sub_080F2F64(who+0x8000) at dst and returns the new end; used by Menu_ExpandListTemplate and MessageBox_ComposeSpeciesText
 080EBED4	MessageBox_ComposeWrappedText	func	tentative	from translation patches (lost Ghidra session); verify
+080EC038	Battle_GetMessage	func	probable	returns ((u16 **)0x0876FB54)[id]; results go to Menu_ExpandListTemplate (ids 0x160/0x161/0x166/0x167/0x146)
+080EC800	Battle_FleeTask	func	probable	task callback: sub_080EDF0C result 0x144/0x145/0x146 picks the escape message (0x08126254 / 0x081262BE / message 0x146); on 0x144 sets battle state 14 via sub_080ED90C(0x2000), otherwise state 10
+080EC99C	BattleMsg_SetDone	func	probable	stores its u8 argument in gBattleMsg.done (0x0203C9E4)
+080ECC30	BattleSprite_DmaBank0	func	probable	DMA3 0x400 words 0x030000B4 -> OBJ VRAM 0x06014000 (queued by sub_080ECC78 with VBlankTask_AddCounted)
+080ECC54	BattleSprite_DmaBank1	func	probable	DMA3 0x400 words 0x030010B4 -> OBJ VRAM 0x06015000
+080ECCB0	BattleSprite_Animate	func	probable	steps the frame list (8-byte entries: sprite, duration, loop-back; -1 ends, duration 0x100 loops back) of the sprite at 0x0203D360 and draws it with Sprite_DrawPlain; id 0xD2 also cycles OBJ palette 12 colors 1-15
 080F2F64	Battle_GetCombatant	func	probable	callers read +0xC (<4 = human: Combatant_DecodeName) and +0x12 (demon id for sub_080BF648) from the returned record
 080F3254	Skill_DrawEquippedRow	func	tentative	from translation patches (lost Ghidra session); verify
 081289B8	Menu_DrawLabeledName	func	tentative	from translation patches (lost Ghidra session); verify
@@ -457,8 +549,12 @@ address	name	kind	confidence	note
 08133500	ScriptOp_32D	func	probable	gScriptOpTable handler for opcode(s) 32D
 0813355C	ScriptOp_333	func	probable	gScriptOpTable handler for opcode(s) 333
 081336A4	ScriptOp_334	func	probable	gScriptOpTable handler for opcode(s) 334
+081337B4	MsgGlyphQueue_PushSubst	func	probable	appends n glyphs of gScriptSubstBuf (0x0203DB08) to gMsgGlyphQueue at x, x+13, ...; count 0x0203DB3E only incremented while <= 0x3E
+08133854	Script_QueuePartyNames	func	probable	clears 0x0203DA00, then for party slots base.. (gGameState + i*0x80, field 0xE != 0) decodes the name (Combatant_DecodeName), cuts it to 8 glyphs, appends 0x318 and queues it with MsgGlyphQueue_PushSubst; called by ScriptOp_33A
 081339EC	ScriptOp_33A	func	probable	gScriptOpTable handler for opcode(s) 33A
+08133A80	Shop_QueueNameRow	func	probable	writes 8 glyphs of gScriptSubstBuf as row `row` of the second glyph list 0x0203DA00 (entries row*8.., y from 0x0879038A[row]); called once per visible row by Shop_InitItemList
 08133B18	Shop_InitItemList	func	tentative	from translation patches (lost Ghidra session); verify
+08133E70	MsgGlyphQueue_PushSubstClamped	func	probable	same as 0x081337B4 but increments the count and clamps it to 0x3F
 081343AC	ScriptOp_33B	func	probable	gScriptOpTable handler for opcode(s) 33B
 08134568	ScriptOp_33C	func	probable	gScriptOpTable handler for opcode(s) 33C
 081345CC	ScriptOp_33D	func	probable	gScriptOpTable handler for opcode(s) 33D
@@ -699,7 +795,16 @@ address	name	kind	confidence	note
 0813C8E0	ScriptOpAlt_44B	func	probable	gScriptOpAltTable handler for opcode(s) 44B
 0813C900	ScriptOpAlt_44C	func	probable	gScriptOpAltTable handler for opcode(s) 44C
 0813DB34	ScriptVM_Run	func	probable	indexes gScriptOpTable with (op - 0x300), op <= 0x470
+0813DE04	ScriptVM_ClearPage	func	probable	clears glyph count, column and line, sets wait state 6, Font_ResetGlyphSpriteCache(0x180), reloads 0x0203DB48 from ScriptVM_GetTextSpeed; task-script entry 0x087900E4 after the 0x317 scroll
+0813DE44	ScriptTask_WaitForKey	func	probable	task-script entry at 0x08790108 (script 0x087900EC, started by op 0x316): when gNewKeys has A/B/Up/Down/Right/Left it plays SE 0x65 and sets task->unk1C = 1
+0813DE9C	ScriptVM_ScrollGlyphsUp	func	probable	subtracts 13 from the y of every queued glyph (0x0203D800[i*4+2], i < count); task-script entry 0x087900B4 (page scroll of op 0x317)
+0813DED8	ScriptVM_DrawTask	func	probable	per-frame callback of the task script gUnknown_0878FB48 created by ScriptVM_Init: draws the queued message glyphs with FontSprite_DrawGlyphTinted (only y >= 0x03006614), the second glyph list 0x0203DA00, sprite slots 0x03006620, number/icon slots, and sets task->unk1C when 0x0203DB46 == 1
+0813E184	ScriptVM_Init	func	probable	(script, inBattle): sets gScriptBase, clears pc/jump/wait/return-stack/glyph queue/handles, text top 0x59/0x61/0x69 by layout 0x0203DB7A, glyph delay 2, creates the VM task (0x08790024, ScriptVM_Run), draw task (0x0878FB48) and 0x0878FB84; called by field code with event scripts
+0813E408	ScriptVM_GetTextSpeed	func	probable	returns Settings_GetBattleMsgSpeed() in battle (0x03006670 == 1), else sub_080C2AFC(); stored in 0x0203DB48 (1 = instant text)
 0813E428	ScriptVM_RunAlt	func	probable	same loop over gScriptOpAltTable; purpose unverified (skip/scan mode?)
+0813E544	ScriptVM_SaveFlags	func	probable	copies the 0x168-byte flag array 0x03005CA8 to 0x030066B0; called by ScriptVM_RunAlt before the pre-scan
+0813E574	ScriptVM_RestoreState	func	probable	copies 0x030066B0 back to the flag array 0x03005CA8 and restores gScriptBase/gScriptPc/0x0203DB72/0x0203DB74 saved by ScriptVM_RunAlt; clears 0x030065F0
+0813E60C	Demon_GetField	func	probable	(id, field 0-31) switch reading byte/halfword fields 1..0x21 of the record sub_080BF648(id) (fields 5-10 and 13-15 signed bytes); field 0x1F (byte 0x21) is used as alignment nibble by sub_0813E914
 08155998	Fusion_DrawMaterialHeader	func	tentative	from translation patches (lost Ghidra session); verify
 0815CAF4	CpuFastSet	func	proven	svc 0x0C; bx lr
 0815CAF8	CpuSet	func	proven	svc 0x0B; bx lr

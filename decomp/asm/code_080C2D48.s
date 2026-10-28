@@ -1735,7 +1735,7 @@ sub_080C397C: @ 0x080C397C
 .L080C39DE:
 	cmp r7, #0
 	bne .L080C3A3E
-	bl sub_080B098C
+	bl Palette_IsBg13Black
 	cmp r0, #0
 	bne .L080C3A20
 	ldr r1, [r6, #4]
@@ -1800,7 +1800,7 @@ sub_080C397C: @ 0x080C397C
 .L080C3A72:
 	cmp r7, #0
 	bne .L080C3AD2
-	bl sub_080B098C
+	bl Palette_IsBg13Black
 	cmp r0, #0
 	bne .L080C3AB4
 	ldr r1, [r6, #4]
@@ -1865,7 +1865,7 @@ sub_080C397C: @ 0x080C397C
 	bne .L080C3B6E
 	cmp r7, #0
 	bne .L080C3B66
-	bl sub_080B098C
+	bl Palette_IsBg13Black
 	cmp r0, #0
 	bne .L080C3B48
 	ldr r1, [r6, #4]
@@ -2432,7 +2432,7 @@ sub_080C3F4C: @ 0x080C3F4C
 	adds r5, r3, #0
 	movs r0, #0
 	mov r8, r0
-	bl sub_080B098C
+	bl Palette_IsBg13Black
 	cmp r0, #0
 	bne .L080C4010
 	ldrh r0, [r7, #0x1c]

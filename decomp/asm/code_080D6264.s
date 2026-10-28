@@ -2915,9 +2915,9 @@ sub_080D7A04: @ 0x080D7A04
 	adds r4, r0, #0
 	movs r0, #0
 	movs r1, #0
-	bl sub_080B2EFC
+	bl FieldMap_CellRecordsRel
 	movs r1, #0x23
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	adds r1, r0, #0
 	ldr r0, .L080D7A34
 	movs r2, #0xac
@@ -3514,7 +3514,7 @@ sub_080D7E8C: @ 0x080D7E8C
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	beq .L080D7EF2
-	bl sub_080B098C
+	bl Palette_IsBg13Black
 	cmp r0, #1
 	beq .L080D7EF2
 	ldr r0, [r4, #0x28]

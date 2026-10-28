@@ -262,7 +262,7 @@ void sub_080D0BF0(struct MenuTask *task, u32 cancelled)
 void GameState_StoreLocation(u32 mode)
 {
     struct GameState *state = &gGameState;
-    struct Unk03004550 *src = &gUnk_03004550;
+    struct Unk03004550 *src = &gFieldState;
     u32 i;
 
     state->unkA2C = src->unk02;
@@ -488,7 +488,7 @@ u32 sub_080D0E74(void)
 {
     u32 ret = 0;
 
-    if (gUnk_03004614 == 0 && gUnk_03004550.unk12 == 2 && gUnk_03004550.unk14 == 6)
+    if (gUnk_03004614 == 0 && gFieldState.unk12 == 2 && gFieldState.unk14 == 6)
         ret = 1;
     return ret;
 }
@@ -508,15 +508,15 @@ void SaveScreen_WriteSlot(struct MenuTask *task)
         {
             if (!Flag_Test(2))
                 goto skip;
-            p = &gUnk_03004550;
+            p = &gFieldState;
             v = p->unk02 = 3;
         }
         else
         {
-            p = &gUnk_03004550;
+            p = &gFieldState;
             v = p->unk02;
         }
-        sub_080B02A0(sub_080B1A1C(v));
+        Field_Step(sub_080B1A1C(v));
         p->unk02 = sub_080B1A1C(p->unk02);
     }
 skip:
@@ -529,8 +529,8 @@ skip:
     task->unk1E = SaveSlot_Write(menu->cursor, &gGameState);
     if (menu->unk02 != 2)
     {
-        p = &gUnk_03004550;
-        sub_080B02A0(sub_080B1A1C(p->unk02));
+        p = &gFieldState;
+        Field_Step(sub_080B1A1C(p->unk02));
         p->unk02 = sub_080B1A1C(p->unk02);
     }
     gUnk_03003BB4 = 0;
@@ -570,7 +570,7 @@ void SaveScreen_WriteSlot(struct MenuTask *task)
         "    bl sub_080B1A1C\n"
         "    lsls r0, r0, #0x10\n"
         "    lsrs r0, r0, #0x10\n"
-        "    bl sub_080B02A0\n"
+        "    bl Field_Step\n"
         "    ldrh r0, [r4, #2]\n"
         "    bl sub_080B1A1C\n"
         "    strh r0, [r4, #2]\n"
@@ -598,7 +598,7 @@ void SaveScreen_WriteSlot(struct MenuTask *task)
         "    bl sub_080B1A1C\n"
         "    lsls r0, r0, #0x10\n"
         "    lsrs r0, r0, #0x10\n"
-        "    bl sub_080B02A0\n"
+        "    bl Field_Step\n"
         "    ldrh r0, [r4, #2]\n"
         "    bl sub_080B1A1C\n"
         "    strh r0, [r4, #2]\n"
@@ -858,7 +858,7 @@ u32 SaveSlot_Read(u32 slot, struct GameState *dst, u32 noApply)
         sub_080C271C();
         sub_080C27F0();
         sub_080C2968();
-        sub_080D3E10();
+        ComboBits_Clear();
     }
     return 1;
 }
@@ -913,7 +913,7 @@ void sub_080D1450(void)
 {
     struct SaveMenu *menu = &gMenuState;
 
-    DmaSet3(gUnk_0200AFC8, 0x06015000, 0x84000400);
+    DmaSet3(gBgPictureBuffer, 0x06015000, 0x84000400);
     DmaSet3(gUnknown_084F2BFC, 0x06001340, 0x84000070);
     menu->u.name.gfxQueued = 0;
 }
@@ -935,7 +935,7 @@ void sub_080D14BC(u32 arg0, u32 phase)
 {
     if (phase == 0)
     {
-        LZ77UnCompWram(gUnknown_084F2974, gUnk_0200AFC8);
+        LZ77UnCompWram(gUnknown_084F2974, gBgPictureBuffer);
         Palette_CopyWithEffect(3, gUnknown_084F2DBC, &gUnk_03002E10[0x1A0], 0x20, 0x10);
         Palette_CopyWithEffect(3, gUnknown_081B6E90, gUnk_03002E10, 0x20, 0x10);
         Palette_MarkDirty();

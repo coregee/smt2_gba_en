@@ -3,304 +3,304 @@
 	.section .rodata
 
 .Lspan_08700350:
-	.incbin "build/assets/08700350.bin" @ rom_08700000/08700350
+	.incbin "build/assets/08700350.bin" @ demons/demon_244
 .Lspan_08700648:
-	.incbin "build/assets/08700648.bin" @ rom_08700000/08700648
+	.incbin "build/assets/08700648.bin" @ demons/demon_245
 .Lspan_08700908:
-	.incbin "build/assets/08700908.bin" @ rom_08700000/08700908
+	.incbin "build/assets/08700908.bin" @ demons/demon_246
 .Lspan_08701168:
-	.incbin "build/assets/08701168.bin" @ rom_08700000/08701168
+	.incbin "build/assets/08701168.bin" @ demons/demon_247
 .Lspan_08701614:
-	.incbin "build/assets/08701614.bin" @ rom_08700000/08701614
+	.incbin "build/assets/08701614.bin" @ demons/demon_248
 .Lspan_08701854:
-	.incbin "build/assets/08701854.bin" @ rom_08700000/08701854
+	.incbin "build/assets/08701854.bin" @ demons/demon_249
 .Lspan_08701D04:
-	.incbin "build/assets/08701D04.bin" @ rom_08700000/08701D04
+	.incbin "build/assets/08701D04.bin" @ demons/demon_250
 .Lspan_08702050:
-	.incbin "build/assets/08702050.bin" @ rom_08700000/08702050
+	.incbin "build/assets/08702050.bin" @ demons/demon_252
 .Lspan_087024A8:
-	.incbin "build/assets/087024A8.bin" @ rom_08700000/087024A8
+	.incbin "build/assets/087024A8.bin" @ demons/demon_253
 .Lspan_087027FC:
-	.incbin "build/assets/087027FC.bin" @ rom_08700000/087027FC
+	.incbin "build/assets/087027FC.bin" @ demons/demon_254
 .Lspan_08702BA0:
-	.incbin "build/assets/08702BA0.bin" @ rom_08700000/08702BA0
+	.incbin "build/assets/08702BA0.bin" @ demons/demon_256
 .Lspan_08702FD8:
-	.incbin "build/assets/08702FD8.bin" @ rom_08700000/08702FD8
+	.incbin "build/assets/08702FD8.bin" @ demons/demon_257
 .Lspan_08703484:
-	.incbin "build/assets/08703484.bin" @ rom_08700000/08703484
+	.incbin "build/assets/08703484.bin" @ demons/demon_258
 .Lspan_087039BC:
-	.incbin "build/assets/087039BC.bin" @ rom_08700000/087039BC
+	.incbin "build/assets/087039BC.bin" @ demons/demon_260
 .Lspan_08703DE8:
-	.incbin "build/assets/08703DE8.bin" @ rom_08700000/08703DE8
+	.incbin "build/assets/08703DE8.bin" @ demons/demon_261
 .Lspan_08704468:
-	.incbin "build/assets/08704468.bin" @ rom_08700000/08704468
+	.incbin "build/assets/08704468.bin" @ demons/demon_262
 .Lspan_08704874:
-	.incbin "build/assets/08704874.bin" @ rom_08700000/08704874
+	.incbin "build/assets/08704874.bin" @ demons/demon_263
 .Lspan_08704DE4:
-	.incbin "build/assets/08704DE4.bin" @ rom_08700000/08704DE4
+	.incbin "build/assets/08704DE4.bin" @ demons/demon_264
 .Lspan_08705120:
-	.incbin "build/assets/08705120.bin" @ rom_08700000/08705120
+	.incbin "build/assets/08705120.bin" @ demons/demon_265
 .Lspan_08705550:
-	.incbin "build/assets/08705550.bin" @ rom_08700000/08705550
+	.incbin "build/assets/08705550.bin" @ demons/demon_266
 .Lspan_087059F4:
-	.incbin "build/assets/087059F4.bin" @ rom_08700000/087059F4
+	.incbin "build/assets/087059F4.bin" @ demons/demon_267
 .Lspan_08705DBC:
-	.incbin "build/assets/08705DBC.bin" @ rom_08700000/08705DBC
+	.incbin "build/assets/08705DBC.bin" @ demons/demon_268
 .Lspan_08706180:
-	.incbin "build/assets/08706180.bin" @ rom_08700000/08706180
+	.incbin "build/assets/08706180.bin" @ demons/demon_269
 .Lspan_087066FC:
-	.incbin "build/assets/087066FC.bin" @ rom_08700000/087066FC
+	.incbin "build/assets/087066FC.bin" @ demons/demon_270_part0
 .Lspan_08706E58:
-	.incbin "build/assets/08706E58.bin" @ rom_08700000/08706E58
+	.incbin "build/assets/08706E58.bin" @ demons/demon_270_part1
 .Lspan_08707344:
-	.incbin "build/assets/08707344.bin" @ rom_08700000/08707344
+	.incbin "build/assets/08707344.bin" @ demons/demon_274
 .Lspan_087077BC:
-	.incbin "build/assets/087077BC.bin" @ rom_08700000/087077BC
+	.incbin "build/assets/087077BC.bin" @ demons/demon_299_part0
 .Lspan_08707F1C:
-	.incbin "build/assets/08707F1C.bin" @ rom_08700000/08707F1C
+	.incbin "build/assets/08707F1C.bin" @ demons/demon_299_part1
 .Lspan_08708374:
-	.incbin "build/assets/08708374.bin" @ rom_08700000/08708374
+	.incbin "build/assets/08708374.bin" @ demons/demon_301_part0
 .Lspan_08708A30:
-	.incbin "build/assets/08708A30.bin" @ rom_08700000/08708A30
+	.incbin "build/assets/08708A30.bin" @ demons/demon_301_part1
 .Lspan_087090E0:
-	.incbin "build/assets/087090E0.bin" @ rom_08700000/087090E0
+	.incbin "build/assets/087090E0.bin" @ demons/demon_304
 .Lspan_0870945C:
-	.incbin "build/assets/0870945C.bin" @ rom_08700000/0870945C
+	.incbin "build/assets/0870945C.bin" @ demons/demon_305
 .Lspan_087097F8:
-	.incbin "build/assets/087097F8.bin" @ rom_08700000/087097F8
+	.incbin "build/assets/087097F8.bin" @ demons/demon_306
 .Lspan_08709C44:
-	.incbin "build/assets/08709C44.bin" @ rom_08700000/08709C44
+	.incbin "build/assets/08709C44.bin" @ demons/demon_307
 .Lspan_0870A210:
-	.incbin "build/assets/0870A210.bin" @ rom_08700000/0870A210
+	.incbin "build/assets/0870A210.bin" @ demons/demon_308
 .Lspan_0870A600:
-	.incbin "build/assets/0870A600.bin" @ rom_08700000/0870A600
+	.incbin "build/assets/0870A600.bin" @ demons/demon_309
 .Lspan_0870AAD8:
-	.incbin "build/assets/0870AAD8.bin" @ rom_08700000/0870AAD8
+	.incbin "build/assets/0870AAD8.bin" @ demons/demon_310
 .Lspan_0870B010:
-	.incbin "build/assets/0870B010.bin" @ rom_08700000/0870B010
+	.incbin "build/assets/0870B010.bin" @ demons/demon_311
 .Lspan_0870B234:
-	.incbin "build/assets/0870B234.bin" @ rom_08700000/0870B234
+	.incbin "build/assets/0870B234.bin" @ demons/demon_312
 .Lspan_0870B394:
-	.incbin "build/assets/0870B394.bin" @ rom_08700000/0870B394
+	.incbin "build/assets/0870B394.bin" @ demons/demon_313
 .Lspan_0870B570:
-	.incbin "build/assets/0870B570.bin" @ rom_08700000/0870B570
+	.incbin "build/assets/0870B570.bin" @ demons/demon_314
 .Lspan_0870B6C4:
-	.incbin "build/assets/0870B6C4.bin" @ rom_08700000/0870B6C4
+	.incbin "build/assets/0870B6C4.bin" @ demons/demon_315
 .Lspan_0870B8EC:
-	.incbin "build/assets/0870B8EC.bin" @ rom_08700000/0870B8EC
+	.incbin "build/assets/0870B8EC.bin" @ demons/demon_316
 .Lspan_0870BA6C:
-	.incbin "build/assets/0870BA6C.bin" @ rom_08700000/0870BA6C
+	.incbin "build/assets/0870BA6C.bin" @ demons/demon_337
 .Lspan_0870BBE4:
-	.incbin "build/assets/0870BBE4.bin" @ rom_08700000/0870BBE4
+	.incbin "build/assets/0870BBE4.bin" @ demons/demon_338
 .Lspan_0870BD94:
-	.incbin "build/assets/0870BD94.bin" @ rom_08700000/0870BD94
+	.incbin "build/assets/0870BD94.bin" @ demons/demon_339
 .Lspan_0870BF3C:
-	.incbin "build/assets/0870BF3C.bin" @ rom_08700000/0870BF3C
+	.incbin "build/assets/0870BF3C.bin" @ demons/demon_320
 .Lspan_0870C0C4:
-	.incbin "build/assets/0870C0C4.bin" @ rom_08700000/0870C0C4
+	.incbin "build/assets/0870C0C4.bin" @ demons/demon_321
 .Lspan_0870C278:
-	.incbin "build/assets/0870C278.bin" @ rom_08700000/0870C278
+	.incbin "build/assets/0870C278.bin" @ demons/demon_322
 .Lspan_0870C3DC:
-	.incbin "build/assets/0870C3DC.bin" @ rom_08700000/0870C3DC
+	.incbin "build/assets/0870C3DC.bin" @ demons/demon_323
 .Lspan_0870C548:
-	.incbin "build/assets/0870C548.bin" @ rom_08700000/0870C548
+	.incbin "build/assets/0870C548.bin" @ demons/demon_324
 .Lspan_0870C6C4:
-	.incbin "build/assets/0870C6C4.bin" @ rom_08700000/0870C6C4
+	.incbin "build/assets/0870C6C4.bin" @ demons/demon_325
 .Lspan_0870C834:
-	.incbin "build/assets/0870C834.bin" @ rom_08700000/0870C834
+	.incbin "build/assets/0870C834.bin" @ demons/demon_326
 .Lspan_0870C9C4:
-	.incbin "build/assets/0870C9C4.bin" @ rom_08700000/0870C9C4
+	.incbin "build/assets/0870C9C4.bin" @ demons/demon_327
 .Lspan_0870CB34:
-	.incbin "build/assets/0870CB34.bin" @ rom_08700000/0870CB34
+	.incbin "build/assets/0870CB34.bin" @ demons/demon_328
 .Lspan_0870CCAC:
-	.incbin "build/assets/0870CCAC.bin" @ rom_08700000/0870CCAC
+	.incbin "build/assets/0870CCAC.bin" @ demons/demon_329
 .Lspan_0870CE24:
-	.incbin "build/assets/0870CE24.bin" @ rom_08700000/0870CE24
+	.incbin "build/assets/0870CE24.bin" @ demons/demon_330
 .Lspan_0870CF9C:
-	.incbin "build/assets/0870CF9C.bin" @ rom_08700000/0870CF9C
+	.incbin "build/assets/0870CF9C.bin" @ demons/demon_331
 .Lspan_0870D114:
-	.incbin "build/assets/0870D114.bin" @ rom_08700000/0870D114
+	.incbin "build/assets/0870D114.bin" @ demons/demon_332
 .Lspan_0870D2C0:
-	.incbin "build/assets/0870D2C0.bin" @ rom_08700000/0870D2C0
+	.incbin "build/assets/0870D2C0.bin" @ demons/demon_333
 .Lspan_0870D46C:
-	.incbin "build/assets/0870D46C.bin" @ rom_08700000/0870D46C
+	.incbin "build/assets/0870D46C.bin" @ demons/demon_334
 .Lspan_0870D6B4:
-	.incbin "build/assets/0870D6B4.bin" @ rom_08700000/0870D6B4
+	.incbin "build/assets/0870D6B4.bin" @ demons/demon_335
 .Lspan_0870D850:
-	.incbin "build/assets/0870D850.bin" @ rom_08700000/0870D850
+	.incbin "build/assets/0870D850.bin" @ demons/demon_356
 .Lspan_0870DA18:
-	.incbin "build/assets/0870DA18.bin" @ rom_08700000/0870DA18
+	.incbin "build/assets/0870DA18.bin" @ demons/demon_357
 .Lspan_0870DC24:
-	.incbin "build/assets/0870DC24.bin" @ rom_08700000/0870DC24
+	.incbin "build/assets/0870DC24.bin" @ demons/demon_358
 .Lspan_0870DD74:
-	.incbin "build/assets/0870DD74.bin" @ rom_08700000/0870DD74
+	.incbin "build/assets/0870DD74.bin" @ demons/demon_359
 .Lspan_0870DED0:
-	.incbin "build/assets/0870DED0.bin" @ rom_08700000/0870DED0
+	.incbin "build/assets/0870DED0.bin" @ demons/demon_360
 .Lspan_0870E020:
-	.incbin "build/assets/0870E020.bin" @ rom_08700000/0870E020
+	.incbin "build/assets/0870E020.bin" @ demons/demon_361
 .Lspan_0870E154:
-	.incbin "build/assets/0870E154.bin" @ rom_08700000/0870E154
+	.incbin "build/assets/0870E154.bin" @ demons/demon_317
 .Lspan_0870E524:
-	.incbin "build/assets/0870E524.bin" @ rom_08700000/0870E524
+	.incbin "build/assets/0870E524.bin" @ demons/demon_318
 	.incbin "baserom.gba", 0x70E920, 0x2720
 .Lspan_08711040:
-	.incbin "build/assets/08711040.bin" @ rom_08710000/08711040
+	.incbin "build/assets/08711040.bin" @ demons/demon_271
 .Lspan_087117C8:
-	.incbin "build/assets/087117C8.bin" @ rom_08710000/087117C8
+	.incbin "build/assets/087117C8.bin" @ demons/demon_272
 .Lspan_08711F2C:
-	.incbin "build/assets/08711F2C.bin" @ rom_08710000/08711F2C
+	.incbin "build/assets/08711F2C.bin" @ demons/demon_275_part0
 .Lspan_087126BC:
-	.incbin "build/assets/087126BC.bin" @ rom_08710000/087126BC
+	.incbin "build/assets/087126BC.bin" @ demons/demon_275_part1
 .Lspan_087127B0:
-	.incbin "build/assets/087127B0.bin" @ rom_08710000/087127B0
+	.incbin "build/assets/087127B0.bin" @ demons/demon_276_part0
 .Lspan_0871303C:
-	.incbin "build/assets/0871303C.bin" @ rom_08710000/0871303C
+	.incbin "build/assets/0871303C.bin" @ demons/demon_276_part1
 .Lspan_087135E4:
-	.incbin "build/assets/087135E4.bin" @ rom_08710000/087135E4
+	.incbin "build/assets/087135E4.bin" @ demons/demon_277_part0
 .Lspan_08713F0C:
-	.incbin "build/assets/08713F0C.bin" @ rom_08710000/08713F0C
+	.incbin "build/assets/08713F0C.bin" @ demons/demon_277_part1
 .Lspan_08714204:
-	.incbin "build/assets/08714204.bin" @ rom_08710000/08714204
+	.incbin "build/assets/08714204.bin" @ demons/demon_280_part0
 .Lspan_08714988:
-	.incbin "build/assets/08714988.bin" @ rom_08710000/08714988
+	.incbin "build/assets/08714988.bin" @ demons/demon_280_part1
 .Lspan_08714A7C:
-	.incbin "build/assets/08714A7C.bin" @ rom_08710000/08714A7C
+	.incbin "build/assets/08714A7C.bin" @ demons/demon_281_part0
 .Lspan_0871523C:
-	.incbin "build/assets/0871523C.bin" @ rom_08710000/0871523C
+	.incbin "build/assets/0871523C.bin" @ demons/demon_281_part1
 .Lspan_08715330:
-	.incbin "build/assets/08715330.bin" @ rom_08710000/08715330
+	.incbin "build/assets/08715330.bin" @ demons/demon_282_part0
 .Lspan_08715A90:
-	.incbin "build/assets/08715A90.bin" @ rom_08710000/08715A90
+	.incbin "build/assets/08715A90.bin" @ demons/demon_282_part1
 .Lspan_08715B84:
-	.incbin "build/assets/08715B84.bin" @ rom_08710000/08715B84
+	.incbin "build/assets/08715B84.bin" @ demons/demon_283_part0
 .Lspan_0871632C:
-	.incbin "build/assets/0871632C.bin" @ rom_08710000/0871632C
+	.incbin "build/assets/0871632C.bin" @ demons/demon_283_part1
 .Lspan_08716420:
-	.incbin "build/assets/08716420.bin" @ rom_08710000/08716420
+	.incbin "build/assets/08716420.bin" @ demons/demon_284_part0
 .Lspan_08716C0C:
-	.incbin "build/assets/08716C0C.bin" @ rom_08710000/08716C0C
+	.incbin "build/assets/08716C0C.bin" @ demons/demon_284_part1
 .Lspan_08716D00:
-	.incbin "build/assets/08716D00.bin" @ rom_08710000/08716D00
+	.incbin "build/assets/08716D00.bin" @ demons/demon_285_part0
 .Lspan_087174C8:
-	.incbin "build/assets/087174C8.bin" @ rom_08710000/087174C8
+	.incbin "build/assets/087174C8.bin" @ demons/demon_285_part1
 .Lspan_087175BC:
-	.incbin "build/assets/087175BC.bin" @ rom_08710000/087175BC
+	.incbin "build/assets/087175BC.bin" @ demons/demon_286_part0
 .Lspan_08717D5C:
-	.incbin "build/assets/08717D5C.bin" @ rom_08710000/08717D5C
+	.incbin "build/assets/08717D5C.bin" @ demons/demon_286_part1
 .Lspan_08717E50:
-	.incbin "build/assets/08717E50.bin" @ rom_08710000/08717E50
+	.incbin "build/assets/08717E50.bin" @ demons/demon_287_part0
 .Lspan_087185E8:
-	.incbin "build/assets/087185E8.bin" @ rom_08710000/087185E8
+	.incbin "build/assets/087185E8.bin" @ demons/demon_287_part1
 .Lspan_087186DC:
-	.incbin "build/assets/087186DC.bin" @ rom_08710000/087186DC
+	.incbin "build/assets/087186DC.bin" @ demons/demon_288_part0
 .Lspan_08718ECC:
-	.incbin "build/assets/08718ECC.bin" @ rom_08710000/08718ECC
+	.incbin "build/assets/08718ECC.bin" @ demons/demon_288_part1
 .Lspan_08718FC0:
-	.incbin "build/assets/08718FC0.bin" @ rom_08710000/08718FC0
+	.incbin "build/assets/08718FC0.bin" @ demons/demon_289_part0
 .Lspan_0871977C:
-	.incbin "build/assets/0871977C.bin" @ rom_08710000/0871977C
+	.incbin "build/assets/0871977C.bin" @ demons/demon_289_part1
 .Lspan_08719870:
-	.incbin "build/assets/08719870.bin" @ rom_08710000/08719870
+	.incbin "build/assets/08719870.bin" @ demons/demon_290_part0
 .Lspan_0871A00C:
-	.incbin "build/assets/0871A00C.bin" @ rom_08710000/0871A00C
+	.incbin "build/assets/0871A00C.bin" @ demons/demon_290_part1
 .Lspan_0871A100:
-	.incbin "build/assets/0871A100.bin" @ rom_08710000/0871A100
+	.incbin "build/assets/0871A100.bin" @ demons/demon_291_part0
 .Lspan_0871A8AC:
-	.incbin "build/assets/0871A8AC.bin" @ rom_08710000/0871A8AC
+	.incbin "build/assets/0871A8AC.bin" @ demons/demon_291_part1
 .Lspan_0871A9A0:
-	.incbin "build/assets/0871A9A0.bin" @ rom_08710000/0871A9A0
+	.incbin "build/assets/0871A9A0.bin" @ demons/demon_296_part0
 .Lspan_0871B3D4:
-	.incbin "build/assets/0871B3D4.bin" @ rom_08710000/0871B3D4
+	.incbin "build/assets/0871B3D4.bin" @ demons/demon_296_part1
 	.incbin "baserom.gba", 0x71B6F0, 0x240
 .Lspan_0871B930:
-	.incbin "build/assets/0871B930.bin" @ rom_08710000/0871B930
+	.incbin "build/assets/0871B930.bin" @ demons/demon_293_part0
 .Lspan_0871C134:
-	.incbin "build/assets/0871C134.bin" @ rom_08710000/0871C134
+	.incbin "build/assets/0871C134.bin" @ demons/demon_293_part1
 	.byte 0xE0, 0x03, 0x5B, 0x6E, 0xDB, 0x6E, 0xA5, 0x24, 0x29, 0x39, 0xC9, 0x49, 0xC9, 0x15, 0x7B, 0x17
 	.byte 0xD6, 0x4A, 0x7B, 0x5B, 0x56, 0x16, 0x2E, 0x25, 0xD2, 0x39, 0xFF, 0x7F, 0xA5, 0x14, 0x21, 0x04
 .Lspan_0871C34C:
-	.incbin "build/assets/0871C34C.bin" @ rom_08710000/0871C34C
+	.incbin "build/assets/0871C34C.bin" @ demons/demon_278_part0
 .Lspan_0871C9EC:
-	.incbin "build/assets/0871C9EC.bin" @ rom_08710000/0871C9EC
+	.incbin "build/assets/0871C9EC.bin" @ demons/demon_278_part1
 .Lspan_0871D378:
-	.incbin "build/assets/0871D378.bin" @ rom_08710000/0871D378
+	.incbin "build/assets/0871D378.bin" @ demons/demon_279_part0
 .Lspan_0871DAE8:
-	.incbin "build/assets/0871DAE8.bin" @ rom_08710000/0871DAE8
+	.incbin "build/assets/0871DAE8.bin" @ demons/demon_279_part1
 .Lspan_0871DCEC:
-	.incbin "build/assets/0871DCEC.bin" @ rom_08710000/0871DCEC
+	.incbin "build/assets/0871DCEC.bin" @ demons/demon_297_part0
 .Lspan_0871E524:
-	.incbin "build/assets/0871E524.bin" @ rom_08710000/0871E524
+	.incbin "build/assets/0871E524.bin" @ demons/demon_297_part1
 .Lspan_0871E9E4:
-	.incbin "build/assets/0871E9E4.bin" @ rom_08710000/0871E9E4
+	.incbin "build/assets/0871E9E4.bin" @ demons/demon_298_part0
 .Lspan_0871EF74:
-	.incbin "build/assets/0871EF74.bin" @ rom_08710000/0871EF74
+	.incbin "build/assets/0871EF74.bin" @ demons/demon_298_part1
 	.incbin "baserom.gba", 0x71F4F4, 0x80
 .Lspan_0871F574:
-	.incbin "build/assets/0871F574.bin" @ rom_08710000/0871F574
+	.incbin "build/assets/0871F574.bin" @ demons/demon_292_part0
 .Lspan_087200B8:
-	.incbin "build/assets/087200B8.bin" @ rom_08720000/087200B8
+	.incbin "build/assets/087200B8.bin" @ demons/demon_292_part1
 .Lspan_087209C4:
-	.incbin "build/assets/087209C4.bin" @ rom_08720000/087209C4
+	.incbin "build/assets/087209C4.bin" @ demons/demon_294_part0
 .Lspan_0872123C:
-	.incbin "build/assets/0872123C.bin" @ rom_08720000/0872123C
+	.incbin "build/assets/0872123C.bin" @ demons/demon_294_part1
 .Lspan_08721BF8:
-	.incbin "build/assets/08721BF8.bin" @ rom_08720000/08721BF8
+	.incbin "build/assets/08721BF8.bin" @ demons/demon_295_part0
 .Lspan_087225C8:
-	.incbin "build/assets/087225C8.bin" @ rom_08720000/087225C8
+	.incbin "build/assets/087225C8.bin" @ demons/demon_295_part1
 .Lspan_08722B2C:
-	.incbin "build/assets/08722B2C.bin" @ rom_08720000/08722B2C
+	.incbin "build/assets/08722B2C.bin" @ demons/demon_300_part0
 .Lspan_087234C8:
-	.incbin "build/assets/087234C8.bin" @ rom_08720000/087234C8
+	.incbin "build/assets/087234C8.bin" @ demons/demon_300_part1
 .Lspan_08723F9C:
-	.incbin "build/assets/08723F9C.bin" @ rom_08720000/08723F9C
+	.incbin "build/assets/08723F9C.bin" @ demons/demon_303_part0
 .Lspan_08724898:
-	.incbin "build/assets/08724898.bin" @ rom_08720000/08724898
+	.incbin "build/assets/08724898.bin" @ demons/demon_303_part1
 	.incbin "baserom.gba", 0x7250F4, 0xA0
 .Lspan_08725194:
-	.incbin "build/assets/08725194.bin" @ rom_08720000/08725194
+	.incbin "build/assets/08725194.bin" @ demons/demon_259_part0
 .Lspan_0872597C:
-	.incbin "build/assets/0872597C.bin" @ rom_08720000/0872597C
+	.incbin "build/assets/0872597C.bin" @ demons/demon_259_part1
 .Lspan_08726160:
-	.incbin "build/assets/08726160.bin" @ rom_08720000/08726160
+	.incbin "build/assets/08726160.bin" @ demons/demon_273_part0
 .Lspan_08726928:
-	.incbin "build/assets/08726928.bin" @ rom_08720000/08726928
+	.incbin "build/assets/08726928.bin" @ demons/demon_273_part1
 	.incbin "baserom.gba", 0x726E8C, 0x40
 .Lspan_08726ECC:
-	.incbin "build/assets/08726ECC.bin" @ rom_08720000/08726ECC
+	.incbin "build/assets/08726ECC.bin" @ demons/demon_362
 .Lspan_08727330:
-	.incbin "build/assets/08727330.bin" @ rom_08720000/08727330
+	.incbin "build/assets/08727330.bin" @ demons/demon_363
 .Lspan_087276A8:
-	.incbin "build/assets/087276A8.bin" @ rom_08720000/087276A8
+	.incbin "build/assets/087276A8.bin" @ demons/demon_364
 .Lspan_08727A04:
-	.incbin "build/assets/08727A04.bin" @ rom_08720000/08727A04
+	.incbin "build/assets/08727A04.bin" @ demons/demon_365
 .Lspan_08727E6C:
-	.incbin "build/assets/08727E6C.bin" @ rom_08720000/08727E6C
+	.incbin "build/assets/08727E6C.bin" @ demons/demon_366
 .Lspan_08728250:
-	.incbin "build/assets/08728250.bin" @ rom_08720000/08728250
+	.incbin "build/assets/08728250.bin" @ demons/demon_367
 .Lspan_087286D0:
-	.incbin "build/assets/087286D0.bin" @ rom_08720000/087286D0
+	.incbin "build/assets/087286D0.bin" @ demons/demon_368
 .Lspan_08728AAC:
-	.incbin "build/assets/08728AAC.bin" @ rom_08720000/08728AAC
+	.incbin "build/assets/08728AAC.bin" @ demons/demon_369
 .Lspan_08728EDC:
-	.incbin "build/assets/08728EDC.bin" @ rom_08720000/08728EDC
+	.incbin "build/assets/08728EDC.bin" @ demons/demon_370
 .Lspan_087296C4:
-	.incbin "build/assets/087296C4.bin" @ rom_08720000/087296C4
+	.incbin "build/assets/087296C4.bin" @ demons/demon_371
 .Lspan_08729A7C:
-	.incbin "build/assets/08729A7C.bin" @ rom_08720000/08729A7C
+	.incbin "build/assets/08729A7C.bin" @ demons/demon_372
 .Lspan_08729F60:
-	.incbin "build/assets/08729F60.bin" @ rom_08720000/08729F60
+	.incbin "build/assets/08729F60.bin" @ demons/demon_373
 .Lspan_0872A2D0:
-	.incbin "build/assets/0872A2D0.bin" @ rom_08720000/0872A2D0
+	.incbin "build/assets/0872A2D0.bin" @ demons/demon_374
 .Lspan_0872A8B8:
-	.incbin "build/assets/0872A8B8.bin" @ rom_08720000/0872A8B8
+	.incbin "build/assets/0872A8B8.bin" @ demons/demon_375
 .Lspan_0872AD6C:
-	.incbin "build/assets/0872AD6C.bin" @ rom_08720000/0872AD6C
+	.incbin "build/assets/0872AD6C.bin" @ demons/demon_376
 .Lspan_0872B340:
-	.incbin "build/assets/0872B340.bin" @ rom_08720000/0872B340
+	.incbin "build/assets/0872B340.bin" @ demons/demon_377
 .Lspan_0872B7F8:
-	.incbin "build/assets/0872B7F8.bin" @ rom_08720000/0872B7F8
+	.incbin "build/assets/0872B7F8.bin" @ demons/demon_378
 .Lspan_0872BF78:
-	.incbin "build/assets/0872BF78.bin" @ rom_08720000/0872BF78
+	.incbin "build/assets/0872BF78.bin" @ demons/demon_379
 	.incbin "baserom.gba", 0x72C534, 0x240
 	.global gUnknown_0872C774
 gUnknown_0872C774: @ 0x0872C774
@@ -315,582 +315,582 @@ gUnknown_0872F174: @ 0x0872F174
 gUnknown_0872F234: @ 0x0872F234
 	.incbin "baserom.gba", 0x72F234, 0x218
 .Lspan_0872F44C:
-	.incbin "build/assets/0872F44C.bin" @ rom_08720000/0872F44C
+	.incbin "build/assets/0872F44C.bin" @ battle_effects/effect_210_frame0
 .Lspan_0872F524:
-	.incbin "build/assets/0872F524.bin" @ rom_08720000/0872F524
+	.incbin "build/assets/0872F524.bin" @ battle_effects/effect_210_frame1
 .Lspan_0872F648:
-	.incbin "build/assets/0872F648.bin" @ rom_08720000/0872F648
+	.incbin "build/assets/0872F648.bin" @ battle_effects/effect_210_frame2
 .Lspan_0872F76C:
-	.incbin "build/assets/0872F76C.bin" @ rom_08720000/0872F76C
+	.incbin "build/assets/0872F76C.bin" @ battle_effects/effect_210_frame3
 	.incbin "baserom.gba", 0x72F83C, 0x40
 .Lspan_0872F87C:
-	.incbin "build/assets/0872F87C.bin" @ rom_08720000/0872F87C
+	.incbin "build/assets/0872F87C.bin" @ battle_effects/effect_000_frame0
 .Lspan_0872FBBC:
-	.incbin "build/assets/0872FBBC.bin" @ rom_08720000/0872FBBC
+	.incbin "build/assets/0872FBBC.bin" @ battle_effects/effect_000_frame1
 .Lspan_0872FFA0:
-	.incbin "build/assets/0872FFA0.bin" @ rom_08720000/0872FFA0
+	.incbin "build/assets/0872FFA0.bin" @ battle_effects/effect_000_frame2
 .Lspan_08730350:
-	.incbin "build/assets/08730350.bin" @ rom_08730000/08730350
+	.incbin "build/assets/08730350.bin" @ battle_effects/effect_000_frame3
 .Lspan_087305C0:
-	.incbin "build/assets/087305C0.bin" @ rom_08730000/087305C0
+	.incbin "build/assets/087305C0.bin" @ battle_effects/effect_014_frame0
 .Lspan_08730B94:
-	.incbin "build/assets/08730B94.bin" @ rom_08730000/08730B94
+	.incbin "build/assets/08730B94.bin" @ battle_effects/effect_014_frame1
 .Lspan_08731108:
-	.incbin "build/assets/08731108.bin" @ rom_08730000/08731108
+	.incbin "build/assets/08731108.bin" @ battle_effects/effect_014_frame2
 .Lspan_0873126C:
-	.incbin "build/assets/0873126C.bin" @ rom_08730000/0873126C
+	.incbin "build/assets/0873126C.bin" @ battle_effects/effect_014_frame3
 .Lspan_087312F8:
-	.incbin "build/assets/087312F8.bin" @ rom_08730000/087312F8
+	.incbin "build/assets/087312F8.bin" @ battle_effects/effect_015_frame0
 .Lspan_08731818:
-	.incbin "build/assets/08731818.bin" @ rom_08730000/08731818
+	.incbin "build/assets/08731818.bin" @ battle_effects/effect_015_frame1
 .Lspan_08731EE4:
-	.incbin "build/assets/08731EE4.bin" @ rom_08730000/08731EE4
+	.incbin "build/assets/08731EE4.bin" @ battle_effects/effect_015_frame2
 .Lspan_0873226C:
-	.incbin "build/assets/0873226C.bin" @ rom_08730000/0873226C
+	.incbin "build/assets/0873226C.bin" @ battle_effects/effect_015_frame3
 .Lspan_08732584:
-	.incbin "build/assets/08732584.bin" @ rom_08730000/08732584
+	.incbin "build/assets/08732584.bin" @ battle_effects/effect_016_frame0
 .Lspan_087329C8:
-	.incbin "build/assets/087329C8.bin" @ rom_08730000/087329C8
+	.incbin "build/assets/087329C8.bin" @ battle_effects/effect_016_frame1
 .Lspan_08732EE0:
-	.incbin "build/assets/08732EE0.bin" @ rom_08730000/08732EE0
+	.incbin "build/assets/08732EE0.bin" @ battle_effects/effect_016_frame2
 .Lspan_08733350:
-	.incbin "build/assets/08733350.bin" @ rom_08730000/08733350
+	.incbin "build/assets/08733350.bin" @ battle_effects/effect_016_frame3
 .Lspan_087335A4:
-	.incbin "build/assets/087335A4.bin" @ rom_08730000/087335A4
+	.incbin "build/assets/087335A4.bin" @ battle_effects/effect_017_frame0
 .Lspan_08733B28:
-	.incbin "build/assets/08733B28.bin" @ rom_08730000/08733B28
+	.incbin "build/assets/08733B28.bin" @ battle_effects/effect_017_frame1
 .Lspan_0873406C:
-	.incbin "build/assets/0873406C.bin" @ rom_08730000/0873406C
+	.incbin "build/assets/0873406C.bin" @ battle_effects/effect_017_frame2
 .Lspan_08734280:
-	.incbin "build/assets/08734280.bin" @ rom_08730000/08734280
+	.incbin "build/assets/08734280.bin" @ battle_effects/effect_017_frame3
 .Lspan_087343A8:
-	.incbin "build/assets/087343A8.bin" @ rom_08730000/087343A8
+	.incbin "build/assets/087343A8.bin" @ battle_effects/effect_018_frame0
 .Lspan_087345C8:
-	.incbin "build/assets/087345C8.bin" @ rom_08730000/087345C8
+	.incbin "build/assets/087345C8.bin" @ battle_effects/effect_018_frame1
 .Lspan_087347CC:
-	.incbin "build/assets/087347CC.bin" @ rom_08730000/087347CC
+	.incbin "build/assets/087347CC.bin" @ battle_effects/effect_018_frame2
 .Lspan_087348E0:
-	.incbin "build/assets/087348E0.bin" @ rom_08730000/087348E0
+	.incbin "build/assets/087348E0.bin" @ battle_effects/effect_018_frame3
 .Lspan_0873496C:
-	.incbin "build/assets/0873496C.bin" @ rom_08730000/0873496C
+	.incbin "build/assets/0873496C.bin" @ battle_effects/effect_019_frame0
 .Lspan_08734D1C:
-	.incbin "build/assets/08734D1C.bin" @ rom_08730000/08734D1C
+	.incbin "build/assets/08734D1C.bin" @ battle_effects/effect_019_frame1
 .Lspan_087351B4:
-	.incbin "build/assets/087351B4.bin" @ rom_08730000/087351B4
+	.incbin "build/assets/087351B4.bin" @ battle_effects/effect_019_frame2
 .Lspan_087355CC:
-	.incbin "build/assets/087355CC.bin" @ rom_08730000/087355CC
+	.incbin "build/assets/087355CC.bin" @ battle_effects/effect_019_frame3
 .Lspan_08735894:
-	.incbin "build/assets/08735894.bin" @ rom_08730000/08735894
+	.incbin "build/assets/08735894.bin" @ battle_effects/effect_020_frame0
 .Lspan_08735C6C:
-	.incbin "build/assets/08735C6C.bin" @ rom_08730000/08735C6C
+	.incbin "build/assets/08735C6C.bin" @ battle_effects/effect_020_frame1
 .Lspan_087360C4:
-	.incbin "build/assets/087360C4.bin" @ rom_08730000/087360C4
+	.incbin "build/assets/087360C4.bin" @ battle_effects/effect_020_frame2
 .Lspan_0873641C:
-	.incbin "build/assets/0873641C.bin" @ rom_08730000/0873641C
+	.incbin "build/assets/0873641C.bin" @ battle_effects/effect_020_frame3
 .Lspan_087366BC:
-	.incbin "build/assets/087366BC.bin" @ rom_08730000/087366BC
+	.incbin "build/assets/087366BC.bin" @ battle_effects/effect_021_frame0
 .Lspan_087369F0:
-	.incbin "build/assets/087369F0.bin" @ rom_08730000/087369F0
+	.incbin "build/assets/087369F0.bin" @ battle_effects/effect_021_frame1
 .Lspan_08736DB4:
-	.incbin "build/assets/08736DB4.bin" @ rom_08730000/08736DB4
+	.incbin "build/assets/08736DB4.bin" @ battle_effects/effect_021_frame2
 .Lspan_087371D4:
-	.incbin "build/assets/087371D4.bin" @ rom_08730000/087371D4
+	.incbin "build/assets/087371D4.bin" @ battle_effects/effect_021_frame3
 .Lspan_087374A4:
-	.incbin "build/assets/087374A4.bin" @ rom_08730000/087374A4
+	.incbin "build/assets/087374A4.bin" @ battle_effects/effect_022_frame0
 .Lspan_08737760:
-	.incbin "build/assets/08737760.bin" @ rom_08730000/08737760
+	.incbin "build/assets/08737760.bin" @ battle_effects/effect_022_frame1
 .Lspan_08737A88:
-	.incbin "build/assets/08737A88.bin" @ rom_08730000/08737A88
+	.incbin "build/assets/08737A88.bin" @ battle_effects/effect_022_frame2
 .Lspan_08737D64:
-	.incbin "build/assets/08737D64.bin" @ rom_08730000/08737D64
+	.incbin "build/assets/08737D64.bin" @ battle_effects/effect_022_frame3
 .Lspan_08737E68:
-	.incbin "build/assets/08737E68.bin" @ rom_08730000/08737E68
+	.incbin "build/assets/08737E68.bin" @ battle_effects/effect_023_frame0
 .Lspan_08738240:
-	.incbin "build/assets/08738240.bin" @ rom_08730000/08738240
+	.incbin "build/assets/08738240.bin" @ battle_effects/effect_023_frame1
 .Lspan_08738650:
-	.incbin "build/assets/08738650.bin" @ rom_08730000/08738650
+	.incbin "build/assets/08738650.bin" @ battle_effects/effect_023_frame2
 .Lspan_08738B14:
-	.incbin "build/assets/08738B14.bin" @ rom_08730000/08738B14
+	.incbin "build/assets/08738B14.bin" @ battle_effects/effect_023_frame3
 .Lspan_08738E5C:
-	.incbin "build/assets/08738E5C.bin" @ rom_08730000/08738E5C
+	.incbin "build/assets/08738E5C.bin" @ battle_effects/effect_024_frame0
 .Lspan_08739088:
-	.incbin "build/assets/08739088.bin" @ rom_08730000/08739088
+	.incbin "build/assets/08739088.bin" @ battle_effects/effect_024_frame1
 .Lspan_087392E0:
-	.incbin "build/assets/087392E0.bin" @ rom_08730000/087392E0
+	.incbin "build/assets/087392E0.bin" @ battle_effects/effect_024_frame2
 .Lspan_087395E8:
-	.incbin "build/assets/087395E8.bin" @ rom_08730000/087395E8
+	.incbin "build/assets/087395E8.bin" @ battle_effects/effect_024_frame3
 .Lspan_08739740:
-	.incbin "build/assets/08739740.bin" @ rom_08730000/08739740
+	.incbin "build/assets/08739740.bin" @ battle_effects/effect_025_frame0
 .Lspan_08739C0C:
-	.incbin "build/assets/08739C0C.bin" @ rom_08730000/08739C0C
+	.incbin "build/assets/08739C0C.bin" @ battle_effects/effect_025_frame1
 .Lspan_0873A14C:
-	.incbin "build/assets/0873A14C.bin" @ rom_08730000/0873A14C
+	.incbin "build/assets/0873A14C.bin" @ battle_effects/effect_025_frame2
 .Lspan_0873A52C:
-	.incbin "build/assets/0873A52C.bin" @ rom_08730000/0873A52C
+	.incbin "build/assets/0873A52C.bin" @ battle_effects/effect_025_frame3
 .Lspan_0873A928:
-	.incbin "build/assets/0873A928.bin" @ rom_08730000/0873A928
+	.incbin "build/assets/0873A928.bin" @ battle_effects/effect_026_frame0
 .Lspan_0873AD1C:
-	.incbin "build/assets/0873AD1C.bin" @ rom_08730000/0873AD1C
+	.incbin "build/assets/0873AD1C.bin" @ battle_effects/effect_026_frame1
 .Lspan_0873B050:
-	.incbin "build/assets/0873B050.bin" @ rom_08730000/0873B050
+	.incbin "build/assets/0873B050.bin" @ battle_effects/effect_026_frame2
 .Lspan_0873B3E0:
-	.incbin "build/assets/0873B3E0.bin" @ rom_08730000/0873B3E0
+	.incbin "build/assets/0873B3E0.bin" @ battle_effects/effect_026_frame3
 .Lspan_0873B46C:
-	.incbin "build/assets/0873B46C.bin" @ rom_08730000/0873B46C
+	.incbin "build/assets/0873B46C.bin" @ battle_effects/effect_028_frame0
 .Lspan_0873B6F4:
-	.incbin "build/assets/0873B6F4.bin" @ rom_08730000/0873B6F4
+	.incbin "build/assets/0873B6F4.bin" @ battle_effects/effect_028_frame1
 .Lspan_0873BC18:
-	.incbin "build/assets/0873BC18.bin" @ rom_08730000/0873BC18
+	.incbin "build/assets/0873BC18.bin" @ battle_effects/effect_028_frame2
 .Lspan_0873BE9C:
-	.incbin "build/assets/0873BE9C.bin" @ rom_08730000/0873BE9C
+	.incbin "build/assets/0873BE9C.bin" @ battle_effects/effect_028_frame3
 .Lspan_0873BF28:
-	.incbin "build/assets/0873BF28.bin" @ rom_08730000/0873BF28
+	.incbin "build/assets/0873BF28.bin" @ battle_effects/effect_029_frame0
 .Lspan_0873C32C:
-	.incbin "build/assets/0873C32C.bin" @ rom_08730000/0873C32C
+	.incbin "build/assets/0873C32C.bin" @ battle_effects/effect_029_frame1
 .Lspan_0873C9A4:
-	.incbin "build/assets/0873C9A4.bin" @ rom_08730000/0873C9A4
+	.incbin "build/assets/0873C9A4.bin" @ battle_effects/effect_029_frame2
 .Lspan_0873CE24:
-	.incbin "build/assets/0873CE24.bin" @ rom_08730000/0873CE24
+	.incbin "build/assets/0873CE24.bin" @ battle_effects/effect_029_frame3
 .Lspan_0873D07C:
-	.incbin "build/assets/0873D07C.bin" @ rom_08730000/0873D07C
+	.incbin "build/assets/0873D07C.bin" @ battle_effects/effect_030_frame0
 .Lspan_0873D5C4:
-	.incbin "build/assets/0873D5C4.bin" @ rom_08730000/0873D5C4
+	.incbin "build/assets/0873D5C4.bin" @ battle_effects/effect_030_frame1
 .Lspan_0873D864:
-	.incbin "build/assets/0873D864.bin" @ rom_08730000/0873D864
+	.incbin "build/assets/0873D864.bin" @ battle_effects/effect_030_frame2
 .Lspan_0873D8F0:
-	.incbin "build/assets/0873D8F0.bin" @ rom_08730000/0873D8F0
+	.incbin "build/assets/0873D8F0.bin" @ battle_effects/effect_030_frame3
 .Lspan_0873D97C:
-	.incbin "build/assets/0873D97C.bin" @ rom_08730000/0873D97C
+	.incbin "build/assets/0873D97C.bin" @ battle_effects/effect_031_frame0
 .Lspan_0873DE48:
-	.incbin "build/assets/0873DE48.bin" @ rom_08730000/0873DE48
+	.incbin "build/assets/0873DE48.bin" @ battle_effects/effect_031_frame1
 .Lspan_0873E3F4:
-	.incbin "build/assets/0873E3F4.bin" @ rom_08730000/0873E3F4
+	.incbin "build/assets/0873E3F4.bin" @ battle_effects/effect_031_frame2
 .Lspan_0873E7C0:
-	.incbin "build/assets/0873E7C0.bin" @ rom_08730000/0873E7C0
+	.incbin "build/assets/0873E7C0.bin" @ battle_effects/effect_031_frame3
 .Lspan_0873E988:
-	.incbin "build/assets/0873E988.bin" @ rom_08730000/0873E988
+	.incbin "build/assets/0873E988.bin" @ battle_effects/effect_032_frame0
 .Lspan_0873EDE8:
-	.incbin "build/assets/0873EDE8.bin" @ rom_08730000/0873EDE8
+	.incbin "build/assets/0873EDE8.bin" @ battle_effects/effect_032_frame1
 .Lspan_0873F1C0:
-	.incbin "build/assets/0873F1C0.bin" @ rom_08730000/0873F1C0
+	.incbin "build/assets/0873F1C0.bin" @ battle_effects/effect_032_frame2
 .Lspan_0873F544:
-	.incbin "build/assets/0873F544.bin" @ rom_08730000/0873F544
+	.incbin "build/assets/0873F544.bin" @ battle_effects/effect_032_frame3
 .Lspan_0873F5D0:
-	.incbin "build/assets/0873F5D0.bin" @ rom_08730000/0873F5D0
+	.incbin "build/assets/0873F5D0.bin" @ battle_effects/effect_033_frame0
 .Lspan_0873FAA8:
-	.incbin "build/assets/0873FAA8.bin" @ rom_08730000/0873FAA8
+	.incbin "build/assets/0873FAA8.bin" @ battle_effects/effect_033_frame1
 .Lspan_08740034:
-	.incbin "build/assets/08740034.bin" @ rom_08740000/08740034
+	.incbin "build/assets/08740034.bin" @ battle_effects/effect_033_frame2
 .Lspan_08740480:
-	.incbin "build/assets/08740480.bin" @ rom_08740000/08740480
+	.incbin "build/assets/08740480.bin" @ battle_effects/effect_033_frame3
 .Lspan_0874099C:
-	.incbin "build/assets/0874099C.bin" @ rom_08740000/0874099C
+	.incbin "build/assets/0874099C.bin" @ battle_effects/effect_034_frame0
 .Lspan_08740E4C:
-	.incbin "build/assets/08740E4C.bin" @ rom_08740000/08740E4C
+	.incbin "build/assets/08740E4C.bin" @ battle_effects/effect_034_frame1
 .Lspan_08741128:
-	.incbin "build/assets/08741128.bin" @ rom_08740000/08741128
+	.incbin "build/assets/08741128.bin" @ battle_effects/effect_034_frame2
 .Lspan_08741350:
-	.incbin "build/assets/08741350.bin" @ rom_08740000/08741350
+	.incbin "build/assets/08741350.bin" @ battle_effects/effect_034_frame3
 .Lspan_087413DC:
-	.incbin "build/assets/087413DC.bin" @ rom_08740000/087413DC
+	.incbin "build/assets/087413DC.bin" @ battle_effects/effect_035_frame0
 .Lspan_08741710:
-	.incbin "build/assets/08741710.bin" @ rom_08740000/08741710
+	.incbin "build/assets/08741710.bin" @ battle_effects/effect_035_frame1
 .Lspan_08741988:
-	.incbin "build/assets/08741988.bin" @ rom_08740000/08741988
+	.incbin "build/assets/08741988.bin" @ battle_effects/effect_035_frame2
 .Lspan_08741C90:
-	.incbin "build/assets/08741C90.bin" @ rom_08740000/08741C90
+	.incbin "build/assets/08741C90.bin" @ battle_effects/effect_035_frame3
 .Lspan_08741DA0:
-	.incbin "build/assets/08741DA0.bin" @ rom_08740000/08741DA0
+	.incbin "build/assets/08741DA0.bin" @ battle_effects/effect_036_frame0
 .Lspan_08742390:
-	.incbin "build/assets/08742390.bin" @ rom_08740000/08742390
+	.incbin "build/assets/08742390.bin" @ battle_effects/effect_036_frame1
 .Lspan_08742978:
-	.incbin "build/assets/08742978.bin" @ rom_08740000/08742978
+	.incbin "build/assets/08742978.bin" @ battle_effects/effect_036_frame2
 .Lspan_08742C58:
-	.incbin "build/assets/08742C58.bin" @ rom_08740000/08742C58
+	.incbin "build/assets/08742C58.bin" @ battle_effects/effect_036_frame3
 .Lspan_08742E40:
-	.incbin "build/assets/08742E40.bin" @ rom_08740000/08742E40
+	.incbin "build/assets/08742E40.bin" @ battle_effects/effect_037_frame0
 .Lspan_087430F4:
-	.incbin "build/assets/087430F4.bin" @ rom_08740000/087430F4
+	.incbin "build/assets/087430F4.bin" @ battle_effects/effect_037_frame1
 .Lspan_08743520:
-	.incbin "build/assets/08743520.bin" @ rom_08740000/08743520
+	.incbin "build/assets/08743520.bin" @ battle_effects/effect_037_frame2
 .Lspan_087437B4:
-	.incbin "build/assets/087437B4.bin" @ rom_08740000/087437B4
+	.incbin "build/assets/087437B4.bin" @ battle_effects/effect_037_frame3
 .Lspan_08743A50:
-	.incbin "build/assets/08743A50.bin" @ rom_08740000/08743A50
+	.incbin "build/assets/08743A50.bin" @ battle_effects/effect_050_frame0
 .Lspan_08743D00:
-	.incbin "build/assets/08743D00.bin" @ rom_08740000/08743D00
+	.incbin "build/assets/08743D00.bin" @ battle_effects/effect_050_frame1
 .Lspan_08744264:
-	.incbin "build/assets/08744264.bin" @ rom_08740000/08744264
+	.incbin "build/assets/08744264.bin" @ battle_effects/effect_050_frame2
 .Lspan_087444FC:
-	.incbin "build/assets/087444FC.bin" @ rom_08740000/087444FC
+	.incbin "build/assets/087444FC.bin" @ battle_effects/effect_050_frame3
 .Lspan_087447CC:
-	.incbin "build/assets/087447CC.bin" @ rom_08740000/087447CC
+	.incbin "build/assets/087447CC.bin" @ battle_effects/effect_051_frame0
 .Lspan_08744B0C:
-	.incbin "build/assets/08744B0C.bin" @ rom_08740000/08744B0C
+	.incbin "build/assets/08744B0C.bin" @ battle_effects/effect_051_frame1
 .Lspan_08744F14:
-	.incbin "build/assets/08744F14.bin" @ rom_08740000/08744F14
+	.incbin "build/assets/08744F14.bin" @ battle_effects/effect_051_frame2
 .Lspan_08745098:
-	.incbin "build/assets/08745098.bin" @ rom_08740000/08745098
+	.incbin "build/assets/08745098.bin" @ battle_effects/effect_051_frame3
 .Lspan_08745128:
-	.incbin "build/assets/08745128.bin" @ rom_08740000/08745128
+	.incbin "build/assets/08745128.bin" @ battle_effects/effect_052_frame0
 .Lspan_087454A4:
-	.incbin "build/assets/087454A4.bin" @ rom_08740000/087454A4
+	.incbin "build/assets/087454A4.bin" @ battle_effects/effect_052_frame1
 .Lspan_08745A5C:
-	.incbin "build/assets/08745A5C.bin" @ rom_08740000/08745A5C
+	.incbin "build/assets/08745A5C.bin" @ battle_effects/effect_052_frame2
 .Lspan_08745C50:
-	.incbin "build/assets/08745C50.bin" @ rom_08740000/08745C50
+	.incbin "build/assets/08745C50.bin" @ battle_effects/effect_052_frame3
 .Lspan_08745E38:
-	.incbin "build/assets/08745E38.bin" @ rom_08740000/08745E38
+	.incbin "build/assets/08745E38.bin" @ battle_effects/effect_056_frame0
 .Lspan_08746408:
-	.incbin "build/assets/08746408.bin" @ rom_08740000/08746408
+	.incbin "build/assets/08746408.bin" @ battle_effects/effect_056_frame1
 .Lspan_08746998:
-	.incbin "build/assets/08746998.bin" @ rom_08740000/08746998
+	.incbin "build/assets/08746998.bin" @ battle_effects/effect_056_frame2
 .Lspan_08746F04:
-	.incbin "build/assets/08746F04.bin" @ rom_08740000/08746F04
+	.incbin "build/assets/08746F04.bin" @ battle_effects/effect_056_frame3
 .Lspan_087472A0:
-	.incbin "build/assets/087472A0.bin" @ rom_08740000/087472A0
+	.incbin "build/assets/087472A0.bin" @ battle_effects/effect_057_frame0
 .Lspan_087474B0:
-	.incbin "build/assets/087474B0.bin" @ rom_08740000/087474B0
+	.incbin "build/assets/087474B0.bin" @ battle_effects/effect_057_frame1
 .Lspan_087475D8:
-	.incbin "build/assets/087475D8.bin" @ rom_08740000/087475D8
+	.incbin "build/assets/087475D8.bin" @ battle_effects/effect_057_frame2
 .Lspan_08747664:
-	.incbin "build/assets/08747664.bin" @ rom_08740000/08747664
+	.incbin "build/assets/08747664.bin" @ battle_effects/effect_057_frame3
 .Lspan_087476F0:
-	.incbin "build/assets/087476F0.bin" @ rom_08740000/087476F0
+	.incbin "build/assets/087476F0.bin" @ battle_effects/effect_058_frame0
 .Lspan_08747B80:
-	.incbin "build/assets/08747B80.bin" @ rom_08740000/08747B80
+	.incbin "build/assets/08747B80.bin" @ battle_effects/effect_058_frame1
 .Lspan_08747F60:
-	.incbin "build/assets/08747F60.bin" @ rom_08740000/08747F60
+	.incbin "build/assets/08747F60.bin" @ battle_effects/effect_058_frame2
 .Lspan_0874810C:
-	.incbin "build/assets/0874810C.bin" @ rom_08740000/0874810C
+	.incbin "build/assets/0874810C.bin" @ battle_effects/effect_058_frame3
 .Lspan_08748198:
-	.incbin "build/assets/08748198.bin" @ rom_08740000/08748198
+	.incbin "build/assets/08748198.bin" @ battle_effects/effect_060_frame0
 .Lspan_087486A8:
-	.incbin "build/assets/087486A8.bin" @ rom_08740000/087486A8
+	.incbin "build/assets/087486A8.bin" @ battle_effects/effect_060_frame1
 .Lspan_08748BDC:
-	.incbin "build/assets/08748BDC.bin" @ rom_08740000/08748BDC
+	.incbin "build/assets/08748BDC.bin" @ battle_effects/effect_060_frame2
 .Lspan_087490AC:
-	.incbin "build/assets/087490AC.bin" @ rom_08740000/087490AC
+	.incbin "build/assets/087490AC.bin" @ battle_effects/effect_060_frame3
 .Lspan_08749268:
-	.incbin "build/assets/08749268.bin" @ rom_08740000/08749268
+	.incbin "build/assets/08749268.bin" @ battle_effects/effect_061_frame0
 .Lspan_0874951C:
-	.incbin "build/assets/0874951C.bin" @ rom_08740000/0874951C
+	.incbin "build/assets/0874951C.bin" @ battle_effects/effect_061_frame1
 .Lspan_08749880:
-	.incbin "build/assets/08749880.bin" @ rom_08740000/08749880
+	.incbin "build/assets/08749880.bin" @ battle_effects/effect_061_frame2
 .Lspan_08749BF4:
-	.incbin "build/assets/08749BF4.bin" @ rom_08740000/08749BF4
+	.incbin "build/assets/08749BF4.bin" @ battle_effects/effect_061_frame3
 .Lspan_08749D84:
-	.incbin "build/assets/08749D84.bin" @ rom_08740000/08749D84
+	.incbin "build/assets/08749D84.bin" @ battle_effects/effect_063_frame0
 .Lspan_0874A2A0:
-	.incbin "build/assets/0874A2A0.bin" @ rom_08740000/0874A2A0
+	.incbin "build/assets/0874A2A0.bin" @ battle_effects/effect_063_frame1
 .Lspan_0874A7D8:
-	.incbin "build/assets/0874A7D8.bin" @ rom_08740000/0874A7D8
+	.incbin "build/assets/0874A7D8.bin" @ battle_effects/effect_063_frame2
 .Lspan_0874AA84:
-	.incbin "build/assets/0874AA84.bin" @ rom_08740000/0874AA84
+	.incbin "build/assets/0874AA84.bin" @ battle_effects/effect_063_frame3
 .Lspan_0874AB8C:
-	.incbin "build/assets/0874AB8C.bin" @ rom_08740000/0874AB8C
+	.incbin "build/assets/0874AB8C.bin" @ battle_effects/effect_064_frame0
 .Lspan_0874AE04:
-	.incbin "build/assets/0874AE04.bin" @ rom_08740000/0874AE04
+	.incbin "build/assets/0874AE04.bin" @ battle_effects/effect_064_frame1
 .Lspan_0874AFE0:
-	.incbin "build/assets/0874AFE0.bin" @ rom_08740000/0874AFE0
+	.incbin "build/assets/0874AFE0.bin" @ battle_effects/effect_064_frame2
 .Lspan_0874B0F8:
-	.incbin "build/assets/0874B0F8.bin" @ rom_08740000/0874B0F8
+	.incbin "build/assets/0874B0F8.bin" @ battle_effects/effect_064_frame3
 .Lspan_0874B184:
-	.incbin "build/assets/0874B184.bin" @ rom_08740000/0874B184
+	.incbin "build/assets/0874B184.bin" @ battle_effects/effect_065_frame0
 .Lspan_0874B4F8:
-	.incbin "build/assets/0874B4F8.bin" @ rom_08740000/0874B4F8
+	.incbin "build/assets/0874B4F8.bin" @ battle_effects/effect_065_frame1
 .Lspan_0874BA3C:
-	.incbin "build/assets/0874BA3C.bin" @ rom_08740000/0874BA3C
+	.incbin "build/assets/0874BA3C.bin" @ battle_effects/effect_065_frame2
 .Lspan_0874BCF0:
-	.incbin "build/assets/0874BCF0.bin" @ rom_08740000/0874BCF0
+	.incbin "build/assets/0874BCF0.bin" @ battle_effects/effect_065_frame3
 .Lspan_0874BF9C:
-	.incbin "build/assets/0874BF9C.bin" @ rom_08740000/0874BF9C
+	.incbin "build/assets/0874BF9C.bin" @ battle_effects/effect_071_frame0
 .Lspan_0874C398:
-	.incbin "build/assets/0874C398.bin" @ rom_08740000/0874C398
+	.incbin "build/assets/0874C398.bin" @ battle_effects/effect_071_frame1
 .Lspan_0874C85C:
-	.incbin "build/assets/0874C85C.bin" @ rom_08740000/0874C85C
+	.incbin "build/assets/0874C85C.bin" @ battle_effects/effect_071_frame2
 .Lspan_0874CDAC:
-	.incbin "build/assets/0874CDAC.bin" @ rom_08740000/0874CDAC
+	.incbin "build/assets/0874CDAC.bin" @ battle_effects/effect_071_frame3
 .Lspan_0874D1B4:
-	.incbin "build/assets/0874D1B4.bin" @ rom_08740000/0874D1B4
+	.incbin "build/assets/0874D1B4.bin" @ battle_effects/effect_073_frame0
 .Lspan_0874D59C:
-	.incbin "build/assets/0874D59C.bin" @ rom_08740000/0874D59C
+	.incbin "build/assets/0874D59C.bin" @ battle_effects/effect_073_frame1
 .Lspan_0874D98C:
-	.incbin "build/assets/0874D98C.bin" @ rom_08740000/0874D98C
+	.incbin "build/assets/0874D98C.bin" @ battle_effects/effect_073_frame2
 .Lspan_0874DB08:
-	.incbin "build/assets/0874DB08.bin" @ rom_08740000/0874DB08
+	.incbin "build/assets/0874DB08.bin" @ battle_effects/effect_073_frame3
 .Lspan_0874DB94:
-	.incbin "build/assets/0874DB94.bin" @ rom_08740000/0874DB94
+	.incbin "build/assets/0874DB94.bin" @ battle_effects/effect_079_frame0
 .Lspan_0874E028:
-	.incbin "build/assets/0874E028.bin" @ rom_08740000/0874E028
+	.incbin "build/assets/0874E028.bin" @ battle_effects/effect_079_frame1
 .Lspan_0874E5C0:
-	.incbin "build/assets/0874E5C0.bin" @ rom_08740000/0874E5C0
+	.incbin "build/assets/0874E5C0.bin" @ battle_effects/effect_079_frame2
 .Lspan_0874EA78:
-	.incbin "build/assets/0874EA78.bin" @ rom_08740000/0874EA78
+	.incbin "build/assets/0874EA78.bin" @ battle_effects/effect_079_frame3
 .Lspan_0874EF48:
-	.incbin "build/assets/0874EF48.bin" @ rom_08740000/0874EF48
+	.incbin "build/assets/0874EF48.bin" @ battle_effects/effect_081_frame0
 .Lspan_0874F36C:
-	.incbin "build/assets/0874F36C.bin" @ rom_08740000/0874F36C
+	.incbin "build/assets/0874F36C.bin" @ battle_effects/effect_081_frame1
 .Lspan_0874F8BC:
-	.incbin "build/assets/0874F8BC.bin" @ rom_08740000/0874F8BC
+	.incbin "build/assets/0874F8BC.bin" @ battle_effects/effect_081_frame2
 .Lspan_0874FC5C:
-	.incbin "build/assets/0874FC5C.bin" @ rom_08740000/0874FC5C
+	.incbin "build/assets/0874FC5C.bin" @ battle_effects/effect_081_frame3
 .Lspan_0874FF70:
-	.incbin "build/assets/0874FF70.bin" @ rom_08740000/0874FF70
+	.incbin "build/assets/0874FF70.bin" @ battle_effects/effect_084_frame0
 .Lspan_08750298:
-	.incbin "build/assets/08750298.bin" @ rom_08750000/08750298
+	.incbin "build/assets/08750298.bin" @ battle_effects/effect_084_frame1
 .Lspan_08750728:
-	.incbin "build/assets/08750728.bin" @ rom_08750000/08750728
+	.incbin "build/assets/08750728.bin" @ battle_effects/effect_084_frame2
 .Lspan_08750B7C:
-	.incbin "build/assets/08750B7C.bin" @ rom_08750000/08750B7C
+	.incbin "build/assets/08750B7C.bin" @ battle_effects/effect_084_frame3
 .Lspan_08750FDC:
-	.incbin "build/assets/08750FDC.bin" @ rom_08750000/08750FDC
+	.incbin "build/assets/08750FDC.bin" @ battle_effects/effect_087_frame0
 .Lspan_087512E8:
-	.incbin "build/assets/087512E8.bin" @ rom_08750000/087512E8
+	.incbin "build/assets/087512E8.bin" @ battle_effects/effect_087_frame1
 .Lspan_0875141C:
-	.incbin "build/assets/0875141C.bin" @ rom_08750000/0875141C
+	.incbin "build/assets/0875141C.bin" @ battle_effects/effect_087_frame2
 .Lspan_087514A8:
-	.incbin "build/assets/087514A8.bin" @ rom_08750000/087514A8
+	.incbin "build/assets/087514A8.bin" @ battle_effects/effect_087_frame3
 .Lspan_08751534:
-	.incbin "build/assets/08751534.bin" @ rom_08750000/08751534
+	.incbin "build/assets/08751534.bin" @ battle_effects/effect_091_frame0
 .Lspan_08751A5C:
-	.incbin "build/assets/08751A5C.bin" @ rom_08750000/08751A5C
+	.incbin "build/assets/08751A5C.bin" @ battle_effects/effect_091_frame1
 .Lspan_08751F78:
-	.incbin "build/assets/08751F78.bin" @ rom_08750000/08751F78
+	.incbin "build/assets/08751F78.bin" @ battle_effects/effect_091_frame2
 .Lspan_08752454:
-	.incbin "build/assets/08752454.bin" @ rom_08750000/08752454
+	.incbin "build/assets/08752454.bin" @ battle_effects/effect_091_frame3
 .Lspan_08752904:
-	.incbin "build/assets/08752904.bin" @ rom_08750000/08752904
+	.incbin "build/assets/08752904.bin" @ battle_effects/effect_094_frame0
 .Lspan_08752E40:
-	.incbin "build/assets/08752E40.bin" @ rom_08750000/08752E40
+	.incbin "build/assets/08752E40.bin" @ battle_effects/effect_094_frame1
 .Lspan_0875338C:
-	.incbin "build/assets/0875338C.bin" @ rom_08750000/0875338C
+	.incbin "build/assets/0875338C.bin" @ battle_effects/effect_094_frame2
 .Lspan_08753418:
-	.incbin "build/assets/08753418.bin" @ rom_08750000/08753418
+	.incbin "build/assets/08753418.bin" @ battle_effects/effect_094_frame3
 .Lspan_087534A4:
-	.incbin "build/assets/087534A4.bin" @ rom_08750000/087534A4
+	.incbin "build/assets/087534A4.bin" @ battle_effects/effect_096_frame0
 .Lspan_087537E8:
-	.incbin "build/assets/087537E8.bin" @ rom_08750000/087537E8
+	.incbin "build/assets/087537E8.bin" @ battle_effects/effect_096_frame1
 .Lspan_08753A04:
-	.incbin "build/assets/08753A04.bin" @ rom_08750000/08753A04
+	.incbin "build/assets/08753A04.bin" @ battle_effects/effect_096_frame2
 .Lspan_08753B2C:
-	.incbin "build/assets/08753B2C.bin" @ rom_08750000/08753B2C
+	.incbin "build/assets/08753B2C.bin" @ battle_effects/effect_096_frame3
 .Lspan_08753BB8:
-	.incbin "build/assets/08753BB8.bin" @ rom_08750000/08753BB8
+	.incbin "build/assets/08753BB8.bin" @ battle_effects/effect_105_frame0
 .Lspan_08753F2C:
-	.incbin "build/assets/08753F2C.bin" @ rom_08750000/08753F2C
+	.incbin "build/assets/08753F2C.bin" @ battle_effects/effect_105_frame1
 .Lspan_08754174:
-	.incbin "build/assets/08754174.bin" @ rom_08750000/08754174
+	.incbin "build/assets/08754174.bin" @ battle_effects/effect_105_frame2
 .Lspan_08754260:
-	.incbin "build/assets/08754260.bin" @ rom_08750000/08754260
+	.incbin "build/assets/08754260.bin" @ battle_effects/effect_105_frame3
 .Lspan_087542EC:
-	.incbin "build/assets/087542EC.bin" @ rom_08750000/087542EC
+	.incbin "build/assets/087542EC.bin" @ battle_effects/effect_108_frame0
 .Lspan_087546B4:
-	.incbin "build/assets/087546B4.bin" @ rom_08750000/087546B4
+	.incbin "build/assets/087546B4.bin" @ battle_effects/effect_108_frame1
 .Lspan_08754A34:
-	.incbin "build/assets/08754A34.bin" @ rom_08750000/08754A34
+	.incbin "build/assets/08754A34.bin" @ battle_effects/effect_108_frame2
 .Lspan_08754DD0:
-	.incbin "build/assets/08754DD0.bin" @ rom_08750000/08754DD0
+	.incbin "build/assets/08754DD0.bin" @ battle_effects/effect_108_frame3
 .Lspan_08754EF0:
-	.incbin "build/assets/08754EF0.bin" @ rom_08750000/08754EF0
+	.incbin "build/assets/08754EF0.bin" @ battle_effects/effect_109_frame0
 .Lspan_08755240:
-	.incbin "build/assets/08755240.bin" @ rom_08750000/08755240
+	.incbin "build/assets/08755240.bin" @ battle_effects/effect_109_frame1
 .Lspan_087555D0:
-	.incbin "build/assets/087555D0.bin" @ rom_08750000/087555D0
+	.incbin "build/assets/087555D0.bin" @ battle_effects/effect_109_frame2
 .Lspan_087558B4:
-	.incbin "build/assets/087558B4.bin" @ rom_08750000/087558B4
+	.incbin "build/assets/087558B4.bin" @ battle_effects/effect_109_frame3
 .Lspan_08755BF4:
-	.incbin "build/assets/08755BF4.bin" @ rom_08750000/08755BF4
+	.incbin "build/assets/08755BF4.bin" @ battle_effects/effect_111_frame0
 .Lspan_08756134:
-	.incbin "build/assets/08756134.bin" @ rom_08750000/08756134
+	.incbin "build/assets/08756134.bin" @ battle_effects/effect_111_frame1
 .Lspan_087565C4:
-	.incbin "build/assets/087565C4.bin" @ rom_08750000/087565C4
+	.incbin "build/assets/087565C4.bin" @ battle_effects/effect_111_frame2
 .Lspan_08756BE4:
-	.incbin "build/assets/08756BE4.bin" @ rom_08750000/08756BE4
+	.incbin "build/assets/08756BE4.bin" @ battle_effects/effect_111_frame3
 .Lspan_08756F60:
-	.incbin "build/assets/08756F60.bin" @ rom_08750000/08756F60
+	.incbin "build/assets/08756F60.bin" @ battle_effects/effect_112_frame0
 .Lspan_0875727C:
-	.incbin "build/assets/0875727C.bin" @ rom_08750000/0875727C
+	.incbin "build/assets/0875727C.bin" @ battle_effects/effect_112_frame1
 .Lspan_087576C8:
-	.incbin "build/assets/087576C8.bin" @ rom_08750000/087576C8
+	.incbin "build/assets/087576C8.bin" @ battle_effects/effect_112_frame2
 .Lspan_08757A5C:
-	.incbin "build/assets/08757A5C.bin" @ rom_08750000/08757A5C
+	.incbin "build/assets/08757A5C.bin" @ battle_effects/effect_112_frame3
 .Lspan_08757D20:
-	.incbin "build/assets/08757D20.bin" @ rom_08750000/08757D20
+	.incbin "build/assets/08757D20.bin" @ battle_effects/effect_114_frame0
 .Lspan_08758278:
-	.incbin "build/assets/08758278.bin" @ rom_08750000/08758278
+	.incbin "build/assets/08758278.bin" @ battle_effects/effect_114_frame1
 .Lspan_08758740:
-	.incbin "build/assets/08758740.bin" @ rom_08750000/08758740
+	.incbin "build/assets/08758740.bin" @ battle_effects/effect_114_frame2
 .Lspan_08758C14:
-	.incbin "build/assets/08758C14.bin" @ rom_08750000/08758C14
+	.incbin "build/assets/08758C14.bin" @ battle_effects/effect_114_frame3
 .Lspan_087591C0:
-	.incbin "build/assets/087591C0.bin" @ rom_08750000/087591C0
+	.incbin "build/assets/087591C0.bin" @ battle_effects/effect_115_frame0
 .Lspan_0875964C:
-	.incbin "build/assets/0875964C.bin" @ rom_08750000/0875964C
+	.incbin "build/assets/0875964C.bin" @ battle_effects/effect_115_frame1
 .Lspan_08759A1C:
-	.incbin "build/assets/08759A1C.bin" @ rom_08750000/08759A1C
+	.incbin "build/assets/08759A1C.bin" @ battle_effects/effect_115_frame2
 .Lspan_08759BA4:
-	.incbin "build/assets/08759BA4.bin" @ rom_08750000/08759BA4
+	.incbin "build/assets/08759BA4.bin" @ battle_effects/effect_115_frame3
 .Lspan_08759C30:
-	.incbin "build/assets/08759C30.bin" @ rom_08750000/08759C30
+	.incbin "build/assets/08759C30.bin" @ battle_effects/effect_117_frame0
 .Lspan_0875A0AC:
-	.incbin "build/assets/0875A0AC.bin" @ rom_08750000/0875A0AC
+	.incbin "build/assets/0875A0AC.bin" @ battle_effects/effect_117_frame1
 .Lspan_0875A3D4:
-	.incbin "build/assets/0875A3D4.bin" @ rom_08750000/0875A3D4
+	.incbin "build/assets/0875A3D4.bin" @ battle_effects/effect_117_frame2
 .Lspan_0875A830:
-	.incbin "build/assets/0875A830.bin" @ rom_08750000/0875A830
+	.incbin "build/assets/0875A830.bin" @ battle_effects/effect_117_frame3
 .Lspan_0875ABF4:
-	.incbin "build/assets/0875ABF4.bin" @ rom_08750000/0875ABF4
+	.incbin "build/assets/0875ABF4.bin" @ battle_effects/effect_118_frame0
 .Lspan_0875AF04:
-	.incbin "build/assets/0875AF04.bin" @ rom_08750000/0875AF04
+	.incbin "build/assets/0875AF04.bin" @ battle_effects/effect_118_frame1
 .Lspan_0875B27C:
-	.incbin "build/assets/0875B27C.bin" @ rom_08750000/0875B27C
+	.incbin "build/assets/0875B27C.bin" @ battle_effects/effect_118_frame2
 .Lspan_0875B520:
-	.incbin "build/assets/0875B520.bin" @ rom_08750000/0875B520
+	.incbin "build/assets/0875B520.bin" @ battle_effects/effect_118_frame3
 .Lspan_0875B66C:
-	.incbin "build/assets/0875B66C.bin" @ rom_08750000/0875B66C
+	.incbin "build/assets/0875B66C.bin" @ battle_effects/effect_122_frame0
 .Lspan_0875BBA0:
-	.incbin "build/assets/0875BBA0.bin" @ rom_08750000/0875BBA0
+	.incbin "build/assets/0875BBA0.bin" @ battle_effects/effect_122_frame1
 .Lspan_0875C20C:
-	.incbin "build/assets/0875C20C.bin" @ rom_08750000/0875C20C
+	.incbin "build/assets/0875C20C.bin" @ battle_effects/effect_122_frame2
 .Lspan_0875C650:
-	.incbin "build/assets/0875C650.bin" @ rom_08750000/0875C650
+	.incbin "build/assets/0875C650.bin" @ battle_effects/effect_122_frame3
 .Lspan_0875CA88:
-	.incbin "build/assets/0875CA88.bin" @ rom_08750000/0875CA88
+	.incbin "build/assets/0875CA88.bin" @ battle_effects/effect_123_frame0
 .Lspan_0875CEE4:
-	.incbin "build/assets/0875CEE4.bin" @ rom_08750000/0875CEE4
+	.incbin "build/assets/0875CEE4.bin" @ battle_effects/effect_123_frame1
 .Lspan_0875D298:
-	.incbin "build/assets/0875D298.bin" @ rom_08750000/0875D298
+	.incbin "build/assets/0875D298.bin" @ battle_effects/effect_123_frame2
 .Lspan_0875D4EC:
-	.incbin "build/assets/0875D4EC.bin" @ rom_08750000/0875D4EC
+	.incbin "build/assets/0875D4EC.bin" @ battle_effects/effect_123_frame3
 .Lspan_0875D85C:
-	.incbin "build/assets/0875D85C.bin" @ rom_08750000/0875D85C
+	.incbin "build/assets/0875D85C.bin" @ battle_effects/effect_116_frame0
 .Lspan_0875DB20:
-	.incbin "build/assets/0875DB20.bin" @ rom_08750000/0875DB20
+	.incbin "build/assets/0875DB20.bin" @ battle_effects/effect_116_frame1
 .Lspan_0875DD84:
-	.incbin "build/assets/0875DD84.bin" @ rom_08750000/0875DD84
+	.incbin "build/assets/0875DD84.bin" @ battle_effects/effect_116_frame2
 .Lspan_0875DFAC:
-	.incbin "build/assets/0875DFAC.bin" @ rom_08750000/0875DFAC
+	.incbin "build/assets/0875DFAC.bin" @ battle_effects/effect_116_frame3
 .Lspan_0875E210:
-	.incbin "build/assets/0875E210.bin" @ rom_08750000/0875E210
+	.incbin "build/assets/0875E210.bin" @ battle_effects/effect_129_frame0
 .Lspan_0875E678:
-	.incbin "build/assets/0875E678.bin" @ rom_08750000/0875E678
+	.incbin "build/assets/0875E678.bin" @ battle_effects/effect_129_frame1
 .Lspan_0875EB74:
-	.incbin "build/assets/0875EB74.bin" @ rom_08750000/0875EB74
+	.incbin "build/assets/0875EB74.bin" @ battle_effects/effect_129_frame2
 .Lspan_0875EF3C:
-	.incbin "build/assets/0875EF3C.bin" @ rom_08750000/0875EF3C
+	.incbin "build/assets/0875EF3C.bin" @ battle_effects/effect_129_frame3
 .Lspan_0875F3DC:
-	.incbin "build/assets/0875F3DC.bin" @ rom_08750000/0875F3DC
+	.incbin "build/assets/0875F3DC.bin" @ battle_effects/effect_130_frame0
 .Lspan_0875F7B4:
-	.incbin "build/assets/0875F7B4.bin" @ rom_08750000/0875F7B4
+	.incbin "build/assets/0875F7B4.bin" @ battle_effects/effect_130_frame1
 .Lspan_0875FD34:
-	.incbin "build/assets/0875FD34.bin" @ rom_08750000/0875FD34
+	.incbin "build/assets/0875FD34.bin" @ battle_effects/effect_130_frame2
 .Lspan_087601F4:
-	.incbin "build/assets/087601F4.bin" @ rom_08760000/087601F4
+	.incbin "build/assets/087601F4.bin" @ battle_effects/effect_130_frame3
 .Lspan_087607D0:
-	.incbin "build/assets/087607D0.bin" @ rom_08760000/087607D0
+	.incbin "build/assets/087607D0.bin" @ battle_effects/effect_131_frame0
 .Lspan_08760B98:
-	.incbin "build/assets/08760B98.bin" @ rom_08760000/08760B98
+	.incbin "build/assets/08760B98.bin" @ battle_effects/effect_131_frame1
 .Lspan_087610AC:
-	.incbin "build/assets/087610AC.bin" @ rom_08760000/087610AC
+	.incbin "build/assets/087610AC.bin" @ battle_effects/effect_131_frame2
 .Lspan_0876153C:
-	.incbin "build/assets/0876153C.bin" @ rom_08760000/0876153C
+	.incbin "build/assets/0876153C.bin" @ battle_effects/effect_131_frame3
 .Lspan_087619FC:
-	.incbin "build/assets/087619FC.bin" @ rom_08760000/087619FC
+	.incbin "build/assets/087619FC.bin" @ battle_effects/effect_132_frame0
 .Lspan_08761D88:
-	.incbin "build/assets/08761D88.bin" @ rom_08760000/08761D88
+	.incbin "build/assets/08761D88.bin" @ battle_effects/effect_132_frame1
 .Lspan_087621C0:
-	.incbin "build/assets/087621C0.bin" @ rom_08760000/087621C0
+	.incbin "build/assets/087621C0.bin" @ battle_effects/effect_132_frame2
 .Lspan_087624EC:
-	.incbin "build/assets/087624EC.bin" @ rom_08760000/087624EC
+	.incbin "build/assets/087624EC.bin" @ battle_effects/effect_132_frame3
 .Lspan_08762778:
-	.incbin "build/assets/08762778.bin" @ rom_08760000/08762778
+	.incbin "build/assets/08762778.bin" @ battle_effects/effect_133_frame0
 .Lspan_08762AC4:
-	.incbin "build/assets/08762AC4.bin" @ rom_08760000/08762AC4
+	.incbin "build/assets/08762AC4.bin" @ battle_effects/effect_133_frame1
 .Lspan_08762EDC:
-	.incbin "build/assets/08762EDC.bin" @ rom_08760000/08762EDC
+	.incbin "build/assets/08762EDC.bin" @ battle_effects/effect_133_frame2
 .Lspan_087631EC:
-	.incbin "build/assets/087631EC.bin" @ rom_08760000/087631EC
+	.incbin "build/assets/087631EC.bin" @ battle_effects/effect_133_frame3
 .Lspan_087635DC:
-	.incbin "build/assets/087635DC.bin" @ rom_08760000/087635DC
+	.incbin "build/assets/087635DC.bin" @ battle_effects/effect_136_frame0
 .Lspan_0876388C:
-	.incbin "build/assets/0876388C.bin" @ rom_08760000/0876388C
+	.incbin "build/assets/0876388C.bin" @ battle_effects/effect_136_frame1
 .Lspan_08763BCC:
-	.incbin "build/assets/08763BCC.bin" @ rom_08760000/08763BCC
+	.incbin "build/assets/08763BCC.bin" @ battle_effects/effect_136_frame2
 .Lspan_08763C78:
-	.incbin "build/assets/08763C78.bin" @ rom_08760000/08763C78
+	.incbin "build/assets/08763C78.bin" @ battle_effects/effect_136_frame3
 .Lspan_08763D04:
-	.incbin "build/assets/08763D04.bin" @ rom_08760000/08763D04
+	.incbin "build/assets/08763D04.bin" @ battle_effects/effect_137_frame0
 .Lspan_08763E88:
-	.incbin "build/assets/08763E88.bin" @ rom_08760000/08763E88
+	.incbin "build/assets/08763E88.bin" @ battle_effects/effect_137_frame1
 .Lspan_08764074:
-	.incbin "build/assets/08764074.bin" @ rom_08760000/08764074
+	.incbin "build/assets/08764074.bin" @ battle_effects/effect_137_frame2
 .Lspan_08764308:
-	.incbin "build/assets/08764308.bin" @ rom_08760000/08764308
+	.incbin "build/assets/08764308.bin" @ battle_effects/effect_137_frame3
 .Lspan_0876439C:
-	.incbin "build/assets/0876439C.bin" @ rom_08760000/0876439C
+	.incbin "build/assets/0876439C.bin" @ battle_effects/effect_139_frame0
 .Lspan_08764698:
-	.incbin "build/assets/08764698.bin" @ rom_08760000/08764698
+	.incbin "build/assets/08764698.bin" @ battle_effects/effect_139_frame1
 .Lspan_0876497C:
-	.incbin "build/assets/0876497C.bin" @ rom_08760000/0876497C
+	.incbin "build/assets/0876497C.bin" @ battle_effects/effect_139_frame2
 .Lspan_08764B08:
-	.incbin "build/assets/08764B08.bin" @ rom_08760000/08764B08
+	.incbin "build/assets/08764B08.bin" @ battle_effects/effect_139_frame3
 .Lspan_08764B94:
-	.incbin "build/assets/08764B94.bin" @ rom_08760000/08764B94
+	.incbin "build/assets/08764B94.bin" @ battle_effects/effect_145_frame0
 .Lspan_087650E8:
-	.incbin "build/assets/087650E8.bin" @ rom_08760000/087650E8
+	.incbin "build/assets/087650E8.bin" @ battle_effects/effect_145_frame1
 .Lspan_08765674:
-	.incbin "build/assets/08765674.bin" @ rom_08760000/08765674
+	.incbin "build/assets/08765674.bin" @ battle_effects/effect_145_frame2
 .Lspan_08765BB8:
-	.incbin "build/assets/08765BB8.bin" @ rom_08760000/08765BB8
+	.incbin "build/assets/08765BB8.bin" @ battle_effects/effect_145_frame3
 .Lspan_08766160:
-	.incbin "build/assets/08766160.bin" @ rom_08760000/08766160
+	.incbin "build/assets/08766160.bin" @ battle_effects/effect_156_frame0
 .Lspan_08766454:
-	.incbin "build/assets/08766454.bin" @ rom_08760000/08766454
+	.incbin "build/assets/08766454.bin" @ battle_effects/effect_156_frame1
 .Lspan_08766778:
-	.incbin "build/assets/08766778.bin" @ rom_08760000/08766778
+	.incbin "build/assets/08766778.bin" @ battle_effects/effect_156_frame2
 .Lspan_08766B04:
-	.incbin "build/assets/08766B04.bin" @ rom_08760000/08766B04
+	.incbin "build/assets/08766B04.bin" @ battle_effects/effect_156_frame3
 .Lspan_08766D94:
-	.incbin "build/assets/08766D94.bin" @ rom_08760000/08766D94
+	.incbin "build/assets/08766D94.bin" @ battle_effects/effect_202_frame0
 .Lspan_08767204:
-	.incbin "build/assets/08767204.bin" @ rom_08760000/08767204
+	.incbin "build/assets/08767204.bin" @ battle_effects/effect_202_frame1
 .Lspan_087676D0:
-	.incbin "build/assets/087676D0.bin" @ rom_08760000/087676D0
+	.incbin "build/assets/087676D0.bin" @ battle_effects/effect_202_frame2
 .Lspan_08767A78:
-	.incbin "build/assets/08767A78.bin" @ rom_08760000/08767A78
+	.incbin "build/assets/08767A78.bin" @ battle_effects/effect_202_frame3
 .Lspan_08767F38:
-	.incbin "build/assets/08767F38.bin" @ rom_08760000/08767F38
+	.incbin "build/assets/08767F38.bin" @ battle_effects/effect_204_frame0
 .Lspan_08768418:
-	.incbin "build/assets/08768418.bin" @ rom_08760000/08768418
+	.incbin "build/assets/08768418.bin" @ battle_effects/effect_204_frame1
 .Lspan_08768848:
-	.incbin "build/assets/08768848.bin" @ rom_08760000/08768848
+	.incbin "build/assets/08768848.bin" @ battle_effects/effect_204_frame2
 .Lspan_08768D70:
-	.incbin "build/assets/08768D70.bin" @ rom_08760000/08768D70
+	.incbin "build/assets/08768D70.bin" @ battle_effects/effect_204_frame3
 .Lspan_08768FE8:
-	.incbin "build/assets/08768FE8.bin" @ rom_08760000/08768FE8
+	.incbin "build/assets/08768FE8.bin" @ battle_effects/effect_207_frame0
 .Lspan_08769184:
-	.incbin "build/assets/08769184.bin" @ rom_08760000/08769184
+	.incbin "build/assets/08769184.bin" @ battle_effects/effect_207_frame1
 .Lspan_08769344:
-	.incbin "build/assets/08769344.bin" @ rom_08760000/08769344
+	.incbin "build/assets/08769344.bin" @ battle_effects/effect_207_frame2
 .Lspan_08769514:
-	.incbin "build/assets/08769514.bin" @ rom_08760000/08769514
+	.incbin "build/assets/08769514.bin" @ battle_effects/effect_207_frame3
 .Lspan_087696D4:
-	.incbin "build/assets/087696D4.bin" @ rom_08760000/087696D4
+	.incbin "build/assets/087696D4.bin" @ battle_effects/effect_200_frame0
 .Lspan_087699B8:
-	.incbin "build/assets/087699B8.bin" @ rom_08760000/087699B8
+	.incbin "build/assets/087699B8.bin" @ battle_effects/effect_200_frame1
 .Lspan_08769CEC:
-	.incbin "build/assets/08769CEC.bin" @ rom_08760000/08769CEC
+	.incbin "build/assets/08769CEC.bin" @ battle_effects/effect_200_frame2
 .Lspan_08769F6C:
-	.incbin "build/assets/08769F6C.bin" @ rom_08760000/08769F6C
+	.incbin "build/assets/08769F6C.bin" @ battle_effects/effect_200_frame3
 .Lspan_0876A0D0:
-	.incbin "build/assets/0876A0D0.bin" @ rom_08760000/0876A0D0
+	.incbin "build/assets/0876A0D0.bin" @ battle_effects/effect_209_frame0
 .Lspan_0876A7B0:
-	.incbin "build/assets/0876A7B0.bin" @ rom_08760000/0876A7B0
+	.incbin "build/assets/0876A7B0.bin" @ battle_effects/effect_209_frame1
 .Lspan_0876AEB4:
-	.incbin "build/assets/0876AEB4.bin" @ rom_08760000/0876AEB4
+	.incbin "build/assets/0876AEB4.bin" @ battle_effects/effect_209_frame2
 .Lspan_0876B2F0:
-	.incbin "build/assets/0876B2F0.bin" @ rom_08760000/0876B2F0
+	.incbin "build/assets/0876B2F0.bin" @ battle_effects/effect_209_frame3
 	.incbin "baserom.gba", 0x76B6D0, 0x1740
 	.global gUnknown_0876CE10
 gUnknown_0876CE10: @ 0x0876CE10
@@ -1916,758 +1916,758 @@ gUnknown_087A075A: @ 0x087A075A
 gUnknown_087A0772: @ 0x087A0772
 	.incbin "baserom.gba", 0x7A0772, 0x6A
 .Lspan_087A07DC:
-	.incbin "build/assets/087A07DC.bin" @ rom_087A0000/087A07DC
+	.incbin "build/assets/087A07DC.bin" @ casino/super27_bg_tiles0
 .Lspan_087A0D04:
-	.incbin "build/assets/087A0D04.bin" @ rom_087A0000/087A0D04
+	.incbin "build/assets/087A0D04.bin" @ casino/super27_bg_tiles1
 .Lspan_087A1168:
-	.incbin "build/assets/087A1168.bin" @ rom_087A0000/087A1168
+	.incbin "build/assets/087A1168.bin" @ casino/super27_bg_tiles2
 .Lspan_087A15E4:
-	.incbin "build/assets/087A15E4.bin" @ rom_087A0000/087A15E4
+	.incbin "build/assets/087A15E4.bin" @ casino/super27_bg_tiles3
 .Lspan_087A1A88:
-	.incbin "build/assets/087A1A88.bin" @ rom_087A0000/087A1A88
+	.incbin "build/assets/087A1A88.bin" @ casino/super27_bg_tiles4
 .Lspan_087A2004:
-	.incbin "build/assets/087A2004.bin" @ rom_087A0000/087A2004
+	.incbin "build/assets/087A2004.bin" @ casino/super27_bg_tiles5
 .Lspan_087A24BC:
-	.incbin "build/assets/087A24BC.bin" @ rom_087A0000/087A24BC
+	.incbin "build/assets/087A24BC.bin" @ casino/super27_bg_tiles6
 .Lspan_087A294C:
-	.incbin "build/assets/087A294C.bin" @ rom_087A0000/087A294C
+	.incbin "build/assets/087A294C.bin" @ casino/super27_bg_tiles7
 .Lspan_087A2CD8:
-	.incbin "build/assets/087A2CD8.bin" @ rom_087A0000/087A2CD8
+	.incbin "build/assets/087A2CD8.bin" @ casino/super27_obj_tiles0
 .Lspan_087A31BC:
-	.incbin "build/assets/087A31BC.bin" @ rom_087A0000/087A31BC
+	.incbin "build/assets/087A31BC.bin" @ casino/super27_obj_tiles1
 .Lspan_087A3750:
-	.incbin "build/assets/087A3750.bin" @ rom_087A0000/087A3750
+	.incbin "build/assets/087A3750.bin" @ casino/super27_obj_tiles2
 .Lspan_087A3D2C:
-	.incbin "build/assets/087A3D2C.bin" @ rom_087A0000/087A3D2C
+	.incbin "build/assets/087A3D2C.bin" @ casino/super27_obj_tiles3
 .Lspan_087A424C:
-	.incbin "build/assets/087A424C.bin" @ rom_087A0000/087A424C
+	.incbin "build/assets/087A424C.bin" @ casino/super27_obj_tiles4
 .Lspan_087A474C:
-	.incbin "build/assets/087A474C.bin" @ rom_087A0000/087A474C
+	.incbin "build/assets/087A474C.bin" @ casino/super27_obj_tiles5
 .Lspan_087A48E4:
-	.incbin "build/assets/087A48E4.bin" @ rom_087A0000/087A48E4
+	.incbin "build/assets/087A48E4.bin" @ casino/super27_obj_tiles6
 .Lspan_087A49D8:
-	.incbin "build/assets/087A49D8.bin" @ rom_087A0000/087A49D8
+	.incbin "build/assets/087A49D8.bin" @ casino/super27_obj_tiles7
 	.incbin "baserom.gba", 0x7A4ACC, 0xA8
 .Lspan_087A4B74:
-	.incbin "build/assets/087A4B74.bin" @ rom_087A0000/087A4B74
+	.incbin "build/assets/087A4B74.bin" @ casino/super27_obj_palette
 .Lspan_087A4C3C:
-	.incbin "build/assets/087A4C3C.bin" @ rom_087A0000/087A4C3C
+	.incbin "build/assets/087A4C3C.bin" @ casino/super27_bg_palette
 .Lspan_087A4CE0:
-	.incbin "build/assets/087A4CE0.bin" @ rom_087A0000/087A4CE0
+	.incbin "build/assets/087A4CE0.bin" @ casino/super27_bg2_map
 	.global gUnknown_087A4FA8
 gUnknown_087A4FA8: @ 0x087A4FA8
 .Lspan_087A4FA8:
-	.incbin "build/assets/087A4FA8.bin" @ rom_087A0000/087A4FA8
+	.incbin "build/assets/087A4FA8.bin" @ casino/super27_bg0_map_alt
 	.global gUnknown_087A51AC
 gUnknown_087A51AC: @ 0x087A51AC
 .Lspan_087A51AC:
-	.incbin "build/assets/087A51AC.bin" @ rom_087A0000/087A51AC
+	.incbin "build/assets/087A51AC.bin" @ casino/super27_bg0_map
 .Lspan_087A53A0:
-	.incbin "build/assets/087A53A0.bin" @ rom_087A0000/087A53A0
+	.incbin "build/assets/087A53A0.bin" @ casino/super27_bg1_map
 .Lspan_087A562C:
-	.incbin "build/assets/087A562C.bin" @ rom_087A0000/087A562C
+	.incbin "build/assets/087A562C.bin" @ casino/lucky_symbol_bg_tiles0
 .Lspan_087A5A9C:
-	.incbin "build/assets/087A5A9C.bin" @ rom_087A0000/087A5A9C
+	.incbin "build/assets/087A5A9C.bin" @ casino/lucky_symbol_bg_tiles1
 .Lspan_087A5E6C:
-	.incbin "build/assets/087A5E6C.bin" @ rom_087A0000/087A5E6C
+	.incbin "build/assets/087A5E6C.bin" @ casino/lucky_symbol_bg_tiles2
 .Lspan_087A6280:
-	.incbin "build/assets/087A6280.bin" @ rom_087A0000/087A6280
+	.incbin "build/assets/087A6280.bin" @ casino/lucky_symbol_bg_tiles3
 .Lspan_087A6688:
-	.incbin "build/assets/087A6688.bin" @ rom_087A0000/087A6688
+	.incbin "build/assets/087A6688.bin" @ casino/lucky_symbol_bg_tiles4
 .Lspan_087A69C0:
-	.incbin "build/assets/087A69C0.bin" @ rom_087A0000/087A69C0
+	.incbin "build/assets/087A69C0.bin" @ casino/lucky_symbol_bg_tiles5
 .Lspan_087A6CCC:
-	.incbin "build/assets/087A6CCC.bin" @ rom_087A0000/087A6CCC
+	.incbin "build/assets/087A6CCC.bin" @ casino/lucky_symbol_bg_tiles6
 .Lspan_087A704C:
-	.incbin "build/assets/087A704C.bin" @ rom_087A0000/087A704C
+	.incbin "build/assets/087A704C.bin" @ casino/lucky_symbol_bg_tiles7
 .Lspan_087A73AC:
-	.incbin "build/assets/087A73AC.bin" @ rom_087A0000/087A73AC
+	.incbin "build/assets/087A73AC.bin" @ casino/lucky_symbol_obj_tiles0
 .Lspan_087A76BC:
-	.incbin "build/assets/087A76BC.bin" @ rom_087A0000/087A76BC
+	.incbin "build/assets/087A76BC.bin" @ casino/lucky_symbol_obj_tiles1
 .Lspan_087A7A74:
-	.incbin "build/assets/087A7A74.bin" @ rom_087A0000/087A7A74
+	.incbin "build/assets/087A7A74.bin" @ casino/lucky_symbol_obj_tiles2
 .Lspan_087A7E48:
-	.incbin "build/assets/087A7E48.bin" @ rom_087A0000/087A7E48
+	.incbin "build/assets/087A7E48.bin" @ casino/lucky_symbol_obj_tiles3
 .Lspan_087A81E4:
-	.incbin "build/assets/087A81E4.bin" @ rom_087A0000/087A81E4
+	.incbin "build/assets/087A81E4.bin" @ casino/lucky_symbol_obj_tiles4
 .Lspan_087A8578:
-	.incbin "build/assets/087A8578.bin" @ rom_087A0000/087A8578
+	.incbin "build/assets/087A8578.bin" @ casino/lucky_symbol_obj_tiles5
 .Lspan_087A87F8:
-	.incbin "build/assets/087A87F8.bin" @ rom_087A0000/087A87F8
+	.incbin "build/assets/087A87F8.bin" @ casino/lucky_symbol_obj_tiles6
 .Lspan_087A8A8C:
-	.incbin "build/assets/087A8A8C.bin" @ rom_087A0000/087A8A8C
+	.incbin "build/assets/087A8A8C.bin" @ casino/lucky_symbol_obj_tiles7
 .Lspan_087A8C90:
-	.incbin "build/assets/087A8C90.bin" @ rom_087A0000/087A8C90
+	.incbin "build/assets/087A8C90.bin" @ casino/lucky_symbol_bg_palette
 .Lspan_087A8D38:
-	.incbin "build/assets/087A8D38.bin" @ rom_087A0000/087A8D38
+	.incbin "build/assets/087A8D38.bin" @ casino/lucky_symbol_obj_palette
 .Lspan_087A8DFC:
-	.incbin "build/assets/087A8DFC.bin" @ rom_087A0000/087A8DFC
+	.incbin "build/assets/087A8DFC.bin" @ casino/lucky_symbol_bg1_map
 .Lspan_087A9064:
-	.incbin "build/assets/087A9064.bin" @ rom_087A0000/087A9064
+	.incbin "build/assets/087A9064.bin" @ casino/lucky_symbol_bg0_map
 .Lspan_087A93F0:
-	.incbin "build/assets/087A93F0.bin" @ rom_087A0000/087A93F0
+	.incbin "build/assets/087A93F0.bin" @ casino/joker_and_stars_bg_tiles0
 .Lspan_087A9894:
-	.incbin "build/assets/087A9894.bin" @ rom_087A0000/087A9894
+	.incbin "build/assets/087A9894.bin" @ casino/joker_and_stars_bg_tiles1
 .Lspan_087A9C18:
-	.incbin "build/assets/087A9C18.bin" @ rom_087A0000/087A9C18
+	.incbin "build/assets/087A9C18.bin" @ casino/joker_and_stars_bg_tiles2
 .Lspan_087A9F6C:
-	.incbin "build/assets/087A9F6C.bin" @ rom_087A0000/087A9F6C
+	.incbin "build/assets/087A9F6C.bin" @ casino/joker_and_stars_bg_tiles3
 .Lspan_087AA2A4:
-	.incbin "build/assets/087AA2A4.bin" @ rom_087A0000/087AA2A4
+	.incbin "build/assets/087AA2A4.bin" @ casino/joker_and_stars_bg_tiles4
 .Lspan_087AA614:
-	.incbin "build/assets/087AA614.bin" @ rom_087A0000/087AA614
+	.incbin "build/assets/087AA614.bin" @ casino/joker_and_stars_bg_tiles5
 .Lspan_087AAA18:
-	.incbin "build/assets/087AAA18.bin" @ rom_087A0000/087AAA18
+	.incbin "build/assets/087AAA18.bin" @ casino/joker_and_stars_bg_tiles6
 .Lspan_087AADA8:
-	.incbin "build/assets/087AADA8.bin" @ rom_087A0000/087AADA8
+	.incbin "build/assets/087AADA8.bin" @ casino/joker_and_stars_bg_tiles7
 .Lspan_087AAEC8:
-	.incbin "build/assets/087AAEC8.bin" @ rom_087A0000/087AAEC8
+	.incbin "build/assets/087AAEC8.bin" @ casino/joker_and_stars_obj_tiles0
 .Lspan_087AB378:
-	.incbin "build/assets/087AB378.bin" @ rom_087A0000/087AB378
+	.incbin "build/assets/087AB378.bin" @ casino/joker_and_stars_obj_tiles1
 .Lspan_087AB89C:
-	.incbin "build/assets/087AB89C.bin" @ rom_087A0000/087AB89C
+	.incbin "build/assets/087AB89C.bin" @ casino/joker_and_stars_obj_tiles2
 .Lspan_087ABCC0:
-	.incbin "build/assets/087ABCC0.bin" @ rom_087A0000/087ABCC0
+	.incbin "build/assets/087ABCC0.bin" @ casino/joker_and_stars_obj_tiles3
 .Lspan_087AC100:
-	.incbin "build/assets/087AC100.bin" @ rom_087A0000/087AC100
+	.incbin "build/assets/087AC100.bin" @ casino/joker_and_stars_obj_tiles4
 .Lspan_087AC5BC:
-	.incbin "build/assets/087AC5BC.bin" @ rom_087A0000/087AC5BC
+	.incbin "build/assets/087AC5BC.bin" @ casino/joker_and_stars_obj_tiles5
 .Lspan_087AC8A0:
-	.incbin "build/assets/087AC8A0.bin" @ rom_087A0000/087AC8A0
+	.incbin "build/assets/087AC8A0.bin" @ casino/joker_and_stars_obj_tiles6
 .Lspan_087ACA78:
-	.incbin "build/assets/087ACA78.bin" @ rom_087A0000/087ACA78
+	.incbin "build/assets/087ACA78.bin" @ casino/joker_and_stars_obj_tiles7
 .Lspan_087ACBB0:
-	.incbin "build/assets/087ACBB0.bin" @ rom_087A0000/087ACBB0
+	.incbin "build/assets/087ACBB0.bin" @ casino/joker_and_stars_bg_palette
 .Lspan_087ACC34:
-	.incbin "build/assets/087ACC34.bin" @ rom_087A0000/087ACC34
+	.incbin "build/assets/087ACC34.bin" @ casino/joker_and_stars_obj_palette
 .Lspan_087ACCDC:
-	.incbin "build/assets/087ACCDC.bin" @ rom_087A0000/087ACCDC
+	.incbin "build/assets/087ACCDC.bin" @ casino/joker_and_stars_bg1_map
 .Lspan_087ACFD4:
-	.incbin "build/assets/087ACFD4.bin" @ rom_087A0000/087ACFD4
+	.incbin "build/assets/087ACFD4.bin" @ casino/joker_and_stars_bg0_map
 .Lspan_087AD2CC:
-	.incbin "build/assets/087AD2CC.bin" @ rom_087A0000/087AD2CC
+	.incbin "build/assets/087AD2CC.bin" @ casino/baccarat_bg_tiles0
 .Lspan_087AD698:
-	.incbin "build/assets/087AD698.bin" @ rom_087A0000/087AD698
+	.incbin "build/assets/087AD698.bin" @ casino/baccarat_bg_tiles1
 .Lspan_087AD9EC:
-	.incbin "build/assets/087AD9EC.bin" @ rom_087A0000/087AD9EC
+	.incbin "build/assets/087AD9EC.bin" @ casino/baccarat_bg_tiles2
 .Lspan_087ADD84:
-	.incbin "build/assets/087ADD84.bin" @ rom_087A0000/087ADD84
+	.incbin "build/assets/087ADD84.bin" @ casino/baccarat_bg_tiles3
 .Lspan_087AE028:
-	.incbin "build/assets/087AE028.bin" @ rom_087A0000/087AE028
+	.incbin "build/assets/087AE028.bin" @ casino/baccarat_bg_tiles4
 .Lspan_087AE318:
-	.incbin "build/assets/087AE318.bin" @ rom_087A0000/087AE318
+	.incbin "build/assets/087AE318.bin" @ casino/baccarat_bg_tiles5
 .Lspan_087AE550:
-	.incbin "build/assets/087AE550.bin" @ rom_087A0000/087AE550
+	.incbin "build/assets/087AE550.bin" @ casino/baccarat_bg_tiles6
 .Lspan_087AE754:
-	.incbin "build/assets/087AE754.bin" @ rom_087A0000/087AE754
+	.incbin "build/assets/087AE754.bin" @ casino/baccarat_bg_tiles7
 .Lspan_087AE90C:
-	.incbin "build/assets/087AE90C.bin" @ rom_087A0000/087AE90C
+	.incbin "build/assets/087AE90C.bin" @ casino/baccarat_obj_tiles0
 .Lspan_087AEE0C:
-	.incbin "build/assets/087AEE0C.bin" @ rom_087A0000/087AEE0C
+	.incbin "build/assets/087AEE0C.bin" @ casino/baccarat_obj_tiles1
 .Lspan_087AF328:
-	.incbin "build/assets/087AF328.bin" @ rom_087A0000/087AF328
+	.incbin "build/assets/087AF328.bin" @ casino/baccarat_obj_tiles2
 .Lspan_087AF7CC:
-	.incbin "build/assets/087AF7CC.bin" @ rom_087A0000/087AF7CC
+	.incbin "build/assets/087AF7CC.bin" @ casino/baccarat_obj_tiles3
 .Lspan_087AFB24:
-	.incbin "build/assets/087AFB24.bin" @ rom_087A0000/087AFB24
+	.incbin "build/assets/087AFB24.bin" @ casino/baccarat_obj_tiles4
 .Lspan_087AFDD0:
-	.incbin "build/assets/087AFDD0.bin" @ rom_087A0000/087AFDD0
+	.incbin "build/assets/087AFDD0.bin" @ casino/baccarat_obj_tiles5
 .Lspan_087AFFC8:
-	.incbin "build/assets/087AFFC8.bin" @ rom_087A0000/087AFFC8
+	.incbin "build/assets/087AFFC8.bin" @ casino/baccarat_obj_tiles6
 .Lspan_087B01B0:
-	.incbin "build/assets/087B01B0.bin" @ rom_087B0000/087B01B0
+	.incbin "build/assets/087B01B0.bin" @ casino/baccarat_obj_tiles7
 .Lspan_087B02A4:
-	.incbin "build/assets/087B02A4.bin" @ rom_087B0000/087B02A4
+	.incbin "build/assets/087B02A4.bin" @ casino/baccarat_cards4
 .Lspan_087B0588:
-	.incbin "build/assets/087B0588.bin" @ rom_087B0000/087B0588
+	.incbin "build/assets/087B0588.bin" @ casino/baccarat_cards5
 .Lspan_087B0A00:
-	.incbin "build/assets/087B0A00.bin" @ rom_087B0000/087B0A00
+	.incbin "build/assets/087B0A00.bin" @ casino/baccarat_cards6
 .Lspan_087B0CE4:
-	.incbin "build/assets/087B0CE4.bin" @ rom_087B0000/087B0CE4
+	.incbin "build/assets/087B0CE4.bin" @ casino/baccarat_cards7
 .Lspan_087B113C:
-	.incbin "build/assets/087B113C.bin" @ rom_087B0000/087B113C
+	.incbin "build/assets/087B113C.bin" @ casino/baccarat_cards2
 .Lspan_087B140C:
-	.incbin "build/assets/087B140C.bin" @ rom_087B0000/087B140C
+	.incbin "build/assets/087B140C.bin" @ casino/baccarat_cards3
 .Lspan_087B185C:
-	.incbin "build/assets/087B185C.bin" @ rom_087B0000/087B185C
+	.incbin "build/assets/087B185C.bin" @ casino/baccarat_cards0
 .Lspan_087B1B38:
-	.incbin "build/assets/087B1B38.bin" @ rom_087B0000/087B1B38
+	.incbin "build/assets/087B1B38.bin" @ casino/baccarat_cards1
 .Lspan_087B1F9C:
-	.incbin "build/assets/087B1F9C.bin" @ rom_087B0000/087B1F9C
+	.incbin "build/assets/087B1F9C.bin" @ casino/baccarat_bg_palette
 .Lspan_087B2004:
-	.incbin "build/assets/087B2004.bin" @ rom_087B0000/087B2004
+	.incbin "build/assets/087B2004.bin" @ casino/baccarat_obj_palette
 .Lspan_087B20D4:
-	.incbin "build/assets/087B20D4.bin" @ rom_087B0000/087B20D4
+	.incbin "build/assets/087B20D4.bin" @ casino/baccarat_bg1_map
 .Lspan_087B22A8:
-	.incbin "build/assets/087B22A8.bin" @ rom_087B0000/087B22A8
+	.incbin "build/assets/087B22A8.bin" @ casino/baccarat_bg0_map
 .Lspan_087B24D8:
-	.incbin "build/assets/087B24D8.bin" @ rom_087B0000/087B24D8
+	.incbin "build/assets/087B24D8.bin" @ casino/baccarat_bg2_map
 .Lspan_087B2734:
-	.incbin "build/assets/087B2734.bin" @ rom_087B0000/087B2734
+	.incbin "build/assets/087B2734.bin" @ casino/keno_bg_tiles0
 .Lspan_087B2BC4:
-	.incbin "build/assets/087B2BC4.bin" @ rom_087B0000/087B2BC4
+	.incbin "build/assets/087B2BC4.bin" @ casino/keno_bg_tiles1
 .Lspan_087B2FFC:
-	.incbin "build/assets/087B2FFC.bin" @ rom_087B0000/087B2FFC
+	.incbin "build/assets/087B2FFC.bin" @ casino/keno_bg_tiles2
 .Lspan_087B33F4:
-	.incbin "build/assets/087B33F4.bin" @ rom_087B0000/087B33F4
+	.incbin "build/assets/087B33F4.bin" @ casino/keno_bg_tiles3
 .Lspan_087B3840:
-	.incbin "build/assets/087B3840.bin" @ rom_087B0000/087B3840
+	.incbin "build/assets/087B3840.bin" @ casino/keno_bg_tiles4
 .Lspan_087B3B20:
-	.incbin "build/assets/087B3B20.bin" @ rom_087B0000/087B3B20
+	.incbin "build/assets/087B3B20.bin" @ casino/keno_bg_tiles5
 .Lspan_087B3EE0:
-	.incbin "build/assets/087B3EE0.bin" @ rom_087B0000/087B3EE0
+	.incbin "build/assets/087B3EE0.bin" @ casino/keno_bg_tiles6
 .Lspan_087B414C:
-	.incbin "build/assets/087B414C.bin" @ rom_087B0000/087B414C
+	.incbin "build/assets/087B414C.bin" @ casino/keno_bg_tiles7
 .Lspan_087B42B4:
-	.incbin "build/assets/087B42B4.bin" @ rom_087B0000/087B42B4
+	.incbin "build/assets/087B42B4.bin" @ casino/keno_obj_tiles0
 .Lspan_087B4490:
-	.incbin "build/assets/087B4490.bin" @ rom_087B0000/087B4490
+	.incbin "build/assets/087B4490.bin" @ casino/keno_obj_tiles1
 .Lspan_087B4660:
-	.incbin "build/assets/087B4660.bin" @ rom_087B0000/087B4660
+	.incbin "build/assets/087B4660.bin" @ casino/keno_obj_tiles2
 .Lspan_087B494C:
-	.incbin "build/assets/087B494C.bin" @ rom_087B0000/087B494C
+	.incbin "build/assets/087B494C.bin" @ casino/keno_obj_tiles3
 .Lspan_087B4C98:
-	.incbin "build/assets/087B4C98.bin" @ rom_087B0000/087B4C98
+	.incbin "build/assets/087B4C98.bin" @ casino/keno_obj_tiles4
 .Lspan_087B4FB8:
-	.incbin "build/assets/087B4FB8.bin" @ rom_087B0000/087B4FB8
+	.incbin "build/assets/087B4FB8.bin" @ casino/keno_obj_tiles5
 .Lspan_087B53F8:
-	.incbin "build/assets/087B53F8.bin" @ rom_087B0000/087B53F8
+	.incbin "build/assets/087B53F8.bin" @ casino/keno_obj_tiles6
 .Lspan_087B5708:
-	.incbin "build/assets/087B5708.bin" @ rom_087B0000/087B5708
+	.incbin "build/assets/087B5708.bin" @ casino/keno_obj_tiles7
 .Lspan_087B5934:
-	.incbin "build/assets/087B5934.bin" @ rom_087B0000/087B5934
+	.incbin "build/assets/087B5934.bin" @ casino/keno_bg_palette
 	.global gUnknown_087B59DC
 gUnknown_087B59DC: @ 0x087B59DC
 .Lspan_087B59DC:
-	.incbin "build/assets/087B59DC.bin" @ rom_087B0000/087B59DC
+	.incbin "build/assets/087B59DC.bin" @ casino/keno_obj_palette
 .Lspan_087B5AD8:
-	.incbin "build/assets/087B5AD8.bin" @ rom_087B0000/087B5AD8
+	.incbin "build/assets/087B5AD8.bin" @ casino/keno_bg2_map
 .Lspan_087B5C88:
-	.incbin "build/assets/087B5C88.bin" @ rom_087B0000/087B5C88
+	.incbin "build/assets/087B5C88.bin" @ casino/keno_bg1_map
 .Lspan_087B5FB8:
-	.incbin "build/assets/087B5FB8.bin" @ rom_087B0000/087B5FB8
+	.incbin "build/assets/087B5FB8.bin" @ casino/keno_bg0_map
 .Lspan_087B613C:
-	.incbin "build/assets/087B613C.bin" @ rom_087B0000/087B613C
+	.incbin "build/assets/087B613C.bin" @ casino/big_and_small_bg_tiles0
 .Lspan_087B6628:
-	.incbin "build/assets/087B6628.bin" @ rom_087B0000/087B6628
+	.incbin "build/assets/087B6628.bin" @ casino/big_and_small_bg_tiles1
 .Lspan_087B68DC:
-	.incbin "build/assets/087B68DC.bin" @ rom_087B0000/087B68DC
+	.incbin "build/assets/087B68DC.bin" @ casino/big_and_small_bg_tiles2
 .Lspan_087B6CC4:
-	.incbin "build/assets/087B6CC4.bin" @ rom_087B0000/087B6CC4
+	.incbin "build/assets/087B6CC4.bin" @ casino/big_and_small_bg_tiles3
 .Lspan_087B6FA4:
-	.incbin "build/assets/087B6FA4.bin" @ rom_087B0000/087B6FA4
+	.incbin "build/assets/087B6FA4.bin" @ casino/big_and_small_bg_tiles4
 .Lspan_087B7208:
-	.incbin "build/assets/087B7208.bin" @ rom_087B0000/087B7208
+	.incbin "build/assets/087B7208.bin" @ casino/big_and_small_bg_tiles5
 .Lspan_087B74F4:
-	.incbin "build/assets/087B74F4.bin" @ rom_087B0000/087B74F4
+	.incbin "build/assets/087B74F4.bin" @ casino/big_and_small_bg_tiles6
 .Lspan_087B76DC:
-	.incbin "build/assets/087B76DC.bin" @ rom_087B0000/087B76DC
+	.incbin "build/assets/087B76DC.bin" @ casino/big_and_small_bg_tiles7
 .Lspan_087B77D0:
-	.incbin "build/assets/087B77D0.bin" @ rom_087B0000/087B77D0
+	.incbin "build/assets/087B77D0.bin" @ casino/big_and_small_obj_tiles0
 .Lspan_087B7AAC:
-	.incbin "build/assets/087B7AAC.bin" @ rom_087B0000/087B7AAC
+	.incbin "build/assets/087B7AAC.bin" @ casino/big_and_small_obj_tiles1
 .Lspan_087B7CC0:
-	.incbin "build/assets/087B7CC0.bin" @ rom_087B0000/087B7CC0
+	.incbin "build/assets/087B7CC0.bin" @ casino/big_and_small_obj_tiles2
 .Lspan_087B7ED0:
-	.incbin "build/assets/087B7ED0.bin" @ rom_087B0000/087B7ED0
+	.incbin "build/assets/087B7ED0.bin" @ casino/big_and_small_obj_tiles3
 .Lspan_087B830C:
-	.incbin "build/assets/087B830C.bin" @ rom_087B0000/087B830C
+	.incbin "build/assets/087B830C.bin" @ casino/big_and_small_obj_tiles4
 .Lspan_087B8690:
-	.incbin "build/assets/087B8690.bin" @ rom_087B0000/087B8690
+	.incbin "build/assets/087B8690.bin" @ casino/big_and_small_obj_tiles5
 .Lspan_087B8AB8:
-	.incbin "build/assets/087B8AB8.bin" @ rom_087B0000/087B8AB8
+	.incbin "build/assets/087B8AB8.bin" @ casino/big_and_small_obj_tiles6
 .Lspan_087B8E64:
-	.incbin "build/assets/087B8E64.bin" @ rom_087B0000/087B8E64
+	.incbin "build/assets/087B8E64.bin" @ casino/big_and_small_obj_tiles7
 .Lspan_087B8F9C:
-	.incbin "build/assets/087B8F9C.bin" @ rom_087B0000/087B8F9C
+	.incbin "build/assets/087B8F9C.bin" @ casino/big_and_small_bg_palette
 .Lspan_087B9004:
-	.incbin "build/assets/087B9004.bin" @ rom_087B0000/087B9004
+	.incbin "build/assets/087B9004.bin" @ casino/big_and_small_obj_palette
 .Lspan_087B90A8:
-	.incbin "build/assets/087B90A8.bin" @ rom_087B0000/087B90A8
+	.incbin "build/assets/087B90A8.bin" @ casino/big_and_small_bg1_map
 .Lspan_087B92F8:
-	.incbin "build/assets/087B92F8.bin" @ rom_087B0000/087B92F8
+	.incbin "build/assets/087B92F8.bin" @ casino/big_and_small_bg0_map
 .Lspan_087B9500:
-	.incbin "build/assets/087B9500.bin" @ rom_087B0000/087B9500
+	.incbin "build/assets/087B9500.bin" @ casino/big_and_small_bg2_map
 .Lspan_087B9634:
-	.incbin "build/assets/087B9634.bin" @ rom_087B0000/087B9634
+	.incbin "build/assets/087B9634.bin" @ casino/code_breaker_bg_tiles0
 .Lspan_087B9B58:
-	.incbin "build/assets/087B9B58.bin" @ rom_087B0000/087B9B58
+	.incbin "build/assets/087B9B58.bin" @ casino/code_breaker_bg_tiles1
 .Lspan_087B9F90:
-	.incbin "build/assets/087B9F90.bin" @ rom_087B0000/087B9F90
+	.incbin "build/assets/087B9F90.bin" @ casino/code_breaker_bg_tiles2
 .Lspan_087BA40C:
-	.incbin "build/assets/087BA40C.bin" @ rom_087B0000/087BA40C
+	.incbin "build/assets/087BA40C.bin" @ casino/code_breaker_bg_tiles3
 .Lspan_087BA7B8:
-	.incbin "build/assets/087BA7B8.bin" @ rom_087B0000/087BA7B8
+	.incbin "build/assets/087BA7B8.bin" @ casino/code_breaker_bg_tiles4
 .Lspan_087BABCC:
-	.incbin "build/assets/087BABCC.bin" @ rom_087B0000/087BABCC
+	.incbin "build/assets/087BABCC.bin" @ casino/code_breaker_bg_tiles5
 .Lspan_087BAF94:
-	.incbin "build/assets/087BAF94.bin" @ rom_087B0000/087BAF94
+	.incbin "build/assets/087BAF94.bin" @ casino/code_breaker_bg_tiles6
 .Lspan_087BB2F4:
-	.incbin "build/assets/087BB2F4.bin" @ rom_087B0000/087BB2F4
+	.incbin "build/assets/087BB2F4.bin" @ casino/code_breaker_bg_tiles7
 .Lspan_087BB5E4:
-	.incbin "build/assets/087BB5E4.bin" @ rom_087B0000/087BB5E4
+	.incbin "build/assets/087BB5E4.bin" @ casino/code_breaker_obj_tiles0
 .Lspan_087BBA9C:
-	.incbin "build/assets/087BBA9C.bin" @ rom_087B0000/087BBA9C
+	.incbin "build/assets/087BBA9C.bin" @ casino/code_breaker_obj_tiles1
 .Lspan_087BBE88:
-	.incbin "build/assets/087BBE88.bin" @ rom_087B0000/087BBE88
+	.incbin "build/assets/087BBE88.bin" @ casino/code_breaker_obj_tiles2
 .Lspan_087BC12C:
-	.incbin "build/assets/087BC12C.bin" @ rom_087B0000/087BC12C
+	.incbin "build/assets/087BC12C.bin" @ casino/code_breaker_obj_tiles3
 .Lspan_087BC3E8:
-	.incbin "build/assets/087BC3E8.bin" @ rom_087B0000/087BC3E8
+	.incbin "build/assets/087BC3E8.bin" @ casino/code_breaker_obj_tiles4
 .Lspan_087BC654:
-	.incbin "build/assets/087BC654.bin" @ rom_087B0000/087BC654
+	.incbin "build/assets/087BC654.bin" @ casino/code_breaker_obj_tiles5
 .Lspan_087BC8B8:
-	.incbin "build/assets/087BC8B8.bin" @ rom_087B0000/087BC8B8
+	.incbin "build/assets/087BC8B8.bin" @ casino/code_breaker_obj_tiles6
 .Lspan_087BC9FC:
-	.incbin "build/assets/087BC9FC.bin" @ rom_087B0000/087BC9FC
+	.incbin "build/assets/087BC9FC.bin" @ casino/code_breaker_obj_tiles7
 .Lspan_087BCAF0:
-	.incbin "build/assets/087BCAF0.bin" @ rom_087B0000/087BCAF0
+	.incbin "build/assets/087BCAF0.bin" @ casino/code_breaker_bg_palette
 .Lspan_087BCB94:
-	.incbin "build/assets/087BCB94.bin" @ rom_087B0000/087BCB94
+	.incbin "build/assets/087BCB94.bin" @ casino/code_breaker_obj_palette
 .Lspan_087BCC78:
-	.incbin "build/assets/087BCC78.bin" @ rom_087B0000/087BCC78
+	.incbin "build/assets/087BCC78.bin" @ casino/code_breaker_bg2_map
 .Lspan_087BCE84:
-	.incbin "build/assets/087BCE84.bin" @ rom_087B0000/087BCE84
+	.incbin "build/assets/087BCE84.bin" @ casino/code_breaker_bg1_map
 .Lspan_087BD290:
-	.incbin "build/assets/087BD290.bin" @ rom_087B0000/087BD290
+	.incbin "build/assets/087BD290.bin" @ casino/code_breaker_bg0_map
 .Lspan_087BD434:
-	.incbin "build/assets/087BD434.bin" @ rom_087B0000/087BD434
+	.incbin "build/assets/087BD434.bin" @ casino/russian_roulette_bg_tiles0
 .Lspan_087BD758:
-	.incbin "build/assets/087BD758.bin" @ rom_087B0000/087BD758
+	.incbin "build/assets/087BD758.bin" @ casino/russian_roulette_bg_tiles1
 .Lspan_087BD9D0:
-	.incbin "build/assets/087BD9D0.bin" @ rom_087B0000/087BD9D0
+	.incbin "build/assets/087BD9D0.bin" @ casino/russian_roulette_bg_tiles2
 .Lspan_087BDBD0:
-	.incbin "build/assets/087BDBD0.bin" @ rom_087B0000/087BDBD0
+	.incbin "build/assets/087BDBD0.bin" @ casino/russian_roulette_bg_tiles3
 .Lspan_087BDE14:
-	.incbin "build/assets/087BDE14.bin" @ rom_087B0000/087BDE14
+	.incbin "build/assets/087BDE14.bin" @ casino/russian_roulette_bg_tiles4
 .Lspan_087BE068:
-	.incbin "build/assets/087BE068.bin" @ rom_087B0000/087BE068
+	.incbin "build/assets/087BE068.bin" @ casino/russian_roulette_bg_tiles5
 .Lspan_087BE3A0:
-	.incbin "build/assets/087BE3A0.bin" @ rom_087B0000/087BE3A0
+	.incbin "build/assets/087BE3A0.bin" @ casino/russian_roulette_bg_tiles6
 .Lspan_087BE5DC:
-	.incbin "build/assets/087BE5DC.bin" @ rom_087B0000/087BE5DC
+	.incbin "build/assets/087BE5DC.bin" @ casino/russian_roulette_bg_tiles7
 .Lspan_087BE6D0:
-	.incbin "build/assets/087BE6D0.bin" @ rom_087B0000/087BE6D0
+	.incbin "build/assets/087BE6D0.bin" @ casino/russian_roulette_obj_tiles0
 .Lspan_087BE940:
-	.incbin "build/assets/087BE940.bin" @ rom_087B0000/087BE940
+	.incbin "build/assets/087BE940.bin" @ casino/russian_roulette_obj_tiles1
 .Lspan_087BEBAC:
-	.incbin "build/assets/087BEBAC.bin" @ rom_087B0000/087BEBAC
+	.incbin "build/assets/087BEBAC.bin" @ casino/russian_roulette_obj_tiles2
 .Lspan_087BF04C:
-	.incbin "build/assets/087BF04C.bin" @ rom_087B0000/087BF04C
+	.incbin "build/assets/087BF04C.bin" @ casino/russian_roulette_obj_tiles3
 .Lspan_087BF4F8:
-	.incbin "build/assets/087BF4F8.bin" @ rom_087B0000/087BF4F8
+	.incbin "build/assets/087BF4F8.bin" @ casino/russian_roulette_obj_tiles4
 .Lspan_087BF700:
-	.incbin "build/assets/087BF700.bin" @ rom_087B0000/087BF700
+	.incbin "build/assets/087BF700.bin" @ casino/russian_roulette_obj_tiles5
 .Lspan_087BF7F4:
-	.incbin "build/assets/087BF7F4.bin" @ rom_087B0000/087BF7F4
+	.incbin "build/assets/087BF7F4.bin" @ casino/russian_roulette_obj_tiles6
 .Lspan_087BFAEC:
-	.incbin "build/assets/087BFAEC.bin" @ rom_087B0000/087BFAEC
+	.incbin "build/assets/087BFAEC.bin" @ casino/russian_roulette_obj_tiles7
 .Lspan_087BFE90:
-	.incbin "build/assets/087BFE90.bin" @ rom_087B0000/087BFE90
+	.incbin "build/assets/087BFE90.bin" @ casino/russian_roulette_bg_palette
 .Lspan_087BFF14:
-	.incbin "build/assets/087BFF14.bin" @ rom_087B0000/087BFF14
+	.incbin "build/assets/087BFF14.bin" @ casino/russian_roulette_obj_palette
 .Lspan_087BFFB8:
-	.incbin "build/assets/087BFFB8.bin" @ rom_087B0000/087BFFB8
+	.incbin "build/assets/087BFFB8.bin" @ casino/russian_roulette_bg1_map
 .Lspan_087C0250:
-	.incbin "build/assets/087C0250.bin" @ rom_087C0000/087C0250
+	.incbin "build/assets/087C0250.bin" @ casino/russian_roulette_bg0_map
 .Lspan_087C03C0:
-	.incbin "build/assets/087C03C0.bin" @ rom_087C0000/087C03C0
+	.incbin "build/assets/087C03C0.bin" @ fieldmap/area00_tiles0
 .Lspan_087C0CF0:
-	.incbin "build/assets/087C0CF0.bin" @ rom_087C0000/087C0CF0
+	.incbin "build/assets/087C0CF0.bin" @ fieldmap/area00_tiles1
 .Lspan_087C14D0:
-	.incbin "build/assets/087C14D0.bin" @ rom_087C0000/087C14D0
+	.incbin "build/assets/087C14D0.bin" @ fieldmap/area00_tiles2
 .Lspan_087C1FA0:
-	.incbin "build/assets/087C1FA0.bin" @ rom_087C0000/087C1FA0
+	.incbin "build/assets/087C1FA0.bin" @ fieldmap/area00_tiles3
 .Lspan_087C2988:
-	.incbin "build/assets/087C2988.bin" @ rom_087C0000/087C2988
+	.incbin "build/assets/087C2988.bin" @ fieldmap/area00_tiles4
 .Lspan_087C3490:
-	.incbin "build/assets/087C3490.bin" @ rom_087C0000/087C3490
+	.incbin "build/assets/087C3490.bin" @ fieldmap/area00_tiles5
 .Lspan_087C3F40:
-	.incbin "build/assets/087C3F40.bin" @ rom_087C0000/087C3F40
+	.incbin "build/assets/087C3F40.bin" @ fieldmap/area00_tiles6
 .Lspan_087C4230:
-	.incbin "build/assets/087C4230.bin" @ rom_087C0000/087C4230
+	.incbin "build/assets/087C4230.bin" @ fieldmap/area06_tiles0
 .Lspan_087C4A7C:
-	.incbin "build/assets/087C4A7C.bin" @ rom_087C0000/087C4A7C
+	.incbin "build/assets/087C4A7C.bin" @ fieldmap/area06_tiles1
 .Lspan_087C5460:
-	.incbin "build/assets/087C5460.bin" @ rom_087C0000/087C5460
+	.incbin "build/assets/087C5460.bin" @ fieldmap/area06_tiles2
 .Lspan_087C5C04:
-	.incbin "build/assets/087C5C04.bin" @ rom_087C0000/087C5C04
+	.incbin "build/assets/087C5C04.bin" @ fieldmap/area06_tiles3
 	.global gUnknown_087C5E10
 gUnknown_087C5E10: @ 0x087C5E10
 .Lspan_087C5E10:
-	.incbin "build/assets/087C5E10.bin" @ rom_087C0000/087C5E10
+	.incbin "build/assets/087C5E10.bin" @ fieldmap/area06_tiles4
 .Lspan_087C6294:
-	.incbin "build/assets/087C6294.bin" @ rom_087C0000/087C6294
+	.incbin "build/assets/087C6294.bin" @ fieldmap/area06_tiles5
 	.global gUnknown_087C6358
 gUnknown_087C6358: @ 0x087C6358
 .Lspan_087C6358:
-	.incbin "build/assets/087C6358.bin" @ rom_087C0000/087C6358
+	.incbin "build/assets/087C6358.bin" @ fieldmap/area06_tiles4_alt
 .Lspan_087C6810:
-	.incbin "build/assets/087C6810.bin" @ rom_087C0000/087C6810
+	.incbin "build/assets/087C6810.bin" @ fieldmap/area00_upper_map00
 .Lspan_087C69E8:
-	.incbin "build/assets/087C69E8.bin" @ rom_087C0000/087C69E8
+	.incbin "build/assets/087C69E8.bin" @ fieldmap/area00_upper_map01
 .Lspan_087C6BEC:
-	.incbin "build/assets/087C6BEC.bin" @ rom_087C0000/087C6BEC
+	.incbin "build/assets/087C6BEC.bin" @ fieldmap/area00_upper_map02
 .Lspan_087C6DD4:
-	.incbin "build/assets/087C6DD4.bin" @ rom_087C0000/087C6DD4
+	.incbin "build/assets/087C6DD4.bin" @ fieldmap/area00_upper_map03
 .Lspan_087C704C:
-	.incbin "build/assets/087C704C.bin" @ rom_087C0000/087C704C
+	.incbin "build/assets/087C704C.bin" @ fieldmap/area00_upper_map04
 .Lspan_087C7174:
-	.incbin "build/assets/087C7174.bin" @ rom_087C0000/087C7174
+	.incbin "build/assets/087C7174.bin" @ fieldmap/area00_lower_map00
 .Lspan_087C74D4:
-	.incbin "build/assets/087C74D4.bin" @ rom_087C0000/087C74D4
+	.incbin "build/assets/087C74D4.bin" @ fieldmap/area00_lower_map01
 .Lspan_087C77F4:
-	.incbin "build/assets/087C77F4.bin" @ rom_087C0000/087C77F4
+	.incbin "build/assets/087C77F4.bin" @ fieldmap/area00_lower_map02
 .Lspan_087C7B74:
-	.incbin "build/assets/087C7B74.bin" @ rom_087C0000/087C7B74
+	.incbin "build/assets/087C7B74.bin" @ fieldmap/area00_lower_map03
 .Lspan_087C7ED0:
-	.incbin "build/assets/087C7ED0.bin" @ rom_087C0000/087C7ED0
+	.incbin "build/assets/087C7ED0.bin" @ fieldmap/area00_lower_map04
 	.incbin "baserom.gba", 0x7C8020, 0x200
 .Lspan_087C8220:
-	.incbin "build/assets/087C8220.bin" @ rom_087C0000/087C8220
+	.incbin "build/assets/087C8220.bin" @ fieldmap/area00_attr0
 .Lspan_087C8538:
-	.incbin "build/assets/087C8538.bin" @ rom_087C0000/087C8538
+	.incbin "build/assets/087C8538.bin" @ fieldmap/area00_attr1
 .Lspan_087C862C:
-	.incbin "build/assets/087C862C.bin" @ rom_087C0000/087C862C
+	.incbin "build/assets/087C862C.bin" @ fieldmap/area00_attr2
 .Lspan_087C8720:
-	.incbin "build/assets/087C8720.bin" @ rom_087C0000/087C8720
+	.incbin "build/assets/087C8720.bin" @ fieldmap/area00_attr3
 .Lspan_087C8814:
-	.incbin "build/assets/087C8814.bin" @ rom_087C0000/087C8814
+	.incbin "build/assets/087C8814.bin" @ fieldmap/area00_attr4
 .Lspan_087C8A40:
-	.incbin "build/assets/087C8A40.bin" @ rom_087C0000/087C8A40
+	.incbin "build/assets/087C8A40.bin" @ fieldmap/area00_attr5
 .Lspan_087C8B34:
-	.incbin "build/assets/087C8B34.bin" @ rom_087C0000/087C8B34
+	.incbin "build/assets/087C8B34.bin" @ fieldmap/area00_attr6
 .Lspan_087C8C28:
-	.incbin "build/assets/087C8C28.bin" @ rom_087C0000/087C8C28
+	.incbin "build/assets/087C8C28.bin" @ fieldmap/area00_attr7
 .Lspan_087C8D1C:
-	.incbin "build/assets/087C8D1C.bin" @ rom_087C0000/087C8D1C
+	.incbin "build/assets/087C8D1C.bin" @ fieldmap/area01_upper_map00
 .Lspan_087C8E7C:
-	.incbin "build/assets/087C8E7C.bin" @ rom_087C0000/087C8E7C
+	.incbin "build/assets/087C8E7C.bin" @ fieldmap/area01_upper_map01
 .Lspan_087C902C:
-	.incbin "build/assets/087C902C.bin" @ rom_087C0000/087C902C
+	.incbin "build/assets/087C902C.bin" @ fieldmap/area01_upper_map02
 .Lspan_087C91F0:
-	.incbin "build/assets/087C91F0.bin" @ rom_087C0000/087C91F0
+	.incbin "build/assets/087C91F0.bin" @ fieldmap/area01_upper_map03
 .Lspan_087C9378:
-	.incbin "build/assets/087C9378.bin" @ rom_087C0000/087C9378
+	.incbin "build/assets/087C9378.bin" @ fieldmap/area01_upper_map04
 .Lspan_087C9454:
-	.incbin "build/assets/087C9454.bin" @ rom_087C0000/087C9454
+	.incbin "build/assets/087C9454.bin" @ fieldmap/area01_lower_map00
 .Lspan_087C9608:
-	.incbin "build/assets/087C9608.bin" @ rom_087C0000/087C9608
+	.incbin "build/assets/087C9608.bin" @ fieldmap/area01_lower_map01
 .Lspan_087C9824:
-	.incbin "build/assets/087C9824.bin" @ rom_087C0000/087C9824
+	.incbin "build/assets/087C9824.bin" @ fieldmap/area01_lower_map02
 .Lspan_087C9AF4:
-	.incbin "build/assets/087C9AF4.bin" @ rom_087C0000/087C9AF4
+	.incbin "build/assets/087C9AF4.bin" @ fieldmap/area01_lower_map03
 .Lspan_087C9CFC:
-	.incbin "build/assets/087C9CFC.bin" @ rom_087C0000/087C9CFC
+	.incbin "build/assets/087C9CFC.bin" @ fieldmap/area01_lower_map04
 	.incbin "baserom.gba", 0x7C9E2C, 0x100
 .Lspan_087C9F2C:
-	.incbin "build/assets/087C9F2C.bin" @ rom_087C0000/087C9F2C
+	.incbin "build/assets/087C9F2C.bin" @ fieldmap/area01_attr0
 .Lspan_087CA0F4:
-	.incbin "build/assets/087CA0F4.bin" @ rom_087C0000/087CA0F4
+	.incbin "build/assets/087CA0F4.bin" @ fieldmap/area01_attr1
 .Lspan_087CA1E8:
-	.incbin "build/assets/087CA1E8.bin" @ rom_087C0000/087CA1E8
+	.incbin "build/assets/087CA1E8.bin" @ fieldmap/area01_attr2
 .Lspan_087CA2DC:
-	.incbin "build/assets/087CA2DC.bin" @ rom_087C0000/087CA2DC
+	.incbin "build/assets/087CA2DC.bin" @ fieldmap/area01_attr3
 .Lspan_087CA3D0:
-	.incbin "build/assets/087CA3D0.bin" @ rom_087C0000/087CA3D0
+	.incbin "build/assets/087CA3D0.bin" @ fieldmap/area02_upper_map00
 .Lspan_087CA5C8:
-	.incbin "build/assets/087CA5C8.bin" @ rom_087C0000/087CA5C8
+	.incbin "build/assets/087CA5C8.bin" @ fieldmap/area02_upper_map01
 .Lspan_087CA778:
-	.incbin "build/assets/087CA778.bin" @ rom_087C0000/087CA778
+	.incbin "build/assets/087CA778.bin" @ fieldmap/area02_upper_map02
 .Lspan_087CA998:
-	.incbin "build/assets/087CA998.bin" @ rom_087C0000/087CA998
+	.incbin "build/assets/087CA998.bin" @ fieldmap/area02_upper_map03
 .Lspan_087CAC0C:
-	.incbin "build/assets/087CAC0C.bin" @ rom_087C0000/087CAC0C
+	.incbin "build/assets/087CAC0C.bin" @ fieldmap/area02_upper_map04
 .Lspan_087CAD10:
-	.incbin "build/assets/087CAD10.bin" @ rom_087C0000/087CAD10
+	.incbin "build/assets/087CAD10.bin" @ fieldmap/area02_lower_map00
 .Lspan_087CAFA4:
-	.incbin "build/assets/087CAFA4.bin" @ rom_087C0000/087CAFA4
+	.incbin "build/assets/087CAFA4.bin" @ fieldmap/area02_lower_map01
 .Lspan_087CB29C:
-	.incbin "build/assets/087CB29C.bin" @ rom_087C0000/087CB29C
+	.incbin "build/assets/087CB29C.bin" @ fieldmap/area02_lower_map02
 .Lspan_087CB570:
-	.incbin "build/assets/087CB570.bin" @ rom_087C0000/087CB570
+	.incbin "build/assets/087CB570.bin" @ fieldmap/area02_lower_map03
 .Lspan_087CB874:
-	.incbin "build/assets/087CB874.bin" @ rom_087C0000/087CB874
+	.incbin "build/assets/087CB874.bin" @ fieldmap/area02_lower_map04
 	.incbin "baserom.gba", 0x7CB950, 0x100
 .Lspan_087CBA50:
-	.incbin "build/assets/087CBA50.bin" @ rom_087C0000/087CBA50
+	.incbin "build/assets/087CBA50.bin" @ fieldmap/area10_upper_map00
 .Lspan_087CBC68:
-	.incbin "build/assets/087CBC68.bin" @ rom_087C0000/087CBC68
+	.incbin "build/assets/087CBC68.bin" @ fieldmap/area10_upper_map01
 .Lspan_087CBE38:
-	.incbin "build/assets/087CBE38.bin" @ rom_087C0000/087CBE38
+	.incbin "build/assets/087CBE38.bin" @ fieldmap/area10_upper_map02
 .Lspan_087CC07C:
-	.incbin "build/assets/087CC07C.bin" @ rom_087C0000/087CC07C
+	.incbin "build/assets/087CC07C.bin" @ fieldmap/area10_upper_map03
 .Lspan_087CC314:
-	.incbin "build/assets/087CC314.bin" @ rom_087C0000/087CC314
+	.incbin "build/assets/087CC314.bin" @ fieldmap/area10_upper_map04
 .Lspan_087CC42C:
-	.incbin "build/assets/087CC42C.bin" @ rom_087C0000/087CC42C
+	.incbin "build/assets/087CC42C.bin" @ fieldmap/area10_lower_map00
 .Lspan_087CC6EC:
-	.incbin "build/assets/087CC6EC.bin" @ rom_087C0000/087CC6EC
+	.incbin "build/assets/087CC6EC.bin" @ fieldmap/area10_lower_map01
 .Lspan_087CC9F4:
-	.incbin "build/assets/087CC9F4.bin" @ rom_087C0000/087CC9F4
+	.incbin "build/assets/087CC9F4.bin" @ fieldmap/area10_lower_map02
 .Lspan_087CCCD8:
-	.incbin "build/assets/087CCCD8.bin" @ rom_087C0000/087CCCD8
+	.incbin "build/assets/087CCCD8.bin" @ fieldmap/area10_lower_map03
 .Lspan_087CCFF0:
-	.incbin "build/assets/087CCFF0.bin" @ rom_087C0000/087CCFF0
+	.incbin "build/assets/087CCFF0.bin" @ fieldmap/area10_lower_map04
 	.incbin "baserom.gba", 0x7CD180, 0x200
 .Lspan_087CD380:
-	.incbin "build/assets/087CD380.bin" @ rom_087C0000/087CD380
+	.incbin "build/assets/087CD380.bin" @ fieldmap/area02_attr0
 .Lspan_087CD63C:
-	.incbin "build/assets/087CD63C.bin" @ rom_087C0000/087CD63C
+	.incbin "build/assets/087CD63C.bin" @ fieldmap/area02_attr1
 .Lspan_087CD730:
-	.incbin "build/assets/087CD730.bin" @ rom_087C0000/087CD730
+	.incbin "build/assets/087CD730.bin" @ fieldmap/area02_attr2
 .Lspan_087CD848:
-	.incbin "build/assets/087CD848.bin" @ rom_087C0000/087CD848
+	.incbin "build/assets/087CD848.bin" @ fieldmap/area02_attr3
 .Lspan_087CD93C:
-	.incbin "build/assets/087CD93C.bin" @ rom_087C0000/087CD93C
+	.incbin "build/assets/087CD93C.bin" @ fieldmap/area02_attr4
 .Lspan_087CDB64:
-	.incbin "build/assets/087CDB64.bin" @ rom_087C0000/087CDB64
+	.incbin "build/assets/087CDB64.bin" @ fieldmap/area02_attr5
 .Lspan_087CDC58:
-	.incbin "build/assets/087CDC58.bin" @ rom_087C0000/087CDC58
+	.incbin "build/assets/087CDC58.bin" @ fieldmap/area02_attr6
 .Lspan_087CDD70:
-	.incbin "build/assets/087CDD70.bin" @ rom_087C0000/087CDD70
+	.incbin "build/assets/087CDD70.bin" @ fieldmap/area02_attr7
 .Lspan_087CDE64:
-	.incbin "build/assets/087CDE64.bin" @ rom_087C0000/087CDE64
+	.incbin "build/assets/087CDE64.bin" @ fieldmap/area03_upper_map00
 .Lspan_087CE02C:
-	.incbin "build/assets/087CE02C.bin" @ rom_087C0000/087CE02C
+	.incbin "build/assets/087CE02C.bin" @ fieldmap/area03_upper_map01
 .Lspan_087CE288:
-	.incbin "build/assets/087CE288.bin" @ rom_087C0000/087CE288
+	.incbin "build/assets/087CE288.bin" @ fieldmap/area03_upper_map02
 .Lspan_087CE458:
-	.incbin "build/assets/087CE458.bin" @ rom_087C0000/087CE458
+	.incbin "build/assets/087CE458.bin" @ fieldmap/area03_upper_map03
 .Lspan_087CE600:
-	.incbin "build/assets/087CE600.bin" @ rom_087C0000/087CE600
+	.incbin "build/assets/087CE600.bin" @ fieldmap/area03_upper_map04
 .Lspan_087CE748:
-	.incbin "build/assets/087CE748.bin" @ rom_087C0000/087CE748
+	.incbin "build/assets/087CE748.bin" @ fieldmap/area03_lower_map00
 .Lspan_087CE9CC:
-	.incbin "build/assets/087CE9CC.bin" @ rom_087C0000/087CE9CC
+	.incbin "build/assets/087CE9CC.bin" @ fieldmap/area03_lower_map01
 .Lspan_087CED44:
-	.incbin "build/assets/087CED44.bin" @ rom_087C0000/087CED44
+	.incbin "build/assets/087CED44.bin" @ fieldmap/area03_lower_map02
 .Lspan_087CF050:
-	.incbin "build/assets/087CF050.bin" @ rom_087C0000/087CF050
+	.incbin "build/assets/087CF050.bin" @ fieldmap/area03_lower_map03
 .Lspan_087CF2E4:
-	.incbin "build/assets/087CF2E4.bin" @ rom_087C0000/087CF2E4
+	.incbin "build/assets/087CF2E4.bin" @ fieldmap/area03_lower_map04
 	.incbin "baserom.gba", 0x7CF4D4, 0x100
 .Lspan_087CF5D4:
-	.incbin "build/assets/087CF5D4.bin" @ rom_087C0000/087CF5D4
+	.incbin "build/assets/087CF5D4.bin" @ fieldmap/area03_attr0
 .Lspan_087CF83C:
-	.incbin "build/assets/087CF83C.bin" @ rom_087C0000/087CF83C
+	.incbin "build/assets/087CF83C.bin" @ fieldmap/area03_attr1
 .Lspan_087CF930:
-	.incbin "build/assets/087CF930.bin" @ rom_087C0000/087CF930
+	.incbin "build/assets/087CF930.bin" @ fieldmap/area03_attr2
 .Lspan_087CFA40:
-	.incbin "build/assets/087CFA40.bin" @ rom_087C0000/087CFA40
+	.incbin "build/assets/087CFA40.bin" @ fieldmap/area03_attr3
 .Lspan_087CFB34:
-	.incbin "build/assets/087CFB34.bin" @ rom_087C0000/087CFB34
+	.incbin "build/assets/087CFB34.bin" @ fieldmap/area04_upper_map00
 .Lspan_087CFC9C:
-	.incbin "build/assets/087CFC9C.bin" @ rom_087C0000/087CFC9C
+	.incbin "build/assets/087CFC9C.bin" @ fieldmap/area04_upper_map01
 .Lspan_087CFE78:
-	.incbin "build/assets/087CFE78.bin" @ rom_087C0000/087CFE78
+	.incbin "build/assets/087CFE78.bin" @ fieldmap/area04_lower_map00
 .Lspan_087D00A8:
-	.incbin "build/assets/087D00A8.bin" @ rom_087D0000/087D00A8
+	.incbin "build/assets/087D00A8.bin" @ fieldmap/area04_lower_map01
 	.incbin "baserom.gba", 0x7D0340, 0x100
 .Lspan_087D0440:
-	.incbin "build/assets/087D0440.bin" @ rom_087D0000/087D0440
+	.incbin "build/assets/087D0440.bin" @ fieldmap/area04_attr0
 .Lspan_087D0634:
-	.incbin "build/assets/087D0634.bin" @ rom_087D0000/087D0634
+	.incbin "build/assets/087D0634.bin" @ fieldmap/area04_attr1
 .Lspan_087D0728:
-	.incbin "build/assets/087D0728.bin" @ rom_087D0000/087D0728
+	.incbin "build/assets/087D0728.bin" @ fieldmap/area04_attr2
 .Lspan_087D081C:
-	.incbin "build/assets/087D081C.bin" @ rom_087D0000/087D081C
+	.incbin "build/assets/087D081C.bin" @ fieldmap/area04_attr3
 .Lspan_087D0910:
-	.incbin "build/assets/087D0910.bin" @ rom_087D0000/087D0910
+	.incbin "build/assets/087D0910.bin" @ fieldmap/area05_upper_map00
 .Lspan_087D0A04:
-	.incbin "build/assets/087D0A04.bin" @ rom_087D0000/087D0A04
+	.incbin "build/assets/087D0A04.bin" @ fieldmap/area05_upper_map01
 .Lspan_087D0AF8:
-	.incbin "build/assets/087D0AF8.bin" @ rom_087D0000/087D0AF8
+	.incbin "build/assets/087D0AF8.bin" @ fieldmap/area05_upper_map02
 .Lspan_087D0BEC:
-	.incbin "build/assets/087D0BEC.bin" @ rom_087D0000/087D0BEC
+	.incbin "build/assets/087D0BEC.bin" @ fieldmap/area05_upper_map03
 .Lspan_087D0CE0:
-	.incbin "build/assets/087D0CE0.bin" @ rom_087D0000/087D0CE0
+	.incbin "build/assets/087D0CE0.bin" @ fieldmap/area05_upper_map04
 .Lspan_087D0DD4:
-	.incbin "build/assets/087D0DD4.bin" @ rom_087D0000/087D0DD4
+	.incbin "build/assets/087D0DD4.bin" @ fieldmap/area05_upper_map05
 .Lspan_087D0EC8:
-	.incbin "build/assets/087D0EC8.bin" @ rom_087D0000/087D0EC8
+	.incbin "build/assets/087D0EC8.bin" @ fieldmap/area05_upper_map06
 .Lspan_087D0FCC:
-	.incbin "build/assets/087D0FCC.bin" @ rom_087D0000/087D0FCC
+	.incbin "build/assets/087D0FCC.bin" @ fieldmap/area05_upper_map07
 .Lspan_087D1100:
-	.incbin "build/assets/087D1100.bin" @ rom_087D0000/087D1100
+	.incbin "build/assets/087D1100.bin" @ fieldmap/area05_upper_map08
 .Lspan_087D1278:
-	.incbin "build/assets/087D1278.bin" @ rom_087D0000/087D1278
+	.incbin "build/assets/087D1278.bin" @ fieldmap/area05_upper_map09
 .Lspan_087D13F0:
-	.incbin "build/assets/087D13F0.bin" @ rom_087D0000/087D13F0
+	.incbin "build/assets/087D13F0.bin" @ fieldmap/area05_lower_map00
 .Lspan_087D1674:
-	.incbin "build/assets/087D1674.bin" @ rom_087D0000/087D1674
+	.incbin "build/assets/087D1674.bin" @ fieldmap/area05_lower_map01
 .Lspan_087D1A74:
-	.incbin "build/assets/087D1A74.bin" @ rom_087D0000/087D1A74
+	.incbin "build/assets/087D1A74.bin" @ fieldmap/area05_lower_map02
 .Lspan_087D1D68:
-	.incbin "build/assets/087D1D68.bin" @ rom_087D0000/087D1D68
+	.incbin "build/assets/087D1D68.bin" @ fieldmap/area05_lower_map03
 .Lspan_087D20E4:
-	.incbin "build/assets/087D20E4.bin" @ rom_087D0000/087D20E4
+	.incbin "build/assets/087D20E4.bin" @ fieldmap/area05_lower_map04
 .Lspan_087D2450:
-	.incbin "build/assets/087D2450.bin" @ rom_087D0000/087D2450
+	.incbin "build/assets/087D2450.bin" @ fieldmap/area05_lower_map05
 .Lspan_087D27DC:
-	.incbin "build/assets/087D27DC.bin" @ rom_087D0000/087D27DC
+	.incbin "build/assets/087D27DC.bin" @ fieldmap/area05_lower_map06
 .Lspan_087D2B84:
-	.incbin "build/assets/087D2B84.bin" @ rom_087D0000/087D2B84
+	.incbin "build/assets/087D2B84.bin" @ fieldmap/area05_lower_map07
 .Lspan_087D2EB0:
-	.incbin "build/assets/087D2EB0.bin" @ rom_087D0000/087D2EB0
+	.incbin "build/assets/087D2EB0.bin" @ fieldmap/area05_lower_map08
 .Lspan_087D31B4:
-	.incbin "build/assets/087D31B4.bin" @ rom_087D0000/087D31B4
+	.incbin "build/assets/087D31B4.bin" @ fieldmap/area05_lower_map09
 .Lspan_087D33B8:
-	.incbin "build/assets/087D33B8.bin" @ rom_087D0000/087D33B8
+	.incbin "build/assets/087D33B8.bin" @ fieldmap/area11_lower_map00
 .Lspan_087D363C:
-	.incbin "build/assets/087D363C.bin" @ rom_087D0000/087D363C
+	.incbin "build/assets/087D363C.bin" @ fieldmap/area11_lower_map01
 .Lspan_087D3A28:
-	.incbin "build/assets/087D3A28.bin" @ rom_087D0000/087D3A28
+	.incbin "build/assets/087D3A28.bin" @ fieldmap/area11_lower_map02
 .Lspan_087D3C7C:
-	.incbin "build/assets/087D3C7C.bin" @ rom_087D0000/087D3C7C
+	.incbin "build/assets/087D3C7C.bin" @ fieldmap/area11_lower_map03
 .Lspan_087D3F48:
-	.incbin "build/assets/087D3F48.bin" @ rom_087D0000/087D3F48
+	.incbin "build/assets/087D3F48.bin" @ fieldmap/area11_lower_map04
 .Lspan_087D42B4:
-	.incbin "build/assets/087D42B4.bin" @ rom_087D0000/087D42B4
+	.incbin "build/assets/087D42B4.bin" @ fieldmap/area11_lower_map05
 .Lspan_087D4640:
-	.incbin "build/assets/087D4640.bin" @ rom_087D0000/087D4640
+	.incbin "build/assets/087D4640.bin" @ fieldmap/area11_lower_map06
 .Lspan_087D49AC:
-	.incbin "build/assets/087D49AC.bin" @ rom_087D0000/087D49AC
+	.incbin "build/assets/087D49AC.bin" @ fieldmap/area11_lower_map07
 .Lspan_087D4CE8:
-	.incbin "build/assets/087D4CE8.bin" @ rom_087D0000/087D4CE8
+	.incbin "build/assets/087D4CE8.bin" @ fieldmap/area11_lower_map08
 .Lspan_087D4FEC:
-	.incbin "build/assets/087D4FEC.bin" @ rom_087D0000/087D4FEC
+	.incbin "build/assets/087D4FEC.bin" @ fieldmap/area11_lower_map09
 	.incbin "baserom.gba", 0x7D51F0, 0x200
 .Lspan_087D53F0:
-	.incbin "build/assets/087D53F0.bin" @ rom_087D0000/087D53F0
+	.incbin "build/assets/087D53F0.bin" @ fieldmap/area05_attr0
 .Lspan_087D57BC:
-	.incbin "build/assets/087D57BC.bin" @ rom_087D0000/087D57BC
+	.incbin "build/assets/087D57BC.bin" @ fieldmap/area05_attr1
 .Lspan_087D5928:
-	.incbin "build/assets/087D5928.bin" @ rom_087D0000/087D5928
+	.incbin "build/assets/087D5928.bin" @ fieldmap/area05_attr2
 .Lspan_087D5A28:
-	.incbin "build/assets/087D5A28.bin" @ rom_087D0000/087D5A28
+	.incbin "build/assets/087D5A28.bin" @ fieldmap/area05_attr3
 .Lspan_087D5B40:
-	.incbin "build/assets/087D5B40.bin" @ rom_087D0000/087D5B40
+	.incbin "build/assets/087D5B40.bin" @ fieldmap/area06_upper_map00
 .Lspan_087D5DD4:
-	.incbin "build/assets/087D5DD4.bin" @ rom_087D0000/087D5DD4
+	.incbin "build/assets/087D5DD4.bin" @ fieldmap/area06_upper_map01
 .Lspan_087D6004:
-	.incbin "build/assets/087D6004.bin" @ rom_087D0000/087D6004
+	.incbin "build/assets/087D6004.bin" @ fieldmap/area06_upper_map02
 .Lspan_087D6260:
-	.incbin "build/assets/087D6260.bin" @ rom_087D0000/087D6260
+	.incbin "build/assets/087D6260.bin" @ fieldmap/area06_upper_map03
 .Lspan_087D64D4:
-	.incbin "build/assets/087D64D4.bin" @ rom_087D0000/087D64D4
+	.incbin "build/assets/087D64D4.bin" @ fieldmap/area06_upper_map04
 .Lspan_087D6790:
-	.incbin "build/assets/087D6790.bin" @ rom_087D0000/087D6790
+	.incbin "build/assets/087D6790.bin" @ fieldmap/area06_upper_map05
 .Lspan_087D69F0:
-	.incbin "build/assets/087D69F0.bin" @ rom_087D0000/087D69F0
+	.incbin "build/assets/087D69F0.bin" @ fieldmap/area06_upper_map06
 .Lspan_087D6C30:
-	.incbin "build/assets/087D6C30.bin" @ rom_087D0000/087D6C30
+	.incbin "build/assets/087D6C30.bin" @ fieldmap/area06_upper_map07
 .Lspan_087D6E40:
-	.incbin "build/assets/087D6E40.bin" @ rom_087D0000/087D6E40
+	.incbin "build/assets/087D6E40.bin" @ fieldmap/area06_upper_map08
 .Lspan_087D7088:
-	.incbin "build/assets/087D7088.bin" @ rom_087D0000/087D7088
+	.incbin "build/assets/087D7088.bin" @ fieldmap/area06_upper_map09
 .Lspan_087D72D8:
-	.incbin "build/assets/087D72D8.bin" @ rom_087D0000/087D72D8
+	.incbin "build/assets/087D72D8.bin" @ fieldmap/area06_upper_map10
 .Lspan_087D7550:
-	.incbin "build/assets/087D7550.bin" @ rom_087D0000/087D7550
+	.incbin "build/assets/087D7550.bin" @ fieldmap/area06_upper_map11
 .Lspan_087D774C:
-	.incbin "build/assets/087D774C.bin" @ rom_087D0000/087D774C
+	.incbin "build/assets/087D774C.bin" @ fieldmap/area06_upper_map12
 .Lspan_087D7954:
-	.incbin "build/assets/087D7954.bin" @ rom_087D0000/087D7954
+	.incbin "build/assets/087D7954.bin" @ fieldmap/area06_upper_map13
 .Lspan_087D7B40:
-	.incbin "build/assets/087D7B40.bin" @ rom_087D0000/087D7B40
+	.incbin "build/assets/087D7B40.bin" @ fieldmap/area06_upper_map14
 .Lspan_087D7CE0:
-	.incbin "build/assets/087D7CE0.bin" @ rom_087D0000/087D7CE0
+	.incbin "build/assets/087D7CE0.bin" @ fieldmap/area06_upper_map15
 .Lspan_087D7DE4:
-	.incbin "build/assets/087D7DE4.bin" @ rom_087D0000/087D7DE4
+	.incbin "build/assets/087D7DE4.bin" @ fieldmap/area06_lower_map00
 .Lspan_087D7F94:
-	.incbin "build/assets/087D7F94.bin" @ rom_087D0000/087D7F94
+	.incbin "build/assets/087D7F94.bin" @ fieldmap/area06_lower_map01
 .Lspan_087D8214:
-	.incbin "build/assets/087D8214.bin" @ rom_087D0000/087D8214
+	.incbin "build/assets/087D8214.bin" @ fieldmap/area06_lower_map02
 .Lspan_087D84BC:
-	.incbin "build/assets/087D84BC.bin" @ rom_087D0000/087D84BC
+	.incbin "build/assets/087D84BC.bin" @ fieldmap/area06_lower_map03
 .Lspan_087D87B8:
-	.incbin "build/assets/087D87B8.bin" @ rom_087D0000/087D87B8
+	.incbin "build/assets/087D87B8.bin" @ fieldmap/area06_lower_map04
 .Lspan_087D8B14:
-	.incbin "build/assets/087D8B14.bin" @ rom_087D0000/087D8B14
+	.incbin "build/assets/087D8B14.bin" @ fieldmap/area06_lower_map05
 .Lspan_087D8E60:
-	.incbin "build/assets/087D8E60.bin" @ rom_087D0000/087D8E60
+	.incbin "build/assets/087D8E60.bin" @ fieldmap/area06_lower_map06
 .Lspan_087D90E4:
-	.incbin "build/assets/087D90E4.bin" @ rom_087D0000/087D90E4
+	.incbin "build/assets/087D90E4.bin" @ fieldmap/area06_lower_map07
 .Lspan_087D9418:
-	.incbin "build/assets/087D9418.bin" @ rom_087D0000/087D9418
+	.incbin "build/assets/087D9418.bin" @ fieldmap/area06_lower_map08
 .Lspan_087D97F4:
-	.incbin "build/assets/087D97F4.bin" @ rom_087D0000/087D97F4
+	.incbin "build/assets/087D97F4.bin" @ fieldmap/area06_lower_map09
 .Lspan_087D9BEC:
-	.incbin "build/assets/087D9BEC.bin" @ rom_087D0000/087D9BEC
+	.incbin "build/assets/087D9BEC.bin" @ fieldmap/area06_lower_map10
 .Lspan_087D9FAC:
-	.incbin "build/assets/087D9FAC.bin" @ rom_087D0000/087D9FAC
+	.incbin "build/assets/087D9FAC.bin" @ fieldmap/area06_lower_map11
 .Lspan_087DA354:
-	.incbin "build/assets/087DA354.bin" @ rom_087D0000/087DA354
+	.incbin "build/assets/087DA354.bin" @ fieldmap/area06_lower_map12
 .Lspan_087DA774:
-	.incbin "build/assets/087DA774.bin" @ rom_087D0000/087DA774
+	.incbin "build/assets/087DA774.bin" @ fieldmap/area06_lower_map13
 .Lspan_087DAB4C:
-	.incbin "build/assets/087DAB4C.bin" @ rom_087D0000/087DAB4C
+	.incbin "build/assets/087DAB4C.bin" @ fieldmap/area06_lower_map14
 .Lspan_087DAE2C:
-	.incbin "build/assets/087DAE2C.bin" @ rom_087D0000/087DAE2C
+	.incbin "build/assets/087DAE2C.bin" @ fieldmap/area06_lower_map15
 	.incbin "baserom.gba", 0x7DAFCC, 0x200
 .Lspan_087DB1CC:
-	.incbin "build/assets/087DB1CC.bin" @ rom_087D0000/087DB1CC
+	.incbin "build/assets/087DB1CC.bin" @ fieldmap/area06_attr0
 .Lspan_087DB490:
-	.incbin "build/assets/087DB490.bin" @ rom_087D0000/087DB490
+	.incbin "build/assets/087DB490.bin" @ fieldmap/area06_attr1
 .Lspan_087DB840:
-	.incbin "build/assets/087DB840.bin" @ rom_087D0000/087DB840
+	.incbin "build/assets/087DB840.bin" @ fieldmap/area06_attr2
 .Lspan_087DBA50:
-	.incbin "build/assets/087DBA50.bin" @ rom_087D0000/087DBA50
+	.incbin "build/assets/087DBA50.bin" @ fieldmap/area06_attr3
 .Lspan_087DBBFC:
-	.incbin "build/assets/087DBBFC.bin" @ rom_087D0000/087DBBFC
+	.incbin "build/assets/087DBBFC.bin" @ fieldmap/area07_upper_map00
 .Lspan_087DBDA8:
-	.incbin "build/assets/087DBDA8.bin" @ rom_087D0000/087DBDA8
+	.incbin "build/assets/087DBDA8.bin" @ fieldmap/area07_lower_map00
 	.incbin "baserom.gba", 0x7DBFD8, 0x100
 .Lspan_087DC0D8:
-	.incbin "build/assets/087DC0D8.bin" @ rom_087D0000/087DC0D8
+	.incbin "build/assets/087DC0D8.bin" @ fieldmap/area07_attr0
 .Lspan_087DC228:
-	.incbin "build/assets/087DC228.bin" @ rom_087D0000/087DC228
+	.incbin "build/assets/087DC228.bin" @ fieldmap/area07_attr1
 .Lspan_087DC31C:
-	.incbin "build/assets/087DC31C.bin" @ rom_087D0000/087DC31C
+	.incbin "build/assets/087DC31C.bin" @ fieldmap/area07_attr2
 .Lspan_087DC410:
-	.incbin "build/assets/087DC410.bin" @ rom_087D0000/087DC410
+	.incbin "build/assets/087DC410.bin" @ fieldmap/area07_attr3
 .Lspan_087DC504:
-	.incbin "build/assets/087DC504.bin" @ rom_087D0000/087DC504
+	.incbin "build/assets/087DC504.bin" @ fieldmap/area08_upper_map00
 .Lspan_087DC670:
-	.incbin "build/assets/087DC670.bin" @ rom_087D0000/087DC670
+	.incbin "build/assets/087DC670.bin" @ fieldmap/area08_upper_map01
 .Lspan_087DC764:
-	.incbin "build/assets/087DC764.bin" @ rom_087D0000/087DC764
+	.incbin "build/assets/087DC764.bin" @ fieldmap/area08_lower_map00
 .Lspan_087DCA1C:
-	.incbin "build/assets/087DCA1C.bin" @ rom_087D0000/087DCA1C
+	.incbin "build/assets/087DCA1C.bin" @ fieldmap/area08_lower_map01
 	.incbin "baserom.gba", 0x7DCC18, 0x100
 .Lspan_087DCD18:
-	.incbin "build/assets/087DCD18.bin" @ rom_087D0000/087DCD18
+	.incbin "build/assets/087DCD18.bin" @ fieldmap/area08_attr0
 .Lspan_087DCEAC:
-	.incbin "build/assets/087DCEAC.bin" @ rom_087D0000/087DCEAC
+	.incbin "build/assets/087DCEAC.bin" @ fieldmap/area08_attr1
 .Lspan_087DCFA0:
-	.incbin "build/assets/087DCFA0.bin" @ rom_087D0000/087DCFA0
+	.incbin "build/assets/087DCFA0.bin" @ fieldmap/area08_attr2
 .Lspan_087DD094:
-	.incbin "build/assets/087DD094.bin" @ rom_087D0000/087DD094
+	.incbin "build/assets/087DD094.bin" @ fieldmap/area08_attr3
 .Lspan_087DD188:
-	.incbin "build/assets/087DD188.bin" @ rom_087D0000/087DD188
+	.incbin "build/assets/087DD188.bin" @ fieldmap/area09_upper_map00
 .Lspan_087DD2F8:
-	.incbin "build/assets/087DD2F8.bin" @ rom_087D0000/087DD2F8
+	.incbin "build/assets/087DD2F8.bin" @ fieldmap/area09_upper_map01
 .Lspan_087DD458:
-	.incbin "build/assets/087DD458.bin" @ rom_087D0000/087DD458
+	.incbin "build/assets/087DD458.bin" @ fieldmap/area09_lower_map00
 .Lspan_087DD758:
-	.incbin "build/assets/087DD758.bin" @ rom_087D0000/087DD758
+	.incbin "build/assets/087DD758.bin" @ fieldmap/area09_lower_map01
 .Lspan_087DD970:
-	.incbin "build/assets/087DD970.bin" @ rom_087D0000/087DD970
+	.incbin "build/assets/087DD970.bin" @ fieldmap/area09_attr0
 .Lspan_087DDB2C:
-	.incbin "build/assets/087DDB2C.bin" @ rom_087D0000/087DDB2C
+	.incbin "build/assets/087DDB2C.bin" @ fieldmap/area09_attr1
 .Lspan_087DDC20:
-	.incbin "build/assets/087DDC20.bin" @ rom_087D0000/087DDC20
+	.incbin "build/assets/087DDC20.bin" @ fieldmap/area09_attr2
 .Lspan_087DDD14:
-	.incbin "build/assets/087DDD14.bin" @ rom_087D0000/087DDD14
+	.incbin "build/assets/087DDD14.bin" @ fieldmap/area09_attr3
 	.global gUnknown_087DDE08
 gUnknown_087DDE08: @ 0x087DDE08
 .Lspan_087DDE08:
-	.incbin "build/assets/087DDE08.bin" @ rom_087D0000/087DDE08
+	.incbin "build/assets/087DDE08.bin" @ fieldmap/objects0
 	.global gUnknown_087DE4C8
 gUnknown_087DE4C8: @ 0x087DE4C8
 .Lspan_087DE4C8:
-	.incbin "build/assets/087DE4C8.bin" @ rom_087D0000/087DE4C8
+	.incbin "build/assets/087DE4C8.bin" @ fieldmap/objects1
 	.global gUnknown_087DE8C4
 gUnknown_087DE8C4: @ 0x087DE8C4
 	.incbin "baserom.gba", 0x7DE8C4, 0x60
@@ -2729,11 +2729,11 @@ gUnknown_087E043C: @ 0x087E043C
 	.global gUnknown_087E04A4
 gUnknown_087E04A4: @ 0x087E04A4
 .Lspan_087E04A4:
-	.incbin "build/assets/087E04A4.bin" @ rom_087E0000/087E04A4
+	.incbin "build/assets/087E04A4.bin" @ fieldmap/panel_tiles
 	.global gUnknown_087E0788
 gUnknown_087E0788: @ 0x087E0788
 .Lspan_087E0788:
-	.incbin "build/assets/087E0788.bin" @ rom_087E0000/087E0788
+	.incbin "build/assets/087E0788.bin" @ fieldmap/panel_map
 	.global gUnknown_087E0978
 gUnknown_087E0978: @ 0x087E0978
 	.byte 0x63, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -2876,97 +2876,97 @@ gUnknown_087E3360: @ 0x087E3360
 gUnknown_087E35F4: @ 0x087E35F4
 	.incbin "baserom.gba", 0x7E35F4, 0x2A4
 .Lspan_087E3898:
-	.incbin "build/assets/087E3898.bin" @ rom_087E0000/087E3898
+	.incbin "build/assets/087E3898.bin" @ fusion/room_tiles0
 .Lspan_087E4534:
-	.incbin "build/assets/087E4534.bin" @ rom_087E0000/087E4534
+	.incbin "build/assets/087E4534.bin" @ fusion/room_tiles1
 .Lspan_087E5024:
-	.incbin "build/assets/087E5024.bin" @ rom_087E0000/087E5024
+	.incbin "build/assets/087E5024.bin" @ fusion/room_tiles2
 	.global gUnknown_087E5D3C
 gUnknown_087E5D3C: @ 0x087E5D3C
 	.byte 0x98, 0x38, 0x7E, 0x08, 0x34, 0x45, 0x7E, 0x08, 0x24, 0x50, 0x7E, 0x08
 	.global gUnknown_087E5D48
 gUnknown_087E5D48: @ 0x087E5D48
 .Lspan_087E5D48:
-	.incbin "build/assets/087E5D48.bin" @ rom_087E0000/087E5D48
+	.incbin "build/assets/087E5D48.bin" @ fusion/capsule_tiles
 .Lspan_087E66F4:
-	.incbin "build/assets/087E66F4.bin" @ rom_087E0000/087E66F4
+	.incbin "build/assets/087E66F4.bin" @ fusion/mist0
 .Lspan_087E6B64:
-	.incbin "build/assets/087E6B64.bin" @ rom_087E0000/087E6B64
+	.incbin "build/assets/087E6B64.bin" @ fusion/mist2
 .Lspan_087E71CC:
-	.incbin "build/assets/087E71CC.bin" @ rom_087E0000/087E71CC
+	.incbin "build/assets/087E71CC.bin" @ fusion/mist3
 .Lspan_087E781C:
-	.incbin "build/assets/087E781C.bin" @ rom_087E0000/087E781C
+	.incbin "build/assets/087E781C.bin" @ fusion/mist4
 .Lspan_087E7ED0:
-	.incbin "build/assets/087E7ED0.bin" @ rom_087E0000/087E7ED0
+	.incbin "build/assets/087E7ED0.bin" @ fusion/mist5
 .Lspan_087E8584:
-	.incbin "build/assets/087E8584.bin" @ rom_087E0000/087E8584
+	.incbin "build/assets/087E8584.bin" @ fusion/mist6
 .Lspan_087E8C48:
-	.incbin "build/assets/087E8C48.bin" @ rom_087E0000/087E8C48
+	.incbin "build/assets/087E8C48.bin" @ fusion/mist7
 .Lspan_087E927C:
-	.incbin "build/assets/087E927C.bin" @ rom_087E0000/087E927C
+	.incbin "build/assets/087E927C.bin" @ fusion/mist8
 .Lspan_087E9640:
-	.incbin "build/assets/087E9640.bin" @ rom_087E0000/087E9640
+	.incbin "build/assets/087E9640.bin" @ fusion/mist9
 .Lspan_087E98B8:
-	.incbin "build/assets/087E98B8.bin" @ rom_087E0000/087E98B8
+	.incbin "build/assets/087E98B8.bin" @ fusion/mist10
 .Lspan_087E997C:
-	.incbin "build/assets/087E997C.bin" @ rom_087E0000/087E997C
+	.incbin "build/assets/087E997C.bin" @ fusion/room_anim00
 .Lspan_087E9EF8:
-	.incbin "build/assets/087E9EF8.bin" @ rom_087E0000/087E9EF8
+	.incbin "build/assets/087E9EF8.bin" @ fusion/room_anim01
 .Lspan_087EA444:
-	.incbin "build/assets/087EA444.bin" @ rom_087E0000/087EA444
+	.incbin "build/assets/087EA444.bin" @ fusion/room_anim02
 .Lspan_087EA990:
-	.incbin "build/assets/087EA990.bin" @ rom_087E0000/087EA990
+	.incbin "build/assets/087EA990.bin" @ fusion/room_anim03
 .Lspan_087EAF24:
-	.incbin "build/assets/087EAF24.bin" @ rom_087E0000/087EAF24
+	.incbin "build/assets/087EAF24.bin" @ fusion/room_anim04
 .Lspan_087EB4AC:
-	.incbin "build/assets/087EB4AC.bin" @ rom_087E0000/087EB4AC
+	.incbin "build/assets/087EB4AC.bin" @ fusion/room_anim05
 .Lspan_087EBA30:
-	.incbin "build/assets/087EBA30.bin" @ rom_087E0000/087EBA30
+	.incbin "build/assets/087EBA30.bin" @ fusion/room_anim06
 .Lspan_087EBFBC:
-	.incbin "build/assets/087EBFBC.bin" @ rom_087E0000/087EBFBC
+	.incbin "build/assets/087EBFBC.bin" @ fusion/room_anim07
 .Lspan_087EC50C:
-	.incbin "build/assets/087EC50C.bin" @ rom_087E0000/087EC50C
+	.incbin "build/assets/087EC50C.bin" @ fusion/room_anim08
 .Lspan_087ECA60:
-	.incbin "build/assets/087ECA60.bin" @ rom_087E0000/087ECA60
+	.incbin "build/assets/087ECA60.bin" @ fusion/room_anim09
 .Lspan_087ED000:
-	.incbin "build/assets/087ED000.bin" @ rom_087E0000/087ED000
+	.incbin "build/assets/087ED000.bin" @ fusion/room_anim10
 .Lspan_087ED594:
-	.incbin "build/assets/087ED594.bin" @ rom_087E0000/087ED594
+	.incbin "build/assets/087ED594.bin" @ fusion/room_anim11
 	.incbin "baserom.gba", 0x7EDB20, 0x300
 .Lspan_087EDE20:
-	.incbin "build/assets/087EDE20.bin" @ rom_087E0000/087EDE20
+	.incbin "build/assets/087EDE20.bin" @ fusion/effect2_part0
 .Lspan_087EE384:
-	.incbin "build/assets/087EE384.bin" @ rom_087E0000/087EE384
+	.incbin "build/assets/087EE384.bin" @ fusion/effect2_part1
 .Lspan_087EE750:
-	.incbin "build/assets/087EE750.bin" @ rom_087E0000/087EE750
+	.incbin "build/assets/087EE750.bin" @ fusion/effect2_part2
 .Lspan_087EE7A8:
-	.incbin "build/assets/087EE7A8.bin" @ rom_087E0000/087EE7A8
+	.incbin "build/assets/087EE7A8.bin" @ fusion/effect0_part0
 .Lspan_087EEAE8:
-	.incbin "build/assets/087EEAE8.bin" @ rom_087E0000/087EEAE8
+	.incbin "build/assets/087EEAE8.bin" @ fusion/effect0_part1
 .Lspan_087EEBDC:
-	.incbin "build/assets/087EEBDC.bin" @ rom_087E0000/087EEBDC
+	.incbin "build/assets/087EEBDC.bin" @ fusion/effect0_part2
 .Lspan_087EEC34:
-	.incbin "build/assets/087EEC34.bin" @ rom_087E0000/087EEC34
+	.incbin "build/assets/087EEC34.bin" @ fusion/effect1_part0
 .Lspan_087EEEF0:
-	.incbin "build/assets/087EEEF0.bin" @ rom_087E0000/087EEEF0
+	.incbin "build/assets/087EEEF0.bin" @ fusion/effect1_part1
 .Lspan_087EEFE4:
-	.incbin "build/assets/087EEFE4.bin" @ rom_087E0000/087EEFE4
+	.incbin "build/assets/087EEFE4.bin" @ fusion/effect1_part2
 	.global gUnknown_087EF03C
 gUnknown_087EF03C: @ 0x087EF03C
 .Lspan_087EF03C:
-	.incbin "build/assets/087EF03C.bin" @ rom_087E0000/087EF03C
+	.incbin "build/assets/087EF03C.bin" @ fusion/room_map_2way
 	.global gUnknown_087EF5A0
 gUnknown_087EF5A0: @ 0x087EF5A0
 .Lspan_087EF5A0:
-	.incbin "build/assets/087EF5A0.bin" @ rom_087E0000/087EF5A0
+	.incbin "build/assets/087EF5A0.bin" @ fusion/room_map_3way
 	.global gUnknown_087EFB04
 gUnknown_087EFB04: @ 0x087EFB04
 .Lspan_087EFB04:
-	.incbin "build/assets/087EFB04.bin" @ rom_087E0000/087EFB04
+	.incbin "build/assets/087EFB04.bin" @ fusion/capsule_map_2way
 	.global gUnknown_087EFCD8
 gUnknown_087EFCD8: @ 0x087EFCD8
 .Lspan_087EFCD8:
-	.incbin "build/assets/087EFCD8.bin" @ rom_087E0000/087EFCD8
+	.incbin "build/assets/087EFCD8.bin" @ fusion/capsule_map_3way
 	.global gUnknown_087EFF4C
 gUnknown_087EFF4C: @ 0x087EFF4C
 	.incbin "baserom.gba", 0x7EFF4C, 0x60

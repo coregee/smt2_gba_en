@@ -3486,7 +3486,7 @@ sub_080C10F4: @ 0x080C10F4
 	lsls r0, r4, #0x10
 	lsrs r0, r0, #0x10
 	lsrs r1, r5, #0x10
-	bl sub_080AF4B8
+	bl Automap_SetVisitedRaw
 	adds r4, #1
 	cmp r4, #0xf
 	bls .L080C11EA
@@ -3495,19 +3495,19 @@ sub_080C10F4: @ 0x080C10F4
 	bls .L080C11E4
 	movs r0, #0xd
 	movs r1, #1
-	bl sub_080AF538
+	bl Automap_ClearVisitedRaw
 	movs r0, #0xd
 	movs r1, #5
-	bl sub_080AF538
+	bl Automap_ClearVisitedRaw
 	movs r0, #0xc
 	movs r1, #0xa
-	bl sub_080AF538
+	bl Automap_ClearVisitedRaw
 	movs r0, #0xc
 	movs r1, #0xb
-	bl sub_080AF538
+	bl Automap_ClearVisitedRaw
 	movs r0, #0xd
 	movs r1, #0xb
-	bl sub_080AF538
+	bl Automap_ClearVisitedRaw
 	ldr r4, .L080C127C
 	ldr r2, .L080C12A4
 	adds r1, r4, r2
@@ -3529,7 +3529,7 @@ sub_080C10F4: @ 0x080C10F4
 	bl sub_080C271C
 	bl sub_080C27F0
 	bl sub_080C2968
-	bl sub_080D3E10
+	bl ComboBits_Clear
 	ldr r2, .L080C12B4
 	adds r1, r4, r2
 	ldr r0, .L080C12B8

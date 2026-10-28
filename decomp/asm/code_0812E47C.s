@@ -704,7 +704,7 @@ gUnknown_0812E7D8:
 	cmp r1, r0
 	beq .L0812E9F2
 	adds r0, r1, #0
-	bl sub_080EC038
+	bl Battle_GetMessage
 	ldr r1, [sp, #4]
 	bl Menu_ExpandListTemplate
 	adds r1, r0, #0
@@ -744,7 +744,7 @@ gUnknown_0812E7D8:
 .L0812EA34:
 	lsls r0, r1, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080EC038
+	bl Battle_GetMessage
 	movs r1, #0
 	bl Menu_ExpandListTemplate
 	adds r1, r0, #0
@@ -1080,7 +1080,7 @@ gUnknown_0812EAF4:
 	cmp r1, r0
 	beq .L0812ED46
 	adds r0, r1, #0
-	bl sub_080EC038
+	bl Battle_GetMessage
 	ldr r1, .L0812ED0C
 	movs r3, #2
 	ldrsh r2, [r1, r3]
@@ -1109,7 +1109,7 @@ gUnknown_0812EAF4:
 .L0812ED30:
 	lsls r0, r1, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080EC038
+	bl Battle_GetMessage
 	movs r1, #0
 	bl Menu_ExpandListTemplate
 	adds r1, r0, #0

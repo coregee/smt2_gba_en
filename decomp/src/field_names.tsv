@@ -1,0 +1,35 @@
+080AD448	TaskOp_Call5	func	gTaskOpTable entry 15 start: func = arg0, func(task, arg1..arg5), pc += 6
+080AD47C	TaskOp_Call6	func	gTaskOpTable entry 16 start: func = arg0, func(task, arg1..arg6), pc += 7
+080AD4B4	TaskOp_SetCompareValue	func	gTaskOpTable entry 17 start: task->unk1E = arg (value tested by entry 18)
+080AD4D0	TaskOp_CompareGoto	func	gTaskOpTable entry 18 start: args cmp (0 ==, 1 !=, 2 >=, 3 <), value, label; Task_GotoLabel when task->unk1E cmp value holds, else pc += 3
+080AD540	TaskOp_SetOnFrame	func	gTaskOpTable entry 19 start: task->onFrame = arg
+080AD558	TaskOp_CallFunc	func	gTaskOpTable entry 20 start: func = arg, pc++, func(task) (same as entry 10)
+080AD578	TaskOp_SpawnChild	func	gTaskOpTable entry 21 start: Task_Create(arg script, task->id)
+080AD5C0	TaskOp_PlaySe	func	gTaskOpTable entry 23 start: sub_080C51D4(arg) (the SE call YesNo_HandleInput uses)
+080AD5E4	TaskOp_StopSong	func	gTaskOpTable entry 24 start: m4aSongNumStop(arg)
+080AD7E4	Field_GetState	func	returns the u16 at 0x03004550 that Field_SetState writes
+080AD824	Map_LoadGraphicsStep	func	*step 1..39: CpuSet-clears and LZ77-decompresses one map graphics block per call into EWRAM 0x0200F874.. from the map variant pointers, then palettes; *step = 0 when done
+080ADCCC	Map_SetGraphicsPointers	func	sets the IWRAM pointers (03003FC0, 03003BB0, 03004604, ...) to the EWRAM buffers and the map variant palettes, then Palette_CopyDarkened x3
+080ADE54	Palette_CopyDarkened	func	DMA count colors src->dst, then subtracts 18 (23 on map 0x4D) from each RGB channel of dst, clamped at 0
+080AE0BC	Field_LoadGraphicsStep	func	one step of sub_080ADFEC per call, counter 03003BBC, 0xFFFF when done
+080AE2A8	Field_SetPosition	func	writes x,y to 03004550+0x12/0x14 and the previous position +0x16/0x18 (Field_Step moves +0x12/0x14 by direction)
+080AE2C0	Field_SavePrevPosition	func	copies position +0x12/+0x14 to +0x16/+0x18
+080AE330	Field_CopyIwramCode	func	CpuSet copies sub_080B210C (0x400 bytes) to 03003BC0 and sub_080B23D0 (0x500 bytes) to 03004010
+080AE4AC	View_FillCell	func	view cell [row][col] (0x0200AB08, 12 bytes, 9 per row) = four 2-bit wall codes of map square (x,y) rotated to the facing direction; valid = 0 outside the map
+080AECD4	Automap_FillCell	func	automap cell [row][col] (0x02005000, 28 per row) from map square if Automap_IsVisited; wall code 3 shown as 2; bit 15 for event squares
+080AEDB4	Automap_Build	func	clears 0x02005000 (28x11 cells) and fills it around (x,y) rotated by direction, scrolled by 0x0200DFCC; sets 0x0200DFC8/0x0200DFCA scroll flags
+080AF4B8	Automap_SetVisitedRaw	func	sets bit (x&7) of gGameState+0x1188 + y*16 + x/8
+080AF538	Automap_ClearVisitedRaw	func	clears bit (x&7) of gGameState+0x1188 + y*16 + x/8
+080AF4EC	Automap_SetVisited	func	map-local (x,y) + map header origin (+8/+0xA), checked by sub_080B7944, then Automap_SetVisitedRaw
+080AF56C	Automap_ClearVisited	func	as Automap_SetVisited with Automap_ClearVisitedRaw
+080AF5B8	Automap_SetVisitedAhead	func	Automap_SetVisited on the square next to (x,y) in direction dir (0 y+1, 1 x-1, 2 y-1, 3 x+1) when inside the map
+080AF620	Automap_IsVisited	func	visited bit of map-local (x,y) (0 when sub_080B7944 rejects the square)
+080AF68C	Automap_IsVisitedUnchecked	func	visited bit of map-local (x,y) without the sub_080B7944 check
+080B0204	View_IsSideOpen	func	view cell [5][4] (player square) walls[dir] == 0
+080B0248	View_GetWall	func	walls[dir] of view cell [5+dy][4+dx] (0x0200AD54 = player cell); 0 for dir > 3
+080B02A0	Field_Step	func	moves position 03004550+0x12/0x14 one square in dir clamped to map size +0x1A/+0x1C, Automap_SetVisited, 03003FF4 = 1
+03004550	gFieldState	ram	0xA4-byte field state: +0 state (Field_SetState), +2 facing, +0x12/0x14 position, +0x16/0x18 previous, +0x1A/0x1C map size, +0x20 map squares; cleared by sub_080AE364 (DMA 0x29 words)
+0200AB08	gViewCells	ram	View_FillCell output: [11][9] cells of 12 bytes {valid, ?, walls[4]}; View_GetWall reads around [5][4]
+02005000	gAutomapCells	ram	Automap_Build output: [11][28] cells of 12 bytes {flags, u8 x, u8 y, walls[4]}
+0200DFCC	gAutomapScroll	ram	s16 row offset added/subtracted in Automap_Build
+03003BBC	gFieldLoadStep	ram	step counter of Field_LoadGraphicsStep (0xFFFF = done)

@@ -36,7 +36,7 @@ sub_080B89B0: @ 0x080B89B0
 	movs r0, #0
 	movs r1, #0
 	movs r2, #6
-	bl sub_080B3078
+	bl FieldMap_HasRecordRel
 	cmp r0, #0
 	bne .L080B8A24
 	ldr r0, .L080B8A18
@@ -1209,7 +1209,7 @@ sub_080B9290: @ 0x080B9290
 	bl sub_080B1A1C
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080B02A0
+	bl Field_Step
 	pop {r0}
 	bx r0
 	.byte 0x00, 0x00
@@ -1246,7 +1246,7 @@ sub_080B92D4: @ 0x080B92D4
 	movs r0, #0
 	movs r1, #0
 	movs r2, #0
-	bl sub_080B0248
+	bl View_GetWall
 	adds r4, r0, #0
 	bl sub_080B2938
 	adds r5, r0, #0
@@ -1567,9 +1567,9 @@ sub_080B953C: @ 0x080B953C
 	push {lr}
 	movs r0, #0
 	movs r1, #0
-	bl sub_080B2EFC
+	bl FieldMap_CellRecordsRel
 	movs r1, #0x21
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	cmp r0, #0
 	beq .L080B9554
 	movs r0, #0
@@ -1686,7 +1686,7 @@ sub_080B95FC: @ 0x080B95FC
 	movs r0, #0
 	movs r1, #0
 	movs r2, #6
-	bl sub_080B3078
+	bl FieldMap_HasRecordRel
 	cmp r0, #1
 	beq .L080B966E
 	ldr r0, .L080B967C
@@ -1850,9 +1850,9 @@ sub_080B9750: @ 0x080B9750
 	push {lr}
 	movs r0, #0
 	movs r1, #0
-	bl sub_080B2EFC
+	bl FieldMap_CellRecordsRel
 	movs r1, #3
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	pop {r1}
 	bx r1
 
@@ -1916,7 +1916,7 @@ sub_080B97A8: @ 0x080B97A8
 	adds r2, r4, #0
 	adds r2, #0x38
 	movs r1, #0
-	bl sub_080AD824
+	bl Map_LoadGraphicsStep
 	ldr r0, [r5, #0x14]
 	cmp r0, #0
 	beq .L080B97D4
@@ -1960,7 +1960,7 @@ sub_080B9808: @ 0x080B9808
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	movs r1, #0
-	bl sub_080ADCCC
+	bl Map_SetGraphicsPointers
 	ldr r1, .L080B9824
 	movs r0, #0
 	strh r0, [r1]
@@ -2009,7 +2009,7 @@ sub_080B984C: @ 0x080B984C
 	bl sub_080B2840
 	b .L080B9890
 	.byte 0x00, 0x00
-.L080B987C: .4byte sub_080AE0BC
+.L080B987C: .4byte Field_LoadGraphicsStep
 .L080B9880: .4byte sub_080B9828
 .L080B9884: .4byte 0x03003BBC @ IWRAM+0x3BBC
 .L080B9888: .4byte 0x0000FFFF
@@ -2950,9 +2950,9 @@ sub_080B9F78: @ 0x080B9F78
 .L080B9FDA:
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl sub_080B2FDC
+	bl FieldMap_CellRecordsOffset
 	movs r1, #3
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	cmp r0, #0
 	beq .L080BA014
 	ldrh r0, [r0, #4]

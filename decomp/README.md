@@ -23,7 +23,7 @@ is read from `../rom/Shin Megami Tensei II (Japan).gba` and copied to `baserom.g
 | Assembly | every function disassembled to GNU-as source with symbolic branches, literal pools, jump tables and function pointers; builds sha1-exact |
 | Names | 485 functions named (crt0, IRQ handlers, BIOS wrappers, libgcc/newlib, the whole m4a sound library, the script VM and its opcode handlers, 75 engine functions from the translation patches) — see `reference/function-map.tsv` |
 | Readable C | Ghidra decompilation of every function in `reference/ghidra-c/`, with names, inferred signatures and I/O register names (reference, not compiled) |
-| C | 357 functions in `src/` (332 byte-matching, 25 readable C with the original instructions kept): the m4a library's C half, system/init, palettes and sprites, windows and font rendering, tasks, menus/save/name entry, battle message building, script VM handlers — `docs/matching.md` |
+| C | 803 functions in `src/` (732 byte-matching, 71 readable C with the original instructions kept): the m4a library's C half, system/init, palettes and sprites, windows and font rendering, tasks, field/dungeon and 3D view, menus/save/name entry/casino/keypad, battle message building and flow, the script VM core and opcode handlers, the message-window renderer — `docs/matching.md` |
 | Findings | translation-relevant limits and original bugs read from the C: `docs/translation-findings.md` |
 | Graphics/data | 2,565 compressed streams extracted to PNG/bin and rebuilt exactly (the LZ77 encoder matches the original tool; Huffman streams keep their tree) — formats are guessed from size, palettes not yet attached |
 | Text and scripts | 659 KB in five banks as editable text with symbolic jump/choice labels (`assets/text/`, `docs/text.md`) |

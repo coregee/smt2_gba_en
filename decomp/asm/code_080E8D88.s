@@ -444,7 +444,7 @@ sub_080E90AC: @ 0x080E90AC
 	movs r0, #3
 	bl BattleMenu_SetMode
 	movs r0, #1
-	bl sub_080EC99C
+	bl BattleMsg_SetDone
 	bl sub_080C2BA4
 	movs r7, #0xf6
 	lsls r7, r7, #4

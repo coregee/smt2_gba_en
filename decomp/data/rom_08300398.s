@@ -3,239 +3,239 @@
 	.section .rodata
 
 .Lspan_08300398:
-	.incbin "build/assets/08300398.bin" @ rom_08300000/08300398
+	.incbin "build/assets/08300398.bin" @ scenes/scene_099_chunk3
 .Lspan_08300F40:
-	.incbin "build/assets/08300F40.bin" @ rom_08300000/08300F40
+	.incbin "build/assets/08300F40.bin" @ scenes/scene_099_chunk4
 .Lspan_083019E0:
-	.incbin "build/assets/083019E0.bin" @ rom_08300000/083019E0
+	.incbin "build/assets/083019E0.bin" @ scenes/scene_099_chunk5
 	.incbin "baserom.gba", 0x3021C4, 0xB8
 .Lspan_0830227C:
-	.incbin "build/assets/0830227C.bin" @ rom_08300000/0830227C
+	.incbin "build/assets/0830227C.bin" @ scenes/scene_092_chunk0
 .Lspan_08302374:
-	.incbin "build/assets/08302374.bin" @ rom_08300000/08302374
+	.incbin "build/assets/08302374.bin" @ scenes/scene_092_chunk1
 	.incbin "baserom.gba", 0x3023F4, 0x1B8
 .Lspan_083025AC:
-	.incbin "build/assets/083025AC.bin" @ rom_08300000/083025AC
+	.incbin "build/assets/083025AC.bin" @ scenes/scene_225_chunk8
 .Lspan_083032D8:
-	.incbin "build/assets/083032D8.bin" @ rom_08300000/083032D8
+	.incbin "build/assets/083032D8.bin" @ scenes/scene_225_chunk9
 	.incbin "baserom.gba", 0x3039E0, 0x1B8
 .Lspan_08303B98:
-	.incbin "build/assets/08303B98.bin" @ rom_08300000/08303B98
+	.incbin "build/assets/08303B98.bin" @ scenes/scene_227_chunk8
 .Lspan_083049BC:
-	.incbin "build/assets/083049BC.bin" @ rom_08300000/083049BC
+	.incbin "build/assets/083049BC.bin" @ scenes/scene_227_chunk9
 	.incbin "baserom.gba", 0x3050F8, 0x1B8
 .Lspan_083052B0:
-	.incbin "build/assets/083052B0.bin" @ rom_08300000/083052B0
+	.incbin "build/assets/083052B0.bin" @ scenes/scene_226_chunk8
 .Lspan_08306194:
-	.incbin "build/assets/08306194.bin" @ rom_08300000/08306194
+	.incbin "build/assets/08306194.bin" @ scenes/scene_226_chunk9
 	.incbin "baserom.gba", 0x306854, 0x1B8
 .Lspan_08306A0C:
-	.incbin "build/assets/08306A0C.bin" @ rom_08300000/08306A0C
+	.incbin "build/assets/08306A0C.bin" @ scenes/scene_224_chunk0
 .Lspan_0830797C:
-	.incbin "build/assets/0830797C.bin" @ rom_08300000/0830797C
+	.incbin "build/assets/0830797C.bin" @ scenes/scene_224_chunk1
 	.incbin "baserom.gba", 0x308040, 0x1B8
 .Lspan_083081F8:
-	.incbin "build/assets/083081F8.bin" @ rom_08300000/083081F8
+	.incbin "build/assets/083081F8.bin" @ scenes/scene_241_chunk8
 .Lspan_08308FA8:
-	.incbin "build/assets/08308FA8.bin" @ rom_08300000/08308FA8
+	.incbin "build/assets/08308FA8.bin" @ scenes/scene_241_chunk9
 	.incbin "baserom.gba", 0x309674, 0x1B8
 .Lspan_0830982C:
-	.incbin "build/assets/0830982C.bin" @ rom_08300000/0830982C
+	.incbin "build/assets/0830982C.bin" @ scenes/scene_243_chunk8
 .Lspan_0830A4B0:
-	.incbin "build/assets/0830A4B0.bin" @ rom_08300000/0830A4B0
+	.incbin "build/assets/0830A4B0.bin" @ scenes/scene_243_chunk9
 	.incbin "baserom.gba", 0x30AB70, 0x1B8
 .Lspan_0830AD28:
-	.incbin "build/assets/0830AD28.bin" @ rom_08300000/0830AD28
+	.incbin "build/assets/0830AD28.bin" @ scenes/scene_242_chunk8
 .Lspan_0830BB60:
-	.incbin "build/assets/0830BB60.bin" @ rom_08300000/0830BB60
+	.incbin "build/assets/0830BB60.bin" @ scenes/scene_242_chunk9
 	.incbin "baserom.gba", 0x30C1E0, 0x1B8
 .Lspan_0830C398:
-	.incbin "build/assets/0830C398.bin" @ rom_08300000/0830C398
+	.incbin "build/assets/0830C398.bin" @ scenes/scene_240_chunk0
 .Lspan_0830D1C0:
-	.incbin "build/assets/0830D1C0.bin" @ rom_08300000/0830D1C0
+	.incbin "build/assets/0830D1C0.bin" @ scenes/scene_240_chunk1
 	.incbin "baserom.gba", 0x30D850, 0x1B8
 .Lspan_0830DA08:
-	.incbin "build/assets/0830DA08.bin" @ rom_08300000/0830DA08
+	.incbin "build/assets/0830DA08.bin" @ scenes/scene_257_chunk8
 .Lspan_0830E52C:
-	.incbin "build/assets/0830E52C.bin" @ rom_08300000/0830E52C
+	.incbin "build/assets/0830E52C.bin" @ scenes/scene_257_chunk9
 	.incbin "baserom.gba", 0x30EC4C, 0x1B8
 .Lspan_0830EE04:
-	.incbin "build/assets/0830EE04.bin" @ rom_08300000/0830EE04
+	.incbin "build/assets/0830EE04.bin" @ scenes/scene_259_chunk8
 .Lspan_0830F9AC:
-	.incbin "build/assets/0830F9AC.bin" @ rom_08300000/0830F9AC
+	.incbin "build/assets/0830F9AC.bin" @ scenes/scene_259_chunk9
 	.incbin "baserom.gba", 0x310024, 0x1B8
 .Lspan_083101DC:
-	.incbin "build/assets/083101DC.bin" @ rom_08310000/083101DC
+	.incbin "build/assets/083101DC.bin" @ scenes/scene_256_chunk0
 .Lspan_083110D8:
-	.incbin "build/assets/083110D8.bin" @ rom_08310000/083110D8
+	.incbin "build/assets/083110D8.bin" @ scenes/scene_256_chunk1
 	.incbin "baserom.gba", 0x31180C, 0x1B8
 .Lspan_083119C4:
-	.incbin "build/assets/083119C4.bin" @ rom_08310000/083119C4
+	.incbin "build/assets/083119C4.bin" @ scenes/scene_258_chunk8
 .Lspan_083129B0:
-	.incbin "build/assets/083129B0.bin" @ rom_08310000/083129B0
+	.incbin "build/assets/083129B0.bin" @ scenes/scene_258_chunk9
 	.incbin "baserom.gba", 0x313114, 0x1B8
 .Lspan_083132CC:
-	.incbin "build/assets/083132CC.bin" @ rom_08310000/083132CC
+	.incbin "build/assets/083132CC.bin" @ scenes/scene_256_chunk8
 .Lspan_08313F44:
-	.incbin "build/assets/08313F44.bin" @ rom_08310000/08313F44
+	.incbin "build/assets/08313F44.bin" @ scenes/scene_256_chunk9
 	.incbin "baserom.gba", 0x314670, 0x1B8
 .Lspan_08314828:
-	.incbin "build/assets/08314828.bin" @ rom_08310000/08314828
+	.incbin "build/assets/08314828.bin" @ scenes/scene_272_chunk8
 .Lspan_08315770:
-	.incbin "build/assets/08315770.bin" @ rom_08310000/08315770
+	.incbin "build/assets/08315770.bin" @ scenes/scene_272_chunk9
 	.incbin "baserom.gba", 0x315D88, 0x1B8
 .Lspan_08315F40:
-	.incbin "build/assets/08315F40.bin" @ rom_08310000/08315F40
+	.incbin "build/assets/08315F40.bin" @ scenes/scene_273_chunk8
 .Lspan_08316C78:
-	.incbin "build/assets/08316C78.bin" @ rom_08310000/08316C78
+	.incbin "build/assets/08316C78.bin" @ scenes/scene_273_chunk9
 	.incbin "baserom.gba", 0x317300, 0x1B8
 .Lspan_083174B8:
-	.incbin "build/assets/083174B8.bin" @ rom_08310000/083174B8
+	.incbin "build/assets/083174B8.bin" @ scenes/scene_274_chunk8
 .Lspan_083184D4:
-	.incbin "build/assets/083184D4.bin" @ rom_08310000/083184D4
+	.incbin "build/assets/083184D4.bin" @ scenes/scene_274_chunk9
 	.incbin "baserom.gba", 0x318B80, 0x1B8
 .Lspan_08318D38:
-	.incbin "build/assets/08318D38.bin" @ rom_08310000/08318D38
+	.incbin "build/assets/08318D38.bin" @ scenes/scene_275_chunk8
 .Lspan_083199D4:
-	.incbin "build/assets/083199D4.bin" @ rom_08310000/083199D4
+	.incbin "build/assets/083199D4.bin" @ scenes/scene_275_chunk9
 	.incbin "baserom.gba", 0x319FEC, 0x1B8
 .Lspan_0831A1A4:
-	.incbin "build/assets/0831A1A4.bin" @ rom_08310000/0831A1A4
+	.incbin "build/assets/0831A1A4.bin" @ scenes/scene_272_chunk0
 .Lspan_0831B0E0:
-	.incbin "build/assets/0831B0E0.bin" @ rom_08310000/0831B0E0
+	.incbin "build/assets/0831B0E0.bin" @ scenes/scene_272_chunk1
 	.incbin "baserom.gba", 0x31B784, 0x1B8
 .Lspan_0831B93C:
-	.incbin "build/assets/0831B93C.bin" @ rom_08310000/0831B93C
+	.incbin "build/assets/0831B93C.bin" @ scenes/scene_288_chunk0
 .Lspan_0831C574:
-	.incbin "build/assets/0831C574.bin" @ rom_08310000/0831C574
+	.incbin "build/assets/0831C574.bin" @ scenes/scene_288_chunk1
 	.incbin "baserom.gba", 0x31CC3C, 0x1B8
 .Lspan_0831CDF4:
-	.incbin "build/assets/0831CDF4.bin" @ rom_08310000/0831CDF4
+	.incbin "build/assets/0831CDF4.bin" @ scenes/scene_289_chunk8
 .Lspan_0831D78C:
-	.incbin "build/assets/0831D78C.bin" @ rom_08310000/0831D78C
+	.incbin "build/assets/0831D78C.bin" @ scenes/scene_289_chunk9
 	.incbin "baserom.gba", 0x31DE38, 0x1B8
 .Lspan_0831DFF0:
-	.incbin "build/assets/0831DFF0.bin" @ rom_08310000/0831DFF0
+	.incbin "build/assets/0831DFF0.bin" @ scenes/scene_290_chunk8
 .Lspan_0831ED7C:
-	.incbin "build/assets/0831ED7C.bin" @ rom_08310000/0831ED7C
+	.incbin "build/assets/0831ED7C.bin" @ scenes/scene_290_chunk9
 	.incbin "baserom.gba", 0x31F448, 0x1B8
 .Lspan_0831F600:
-	.incbin "build/assets/0831F600.bin" @ rom_08310000/0831F600
+	.incbin "build/assets/0831F600.bin" @ scenes/scene_291_chunk8
 .Lspan_083201BC:
-	.incbin "build/assets/083201BC.bin" @ rom_08320000/083201BC
+	.incbin "build/assets/083201BC.bin" @ scenes/scene_291_chunk9
 	.incbin "baserom.gba", 0x320874, 0x1B8
 .Lspan_08320A2C:
-	.incbin "build/assets/08320A2C.bin" @ rom_08320000/08320A2C
+	.incbin "build/assets/08320A2C.bin" @ scenes/scene_292_chunk8
 .Lspan_0832160C:
-	.incbin "build/assets/0832160C.bin" @ rom_08320000/0832160C
+	.incbin "build/assets/0832160C.bin" @ scenes/scene_292_chunk9
 	.incbin "baserom.gba", 0x321CCC, 0x1B8
 .Lspan_08321E84:
-	.incbin "build/assets/08321E84.bin" @ rom_08320000/08321E84
+	.incbin "build/assets/08321E84.bin" @ scenes/scene_313_chunk0
 .Lspan_08322CC4:
-	.incbin "build/assets/08322CC4.bin" @ rom_08320000/08322CC4
+	.incbin "build/assets/08322CC4.bin" @ scenes/scene_313_chunk1
 	.incbin "baserom.gba", 0x323360, 0x1B8
 .Lspan_08323518:
-	.incbin "build/assets/08323518.bin" @ rom_08320000/08323518
+	.incbin "build/assets/08323518.bin" @ scenes/scene_314_chunk8
 .Lspan_08323FB0:
-	.incbin "build/assets/08323FB0.bin" @ rom_08320000/08323FB0
+	.incbin "build/assets/08323FB0.bin" @ scenes/scene_314_chunk9
 	.incbin "baserom.gba", 0x324634, 0x1B8
 .Lspan_083247EC:
-	.incbin "build/assets/083247EC.bin" @ rom_08320000/083247EC
+	.incbin "build/assets/083247EC.bin" @ scenes/scene_315_chunk8
 .Lspan_08325720:
-	.incbin "build/assets/08325720.bin" @ rom_08320000/08325720
+	.incbin "build/assets/08325720.bin" @ scenes/scene_315_chunk9
 	.incbin "baserom.gba", 0x325DB0, 0x1B8
 .Lspan_08325F68:
-	.incbin "build/assets/08325F68.bin" @ rom_08320000/08325F68
+	.incbin "build/assets/08325F68.bin" @ scenes/scene_316_chunk8
 .Lspan_08326918:
-	.incbin "build/assets/08326918.bin" @ rom_08320000/08326918
+	.incbin "build/assets/08326918.bin" @ scenes/scene_316_chunk9
 	.incbin "baserom.gba", 0x326F88, 0x1B8
 .Lspan_08327140:
-	.incbin "build/assets/08327140.bin" @ rom_08320000/08327140
+	.incbin "build/assets/08327140.bin" @ scenes/scene_317_chunk8
 .Lspan_08327D2C:
-	.incbin "build/assets/08327D2C.bin" @ rom_08320000/08327D2C
+	.incbin "build/assets/08327D2C.bin" @ scenes/scene_317_chunk9
 	.incbin "baserom.gba", 0x3283DC, 0x1B8
 .Lspan_08328594:
-	.incbin "build/assets/08328594.bin" @ rom_08320000/08328594
+	.incbin "build/assets/08328594.bin" @ scenes/scene_318_chunk8
 .Lspan_083293A8:
-	.incbin "build/assets/083293A8.bin" @ rom_08320000/083293A8
+	.incbin "build/assets/083293A8.bin" @ scenes/scene_318_chunk9
 	.incbin "baserom.gba", 0x329A50, 0x1B8
 .Lspan_08329C08:
-	.incbin "build/assets/08329C08.bin" @ rom_08320000/08329C08
+	.incbin "build/assets/08329C08.bin" @ scenes/scene_319_chunk8
 .Lspan_0832A6E0:
-	.incbin "build/assets/0832A6E0.bin" @ rom_08320000/0832A6E0
+	.incbin "build/assets/0832A6E0.bin" @ scenes/scene_319_chunk9
 	.incbin "baserom.gba", 0x32ADA8, 0x1B8
 .Lspan_0832AF60:
-	.incbin "build/assets/0832AF60.bin" @ rom_08320000/0832AF60
+	.incbin "build/assets/0832AF60.bin" @ scenes/scene_320_chunk8
 .Lspan_0832BDC0:
-	.incbin "build/assets/0832BDC0.bin" @ rom_08320000/0832BDC0
+	.incbin "build/assets/0832BDC0.bin" @ scenes/scene_320_chunk9
 	.incbin "baserom.gba", 0x32C478, 0x1B8
 .Lspan_0832C630:
-	.incbin "build/assets/0832C630.bin" @ rom_08320000/0832C630
+	.incbin "build/assets/0832C630.bin" @ scenes/scene_377_chunk0
 .Lspan_0832D1CC:
-	.incbin "build/assets/0832D1CC.bin" @ rom_08320000/0832D1CC
+	.incbin "build/assets/0832D1CC.bin" @ scenes/scene_377_chunk1
 	.incbin "baserom.gba", 0x32D878, 0x1B8
 .Lspan_0832DA30:
-	.incbin "build/assets/0832DA30.bin" @ rom_08320000/0832DA30
+	.incbin "build/assets/0832DA30.bin" @ scenes/scene_384_chunk8
 .Lspan_0832E6A8:
-	.incbin "build/assets/0832E6A8.bin" @ rom_08320000/0832E6A8
+	.incbin "build/assets/0832E6A8.bin" @ scenes/scene_384_chunk9
 	.incbin "baserom.gba", 0x32ED84, 0x1B8
 .Lspan_0832EF3C:
-	.incbin "build/assets/0832EF3C.bin" @ rom_08320000/0832EF3C
+	.incbin "build/assets/0832EF3C.bin" @ scenes/scene_383_chunk8
 .Lspan_0832FDD0:
-	.incbin "build/assets/0832FDD0.bin" @ rom_08320000/0832FDD0
+	.incbin "build/assets/0832FDD0.bin" @ scenes/scene_383_chunk9
 	.incbin "baserom.gba", 0x330414, 0x1B8
 .Lspan_083305CC:
-	.incbin "build/assets/083305CC.bin" @ rom_08330000/083305CC
+	.incbin "build/assets/083305CC.bin" @ scenes/scene_381_chunk0
 .Lspan_083313DC:
-	.incbin "build/assets/083313DC.bin" @ rom_08330000/083313DC
+	.incbin "build/assets/083313DC.bin" @ scenes/scene_381_chunk1
 	.incbin "baserom.gba", 0x331A3C, 0x1B8
 .Lspan_08331BF4:
-	.incbin "build/assets/08331BF4.bin" @ rom_08330000/08331BF4
+	.incbin "build/assets/08331BF4.bin" @ scenes/scene_378_chunk8
 .Lspan_08332800:
-	.incbin "build/assets/08332800.bin" @ rom_08330000/08332800
+	.incbin "build/assets/08332800.bin" @ scenes/scene_378_chunk9
 	.incbin "baserom.gba", 0x332ED8, 0x290
 .Lspan_08333168:
-	.incbin "build/assets/08333168.bin" @ rom_08330000/08333168
+	.incbin "build/assets/08333168.bin" @ scenes/scene_217_chunk0
 .Lspan_083340A4:
-	.incbin "build/assets/083340A4.bin" @ rom_08330000/083340A4
+	.incbin "build/assets/083340A4.bin" @ scenes/scene_217_chunk1
 .Lspan_08334FEC:
-	.incbin "build/assets/08334FEC.bin" @ rom_08330000/08334FEC
+	.incbin "build/assets/08334FEC.bin" @ scenes/scene_217_chunk2
 .Lspan_08335F00:
-	.incbin "build/assets/08335F00.bin" @ rom_08330000/08335F00
+	.incbin "build/assets/08335F00.bin" @ scenes/scene_217_chunk3
 	.incbin "baserom.gba", 0x335FB8, 0x290
 .Lspan_08336248:
-	.incbin "build/assets/08336248.bin" @ rom_08330000/08336248
+	.incbin "build/assets/08336248.bin" @ scenes/scene_218_chunk0
 .Lspan_0833737C:
-	.incbin "build/assets/0833737C.bin" @ rom_08330000/0833737C
+	.incbin "build/assets/0833737C.bin" @ scenes/scene_218_chunk1
 .Lspan_083384A8:
-	.incbin "build/assets/083384A8.bin" @ rom_08330000/083384A8
+	.incbin "build/assets/083384A8.bin" @ scenes/scene_218_chunk2
 .Lspan_083395E4:
-	.incbin "build/assets/083395E4.bin" @ rom_08330000/083395E4
+	.incbin "build/assets/083395E4.bin" @ scenes/scene_218_chunk3
 	.incbin "baserom.gba", 0x3396C0, 0x34C
 .Lspan_08339A0C:
-	.incbin "build/assets/08339A0C.bin" @ rom_08330000/08339A0C
+	.incbin "build/assets/08339A0C.bin" @ scenes/scene_094_chunk0
 .Lspan_0833A43C:
-	.incbin "build/assets/0833A43C.bin" @ rom_08330000/0833A43C
+	.incbin "build/assets/0833A43C.bin" @ scenes/scene_094_chunk1
 .Lspan_0833AB94:
-	.incbin "build/assets/0833AB94.bin" @ rom_08330000/0833AB94
+	.incbin "build/assets/0833AB94.bin" @ scenes/scene_094_chunk2
 .Lspan_0833B400:
-	.incbin "build/assets/0833B400.bin" @ rom_08330000/0833B400
+	.incbin "build/assets/0833B400.bin" @ scenes/scene_094_chunk3
 .Lspan_0833BE40:
-	.incbin "build/assets/0833BE40.bin" @ rom_08330000/0833BE40
+	.incbin "build/assets/0833BE40.bin" @ scenes/scene_094_chunk4
 	.incbin "baserom.gba", 0x33C5E4, 0x26C
 .Lspan_0833C850:
-	.incbin "build/assets/0833C850.bin" @ rom_08330000/0833C850
+	.incbin "build/assets/0833C850.bin" @ scenes/scene_190_chunk0
 .Lspan_0833D5B0:
-	.incbin "build/assets/0833D5B0.bin" @ rom_08330000/0833D5B0
+	.incbin "build/assets/0833D5B0.bin" @ scenes/scene_190_chunk1
 .Lspan_0833E184:
-	.incbin "build/assets/0833E184.bin" @ rom_08330000/0833E184
+	.incbin "build/assets/0833E184.bin" @ scenes/scene_190_chunk2
 	.incbin "baserom.gba", 0x33ECA8, 0x26C
 .Lspan_0833EF14:
-	.incbin "build/assets/0833EF14.bin" @ rom_08330000/0833EF14
+	.incbin "build/assets/0833EF14.bin" @ scenes/scene_113_chunk0
 .Lspan_0833F804:
-	.incbin "build/assets/0833F804.bin" @ rom_08330000/0833F804
+	.incbin "build/assets/0833F804.bin" @ scenes/scene_113_chunk1
 .Lspan_083404BC:
-	.incbin "build/assets/083404BC.bin" @ rom_08340000/083404BC
+	.incbin "build/assets/083404BC.bin" @ scenes/scene_113_chunk2
 	.global gUnknown_08341170
 gUnknown_08341170: @ 0x08341170
 	.incbin "baserom.gba", 0x341170, 0x8EAC

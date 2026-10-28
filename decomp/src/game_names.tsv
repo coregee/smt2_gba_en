@@ -1,0 +1,22 @@
+080B098C	Palette_IsBg13Black	func	TRUE when the 32 bytes at 0x03002F50 (gPaletteBuffer colours 0xD0-0xDF) are all zero
+080B0BBC	Field_HBlankWobble	func	installed as gIntrTable[1] by sub_080B0C38; sets BG2VOFS/BG3VOFS from gSineTable[(phase+VCOUNT)&0xFF]/4&3 on lines <100
+080B1C18	Field_HandleInput	func	called by the field main loop with the keys; checks events under the player, A/menu/map keys, then moves/turns from the D-pad via tables 0x0815F2FC/0x0815F31C/0x0815F324
+080B200C	Field_SetFacing	func	stores the old facing (+4) and new facing (+2) of 0x03004550; returns 1 if already facing that way
+080B210C	FieldView_BlitPixels	func	4bpp pixel copy into the view tile buffer skipping non-zero destination nibbles, x clipped to 8..0xE7, mirrored when dir != 1
+080B23D0	FieldView_BlitTiles	func	whole-tile (8 words) copy, or nibble-reversed copy for mirrored layers, same clipping as sub_080B210C
+080B2D94	FieldView_DrawLayer	func	called per 0x20-byte layer by sub_080B28F8; draws a layer through the IWRAM blitters 0x03003BC1/0x03004011 or sub_080B6F40 when its condition flags allow
+080B2EFC	FieldMap_CellRecordsRel	func	walks the map cell list (MapHeader+0x94: {x,y,records...,-2}, -1 end) for the cell fwd/side squares from the player in his facing direction
+080B2FDC	FieldMap_CellRecordsOffset	func	FieldMap_CellRecordsRel with the facing forced to 0, i.e. an absolute offset from the player
+080B3000	FieldMap_CellRecordsAt	func	FieldMap_CellRecordsRel(0,0) with position temporarily set to (x,y) and facing 0
+080B3038	FieldMap_FindRecord	func	scans a cell's records (length table 0x0816222C) for the first one whose type (low half of the first word) matches
+080B3078	FieldMap_HasRecordRel	func	FieldMap_FindRecord(FieldMap_CellRecordsRel(fwd, side), type) != NULL
+080B3348	FieldMap_FindRecordInMap	func	searches every sub-map and square of a map for a record type, restoring map/sub-map/position afterwards
+080B3C5C	BgPicture_LoadPiece	func	decompresses piece gUnk_03003BAC of picture gUnk_03004534 (LZ77, or Huffman then LZ77 over two calls) into 0x0200AFC8 and queues its VRAM upload via table 0x081625D4
+080B3E3C	BgPicture_BeginLoad	func	sets bit 15 of 0x0200AB04, clears the piece index 0x03003BAC, sets 0x03003BA0 when the picture has a 9th piece
+080B3EA4	BgPicture_LoadStep	func	returns 1 once the piece index is 0xFFFF, else loads one piece (BgPicture_LoadPiece)
+080B3F1C	BgPicture_BuildTilemap	func	copies a base tilemap from ROM to 0x02000000, adds per-tile palettes ((attr&0xF)+8)<<12 and DMAs it to 0x06003000
+080B4140	BgPicture_LoadPalette	func	copies the picture palette (sub_080C5F60) to gPaletteTarget colours 0x80.. (0x70.. for picture 0xDA); clears them for picture 0x77
+080B41F8	BgPicture_SetupStepTask	func	VBlank task: one picture setup step per call selected by 0x0300456E (begin load, tilemap, palette, DISPCNT BG3 on)
+080B437C	BgPicture_LoadAll	func	runs every picture setup step at once (loads all pieces in a loop)
+0200AFC8	gBgPictureBuffer	ram	0x2000-byte decode buffer of BgPicture_LoadPiece (Huffman stage at +0x1000); DMA'd to VRAM by sub_080B3ADC..sub_080B3BE8
+03003BAC	gBgPicturePiece	ram	piece index of BgPicture_LoadPiece; bit 15 = Huffman stage pending, 0xFFFF = done

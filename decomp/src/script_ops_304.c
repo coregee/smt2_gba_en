@@ -252,14 +252,14 @@ void ScriptOp_CloseMessage(void)
     gScriptWaitState = 7;
     sub_08132890();
     gUnk_0203DB68 = 0;
-    gUnk_0203DB3E = 0;
+    gMsgGlyphCount = 0;
     gTextColumn = 0;
     gTextLine = 0;
     gUnk_0203DB4A = 0;
-    if (gUnk_0203DB6C != 0)
+    if (gMsgWindowOpen != 0)
     {
-        Window_Close(gUnk_03006968, 1);
-        gUnk_0203DB6C = 0;
+        Window_Close(gMsgWindow, 1);
+        gMsgWindowOpen = 0;
     }
     Font_ResetGlyphSpriteCache(0x180);
     gScriptYield = 1;

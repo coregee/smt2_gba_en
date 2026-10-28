@@ -142,3 +142,40 @@ hard-coded glyph IDs at fixed x positions: English labels need code changes.
   N = 0 runs 65,536 times.
 - SRAM: a header mismatch (magic `0x10241179`, version `0x11`) makes `0x080D1180` reformat all
   32 KB.
+
+## Found in the second conversion round
+
+- **Untranslated shop header (likely visible).** `Shop_InitItemList` (`0x08133B18`), when its
+  mode argument is non-zero, writes a 13-glyph string straight from code into the message
+  glyph list: 選択中のアイテムの所持数 ("quantity owned of the selected item"). The translation
+  re-points this code to its relocated list but leaves the glyph IDs, so the English build
+  should still show this header in Japanese. Needs a code patch, not a text edit; confirm on
+  screen at a shop.
+- **Message page glyph cap.** The original `ScriptVM_Run` clamps the glyph list at 63 entries
+  (`0x0813DCBE`); later glyphs overwrite the last entry. The translation raises the clamp to
+  191 and moves the list to `0x0203F400` (192 records). All 18 literal pools that pointed at
+  the old list `0x0203D800` are rewritten in the patched build (checked).
+- **Original message layout** (`sub_0813DED8`, now replaced by the translation's renderer):
+  fixed 13-px cells, no automatic wrap, no bottom check (extra lines draw below the window).
+- **`MessageBox_ComposeWrappedText`** (`0x080EBED4`) inserts a newline after every 17 counted
+  glyphs (a glyph count, not a pixel width) and writes the 64-glyph compose buffer unbounded.
+  The translation routes the flee messages around it; any other caller still wraps at 17.
+- **Second glyph list** `0x0203DA00` is cleared as 25 entries but appended without a bound
+  (`sub_08133724`); shop rows start at entry `0x18`.
+- **Item counts** are drawn as at most two digits (`0x08133F14`); a count over 99 indexes past
+  the 10-entry digit table.
+- **Fixed 8-glyph names, 12 px apart** in the casino prize list (`0x080D37BC`) and the record
+  list (`0x080D4190`): longer English names are cut, shorter ones must be padded.
+- **Info panel** (`0x080D3F04`): values at fixed x offsets (`x+0x22/0x32/0x3A/0x42`, number at
+  `x+0x52`), so longer labels overlap them. **Keypad** prompts (`0x084F3FDC/F0/FC`) are drawn
+  at a fixed 12-px advance from x=0x10 with digits at fixed x (0x4C coins, 0x7C door code).
+
+### More possible original bugs
+
+- `FieldView_DrawLayer` (`0x080B2D94`) compares a "kind" that is never assigned (leftover r8).
+- `View_GetWall` (`0x080B0248`) takes u16 offsets but gets -1/-2; it works only because EWRAM
+  mirrors every 256 KB.
+- `sub_080AF85C` passes an uninitialised script pointer for kinds outside 0x30–0x34.
+- `sub_080D478C` calls `sub_080C4618` with an uninitialised first argument; `sub_080D3B58`
+  returns a leftover value that lands in `gYesNoResult`.
+- `sub_08133854` can list a fourth party member after skipping one (inconsistent bound).

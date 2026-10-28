@@ -1,0 +1,14 @@
+080EC038	Battle_GetMessage	func	returns ((u16 **)0x0876FB54)[id]; results go to Menu_ExpandListTemplate (ids 0x160/0x161/0x166/0x167/0x146)
+080EC99C	BattleMsg_SetDone	func	stores its u8 argument in gBattleMsg.done (0x0203C9E4)
+080EC800	Battle_FleeTask	func	task callback: sub_080EDF0C result 0x144/0x145/0x146 picks the escape message (0x08126254 / 0x081262BE / message 0x146); on 0x144 sets battle state 14 via sub_080ED90C(0x2000), otherwise state 10
+080ECC30	BattleSprite_DmaBank0	func	DMA3 0x400 words 0x030000B4 -> OBJ VRAM 0x06014000 (queued by sub_080ECC78 with VBlankTask_AddCounted)
+080ECC54	BattleSprite_DmaBank1	func	DMA3 0x400 words 0x030010B4 -> OBJ VRAM 0x06015000
+080ECCB0	BattleSprite_Animate	func	steps the frame list (8-byte entries: sprite, duration, loop-back; -1 ends, duration 0x100 loops back) of the sprite at 0x0203D360 and draws it with Sprite_DrawPlain; id 0xD2 also cycles OBJ palette 12 colors 1-15
+081337B4	MsgGlyphQueue_PushSubst	func	appends n glyphs of gScriptSubstBuf (0x0203DB08) to gMsgGlyphQueue at x, x+13, ...; count 0x0203DB3E only incremented while <= 0x3E
+08133E70	MsgGlyphQueue_PushSubstClamped	func	same as 0x081337B4 but increments the count and clamps it to 0x3F
+08133A80	Shop_QueueNameRow	func	writes 8 glyphs of gScriptSubstBuf as row `row` of the second glyph list 0x0203DA00 (entries row*8.., y from 0x0879038A[row]); called once per visible row by Shop_InitItemList
+08133854	Script_QueuePartyNames	func	clears 0x0203DA00, then for party slots base.. (gGameState + i*0x80, field 0xE != 0) decodes the name (Combatant_DecodeName), cuts it to 8 glyphs, appends 0x318 and queues it with MsgGlyphQueue_PushSubst; called by ScriptOp_33A
+0203DA00	gMsgGlyphList2	ram	second glyph list {glyph, x, y, attr} as u16[4]; cleared as 100 u16 (25 entries) by sub_08133854, rows of 8 entries written by sub_08133A80, drawn by ScriptVM_DrawTask
+0300669C	gMsgGlyphList2Count	ram	s16 entry count of 0x0203DA00 (reset by sub_08133854, set to 0x18 by Shop_InitItemList, incremented by sub_08133724)
+0203BB74	gShopItemIds	ram	u16[256] item ids of the shop list, 0xFFFF = end (filled by ScriptOp_333 from held items, read by Shop_InitItemList)
+0203BD74	gShopItemPrices	ram	u32[256] prices parallel to 0x0203BB74 (sub_080C4C7C per item in ScriptOp_333; -1 = none)

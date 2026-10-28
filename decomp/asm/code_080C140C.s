@@ -203,7 +203,7 @@ sub_080C1560: @ 0x080C1560
 	bl sub_080AE234
 	movs r0, #0
 	movs r1, #0
-	bl sub_080AE2A8
+	bl Field_SetPosition
 	ldr r0, .L080C1610
 	strh r4, [r0, #2]
 	strh r4, [r0, #4]
@@ -262,7 +262,7 @@ sub_080C1630: @ 0x080C1630
 	ldrh r1, [r1]
 	ldr r4, .L080C166C
 	adds r2, r4, #0
-	bl sub_080AD824
+	bl Map_LoadGraphicsStep
 	ldr r0, [r4]
 	cmp r0, #0
 	bne .L080C167A
@@ -308,19 +308,19 @@ sub_080C1684: @ 0x080C1684
 	movs r0, #0
 	movs r1, #0
 	movs r2, #0x12
-	bl sub_080B3078
+	bl FieldMap_HasRecordRel
 	cmp r0, #1
 	beq .L080C16DA
 	movs r0, #0
 	movs r1, #0
 	movs r2, #0x13
-	bl sub_080B3078
+	bl FieldMap_HasRecordRel
 	cmp r0, #1
 	beq .L080C16DA
 	movs r0, #0
 	movs r1, #0
 	movs r2, #0x1e
-	bl sub_080B3078
+	bl FieldMap_HasRecordRel
 	cmp r0, #1
 	bne .L080C1714
 .L080C16DA:

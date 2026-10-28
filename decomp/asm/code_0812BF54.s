@@ -168,7 +168,7 @@ sub_0812C07C: @ 0x0812C07C
 	movs r0, #3
 	bl BattleMenu_SetMode
 	movs r0, #1
-	bl sub_080EC99C
+	bl BattleMsg_SetDone
 	pop {r4, r5}
 	pop {r0}
 	bx r0
@@ -1251,7 +1251,7 @@ sub_0812C7B4: @ 0x0812C7B4
 sub_0812C958: @ 0x0812C958
 	push {lr}
 	movs r0, #0x97
-	bl sub_080EC038
+	bl Battle_GetMessage
 	movs r1, #0
 	bl Menu_ExpandListTemplate
 	adds r1, r0, #0
@@ -2610,7 +2610,7 @@ sub_0812D3F0: @ 0x0812D3F0
 	movs r0, #3
 	bl BattleMenu_SetMode
 	movs r0, #1
-	bl sub_080EC99C
+	bl BattleMsg_SetDone
 	add sp, #4
 	pop {r4}
 	pop {r0}
@@ -2906,7 +2906,7 @@ sub_0812D644: @ 0x0812D644
 	movs r0, #3
 	bl BattleMenu_SetMode
 	movs r0, #1
-	bl sub_080EC99C
+	bl BattleMsg_SetDone
 	add sp, #4
 	pop {r4}
 	pop {r0}
@@ -2978,7 +2978,7 @@ sub_0812D6B8: @ 0x0812D6B8
 	movs r0, #3
 	bl BattleMenu_SetMode
 	movs r0, #1
-	bl sub_080EC99C
+	bl BattleMsg_SetDone
 	b .L0812D77A
 .L0812D73C: .4byte gUnknown_08123374
 .L0812D740:
@@ -3123,7 +3123,7 @@ sub_0812D81C: @ 0x0812D81C
 	movs r0, #3
 	bl BattleMenu_SetMode
 	movs r0, #1
-	bl sub_080EC99C
+	bl BattleMsg_SetDone
 	add sp, #4
 	pop {r4}
 	pop {r0}
@@ -3197,7 +3197,7 @@ sub_0812D890: @ 0x0812D890
 	movs r0, #3
 	bl BattleMenu_SetMode
 	movs r0, #1
-	bl sub_080EC99C
+	bl BattleMsg_SetDone
 	b .L0812D956
 .L0812D918: .4byte gUnknown_081233D2
 .L0812D91C:
@@ -3364,7 +3364,7 @@ sub_0812DA24: @ 0x0812DA24
 	movs r0, #3
 	bl BattleMenu_SetMode
 	movs r0, #1
-	bl sub_080EC99C
+	bl BattleMsg_SetDone
 	add sp, #4
 	pop {r4}
 	pop {r0}
@@ -3437,7 +3437,7 @@ sub_0812DA94: @ 0x0812DA94
 	movs r0, #3
 	bl BattleMenu_SetMode
 	movs r0, #1
-	bl sub_080EC99C
+	bl BattleMsg_SetDone
 	b .L0812DB5A
 .L0812DB1C: .4byte gUnknown_08123444
 .L0812DB20:
@@ -4394,7 +4394,7 @@ sub_0812E244: @ 0x0812E244
 	beq .L0812E2C0
 	bl sub_080C84A0
 	movs r0, #0xd7
-	bl sub_080EC038
+	bl Battle_GetMessage
 	movs r1, #0
 	bl Menu_ExpandListTemplate
 	adds r1, r0, #0

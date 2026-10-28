@@ -92,7 +92,7 @@ sub_080F63DC: @ 0x080F63DC
 	lsls r1, r1, #0x10
 	lsrs r1, r1, #0x10
 	str r3, [sp]
-	bl sub_080AF4EC
+	bl Automap_SetVisited
 	ldr r3, [sp]
 .L080F6420:
 	movs r1, #0x80

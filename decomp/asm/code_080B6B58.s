@@ -122,7 +122,7 @@ gUnknown_080B6C18:
 .L080B6C30: .4byte sub_080B3E8C
 .L080B6C34:
 	movs r0, #0
-	bl sub_080B3EA4
+	bl BgPicture_LoadStep
 	cmp r0, #0
 	bne .L080B6C42
 	strh r0, [r4, #0x1c]
@@ -142,7 +142,7 @@ gUnknown_080B6C18:
 	bl VBlankTask_AddCounted
 	b .L080B6C68
 	.byte 0x00, 0x00
-.L080B6C5C: .4byte sub_080B3F1C
+.L080B6C5C: .4byte BgPicture_BuildTilemap
 .L080B6C60:
 	ldr r0, .L080B6C70
 	movs r1, #1
@@ -163,7 +163,7 @@ sub_080B6C74: @ 0x080B6C74
 	bl Flag_Test
 	cmp r0, #0
 	beq .L080B6CD2
-	bl sub_080B4140
+	bl BgPicture_LoadPalette
 	ldr r0, .L080B6CA8
 	ldrh r0, [r0]
 	cmp r0, #0xda
@@ -910,11 +910,11 @@ sub_080B7248: @ 0x080B7248
 	ldr r2, .L080B733C
 	ldrh r1, [r4, #2]
 	str r1, [r2]
-	bl sub_080ADCCC
+	bl Map_SetGraphicsPointers
 	bl sub_080AE234
 	ldrh r0, [r4, #4]
 	ldrh r1, [r4, #6]
-	bl sub_080AE2A8
+	bl Field_SetPosition
 	ldr r5, .L080B7340
 	ldrh r0, [r4, #8]
 	strh r0, [r5, #2]
@@ -922,34 +922,34 @@ sub_080B7248: @ 0x080B7248
 	strh r6, [r5, #0x34]
 	movs r0, #0
 	movs r1, #1
-	bl sub_080B2EFC
+	bl FieldMap_CellRecordsRel
 	adds r4, r0, #0
 	movs r1, #4
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	adds r5, r0, #0
 	adds r0, r4, #0
 	movs r1, #0x23
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	mov sl, r0
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	mov sb, r0
 	adds r0, r4, #0
 	movs r1, #2
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	mov r8, r0
 	adds r0, r4, #0
 	movs r1, #0x1b
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	adds r7, r0, #0
 	adds r0, r4, #0
 	movs r1, #0x1c
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	adds r6, r0, #0
 	adds r0, r4, #0
 	movs r1, #0xc
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	cmp r5, #0
 	bne .L080B72F4
 	mov r1, sb
@@ -973,12 +973,12 @@ sub_080B7248: @ 0x080B7248
 	ldrh r0, [r2, #0x12]
 	ldrh r1, [r2, #0x14]
 	ldrh r2, [r2, #2]
-	bl sub_080AF5B8
+	bl Automap_SetVisitedAhead
 .L080B7300:
 	ldr r4, .L080B7340
 	ldrh r0, [r4, #0x12]
 	ldrh r1, [r4, #0x14]
-	bl sub_080AF4EC
+	bl Automap_SetVisited
 	ldr r0, .L080B7334
 	ldr r0, [r0]
 	cmp r0, #0x4a
@@ -996,7 +996,7 @@ sub_080B7248: @ 0x080B7248
 	ldrh r0, [r4, #0x12]
 	ldrh r1, [r4, #0x14]
 	ldrh r2, [r4, #2]
-	bl sub_080AF5B8
+	bl Automap_SetVisitedAhead
 	b .L080B7356
 	.byte 0x00, 0x00
 .L080B7334: .4byte 0x03004614 @ IWRAM+0x4614
@@ -1045,15 +1045,15 @@ sub_080B7384: @ 0x080B7384
 	movs r0, #0
 	movs r1, #0
 	movs r2, #0x19
-	bl sub_080B3078
+	bl FieldMap_HasRecordRel
 	adds r4, r0, #0
 	cmp r4, #1
 	bne .L080B73AC
 	movs r0, #0
 	movs r1, #0
-	bl sub_080B2EFC
+	bl FieldMap_CellRecordsRel
 	movs r1, #0x19
-	bl sub_080B3038
+	bl FieldMap_FindRecord
 	ldr r1, .L080B73B4
 	ldrh r0, [r0, #2]
 	strh r0, [r1, #0x36]
@@ -1599,7 +1599,7 @@ sub_080B77C4: @ 0x080B77C4
 	movs r0, #0
 	movs r1, #0
 	movs r2, #0
-	bl sub_080B0248
+	bl View_GetWall
 	cmp r0, #0
 	bne .L080B77F0
 	strh r6, [r4, #0x1e]
@@ -2191,7 +2191,7 @@ sub_080B7AFC: @ 0x080B7AFC
 	ands r4, r0
 	mov r0, sl
 	adds r1, r4, #0
-	bl sub_080AF4B8
+	bl Automap_SetVisitedRaw
 	mov r1, sl
 	cmp r1, #0x14
 	bne .L080B7C58
@@ -2199,7 +2199,7 @@ sub_080B7AFC: @ 0x080B7AFC
 	bne .L080B7C58
 	movs r0, #0x14
 	movs r1, #0xe
-	bl sub_080AF4B8
+	bl Automap_SetVisitedRaw
 .L080B7C58:
 	mov r2, sl
 	cmp r2, #0x77
@@ -2211,7 +2211,7 @@ sub_080B7AFC: @ 0x080B7AFC
 	bne .L080B7C70
 	movs r0, #0x77
 	movs r1, #0xb
-	bl sub_080AF4B8
+	bl Automap_SetVisitedRaw
 .L080B7C70:
 	ldr r0, .L080B7CF0
 	movs r2, #0xac
@@ -2225,7 +2225,7 @@ sub_080B7AFC: @ 0x080B7AFC
 	lsrs r4, r0, #1
 	cmp r2, #1
 	bne .L080B7C94
-	bl sub_080B098C
+	bl Palette_IsBg13Black
 	cmp r0, #1
 	bne .L080B7C94
 	bl sub_080C1384
@@ -2728,7 +2728,7 @@ sub_080B8048: @ 0x080B8048
 	ldr r0, [r0]
 	ldr r1, .L080B8070
 	ldr r1, [r1]
-	bl sub_080ADCCC
+	bl Map_SetGraphicsPointers
 	bl sub_080AE234
 	bl sub_080AD7F0
 	ldr r0, .L080B8074
@@ -2799,7 +2799,7 @@ sub_080B8088: @ 0x080B8088
 	pop {r4, r5}
 	pop {r0}
 	bx r0
-.L080B80F4: .4byte sub_080AE0BC
+.L080B80F4: .4byte Field_LoadGraphicsStep
 
 	thumb_func_start sub_080B80F8
 sub_080B80F8: @ 0x080B80F8
@@ -2820,7 +2820,7 @@ sub_080B80F8: @ 0x080B80F8
 .L080B8118: .4byte gUnknown_08164788
 .L080B811C: .4byte 0x0000FFFF
 .L080B8120:
-	bl sub_080B098C
+	bl Palette_IsBg13Black
 	cmp r0, #0
 	bne .L080B8144
 	ldr r0, .L080B813C
@@ -2874,7 +2874,7 @@ sub_080B8174: @ 0x080B8174
 	movs r0, #0
 	movs r1, #0
 	movs r2, #0
-	bl sub_080B0248
+	bl View_GetWall
 	cmp r0, #3
 	bne .L080B8198
 	movs r0, #0xc
@@ -3891,25 +3891,25 @@ sub_080B8920: @ 0x080B8920
 	movs r0, #0
 	movs r1, #0
 	movs r2, #0
-	bl sub_080B0248
+	bl View_GetWall
 	cmp r0, #0
 	beq .L080B895C
 	movs r0, #1
 	movs r1, #0
 	movs r2, #0
-	bl sub_080B0248
+	bl View_GetWall
 	cmp r0, #0
 	beq .L080B895C
 	movs r0, #3
 	movs r1, #0
 	movs r2, #0
-	bl sub_080B0248
+	bl View_GetWall
 	cmp r0, #0
 	beq .L080B895C
 	movs r0, #2
 	movs r1, #0
 	movs r2, #0
-	bl sub_080B0248
+	bl View_GetWall
 	cmp r0, #0
 	bne .L080B8960
 .L080B895C:
@@ -3928,7 +3928,7 @@ sub_080B8920: @ 0x080B8920
 sub_080B896C: @ 0x080B896C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080B098C
+	bl Palette_IsBg13Black
 	cmp r0, #0
 	bne .L080B897C
 	movs r0, #1

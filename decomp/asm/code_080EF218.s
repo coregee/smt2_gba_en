@@ -2974,7 +2974,7 @@ gUnknown_080F0620:
 	adds r0, r4, #0
 	bl sub_080C0AD4
 	ldr r0, .L080F0818
-	bl sub_080EC038
+	bl Battle_GetMessage
 	adds r4, r0, #0
 	bl sub_080F3E44
 	adds r1, r0, #0
@@ -3527,7 +3527,7 @@ sub_080F0C18: @ 0x080F0C18
 	bhi .L080F0CAC
 	movs r0, #0xb9
 	lsls r0, r0, #1
-	bl sub_080EC038
+	bl Battle_GetMessage
 	lsls r1, r5, #0x10
 	asrs r1, r1, #0x10
 	bl Menu_ExpandListTemplate
@@ -4430,7 +4430,7 @@ gUnknown_080F112C:
 	movs r4, #0
 .L080F1406:
 	adds r0, r5, #0
-	bl sub_080EC038
+	bl Battle_GetMessage
 	adds r1, r4, #0
 	bl Menu_ExpandListTemplate
 	adds r1, r0, #0
@@ -4440,7 +4440,7 @@ gUnknown_080F112C:
 .L080F141C: .4byte gUnknown_0876E878
 .L080F1420:
 	adds r0, r5, #0
-	bl sub_080EC038
+	bl Battle_GetMessage
 	adds r5, r0, #0
 	asrs r4, r6, #0x10
 	adds r0, r4, #0
@@ -5153,7 +5153,7 @@ gUnknown_080F1854:
 	cmp r0, #0
 	beq .L080F1A50
 	ldr r0, .L080F1A4C
-	bl sub_080EC038
+	bl Battle_GetMessage
 	adds r4, r0, #0
 	bl sub_080F3E44
 	adds r1, r0, #0
@@ -5223,7 +5223,7 @@ gUnknown_080F1854:
 	b .L080F203C
 .L080F1ABC:
 	adds r0, r1, #0
-	bl sub_080EC038
+	bl Battle_GetMessage
 	ldr r1, [r4, #4]
 	bl Menu_ExpandListTemplate
 	adds r1, r0, #0
@@ -5246,7 +5246,7 @@ gUnknown_080F1854:
 	bne .L080F1AEE
 	ldr r5, [r2]
 .L080F1AEE:
-	bl sub_080EC038
+	bl Battle_GetMessage
 	adds r4, r0, #0
 	bl sub_080F3E44
 	adds r1, r0, #0
@@ -5316,7 +5316,7 @@ gUnknown_080F1854:
 	mov sl, r2
 	cmp r0, sl
 	beq .L080F1B98
-	bl sub_080EC038
+	bl Battle_GetMessage
 	adds r1, r5, #0
 	bl Menu_ExpandListTemplate
 	adds r1, r0, #0
@@ -5851,7 +5851,7 @@ gUnknown_080F1D64:
 	subs r1, #1
 .L080F2012:
 	adds r0, r1, #0
-	bl sub_080EC038
+	bl Battle_GetMessage
 	ldr r1, [r4, #4]
 	bl Menu_ExpandListTemplate
 	adds r1, r0, #0
@@ -6607,7 +6607,7 @@ sub_080F2514: @ 0x080F2514
 	lsls r0, r0, #0x10
 	lsrs r4, r0, #0x10
 	movs r0, #0xe9
-	bl sub_080EC038
+	bl Battle_GetMessage
 	ldr r1, .L080F26B4
 	movs r2, #0xa2
 	lsls r2, r2, #4
@@ -6668,7 +6668,7 @@ sub_080F2514: @ 0x080F2514
 	cmp r4, r0
 	beq .L080F272C
 	adds r0, r4, #0
-	bl sub_080EC038
+	bl Battle_GetMessage
 	ldr r1, .L080F276C
 	ldr r1, [r1, #4]
 	bl Menu_ExpandListTemplate
@@ -6728,7 +6728,7 @@ sub_080F2514: @ 0x080F2514
 .L080F2790: .4byte gUnknown_08124534
 .L080F2794:
 	adds r0, r1, #0
-	bl sub_080EC038
+	bl Battle_GetMessage
 	movs r1, #0
 	bl Menu_ExpandListTemplate
 	adds r1, r0, #0
@@ -6852,7 +6852,7 @@ sub_080F27CC: @ 0x080F27CC
 	cmp r0, #1
 	bne .L080F28C4
 	ldr r0, .L080F28C0
-	bl sub_080EC038
+	bl Battle_GetMessage
 	adds r4, r0, #0
 	lsls r0, r6, #0x10
 	asrs r0, r0, #0x10
@@ -6983,7 +6983,7 @@ sub_080F27CC: @ 0x080F27CC
 	cmp r4, r0
 	bne .L080F29F0
 	adds r0, r4, #0
-	bl sub_080EC038
+	bl Battle_GetMessage
 	ldr r1, .L080F29E8
 	ldr r1, [r1, #4]
 	bl Menu_ExpandListTemplate
@@ -7007,7 +7007,7 @@ sub_080F27CC: @ 0x080F27CC
 	cmp r4, r0
 	beq .L080F2A2C
 	adds r0, r4, #0
-	bl sub_080EC038
+	bl Battle_GetMessage
 	adds r4, r0, #0
 	lsls r0, r6, #0x10
 	asrs r0, r0, #0x10
@@ -7074,7 +7074,7 @@ sub_080F27CC: @ 0x080F27CC
 .L080F2A90: .4byte gUnknown_08124534
 .L080F2A94:
 	adds r0, r1, #0
-	bl sub_080EC038
+	bl Battle_GetMessage
 	movs r1, #0
 	bl Menu_ExpandListTemplate
 	adds r1, r0, #0
