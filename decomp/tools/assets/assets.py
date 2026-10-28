@@ -273,6 +273,10 @@ def asset_path(e, ext=None):
 
 def palette_for(e, by_name, rom):
     p = e.get("palette")
+    if "palette_addr" in e:                       # a palette read straight from the ROM
+        o = int(e["palette_addr"], 16) - BASE + e.get("palette_index", 0) * 32
+        n = 16 if e["format"] == "4bpp" else 256
+        return [(r, g, b) for r, g, b, _ in bgr555(rom[o:o + 2 * n])]
     if p and p in by_name:
         pe = by_name[p]
         o = int(pe["addr"], 16) - BASE
