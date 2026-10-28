@@ -42,6 +42,9 @@ directly above it (a file's functions must be consecutive in the ROM), check it 
 the generator drops those functions from `asm/` and places the C in `layout.json` by itself.
 While other files in `src/` are still being written, leave them out with
 `tools/disasm.py --exclude 'prefix_*'` so the build only uses finished C.
+Never run `build.py` in a checkout where `match.py` is in use: a failed link replaces
+`build/smt2.elf`, which `match.py` reads for every external address. Integrate in a separate
+`git worktree` instead.
 The sha1 check is the proof of equivalence. Use `reference/ghidra-c/` as the starting point,
 never as the answer. Functions that resist matching stay readable under `#ifdef NONMATCHING`
 with the original instructions as a NAKED body (`tools/naked.py`). Names proposed while
