@@ -135,7 +135,7 @@ s32 Combatant_IsUsed(s32 id);
 u16 Combatant_GetStatus(s32 who);
 s32 Stock_GetCapacity(void);
 u32 sub_0813BDCC(void);
-void sub_0813B328(u32);
+void Script_JumpToStatusMessage(u32);
 s32 sub_0813B268(void);
 void Magnetite_Add(s32 a);
 u32 Inventory_IsMaxed(u16 a);
@@ -249,7 +249,7 @@ struct C136GameState
     u8 unk18B6;
 };
 extern struct C136GameState gGameState;
-s32 sub_08134DE0(u16 who);
+s32 Combatant_GetMaxHp(u16 who);
 s32 Combatant_ChangeHp(s32 who, s32 delta);
 
 extern u16 gUnk_030065F0;

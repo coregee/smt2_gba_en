@@ -438,3 +438,25 @@ No text is drawn here, so nothing limits the translation. Oddities in the origin
 - Money panel slide (`sub_080C76B4`): sliding in tests step > 2, sliding out step > 1.
 - Item and skill lists (`0x080CAA78`, `0x080CACD4`): page up moves 6 rows, page down 7.
 - `sub_080C8AF8` always returns 1 and `sub_080C99B8` always 0.
+
+### Script ops 0x33B-0x389 and 0x438-0x44C, healer, VM waits (`0x08134250`-`0x08136D58`, `0x0813A590`-`0x0813D118`)
+
+- **Action names in the records are still Japanese** in the patched build (the table at
+  `0x08198EB4` is unchanged); the translation draws English names through its hooks. Any
+  unhooked path that copies the record's 8-glyph field would show Japanese. The one found here,
+  `sub_08134250` (shop/action rows), is dead code: no call and no pointer to it.
+- `ScriptOp_442` op 8 shows two party names cut to 15 glyphs; `ScriptOp_33D` draws quantities
+  as two digits (max 99) and caps prices at 999,999; healer status costs cap at 99,999.
+- Hard-coded script pointers: per-area tables at `0x0803534C` (28 words) and `0x08035ABC`
+  (`ScriptOp_382`), areas 0x1C-0x21 in `ScriptOp_389`, fixed scripts `0x080A0BC6`/`0x080A0C0A`
+  (`ScriptOp_444`/`ScriptOp_448`), status messages at `0x08032BBC`. A translation that moves
+  scripts must update these.
+
+### More possible original bugs
+
+- `ScriptOp_377` (`0x081365D0`): with a full party it swaps out the last demon for the guest and
+  returns before `Party_SetupGuest`, so the guest's level, equipment and stats are never set and
+  flags 0xE3/0xCF stay set on that path. Unchanged in the translation.
+- `ScriptOp_443`: one time in eight it subtracts the demon's level from the hero's record +8
+  (probably EXP).
+- `sub_0813CBD8` clears `gScriptWaitBusy` and sets it again (missing `else`): one extra frame.

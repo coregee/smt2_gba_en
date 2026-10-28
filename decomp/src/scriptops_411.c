@@ -44,7 +44,7 @@ void ScriptOpAlt_421(void)
 }
 
 /* Damages member (high byte; 0x10 = the hero, 0xFF = refresh only) by low byte percent of
-   sub_08134DE0 (max HP). */
+   Combatant_GetMaxHp (max HP). */
 // ScriptOp_422 @ 0x08139E7C
 #ifdef NONMATCHING
 void ScriptOp_422(void)
@@ -61,7 +61,7 @@ void ScriptOp_422(void)
     {
         if (Combatant_IsAlive(0) == 1)
         {
-            hp = sub_08134DE0(0);
+            hp = Combatant_GetMaxHp(0);
             d = (u16)(hp * lo) / 100;
             Combatant_ChangeHp(0, -d);
         }
@@ -70,7 +70,7 @@ void ScriptOp_422(void)
         Party_FixFormation();
     else if (Combatant_IsAlive(who) == 1)
     {
-        hp = sub_08134DE0(who);
+        hp = Combatant_GetMaxHp(who);
         d = (u16)(hp * pct) / 100;
         Combatant_ChangeHp(who, -d);
     }
@@ -108,7 +108,7 @@ void ScriptOp_422(void)
         "    cmp r0, #1\n"
         "    bne .L08139F1A\n"
         "    movs r0, #0\n"
-        "    bl sub_08134DE0\n"
+        "    bl Combatant_GetMaxHp\n"
         "    lsls r0, r0, #0x10\n"
         "    lsrs r0, r0, #0x10\n"
         "    muls r0, r4, r0\n"
@@ -136,7 +136,7 @@ void ScriptOp_422(void)
         "    cmp r0, #1\n"
         "    bne .L08139F1A\n"
         "    adds r0, r5, #0\n"
-        "    bl sub_08134DE0\n"
+        "    bl Combatant_GetMaxHp\n"
         "    lsls r0, r0, #0x10\n"
         "    lsrs r0, r0, #0x10\n"
         "    muls r0, r6, r0\n"

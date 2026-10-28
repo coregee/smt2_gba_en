@@ -1,0 +1,15 @@
+08134DC8	Combatant_GetHp	func	returns s16 +0x18 of Battle_GetCombatant(who|0x8000); ScriptOp_35E subtracts it with Combatant_ChangeHp when status 0x8000 is set (HP to 0); Combatant_IsHpFull/RestoreHp use the same field
+08134DE0	Combatant_GetMaxHp	func	returns s16 +0x1A of the member record (max HP, as Combatant_IsHpFull); sub_08135200 prices (max - hp)
+08134DF8	Combatant_GetMp	func	returns s16 +0x1C of the member record (MP, as Combatant_IsMpFull)
+08134E10	Combatant_GetMaxMp	func	returns s16 +0x1E of the member record (max MP)
+08135200	Healer_HpMpCost	func	((maxHp-hp) * gUnknown_087903B8[t] + (maxMp-mp) * gUnknown_087903BE[t]) >> 8, t = gUnk_0203DB72 & 3; listed as the price by sub_08135370
+08135290	Healer_StatusCost	func	sum over the 16 status bits of gUnknown_087903C4[i] * Combatant_GetLevel(who), capped at 99999; called with status & 0x33FE / 0x8000 / 0xC01
+08135064	Healer_GetCost	func	kind 0 = all, 1 = HP/MP (Healer_HpMpCost, skipped when flags 0x8000), 2/3/4 = the three status cost helpers
+081350CC	Healer_Apply	func	kind 0 = full cure (status 0, HP, MP), 1 = HP/MP, 2 = clear 0x8C01, 3 = clear 0x7FFF + HP/MP, 4 = clear 0xF3FE + sub_081360D4; mirrors Healer_GetCost kinds
+081355D0	Healer_TotalCost	func	sum of Healer_HpMpCost and the three status costs (kind 0 of Healer_GetCost)
+0813B328	Script_JumpToStatusMessage	func	gScriptBase = gUnknown_08032BBC; gScriptJumpTarget = pointer entry (msg & 0x7FFF); called by sub_0813B350 per inflicted status bit
+0813B350	Combatant_InflictStatus	func	for each set bit: already set -> message 0, blocked by gUnknown_08790D80[i] -> message 1, else Combatant_SetStatus((s & gUnknown_08790DA0[i]) | bits) with HP 0 for bit 15 and a per-bit message (party/enemy tables 08790DDE/08790DC0)
+081362DC	Party_SetupGuest	func	mode 0: member 1 level 18, mode 1: member 2 level 24, fixed equipment, random stat set from gUnknown_087903EE, Combatant_RecalcStats, HP/MP to max; called by ScriptOp_377 after Party_Add
+0813BE08	Magnetite_Pay	func	if Magnetite_Get() >= gUnk_0203DB2C subtracts it and returns FALSE, else returns TRUE
+0813BE2C	Money_Pay	func	if Money_Get() >= gUnk_0203DB2C subtracts it and returns FALSE, else returns TRUE
+0813C9F8	ScriptWait_YesNo	func	wait handler: waits for Task_IsFree(gUnk_030068E0), resets the text cursor, jumps to gUnk_0203DAC8[0] on gYesNoResult != 0 (== 0 in battle)

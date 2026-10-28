@@ -29,7 +29,7 @@ void Negotiate_ReactGiveMoney(void)
     u16 v = sub_0813BDCC();
 
     Money_Add(gUnk_0203DB2C = sub_08137B1C(v));
-    sub_0813B328(0x23);
+    Script_JumpToStatusMessage(0x23);
 }
 
 // sub_08137B78 @ 0x08137B78
@@ -71,20 +71,20 @@ void sub_08137BF4(void)
     u16 v = sub_08137BB8();
 
     Magnetite_Add(gUnk_0203DB2C = sub_08137B1C(v));
-    sub_0813B328(0x24);
+    Script_JumpToStatusMessage(0x24);
 }
 
 // sub_08137C20 @ 0x08137C20
 void sub_08137C20(void)
 {
     gScriptItemCheckId = 0xDB;
-    sub_0813B328(0x25);
+    Script_JumpToStatusMessage(0x25);
 }
 
 // sub_08137C38 @ 0x08137C38
 void sub_08137C38(void)
 {
-    sub_0813B328(0x27);
+    Script_JumpToStatusMessage(0x27);
 }
 
 /* Reaction: the demon gives its item (demon field 0x19, +0x100 when field 0x1D bit 0). */
@@ -112,7 +112,7 @@ void Negotiate_ReactGiveItem(void)
             goto fail;
         Inventory_AddItem(gScriptItemCheckId);
     }
-    sub_0813B328(0x26);
+    Script_JumpToStatusMessage(0x26);
 }
 
 // sub_08137CB4 @ 0x08137CB4
@@ -122,7 +122,7 @@ void sub_08137CB4(void)
 
     gScriptItemCheckId = v + 0x120;
     if (sub_0813B268())
-        sub_0813B328(0x26);
+        Script_JumpToStatusMessage(0x26);
     else
         Negotiate_ReactGiveItem();
 }
@@ -134,7 +134,7 @@ void sub_08137CEC(void)
     if (!(u8)Inventory_IsMaxed(0xE5))
     {
         Inventory_AddItem(gScriptItemCheckId);
-        sub_0813B328(0x26);
+        Script_JumpToStatusMessage(0x26);
     }
     else
         sub_08137CB4();
@@ -143,7 +143,7 @@ void sub_08137CEC(void)
 // sub_08137D20 @ 0x08137D20
 void sub_08137D20(void)
 {
-    sub_0813B328(0x28);
+    Script_JumpToStatusMessage(0x28);
 }
 
 // sub_08137D2C @ 0x08137D2C
@@ -285,7 +285,7 @@ void sub_08137DC8(void)
     if (v > 1676500)
         v = 1676500;
     Battle_GetCombatant(0x8000)->unk08 = v;
-    sub_0813B328(0x2B);
+    Script_JumpToStatusMessage(0x2B);
 }
 
 // sub_08137E14 @ 0x08137E14
@@ -309,10 +309,10 @@ void sub_08137E14(void)
     sub_08137DC8();
     return;
 no:
-    sub_0813B328(0x29);
+    Script_JumpToStatusMessage(0x29);
     return;
 refuse:
-    sub_0813B328(0x2A);
+    Script_JumpToStatusMessage(0x2A);
 }
 #else
 NAKED
@@ -362,11 +362,11 @@ void sub_08137E14(void)
         "    b .L08137E78\n"
         ".L08137E6A:\n"
         "    movs r0, #0x29\n"
-        "    bl sub_0813B328\n"
+        "    bl Script_JumpToStatusMessage\n"
         "    b .L08137E78\n"
         ".L08137E72:\n"
         "    movs r0, #0x2a\n"
-        "    bl sub_0813B328\n"
+        "    bl Script_JumpToStatusMessage\n"
         ".L08137E78:\n"
         "    pop {r0}\n"
         "    bx r0\n"
@@ -427,7 +427,7 @@ cure:
 heal_mp:
     Battle_GetCombatant(id)->mp = Battle_GetCombatant(id)->maxMp;
 done:
-    sub_0813B328(0x2C);
+    Script_JumpToStatusMessage(0x2C);
 }
 
 // Negotiate_DoReaction @ 0x08137FCC

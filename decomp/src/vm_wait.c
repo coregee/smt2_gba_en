@@ -705,7 +705,7 @@ bool32 sub_0813DA6C(void)
     if (sel == 0xFF)
         goto cancel;
     money = Money_Get();
-    cost = sub_08135064(sel, gUnk_0300668C);
+    cost = Healer_GetCost(sel, gUnk_0300668C);
     if (money < cost)
     {
         gScriptWaitState = 0;
@@ -713,7 +713,7 @@ bool32 sub_0813DA6C(void)
         return TRUE;
     }
     Money_Add(-cost);
-    sub_081350CC(sel, gUnk_0300668C);
+    Healer_Apply(sel, gUnk_0300668C);
     sub_080C84A0();
     gUnk_0203DB34 = 1;
     kind = gUnk_0300668C;
