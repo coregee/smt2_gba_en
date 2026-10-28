@@ -114,9 +114,9 @@ void sub_080BEC6C(struct Task *task)
 {
     u16 *d = task->data.h;
 
-    task->data.w[0] = gUnk_030069F0.unk2C;
-    d[2] = gUnk_030069F0.unk30;
-    d[3] = gUnk_030069F0.unk32;
+    task->data.w[0] = gWorldMap.unk2C;
+    d[2] = gWorldMap.unk30;
+    d[3] = gWorldMap.unk32;
 }
 
 // sub_080BEC84 @ 0x080BEC84

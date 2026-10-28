@@ -101,7 +101,7 @@ struct Task *sub_080B764C(u16 map, u16 floor, u16 x, u16 y, u16 dir, u32 arg)
 // sub_080B7684 @ 0x080B7684
 void sub_080B7684(void)
 {
-    sub_080C2CD8((s8)gUnk_030069F0[8], 0, 3);
+    sub_080C2CD8((s8)gWorldMap[8], 0, 3);
     if (Flag_Test(0x108) && gFieldState.unk50 != 0)
     {
         sub_080B0C7C();

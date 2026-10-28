@@ -19,9 +19,9 @@ const struct C0c2Bytes4 *sub_080C5D48(u16 zone)
 // sub_080C5D58 @ 0x080C5D58
 u16 sub_080C5D58(void)
 {
-    struct C0c2Area *area = FieldMap_GetArea(gUnk_030069F0[4]);
-    u16 x = (gUnk_030069F0[6] >> 4) + area->originX;
-    u16 y = (gUnk_030069F0[7] >> 4) + area->originY;
+    struct C0c2Area *area = FieldMap_GetArea(gWorldMap[4]);
+    u16 x = (gWorldMap[6] >> 4) + area->originX;
+    u16 y = (gWorldMap[7] >> 4) + area->originY;
 
     return gUnknown_081A6CD4[y >> 3][x >> 3];
 }

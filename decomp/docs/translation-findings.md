@@ -398,3 +398,22 @@ No text is drawn here, so nothing limits the translation. Oddities in the origin
 - `CharObj_Create` (`0x080C4618`) writes through an uninitialised task pointer for record kinds
   other than 0-3; `sub_080C343C` returns a leftover register for slots above 6.
 - `Inventory_RemoveItem` (`0x080C33AC`) runs a key item's clear hook even when the item isn't held.
+
+## Found in the seventh conversion round
+
+### Overworld map and the fusion list (`0x0815201C`-`0x081551F8`)
+
+- **Fusion list** (`Fusion_DrawDemonName` `0x081547D8`, `Fusion_DrawListRow` `0x08154A38`):
+  demon names at most 8 glyphs at a fixed 10 px from x=0x2C (ending exactly where the result
+  level starts, 0xDA); race names exactly 3 glyphs at 12 px. The translation hooks both
+  functions (checked in the patched build). Column headers RACE/NAME/RESULT/LV are ASCII in
+  the Japanese release (`0x087E1C2C`).
+- `sub_08153FC8` draws glyph 0x1B as 0x101 and glyph 5 as 0x102 (2 px lower) in the name font;
+  the translation leaves it alone, so English text must not rely on codes 5 and 0x1B there.
+
+### More possible original bugs
+
+- `sub_08153540` returns nothing when the position equals the previous one, and
+  `sub_08153668`'s switch has no default (uninitialised shifts); harmless only because it runs
+  after a real step.
+- `sub_081540B8`: the colour is uninitialised when `sub_0815B958` returns anything but 0-2.

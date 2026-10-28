@@ -1,0 +1,47 @@
+08152384	WorldMap_StartWindowRaster	func	sets V-count IRQ (DISPSTAT 0x24 | line << 8) and resets the raster line counter unk1A; queued by sub_08152420
+081523C8	WorldMap_WindowRasterIrq	func	installed in gIntrTable[2]; per line writes WIN0H from table 0x087DFA58 and advances the V-count line, 32 lines
+08152420	WorldMap_InstallWindowRaster	func	gIntrTable[2] = sub_081523C8, VBlankTask_AddAlways(sub_08152384)
+08152440	WorldMap_CopyTilemapView	func	copies the 32x32 tilemap window around (x, y) (clamped to the area width/height) from a full area tilemap into a wrapped BG screen buffer
+0815251C	WorldMap_UpdateLayer	func	sets unk1C (which block/tilemap layer is used, sub_081529E0/sub_08151FD8) from table 0x087DFAD8 by area and cell, per direction index
+08152578	WorldMap_SetState	func	(task, state): gUnk_030069F0.state = state
+081526D0	WorldMap_UploadTiles	func	VBlank DMA 0x02001000 -> BG VRAM 0x06004000, 32 KB (the 8 tile sets of FieldMap_LoadTiles)
+081526F4	WorldMap_QueueTileUpload	func	VBlankTask_AddCounted(sub_081526D0, 1)
+08152750	WorldMap_DrawLayer	func	(task, layer, 2|3): sub_08152440 of layer's tilemap into 0x02000000 / 0x02000800 and queues its DMA to screen 0x06002000 / 0x06003000
+081527E0	WorldMap_LoadPalette	func	area palette (+0xA0) to BG palette lines 8-15 of gPaletteTarget with effect 3
+08152848	WorldMap_LoadObjGfx	func	HuffUnComp+LZ77 0x087DDE08 / 0x087DE4C8 to 0x02001000 / 0x02002000, OBJ palette 0x087DE8C4, queues sub_08152824 (to OBJ 0x06015000)
+081529E0	WorldMap_GetBlocks	func	returns the block buffer 0x02005004 (unk1C == 0) or 0x02030C74: [128][64] bytes, low nibble 0 = blocked, high nibble terrain
+08152A04	WorldMap_TryStep	func	(keys): sets the walk target unk14/unk16 one 16-px block in the d-pad direction, sliding round corners from the 8 neighbour blocks; 1 when allowed
+08152EF8	WorldMap_UpdateScroll	func	BG scroll (0x03000008..0x0300000E) from the player position clamped to the area size
+08152F80	WorldMap_HandleInput	func	A -> state 5 menu 0, START -> menu 1, SELECT (sub_0812A7C4) -> menu 2, else sub_08152A04 with the held keys and starts walking (state 2)
+0815300C	WorldMap_Walk	func	moves the player unk18 px towards the target; on arrival checks events, locations, sprites, special and random encounters and sets the next state
+081531D4	WorldMap_GetDungeonAt	func	first dungeon map (sub_080C8B3C / DungeonMap_GetFloor) whose floor rectangle contains gGameState world cell (+0x18C2 & 0x7F, +0x18C3 & 0x3F)
+08153264	WorldMap_EnterLocation	func	copies the location record (sub_081533DC) to gGameState+0x18C0 and calls sub_080C2D78(terrain, dungeon map)
+081533DC	WorldMap_FindLocation	func	8-byte records at 0x087DF344 (0xFF ends): local cell x, y at +0/+1, area at +6
+0815341C	WorldMap_FindLocationByWorldPos	func	same records by world cell (+2, +3 & 0x3F)
+08153458	WorldMap_FindEvent	func	8-byte event records 0x087DF54C {x & 0x7F, y, area, layer, script}; area origin added to the cell; ScriptVM_RunAlt(script) must be nonzero
+08153540	WorldMap_GetStepDirection	func	direction of the last step from (unk10, unk12) to (x, y): 0 up, clockwise to 7
+081535A4	WorldMap_GetNeighbourTerrain	func	high nibbles of the 8 blocks around the player packed one per nibble (NW first, clockwise)
+08153668	WorldMap_GetEncounterTerrain	func	looks up the terrain pair behind/ahead of the step (area ids +0xD0) in 0x087E0188 (0xAC entries); returns entry +2 + 0xE0, passed to the battle setup calls
+0815374C	WorldMap_CheckSpecialEncounter	func	with flags 2 and 0x16: on one of the 26 cells at 0x087E043C, 1 in 5 (Random_Byte % 5)
+08153C50	WorldMap_ToScreen	func	map point minus the player position; off-screen results are parked at 300 / 240
+08153C98	WorldMap_DrawSprites	func	draws the 16-byte sprite records at 0x087E0F84 of the current area whose flag is set (animated entry 0x0800790C)
+08153D88	WorldMap_AnimateTiles	func	area 6 without flag 0x65: every 16 frames DMAs one of the two frames decoded by sub_08153DD8 to BG 0x06008000
+08153DD8	WorldMap_LoadAnimTiles	func	area 6: decodes tile frames 0x087C5E10 / 0x087C6358 to 0x02034C74 / 0x0202F874
+08153E70	Stock_CountLiving	func	number of used, living combatants 4..15
+08153E9C	Fusion_ClearList	func	clears the 12 list pointers at gMenuState+0x1C
+08153EB8	Fusion_BuildList	func	list pointers to the used, living stock demons (0x030048C0 + i*0x80); returns the count
+08153F3C	Fusion_CountList	func	number of non-NULL list pointers
+08154074	Fusion_SortMaterials	func	sorts the three material ids at 0x0203B8F8 ascending
+081540B8	Fusion_GetPairIcon	func	fills the material ids for the current fusion mode, runs the fusion calculation and returns colour (high nibble) | mark (low nibble) for a list pair
+0815430C	Fusion_FindListSlot	func	list index whose demon id (+0x12) == id, else 0
+08154344	Stock_FindSlotByDemonId	func	stock index (combatant 4 + i used and alive) with demon id == id, else 0
+081546E8	Fusion_AllHighRace	func	1 when Demon_GetRecord(+0) race of all three demons is >= 27
+0815473C	Fusion_CanCreate	func	result demon id allowed by the hero's level (+9 for three-way fusions of race >= 27) and not already in the stock
+081547D8	Fusion_DrawDemonName	func	draws the 8-glyph demon name (record +0x22) 10 px apart and the level (sub_081549BC) after the first glyph
+08154968	Fusion_GetDemonByIndex	func	0x087E1BF6[id - 0x150]
+08154980	Fusion_GetIndexByDemon	func	inverse of sub_08154968: index of id in 0x087E1BF6 (0xFFFF ends) + 0x150
+081549BC	Fusion_DrawLevel	func	NumberToDigits + DigitFont_DrawStringTinted at 8 px advance; one-digit values shifted 8 px right
+08154A38	Fusion_DrawListRow	func	one row of the fusion list: race (Race_GetName, 3 glyphs), name, level and the result preview of the current step
+08154F4C	Fusion_DrawListHeader	func	column labels RACE / NAME / RESULT / LV (ASCII at 0x087E1C2C..0x087E1C44) and list numbers
+081551A8	Fusion_DrawList	func	sub_08154A38 for the six visible rows from top, then queues sub_08154EEC
+030069F0	gWorldMap	ram	world-map state (0x3C bytes): state, mode, area +8, x/y +0xC (px), previous +0x10, target +0x14, step +0x18, layer +0x1C; read and written throughout 0x0815201C..0x08153DD8

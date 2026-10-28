@@ -190,7 +190,7 @@ struct FieldState
 extern struct FieldState gFieldState;
 extern u32 gUnk_03004614;
 extern u32 gUnk_03004514;
-extern u16 gUnk_030069F0[];
+extern u16 gWorldMap[];
 extern s16 gAutomapScroll;
 extern u16 gUnk_0200DFCE;
 extern u16 gUnk_0200DFD0;

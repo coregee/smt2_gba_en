@@ -2549,7 +2549,7 @@ sub_080CE760: @ 0x080CE760
 .L080CE796:
 	ldr r0, .L080CE7D4
 	ldrh r0, [r0, #6]
-	bl sub_08154968
+	bl Fusion_GetDemonByIndex
 	adds r5, r0, #0
 	lsls r5, r5, #0x10
 	lsrs r5, r5, #0x10
@@ -2634,7 +2634,7 @@ sub_080CE760: @ 0x080CE760
 	ldrh r0, [r2]
 	ldrh r1, [r2, #2]
 	ldrh r2, [r2, #4]
-	bl sub_081546E8
+	bl Fusion_AllHighRace
 	adds r5, r0, #0
 	cmp r5, #1
 	bne .L080CE870

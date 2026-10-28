@@ -4124,99 +4124,99 @@ address	mode	size	name	confidence	state	file
 08151EB4	thumb	56	FieldMap_GetArea	probable	c	src/c151_08151EB4.c
 08151EEC	thumb	236			c	src/c151_08151EB4.c
 08151FD8	thumb	68			c	src/c151_08151EB4.c
-0815201C	thumb	872			asm	asm/code_0815201C.s
-08152384	thumb	68			asm	asm/code_0815201C.s
-081523C8	thumb	88			asm	asm/code_0815201C.s
-08152420	thumb	32			asm	asm/code_0815201C.s
-08152440	thumb	220			asm	asm/code_0815201C.s
-0815251C	thumb	90			asm	asm/code_0815201C.s
-08152578	thumb	12			asm	asm/code_0815201C.s
-08152584	thumb	84	FieldMap_LoadTiles	probable	named	asm/code_0815201C.s
-081525D8	thumb	88	FieldMap_LoadBlockData	probable	named	asm/code_0815201C.s
-08152630	thumb	160	FieldMap_LoadMapChunk	probable	named	asm/code_0815201C.s
-081526D0	thumb	36			asm	asm/code_0815201C.s
-081526F4	thumb	20			asm	asm/code_0815201C.s
-08152708	thumb	36			asm	asm/code_0815201C.s
-0815272C	thumb	36			asm	asm/code_0815201C.s
-08152750	thumb	144			asm	asm/code_0815201C.s
-081527E0	thumb	68			asm	asm/code_0815201C.s
-08152824	thumb	36			asm	asm/code_0815201C.s
-08152848	thumb	108			asm	asm/code_0815201C.s
-081528B4	thumb	298			asm	asm/code_0815201C.s
-081529E0	thumb	36			asm	asm/code_0815201C.s
-08152A04	thumb	1268			asm	asm/code_0815201C.s
-08152EF8	thumb	136			asm	asm/code_0815201C.s
-08152F80	thumb	140			asm	asm/code_0815201C.s
-0815300C	thumb	454			asm	asm/code_0815201C.s
-081531D4	thumb	144			asm	asm/code_0815201C.s
-08153264	thumb	76			asm	asm/code_0815201C.s
-081532B0	thumb	44			asm	asm/code_0815201C.s
-081532DC	thumb	24			asm	asm/code_0815201C.s
-081532F4	thumb	28			asm	asm/code_0815201C.s
-08153310	thumb	18			asm	asm/code_0815201C.s
-08153324	thumb	60			asm	asm/code_0815201C.s
-08153360	thumb	24			asm	asm/code_0815201C.s
-08153378	thumb	48			asm	asm/code_0815201C.s
-081533A8	thumb	52			asm	asm/code_0815201C.s
-081533DC	thumb	64			asm	asm/code_0815201C.s
-0815341C	thumb	58			asm	asm/code_0815201C.s
-08153458	thumb	230			asm	asm/code_0815201C.s
-08153540	thumb	100			asm	asm/code_0815201C.s
-081535A4	thumb	196			asm	asm/code_0815201C.s
-08153668	thumb	228			asm	asm/code_0815201C.s
-0815374C	thumb	120			asm	asm/code_0815201C.s
-081537C4	thumb	74			asm	asm/code_0815201C.s
-08153810	thumb	36			asm	asm/code_0815201C.s
-08153834	thumb	44			asm	asm/code_0815201C.s
-08153860	thumb	48			asm	asm/code_0815201C.s
-08153890	thumb	168			asm	asm/code_0815201C.s
-08153938	thumb	60			asm	asm/code_0815201C.s
-08153974	thumb	28			asm	asm/code_0815201C.s
-08153990	thumb	256			asm	asm/code_0815201C.s
-08153A90	thumb	124			asm	asm/code_0815201C.s
-08153B0C	thumb	28			asm	asm/code_0815201C.s
-08153B28	thumb	120			asm	asm/code_0815201C.s
-08153BA0	thumb	116			asm	asm/code_0815201C.s
-08153C14	thumb	58			asm	asm/code_0815201C.s
-08153C50	thumb	72			asm	asm/code_0815201C.s
-08153C98	thumb	168			asm	asm/code_0815201C.s
-08153D40	thumb	36			asm	asm/code_0815201C.s
-08153D64	thumb	36			asm	asm/code_0815201C.s
-08153D88	thumb	80			asm	asm/code_0815201C.s
-08153DD8	thumb	76			asm	asm/code_0815201C.s
-08153E24	thumb	74			asm	asm/code_0815201C.s
-08153E70	thumb	44			asm	asm/code_0815201C.s
-08153E9C	thumb	28			asm	asm/code_0815201C.s
-08153EB8	thumb	80			asm	asm/code_0815201C.s
-08153F08	thumb	52			asm	asm/code_0815201C.s
-08153F3C	thumb	48			asm	asm/code_0815201C.s
-08153F6C	thumb	32			asm	asm/code_0815201C.s
-08153F8C	thumb	60			asm	asm/code_0815201C.s
-08153FC8	thumb	112			asm	asm/code_0815201C.s
-08154038	thumb	60			asm	asm/code_0815201C.s
-08154074	thumb	68			asm	asm/code_0815201C.s
-081540B8	thumb	596			asm	asm/code_0815201C.s
-0815430C	thumb	56			asm	asm/code_0815201C.s
-08154344	thumb	70			asm	asm/code_0815201C.s
-0815438C	thumb	90			asm	asm/code_0815201C.s
-081543E8	thumb	194			asm	asm/code_0815201C.s
-081544AC	thumb	480			asm	asm/code_0815201C.s
-0815468C	thumb	12			asm	asm/code_0815201C.s
-08154698	thumb	28			asm	asm/code_0815201C.s
-081546B4	thumb	36			asm	asm/code_0815201C.s
-081546D8	thumb	16			asm	asm/code_0815201C.s
-081546E8	thumb	84			asm	asm/code_0815201C.s
-0815473C	thumb	154			asm	asm/code_0815201C.s
-081547D8	thumb	296			asm	asm/code_0815201C.s
-08154900	thumb	104			asm	asm/code_0815201C.s
-08154968	thumb	24			asm	asm/code_0815201C.s
-08154980	thumb	60			asm	asm/code_0815201C.s
-081549BC	thumb	124			asm	asm/code_0815201C.s
-08154A38	thumb	1160			asm	asm/code_0815201C.s
-08154EC0	thumb	44			asm	asm/code_0815201C.s
-08154EEC	thumb	96			asm	asm/code_0815201C.s
-08154F4C	thumb	604			asm	asm/code_0815201C.s
-081551A8	thumb	80			asm	asm/code_0815201C.s
+0815201C	thumb	872			nonmatching	src/worldmap_a.c
+08152384	thumb	68	WorldMap_StartWindowRaster	probable	c	src/worldmap_a.c
+081523C8	thumb	88	WorldMap_WindowRasterIrq	probable	c	src/worldmap_a.c
+08152420	thumb	32	WorldMap_InstallWindowRaster	probable	c	src/worldmap_a.c
+08152440	thumb	220	WorldMap_CopyTilemapView	probable	nonmatching	src/worldmap_a.c
+0815251C	thumb	90	WorldMap_UpdateLayer	probable	c	src/worldmap_a.c
+08152578	thumb	12	WorldMap_SetState	probable	c	src/worldmap_a.c
+08152584	thumb	84	FieldMap_LoadTiles	probable	c	src/worldmap_a.c
+081525D8	thumb	88	FieldMap_LoadBlockData	probable	c	src/worldmap_a.c
+08152630	thumb	160	FieldMap_LoadMapChunk	probable	c	src/worldmap_a.c
+081526D0	thumb	36	WorldMap_UploadTiles	probable	c	src/worldmap_a.c
+081526F4	thumb	20	WorldMap_QueueTileUpload	probable	c	src/worldmap_a.c
+08152708	thumb	36			c	src/worldmap_a.c
+0815272C	thumb	36			c	src/worldmap_a.c
+08152750	thumb	144	WorldMap_DrawLayer	probable	c	src/worldmap_a.c
+081527E0	thumb	68	WorldMap_LoadPalette	probable	c	src/worldmap_a.c
+08152824	thumb	36			c	src/worldmap_a.c
+08152848	thumb	108	WorldMap_LoadObjGfx	probable	c	src/worldmap_a.c
+081528B4	thumb	298			nonmatching	src/worldmap_a.c
+081529E0	thumb	36	WorldMap_GetBlocks	probable	c	src/worldmap_a.c
+08152A04	thumb	1268	WorldMap_TryStep	probable	c	src/worldmap_a.c
+08152EF8	thumb	136	WorldMap_UpdateScroll	probable	c	src/worldmap_a.c
+08152F80	thumb	140	WorldMap_HandleInput	probable	c	src/worldmap_a.c
+0815300C	thumb	454	WorldMap_Walk	probable	c	src/worldmap_a.c
+081531D4	thumb	144	WorldMap_GetDungeonAt	probable	c	src/worldmap_a.c
+08153264	thumb	76	WorldMap_EnterLocation	probable	c	src/worldmap_a.c
+081532B0	thumb	44			c	src/worldmap_a.c
+081532DC	thumb	24			c	src/worldmap_a.c
+081532F4	thumb	28			c	src/worldmap_a.c
+08153310	thumb	18			c	src/worldmap_a.c
+08153324	thumb	60			c	src/worldmap_a.c
+08153360	thumb	24			c	src/worldmap_a.c
+08153378	thumb	48			c	src/worldmap_a.c
+081533A8	thumb	52			c	src/worldmap_a.c
+081533DC	thumb	64	WorldMap_FindLocation	probable	c	src/worldmap_a.c
+0815341C	thumb	58	WorldMap_FindLocationByWorldPos	probable	c	src/worldmap_a.c
+08153458	thumb	230	WorldMap_FindEvent	probable	c	src/worldmap_a.c
+08153540	thumb	100	WorldMap_GetStepDirection	probable	c	src/worldmap_b.c
+081535A4	thumb	196	WorldMap_GetNeighbourTerrain	probable	c	src/worldmap_b.c
+08153668	thumb	228	WorldMap_GetEncounterTerrain	probable	nonmatching	src/worldmap_b.c
+0815374C	thumb	120	WorldMap_CheckSpecialEncounter	probable	c	src/worldmap_b.c
+081537C4	thumb	74			c	src/worldmap_b.c
+08153810	thumb	36			c	src/worldmap_b.c
+08153834	thumb	44			c	src/worldmap_b.c
+08153860	thumb	48			c	src/worldmap_b.c
+08153890	thumb	168			c	src/worldmap_b.c
+08153938	thumb	60			c	src/worldmap_b.c
+08153974	thumb	28			c	src/worldmap_b.c
+08153990	thumb	256			c	src/worldmap_b.c
+08153A90	thumb	124			c	src/worldmap_b.c
+08153B0C	thumb	28			c	src/worldmap_b.c
+08153B28	thumb	120			c	src/worldmap_b.c
+08153BA0	thumb	116			c	src/worldmap_b.c
+08153C14	thumb	58			c	src/worldmap_b.c
+08153C50	thumb	72	WorldMap_ToScreen	probable	c	src/worldmap_b.c
+08153C98	thumb	168	WorldMap_DrawSprites	probable	c	src/worldmap_b.c
+08153D40	thumb	36			c	src/worldmap_b.c
+08153D64	thumb	36			c	src/worldmap_b.c
+08153D88	thumb	80	WorldMap_AnimateTiles	probable	c	src/worldmap_b.c
+08153DD8	thumb	76	WorldMap_LoadAnimTiles	probable	c	src/worldmap_b.c
+08153E24	thumb	74			c	src/fusionlist_a.c
+08153E70	thumb	44	Stock_CountLiving	probable	c	src/fusionlist_a.c
+08153E9C	thumb	28	Fusion_ClearList	probable	c	src/fusionlist_a.c
+08153EB8	thumb	80	Fusion_BuildList	probable	c	src/fusionlist_a.c
+08153F08	thumb	52			c	src/fusionlist_a.c
+08153F3C	thumb	48	Fusion_CountList	probable	c	src/fusionlist_a.c
+08153F6C	thumb	32			c	src/fusionlist_a.c
+08153F8C	thumb	60			c	src/fusionlist_a.c
+08153FC8	thumb	112			c	src/fusionlist_a.c
+08154038	thumb	60			c	src/fusionlist_a.c
+08154074	thumb	68	Fusion_SortMaterials	probable	c	src/fusionlist_a.c
+081540B8	thumb	596	Fusion_GetPairIcon	probable	nonmatching	src/fusionlist_a.c
+0815430C	thumb	56	Fusion_FindListSlot	probable	c	src/fusionlist_a.c
+08154344	thumb	70	Stock_FindSlotByDemonId	probable	nonmatching	src/fusionlist_a.c
+0815438C	thumb	90			nonmatching	src/fusionlist_a.c
+081543E8	thumb	194			c	src/fusionlist_a.c
+081544AC	thumb	480			nonmatching	src/fusionlist_a.c
+0815468C	thumb	12			c	src/fusionlist_a.c
+08154698	thumb	28			c	src/fusionlist_a.c
+081546B4	thumb	36			c	src/fusionlist_a.c
+081546D8	thumb	16			c	src/fusionlist_a.c
+081546E8	thumb	84	Fusion_AllHighRace	probable	c	src/fusionlist_a.c
+0815473C	thumb	154	Fusion_CanCreate	probable	nonmatching	src/fusionlist_a.c
+081547D8	thumb	296	Fusion_DrawDemonName	probable	nonmatching	src/fusionlist_a.c
+08154900	thumb	104			c	src/fusionlist_a.c
+08154968	thumb	24	Fusion_GetDemonByIndex	probable	c	src/fusionlist_a.c
+08154980	thumb	60	Fusion_GetIndexByDemon	probable	c	src/fusionlist_a.c
+081549BC	thumb	124	Fusion_DrawLevel	probable	c	src/fusionlist_a.c
+08154A38	thumb	1160	Fusion_DrawListRow	probable	nonmatching	src/fusionlist_a.c
+08154EC0	thumb	44			c	src/fusionlist_a.c
+08154EEC	thumb	96			c	src/fusionlist_a.c
+08154F4C	thumb	604	Fusion_DrawListHeader	probable	nonmatching	src/fusionlist_a.c
+081551A8	thumb	80	Fusion_DrawList	probable	c	src/fusionlist_a.c
 081551F8	thumb	240			asm	asm/code_081551F8.s
 081552E8	thumb	140			asm	asm/code_081551F8.s
 08155374	thumb	408			asm	asm/code_081551F8.s

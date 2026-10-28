@@ -75,7 +75,7 @@ struct WarpEntry
     u8 vals[10];
 };
 
-extern struct WorldMap gUnk_030069F0;
+extern struct WorldMap gWorldMap;
 extern struct GameState gGameState;
 extern struct MapRecord gFieldMapAreas[];
 extern const u16 gUnknown_087DF93C[];
@@ -118,21 +118,21 @@ void Palette_CopyWithEffect(u32 a0, const void *src, void *dst, u32 a3, u32 a4);
 struct MapRecord *FieldMap_GetArea(u16 id);
 void *sub_08151FD8(u16 layer);
 void sub_0815201C(void);
-void sub_08152384(void);
-void sub_081523C8(void);
-void sub_08152420(void);
-void sub_08152440(const u16 *src, u16 *dst, u16 x, u16 y, u16 width, u16 height);
-void sub_0815251C(u16 a);
-void sub_081526D0(void);
+void WorldMap_StartWindowRaster(void);
+void WorldMap_WindowRasterIrq(void);
+void WorldMap_InstallWindowRaster(void);
+void WorldMap_CopyTilemapView(const u16 *src, u16 *dst, u16 x, u16 y, u16 width, u16 height);
+void WorldMap_UpdateLayer(u16 a);
+void WorldMap_UploadTiles(void);
 void sub_08152708(void);
 void sub_0815272C(void);
 void sub_08152824(void);
-u8 *sub_081529E0(void);
-void sub_08152A04(u16 a);
-void sub_08152EF8(void);
-void sub_08152F80(void);
-void sub_0815300C(void);
-void sub_08153C98(void);
-void sub_08153D88(void);
+u8 *WorldMap_GetBlocks(void);
+void WorldMap_TryStep(u16 a);
+void WorldMap_UpdateScroll(void);
+void WorldMap_HandleInput(void);
+void WorldMap_Walk(void);
+void WorldMap_DrawSprites(void);
+void WorldMap_AnimateTiles(void);
 
 #endif /* GUARD_C151_H */

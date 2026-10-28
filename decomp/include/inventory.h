@@ -289,7 +289,7 @@ extern u32 gUnk_03004544;
 extern u32 gUnk_03004628;
 extern u32 gUnk_03003BB8;
 extern u32 gUnk_03004614;
-extern u16 gUnk_030069F0[];
+extern u16 gWorldMap[];
 extern u16 gUnk_0203A448;
 extern u16 gUnk_0203A44A;
 extern u16 gUnk_0203A44C;

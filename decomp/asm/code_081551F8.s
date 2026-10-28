@@ -112,9 +112,9 @@ sub_081551F8: @ 0x081551F8
 	movs r2, #0
 	movs r3, #0
 	bl SmallFont_DrawAsciiTinted
-	bl sub_08154F4C
+	bl Fusion_DrawListHeader
 	ldrh r0, [r6, #6]
-	bl sub_081551A8
+	bl Fusion_DrawList
 	add sp, #0x14
 	pop {r4, r5, r6, r7}
 	pop {r0}
@@ -199,7 +199,7 @@ sub_08155374: @ 0x08155374
 	adds r0, #0x44
 	lsls r0, r0, #0x10
 	lsrs r7, r0, #0x10
-	bl sub_08153F3C
+	bl Fusion_CountList
 	lsls r0, r0, #0x10
 	lsrs r6, r0, #0x10
 	movs r2, #0
@@ -470,7 +470,7 @@ sub_08155554: @ 0x08155554
 	mov r8, r0
 .L0815558E:
 	str r3, [sp]
-	bl sub_08153E9C
+	bl Fusion_ClearList
 	ldrh r1, [r7]
 	subs r0, r1, #2
 	lsls r0, r0, #0x10
@@ -641,9 +641,9 @@ sub_081556C4: @ 0x081556C4
 	ldr r2, .L081556F4
 	mov r0, sp
 	bl CpuSet
-	bl sub_08154F4C
+	bl Fusion_DrawListHeader
 	ldrh r0, [r4, #6]
-	bl sub_081551A8
+	bl Fusion_DrawList
 	add sp, #4
 	pop {r4}
 	pop {r0}
@@ -681,7 +681,7 @@ sub_0815571C: @ 0x0815571C
 	mov r8, r0
 	adds r6, r1, #0
 	ldr r7, .L081557D0
-	bl sub_08153F3C
+	bl Fusion_CountList
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	adds r4, r0, #0
@@ -1302,9 +1302,9 @@ sub_08155BB8: @ 0x08155BB8
 	ldr r2, .L08155C3C
 	mov r0, sp
 	bl CpuSet
-	bl sub_08154F4C
+	bl Fusion_DrawListHeader
 	ldrh r0, [r5, #6]
-	bl sub_081551A8
+	bl Fusion_DrawList
 .L08155C2C:
 	add sp, #4
 	pop {r4, r5}
@@ -1561,7 +1561,7 @@ sub_08155E24: @ 0x08155E24
 	ldr r4, .L08155E74
 	movs r0, #0
 	mov sb, r0
-	bl sub_08153F3C
+	bl Fusion_CountList
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	adds r3, r0, #0
@@ -1953,7 +1953,7 @@ sub_08156088: @ 0x08156088
 sub_08156134: @ 0x08156134
 	push {r4, r5, lr}
 	ldr r4, .L08156164
-	bl sub_08153E9C
+	bl Fusion_ClearList
 	movs r0, #0
 	movs r1, #0
 	movs r2, #0
@@ -1986,8 +1986,8 @@ sub_08156170: @ 0x08156170
 	ldrh r4, [r1]
 	cmp r4, #1
 	bne .L08156190
-	bl sub_08153E9C
-	bl sub_08153EB8
+	bl Fusion_ClearList
+	bl Fusion_BuildList
 	b .L081561AA
 	.byte 0x00, 0x00
 .L0815618C: .4byte 0x0203A454 @ EWRAM+0x3A454
@@ -2001,7 +2001,7 @@ sub_08156170: @ 0x08156170
 	beq .L081561C6
 	cmp r4, #1
 	bne .L081561B4
-	bl sub_08153E9C
+	bl Fusion_ClearList
 	bl sub_08155518
 .L081561AA:
 	lsls r0, r0, #0x10
@@ -2012,8 +2012,8 @@ sub_08156170: @ 0x08156170
 .L081561B4:
 	cmp r4, #2
 	bne .L081561CA
-	bl sub_08153E9C
-	bl sub_08153EB8
+	bl Fusion_ClearList
+	bl Fusion_BuildList
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	beq .L081561CA
@@ -4224,7 +4224,7 @@ sub_081572AC: @ 0x081572AC
 	adds r0, r4, #0
 	adds r0, #0x94
 	strh r1, [r0]
-	bl sub_08154074
+	bl Fusion_SortMaterials
 	bl sub_0815B4B4
 	bl sub_081596F0
 	bl sub_0815B260
@@ -5486,7 +5486,7 @@ sub_08157C90: @ 0x08157C90
 	cmp r0, #1
 	bne .L08157D18
 	ldrh r0, [r5]
-	bl sub_08154968
+	bl Fusion_GetDemonByIndex
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	bl Inventory_RemoveItem
@@ -5498,12 +5498,12 @@ sub_08157C90: @ 0x08157C90
 	cmp r0, #4
 	bne .L08157D3A
 	ldrh r0, [r5]
-	bl sub_08154968
+	bl Fusion_GetDemonByIndex
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	bl Inventory_RemoveItem
 	ldrh r0, [r5, #2]
-	bl sub_08154968
+	bl Fusion_GetDemonByIndex
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	bl Inventory_RemoveItem
@@ -5512,12 +5512,12 @@ sub_08157C90: @ 0x08157C90
 	cmp r0, #5
 	bne .L08157D7E
 	ldrh r0, [r5]
-	bl sub_08154968
+	bl Fusion_GetDemonByIndex
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	bl Inventory_RemoveItem
 	ldrh r0, [r5, #2]
-	bl sub_08154968
+	bl Fusion_GetDemonByIndex
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	bl Inventory_RemoveItem
@@ -5529,7 +5529,7 @@ sub_08157C90: @ 0x08157C90
 	bl Party_Remove
 .L08157D68:
 	ldrh r0, [r5, #6]
-	bl sub_08154968
+	bl Fusion_GetDemonByIndex
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	bl Inventory_AddItem
@@ -5901,7 +5901,7 @@ sub_08158030: @ 0x08158030
 	b .L081580A2
 .L08158070:
 	ldrh r0, [r1, #6]
-	bl sub_08154968
+	bl Fusion_GetDemonByIndex
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	bl Item_GetRecord

@@ -133,7 +133,7 @@ void sub_080C1684(void)
     }
     else
     {
-        Music_Play(sub_080AD67C(gUnk_030069F0[4]));
+        Music_Play(sub_080AD67C(gWorldMap[4]));
     }
     sub_080E44A4();
     if (gUnk_03004544 != 5)
@@ -224,7 +224,7 @@ void sub_080C1880(void)
     Task_ClearAll();
     sub_080C7CC8();
     sub_08151EEC(*(u16 *)&gUnk_03003FC4, *(u16 *)&gUnk_03004618, *(u16 *)&gUnk_03004624);
-    Music_Play(sub_080AD67C(gUnk_030069F0[4]));
+    Music_Play(sub_080AD67C(gWorldMap[4]));
     SetMainCallback(sub_080C1A58);
 }
 

@@ -226,7 +226,7 @@ void LoadScreen_Confirm(struct MenuTask *task, u32 cancelled)
 void sub_080D0BA0(void)
 {
     u8 *src = gGameState.unkA40;
-    u8 *dst = gUnk_030069F0;
+    u8 *dst = gWorldMap;
     u32 i;
 
     for (i = 0; i < 0x3C; i++)
@@ -271,7 +271,7 @@ void GameState_StoreLocation(u32 mode)
     state->unkA32 = gUnk_03004614;
     state->unkA34 = gUnk_03004514;
     for (i = 0; i < 0x3C; i++)
-        state->unkA40[i] = gUnk_030069F0[i];
+        state->unkA40[i] = gWorldMap[i];
     state->unkA3A = gUnk_03003FC4;
     state->unkA3C = gUnk_03004618;
     if (mode != 3)

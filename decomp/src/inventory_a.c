@@ -88,7 +88,7 @@ void sub_080C2F44(u16 x, u16 y, u16 pal)
 {
     u16 tile;
 
-    if (gUnk_030069F0[0x1B] == 0)
+    if (gWorldMap[0x1B] == 0)
     {
         tile = gUnknown_081A62F4[gUnk_0203A448] + 0xE0;
         if (gUnk_0203A44C != 9)

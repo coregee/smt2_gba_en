@@ -33,7 +33,7 @@ u16 sub_080AD67C(u16 id)
 // sub_080AD6C8 @ 0x080AD6C8
 void sub_080AD6C8(void)
 {
-    Music_Play(sub_080AD67C(gUnk_030069F0[4]));
+    Music_Play(sub_080AD67C(gWorldMap[4]));
 }
 
 // sub_080AD6E4 @ 0x080AD6E4

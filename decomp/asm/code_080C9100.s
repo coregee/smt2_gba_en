@@ -294,7 +294,7 @@ sub_080C92C8: @ 0x080C92C8
 	cmp r0, #1
 	bne .L080C937C
 	ldrh r0, [r4]
-	bl sub_08154968
+	bl Fusion_GetDemonByIndex
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	mov r4, sp
@@ -1199,7 +1199,7 @@ Status_DrawDemonInfo: @ 0x080C99C4
 	cmp r0, #0
 	bne .L080C9AE4
 	ldrh r0, [r7, #0x12]
-	bl sub_08154968
+	bl Fusion_GetDemonByIndex
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	adds r1, r0, #0
@@ -2123,7 +2123,7 @@ sub_080C9F98: @ 0x080C9F98
 	movs r3, #0
 	bl sub_080CD9C8
 	ldrh r0, [r7, #0x12]
-	bl sub_08154968
+	bl Fusion_GetDemonByIndex
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	movs r1, #0
@@ -5558,7 +5558,7 @@ sub_080CBC8C: @ 0x080CBC8C
 .L080CBD40: .4byte 0x0203A454 @ EWRAM+0x3A454
 .L080CBD44:
 	ldrh r0, [r4, #0x12]
-	bl sub_08154968
+	bl Fusion_GetDemonByIndex
 	lsls r0, r0, #0x10
 	lsrs r7, r0, #0x10
 	cmp r7, #0x93
@@ -5929,7 +5929,7 @@ sub_080CBC8C: @ 0x080CBC8C
 	cmp r0, #1
 	bne .L080CC1C8
 	ldrh r0, [r4, #0x12]
-	bl sub_08154968
+	bl Fusion_GetDemonByIndex
 	lsls r0, r0, #0x10
 	lsrs r7, r0, #0x10
 	ldr r6, .L080CC1A4

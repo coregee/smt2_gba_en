@@ -166,7 +166,7 @@ extern u32 gUnk_03004614;
 extern u32 gUnk_03004514;
 extern u32 gUnk_03003FC4;
 extern u32 gUnk_03004618;
-extern u8 gUnk_030069F0[0x3C];
+extern u8 gWorldMap[0x3C];
 extern u8 gUnknown_084F1F7C[];
 extern u8 gUnknown_084F1FA8[];
 extern u8 gUnknown_084F1FD4[];

@@ -415,7 +415,7 @@ struct Unk030069F0
     u16 unk30;
     u16 unk32;
 };
-extern struct Unk030069F0 gUnk_030069F0;
+extern struct Unk030069F0 gWorldMap;
 
 s16 ScriptVM_RunAlt(const void *script);
 void sub_080AF178(u16 a, const void *script);

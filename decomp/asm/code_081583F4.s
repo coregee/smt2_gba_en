@@ -6987,7 +6987,7 @@ sub_0815B884: @ 0x0815B884
 	lsrs r4, r1, #0x10
 	lsls r2, r2, #0x10
 	lsrs r6, r2, #0x10
-	bl sub_08154968
+	bl Fusion_GetDemonByIndex
 	ldr r5, .L0815B8B4
 	adds r1, r5, #0
 	adds r1, #0x90
@@ -6996,7 +6996,7 @@ sub_0815B884: @ 0x0815B884
 	cmp r4, r0
 	beq .L0815B8BC
 	adds r0, r4, #0
-	bl sub_08154968
+	bl Fusion_GetDemonByIndex
 	adds r1, r5, #0
 	adds r1, #0x92
 	strh r0, [r1]
@@ -7020,7 +7020,7 @@ sub_0815B884: @ 0x0815B884
 	ldrh r0, [r4]
 	cmp r0, #0xff
 	beq .L0815B8E0
-	bl sub_08154980
+	bl Fusion_GetIndexByDemon
 .L0815B8E0:
 	strh r0, [r7]
 	ldr r0, .L0815B8F4

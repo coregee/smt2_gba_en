@@ -868,7 +868,7 @@ gUnknown_080B0EB0:
 	bl sub_080C1F50
 	ldrh r0, [r4]
 	ldrh r1, [r5]
-	bl sub_0815341C
+	bl WorldMap_FindLocationByWorldPos
 	ldr r2, .L080B141C
 	movs r3, #0xc6
 	lsls r3, r3, #5

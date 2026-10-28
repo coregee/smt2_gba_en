@@ -489,7 +489,7 @@ u32 sub_080B721C(const u16 *rec);
 extern void *gUnk_0300452C;
 extern const u16 *gUnk_03004630;
 extern const u16 *gUnk_03004510;
-extern u8 gUnk_030069F0[];
+extern u8 gWorldMap[];
 extern u32 gUnk_03003BB8;
 extern struct Task gTasks[64];
 extern const u32 gUnknown_0834A0B0[];
