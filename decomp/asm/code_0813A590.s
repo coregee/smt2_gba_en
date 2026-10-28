@@ -5289,7 +5289,7 @@ sub_0813CF80: @ 0x0813CF80
 	bl Demon_GetField
 	strb r0, [r4]
 	movs r0, #0
-	bl sub_08138390
+	bl Negotiate_CallReply
 	strb r5, [r4]
 	ldr r1, .L0813CFCC
 	movs r0, #0

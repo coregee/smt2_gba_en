@@ -359,3 +359,22 @@ No text is drawn here, so nothing limits the translation. Oddities in the origin
   `list[index]`, so the skill description is right only at index 0.
 - Auto-recovery uses up item 0xB5 only one time in eight (`0x0812E6C4`), and its caster
   search (`0x0812E558`) never considers member 0 (the hero).
+
+### Script ops 0x38A-0x437, negotiation, casino prizes (`0x08136D58`-`0x0813A590`)
+
+- **Likely bug: the default hero name stays Japanese.** `ScriptOp_432` (`0x0813A310`; the
+  translation's tools call it `SETSKILLS`) writes the encoded name `31 7C 65 FF FF FF FF FF`
+  (アレフ) into the hero's record. It runs after "Your name is... Aleph..." when the player
+  declines to name the hero at the opening (`event_b.txt` line 12258). The translation keeps
+  the op and its name table still maps 0x31/0x7C/0x65 to katakana, so the hero would be named
+  アレフ. Fix: patch the stored bytes to `17 22 1B 26 1E FF FF FF` (ALEPH in the English name
+  table at `0x0869C26C`). Confirm on screen.
+- `CasinoPrize_DrawList` (`0x0813914C`) copies prize names as exactly 8 glyphs, 13 px apart;
+  the translation patches it.
+- `Negotiate_SelectResponse` (`0x081386DC`) keeps jump targets in a 32-entry stack array while
+  the operand allows 256: scripts must stay at 32 or fewer.
+
+### More possible original bugs
+
+- `ScriptOp_40D` (`0x081396F0`) tests member 1 twice instead of falling back to member 2.
+- `ScriptOp_410` mode 0x15 calls `Combatant_IsUsed` 12 times and discards the results.

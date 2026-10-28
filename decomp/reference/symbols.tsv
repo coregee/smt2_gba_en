@@ -945,6 +945,11 @@ address	name	kind	confidence	note
 081379C8	ScriptOp_3D4	func	probable	gScriptOpTable handler for opcode(s) 3D4
 08137A20	ScriptOp_3D5	func	probable	gScriptOpTable handler for opcode(s) 3D5
 08137A74	ScriptOp_3D6	func	probable	gScriptOpTable handler for opcode(s) 3D6
+08137B4C	Negotiate_ReactGiveMoney	func	probable	adds sub_08137B1C(sub_0813BDCC()) with sub_080C30AC (the add-money call: ScriptOp_434 compares sub_080C3100 with a fee and pays it with sub_080C30AC(-fee)), stores the amount in gUnk_0203DB2C for the message, reply 0x23 (src/c136_b.c)
+08137C44	Negotiate_ReactGiveItem	func	probable	gives the demon's item (Demon_GetField 0x19, +0x100 with field 0x1D bit 0) via sub_080C3328, reply 0x26; falls back to reply 0x27 (src/c136_b.c)
+08137E7C	Negotiate_ReactHeal	func	probable	restores HP of the first member at half HP or less, else clears ailment bits (flags &= 0xC001), else restores MP; gives money (sub_08137B4C) when nobody needs it; reply 0x2C (src/c136_b.c)
+08137FCC	Negotiate_DoReaction	func	probable	11-way switch over the reaction handlers (heal, money, item, ...), then restores gUnk_0300685C and calls sub_0815BAC8(gUnk_0203DB7C, 1) (src/c136_b.c)
+08138074	Negotiate_PickReaction	func	probable	picks a reaction 0-10 from the 11-byte cumulative table gUnknown_08790458[personality] with Random_Byte and runs it through sub_08137FCC (src/c136_b.c)
 081380DC	ScriptOp_3D7	func	probable	gScriptOpTable handler for opcode(s) 3D7
 08138154	ScriptOp_3D8	func	probable	gScriptOpTable handler for opcode(s) 3D8
 08138158	ScriptOp_3D9	func	probable	gScriptOpTable handler for opcode(s) 3D9
@@ -956,6 +961,7 @@ address	name	kind	confidence	note
 08138170	ScriptOp_3DF	func	probable	gScriptOpTable handler for opcode(s) 3DF
 08138310	ScriptOp_3E0	func	probable	gScriptOpTable handler for opcode(s) 3E0
 08138350	ScriptOp_3E1	func	probable	gScriptOpTable handler for opcode(s) 3E1
+08138390	Negotiate_CallReply	func	probable	saves gScriptBase/gScriptPc to gUnk_030068C4/gUnk_03006818 (gosub, gUnk_0203DB64 = 1) and jumps to entry ((mood & 0xF) + n * gUnknown_087904F2[p]) of the reply table chosen by personality p = gUnk_0300685C >> 4 (src/c136_c.c)
 08138588	ScriptOp_3E2_40F	func	probable	gScriptOpTable handler for opcode(s) 3E2,40F
 081385D0	ScriptOp_44C	func	probable	gScriptOpTable handler for opcode(s) 44C
 081385F8	ScriptOp_412	func	probable	gScriptOpTable handler for opcode(s) 412
@@ -963,6 +969,7 @@ address	name	kind	confidence	note
 08138B9C	ScriptOp_3E3	func	probable	gScriptOpTable handler for opcode(s) 3E3
 08138C48	ScriptOp_3E4	func	probable	gScriptOpTable handler for opcode(s) 3E4
 08138C4C	ScriptOp_3E5	func	probable	gScriptOpTable handler for opcode(s) 3E5
+08138C50	Negotiate_End	func	probable	stores the negotiation result in gUnk_0203DB70, calls sub_080EFA88, resets the text cursor and glyph queue, ends task gUnk_030069E4 and yields (src/c136_e.c)
 08138D18	ScriptOp_3E6	func	probable	gScriptOpTable handler for opcode(s) 3E6
 08138D50	ScriptOp_401	func	probable	gScriptOpTable handler for opcode(s) 401
 08138DC8	ScriptOp_402	func	probable	gScriptOpTable handler for opcode(s) 402
@@ -981,6 +988,7 @@ address	name	kind	confidence	note
 0813907C	ScriptOpAlt_408	func	probable	gScriptOpAltTable handler for opcode(s) 408
 0813908C	ScriptOp_409	func	probable	gScriptOpTable handler for opcode(s) 409
 0813914C	CasinoPrize_DrawList	func	tentative	from translation patches (lost Ghidra session); verify
+081394B4	CasinoPrize_GetSet	func	probable	returns the prize set 0-4 from story flags 0xB9/0xC7/0xBC/0xC8 and item 0x157; CasinoPrize_DrawList uses it as the row of gUnknown_0878FEA8 (src/c136_g.c)
 08139504	ScriptOpAlt_409	func	probable	gScriptOpAltTable handler for opcode(s) 409
 08139514	ScriptOp_40A	func	probable	gScriptOpTable handler for opcode(s) 40A
 08139610	ScriptOpAlt_40A	func	probable	gScriptOpAltTable handler for opcode(s) 40A

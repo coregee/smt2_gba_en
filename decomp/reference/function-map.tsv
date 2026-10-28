@@ -3465,198 +3465,198 @@ address	mode	size	name	confidence	state	file
 08136BD4	thumb	192	ScriptOp_382	probable	named	asm/code_08134250.s
 08136C94	thumb	40	ScriptOp_388	probable	named	asm/code_08134250.s
 08136CBC	thumb	156	ScriptOp_389	probable	named	asm/code_08134250.s
-08136D58	thumb	2	ScriptOp_38A	probable	named	asm/code_08136D58.s
-08136D5C	thumb	116	ScriptOp_38B	probable	named	asm/code_08136D58.s
-08136DD0	thumb	2	ScriptOp_38C	probable	named	asm/code_08136D58.s
-08136DD4	thumb	96	ScriptOp_38D	probable	named	asm/code_08136D58.s
-08136E34	thumb	2	ScriptOp_390	probable	named	asm/code_08136D58.s
-08136E38	thumb	2	ScriptOp_391	probable	named	asm/code_08136D58.s
-08136E3C	thumb	124	ScriptOp_392	probable	named	asm/code_08136D58.s
-08136EB8	thumb	2	ScriptOp_394	probable	named	asm/code_08136D58.s
-08136EBC	thumb	60	ScriptOp_395	probable	named	asm/code_08136D58.s
-08136EF8	thumb	16	ScriptOp_396	probable	named	asm/code_08136D58.s
-08136F08	thumb	2	ScriptOp_398	probable	named	asm/code_08136D58.s
-08136F0C	thumb	2	ScriptOp_399	probable	named	asm/code_08136D58.s
-08136F10	thumb	2	ScriptOp_39A	probable	named	asm/code_08136D58.s
-08136F14	thumb	324	ScriptOp_39B	probable	named	asm/code_08136D58.s
-08137058	thumb	2	ScriptOp_39C	probable	named	asm/code_08136D58.s
-0813705C	thumb	100	ScriptOp_39F	probable	named	asm/code_08136D58.s
-081370C0	thumb	20	ScriptOp_3A3	probable	named	asm/code_08136D58.s
-081370D4	thumb	28	ScriptOp_3A4	probable	named	asm/code_08136D58.s
-081370F0	thumb	96	ScriptOp_3A5	probable	named	asm/code_08136D58.s
-08137150	thumb	2	ScriptOp_3A6	probable	named	asm/code_08136D58.s
-08137154	thumb	2	ScriptOp_3A8	probable	named	asm/code_08136D58.s
-08137158	thumb	2	ScriptOp_3A9	probable	named	asm/code_08136D58.s
-0813715C	thumb	2	ScriptOp_3AB	probable	named	asm/code_08136D58.s
-08137160	thumb	40	ScriptOp_3AC	probable	named	asm/code_08136D58.s
-08137188	thumb	2	ScriptOp_3AE	probable	named	asm/code_08136D58.s
-0813718C	thumb	2	ScriptOp_3B1	probable	named	asm/code_08136D58.s
-08137190	thumb	2	ScriptOp_3B2	probable	named	asm/code_08136D58.s
-08137194	thumb	2	ScriptOp_3B3	probable	named	asm/code_08136D58.s
-08137198	thumb	96	ScriptOp_3B6	probable	named	asm/code_08136D58.s
-081371F8	thumb	196	ScriptOp_3B9	probable	named	asm/code_08136D58.s
-081372BC	thumb	2	ScriptOp_3BA	probable	named	asm/code_08136D58.s
-081372C0	thumb	36	ScriptOp_3BB	probable	named	asm/code_08136D58.s
-081372E4	thumb	2	ScriptOp_3BD	probable	named	asm/code_08136D58.s
-081372E8	thumb	2	ScriptOp_3BE	probable	named	asm/code_08136D58.s
-081372EC	thumb	2	ScriptOp_3BF	probable	named	asm/code_08136D58.s
-081372F0	thumb	44	ScriptOp_3C0	probable	named	asm/code_08136D58.s
-0813731C	thumb	2	ScriptOp_3C2	probable	named	asm/code_08136D58.s
-08137320	thumb	2	ScriptOp_3C4	probable	named	asm/code_08136D58.s
-08137324	thumb	156	ScriptOp_3C5	probable	named	asm/code_08136D58.s
-081373C0	thumb	32			asm	asm/code_08136D58.s
-081373E0	thumb	152	ScriptOp_3C7	probable	named	asm/code_08136D58.s
-08137478	thumb	160	ScriptOp_3C6	probable	named	asm/code_08136D58.s
-08137518	thumb	82			asm	asm/code_08136D58.s
-0813756C	thumb	24			asm	asm/code_08136D58.s
-08137584	thumb	2	ScriptOp_3CA	probable	named	asm/code_08136D58.s
-08137588	thumb	72	ScriptOp_3CB	probable	named	asm/code_08136D58.s
-081375D0	thumb	2	ScriptOp_3CC	probable	named	asm/code_08136D58.s
-081375D4	thumb	216	ScriptOp_3CD	probable	named	asm/code_08136D58.s
-081376AC	thumb	32			asm	asm/code_08136D58.s
-081376CC	thumb	84	ScriptOp_3CE	probable	named	asm/code_08136D58.s
-08137720	thumb	176			asm	asm/code_08136D58.s
-081377D0	thumb	84	ScriptOp_3CF	probable	named	asm/code_08136D58.s
-08137824	thumb	84	ScriptOp_3D0	probable	named	asm/code_08136D58.s
-08137878	thumb	144	ScriptOp_3D1	probable	named	asm/code_08136D58.s
-08137908	thumb	84	ScriptOp_3D2	probable	named	asm/code_08136D58.s
-0813795C	thumb	108	ScriptOp_3D3	probable	named	asm/code_08136D58.s
-081379C8	thumb	2	ScriptOp_3D4	probable	named	asm/code_08136D58.s
-081379CC	thumb	82			asm	asm/code_08136D58.s
-08137A20	thumb	84	ScriptOp_3D5	probable	named	asm/code_08136D58.s
-08137A74	thumb	132	ScriptOp_3D6	probable	named	asm/code_08136D58.s
-08137AF8	thumb	34			asm	asm/code_08136D58.s
-08137B1C	thumb	46			asm	asm/code_08136D58.s
-08137B4C	thumb	44			asm	asm/code_08136D58.s
-08137B78	thumb	38			asm	asm/code_08136D58.s
-08137BA0	thumb	22			asm	asm/code_08136D58.s
-08137BB8	thumb	60			asm	asm/code_08136D58.s
-08137BF4	thumb	44			asm	asm/code_08136D58.s
-08137C20	thumb	24			asm	asm/code_08136D58.s
-08137C38	thumb	12			asm	asm/code_08136D58.s
-08137C44	thumb	112			asm	asm/code_08136D58.s
-08137CB4	thumb	56			asm	asm/code_08136D58.s
-08137CEC	thumb	50			asm	asm/code_08136D58.s
-08137D20	thumb	12			asm	asm/code_08136D58.s
-08137D2C	thumb	154			asm	asm/code_08136D58.s
-08137DC8	thumb	76			asm	asm/code_08136D58.s
-08137E14	thumb	104			asm	asm/code_08136D58.s
-08137E7C	thumb	334			asm	asm/code_08136D58.s
-08137FCC	thumb	168			asm	asm/code_08136D58.s
-08138074	thumb	88			asm	asm/code_08136D58.s
-081380CC	thumb	14			asm	asm/code_08136D58.s
-081380DC	thumb	120	ScriptOp_3D7	probable	named	asm/code_08136D58.s
-08138154	thumb	2	ScriptOp_3D8	probable	named	asm/code_08136D58.s
-08138158	thumb	2	ScriptOp_3D9	probable	named	asm/code_08136D58.s
-0813815C	thumb	2	ScriptOp_3DA	probable	named	asm/code_08136D58.s
-08138160	thumb	2	ScriptOp_3DB	probable	named	asm/code_08136D58.s
-08138164	thumb	2	ScriptOp_3DC	probable	named	asm/code_08136D58.s
-08138168	thumb	2	ScriptOp_3DD	probable	named	asm/code_08136D58.s
-0813816C	thumb	2	ScriptOp_3DE	probable	named	asm/code_08136D58.s
-08138170	thumb	172	ScriptOp_3DF	probable	named	asm/code_08136D58.s
-0813821C	thumb	244			asm	asm/code_08136D58.s
-08138310	thumb	40	ScriptOp_3E0	probable	named	asm/code_08136D58.s
-08138338	thumb	22			asm	asm/code_08136D58.s
-08138350	thumb	64	ScriptOp_3E1	probable	named	asm/code_08136D58.s
-08138390	thumb	252			asm	asm/code_08136D58.s
-0813848C	thumb	252			asm	asm/code_08136D58.s
-08138588	thumb	72	ScriptOp_3E2_40F	probable	named	asm/code_08136D58.s
-081385D0	thumb	40	ScriptOp_44C	probable	named	asm/code_081385D0.s
-081385F8	thumb	72	ScriptOp_412	probable	named	asm/code_081385D0.s
-08138640	thumb	46			asm	asm/code_081385D0.s
-08138670	thumb	30			asm	asm/code_081385D0.s
-08138690	thumb	76			asm	asm/code_081385D0.s
-081386DC	thumb	1216	Negotiate_SelectResponse	tentative	named	asm/code_081385D0.s
-08138B9C	thumb	172	ScriptOp_3E3	probable	named	asm/code_081385D0.s
-08138C48	thumb	2	ScriptOp_3E4	probable	named	asm/code_081385D0.s
-08138C4C	thumb	2	ScriptOp_3E5	probable	named	asm/code_081385D0.s
-08138C50	thumb	152			asm	asm/code_081385D0.s
-08138CE8	thumb	48			asm	asm/code_081385D0.s
-08138D18	thumb	56	ScriptOp_3E6	probable	named	asm/code_081385D0.s
-08138D50	thumb	104	ScriptOp_401	probable	named	asm/code_081385D0.s
-08138DB8	thumb	16			asm	asm/code_081385D0.s
-08138DC8	thumb	152	ScriptOp_402	probable	named	asm/code_081385D0.s
-08138E60	thumb	2	ScriptOpAlt_402	probable	named	asm/code_081385D0.s
-08138E64	thumb	60	ScriptOp_403	probable	named	asm/code_081385D0.s
-08138EA0	thumb	16	ScriptOpAlt_403	probable	named	asm/code_081385D0.s
-08138EB0	thumb	120	ScriptOp_404	probable	named	asm/code_081385D0.s
-08138F28	thumb	16	ScriptOpAlt_404	probable	named	asm/code_081385D0.s
-08138F38	thumb	110	ScriptOp_405	probable	named	asm/code_081385D0.s
-08138FA8	thumb	16	ScriptOpAlt_405	probable	named	asm/code_081385D0.s
-08138FB8	thumb	52	ScriptOp_406	probable	named	asm/code_081385D0.s
-08138FEC	thumb	16	ScriptOpAlt_406	probable	named	asm/code_081385D0.s
-08138FFC	thumb	52	ScriptOp_407	probable	named	asm/code_081385D0.s
-08139030	thumb	16	ScriptOpAlt_407	probable	named	asm/code_081385D0.s
-08139040	thumb	60	ScriptOp_408	probable	named	asm/code_081385D0.s
-0813907C	thumb	16	ScriptOpAlt_408	probable	named	asm/code_081385D0.s
-0813908C	thumb	192	ScriptOp_409	probable	named	asm/code_081385D0.s
-0813914C	thumb	872	CasinoPrize_DrawList	tentative	named	asm/code_081385D0.s
-081394B4	thumb	80			asm	asm/code_081385D0.s
-08139504	thumb	16	ScriptOpAlt_409	probable	named	asm/code_081385D0.s
-08139514	thumb	252	ScriptOp_40A	probable	named	asm/code_081385D0.s
-08139610	thumb	16	ScriptOpAlt_40A	probable	named	asm/code_081385D0.s
-08139620	thumb	48	ScriptOp_40C	probable	named	asm/code_081385D0.s
-08139650	thumb	144	ScriptOp_40B	probable	named	asm/code_081385D0.s
-081396E0	thumb	16	ScriptOpAlt_40B	probable	named	asm/code_081385D0.s
-081396F0	thumb	104	ScriptOp_40D	probable	named	asm/code_081385D0.s
-08139758	thumb	16	ScriptOpAlt_40D	probable	named	asm/code_081385D0.s
-08139768	thumb	64	ScriptOp_40E	probable	named	asm/code_081385D0.s
-081397A8	thumb	16	ScriptOpAlt_40E	probable	named	asm/code_081385D0.s
-081397B8	thumb	16			asm	asm/code_081385D0.s
-081397C8	thumb	16	ScriptOpAlt_40F	probable	named	asm/code_081385D0.s
-081397D8	thumb	240			asm	asm/code_081385D0.s
-081398C8	thumb	212			asm	asm/code_081385D0.s
-0813999C	thumb	84			asm	asm/code_081385D0.s
-081399F0	thumb	1004	ScriptOp_410	probable	named	asm/code_081385D0.s
-08139DDC	thumb	16	ScriptOpAlt_410	probable	named	asm/code_081385D0.s
-08139DEC	thumb	32	ScriptOp_411	probable	named	asm/code_081385D0.s
-08139E0C	thumb	16	ScriptOpAlt_411	probable	named	asm/code_081385D0.s
-08139E1C	thumb	80	ScriptOp_421	probable	named	asm/code_081385D0.s
-08139E6C	thumb	16	ScriptOpAlt_421	probable	named	asm/code_081385D0.s
-08139E7C	thumb	164	ScriptOp_422	probable	named	asm/code_081385D0.s
-08139F20	thumb	16	ScriptOpAlt_422	probable	named	asm/code_081385D0.s
-08139F30	thumb	112	ScriptOp_423	probable	named	asm/code_081385D0.s
-08139FA0	thumb	16	ScriptOpAlt_423	probable	named	asm/code_081385D0.s
-08139FB0	thumb	88	ScriptOp_424	probable	named	asm/code_081385D0.s
-0813A008	thumb	16	ScriptOpAlt_424	probable	named	asm/code_081385D0.s
-0813A018	thumb	2	ScriptOp_425	probable	named	asm/code_081385D0.s
-0813A01C	thumb	2	ScriptOpAlt_425	probable	named	asm/code_081385D0.s
-0813A020	thumb	516	ScriptOp_426	probable	named	asm/code_081385D0.s
-0813A224	thumb	2			asm	asm/code_081385D0.s
-0813A228	thumb	2	ScriptOp_427	probable	named	asm/code_081385D0.s
-0813A22C	thumb	2	ScriptOpAlt_427	probable	named	asm/code_081385D0.s
-0813A230	thumb	2	ScriptOp_428	probable	named	asm/code_081385D0.s
-0813A234	thumb	2	ScriptOpAlt_428	probable	named	asm/code_081385D0.s
-0813A238	thumb	96	ScriptOp_429	probable	named	asm/code_081385D0.s
-0813A298	thumb	16			asm	asm/code_081385D0.s
-0813A2A8	thumb	2	ScriptOp_42A	probable	named	asm/code_081385D0.s
-0813A2AC	thumb	2	ScriptOpAlt_42A	probable	named	asm/code_081385D0.s
-0813A2B0	thumb	24	ScriptOp_42B	probable	named	asm/code_081385D0.s
-0813A2C8	thumb	16	ScriptOpAlt_42B	probable	named	asm/code_081385D0.s
-0813A2D8	thumb	2	ScriptOp_42C	probable	named	asm/code_081385D0.s
-0813A2DC	thumb	2	ScriptOpAlt_42C	probable	named	asm/code_081385D0.s
-0813A2E0	thumb	2	ScriptOp_42D	probable	named	asm/code_081385D0.s
-0813A2E4	thumb	2	ScriptOpAlt_42D	probable	named	asm/code_081385D0.s
-0813A2E8	thumb	2	ScriptOp_42E	probable	named	asm/code_081385D0.s
-0813A2EC	thumb	2	ScriptOpAlt_42E	probable	named	asm/code_081385D0.s
-0813A2F0	thumb	2	ScriptOp_42F	probable	named	asm/code_081385D0.s
-0813A2F4	thumb	2	ScriptOpAlt_42F	probable	named	asm/code_081385D0.s
-0813A2F8	thumb	10	ScriptOp_430	probable	named	asm/code_081385D0.s
-0813A304	thumb	2	ScriptOpAlt_430	probable	named	asm/code_081385D0.s
-0813A308	thumb	2	ScriptOp_431	probable	named	asm/code_081385D0.s
-0813A30C	thumb	2	ScriptOpAlt_431	probable	named	asm/code_081385D0.s
-0813A310	thumb	116	ScriptOp_432	probable	named	asm/code_081385D0.s
-0813A384	thumb	16	ScriptOpAlt_432	probable	named	asm/code_081385D0.s
-0813A394	thumb	10	ScriptOp_433	probable	named	asm/code_081385D0.s
-0813A3A0	thumb	2	ScriptOpAlt_433	probable	named	asm/code_081385D0.s
-0813A3A4	thumb	28			asm	asm/code_081385D0.s
-0813A3C0	thumb	108	ScriptOp_434	probable	named	asm/code_081385D0.s
-0813A42C	thumb	324	ScriptOp_435	probable	named	asm/code_081385D0.s
-0813A570	thumb	16	ScriptOpAlt_435	probable	named	asm/code_081385D0.s
-0813A580	thumb	2	ScriptOp_436	probable	named	asm/code_081385D0.s
-0813A584	thumb	2	ScriptOpAlt_436	probable	named	asm/code_081385D0.s
-0813A588	thumb	2	ScriptOp_437	probable	named	asm/code_081385D0.s
-0813A58C	thumb	2	ScriptOpAlt_437	probable	named	asm/code_081385D0.s
+08136D58	thumb	2	ScriptOp_38A	probable	c	src/scriptops_38a.c
+08136D5C	thumb	116	ScriptOp_38B	probable	nonmatching	src/scriptops_38a.c
+08136DD0	thumb	2	ScriptOp_38C	probable	c	src/scriptops_38a.c
+08136DD4	thumb	96	ScriptOp_38D	probable	c	src/scriptops_38a.c
+08136E34	thumb	2	ScriptOp_390	probable	c	src/scriptops_38a.c
+08136E38	thumb	2	ScriptOp_391	probable	c	src/scriptops_38a.c
+08136E3C	thumb	124	ScriptOp_392	probable	c	src/scriptops_38a.c
+08136EB8	thumb	2	ScriptOp_394	probable	c	src/scriptops_38a.c
+08136EBC	thumb	60	ScriptOp_395	probable	c	src/scriptops_38a.c
+08136EF8	thumb	16	ScriptOp_396	probable	c	src/scriptops_38a.c
+08136F08	thumb	2	ScriptOp_398	probable	c	src/scriptops_38a.c
+08136F0C	thumb	2	ScriptOp_399	probable	c	src/scriptops_38a.c
+08136F10	thumb	2	ScriptOp_39A	probable	c	src/scriptops_38a.c
+08136F14	thumb	324	ScriptOp_39B	probable	nonmatching	src/scriptops_38a.c
+08137058	thumb	2	ScriptOp_39C	probable	c	src/scriptops_38a.c
+0813705C	thumb	100	ScriptOp_39F	probable	c	src/scriptops_38a.c
+081370C0	thumb	20	ScriptOp_3A3	probable	c	src/scriptops_38a.c
+081370D4	thumb	28	ScriptOp_3A4	probable	c	src/scriptops_38a.c
+081370F0	thumb	96	ScriptOp_3A5	probable	c	src/scriptops_38a.c
+08137150	thumb	2	ScriptOp_3A6	probable	c	src/scriptops_38a.c
+08137154	thumb	2	ScriptOp_3A8	probable	c	src/scriptops_38a.c
+08137158	thumb	2	ScriptOp_3A9	probable	c	src/scriptops_38a.c
+0813715C	thumb	2	ScriptOp_3AB	probable	c	src/scriptops_38a.c
+08137160	thumb	40	ScriptOp_3AC	probable	c	src/scriptops_38a.c
+08137188	thumb	2	ScriptOp_3AE	probable	c	src/scriptops_38a.c
+0813718C	thumb	2	ScriptOp_3B1	probable	c	src/scriptops_38a.c
+08137190	thumb	2	ScriptOp_3B2	probable	c	src/scriptops_38a.c
+08137194	thumb	2	ScriptOp_3B3	probable	c	src/scriptops_38a.c
+08137198	thumb	96	ScriptOp_3B6	probable	c	src/scriptops_38a.c
+081371F8	thumb	196	ScriptOp_3B9	probable	c	src/scriptops_38a.c
+081372BC	thumb	2	ScriptOp_3BA	probable	c	src/scriptops_38a.c
+081372C0	thumb	36	ScriptOp_3BB	probable	c	src/scriptops_38a.c
+081372E4	thumb	2	ScriptOp_3BD	probable	c	src/scriptops_38a.c
+081372E8	thumb	2	ScriptOp_3BE	probable	c	src/scriptops_38a.c
+081372EC	thumb	2	ScriptOp_3BF	probable	c	src/scriptops_38a.c
+081372F0	thumb	44	ScriptOp_3C0	probable	c	src/scriptops_38a.c
+0813731C	thumb	2	ScriptOp_3C2	probable	c	src/scriptops_38a.c
+08137320	thumb	2	ScriptOp_3C4	probable	c	src/scriptops_38a.c
+08137324	thumb	156	ScriptOp_3C5	probable	c	src/scriptops_38a.c
+081373C0	thumb	32			c	src/scriptops_38a.c
+081373E0	thumb	152	ScriptOp_3C7	probable	c	src/scriptops_38a.c
+08137478	thumb	160	ScriptOp_3C6	probable	c	src/scriptops_38a.c
+08137518	thumb	82			c	src/scriptops_38a.c
+0813756C	thumb	24			c	src/scriptops_38a.c
+08137584	thumb	2	ScriptOp_3CA	probable	c	src/scriptops_38a.c
+08137588	thumb	72	ScriptOp_3CB	probable	c	src/scriptops_38a.c
+081375D0	thumb	2	ScriptOp_3CC	probable	c	src/scriptops_38a.c
+081375D4	thumb	216	ScriptOp_3CD	probable	nonmatching	src/scriptops_38a.c
+081376AC	thumb	32			c	src/scriptops_38a.c
+081376CC	thumb	84	ScriptOp_3CE	probable	c	src/scriptops_38a.c
+08137720	thumb	176			c	src/scriptops_38a.c
+081377D0	thumb	84	ScriptOp_3CF	probable	c	src/scriptops_38a.c
+08137824	thumb	84	ScriptOp_3D0	probable	c	src/scriptops_38a.c
+08137878	thumb	144	ScriptOp_3D1	probable	c	src/scriptops_38a.c
+08137908	thumb	84	ScriptOp_3D2	probable	c	src/scriptops_38a.c
+0813795C	thumb	108	ScriptOp_3D3	probable	c	src/scriptops_38a.c
+081379C8	thumb	2	ScriptOp_3D4	probable	c	src/scriptops_38a.c
+081379CC	thumb	82			nonmatching	src/scriptops_38a.c
+08137A20	thumb	84	ScriptOp_3D5	probable	c	src/scriptops_38a.c
+08137A74	thumb	132	ScriptOp_3D6	probable	c	src/scriptops_38a.c
+08137AF8	thumb	34			c	src/negotiate_a.c
+08137B1C	thumb	46			c	src/negotiate_a.c
+08137B4C	thumb	44	Negotiate_ReactGiveMoney	probable	c	src/negotiate_a.c
+08137B78	thumb	38			c	src/negotiate_a.c
+08137BA0	thumb	22			c	src/negotiate_a.c
+08137BB8	thumb	60			c	src/negotiate_a.c
+08137BF4	thumb	44			c	src/negotiate_a.c
+08137C20	thumb	24			c	src/negotiate_a.c
+08137C38	thumb	12			c	src/negotiate_a.c
+08137C44	thumb	112	Negotiate_ReactGiveItem	probable	c	src/negotiate_a.c
+08137CB4	thumb	56			c	src/negotiate_a.c
+08137CEC	thumb	50			c	src/negotiate_a.c
+08137D20	thumb	12			c	src/negotiate_a.c
+08137D2C	thumb	154			nonmatching	src/negotiate_a.c
+08137DC8	thumb	76			c	src/negotiate_a.c
+08137E14	thumb	104			nonmatching	src/negotiate_a.c
+08137E7C	thumb	334	Negotiate_ReactHeal	probable	c	src/negotiate_a.c
+08137FCC	thumb	168	Negotiate_DoReaction	probable	c	src/negotiate_a.c
+08138074	thumb	88	Negotiate_PickReaction	probable	c	src/negotiate_a.c
+081380CC	thumb	14			c	src/negotiate_a.c
+081380DC	thumb	120	ScriptOp_3D7	probable	c	src/negotiate_b.c
+08138154	thumb	2	ScriptOp_3D8	probable	c	src/negotiate_b.c
+08138158	thumb	2	ScriptOp_3D9	probable	c	src/negotiate_b.c
+0813815C	thumb	2	ScriptOp_3DA	probable	c	src/negotiate_b.c
+08138160	thumb	2	ScriptOp_3DB	probable	c	src/negotiate_b.c
+08138164	thumb	2	ScriptOp_3DC	probable	c	src/negotiate_b.c
+08138168	thumb	2	ScriptOp_3DD	probable	c	src/negotiate_b.c
+0813816C	thumb	2	ScriptOp_3DE	probable	c	src/negotiate_b.c
+08138170	thumb	172	ScriptOp_3DF	probable	c	src/negotiate_b.c
+0813821C	thumb	244			c	src/negotiate_b.c
+08138310	thumb	40	ScriptOp_3E0	probable	c	src/negotiate_b.c
+08138338	thumb	22			c	src/negotiate_b.c
+08138350	thumb	64	ScriptOp_3E1	probable	c	src/negotiate_b.c
+08138390	thumb	252	Negotiate_CallReply	probable	nonmatching	src/negotiate_b.c
+0813848C	thumb	252			nonmatching	src/negotiate_b.c
+08138588	thumb	72	ScriptOp_3E2_40F	probable	c	src/negotiate_b.c
+081385D0	thumb	40	ScriptOp_44C	probable	c	src/negotiate_c.c
+081385F8	thumb	72	ScriptOp_412	probable	c	src/negotiate_c.c
+08138640	thumb	46			c	src/negotiate_c.c
+08138670	thumb	30			c	src/negotiate_c.c
+08138690	thumb	76			nonmatching	src/negotiate_c.c
+081386DC	thumb	1216	Negotiate_SelectResponse	tentative	c	src/negotiate_c.c
+08138B9C	thumb	172	ScriptOp_3E3	probable	c	src/negotiate_d.c
+08138C48	thumb	2	ScriptOp_3E4	probable	c	src/negotiate_d.c
+08138C4C	thumb	2	ScriptOp_3E5	probable	c	src/negotiate_d.c
+08138C50	thumb	152	Negotiate_End	probable	c	src/negotiate_d.c
+08138CE8	thumb	48			c	src/negotiate_d.c
+08138D18	thumb	56	ScriptOp_3E6	probable	c	src/negotiate_d.c
+08138D50	thumb	104	ScriptOp_401	probable	c	src/negotiate_d.c
+08138DB8	thumb	16			c	src/negotiate_d.c
+08138DC8	thumb	152	ScriptOp_402	probable	c	src/scriptops_402.c
+08138E60	thumb	2	ScriptOpAlt_402	probable	c	src/scriptops_402.c
+08138E64	thumb	60	ScriptOp_403	probable	c	src/scriptops_402.c
+08138EA0	thumb	16	ScriptOpAlt_403	probable	c	src/scriptops_402.c
+08138EB0	thumb	120	ScriptOp_404	probable	c	src/scriptops_402.c
+08138F28	thumb	16	ScriptOpAlt_404	probable	c	src/scriptops_402.c
+08138F38	thumb	110	ScriptOp_405	probable	c	src/scriptops_402.c
+08138FA8	thumb	16	ScriptOpAlt_405	probable	c	src/scriptops_402.c
+08138FB8	thumb	52	ScriptOp_406	probable	c	src/scriptops_402.c
+08138FEC	thumb	16	ScriptOpAlt_406	probable	c	src/scriptops_402.c
+08138FFC	thumb	52	ScriptOp_407	probable	c	src/scriptops_402.c
+08139030	thumb	16	ScriptOpAlt_407	probable	c	src/scriptops_402.c
+08139040	thumb	60	ScriptOp_408	probable	c	src/scriptops_402.c
+0813907C	thumb	16	ScriptOpAlt_408	probable	c	src/scriptops_402.c
+0813908C	thumb	192	ScriptOp_409	probable	c	src/scriptops_402.c
+0813914C	thumb	872	CasinoPrize_DrawList	tentative	nonmatching	src/casinoprize_a.c
+081394B4	thumb	80	CasinoPrize_GetSet	probable	c	src/casinoprize_a.c
+08139504	thumb	16	ScriptOpAlt_409	probable	c	src/casinoprize_a.c
+08139514	thumb	252	ScriptOp_40A	probable	c	src/casinoprize_a.c
+08139610	thumb	16	ScriptOpAlt_40A	probable	c	src/casinoprize_a.c
+08139620	thumb	48	ScriptOp_40C	probable	c	src/casinoprize_a.c
+08139650	thumb	144	ScriptOp_40B	probable	c	src/casinoprize_a.c
+081396E0	thumb	16	ScriptOpAlt_40B	probable	c	src/casinoprize_a.c
+081396F0	thumb	104	ScriptOp_40D	probable	c	src/casinoprize_a.c
+08139758	thumb	16	ScriptOpAlt_40D	probable	c	src/casinoprize_a.c
+08139768	thumb	64	ScriptOp_40E	probable	c	src/casinoprize_a.c
+081397A8	thumb	16	ScriptOpAlt_40E	probable	c	src/casinoprize_a.c
+081397B8	thumb	16			c	src/casinoprize_a.c
+081397C8	thumb	16	ScriptOpAlt_40F	probable	c	src/casinoprize_a.c
+081397D8	thumb	240			nonmatching	src/casinoprize_b.c
+081398C8	thumb	212			nonmatching	src/casinoprize_b.c
+0813999C	thumb	84			nonmatching	src/casinoprize_b.c
+081399F0	thumb	1004	ScriptOp_410	probable	c	src/scriptops_410.c
+08139DDC	thumb	16	ScriptOpAlt_410	probable	c	src/scriptops_411.c
+08139DEC	thumb	32	ScriptOp_411	probable	c	src/scriptops_411.c
+08139E0C	thumb	16	ScriptOpAlt_411	probable	c	src/scriptops_411.c
+08139E1C	thumb	80	ScriptOp_421	probable	c	src/scriptops_411.c
+08139E6C	thumb	16	ScriptOpAlt_421	probable	c	src/scriptops_411.c
+08139E7C	thumb	164	ScriptOp_422	probable	nonmatching	src/scriptops_411.c
+08139F20	thumb	16	ScriptOpAlt_422	probable	c	src/scriptops_411.c
+08139F30	thumb	112	ScriptOp_423	probable	c	src/scriptops_411.c
+08139FA0	thumb	16	ScriptOpAlt_423	probable	c	src/scriptops_411.c
+08139FB0	thumb	88	ScriptOp_424	probable	c	src/scriptops_411.c
+0813A008	thumb	16	ScriptOpAlt_424	probable	c	src/scriptops_411.c
+0813A018	thumb	2	ScriptOp_425	probable	c	src/scriptops_411.c
+0813A01C	thumb	2	ScriptOpAlt_425	probable	c	src/scriptops_411.c
+0813A020	thumb	516	ScriptOp_426	probable	nonmatching	src/scriptops_426.c
+0813A224	thumb	2			c	src/scriptops_427.c
+0813A228	thumb	2	ScriptOp_427	probable	c	src/scriptops_427.c
+0813A22C	thumb	2	ScriptOpAlt_427	probable	c	src/scriptops_427.c
+0813A230	thumb	2	ScriptOp_428	probable	c	src/scriptops_427.c
+0813A234	thumb	2	ScriptOpAlt_428	probable	c	src/scriptops_427.c
+0813A238	thumb	96	ScriptOp_429	probable	c	src/scriptops_427.c
+0813A298	thumb	16			c	src/scriptops_427.c
+0813A2A8	thumb	2	ScriptOp_42A	probable	c	src/scriptops_427.c
+0813A2AC	thumb	2	ScriptOpAlt_42A	probable	c	src/scriptops_427.c
+0813A2B0	thumb	24	ScriptOp_42B	probable	c	src/scriptops_427.c
+0813A2C8	thumb	16	ScriptOpAlt_42B	probable	c	src/scriptops_427.c
+0813A2D8	thumb	2	ScriptOp_42C	probable	c	src/scriptops_427.c
+0813A2DC	thumb	2	ScriptOpAlt_42C	probable	c	src/scriptops_427.c
+0813A2E0	thumb	2	ScriptOp_42D	probable	c	src/scriptops_427.c
+0813A2E4	thumb	2	ScriptOpAlt_42D	probable	c	src/scriptops_427.c
+0813A2E8	thumb	2	ScriptOp_42E	probable	c	src/scriptops_427.c
+0813A2EC	thumb	2	ScriptOpAlt_42E	probable	c	src/scriptops_427.c
+0813A2F0	thumb	2	ScriptOp_42F	probable	c	src/scriptops_427.c
+0813A2F4	thumb	2	ScriptOpAlt_42F	probable	c	src/scriptops_427.c
+0813A2F8	thumb	10	ScriptOp_430	probable	c	src/scriptops_427.c
+0813A304	thumb	2	ScriptOpAlt_430	probable	c	src/scriptops_427.c
+0813A308	thumb	2	ScriptOp_431	probable	c	src/scriptops_427.c
+0813A30C	thumb	2	ScriptOpAlt_431	probable	c	src/scriptops_427.c
+0813A310	thumb	116	ScriptOp_432	probable	nonmatching	src/scriptops_427.c
+0813A384	thumb	16	ScriptOpAlt_432	probable	c	src/scriptops_427.c
+0813A394	thumb	10	ScriptOp_433	probable	c	src/scriptops_427.c
+0813A3A0	thumb	2	ScriptOpAlt_433	probable	c	src/scriptops_427.c
+0813A3A4	thumb	28			c	src/scriptops_427.c
+0813A3C0	thumb	108	ScriptOp_434	probable	c	src/scriptops_427.c
+0813A42C	thumb	324	ScriptOp_435	probable	c	src/scriptops_427.c
+0813A570	thumb	16	ScriptOpAlt_435	probable	c	src/scriptops_427.c
+0813A580	thumb	2	ScriptOp_436	probable	c	src/scriptops_427.c
+0813A584	thumb	2	ScriptOpAlt_436	probable	c	src/scriptops_427.c
+0813A588	thumb	2	ScriptOp_437	probable	c	src/scriptops_427.c
+0813A58C	thumb	2	ScriptOpAlt_437	probable	c	src/scriptops_427.c
 0813A590	thumb	680	ScriptOp_438	probable	named	asm/code_0813A590.s
 0813A838	thumb	16	ScriptOpAlt_438	probable	named	asm/code_0813A590.s
 0813A848	thumb	64	ScriptOp_439	probable	named	asm/code_0813A590.s

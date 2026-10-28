@@ -13,7 +13,7 @@ sub_08131400: @ 0x08131400
 	push {r6, r7}
 	mov r8, r0
 	movs r6, #0
-	bl sub_081394B4
+	bl CasinoPrize_GetSet
 	lsls r0, r0, #0x10
 	lsrs r7, r0, #0x10
 	mov ip, r7

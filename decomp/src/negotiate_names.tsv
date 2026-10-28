@@ -1,0 +1,8 @@
+08138074	Negotiate_PickReaction	func	picks a reaction 0-10 from the 11-byte cumulative table gUnknown_08790458[personality] with Random_Byte and runs it through sub_08137FCC (src/c136_b.c)
+08137FCC	Negotiate_DoReaction	func	11-way switch over the reaction handlers (heal, money, item, ...), then restores gUnk_0300685C and calls sub_0815BAC8(gUnk_0203DB7C, 1) (src/c136_b.c)
+08137B4C	Negotiate_ReactGiveMoney	func	adds sub_08137B1C(sub_0813BDCC()) with sub_080C30AC (the add-money call: ScriptOp_434 compares sub_080C3100 with a fee and pays it with sub_080C30AC(-fee)), stores the amount in gUnk_0203DB2C for the message, reply 0x23 (src/c136_b.c)
+08137C44	Negotiate_ReactGiveItem	func	gives the demon's item (Demon_GetField 0x19, +0x100 with field 0x1D bit 0) via sub_080C3328, reply 0x26; falls back to reply 0x27 (src/c136_b.c)
+08137E7C	Negotiate_ReactHeal	func	restores HP of the first member at half HP or less, else clears ailment bits (flags &= 0xC001), else restores MP; gives money (sub_08137B4C) when nobody needs it; reply 0x2C (src/c136_b.c)
+08138390	Negotiate_CallReply	func	saves gScriptBase/gScriptPc to gUnk_030068C4/gUnk_03006818 (gosub, gUnk_0203DB64 = 1) and jumps to entry ((mood & 0xF) + n * gUnknown_087904F2[p]) of the reply table chosen by personality p = gUnk_0300685C >> 4 (src/c136_c.c)
+08138C50	Negotiate_End	func	stores the negotiation result in gUnk_0203DB70, calls sub_080EFA88, resets the text cursor and glyph queue, ends task gUnk_030069E4 and yields (src/c136_e.c)
+081394B4	CasinoPrize_GetSet	func	returns the prize set 0-4 from story flags 0xB9/0xC7/0xBC/0xC8 and item 0x157; CasinoPrize_DrawList uses it as the row of gUnknown_0878FEA8 (src/c136_g.c)
