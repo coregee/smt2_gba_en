@@ -310,7 +310,7 @@ NAKED void sub_080F0344(u16 kind, u16 v)
 // sub_080F038C @ 0x080F038C
 s16 sub_080F038C(s16 who, u8 *c)
 {
-    s16 x = sub_080F3110(who);
+    s16 x = Battle_IsEnemyId(who);
     u16 f = *(u16 *)(c + 0x10);
 
     if (f & 0x200)

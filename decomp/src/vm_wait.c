@@ -414,7 +414,7 @@ void sub_0813D638(struct ScriptTask *task)
     n = Stock_GetCapacity();
     for (i = 0; i < n + 4; i++)
     {
-        if (Combatant_IsAlive(i) == 1 && sub_080F3EC8(i) == 1)
+        if (Combatant_IsAlive(i) == 1 && Combatant_IsInParty(i) == 1)
         {
             s16 dmg = Battle_GetCombatant(0x8000 + i)->hp >> 3;
 

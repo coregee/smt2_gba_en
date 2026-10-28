@@ -12,7 +12,7 @@ void Moon_Advance(u16 n)
     if (gGameState.moon > 0xFF)
         gGameState.moon &= 0xFF;
     sub_080C1AF4();
-    if (sub_080F3F44() & 0x80)
+    if (BattleFlags_Get() & 0x80)
     {
         u8 c = gGameState.unk18BB;
 
@@ -21,7 +21,7 @@ void Moon_Advance(u16 n)
             if ((Moon_GetPhase() & 0xF0) == (c & 0xF0))
             {
                 c = 0;
-                sub_080F3F58(~0x80);
+                BattleFlags_Mask(~0x80);
             }
         }
         else
@@ -110,7 +110,7 @@ void sub_080C1E60(u32 *mask)
             {
                 if (who > 3)
                 {
-                    u32 r = sub_080F401C(who);
+                    u32 r = Battle_GetHp(who);
 
                     if (r == 1)
                         *mask |= r << who;
@@ -185,7 +185,7 @@ u32 sub_080C2000(s32 mode)
     u32 enc[2];
     u16 d0, d1;
 
-    if (!(sub_080F3F44() & 0x80))
+    if (!(BattleFlags_Get() & 0x80))
         return 0;
     if (mode == 0)
     {
@@ -214,7 +214,7 @@ u32 sub_080C2000(s32 mode)
         "    push {r4, r5, r6, lr}\n"
         "    sub sp, #8\n"
         "    adds r4, r0, #0\n"
-        "    bl sub_080F3F44\n"
+        "    bl BattleFlags_Get\n"
         "    movs r1, #0x80\n"
         "    ands r1, r0\n"
         "    cmp r1, #0\n"

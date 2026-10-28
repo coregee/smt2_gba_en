@@ -205,11 +205,11 @@ void sub_080B8C7C(struct Task *task, u32 slot, u32 apply)
         {
             if (Combatant_GetAlignment(id) == v)
                 return;
-            v = (sub_080F4038(id) * 38) >> 7;
+            v = (Battle_GetMaxHp(id) * 38) >> 7;
             if (v == 0)
                 v = 1;
-            if (v > sub_080F401C(id))
-                v = sub_080F401C(id);
+            if (v > Battle_GetHp(id))
+                v = Battle_GetHp(id);
             HEAL_DATA(task)->amount[slot] = v;
         }
         else
@@ -217,7 +217,7 @@ void sub_080B8C7C(struct Task *task, u32 slot, u32 apply)
             v = HEAL_DATA(task)->amount[slot];
             if (v == 0)
                 return;
-            if (sub_080F401C(id) == 1)
+            if (Battle_GetHp(id) == 1)
                 Combatant_Damage(id, v);
             else
                 Combatant_Damage(id, v);
@@ -238,7 +238,7 @@ void sub_080B8C7C(struct Task *task, u32 slot, u32 apply)
         }
         else
         {
-            v = sub_080F4038(id);
+            v = Battle_GetMaxHp(id);
             v = (v * 12) >> 7;
             if (v == 0)
                 v = 1;

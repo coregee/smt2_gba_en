@@ -240,7 +240,7 @@ extern u8 gUnk_03004010[];
 void Palette_CopyWithEffect(u32 a0, const void *src, void *dst, u32 a3, u32 a4);
 void BgPicture_LoadAll(void);
 void DungeonMap_LoadDoorGfx(void);
-void sub_080F3F58(s32 a);
+void BattleFlags_Mask(s32 a);
 void Encounter_SetCounter(u32 a);
 void sub_080B2840(u32 a, u32 b, u32 c);
 void sub_080B2CC0(void);
@@ -358,7 +358,7 @@ const u32 *sub_080C9084(u16 x, u16 y, u16 dir, u16 *flag);
 void sub_080C24B8(u16 flag);
 
 u32 Moon_GetPhase(void);
-u32 sub_080F3F44(void);
+u32 BattleFlags_Get(void);
 void sub_080C1AB0(void);
 u16 Encounter_GetCounter(void);
 void *sub_080C1B74(u16 *a, u16 *b);

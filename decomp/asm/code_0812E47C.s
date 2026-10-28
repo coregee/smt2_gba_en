@@ -156,7 +156,7 @@ sub_0812E558: @ 0x0812E558
 	ldr r1, .L0812E5B4
 	adds r4, r0, r1
 	adds r0, r5, #0
-	bl sub_080F3EC8
+	bl Combatant_IsInParty
 	cmp r0, #0
 	beq .L0812E5D2
 	adds r0, r5, #0
@@ -204,7 +204,7 @@ sub_0812E558: @ 0x0812E558
 	ldr r1, .L0812E618
 	adds r4, r0, r1
 	adds r0, r5, #0
-	bl sub_080F3EC8
+	bl Combatant_IsInParty
 	adds r2, r5, #1
 	mov sb, r2
 	cmp r0, #0
@@ -348,7 +348,7 @@ sub_0812E6C4: @ 0x0812E6C4
 .L0812E6F8:
 	mov r0, sp
 	adds r1, r4, #0
-	bl sub_080F5C90
+	bl Item_RunUseEffect
 .L0812E700:
 	lsls r0, r5, #0x10
 	asrs r1, r0, #0x10
@@ -473,7 +473,7 @@ gUnknown_0812E7D8:
 	asrs r0, r4, #0xf
 	adds r0, r0, r7
 	ldrh r0, [r0]
-	bl sub_080F4490
+	bl Battle_FindPartyPosition
 	lsls r0, r0, #0x10
 	asrs r5, r0, #0x10
 	movs r0, #1
@@ -495,7 +495,7 @@ gUnknown_0812E7D8:
 	asrs r0, r4, #0xf
 	adds r0, r0, r7
 	ldrh r0, [r0]
-	bl sub_080F4490
+	bl Battle_FindPartyPosition
 	lsls r0, r0, #0x10
 	asrs r5, r0, #0x10
 	movs r0, #1
@@ -517,7 +517,7 @@ gUnknown_0812E7D8:
 	asrs r0, r4, #0xf
 	adds r0, r0, r7
 	ldrh r0, [r0]
-	bl sub_080F4490
+	bl Battle_FindPartyPosition
 	lsls r0, r0, #0x10
 	asrs r5, r0, #0x10
 	movs r0, #1
@@ -537,7 +537,7 @@ gUnknown_0812E7D8:
 	asrs r0, r4, #0xf
 	adds r0, r0, r7
 	ldrh r0, [r0]
-	bl sub_080F4490
+	bl Battle_FindPartyPosition
 	lsls r0, r0, #0x10
 	asrs r5, r0, #0x10
 	movs r0, #1
@@ -770,7 +770,7 @@ sub_0812EA54: @ 0x0812EA54
 	cmp r0, #0
 	beq .L0812EA88
 	adds r0, r4, #0
-	bl sub_080F3EC8
+	bl Combatant_IsInParty
 	cmp r0, #0
 	beq .L0812EA88
 	adds r0, r4, #0
@@ -858,7 +858,7 @@ gUnknown_0812EAF4:
 	adds r0, r0, r1
 	movs r3, #0
 	ldrsh r0, [r0, r3]
-	bl sub_080F4490
+	bl Battle_FindPartyPosition
 	adds r4, r0, #0
 	movs r0, #1
 	rsbs r0, r0, #0
@@ -883,7 +883,7 @@ gUnknown_0812EAF4:
 	adds r0, r0, r1
 	movs r3, #0
 	ldrsh r0, [r0, r3]
-	bl sub_080F4490
+	bl Battle_FindPartyPosition
 	adds r4, r0, #0
 	movs r0, #1
 	rsbs r0, r0, #0
@@ -906,7 +906,7 @@ gUnknown_0812EAF4:
 	adds r0, r0, r1
 	movs r3, #0
 	ldrsh r0, [r0, r3]
-	bl sub_080F4490
+	bl Battle_FindPartyPosition
 	adds r4, r0, #0
 	movs r0, #1
 	rsbs r0, r0, #0
@@ -929,7 +929,7 @@ gUnknown_0812EAF4:
 	adds r0, r0, r1
 	movs r3, #0
 	ldrsh r0, [r0, r3]
-	bl sub_080F4490
+	bl Battle_FindPartyPosition
 	adds r4, r0, #0
 	movs r0, #1
 	rsbs r0, r0, #0
@@ -1046,7 +1046,7 @@ gUnknown_0812EAF4:
 .L0812ECA6:
 	mov r0, sp
 	ldr r1, [sp, #0x24]
-	bl sub_080F5C90
+	bl Item_RunUseEffect
 	bl sub_080C84A0
 	ldr r0, [sp, #0xc]
 	cmp r0, #1

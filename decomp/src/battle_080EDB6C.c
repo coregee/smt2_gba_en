@@ -348,7 +348,7 @@ u32 sub_080EDE70(void)
     u16 m;
     s32 v;
 
-    if (!(sub_080F3F44() & 0x20))
+    if (!(BattleFlags_Get() & 0x20))
     {
         r = (u16)sub_080EDB04();
         a = sub_080F43A4(5) / 2 + sub_080F43A4(4) + r;
@@ -372,7 +372,7 @@ NAKED u32 sub_080EDE70(void)
     asm_unified(
         ".L080EDE70:\n"
         "    push {r4, r5, r6, lr}\n"
-        "    bl sub_080F3F44\n"
+        "    bl BattleFlags_Get\n"
         "    movs r1, #0x20\n"
         "    ands r1, r0\n"
         "    cmp r1, #0\n"
@@ -681,7 +681,7 @@ void Battle_BuildTargetList(s32 who)
         for (i = 0; i < 6; i++)
         {
             c = Party_GetMember(i);
-            if (c != NULL && !Combatant_IsDead(i) && !sub_080F55F4(who, c[0xC]))
+            if (c != NULL && !Combatant_IsDead(i) && !Combatant_IsAlignmentCompatible(who, c[0xC]))
             {
                 BSTATE->targets[n].id = c[0xC];
                 n++;
@@ -690,7 +690,7 @@ void Battle_BuildTargetList(s32 who)
         for (i = 0x10; i < 0x18; i++)
         {
             Party_GetMember(i + 0x8000);
-            if (Combatant_IsUsed(i) == 1 && !Combatant_IsDead(i) && !sub_080F55F4(who, i))
+            if (Combatant_IsUsed(i) == 1 && !Combatant_IsDead(i) && !Combatant_IsAlignmentCompatible(who, i))
             {
                 BSTATE->targets[n].id = i;
                 n++;

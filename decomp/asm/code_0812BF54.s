@@ -587,7 +587,7 @@ gUnknown_0812C308:
 	bl sub_080C366C
 	bl Party_BuildMemberNameTiles
 	bl sub_080C6FD8
-	bl sub_080F3144
+	bl Battle_IsPartyDefeated
 	cmp r0, #0
 	beq .L0812C46A
 	bl sub_080B9058
@@ -598,7 +598,7 @@ gUnknown_0812C308:
 	.byte 0x00, 0x00
 .L0812C438: .4byte 0x030065C0 @ IWRAM+0x65C0
 .L0812C43C:
-	bl sub_080F3144
+	bl Battle_IsPartyDefeated
 	adds r1, r0, #0
 	cmp r1, #0
 	beq .L0812C452
@@ -1120,7 +1120,7 @@ sub_0812C7B4: @ 0x0812C7B4
 	adds r0, r4, #0
 	bl sub_080ED6CC
 	adds r0, r5, #0
-	bl sub_080F4070
+	bl Battle_GetMp
 	adds r0, r4, #0
 	bl sub_080ED694
 	adds r0, r5, #0
@@ -4376,7 +4376,7 @@ sub_0812E244: @ 0x0812E244
 	cmp r0, #0
 	beq .L0812E284
 	adds r0, r4, #0
-	bl sub_080F4260
+	bl Party_BuildSkillList
 .L0812E284:
 	adds r0, r4, #1
 	lsls r0, r0, #0x10
@@ -4474,7 +4474,7 @@ sub_0812E334: @ 0x0812E334
 	adds r6, r0, #0
 .L0812E340:
 	adds r0, r5, #0
-	bl sub_080F3EC8
+	bl Combatant_IsInParty
 	cmp r0, #0
 	beq .L0812E368
 	ldrh r0, [r4, #0x10]
@@ -4514,7 +4514,7 @@ sub_0812E37C: @ 0x0812E37C
 	adds r6, r0, #0
 .L0812E388:
 	adds r0, r5, #0
-	bl sub_080F3EC8
+	bl Combatant_IsInParty
 	cmp r0, #0
 	beq .L0812E3B0
 	ldrh r0, [r4, #0x10]
@@ -4554,7 +4554,7 @@ sub_0812E3C4: @ 0x0812E3C4
 	adds r6, r0, #0
 .L0812E3CE:
 	adds r0, r4, #0
-	bl sub_080F3EC8
+	bl Combatant_IsInParty
 	cmp r0, #0
 	beq .L0812E3EC
 	ldrh r0, [r5, #0x10]

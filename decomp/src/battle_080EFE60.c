@@ -13,11 +13,11 @@ u32 sub_080EFE60(s32 who)
         return 1;
     case 7:
     case 11:
-        x = sub_080F3F14(who);
+        x = Combatant_GetChosenSkill(who);
     lookup:
         return sub_080ED6A4(x);
     case 8:
-        Item_GetAttribute(sub_080F3F14(who), 0xC, &v);
+        Item_GetAttribute(Combatant_GetChosenSkill(who), 0xC, &v);
         x = v;
         if (x <= 0x7F)
             goto lookup;
@@ -73,7 +73,7 @@ s32 sub_080EFFF8(s32 who, s16 i)
     {
         u16 kind = sub_080C35E4(who);
 
-        if (sub_080EFFD8(kind, sub_080F3F14(who)) == 1)
+        if (sub_080EFFD8(kind, Combatant_GetChosenSkill(who)) == 1)
         {
             if (who > 15)
             {
@@ -126,7 +126,7 @@ NAKED s32 sub_080EFFF8(s32 who, s16 i)
         "    lsls r4, r4, #0x10\n"
         "    lsrs r4, r4, #0x10\n"
         "    adds r0, r5, #0\n"
-        "    bl sub_080F3F14\n"
+        "    bl Combatant_GetChosenSkill\n"
         "    adds r1, r0, #0\n"
         "    lsls r4, r4, #0x10\n"
         "    asrs r4, r4, #0x10\n"

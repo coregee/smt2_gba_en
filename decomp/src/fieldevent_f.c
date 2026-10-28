@@ -283,7 +283,7 @@ void Spring_HealMember(struct Task *task, u32 slot)
         ok = Combatant_IsUsed(id);
         if (ok == 1 && Combatant_IsDead(id) == 0)
         {
-            n = sub_080F401C(id) >> 2;
+            n = Battle_GetHp(id) >> 2;
             if (n == 0)
                 n = 1;
             Combatant_Damage(id, n);
@@ -298,7 +298,7 @@ void Spring_HealMember(struct Task *task, u32 slot)
         ok = Combatant_IsUsed(id);
         if (ok == 1 && Combatant_IsDead(id) == 0)
         {
-            n = sub_080F401C(id) >> 1;
+            n = Battle_GetHp(id) >> 1;
             if (n == 0)
                 n = 1;
             Combatant_Damage(id, n);
@@ -389,7 +389,7 @@ void Spring_HealMember(struct Task *task, u32 slot)
         "    cmp r0, #0\n"
         "    bne .L080B87E0\n"
         "    adds r0, r5, #0\n"
-        "    bl sub_080F401C\n"
+        "    bl Battle_GetHp\n"
         "    asrs r4, r0, #2\n"
         "    cmp r4, #0\n"
         "    bne .L080B872A\n"
@@ -418,7 +418,7 @@ void Spring_HealMember(struct Task *task, u32 slot)
         "    cmp r0, #0\n"
         "    bne .L080B87E0\n"
         "    adds r0, r5, #0\n"
-        "    bl sub_080F401C\n"
+        "    bl Battle_GetHp\n"
         "    asrs r4, r0, #1\n"
         "    cmp r4, #0\n"
         "    bne .L080B8768\n"

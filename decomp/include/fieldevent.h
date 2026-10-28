@@ -650,7 +650,7 @@ void sub_080C7648(void);
 void sub_080C762C(void);
 s32 Combatant_IsUsed(s32 id);
 s32 Combatant_IsDead(s32 id);
-s32 sub_080F401C(s32 id);
+s32 Battle_GetHp(s32 id);
 void Combatant_Damage(s32 id, s32 n);
 void Combatant_SetStatus(s32 id, u32 status);
 void sub_080C8490(u32 slot);

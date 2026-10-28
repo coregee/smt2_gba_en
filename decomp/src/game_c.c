@@ -186,7 +186,7 @@ void Field_HandleInput(u16 keys)
             return;
         }
     }
-    if ((sub_080F3F44() & 0x100) && gFieldState.unk58 == 0)
+    if ((BattleFlags_Get() & 0x100) && gFieldState.unk58 == 0)
         gFieldState.unk58 = sub_080C57B4();
     if (sub_080B1B58() == 1)
     {
@@ -470,7 +470,7 @@ void Field_HandleInput(u16 keys)
         "    .byte 0x00, 0x00\n"
         ".L080B1D84: .4byte 0x03004550 @ IWRAM+0x4550\n"
         ".L080B1D88:\n"
-        "    bl sub_080F3F44\n"
+        "    bl BattleFlags_Get\n"
         "    movs r1, #0x80\n"
         "    lsls r1, r1, #1\n"
         "    ands r1, r0\n"

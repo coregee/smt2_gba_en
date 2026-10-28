@@ -57,7 +57,7 @@ sub_080EE2E8: @ 0x080EE2E8
 	bne .L080EE36A
 	ldrb r1, [r4, #0xc]
 	ldr r0, [sp]
-	bl sub_080F55F4
+	bl Combatant_IsAlignmentCompatible
 	cmp r0, #0
 	bne .L080EE36A
 	ldr r0, .L080EE4DC
@@ -92,7 +92,7 @@ sub_080EE2E8: @ 0x080EE2E8
 	bne .L080EE3B2
 	ldr r0, [sp]
 	adds r1, r5, #0
-	bl sub_080F55F4
+	bl Combatant_IsAlignmentCompatible
 	cmp r0, #0
 	bne .L080EE3B2
 	ldr r0, .L080EE4DC

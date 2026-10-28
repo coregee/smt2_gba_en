@@ -21,7 +21,7 @@ sub_080F2514: @ 0x080F2514
 	lsrs r4, r1, #0x10
 	asrs r5, r1, #0x10
 	adds r0, r5, #0
-	bl sub_080F3F14
+	bl Combatant_GetChosenSkill
 	str r0, [sp]
 	adds r0, r5, #0
 	bl sub_080C35E4
@@ -34,14 +34,14 @@ sub_080F2514: @ 0x080F2514
 	adds r0, r5, #0
 	bl sub_080EFFF8
 	adds r0, r5, #0
-	bl sub_080F3110
+	bl Battle_IsEnemyId
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	mov sb, r0
 	cmp r7, #8
 	bne .L080F2586
 	adds r0, r5, #0
-	bl sub_080F3F14
+	bl Combatant_GetChosenSkill
 	cmp r0, #0xf0
 	bne .L080F257C
 	ldr r0, .L080F2578
@@ -141,7 +141,7 @@ sub_080F2514: @ 0x080F2514
 	cmp r0, #8
 	bne .L080F2646
 	asrs r0, r4, #0x10
-	bl sub_080F3F14
+	bl Combatant_GetChosenSkill
 	cmp r0, #0xf0
 	bne .L080F2646
 	ldr r0, [sp]
@@ -339,14 +339,14 @@ sub_080F27CC: @ 0x080F27CC
 	lsrs r6, r1, #0x10
 	asrs r5, r1, #0x10
 	adds r0, r5, #0
-	bl sub_080F3F14
+	bl Combatant_GetChosenSkill
 	str r0, [sp]
 	mov r0, sp
 	ldrh r0, [r0]
 	bl Action_GetRecord
 	ldrb r4, [r0, #3]
 	adds r0, r5, #0
-	bl sub_080F3110
+	bl Battle_IsEnemyId
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	cmp r4, #0x80
@@ -416,7 +416,7 @@ sub_080F27CC: @ 0x080F27CC
 .L080F287C:
 	adds r0, r5, #0
 	ldr r1, [sp]
-	bl sub_080F5C90
+	bl Item_RunUseEffect
 	ldr r1, [sp]
 	adds r0, r1, #0
 	subs r0, #0xf1
@@ -430,7 +430,7 @@ sub_080F27CC: @ 0x080F27CC
 	adds r4, r0, #0
 	lsls r0, r6, #0x10
 	asrs r0, r0, #0x10
-	bl sub_080F3F14
+	bl Combatant_GetChosenSkill
 	lsls r0, r0, #0x10
 	ldr r1, [r5, #4]
 	adds r1, r1, r0
@@ -585,7 +585,7 @@ sub_080F27CC: @ 0x080F27CC
 	adds r4, r0, #0
 	lsls r0, r6, #0x10
 	asrs r0, r0, #0x10
-	bl sub_080F3F14
+	bl Combatant_GetChosenSkill
 	ldr r1, .L080F2A6C
 	lsls r0, r0, #0x10
 	ldr r1, [r1, #4]

@@ -34,7 +34,7 @@ u16 *MessageBox_ComposeWrappedText(u16 *src, u32 who)
             p++;
             for (i = 0; i < 4; i++)
             {
-                if (sub_080F3EC8(i) && Combatant_IsAlive(i))
+                if (Combatant_IsInParty(i) && Combatant_IsAlive(i))
                     break;
             }
             Combatant_DecodeName(Battle_GetCombatant(i + 0x8000), name);
@@ -139,7 +139,7 @@ u16 *MessageBox_ComposeWrappedText(u16 *src, u32 who)
         "    cmp r4, #3\n"
         "    bhi .L080EBF68\n"
         "    adds r0, r4, #0\n"
-        "    bl sub_080F3EC8\n"
+        "    bl Combatant_IsInParty\n"
         "    cmp r0, #0\n"
         "    beq .L080EBF4A\n"
         "    adds r0, r4, #0\n"
@@ -1248,7 +1248,7 @@ void sub_080EC948(void)
 // sub_080EC97C @ 0x080EC97C
 void sub_080EC97C(struct Task *task)
 {
-    s32 r = sub_080F3144();
+    s32 r = Battle_IsPartyDefeated();
 
     if (r == 1)
     {

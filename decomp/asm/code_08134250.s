@@ -1398,7 +1398,7 @@ ScriptOp_35C: @ 0x08134D40
 	cmp r0, #0
 	bne .L08134D9A
 	adds r0, r4, #0
-	bl sub_080F3EC8
+	bl Combatant_IsInParty
 	cmp r0, #0
 	beq .L08134D9A
 	adds r0, r4, #0
@@ -1639,7 +1639,7 @@ ScriptOp_35E: @ 0x08134E28
 	cmp r0, #0
 	beq .L08134FA4
 	adds r0, r4, #0
-	bl sub_080F3EC8
+	bl Combatant_IsInParty
 	cmp r0, #0
 	beq .L08134FA4
 	adds r0, r4, #0
@@ -4216,7 +4216,7 @@ sub_081362DC: @ 0x081362DC
 	subs r0, #2
 	strh r1, [r0]
 	movs r0, #1
-	bl sub_080F4260
+	bl Party_BuildSkillList
 	b .L081365BE
 .L08136418: .4byte 0x00008002
 .L0813641C: .4byte 0x00008001
@@ -4358,7 +4358,7 @@ sub_081362DC: @ 0x081362DC
 	adds r0, r2, r3
 	strh r1, [r0]
 	movs r0, #2
-	bl sub_080F4260
+	bl Party_BuildSkillList
 	b .L081365BE
 .L0813656C: .4byte 0x000059D8
 .L08136570: .4byte gUnknown_087903EE
@@ -4393,7 +4393,7 @@ sub_081362DC: @ 0x081362DC
 	subs r0, #2
 	strh r1, [r0]
 	movs r0, #1
-	bl sub_080F4260
+	bl Party_BuildSkillList
 .L081365BE:
 	pop {r4, r5}
 	pop {r0}

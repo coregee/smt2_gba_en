@@ -112,7 +112,7 @@ u32 sub_0812B1D4(void)
     return C127_BLOCK->unk48->data.w[1];
 }
 
-/* Counts active party members (of the first n, at most 6) whose sub_080F3F14 is `who`. */
+/* Counts active party members (of the first n, at most 6) whose Combatant_GetChosenSkill is `who`. */
 // sub_0812B1E0 @ 0x0812B1E0
 #ifdef NONMATCHING
 u16 sub_0812B1E0(s32 who, u8 n)
@@ -128,7 +128,7 @@ u16 sub_0812B1E0(s32 who, u8 n)
     for (i = 0; i < n; i++)
     {
         m = gUnk_030050E0[i];
-        if (sub_080F3EC8(m) && sub_080F3040(m) && sub_080C35E4(m) == 8 && sub_080F3F14(m) == who)
+        if (Combatant_IsInParty(m) && sub_080F3040(m) && sub_080C35E4(m) == 8 && Combatant_GetChosenSkill(m) == who)
             count++;
     }
     return count;
@@ -170,7 +170,7 @@ u16 sub_0812B1E0(s32 who, u8 n)
         "    lsls r0, r0, #0x10\n"
         "    lsrs r4, r0, #0x10\n"
         "    adds r0, r4, #0\n"
-        "    bl sub_080F3EC8\n"
+        "    bl Combatant_IsInParty\n"
         "    cmp r0, #0\n"
         "    beq .L0812B244\n"
         "    adds r0, r4, #0\n"
@@ -182,7 +182,7 @@ u16 sub_0812B1E0(s32 who, u8 n)
         "    cmp r0, #8\n"
         "    bne .L0812B244\n"
         "    adds r0, r4, #0\n"
-        "    bl sub_080F3F14\n"
+        "    bl Combatant_GetChosenSkill\n"
         "    cmp r0, r8\n"
         "    bne .L0812B244\n"
         "    adds r0, r7, #1\n"

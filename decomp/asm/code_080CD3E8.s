@@ -2421,7 +2421,7 @@ sub_080CE62C: @ 0x080CE62C
 	lsls r0, r0, #7
 	adds r0, r0, r1
 	ldrb r0, [r0, #0xc]
-	bl sub_080F4260
+	bl Party_BuildSkillList
 	mov r0, sl
 	add sp, #4
 	pop {r3, r4, r5}

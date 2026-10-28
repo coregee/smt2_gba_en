@@ -443,19 +443,19 @@ gUnknown_080E4B04:
 	bl sub_080ED900
 	movs r0, #3
 	rsbs r0, r0, #0
-	bl sub_080F3F58
+	bl BattleFlags_Mask
 	movs r0, #5
 	rsbs r0, r0, #0
-	bl sub_080F3F58
+	bl BattleFlags_Mask
 	movs r0, #9
 	rsbs r0, r0, #0
-	bl sub_080F3F58
+	bl BattleFlags_Mask
 	ldr r0, .L080E4C50
-	bl sub_080F3F58
+	bl BattleFlags_Mask
 	ldr r0, .L080E4C54
-	bl sub_080F3F58
+	bl BattleFlags_Mask
 	ldr r0, .L080E4C58
-	bl sub_080F3F58
+	bl BattleFlags_Mask
 	ldr r2, .L080E4C5C
 	adds r0, r6, r2
 	movs r1, #0
@@ -4294,7 +4294,7 @@ gUnknown_080E6AA8:
 	asrs r0, r0, #0x18
 	adds r1, r6, #0
 	str r2, [sp]
-	bl sub_080F3EF4
+	bl Combatant_SetChosenSkill
 	movs r1, #0
 	ldrsh r0, [r5, r1]
 	adds r0, r0, r4
@@ -4450,7 +4450,7 @@ sub_080E6BE4: @ 0x080E6BE4
 	asrs r0, r0, #0x18
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
-	bl sub_080F3EF4
+	bl Combatant_SetChosenSkill
 	movs r1, #0
 	ldrsh r0, [r5, r1]
 	adds r0, r0, r4
@@ -4569,7 +4569,7 @@ sub_080E6CCC: @ 0x080E6CCC
 	asrs r0, r0, #0x18
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
-	bl sub_080F3EF4
+	bl Combatant_SetChosenSkill
 	movs r1, #0
 	ldrsh r0, [r5, r1]
 	adds r0, r0, r4
@@ -5975,11 +5975,11 @@ sub_080E7834: @ 0x080E7834
 	lsls r0, r0, #0x10
 	lsrs r5, r0, #0x10
 	adds r0, r4, #0
-	bl sub_080F401C
+	bl Battle_GetHp
 	lsls r0, r0, #0x10
 	lsrs r6, r0, #0x10
 	adds r0, r4, #0
-	bl sub_080F4038
+	bl Battle_GetMaxHp
 	lsls r0, r0, #0x10
 	lsrs r2, r0, #0x10
 	ldr r1, .L080E787C

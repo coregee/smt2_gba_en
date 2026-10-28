@@ -246,7 +246,7 @@ void Party_InitMember(u8 *c, s32 who)
     c[0xC] = who;
     for (i = 0; i <= 0x1F; i++)
         c[0x5D + i] |= 0xFF;
-    sub_080F4260(c[0xC]);
+    Party_BuildSkillList(c[0xC]);
     if (who <= 3)
     {
         *(u16 *)(c + 0x14) = gUnknown_081A59FC[who];
@@ -426,7 +426,7 @@ void Party_InitMember(u8 *c, s32 who)
         "    cmp r2, #0x1f\n"
         "    bls .L080BF888\n"
         "    ldrb r0, [r4, #0xc]\n"
-        "    bl sub_080F4260\n"
+        "    bl Party_BuildSkillList\n"
         "    cmp r6, #3\n"
         "    bgt .L080BF8BC\n"
         "    ldr r0, .L080BF8CC\n"

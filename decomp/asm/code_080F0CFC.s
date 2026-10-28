@@ -192,7 +192,7 @@ sub_080F0CFC: @ 0x080F0CFC
 	cmp r0, #0
 	bne .L080F0EC8
 	adds r0, r4, #0
-	bl sub_080F3110
+	bl Battle_IsEnemyId
 	cmp r0, #0
 	bne .L080F0E94
 	ldr r1, .L080F0E90

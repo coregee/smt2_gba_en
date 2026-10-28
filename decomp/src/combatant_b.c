@@ -243,7 +243,7 @@ s32 Combatant_ChangeMpCapped(s32 who, s32 delta)
 /* Deals damage; at 0 HP sets the dead status. */
 void Combatant_Damage(s32 who, s32 damage)
 {
-    sub_080F401C(who);
+    Battle_GetHp(who);
     if (Combatant_ChangeHp(who, -damage) <= 0)
     {
         Combatant_GetStatus(who);

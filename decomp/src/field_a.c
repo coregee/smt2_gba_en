@@ -697,7 +697,7 @@ void sub_080AE234(void)
 // sub_080AE294 @ 0x080AE294
 void sub_080AE294(void)
 {
-    sub_080F3F58(-0x11);
+    BattleFlags_Mask(-0x11);
     Encounter_SetCounter(0);
 }
 

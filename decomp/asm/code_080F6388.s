@@ -29,7 +29,7 @@ sub_080F6390: @ 0x080F6390
 sub_080F63A4: @ 0x080F63A4
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080F3F44
+	bl BattleFlags_Get
 	movs r1, #0x80
 	lsls r1, r1, #2
 	ands r0, r1
@@ -40,7 +40,7 @@ sub_080F63A4: @ 0x080F63A4
 	b .L080F63C2
 .L080F63BC:
 	adds r0, r1, #0
-	bl sub_080F3F74
+	bl BattleFlags_Add
 .L080F63C2:
 	pop {r4}
 	pop {r0}
@@ -119,7 +119,7 @@ sub_080F63DC: @ 0x080F63DC
 sub_080F6448: @ 0x080F6448
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080F3F44
+	bl BattleFlags_Get
 	movs r1, #0x80
 	lsls r1, r1, #3
 	ands r0, r1
@@ -130,7 +130,7 @@ sub_080F6448: @ 0x080F6448
 	b .L080F6466
 .L080F6460:
 	adds r0, r1, #0
-	bl sub_080F3F74
+	bl BattleFlags_Add
 .L080F6466:
 	pop {r4}
 	pop {r0}

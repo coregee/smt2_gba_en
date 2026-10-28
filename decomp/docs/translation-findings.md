@@ -313,3 +313,25 @@ No text is drawn here, so nothing limits the translation. Oddities in the origin
 
 - `Inventory_Find` (`0x0812BCD4`) has no end check: an id that is not in the table walks past it.
 - `0x0812876C` reads a digit it never uses and always draws at least two level digits.
+
+### Enemy info, skill and item effects (`0x080F2AC8`-`0x080F6388`)
+
+- **Enemy info screen** (`EnemyInfo_DrawPage` `0x080F390C`, `EnemyInfo_DrawSkillNames`
+  `0x080F3850`, `EnemyInfo_HandleInput` `0x080F3C4C`) and `Skill_DrawEquippedRow`
+  (`0x080F3254`) draw names as fixed 8-glyph fields, 12 px apart; the race name from
+  `sub_080EA9F8` is drawn up to its terminator with no length check. The translation patches
+  all four functions (checked in the patched build); long race names are still worth a look on
+  screen. The labels at `0x0876F81C`/`0x0876F83C`/`0x0876F854` are ASCII in the Japanese
+  release.
+- Battle messages chosen here (0x96, 0x7E, 0x95, 0x119-0x139, 0x153/0x154, 0x324, 0x389,
+  0x39A, 0xCB-0xCF, 0xD9/0xDA, 0xE5/0xE6) are inside the battle budget check, which stays clean.
+
+### More possible original bugs
+
+- `sub_080F4A60` cancels party buffs in row 4 with the unclamped `sub_080EFDEC` but enemy buffs
+  with the clamped `sub_080EFE00`; `sub_080F4B54` (debuff cancel) skips row 4 entirely.
+- `sub_080F5D28`: healing past 998 HP or twice max HP sets HP to half of max and inflicts a
+  status (4 or 0x1000).
+- Enemy skill 0x9F (`sub_080F2D4C`) goes through a counter at `0x0203C174` cycling 0-2, so it
+  fires once in three tries.
+- `sub_080F30CC` and `sub_080F40EC` are identical.

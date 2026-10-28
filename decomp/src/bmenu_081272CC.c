@@ -327,7 +327,7 @@ u16 BattleMenu_BuildMemberList(u8 mode)
         for (i = 4; i < 16; i++)
         {
             c = Party_GetMember(i + 0x8000);
-            if (c->unkE == 0x8000 && Combatant_IsDead(i) == 0 && !sub_080F3EC8(i))
+            if (c->unkE == 0x8000 && Combatant_IsDead(i) == 0 && !Combatant_IsInParty(i))
             {
                 found = 0;
                 for (j = 0; j < 16; j++)

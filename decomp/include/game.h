@@ -183,7 +183,7 @@ void sub_080AF7E8(struct FieldEvent *a, struct FieldEvent *b, u32 c);
 void sub_08128B84(u32 a);
 s32 sub_080B9568(void);
 void sub_0812D0FC(u32 a);
-u32 sub_080F3F44(void);
+u32 BattleFlags_Get(void);
 u32 sub_080C57B4(void);
 void sub_080B1BC4(void);
 void sub_080B1BDC(void);

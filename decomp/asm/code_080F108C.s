@@ -26,7 +26,7 @@ sub_080F108C: @ 0x080F108C
 	str r1, [sp, #4]
 	asrs r4, r4, #0x10
 	adds r0, r4, #0
-	bl sub_080F3F14
+	bl Combatant_GetChosenSkill
 	lsls r0, r0, #0x10
 	lsrs r5, r0, #0x10
 	adds r0, r4, #0
@@ -241,7 +241,7 @@ gUnknown_080F112C:
 	bhi .L080F129C
 .L080F1290:
 	asrs r0, r6, #0x10
-	bl sub_080F3110
+	bl Battle_IsEnemyId
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	str r0, [sp, #8]
@@ -351,7 +351,7 @@ gUnknown_080F112C:
 	cmp r4, #0x17
 	bhi .L080F1384
 	asrs r0, r6, #0x10
-	bl sub_080F3110
+	bl Battle_IsEnemyId
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	str r0, [sp, #8]
@@ -432,7 +432,7 @@ gUnknown_080F112C:
 	adds r5, r0, #0
 	asrs r4, r6, #0x10
 	adds r0, r4, #0
-	bl sub_080F3F14
+	bl Combatant_GetChosenSkill
 	lsls r0, r0, #0x10
 	adds r4, r4, r0
 	adds r0, r5, #0
@@ -812,7 +812,7 @@ sub_080F1678: @ 0x080F1678
 	movs r0, #0
 	ldrsb r0, [r4, r0]
 	movs r1, #0
-	bl sub_080F4054
+	bl Battle_SetHp
 .L080F1760:
 	adds r0, r5, #0
 	bl sub_080C8490

@@ -49,7 +49,7 @@ sub_080EEB94: @ 0x080EEB94
 	bl sub_080EFE60
 	adds r1, r0, #0
 	adds r0, r7, #0
-	bl sub_080F3F90
+	bl Combatant_GetAffinity
 	adds r4, r0, #0
 	adds r0, r6, #0
 	adds r1, r4, #0
@@ -101,7 +101,7 @@ sub_080EEB94: @ 0x080EEB94
 	bl sub_080EFE60
 	adds r1, r0, #0
 	adds r0, r7, #0
-	bl sub_080F3F90
+	bl Combatant_GetAffinity
 	adds r4, r0, #0
 	adds r0, r6, #0
 	adds r1, r4, #0
@@ -135,7 +135,7 @@ sub_080EEB94: @ 0x080EEB94
 	bl sub_080C35E4
 	adds r4, r0, #0
 	mov r0, sb
-	bl sub_080F3F14
+	bl Combatant_GetChosenSkill
 	mov r8, r0
 	adds r0, r7, #0
 	bl sub_080EFAB0
@@ -207,7 +207,7 @@ sub_080EEB94: @ 0x080EEB94
 	cmp r0, #0
 	beq .L080EED4A
 	adds r0, r7, #0
-	bl sub_080F40A8
+	bl Battle_GetMaxMp
 	cmp r0, #0
 	beq .L080EED50
 .L080EED4A:

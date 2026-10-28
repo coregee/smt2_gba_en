@@ -218,15 +218,15 @@ u32 sub_080B0350(void)
 
     if (a == 0)
     {
-        if (sub_080F3F44() & 0x100)
-            sub_080F3F58(~0x100);
+        if (BattleFlags_Get() & 0x100)
+            BattleFlags_Mask(~0x100);
     }
     else if (b == 0x80)
     {
-        if (sub_080F3F44() & 0x20)
-            sub_080F3F58(~0x20);
-        if (sub_080F3F44() & 0x40)
-            sub_080F3F58(~0x40);
+        if (BattleFlags_Get() & 0x20)
+            BattleFlags_Mask(~0x20);
+        if (BattleFlags_Get() & 0x40)
+            BattleFlags_Mask(~0x40);
     }
     sub_080C1AB0();
     return 0;

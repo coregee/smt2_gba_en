@@ -227,12 +227,12 @@ gUnknown_080F1854:
 	lsls r1, r1, #0x10
 	lsrs r1, r1, #0x10
 	adds r0, r4, #0
-	bl sub_080F3EF4
+	bl Combatant_SetChosenSkill
 	ldr r0, .L080F19C4
 	bl Battle_SkillDamage
 	adds r1, r5, #0
 	adds r0, r4, #0
-	bl sub_080F3EF4
+	bl Combatant_SetChosenSkill
 	b .L080F1AD2
 	.byte 0x00, 0x00
 .L080F19C4: .4byte 0x03000088 @ IWRAM+0x88
@@ -306,7 +306,7 @@ gUnknown_080F1854:
 	bl Combatant_SetStatus
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_080F4054
+	bl Battle_SetHp
 	subs r0, r4, #4
 	cmp r0, #0xb
 	bhi .L080F1A70
@@ -601,12 +601,12 @@ gUnknown_080F1854:
 	bl sub_080EFE60
 	adds r1, r0, #0
 	ldr r0, [r4, #4]
-	bl sub_080F3F90
+	bl Combatant_GetAffinity
 	adds r5, r0, #0
 	ldr r0, [r4, #4]
 	cmp r0, #0xf
 	bgt .L080F1D24
-	bl sub_080F3F44
+	bl BattleFlags_Get
 	movs r1, #0x80
 	lsls r1, r1, #3
 	ands r1, r0
@@ -625,7 +625,7 @@ gUnknown_080F1854:
 	ldr r0, [r0, #4]
 	cmp r0, #0xf
 	bgt .L080F1D24
-	bl sub_080F3F44
+	bl BattleFlags_Get
 	movs r1, #0x80
 	lsls r1, r1, #3
 	ands r1, r0
@@ -695,12 +695,12 @@ gUnknown_080F1D64:
 .L080F1DA4:
 	ldr r5, .L080F1DDC
 	ldr r0, [r5, #4]
-	bl sub_080F401C
+	bl Battle_GetHp
 	adds r4, r0, #0
 	lsls r4, r4, #0x10
 	lsrs r4, r4, #0x10
 	ldr r0, [r5, #4]
-	bl sub_080F4038
+	bl Battle_GetMaxHp
 	lsls r4, r4, #0x10
 	asrs r4, r4, #0x10
 	ldr r1, [r5, #0x18]
@@ -805,7 +805,7 @@ gUnknown_080F1D64:
 .L080F1E84:
 	ldr r5, .L080F1EA8
 	ldr r0, [r5, #4]
-	bl sub_080F401C
+	bl Battle_GetHp
 	cmp r0, #0
 	ble .L080F1EA0
 	ldr r0, [r5, #4]
@@ -858,7 +858,7 @@ gUnknown_080F1D64:
 .L080F1EFC: .4byte 0x0000097E
 .L080F1F00:
 	adds r0, r1, #0
-	bl sub_080F401C
+	bl Battle_GetHp
 	cmp r0, #0
 	bgt .L080F1F98
 	ldr r2, .L080F1F10
@@ -871,7 +871,7 @@ gUnknown_080F1D64:
 	adds r1, r4, #0
 	bl sub_080C08E8
 	ldr r0, [r5, #4]
-	bl sub_080F401C
+	bl Battle_GetHp
 	cmp r0, #0
 	bgt .L080F1F3C
 	ldr r5, .L080F1F38
@@ -941,7 +941,7 @@ gUnknown_080F1D64:
 .L080F1FB0:
 	ldr r4, .L080F1FC8
 	ldr r0, [r4, #4]
-	bl sub_080F3110
+	bl Battle_IsEnemyId
 	cmp r0, #1
 	bne .L080F1FD0
 	ldr r1, .L080F1FCC
@@ -974,7 +974,7 @@ gUnknown_080F1D64:
 .L080F2000:
 	ldr r4, .L080F202C
 	ldr r0, [r4, #4]
-	bl sub_080F3110
+	bl Battle_IsEnemyId
 	movs r1, #0xaa
 	lsls r1, r1, #1
 	cmp r0, #1
@@ -1027,7 +1027,7 @@ gUnknown_080F1D64:
 .L080F2074: .4byte 0x0000097C
 .L080F2078:
 	ldr r0, [r4, #4]
-	bl sub_080F401C
+	bl Battle_GetHp
 	cmp r0, #0
 	ble .L080F2092
 	ldr r0, [r4, #4]
@@ -1086,7 +1086,7 @@ sub_080F20E0: @ 0x080F20E0
 	sub sp, #4
 	ldr r4, .L080F2108
 	ldr r0, [r4, #4]
-	bl sub_080F3110
+	bl Battle_IsEnemyId
 	cmp r0, #0
 	bne .L080F2110
 	ldr r0, [r4, #4]
@@ -1167,7 +1167,7 @@ sub_080F20E0: @ 0x080F20E0
 	cmp r1, #8
 	bne .L080F21D2
 	ldr r0, [r5]
-	bl sub_080F3F14
+	bl Combatant_GetChosenSkill
 	adds r4, r0, #0
 	str r4, [sp]
 	movs r1, #0xc
@@ -1177,14 +1177,14 @@ sub_080F20E0: @ 0x080F20E0
 	ldr r1, [sp]
 	lsls r1, r1, #0x10
 	lsrs r1, r1, #0x10
-	bl sub_080F3EF4
+	bl Combatant_SetChosenSkill
 	adds r0, r5, #0
 	bl Battle_SkillDamage
 	ldr r0, [r5]
 	lsls r4, r4, #0x10
 	lsrs r4, r4, #0x10
 	adds r1, r4, #0
-	bl sub_080F3EF4
+	bl Combatant_SetChosenSkill
 	b .L080F21E0
 .L080F21D2:
 	cmp r1, #7
@@ -1203,19 +1203,19 @@ sub_080F20E0: @ 0x080F20E0
 	bl sub_080EFE60
 	adds r1, r0, #0
 	ldr r0, [r4, #4]
-	bl sub_080F3F90
+	bl Combatant_GetAffinity
 	adds r5, r0, #0
 	ldr r0, [r4, #0x18]
 	adds r1, r5, #0
 	bl Battle_ApplyAffinity
 	str r0, [r4, #0x18]
 	ldr r0, [r4, #4]
-	bl sub_080F401C
+	bl Battle_GetHp
 	ldr r1, [r4, #0x18]
 	cmp r0, r1
 	bge .L080F2216
 	ldr r0, [r4, #4]
-	bl sub_080F401C
+	bl Battle_GetHp
 	str r0, [r4, #0x18]
 .L080F2216:
 	cmp r5, #0xf
@@ -1249,12 +1249,12 @@ gUnknown_080F222C:
 .L080F226C:
 	ldr r5, .L080F22AC
 	ldr r0, [r5, #4]
-	bl sub_080F401C
+	bl Battle_GetHp
 	adds r4, r0, #0
 	lsls r4, r4, #0x10
 	lsrs r4, r4, #0x10
 	ldr r0, [r5, #4]
-	bl sub_080F4038
+	bl Battle_GetMaxHp
 	lsls r4, r4, #0x10
 	asrs r4, r4, #0x10
 	ldr r1, [r5, #0x18]
@@ -1327,7 +1327,7 @@ sub_080F22B4: @ 0x080F22B4
 	cmp r5, #7
 	bne .L080F2328
 	adds r0, r6, #0
-	bl sub_080F401C
+	bl Battle_GetHp
 	str r0, [r4, #0x18]
 	ldr r0, [r4, #4]
 	b .L080F2342
@@ -1345,7 +1345,7 @@ sub_080F22B4: @ 0x080F22B4
 .L080F2334:
 	lsls r0, r7, #0x10
 	asrs r0, r0, #0x10
-	bl sub_080F401C
+	bl Battle_GetHp
 	ldr r1, .L080F2354
 	str r0, [r1, #0x18]
 	ldr r0, [r1, #4]
@@ -1361,7 +1361,7 @@ sub_080F22B4: @ 0x080F22B4
 .L080F2358:
 	lsls r0, r7, #0x10
 	asrs r0, r0, #0x10
-	bl sub_080F401C
+	bl Battle_GetHp
 	ldr r1, .L080F2368
 	str r0, [r1, #0x18]
 	b .L080F2372
@@ -1375,7 +1375,7 @@ sub_080F22B4: @ 0x080F22B4
 	lsls r4, r7, #0x10
 	asrs r5, r4, #0x10
 	adds r0, r5, #0
-	bl sub_080F3110
+	bl Battle_IsEnemyId
 	mov sb, r4
 	cmp r0, #1
 	bne .L080F23BC
@@ -1453,10 +1453,10 @@ sub_080F22B4: @ 0x080F22B4
 	mov r0, sb
 	asrs r5, r0, #0x10
 	adds r0, r5, #0
-	bl sub_080F401C
+	bl Battle_GetHp
 	adds r4, r0, #0
 	adds r0, r5, #0
-	bl sub_080F4038
+	bl Battle_GetMaxHp
 	cmp r4, r0
 	ble .L080F242A
 	movs r7, #1
@@ -1466,36 +1466,36 @@ sub_080F22B4: @ 0x080F22B4
 	adds r0, r5, #0
 	bl Combatant_AddHp
 	adds r0, r5, #0
-	bl sub_080F401C
+	bl Battle_GetHp
 	cmp r0, #0
 	bge .L080F2452
 	adds r0, r5, #0
-	bl sub_080F401C
+	bl Battle_GetHp
 	ldr r1, [r6, #0x18]
 	adds r1, r1, r0
 	str r1, [r6, #0x18]
 	adds r0, r5, #0
 	movs r1, #0
-	bl sub_080F4054
+	bl Battle_SetHp
 .L080F2452:
 	cmp r7, #0
 	bne .L080F2476
 	adds r0, r5, #0
-	bl sub_080F401C
+	bl Battle_GetHp
 	adds r4, r0, #0
 	adds r0, r5, #0
-	bl sub_080F4038
+	bl Battle_GetMaxHp
 	cmp r4, r0
 	ble .L080F2476
 	adds r0, r5, #0
-	bl sub_080F4038
+	bl Battle_GetMaxHp
 	adds r1, r0, #0
 	adds r0, r5, #0
-	bl sub_080F4054
+	bl Battle_SetHp
 .L080F2476:
 	ldr r4, .L080F24B0
 	ldr r0, [r4, #4]
-	bl sub_080F3110
+	bl Battle_IsEnemyId
 	cmp r0, #1
 	bne .L080F24BC
 	ldr r0, [r4, #4]

@@ -160,7 +160,7 @@ void sub_080EF6B4(s32 x)
 #ifdef NONMATCHING
 s32 sub_080EF6E8(s32 who, s32 i)
 {
-    u8 v = sub_080F42E0(who, i);
+    u8 v = Combatant_GetSkill(who, i);
 
     if (v == 0xFF)
         return -1;
@@ -174,7 +174,7 @@ NAKED s32 sub_080EF6E8(s32 who, s32 i)
     asm_unified(
         ".L080EF6E8:\n"
         "    push {lr}\n"
-        "    bl sub_080F42E0\n"
+        "    bl Combatant_GetSkill\n"
         "    lsls r0, r0, #0x18\n"
         "    lsrs r1, r0, #0x18\n"
         "    cmp r1, #0xff\n"
@@ -245,7 +245,7 @@ u32 Battle_CanUseCommand(s32 who, s32 kind, s32 *msg)
         }
         break;
     case 7:
-        if (!sub_080F4300(who, 0x20))
+        if (!Combatant_CountSkillsWithFlags(who, 0x20))
         {
             *msg = 0x8F;
             return 0;

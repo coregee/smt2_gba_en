@@ -719,8 +719,50 @@ address	name	kind	confidence	note
 080EFC1C	Battle_AddModifierClamped	func	probable	adds to BattleState+0x78 row/slot (sub_080ED8C0 index), clamps to the s8 pair at gUnknown_0876F7CE[row], returns 1 when clamped
 080F0200	Battle_InitEnemyUnit	func	probable	clears BFLOW unit slot (0x80 bytes) and fills it from demon record sub_080BF648(id): level, HP/MP, stats, skills
 080F24F0	Combatant_AddHp	func	probable	adds the argument to the s16 at Battle_GetCombatant(who)+0x18 (HP, as in vm_wait.c) and returns it
+080F2EAC	Battle_PickEnemySupportTarget	func	probable	returns the first used, living enemy unit (0x10+i) with HP below max (skill kind 0x80) or with any status bits (kind 0x82), -1 if none; used by sub_080F2D4C before storing BattleFlow+0xF50[i]
+080F2F14	Battle_GetLastOrderIndex	func	probable	index of the last BattleState+0xC action-order entry before the 0xFFFF end mark (max 12), -1 when empty
 080F2F64	Battle_GetCombatant	func	probable	callers read +0xC (<4 = human: Combatant_DecodeName) and +0x12 (demon id for sub_080BF648) from the returned record
+080F3110	Battle_IsEnemyId	func	probable	returns who > 15 (combatant ids 0x10-0x17 are enemy units, Battle_GetCombatant)
+080F3144	Battle_IsPartyDefeated	func	probable	1 when none of members 0x8000-0x8003 has +0xE & 0xC000 and no 0xA000 status bits
 080F3254	Skill_DrawEquippedRow	func	tentative	from translation patches (lost Ghidra session); verify
+080F3740	EnemyInfo_IsWindowDone	func	probable	mode 0: window task (BattleFlow+0x50) +0x1E != 0xFF; mode 1: its data.h[5] == 2; polled by sub_080F33E8 states 2 and 5
+080F3780	EnemyInfo_UploadGfx	func	probable	VBlank task: DMA3 copies 0x0200DFD4 -> VRAM 0x06001000, gUnknown_08771F54 -> 0x06000000, text canvas 0x030000B4 -> 0x06006000
+080F3814	EnemyInfo_ClearGfx	func	probable	VBlank task: DMA3 fill of 0x340 bytes of VRAM 0x06000000 with 0; queued by sub_080F3DA4
+080F3850	EnemyInfo_DrawSkillNames	func	probable	draws n skill names (sub_080BF5C0(id)+6, 8 glyphs, Font_DrawGlyphTinted) from a 0xFF-padded list, glyph 0x3C for empty slots
+080F390C	EnemyInfo_DrawPage	func	probable	draws the selected combatant's record (Demon_GetRecord): labels, class, alignment (sub_0815B864), level/HP/MP digits, then skill rows (page 0-2) or names and equipment (page 3); queues EnemyInfo_UploadGfx
+080F3C4C	EnemyInfo_HandleInput	func	probable	A/B (0x66 sound) returns 1; Up/Down change page BattleFlow+0x693 (0-3) and redraw with EnemyInfo_DrawPage; draws the page arrows with Sprite_Draw
+080F3DA4	EnemyInfo_Close	func	probable	closes the three text windows at BattleFlow+0x4C/0x50/0x54 and queues EnemyInfo_ClearGfx
+080F3EC8	Combatant_IsInParty	func	probable	Battle_GetCombatant(who)+0xE & 0x4000 (0xC000 = in party, 0x8000 = stocked)
+080F3EF4	Combatant_SetChosenSkill	func	probable	stores a byte at Battle_GetCombatant(who)+0x5C (skill chosen for the turn, set by sub_080F2D4C for enemies)
+080F3F14	Combatant_GetChosenSkill	func	probable	returns the byte at Battle_GetCombatant(who)+0x5C
+080F3F30	BattleFlags_Set	func	probable	gGameState+0x1146 = v (one-shot battle flags)
+080F3F44	BattleFlags_Get	func	probable	returns gGameState+0x1146
+080F3F58	BattleFlags_Mask	func	probable	gGameState+0x1146 &= mask (callers pass ~bit)
+080F3F74	BattleFlags_Add	func	probable	gGameState+0x1146 |= bits
+080F3F90	Combatant_GetAffinity	func	probable	affinity code vs attack kind: flag 0x200 forces 0 once; party members 0-3 take the lowest sub_080ED3D0 code of armour slots 2-5 (8 when none), returning >11 at once; others use their race (sub_080ED494)
+080F401C	Battle_GetHp	func	probable	returns s16 +0x18 of Battle_GetCombatant(who)
+080F4038	Battle_GetMaxHp	func	probable	returns s16 +0x1A of Battle_GetCombatant(who)
+080F4054	Battle_SetHp	func	probable	stores +0x18 of Battle_GetCombatant(who)
+080F4070	Battle_GetMp	func	probable	returns s16 +0x1C of Battle_GetCombatant(who)
+080F408C	Battle_SetMp	func	probable	stores +0x1C of Battle_GetCombatant(who)
+080F40A8	Battle_GetMaxMp	func	probable	returns s16 +0x1E of Battle_GetCombatant(who)
+080F4104	Combatant_ClearSlot	func	probable	Battle_GetCombatant(who)+0xE = 0
+080F4120	Combatant_SetStocked	func	probable	Battle_GetCombatant(who)+0xE = 0x8000
+080F41F4	Party_GetSkillCount	func	probable	(level*2 + base stat 1 + base stat 2) / 8 capped by gUnknown_0876F87C[who]; 0 for member 0
+080F4260	Party_BuildSkillList	func	probable	fills Battle_GetCombatant(who)+0x5D (32 bytes, 0xFF-terminated) with the first Party_GetSkillCount-formula entries of gUnknown_0876F880
+080F42E0	Combatant_GetSkill	func	probable	returns byte +0x5D+i of Battle_GetCombatant(who)
+080F4300	Combatant_CountSkillsWithFlags	func	probable	counts skills (7 slots below 0x40 for demons, the 0xFF-terminated list for humans) whose sub_080ED6B8 bits intersect the mask
+080F4490	Battle_FindPartyPosition	func	probable	index of member id in gUnk_030050E0 (6 s8 battle party positions), -1 if absent
+080F44D8	Battle_CopyEnemyUnit	func	probable	memcpy of 0x80 bytes between BattleFlow units (combatant ids 0x10-0x17)
+080F4548	Item_GetSlotMask	func	probable	item id ranges -> equipment slot bit 1..0x40 (<=0x57, 0x6F, 0x7F, 0x93, 0xA7, 0xBB, 0xCF); 0xD0-0xFE attribute 10 bits 0xC0 -> 0x200, 0x20 -> 0x400; 0xFF-0x11B -> 0x100; above -> 0x80
+080F45D4	Party_CountDemons	func	probable	number of active party slots holding a member index > 3
+080F4670	Battle_StartPaletteFlash	func	probable	Task_Create(gUnknown_0876F89C) with kind/step/limit in data.h[]; saves gPaletteBuffer to 0x0203D600 for the restore
+080F46E0	Palette_CopyBrightened	func	probable	copies n BGR555 colours adding (dr, dg, db) >> 3 per channel, saturating at 31
+080F4784	Battle_PaletteFlashTask	func	probable	task callback of Battle_StartPaletteFlash: steps data.h[2] by h[0] (reversing at h[4]), tints palette rows 8-15 with Palette_CopyBrightened per kind h[3]; restores 0x0203D600 and sets result 1 at level 0
+080F4D2C	Battle_HealHp	func	probable	adds d to +0x18 of Battle_GetCombatant(who), capped at +0x1A; returns the new HP
+080F55F4	Combatant_IsAlignmentCompatible	func	probable	1 when Combatant_GetAlignment(b) is 1 (neutral) or equals Combatant_GetAlignment(a)
+080F57F4	Party_FindLowestStatTarget	func	probable	party member with the lowest Combatant_GetStat(stat) below 100 on whom status mask would take (sub_080F3214), -1 if none
+080F5C90	Item_RunUseEffect	func	probable	Item_GetAttribute(item, 12) - 0x80 indexes the effect table gUnknown_0876FA58 (action+0x10 = index)
 08127960	MenuCursor_SetIndex	func	probable	(id, index): clamps index to count-1, recomputes column/row (index / % perColumn), scrolls top so the index is visible, sets onScreen
 08127A98	BattleMenu_BuildMemberList	func	probable	(mode 0-9): fills the battle block list (+0x2D0) with member slots 0-15 (or 0-255 for mode 5) filtered by sub_080C0148(slot|0x8000)->unkE (0xC000 party / 0x8000 stock), 0xFFFF-terminated; returns the count
 08127EAC	BattleMenu_DrawListPage	func	probable	(mode, start): clears the 0x030000B4 canvas and draws up to five rows of the block list from `start` (names, prices/counts) one row per VBlank via sub_08127D70/sub_08127E04

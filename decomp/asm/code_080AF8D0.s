@@ -734,7 +734,7 @@ sub_080AF8D0: @ 0x080AF8D0
 	ldr r0, [sp, #0x3c]
 	cmp r0, #0
 	beq .L080AFF5A
-	bl sub_080F3F44
+	bl BattleFlags_Get
 	movs r1, #0x50
 	ands r1, r0
 	cmp r1, #0

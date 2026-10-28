@@ -158,20 +158,20 @@ void sub_080ED6DC(s32 who, s32 item)
 
     if (item < 0x68)
     {
-        v = sub_080F4070(who) - sub_080ED6CC(item);
+        v = Battle_GetMp(who) - sub_080ED6CC(item);
         if (v < 0)
             v = 0;
-        sub_080F408C(who, v);
+        Battle_SetMp(who, v);
     }
     else
     {
-        s32 cur = sub_080F401C(who);
-        s32 max = sub_080F4038(who);
+        s32 cur = Battle_GetHp(who);
+        s32 max = Battle_GetMaxHp(who);
 
         v = cur - sub_080ED6CC(item) * max / 100;
         if (v < 0)
             v = 0;
-        sub_080F4054(who, v);
+        Battle_SetHp(who, v);
     }
 }
 
@@ -182,14 +182,14 @@ u32 sub_080ED744(s32 who, s32 item)
 
     if (item < 0x68)
     {
-        v = sub_080F4070(who) - sub_080ED6CC(item);
+        v = Battle_GetMp(who) - sub_080ED6CC(item);
         if (v >= 0)
             return 1;
     }
     else
     {
-        s32 cur = sub_080F401C(who);
-        s32 max = sub_080F4038(who);
+        s32 cur = Battle_GetHp(who);
+        s32 max = Battle_GetMaxHp(who);
 
         v = cur - sub_080ED6CC(item) * max / 100;
         if (v > 0)
@@ -379,7 +379,7 @@ void sub_080EDA04(void)
     for (i = 0x10; i < 0x18; i++)
     {
         Combatant_SetStatus(i, 0x8000);
-        sub_080F4104(i);
+        Combatant_ClearSlot(i);
     }
 }
 

@@ -499,7 +499,7 @@ sub_080E90AC: @ 0x080E90AC
 	movs r5, #0
 .L080E9170:
 	adds r0, r4, #0
-	bl sub_080F3EC8
+	bl Combatant_IsInParty
 	cmp r0, #0
 	beq .L080E91B6
 	adds r0, r4, #0
@@ -639,7 +639,7 @@ sub_080E926C: @ 0x080E926C
 	mov r8, r1
 	asrs r4, r0, #0x10
 	adds r0, r4, #0
-	bl sub_080F3F14
+	bl Combatant_GetChosenSkill
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	str r0, [sp, #8]
@@ -678,7 +678,7 @@ sub_080E926C: @ 0x080E926C
 	cmp r5, #7
 	bne .L080E9348
 	adds r0, r4, #0
-	bl sub_080F4070
+	bl Battle_GetMp
 	lsls r0, r0, #0x10
 	lsrs r6, r0, #0x10
 	ldr r2, [sp, #8]
@@ -718,7 +718,7 @@ sub_080E926C: @ 0x080E926C
 	bhi .L080E93EC
 	asrs r5, r1, #0x10
 	adds r0, r5, #0
-	bl sub_080F3EC8
+	bl Combatant_IsInParty
 	cmp r0, #0
 	beq .L080E93EC
 	adds r0, r5, #0
@@ -784,7 +784,7 @@ sub_080E926C: @ 0x080E926C
 	bhi .L080E93EC
 	asrs r4, r1, #0x10
 	adds r0, r4, #0
-	bl sub_080F3EC8
+	bl Combatant_IsInParty
 	cmp r0, #0
 	beq .L080E93EC
 	adds r0, r4, #0
@@ -870,7 +870,7 @@ gUnknown_080E944C:
 	bl sub_080F3120
 	bl sub_080F2D4C
 	bl Battle_BuildActionOrder
-	bl sub_080F2F14
+	bl Battle_GetLastOrderIndex
 	ldr r4, .L080E94BC
 	adds r1, r6, r4
 	strh r0, [r1]
@@ -879,7 +879,7 @@ gUnknown_080E944C:
 	movs r0, #1
 	strh r0, [r1]
 	ldr r0, .L080E94C4
-	bl sub_080F3F58
+	bl BattleFlags_Mask
 .L080E948C:
 	ldr r1, .L080E94B8
 	adds r0, r6, r1
@@ -1024,7 +1024,7 @@ gUnknown_080E944C:
 .L080E95C4: .4byte 0x030063A0 @ IWRAM+0x63A0
 .L080E95C8: .4byte 0x00000F6A
 .L080E95CC:
-	bl sub_080F3144
+	bl Battle_IsPartyDefeated
 	cmp r0, #0
 	beq .L080E9620
 	movs r0, #0x80
@@ -1672,10 +1672,10 @@ gUnknown_080E994C:
 	bl Combatant_SetStatus
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_080F4054
+	bl Battle_SetHp
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_080F408C
+	bl Battle_SetMp
 	adds r0, r5, #0
 	subs r0, #0x10
 	lsls r0, r0, #0x18
@@ -2014,7 +2014,7 @@ gUnknown_080E994C:
 	adds r5, r6, r3
 	movs r1, #0
 	ldrsh r0, [r5, r1]
-	bl sub_080F3EC8
+	bl Combatant_IsInParty
 	cmp r0, #0
 	bne .L080E9E4E
 	b .L080E9F7C
@@ -2242,13 +2242,13 @@ gUnknown_080E994C:
 	adds r5, r6, r0
 	movs r1, #0
 	ldrsh r0, [r5, r1]
-	bl sub_080F4260
+	bl Party_BuildSkillList
 	ldr r7, .L080EA094
 	movs r2, #0
 	ldrsh r4, [r7, r2]
 	movs r3, #0
 	ldrsh r0, [r5, r3]
-	bl sub_080F41F4
+	bl Party_GetSkillCount
 	cmp r4, r0
 	bge .L080EA0A4
 	ldr r1, .L080EA098
@@ -2401,14 +2401,14 @@ sub_080EA178: @ 0x080EA178
 	ldr r1, .L080EA1E0
 	movs r2, #0
 	ldrsh r4, [r1, r2]
-	bl sub_080F41F4
+	bl Party_GetSkillCount
 	cmp r4, r0
 	blt .L080EA1E8
 	cmp r5, #3
 	bgt .L080EA1C2
 .L080EA1A6:
 	adds r0, r5, #0
-	bl sub_080F3EC8
+	bl Combatant_IsInParty
 	cmp r0, #0
 	beq .L080EA1BC
 	adds r0, r5, #0

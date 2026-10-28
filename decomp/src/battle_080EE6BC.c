@@ -253,7 +253,7 @@ s16 sub_080EE810(s32 id, s32 who)
     {
         if (gUnknown_0876F75A[i][0] == x)
         {
-            s32 r = sub_080F3F90(who, gUnknown_0876F75A[i][1]);
+            s32 r = Combatant_GetAffinity(who, gUnknown_0876F75A[i][1]);
 
             if (r == 12 || r == 13)
                 return 0;
@@ -322,7 +322,7 @@ s32 Battle_PhysicalDamage(s32 att, s32 def)
     pow *= Math_DivRound(pow, 4) + 4;
     pow /= dv;
     if (kind == 11)
-        pow += sub_080BF5C0(sub_080F3F14(att))[1] * pow / 100;
+        pow += sub_080BF5C0(Combatant_GetChosenSkill(att))[1] * pow / 100;
     pow = Battle_FinishDamage(a, d, pow);
     return pow;
 }
@@ -335,7 +335,7 @@ void Battle_SkillDamage(struct Action *act)
 {
     s32 att = act->att;
     s32 def = act->def;
-    s32 skill = sub_080F3F14(att);
+    s32 skill = Combatant_GetChosenSkill(att);
     u16 ailment = sub_080ED794(skill);
     u8 *a = Battle_GetCombatant(att + 0x8000);
     u8 *d = Battle_GetCombatant(def + 0x8000);
@@ -399,7 +399,7 @@ NAKED void Battle_SkillDamage(struct Action *act)
         "    mov r8, r0\n"
         "    ldr r1, [r7, #4]\n"
         "    mov sb, r1\n"
-        "    bl sub_080F3F14\n"
+        "    bl Combatant_GetChosenSkill\n"
         "    adds r6, r0, #0\n"
         "    bl sub_080ED794\n"
         "    lsls r0, r0, #0x10\n"

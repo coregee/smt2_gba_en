@@ -160,7 +160,7 @@ u16 *MessageBox_ComposeSpeciesText(u32 a0, u32 a1, u32 a2, u32 a3, const u16 *tm
 u16 *MessageBox_ComposeNameText(u32 who, const u16 *tmpl);
 u8 *Battle_GetCombatant(u16 idx);
 void Combatant_DecodeName(u8 *combatant, u16 *dst);
-bool32 sub_080F3EC8(u16 idx);
+bool32 Combatant_IsInParty(u16 idx);
 bool32 Combatant_IsAlive(u16 idx);
 s32 sub_080F4968(void);
 void Window_SetHeight(void *window, u32 h);
@@ -211,7 +211,7 @@ void sub_080C6FF0(void);
 void sub_080C7038(void);
 s32 sub_080EDF0C(void);
 u16 sub_080EFEDC(void);
-s32 sub_080F3144(void);
+s32 Battle_IsPartyDefeated(void);
 void sub_080B9058(void);
 void sub_080C140C(u32 a, u32 b);
 void sub_080C1440(void);

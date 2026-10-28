@@ -29,7 +29,7 @@ u32 sub_080EF224(s32 pos, s32 count)
     {
         if (Combatant_IsAlive(i))
             continue;
-        sub_080F44D8(base, i);
+        Battle_CopyEnemyUnit(base, i);
         Combatant_SetStatus(i, 0);
         Combatant_RestoreHp(i);
         Combatant_RestoreMp(i);

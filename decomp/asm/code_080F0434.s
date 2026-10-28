@@ -167,7 +167,7 @@ gUnknown_080F0494:
 	adds r0, r0, r1
 	movs r3, #0
 	ldrsh r0, [r0, r3]
-	bl sub_080F4490
+	bl Battle_FindPartyPosition
 	lsls r0, r0, #0x10
 	lsrs r6, r0, #0x10
 	ldr r1, .L080F0618
@@ -209,7 +209,7 @@ gUnknown_080F0494:
 	cmp r1, r0
 	bne .L080F05F2
 	adds r0, r4, #0
-	bl sub_080F4490
+	bl Battle_FindPartyPosition
 	lsls r0, r0, #0x10
 	lsrs r6, r0, #0x10
 .L080F05F2:
@@ -357,7 +357,7 @@ gUnknown_080F0620:
 	beq .L080F0760
 	lsls r0, r4, #0x10
 	asrs r0, r0, #0x10
-	bl sub_080F3110
+	bl Battle_IsEnemyId
 	adds r3, r0, #0
 	movs r4, #0
 	ldrsh r0, [r5, r4]
@@ -467,7 +467,7 @@ gUnknown_080F0620:
 .L080F0818: .4byte 0x00000171
 .L080F081C:
 	adds r0, r4, #0
-	bl sub_080F3110
+	bl Battle_IsEnemyId
 	cmp r0, #1
 	bne .L080F0850
 	ldr r1, .L080F0848
@@ -507,7 +507,7 @@ gUnknown_080F0620:
 	adds r0, r7, #0
 	orrs r0, r1
 	strh r0, [r5, #0x10]
-	bl sub_080F3144
+	bl Battle_IsPartyDefeated
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, #1
@@ -551,7 +551,7 @@ gUnknown_080F0620:
 	bne .L080F08DE
 	b .L080F0A78
 .L080F08DE:
-	bl sub_080F3144
+	bl Battle_IsPartyDefeated
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, #1

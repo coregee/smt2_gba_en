@@ -31,7 +31,7 @@ u32 sub_080EED88(struct Action *act)
     kind = sub_080C35E4(att);
     if (dmg < 0 || m == 0xFFFF)
         return 0;
-    sk = sub_080F3F14(att);
+    sk = Combatant_GetChosenSkill(att);
     if ((kind == 7 || kind == 11) && (st & 0x20))
         goto nullify;
     if (kind == 7)
@@ -47,9 +47,9 @@ other:
         goto reflect;
     if (sub_080EED64(kind, sk) == 1 && (st & 2))
         goto reflect;
-    if (def <= 15 && (sub_080F3F44() & 1) && kind == 7)
+    if (def <= 15 && (BattleFlags_Get() & 1) && kind == 7)
     {
-        sub_080F3F58(-2);
+        BattleFlags_Mask(-2);
         goto reflect;
     }
     if (kind == 7 || kind == 11 || kind == 8)
@@ -173,7 +173,7 @@ void sub_080EEF98(void)
         s32 id = sub_080EF878();
 
         Combatant_SetStatus(id, 0x8000);
-        sub_080F4104(id);
+        Combatant_ClearSlot(id);
         sub_08126834(-1);
         sub_080E760C();
         if (sub_080ED9F4())
@@ -226,7 +226,7 @@ u32 sub_080EF0E4(s32 who)
 
     if (who > 15)
         return 0;
-    f = sub_080F3F44();
+    f = BattleFlags_Get();
     who = Combatant_GetAlignment(who);
     sub_080EDA90();
     if ((f & 2) && (u32)(who - 1) <= 1)
@@ -242,7 +242,7 @@ u32 sub_080EF0E4(s32 who)
     else
         return 0;
     sub_080F3E38(msg);
-    sub_080F3F30(f);
+    BattleFlags_Set(f);
     return 1;
 }
 
@@ -260,7 +260,7 @@ void Battle_RemoveDefeated(s32 who, s32 give)
     Combatant_GetStatus(who);
     Combatant_SetStatus(who, 0x8000);
     id = Combatant_GetDemonId(who);
-    sub_080F4054(who, 0);
+    Battle_SetHp(who, 0);
     sub_080F40C4(id);
     if (who > 15)
     {

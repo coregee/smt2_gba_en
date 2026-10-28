@@ -2245,7 +2245,7 @@ sub_080E0864: @ 0x080E0864
 	adds r0, r5, #0
 	str r1, [sp]
 	str r2, [sp, #4]
-	bl sub_080F4548
+	bl Item_GetSlotMask
 	mov r3, sb
 	ands r0, r3
 	ldr r1, [sp]
@@ -2270,7 +2270,7 @@ sub_080E0864: @ 0x080E0864
 	adds r0, r4, #0
 	str r1, [sp]
 	str r2, [sp, #4]
-	bl sub_080F4548
+	bl Item_GetSlotMask
 	mov r3, sb
 	ands r0, r3
 	ldr r1, [sp]

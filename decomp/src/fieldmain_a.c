@@ -281,12 +281,12 @@ void sub_080C1AF4(void)
         sub_080C1AB0();
         if (!(Moon_GetPhase() & 0xF0))
         {
-            sub_080F3F58(~0x100);
+            BattleFlags_Mask(~0x100);
         }
         else if (old == 0x80)
         {
-            sub_080F3F58(~0x40);
-            sub_080F3F58(~0x20);
+            BattleFlags_Mask(~0x40);
+            BattleFlags_Mask(~0x20);
         }
     }
 }

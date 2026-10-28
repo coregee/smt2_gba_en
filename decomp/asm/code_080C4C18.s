@@ -86,7 +86,7 @@ sub_080C4C98: @ 0x080C4C98
 	movs r4, #4
 .L080C4C9C:
 	adds r0, r4, #0
-	bl sub_080F3EC8
+	bl Combatant_IsInParty
 	cmp r0, #0
 	bne .L080C4CD6
 	adds r0, r4, #0
@@ -369,7 +369,7 @@ sub_080C4E48: @ 0x080C4E48
 	cmp r4, r0
 	beq .L080C4F40
 	adds r0, r4, #0
-	bl sub_080F401C
+	bl Battle_GetHp
 	cmp r0, #0
 	bne .L080C4EDC
 	lsls r6, r4
@@ -412,7 +412,7 @@ sub_080C4E48: @ 0x080C4E48
 	bne .L080C4F40
 .L080C4F1A:
 	adds r0, r5, #0
-	bl sub_080F401C
+	bl Battle_GetHp
 	adds r1, r0, #0
 	cmp r1, #1
 	bne .L080C4F2E
@@ -430,7 +430,7 @@ sub_080C4E48: @ 0x080C4E48
 	mov r8, r0
 .L080C4F40:
 	adds r0, r5, #0
-	bl sub_080F401C
+	bl Battle_GetHp
 	cmp r0, #0
 	beq .L080C4F50
 	adds r0, r5, #0
@@ -523,7 +523,7 @@ sub_080C4F88: @ 0x080C4F88
 	cmp r4, r0
 	beq .L080C5060
 	adds r0, r4, #0
-	bl sub_080F401C
+	bl Battle_GetHp
 	cmp r0, #0
 	bne .L080C503C
 	adds r0, r6, #0
@@ -570,7 +570,7 @@ sub_080C4F88: @ 0x080C4F88
 	orrs r7, r0
 .L080C5060:
 	adds r0, r5, #0
-	bl sub_080F401C
+	bl Battle_GetHp
 	cmp r0, #0
 	bgt .L080C5094
 	adds r0, r5, #0
@@ -1500,7 +1500,7 @@ sub_080C576C: @ 0x080C576C
 	adds r4, r0, #0
 	movs r0, #1
 	strh r0, [r4, #0x1c]
-	bl sub_080F3F44
+	bl BattleFlags_Get
 	movs r1, #0x80
 	lsls r1, r1, #1
 	ands r1, r0

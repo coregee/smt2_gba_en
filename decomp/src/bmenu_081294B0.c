@@ -19,7 +19,7 @@ void sub_081294B0(struct Task *task, u32 arg)
             blk->unk48->data.raw[0] = 0xFF;
     }
     else if ((blk->unk694 & 1)
-          && (sub_080F4504() <= sub_080F45D4() || Party_CountMembers() > 5))
+          && (sub_080F4504() <= Party_CountDemons() || Party_CountMembers() > 5))
     {
         BattleMenu_SetMode(3, Menu_ExpandListTemplate(Battle_GetMessage(0x92), 0));
         task->pad1E = 2;
@@ -118,7 +118,7 @@ void sub_08129604(struct Task *task, u32 arg)
         b = ok;
         if (b == 1)
         {
-            if (sub_080F4504() <= sub_080F45D4() || Party_CountMembers() > 5)
+            if (sub_080F4504() <= Party_CountDemons() || Party_CountMembers() > 5)
             {
                 task->pad1E = 3;
             }

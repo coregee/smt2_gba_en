@@ -124,7 +124,7 @@ void sub_080C84A0(void);
 s32 sub_080B8B08(u32);
 s32 Stock_GetCapacity(void);
 s32 Combatant_IsAlive(s16);
-s32 sub_080F3EC8(s16);
+s32 Combatant_IsInParty(s16);
 u16 sub_08138CE8(void);
 s32 sub_080D53E0(void);
 u32 sub_080C31F0(void);
