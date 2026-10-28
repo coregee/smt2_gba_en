@@ -197,3 +197,12 @@ hard-coded glyph IDs at fixed x positions: English labels need code changes.
   leftover r6), so which tasks it signals depends on the caller.
 - `sub_080D8384` leaves the tile and palette unset for slots other than 0-2.
 - `sub_080D77FC` looks up the character record and then ignores it.
+
+### Scene effects (`0x080BA1AC`-`0x080BD878`, script ops 0x406/0x407)
+
+No text is drawn here, so nothing limits the translation. Oddities in the original:
+
+- `0x080BB820` keeps a debug control: Up/Down (`gRepeatedKeys`) shrink and grow a running
+  effect's sprite.
+- `0x080BB2A0` and `0x080BCDC4` test `0x0200AB04 & 0x8000`, but both branches fade to white.
+- `0x080BCAFC` builds a scaled copy of the sprite and then draws the original table.

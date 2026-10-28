@@ -1,0 +1,12 @@
+080BA8D8	SceneEffect_Start	func	(set, id): Task_Create(table[id], 0xFFFF) from gUnknown_08182B20 (set 0) / gUnknown_08182B54 into 0x0300463C, NULL when the entry is empty; called by ScriptOp_406 with set 0
+080BA920	SceneEffect_IsDone	func	returns 1 when 0x0300463C is NULL or its task state is 0
+080BA940	SceneEffect_Stop	func	clears the state of the task in 0x0300463C and the pointer
+080BA958	SceneEffect_End	func	(set, id): ScriptOp_407; for set 0 / id 2 copies the task's data.h[0] to the BG3 V-offset shadow 0x0300000E (and queues sub_080B2880 unless bit 15 of 0x0200AB04), then SceneEffect_Stop
+0300463C	gSceneEffectTask	ram	task created by SceneEffect_Start, cleared by SceneEffect_Stop
+080BC230	Char_FindById	func	(id): first of the 6 tasks in gCharTasks (0x02036094) whose character id (+0x2A) is id, else NULL
+080BC260	Char_EndById	func	(task, id): sub_080C48F0(Char_FindById(id), 0) when found (probable: sub_080C48F0 ends a character task, see Char_StepAnim)
+080BA408	Elevator_Init	func	probable: from the floor list (data+0x20, indices data+0x08/0x0C) and sub_080C8B10 map headers computes the travel distance |y0-y1|*0xA8 into data+0x3A and clears speed/position
+080BA4C4	Elevator_SetScroll	func	probable: sets the BG3 V-offset shadow 0x0300000E from the travelled distance mod 0xA8, direction from the floor order (or the special cell 0x40,0x0C)
+080BA538	Elevator_Accelerate	func	probable: speed (16.16 at data+0x34) += 0x1000 until > 8, position += speed, task result 1 when done
+080BA56C	Elevator_Cruise	func	probable: position += speed until 15/16 of the distance
+080BA59C	Elevator_Decelerate	func	probable: speed -= 0x1000 down to 2, stops at the distance (result 1)
