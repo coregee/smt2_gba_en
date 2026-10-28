@@ -856,7 +856,7 @@ ScriptOp_Choice: @ 0x08134900
 	cmp r0, #3
 	bne .L08134948
 .L08134944:
-	bl sub_0812F198
+	bl MsgWindow_SaveGlyphs
 .L08134948:
 	movs r1, #0
 	ldr r6, .L08134A28
@@ -2165,7 +2165,7 @@ sub_08135370: @ 0x08135370
 	movs r6, #0
 	bl sub_0812DBF0
 	mov r8, r0
-	bl sub_0812DC00
+	bl BattleMenu_GetPriceList
 	mov sb, r0
 	bl Stock_GetCapacity
 	adds r7, r0, #0
@@ -2252,7 +2252,7 @@ sub_08135420: @ 0x08135420
 	movs r5, #0
 	bl sub_0812DBF0
 	adds r7, r0, #0
-	bl sub_0812DC00
+	bl BattleMenu_GetPriceList
 	mov r8, r0
 	bl Stock_GetCapacity
 	adds r6, r0, #0
@@ -2325,7 +2325,7 @@ sub_081354B0: @ 0x081354B0
 	movs r5, #0
 	bl sub_0812DBF0
 	adds r7, r0, #0
-	bl sub_0812DC00
+	bl BattleMenu_GetPriceList
 	mov r8, r0
 	bl Stock_GetCapacity
 	adds r6, r0, #0
@@ -2399,7 +2399,7 @@ sub_08135540: @ 0x08135540
 	movs r5, #0
 	bl sub_0812DBF0
 	adds r7, r0, #0
-	bl sub_0812DC00
+	bl BattleMenu_GetPriceList
 	mov r8, r0
 	bl Stock_GetCapacity
 	adds r6, r0, #0
@@ -2503,7 +2503,7 @@ sub_0813560C: @ 0x0813560C
 	movs r6, #0
 	bl sub_0812DBF0
 	mov r8, r0
-	bl sub_0812DC00
+	bl BattleMenu_GetPriceList
 	mov sb, r0
 	bl Stock_GetCapacity
 	adds r7, r0, #0

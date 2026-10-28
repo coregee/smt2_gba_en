@@ -851,7 +851,7 @@ void Shop_InitItemList(u16 first, u16 mode)
         gMsgGlyphQueue[11 * 4] = 0xB67;
         gMsgGlyphQueue[12 * 4] = 0x70;
         item = gShopItemIds[first + gUnk_0300696C];
-        sub_08130578(item);
+        MsgWindow_DrawItemCount(item);
     }
     else
     {
@@ -896,7 +896,7 @@ void Shop_InitItemList(u16 first, u16 mode)
             else
             {
                 j = sub_080C32D4(item);
-                j += sub_08131AB0(0xFF, item);
+                j += Party_CountEquipped(0xFF, item);
                 pal = 4;
                 if (j <= 98)
                 {
@@ -946,7 +946,7 @@ void Shop_InitItemList(u16 first, u16 mode)
         }
         if (gScriptWaitState == 0x22 || gScriptWaitState == 0x25)
         {
-            if (sub_08131AB0(gUnk_03006898, item))
+            if (Party_CountEquipped(gUnk_03006898, item))
                 gUnk_03006920[row].flag = 1;
         }
     }
@@ -1020,7 +1020,7 @@ void Shop_InitItemList(u16 first, u16 mode)
         "    adds r0, r0, r1\n"
         "    ldrh r6, [r0]\n"
         "    adds r0, r6, #0\n"
-        "    bl sub_08130578\n"
+        "    bl MsgWindow_DrawItemCount\n"
         "    b .L08133BD8\n"
         ".L08133BA0: .4byte 0x0203D800 @ EWRAM+0x3D800\n"
         ".L08133BA4: .4byte 0x00000BD9\n"
@@ -1160,7 +1160,7 @@ void Shop_InitItemList(u16 first, u16 mode)
         "    lsrs r4, r0, #0x18\n"
         "    movs r0, #0xff\n"
         "    adds r1, r6, #0\n"
-        "    bl sub_08131AB0\n"
+        "    bl Party_CountEquipped\n"
         "    adds r0, r4, r0\n"
         "    lsls r0, r0, #0x10\n"
         "    lsrs r4, r0, #0x10\n"
@@ -1319,7 +1319,7 @@ void Shop_InitItemList(u16 first, u16 mode)
         "    movs r2, #0\n"
         "    ldrsh r0, [r0, r2]\n"
         "    adds r1, r6, #0\n"
-        "    bl sub_08131AB0\n"
+        "    bl Party_CountEquipped\n"
         "    lsls r0, r0, #0x10\n"
         "    cmp r0, #0\n"
         "    beq .L08133E24\n"
@@ -1408,7 +1408,7 @@ void sub_08133F14(u16 first)
     Font_ResetGlyphSpriteCache(0x180);
     gUnk_03006678[0] = 0;
     if (kind == 1)
-        sub_0812F1E4();
+        MsgWindow_RestoreGlyphs();
     if (first == 0)
     {
         gUnk_03006848 = 0;
@@ -1495,7 +1495,7 @@ void sub_08133F14(u16 first)
         "    ldr r2, [sp, #8]\n"
         "    cmp r2, #1\n"
         "    bne .L08133F5A\n"
-        "    bl sub_0812F1E4\n"
+        "    bl MsgWindow_RestoreGlyphs\n"
         ".L08133F5A:\n"
         "    ldr r3, [sp]\n"
         "    cmp r3, #0\n"

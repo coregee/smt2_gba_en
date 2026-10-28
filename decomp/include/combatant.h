@@ -280,7 +280,7 @@ s32 Battle_GetHp(s32 a);
 void sub_080C366C(void);
 void sub_080C65C8(void);
 u32 sub_080ED560(s32 id);
-u16 sub_08131AB0(s16 a, u16 item);
+u16 Party_CountEquipped(s16 a, u16 item);
 void Party_InitMember(struct Combatant *c, u32 i);
 void sub_080BF8D8(u32 i);
 void Automap_SetVisitedRaw(u16 x, u16 y);

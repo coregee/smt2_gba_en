@@ -226,7 +226,7 @@ void Item_GetAttribute(s32 id, s32 field, s32 *out);
 void sub_0812E780(s16 a, void *b, const u16 *c, u32 d);
 u16 sub_080F1678(u32 a, u32 b);
 void sub_0812EA98(s16 a);
-s16 sub_0812EA54(void);
+s16 Party_FirstActiveHuman(void);
 bool8 sub_080C32D4(u16 item);
 u16 sub_080F3040(s32 who);
 s32 sub_080C35E4(s32 who);

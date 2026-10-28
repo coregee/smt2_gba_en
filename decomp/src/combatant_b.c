@@ -518,7 +518,7 @@ s32 sub_080C10B4(s32 item)
 {
     u8 n = sub_080C32D4(item);
 
-    return n + sub_08131AB0(0xFF, item & 0xFF);
+    return n + Party_CountEquipped(0xFF, item & 0xFF);
 }
 
 // sub_080C10E0 @ 0x080C10E0

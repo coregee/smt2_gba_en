@@ -663,7 +663,7 @@ ScriptOp_43F: @ 0x0813AA38
 	lsls r0, r0, #0x10
 	orrs r0, r2
 	str r0, [r5, #0xc]
-	bl sub_0812F198
+	bl MsgWindow_SaveGlyphs
 	ldr r1, .L0813AAFC
 	movs r0, #3
 	strh r0, [r1]
@@ -794,7 +794,7 @@ ScriptOp_441: @ 0x0813AB80
 	ldr r1, .L0813AC5C
 	movs r0, #1
 	strh r0, [r1]
-	bl sub_0812F198
+	bl MsgWindow_SaveGlyphs
 	movs r3, #0
 	movs r2, #0
 	ldr r4, .L0813AC60
@@ -3175,7 +3175,7 @@ sub_0813BECC: @ 0x0813BECC
 	push {r4, r5, r6, r7, lr}
 	ldr r1, .L0813BF38
 	strh r0, [r1]
-	bl sub_0812F198
+	bl MsgWindow_SaveGlyphs
 	movs r2, #0
 	ldr r4, .L0813BF3C
 	ldr r0, .L0813BF40

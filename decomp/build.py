@@ -85,15 +85,19 @@ def symbol_definitions(objs):
     c_objs = [str(o) for o in objs if (BUILD / "src") in o.parents]
     if not c_objs:
         return ""
+    def run_nm(flag, files):
+        # In batches: Windows limits a command line to 32K characters.
+        return "".join(subprocess.run([nm, flag] + files[i:i + 64], capture_output=True,
+                                      text=True).stdout for i in range(0, len(files), 64))
+
     undefined = set()
-    out = subprocess.run([nm, "-u"] + c_objs, capture_output=True, text=True).stdout
+    out = run_nm("-u", c_objs)
     for ln in out.splitlines():
         parts = ln.split()
         if parts and parts[0] == "U":
             undefined.add(parts[1])
     defined = set()
-    out = subprocess.run([nm, "--defined-only"] + [str(o) for o in objs], capture_output=True,
-                         text=True).stdout
+    out = run_nm("--defined-only", [str(o) for o in objs])
     for ln in out.splitlines():
         parts = ln.split()
         if len(parts) == 3:

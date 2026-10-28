@@ -2560,7 +2560,7 @@ sub_080CE760: @ 0x080CE760
 	lsrs r4, r4, #0x18
 	movs r0, #0xff
 	adds r1, r5, #0
-	bl sub_08131AB0
+	bl Party_CountEquipped
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	adds r4, r4, r0

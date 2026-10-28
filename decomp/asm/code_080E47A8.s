@@ -2395,7 +2395,7 @@ sub_080E5A58: @ 0x080E5A58
 	movs r5, #0
 	movs r0, #2
 	adds r1, r4, #0
-	bl sub_0812C550
+	bl BattleMenu_BuildSkillList
 	cmp r0, #0
 	bne .L080E5B64
 	movs r5, #2

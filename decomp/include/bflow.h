@@ -280,8 +280,8 @@ u32 sub_080C4C7C(u16 item);
 u32 sub_080D3400(u32 a, u32 b, u16 c);
 u32 sub_080D2268(u16 id);
 void Font_ResetGlyphSpriteCache(u32 arg);
-void sub_08130578(u16 a);
-u16 sub_08131AB0(s16 a, u16 item);
+void MsgWindow_DrawItemCount(u16 a);
+u16 Party_CountEquipped(s16 a, u16 item);
 s32 sub_080CDB74(s16 a, u8 item);
 u8 *Action_GetRecord(u16 id);
 u8 *Equipment_GetRecord36_MidRange(u16 id);
@@ -358,7 +358,7 @@ extern u16 gUnk_0203DB88[];         /* item id list, 0xFFFF-terminated */
 extern u16 gUnk_030068D8;
 extern const u16 gScriptDigitGlyphs[];
 extern const u16 gUnknown_08790390[];
-void sub_0812F1E4(void);
+void MsgWindow_RestoreGlyphs(void);
 
 void Shop_InitItemList(u16 first, u16 mode);
 void MsgGlyphQueue_PushSubstClamped(u16 x, u16 y, u16 pal, u16 n);

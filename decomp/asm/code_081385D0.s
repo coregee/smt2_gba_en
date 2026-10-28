@@ -1412,7 +1412,7 @@ ScriptOp_409: @ 0x0813908C
 	ldr r1, .L08139130
 	movs r0, #0x48
 	strh r0, [r1]
-	bl sub_0812F198
+	bl MsgWindow_SaveGlyphs
 	ldr r0, .L08139134
 	movs r1, #0
 	strh r1, [r0]
@@ -1474,7 +1474,7 @@ CasinoPrize_DrawList: @ 0x0813914C
 	ldrsh r0, [r5, r1]
 	cmp r0, #1
 	bne .L0813918E
-	bl sub_0812F1E4
+	bl MsgWindow_RestoreGlyphs
 .L0813918E:
 	ldr r2, [sp, #0x20]
 	cmp r2, #0

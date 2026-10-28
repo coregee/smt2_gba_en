@@ -335,3 +335,27 @@ No text is drawn here, so nothing limits the translation. Oddities in the origin
 - Enemy skill 0x9F (`sub_080F2D4C`) goes through a counter at `0x0203C174` cycling 0-2, so it
   fires once in three tries.
 - `sub_080F30CC` and `sub_080F40EC` are identical.
+
+## Found in the sixth conversion round
+
+### Battle menu (rest), auto-recovery, message-window helpers (`0x0812BF54`-`0x081332BC`)
+
+- **Second untranslated Japanese header.** `sub_081305D8` writes the 13 glyphs
+  選択中のアイテムの所持数 ("quantity owned of the selected item") straight into
+  `gMsgGlyphQueue` entries 0-12 and appends a two-digit count (`MsgWindow_DrawItemCount`,
+  `0x08130578`). It is reached from `sub_08131B1C`, a step of the task script at `0x0878FF8C`,
+  which `ScriptOp_33D` starts; op 0x33D is used by the shop script at `@Txt_0807DF42`
+  (`event_b.txt`). The translation's only changes in these functions are the glyph-list
+  relocation literals (`patch_msgwin.py`), so the header is still Japanese, the same text as
+  the `Shop_InitItemList` header found in round two. An English label needs a code patch and
+  must fit 13 glyphs (or move the count). Confirm on screen in a shop.
+- The count is two digits from `gScriptDigitGlyphs[n / 10]`; 100 or more reads past the table.
+- `MsgWindow_RestoreGlyphs` (`0x0812F1E4`) re-lays saved glyphs at a fixed 13 px; the
+  translation already patches it (row-save relocation, `patch_msgwin.py`).
+
+### More possible original bugs
+
+- `0x0812C760` reads the cursor's list entry as `((u8 *)list)[index]` instead of
+  `list[index]`, so the skill description is right only at index 0.
+- Auto-recovery uses up item 0xB5 only one time in eight (`0x0812E6C4`), and its caster
+  search (`0x0812E558`) never considers member 0 (the hero).

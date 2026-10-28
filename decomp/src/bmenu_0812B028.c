@@ -20,7 +20,7 @@ void sub_0812B028(struct Task *task)
         gUnk_03006440 = item;
         sub_080EA210();
         tmpl = gUnknown_08124D5E;
-        BattleMenu_SetMode(3, Menu_ExpandListTemplate(tmpl, (item << 16) + sub_0812EA54()));
+        BattleMenu_SetMode(3, Menu_ExpandListTemplate(tmpl, (item << 16) + Party_FirstActiveHuman()));
         task->pad1E = 1;
         break;
     case 1:
@@ -535,7 +535,7 @@ void sub_0812B490(struct Task *task)
     task->pad1E = n;
     sub_080EA210();
     busy = sub_0812B37C();
-    if (busy != 0 || sub_0812EA54() == -1)
+    if (busy != 0 || Party_FirstActiveHuman() == -1)
     {
         if (Flag_Test(0xD5))
             BattleMenu_SetMode(3, Menu_ExpandListTemplate(Battle_GetMessage(0x392), 0));

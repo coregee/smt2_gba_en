@@ -774,6 +774,22 @@ address	name	kind	confidence	note
 0812ACE4	Inventory_Sort	func	probable	copies the 0x15A (id, count) pairs at 0x030051AC to the canvas as (count, id) with empty slots keyed 0xFFF, Battle_SortEntriesInsertion, then writes the non-empty ones back in order
 0812B440	MenuCursor4_SaveRestore	func	probable	same as MenuCursor2_SaveRestore for cursor 4
 0812BCD4	Inventory_Find	func	probable	returns the address of the (id, count) pair for id in 0x030051AC; no end check
+0812C550	BattleMenu_BuildSkillList	func	probable	fills block list (+0x2D0) from Battle_GetCombatant(who|0x8000)+0x5D (0xFF-terminated, max 32) where sub_080BF5C0(id)[0] & (mode ? 0x20 : 0xC0); mode 2 keeps ids >= 0x40 not rejected by sub_0812C4E0; 0xFFFF-terminated, returns count
+0812DC00	BattleMenu_GetPriceList	func	probable	returns block+0x2EC (u32 per list entry); sub_0812DD0C buzzes (SE 0x66) when the entry exceeds the money (sub_080C3100), else SE 0xE7; entry passed to sub_080D367C/sub_080D3654
+0812E244	BattleMenu_AutoRecoverStep	func	probable	task step on 0x030065CC[1]: 0 Party_BuildSkillList for members 0-3; 1 Party_AutoRecover, message 0xD7 + SE 0xE7 if anything was used else gUnknown_08124534; 2 waits BattleMsg_IsDone; 3 result 1
+0812E2FC	Party_AutoRecover	func	probable	0x030020B4 := 0; repeats Party_FindAilingMember + sub_0812E4C0 (cure), then Party_FindHurtMember + sub_0812E400 (heal) while they act; returns 0x030020B4 (set to 1 by Party_CastSkillOn/Party_UseItemOn)
+0812E334	Party_FindHurtMember	func	probable	first member 0-15 with Combatant_IsInParty, flags & 0x8000 clear and hp (+0x18) < maxHp (+0x1A); -1 if none
+0812E37C	Party_FindMpShortMember	func	probable	as Party_FindHurtMember with mp (+0x1C) < maxMp (+0x1E)
+0812E3C4	Party_FindAilingMember	func	probable	first member 0-15 with Combatant_IsInParty and flags (+0x10) & 0xB3FE; -1 if none
+0812E558	Party_FindSkillCaster	func	probable	collects party members 4-15 (skill slots +0x5D, 8) then 1-3 (32 slots) knowing the skill and with Combatant_GetStatus & 0xB063 clear; returns the first whose mp (+0x1C) >= sub_080ED6CC(skill), else -1
+0812E688	Party_CastSkillOn	func	probable	(target, caster, skill): Action {att caster, def target}, sub_080F4988(&a, skill), sub_080ED6DC(caster, skill) (MP cost), 0x030020B4 := 1
+0812E6C4	Party_UseItemOn	func	probable	(target, user, item): Item_GetAttribute(item, 0xC): < 0x80 sub_080F4988 else Item_RunUseEffect; sub_080F3E54(item, -1) consumes it (item 0xB5 kept 7/8 of the time via Random_Byte); 0x030020B4 := 1
+0812EA54	Party_FirstActiveHuman	func	probable	first of members 0-3 with Combatant_IsAlive, Combatant_IsInParty and Combatant_GetStatus & 0xB060 clear; -1 if none
+0812EFD8	MsgWindow_BlinkCursor	func	probable	while 0x0203DB56 != 0 counts 0x0203DB54 down and every 30 frames toggles 0x0203DB52 (ScriptOp_316 sets 1/0x1E/1)
+0812F198	MsgWindow_SaveGlyphs	func	probable	copies the glyph of each gMsgGlyphQueue entry (max 16, gMsgGlyphCount) to 0x03006870, 0x301-terminated
+0812F1E4	MsgWindow_RestoreGlyphs	func	probable	re-queues the 0x03006870 glyphs at gTextColumn*13+0x11, gTextLine*13+gMsgTextTop, advancing gTextColumn (count capped at 0x3F)
+08130578	MsgWindow_DrawItemCount	func	probable	writes the two digits (gScriptDigitGlyphs) of sub_080C32D4(item) + Party_CountEquipped(0xFF, item) into gMsgGlyphQueue entries 13 and 14
+08131AB0	Party_CountEquipped	func	probable	(who, item): items >= 0xD0 -> 0; slot = sub_080D2268(item); who 0xFF counts used members 0-2 with Combatant_GetEquip(i, slot) == item, else 1/0 for member who; sub_080C10B4 adds it to the held count
 081321B4	ScriptOp_Nop	func	probable	empty body; table entry for 0x302, 0x314 and ~100 unused opcodes in both tables
 081321B8	ScriptOpAlt_Shared_081321B8	func	probable	gScriptOpAltTable handler for opcode(s) 300,307,30E,310,313,315,316,317,318,31A,31B,31C...
 081321C4	ScriptOpAlt_Shared_081321C4	func	probable	gScriptOpAltTable handler for opcode(s) 305,37B,388,38B,39F,426

@@ -98,7 +98,7 @@ ScriptOp_38D: @ 0x08136DD4
 	orrs r7, r5
 	ldrh r1, [r6]
 	movs r0, #0xff
-	bl sub_08131AB0
+	bl Party_CountEquipped
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	adds r4, r4, r0
@@ -244,7 +244,7 @@ ScriptOp_39B: @ 0x08136F14
 	mov r6, sb
 	mov r5, r8
 	push {r5, r6, r7}
-	bl sub_0812F198
+	bl MsgWindow_SaveGlyphs
 	ldr r3, .L08137020
 	ldrh r0, [r3]
 	adds r1, r0, #1
