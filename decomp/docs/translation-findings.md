@@ -226,3 +226,22 @@ No text is drawn here, so nothing limits the translation. Oddities in the origin
 - `Warp_ToWorldPosition` (`0x080B7AFC`) and `sub_080B7E3C`: warp to an uninitialised map when
   no sub-map contains the point.
 - `sub_080B8384`: the message is uninitialised outside 0x120-0x12B (`sub_080B8354` guards it).
+
+## Found in the fourth conversion round
+
+### Extras menu, vision replay, demon compendium, link cable (`0x080D977C`-`0x080DF6D0`)
+
+- **8-glyph names.** `Vision_DrawItemList` (`0x080DADF8`), `sub_080DBCDC`/`sub_080DC2B0`
+  (demons), `sub_080DBE9C` (races) and `sub_080DC1D8` draw exactly 8 glyphs, 12 px apart, with
+  no terminator check; `sub_080DC0F0` draws at most 3. Already handled: the translation
+  replaces each of these loops with a call into its own code (`0x080DAE8A`, `0x080DBD86`,
+  `0x080DBF10`, `0x080DC15C`, `0x080DC23E`, `0x080DC364`; checked in the patched build).
+- **Vision prompt** (`Vision_ComposePrompt`, `0x080DAF50`): the string `0x08009534` follows the
+  variable-length name on one line with no wrap. The translation patches this function too
+  (`0x080DAF79`, `0x080DAFE4`).
+- **Help text** (`sub_080DA150`): the string comes from `0x08581598` at `(item-1)*5 + cursor`,
+  so every item/row combination needs its own text.
+
+### More possible original bugs
+
+- `sub_080D9F40` calls `Window_Close` with one argument; the second is whatever is left in r1.

@@ -1,0 +1,13 @@
+080DA1B4	ExtraMenu_BuildRows	func	fills task data +0x24.. with the extra-menu row ids (1 if an SRAM word sub_080C2A84(0..2) is 1, 2 if any of 0x17C demon flags sub_080C2644, 3 if any vision flag sub_080C2734(300..363), 4 as 1, always 5) and stores the count at +0x2B
+080DA764	Sprite_DrawFraction	func	draws "a/b" with sprite digits (NumberToDigits, gUnknown_08582410 digit sprites, gUnknown_08008F68 slash) at (x, y), 1-3 digits each
+080DABCC	Vision_BuildList	func	clears gUnk_0203B454 (64 u16) and fills it with vision ids 300+: mode 0 those with sub_080C2734 set, otherwise 300..345 except 310/338/342; returns the count
+080DAC4C	Vision_CountListed	func	counts the nonzero entries of the 64-entry list gUnk_0203B454
+080DAB28	Vision_ApplyReceivedFlags	func	for each set bit i of gMenuState+0x38 (64 bits) sets vision flag 300+i (sub_080C32D4/sub_080C3328) then SaveSlot_Write(gGameState.+0x18B0, &gGameState); gMenuState+0x34 must hold 0x13240800 (sub_080DAB04)
+080DB394	Dict_ApplyReceivedEntries	func	for each set bit i (0..0x17B) of gMenuState+0x38 calls sub_080C2674(i), then saves like Vision_ApplyReceivedFlags; magic 0x10570010 (sub_080DB370)
+080DB8A4	Dict_CountListed	func	counts entries != 0xFFFF in the 0x17C-entry compendium list gUnk_0203B554 built by Dict_BuildList
+080DD21C	Dict_GetMapScript	func	returns the event script of gUnknown_08583E84[id] (0x14-byte records: script, two marker positions) for id <= 0x17B, else NULL; the script is run by sub_080DCE4C via sub_080AF218(0x24, ...)
+080DDE2C	Cards_Deal	func	fills 27 bytes at task data +0x15 with 1..27, shuffled with sub_080C2244 when data[4] == 1, and stores at data[0x14] the position of card data[2]
+080DEDD8	Mini_UploadBg2Affine	func	VBlank task: copies PA..PD and the 28-bit BG2X/BG2Y from gUnk_020399E0+8..+0x17 to REG_BG2PA.. (queued by sub_080DE680/sub_080DECEC)
+080DECEC	Mini_UpdateBg2Affine	func	computes the BG2 rotation/scaling (gSineTable, FixedMul8/FixedInverse8) from angle +0x1C, scale +0x1E/+0x20 and centres +0x18/+0x24 of gUnk_020399E0 and queues Mini_UploadBg2Affine
+080DE680	Mini_ZoomBg2Affine	func	as Mini_UpdateBg2Affine after adding the step +0x28 to both scales; stops at 0x100
+080DEE20	Link_InitSerial	func	link cable: disables serial/timer3 IRQs, RCNT=0, SIOCNT=0x2000|0x4003, clears 0x030061C0 (0xF0 bytes), copies arm_08032B7C to 0x030062B0 and SerialTimer3Intr to 0x030060A0, sets up the buffer pointers, re-enables the serial IRQ
