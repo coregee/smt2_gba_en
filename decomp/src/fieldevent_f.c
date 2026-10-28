@@ -280,13 +280,13 @@ void Spring_HealMember(struct Task *task, u32 slot)
     switch (Spring_GetKindAt())
     {
     case 0:
-        ok = sub_080C09B0(id);
-        if (ok == 1 && sub_080C0830(id) == 0)
+        ok = Combatant_IsUsed(id);
+        if (ok == 1 && Combatant_IsDead(id) == 0)
         {
             n = sub_080F401C(id) >> 2;
             if (n == 0)
                 n = 1;
-            sub_080C0C70(id, n);
+            Combatant_Damage(id, n);
             ITEM_DATA(task)->healed[slot] = n;
             task->result = ok;
             sub_080C8490(slot);
@@ -295,13 +295,13 @@ void Spring_HealMember(struct Task *task, u32 slot)
     case 1:
         if (slot > 2)
             break;
-        ok = sub_080C09B0(id);
-        if (ok == 1 && sub_080C0830(id) == 0)
+        ok = Combatant_IsUsed(id);
+        if (ok == 1 && Combatant_IsDead(id) == 0)
         {
             n = sub_080F401C(id) >> 1;
             if (n == 0)
                 n = 1;
-            sub_080C0C70(id, n);
+            Combatant_Damage(id, n);
             ITEM_DATA(task)->healed[slot] = n;
             task->result = ok;
             sub_080C8490(slot);
@@ -310,9 +310,9 @@ void Spring_HealMember(struct Task *task, u32 slot)
     case 2:
         if (slot > 2)
             break;
-        if ((n = sub_080C09B0(id)) == 1 && sub_080C0830(id) == 0)
+        if ((n = Combatant_IsUsed(id)) == 1 && Combatant_IsDead(id) == 0)
         {
-            sub_080C08F8(id, 4);
+            Combatant_SetStatus(id, 4);
             task->result = n;
             sub_080C8490(slot);
         }
@@ -322,9 +322,9 @@ void Spring_HealMember(struct Task *task, u32 slot)
     case 3:
         if (slot <= 2)
             break;
-        if ((n = sub_080C09B0(id)) == 1 && sub_080C0830(id) == 0)
+        if ((n = Combatant_IsUsed(id)) == 1 && Combatant_IsDead(id) == 0)
         {
-            sub_080C08F8(id, 2);
+            Combatant_SetStatus(id, 2);
             task->result = n;
             sub_080C8490(slot);
         }
@@ -380,12 +380,12 @@ void Spring_HealMember(struct Task *task, u32 slot)
         "    b .L080B87E0\n"
         ".L080B8706:\n"
         "    adds r0, r5, #0\n"
-        "    bl sub_080C09B0\n"
+        "    bl Combatant_IsUsed\n"
         "    mov r8, r0\n"
         "    cmp r0, #1\n"
         "    bne .L080B87E0\n"
         "    adds r0, r5, #0\n"
-        "    bl sub_080C0830\n"
+        "    bl Combatant_IsDead\n"
         "    cmp r0, #0\n"
         "    bne .L080B87E0\n"
         "    adds r0, r5, #0\n"
@@ -397,7 +397,7 @@ void Spring_HealMember(struct Task *task, u32 slot)
         ".L080B872A:\n"
         "    adds r0, r5, #0\n"
         "    adds r1, r4, #0\n"
-        "    bl sub_080C0C70\n"
+        "    bl Combatant_Damage\n"
         "    lsls r1, r6, #1\n"
         "    adds r0, r7, #0\n"
         "    adds r0, #0x3c\n"
@@ -409,12 +409,12 @@ void Spring_HealMember(struct Task *task, u32 slot)
         "    cmp r6, #2\n"
         "    bhi .L080B87E0\n"
         "    adds r0, r5, #0\n"
-        "    bl sub_080C09B0\n"
+        "    bl Combatant_IsUsed\n"
         "    mov r8, r0\n"
         "    cmp r0, #1\n"
         "    bne .L080B87E0\n"
         "    adds r0, r5, #0\n"
-        "    bl sub_080C0830\n"
+        "    bl Combatant_IsDead\n"
         "    cmp r0, #0\n"
         "    bne .L080B87E0\n"
         "    adds r0, r5, #0\n"
@@ -426,7 +426,7 @@ void Spring_HealMember(struct Task *task, u32 slot)
         ".L080B8768:\n"
         "    adds r0, r5, #0\n"
         "    adds r1, r4, #0\n"
-        "    bl sub_080C0C70\n"
+        "    bl Combatant_Damage\n"
         "    lsls r1, r6, #1\n"
         "    adds r0, r7, #0\n"
         "    adds r0, #0x3c\n"
@@ -439,17 +439,17 @@ void Spring_HealMember(struct Task *task, u32 slot)
         "    cmp r6, #2\n"
         "    bhi .L080B87E0\n"
         "    adds r0, r5, #0\n"
-        "    bl sub_080C09B0\n"
+        "    bl Combatant_IsUsed\n"
         "    adds r4, r0, #0\n"
         "    cmp r4, #1\n"
         "    bne .L080B87AA\n"
         "    adds r0, r5, #0\n"
-        "    bl sub_080C0830\n"
+        "    bl Combatant_IsDead\n"
         "    cmp r0, #0\n"
         "    bne .L080B87AA\n"
         "    adds r0, r5, #0\n"
         "    movs r1, #4\n"
-        "    bl sub_080C08F8\n"
+        "    bl Combatant_SetStatus\n"
         "    strh r4, [r7, #0x1c]\n"
         "    adds r0, r6, #0\n"
         "    bl sub_080C8490\n"
@@ -465,17 +465,17 @@ void Spring_HealMember(struct Task *task, u32 slot)
         "    cmp r6, #2\n"
         "    bls .L080B87E0\n"
         "    adds r0, r5, #0\n"
-        "    bl sub_080C09B0\n"
+        "    bl Combatant_IsUsed\n"
         "    adds r4, r0, #0\n"
         "    cmp r4, #1\n"
         "    bne .L080B87E0\n"
         "    adds r0, r5, #0\n"
-        "    bl sub_080C0830\n"
+        "    bl Combatant_IsDead\n"
         "    cmp r0, #0\n"
         "    bne .L080B87E0\n"
         "    adds r0, r5, #0\n"
         "    movs r1, #2\n"
-        "    bl sub_080C08F8\n"
+        "    bl Combatant_SetStatus\n"
         "    strh r4, [r7, #0x1c]\n"
         "    adds r0, r6, #0\n"
         "    bl sub_080C8490\n"
@@ -494,7 +494,7 @@ void Spring_HealMember(struct Task *task, u32 slot)
 void sub_080B87EC(struct Task *task, u32 slot)
 {
     struct ItemTaskData *d = ITEM_DATA(task);
-    const u8 *e = sub_080C0148(slot);
+    const u8 *e = Party_GetMember(slot);
 
     switch (e[0xC])
     {

@@ -373,7 +373,7 @@ void Title_HandleMenuInput(struct Task *task)
 // sub_080D6DD0 @ 0x080D6DD0
 void sub_080D6DD0(void)
 {
-    sub_080C10F4();
+    Game_NewGame();
     sub_080B70BC(0, 0, 2, 6, 3, 0);
 }
 

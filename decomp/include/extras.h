@@ -279,14 +279,14 @@ void FontSprite_DrawGlyphTinted(u16 glyph, u16 a1, u16 a2, u16 x, u16 y, u16 pal
 void sub_080C4A4C(u32 a0, u32 a1, u32 x, u16 y);
 void sub_080AF218(u32 a0, const void *script);
 void sub_080C3818(u32 a);
-void sub_080C22E4(void);
+void PlayTime_Tick(void);
 u16 *PalFade_FadeInFromBlack(u16 delay);
 s16 FixedInverse8(s16 a);
 s16 FixedMul8(s16 a, s16 b);
 extern const s16 gSineTable[];
 void sub_080D9608(void);
 void sub_080D5B8C(u32 mode);
-u16 sub_080C2244(void);
+u16 Random_Byte(void);
 void sub_080C5170(u32 se);
 void Task_ClearAll(void);
 void *memset(void *dst, int c, unsigned long n);

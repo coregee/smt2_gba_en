@@ -284,9 +284,9 @@ s32 Battle_RollSpeed(s32 who)
     if (*(u16 *)(c + 0x10) & 0x800)
         v = 0x3C;
     bonus = 0;
-    if (who < 16 && !sub_080BFFF0(who))
-        bonus = sub_080C1F94(v, 2);
-    v = v * 2 + bonus + (sub_080C2244() & 0xF);
+    if (who < 16 && !Party_GetRow(who))
+        bonus = Math_DivRound(v, 2);
+    v = v * 2 + bonus + (Random_Byte() & 0xF);
     if (kind == 7)
         v += sub_080EDB04() >> 1;
     return v;
@@ -310,7 +310,7 @@ void Battle_BuildActionOrder(void)
         {
             s32 who = *party++;
 
-            if (who != -1 && !(*(u16 *)(sub_080C0148(who + 0x8000) + 0x10) & 0xB160))
+            if (who != -1 && !(*(u16 *)(Party_GetMember(who + 0x8000) + 0x10) & 0xB160))
             {
                 e->id = who;
                 e->key = -Battle_RollSpeed(who);
@@ -359,7 +359,7 @@ u32 sub_080EDE70(void)
             return 0;
         if (d < 0)
             v = (m ^ 0x7FFF) + 1;
-        if ((sub_080C2244() & 0x3F) >= (s16)v)
+        if ((Random_Byte() & 0x3F) >= (s16)v)
             return 0;
         if (d < 0)
             return 0xC000;
@@ -422,7 +422,7 @@ NAKED u32 sub_080EDE70(void)
         "    eors r0, r1\n"
         "    adds r6, r0, #1\n"
         ".L080EDEE0:\n"
-        "    bl sub_080C2244\n"
+        "    bl Random_Byte\n"
         "    movs r1, #0x3f\n"
         "    ands r1, r0\n"
         "    lsls r0, r6, #0x10\n"
@@ -470,25 +470,25 @@ u32 sub_080EDF0C(void)
     {
         who = *(s8 *)(i + (u32)party);
 
-        if (who >= 0 && !sub_080C0830(who))
+        if (who >= 0 && !Combatant_IsDead(who))
         {
             count++;
-            sum += (u16)sub_080C0DFC(who) + (u16)sub_080C0E20(who);
+            sum += (u16)Combatant_GetAgility(who) + (u16)Combatant_GetLuck(who);
         }
     }
     /* v stays unset when no enemy is found (original bug) */
     for (i = 0; i < 8; i++)
     {
-        if (sub_080C09B0(i + 0x10))
+        if (Combatant_IsUsed(i + 0x10))
         {
             who = i + 0x10;
-            v = (u16)sub_080C0DFC(who) + (u16)sub_080C0E20(who);
+            v = (u16)Combatant_GetAgility(who) + (u16)Combatant_GetLuck(who);
             break;
         }
     }
     v *= count;
-    v += sub_080C2244() & 7;
-    if (v >= sum && (sub_080C2244() & 0xF))
+    v += Random_Byte() & 7;
+    if (v >= sum && (Random_Byte() & 0xF))
         return 0x145;
     return 0x144;
 }
@@ -536,7 +536,7 @@ u32 sub_080EE028(s32 att, s32 def)
         v = v * v >> 5;
         v = v * 8 / gUnknown_0876F78E[sub_080EFD84(att) + 4];
     }
-    if ((s32)sub_080C2244() > v)
+    if ((s32)Random_Byte() > v)
         return 1;
     return 0;
 }
@@ -645,7 +645,7 @@ NAKED u32 sub_080EE028(s32 att, s32 def)
         "    bl __divsi3\n"
         "    adds r4, r0, #0\n"
         ".L080EE0F2:\n"
-        "    bl sub_080C2244\n"
+        "    bl Random_Byte\n"
         "    cmp r0, r4\n"
         "    ble .L080EE104\n"
         ".L080EE0FA:\n"
@@ -680,8 +680,8 @@ void Battle_BuildTargetList(s32 who)
     {
         for (i = 0; i < 6; i++)
         {
-            c = sub_080C0148(i);
-            if (c != NULL && !sub_080C0830(i) && !sub_080F55F4(who, c[0xC]))
+            c = Party_GetMember(i);
+            if (c != NULL && !Combatant_IsDead(i) && !sub_080F55F4(who, c[0xC]))
             {
                 BSTATE->targets[n].id = c[0xC];
                 n++;
@@ -689,8 +689,8 @@ void Battle_BuildTargetList(s32 who)
         }
         for (i = 0x10; i < 0x18; i++)
         {
-            sub_080C0148(i + 0x8000);
-            if (sub_080C09B0(i) == 1 && !sub_080C0830(i) && !sub_080F55F4(who, i))
+            Party_GetMember(i + 0x8000);
+            if (Combatant_IsUsed(i) == 1 && !Combatant_IsDead(i) && !sub_080F55F4(who, i))
             {
                 BSTATE->targets[n].id = i;
                 n++;
@@ -707,7 +707,7 @@ void Battle_BuildTargetList(s32 who)
         for (i = 0; i < 6; i++)
         {
             p = sub_080F40EC(i);
-            if (p >= 0 && !sub_080C0830(p))
+            if (p >= 0 && !Combatant_IsDead(p))
             {
                 BSTATE->targets[n].id = p;
                 n++;
@@ -719,13 +719,13 @@ void Battle_BuildTargetList(s32 who)
         for (i = 0; i < 6; i++)
         {
             p = sub_080F40EC(i);
-            if (p >= 0 && !sub_080C0830(p))
+            if (p >= 0 && !Combatant_IsDead(p))
             {
                 s32 r;
 
                 BSTATE->targets[n].id = p;
-                r = sub_080C2244();
-                if (sub_080BFFF0(p) == 1)
+                r = Random_Byte();
+                if (Party_GetRow(p) == 1)
                     r = r * 75 / 100;
                 BSTATE->targets[n].key = -r;
                 n++;

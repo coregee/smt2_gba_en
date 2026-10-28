@@ -57,7 +57,7 @@ u16 *Menu_ExpandListTemplate(u16 *tmpl, u32 arg)
         case 0x320:
             for (i = 0; i < 4; i++)
             {
-                if (sub_080F3EC8(i) && sub_080C0A00(i))
+                if (sub_080F3EC8(i) && Combatant_IsAlive(i))
                     break;
             }
             if (i >= 4)
@@ -66,7 +66,7 @@ u16 *Menu_ExpandListTemplate(u16 *tmpl, u32 arg)
             n = sub_080F4968();
             for (i = 4; i < 16; i++)
             {
-                if (sub_080F3EC8(i) && sub_080C0A00(i))
+                if (sub_080F3EC8(i) && Combatant_IsAlive(i))
                     n++;
             }
             if (n > 1)

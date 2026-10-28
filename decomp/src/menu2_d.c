@@ -8,7 +8,7 @@ void sub_080D4714(struct Task *task)
 
     task->data.h[0] = task->unk1E;
     data[1] = 0;
-    if ((sub_080C2244() & 0xFF) == 0 && !sub_080C3560(0xFB))
+    if ((Random_Byte() & 0xFF) == 0 && !sub_080C3560(0xFB))
         data[1] = 0xFB;
 }
 
@@ -138,9 +138,9 @@ void sub_080D4850(struct Task *task)
     for (i = 0; i < n; i++)
         sub_080C33AC(0x11F);
     if (data[1] == 0)
-        sub_080C062C(data[0]);
+        Stock_AddDemon(data[0]);
     else
-        sub_080C062C(data[1]);
+        Stock_AddDemon(data[1]);
 }
 
 // sub_080D489C @ 0x080D489C
@@ -171,7 +171,7 @@ void sub_080D48C8(struct Task *task)
         for (i = 0; i < n; i++)
             sub_080C3328(0x11F);
     }
-    sub_080C0290(item[0xC], 1);
+    Party_Remove(item[0xC], 1);
 }
 
 // sub_080D4918 @ 0x080D4918

@@ -411,10 +411,10 @@ void sub_0813D638(struct ScriptTask *task)
         gScriptWaitBusy = 1;
         return;
     }
-    n = sub_080C104C();
+    n = Stock_GetCapacity();
     for (i = 0; i < n + 4; i++)
     {
-        if (sub_080C0A00(i) == 1 && sub_080F3EC8(i) == 1)
+        if (Combatant_IsAlive(i) == 1 && sub_080F3EC8(i) == 1)
         {
             s16 dmg = Battle_GetCombatant(0x8000 + i)->hp >> 3;
 
@@ -618,14 +618,14 @@ void sub_0813DA04(void)
 #ifdef NONMATCHING
 bool32 sub_0813DA14(u32 idx)
 {
-    s16 t = sub_080C07E0(idx);
+    s16 t = Combatant_GetDemonId(idx);
     u32 f;
     u16 g;
     u32 mask;
 
     if (t == 0x75 || t == 0x20 || t == 0x21 || t == 0x22)
         return TRUE;
-    f = sub_080C0818(idx);
+    f = Combatant_GetStatus(idx);
     g = f;
     if (0x8000 & f)
         mask = 0x7F;
@@ -633,7 +633,7 @@ bool32 sub_0813DA14(u32 idx)
         mask = 0x3F;
     else
         return TRUE;
-    if (sub_080C2244() & mask)
+    if (Random_Byte() & mask)
         return TRUE;
     return FALSE;
 }
@@ -644,7 +644,7 @@ bool32 sub_0813DA14(u32 idx)
     asm_unified(
         "    push {r4, lr}\n"
         "    adds r4, r0, #0\n"
-        "    bl sub_080C07E0\n"
+        "    bl Combatant_GetDemonId\n"
         "    lsls r0, r0, #0x10\n"
         "    asrs r0, r0, #0x10\n"
         "    cmp r0, #0x75\n"
@@ -656,7 +656,7 @@ bool32 sub_0813DA14(u32 idx)
         "    cmp r0, #0x22\n"
         "    beq .L0813DA62\n"
         "    adds r0, r4, #0\n"
-        "    bl sub_080C0818\n"
+        "    bl Combatant_GetStatus\n"
         "    lsls r1, r0, #0x10\n"
         "    lsrs r2, r1, #0x10\n"
         "    movs r3, #0x80\n"
@@ -674,7 +674,7 @@ bool32 sub_0813DA14(u32 idx)
         "    beq .L0813DA62\n"
         "    movs r4, #0x3f\n"
         ".L0813DA54:\n"
-        "    bl sub_080C2244\n"
+        "    bl Random_Byte\n"
         "    ands r4, r0\n"
         "    cmp r4, #0\n"
         "    bne .L0813DA62\n"

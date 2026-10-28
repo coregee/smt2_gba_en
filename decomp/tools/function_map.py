@@ -27,10 +27,13 @@ def main():
     # Only C the build uses (layout.json); files still being written are left out.
     for p in [ROOT / e["file"] for e in layout if e["file"].endswith(".c")]:
         text = p.read_text(encoding="utf-8")
-        for m in re.finditer(r"//\s*(\w+)\s*@\s*0x([0-9A-Fa-f]{8})\s*\n(#ifdef NONMATCHING)?", text):
+        marks = list(re.finditer(r"^//\s*(\w+)\s*@\s*0x([0-9A-Fa-f]{8})\s*$", text, re.M))
+        for i, m in enumerate(marks):
             a = int(m.group(2), 16)
             c_funcs[a] = p.relative_to(ROOT).as_posix()
-            if m.group(3):
+            # NONMATCHING anywhere in the function's stretch of the file (a comment may come first).
+            body = text[m.end():marks[i + 1].start() if i + 1 < len(marks) else len(text)]
+            if "#ifdef NONMATCHING" in body:
                 nonmatching.add(a)
     rows = ["address\tmode\tsize\tname\tconfidence\tstate\tfile"]
     counts = {}

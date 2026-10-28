@@ -952,10 +952,10 @@ ScriptOp_3C7: @ 0x081373E0
 	adds r4, r0, #0
 	movs r0, #0
 	adds r1, r5, #0
-	bl sub_080C06EC
+	bl Combatant_AddAlignment
 	movs r0, #1
 	adds r1, r4, #0
-	bl sub_080C06EC
+	bl Combatant_AddAlignment
 .L08137472:
 	pop {r4, r5}
 	pop {r0}
@@ -1001,7 +1001,7 @@ ScriptOp_3C6: @ 0x08137478
 	ldr r0, .L081374F8
 	movs r2, #0
 	ldrsh r0, [r0, r2]
-	bl sub_080C00DC
+	bl Combatant_GetEquip
 	adds r1, r0, #0
 	movs r0, #0xff
 	ands r1, r0
@@ -1127,7 +1127,7 @@ ScriptOp_3CB: @ 0x08137588
 	ldrh r0, [r1]
 	lsls r5, r0, #0x10
 	orrs r5, r4
-	bl sub_080C1D9C
+	bl Moon_GetPhase
 	movs r1, #0xf0
 	ands r1, r0
 	cmp r1, #0x80
@@ -1256,7 +1256,7 @@ sub_081376AC: @ 0x081376AC
 	adds r4, r0, #0
 	lsls r4, r4, #0x10
 	lsrs r4, r4, #0x10
-	bl sub_080C2244
+	bl Random_Byte
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	cmp r0, r4
@@ -1319,7 +1319,7 @@ sub_08137720: @ 0x08137720
 	lsls r0, r0, #0x10
 	lsrs r5, r0, #0x10
 	movs r0, #0
-	bl sub_080C0F8C
+	bl Combatant_GetLevel
 	lsls r0, r0, #0x10
 	asrs r6, r0, #0x10
 	cmp r5, #2
@@ -1350,7 +1350,7 @@ sub_08137720: @ 0x08137720
 	movs r1, #0
 	bl Demon_GetField
 	adds r4, r0, #0
-	bl sub_080C2244
+	bl Random_Byte
 	lsls r4, r4, #0x10
 	lsrs r4, r4, #0x10
 	movs r1, #3
@@ -1366,7 +1366,7 @@ sub_08137720: @ 0x08137720
 	movs r1, #0
 	bl Demon_GetField
 	adds r4, r0, #0
-	bl sub_080C2244
+	bl Random_Byte
 	lsls r4, r4, #0x10
 	lsrs r4, r4, #0x10
 	ands r0, r5
@@ -1380,7 +1380,7 @@ sub_08137720: @ 0x08137720
 	movs r1, #0
 	bl Demon_GetField
 	adds r4, r0, #0
-	bl sub_080C2244
+	bl Random_Byte
 	lsls r4, r4, #0x10
 	lsrs r4, r4, #0x10
 	movs r1, #3
@@ -1471,7 +1471,7 @@ ScriptOp_3D0: @ 0x08137824
 	orrs r6, r4
 	movs r0, #0
 	movs r1, #1
-	bl sub_080C0E44
+	bl Combatant_GetStat
 	cmp r0, r5
 	bhi .L08137866
 	ldr r0, .L08137874
@@ -1513,7 +1513,7 @@ ScriptOp_3D1: @ 0x08137878
 	orrs r5, r4
 	cmp r6, #1
 	bne .L081378CC
-	bl sub_080C2244
+	bl Random_Byte
 	adds r4, r0, #0
 	movs r0, #7
 	ands r4, r0
@@ -1528,13 +1528,13 @@ ScriptOp_3D1: @ 0x08137878
 .L081378CC:
 	cmp r6, #2
 	bne .L081378DC
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #7
 	ands r0, r1
 	adds r4, r0, #3
 	b .L081378E6
 .L081378DC:
-	bl sub_080C2244
+	bl Random_Byte
 	adds r4, r0, #0
 	movs r0, #0xf
 	ands r4, r0
@@ -1542,7 +1542,7 @@ ScriptOp_3D1: @ 0x08137878
 	movs r0, #0xff
 	ands r4, r0
 	movs r0, #0
-	bl sub_080C0E20
+	bl Combatant_GetLuck
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	cmp r4, r0
@@ -1585,7 +1585,7 @@ ScriptOp_3D2: @ 0x08137908
 	orrs r6, r4
 	movs r0, #0
 	movs r1, #2
-	bl sub_080C0E44
+	bl Combatant_GetStat
 	cmp r0, r5
 	bhi .L0813794A
 	ldr r0, .L08137958
@@ -1619,21 +1619,21 @@ ScriptOp_3D3: @ 0x0813795C
 	ldrh r0, [r1]
 	lsls r6, r0, #0x10
 	orrs r6, r4
-	bl sub_080C2244
+	bl Random_Byte
 	adds r4, r0, #0
 	movs r5, #7
 	ands r4, r5
-	bl sub_080C2244
+	bl Random_Byte
 	ands r0, r5
 	adds r4, r4, r0
-	bl sub_080C2244
+	bl Random_Byte
 	ands r0, r5
 	adds r4, r4, r0
 	subs r4, #1
 	lsls r4, r4, #0x10
 	lsrs r4, r4, #0x10
 	movs r0, #0
-	bl sub_080C0D6C
+	bl Combatant_GetStrength
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	cmp r4, r0
@@ -1665,7 +1665,7 @@ sub_081379CC: @ 0x081379CC
 	adds r5, r0, #0
 	cmp r4, #1
 	bne .L081379EA
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #3
 	ands r1, r0
 	adds r1, #6
@@ -1673,7 +1673,7 @@ sub_081379CC: @ 0x081379CC
 .L081379EA:
 	cmp r4, #2
 	bne .L08137A00
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #7
 	ands r1, r0
 	adds r1, #5
@@ -1685,7 +1685,7 @@ sub_081379CC: @ 0x081379CC
 .L08137A00:
 	cmp r6, #3
 	bne .L08137A18
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #7
 	ands r1, r0
 	adds r1, #0xa
@@ -1775,7 +1775,7 @@ ScriptOp_3D6: @ 0x08137A74
 	orrs r5, r4
 	cmp r6, #1
 	bne .L08137AC8
-	bl sub_080C2244
+	bl Random_Byte
 	adds r1, r0, #0
 	movs r0, #3
 	ands r1, r0
@@ -1787,14 +1787,14 @@ ScriptOp_3D6: @ 0x08137A74
 .L08137AC8:
 	cmp r6, #2
 	bne .L08137ADA
-	bl sub_080C2244
+	bl Random_Byte
 	adds r1, r0, #0
 	movs r0, #7
 	ands r1, r0
 	adds r1, #5
 	b .L08137AE6
 .L08137ADA:
-	bl sub_080C2244
+	bl Random_Byte
 	adds r1, r0, #0
 	movs r0, #7
 	ands r1, r0
@@ -1814,7 +1814,7 @@ ScriptOp_3D6: @ 0x08137A74
 sub_08137AF8: @ 0x08137AF8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080C2244
+	bl Random_Byte
 	lsls r2, r4, #2
 	adds r2, r2, r4
 	lsls r2, r2, #1
@@ -1838,7 +1838,7 @@ sub_08137B1C: @ 0x08137B1C
 	adds r4, r0, #0
 	lsls r4, r4, #0x10
 	lsrs r4, r4, #0x10
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #0xf
 	ands r0, r1
 	adds r0, #1
@@ -2053,7 +2053,7 @@ sub_08137C44: @ 0x08137C44
 sub_08137CB4: @ 0x08137CB4
 .L08137CB4:
 	push {lr}
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #0xc
 	bl __umodsi3
 	lsls r0, r0, #0x10
@@ -2140,7 +2140,7 @@ sub_08137D2C: @ 0x08137D2C
 	muls r5, r0, r5
 .L08137D5C:
 	movs r0, #0
-	bl sub_080C0F8C
+	bl Combatant_GetLevel
 	lsls r0, r0, #0x10
 	lsrs r1, r0, #0x10
 	asrs r0, r0, #0x10
@@ -2248,16 +2248,16 @@ sub_08137E14: @ 0x08137E14
 	cmp r1, #0x60
 	beq .L08137E72
 	movs r0, #1
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	bne .L08137E40
 	movs r0, #2
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L08137E64
 .L08137E40:
 	movs r0, #1
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L08137E54
 	movs r0, #1
@@ -2267,7 +2267,7 @@ sub_08137E14: @ 0x08137E14
 .L08137E54:
 	movs r0, #2
 .L08137E56:
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	movs r1, #0xb0
 	lsls r1, r1, #8
 	ands r1, r0
@@ -2291,17 +2291,17 @@ sub_08137E14: @ 0x08137E14
 sub_08137E7C: @ 0x08137E7C
 .L08137E7C:
 	push {r4, r5, r6, r7, lr}
-	bl sub_080C104C
+	bl Stock_GetCapacity
 	adds r7, r0, #0
 	movs r6, #0
 	b .L08137ECE
 .L08137E88:
 	adds r0, r6, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L08137EC8
 	adds r0, r6, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	movs r2, #0x80
 	lsls r2, r2, #8
 	adds r1, r2, #0
@@ -2338,11 +2338,11 @@ sub_08137E7C: @ 0x08137E7C
 	bge .L08137F12
 .L08137EDC:
 	adds r0, r6, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L08137F08
 	adds r0, r6, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	lsls r0, r0, #0x10
 	lsrs r4, r0, #0x10
 	movs r0, #0xc0
@@ -2369,11 +2369,11 @@ sub_08137E7C: @ 0x08137E7C
 	bge .L08137F70
 .L08137F18:
 	adds r0, r6, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L08137F66
 	adds r0, r6, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	movs r2, #0x80
 	lsls r2, r2, #8
 	adds r1, r2, #0
@@ -2544,7 +2544,7 @@ sub_08138074: @ 0x08138074
 	movs r0, #0xb
 	adds r4, r1, #0
 	muls r4, r0, r4
-	bl sub_080C2244
+	bl Random_Byte
 	lsls r0, r0, #0x18
 	lsrs r1, r0, #0x18
 .L08138098:
@@ -2915,7 +2915,7 @@ ScriptOp_3E0: @ 0x08138310
 sub_08138338: @ 0x08138338
 .L08138338:
 	push {lr}
-	bl sub_080C2244
+	bl Random_Byte
 	adds r1, r0, #0
 	lsls r1, r1, #0x10
 	movs r0, #0xc0

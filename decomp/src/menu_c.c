@@ -946,10 +946,10 @@ void NameEntry_ValidateName(struct MenuTask *task)
 
     if (!(menu->mode & 0x8000))
     {
-        self = sub_080C0148(menu->mode + 0x8000);
+        self = Party_GetMember(menu->mode + 0x8000);
         for (i = 0; i < 3; i++)
         {
-            u8 *other = sub_080C0148(i + 0x8000);
+            u8 *other = Party_GetMember(i + 0x8000);
 
             if (self[0xC] != i && Name_Equals8(name, other) == 0)
                 return;
@@ -968,7 +968,7 @@ void NameEntry_ValidateName(struct MenuTask *task)
     {
         for (i = 0; i < 3; i++)
         {
-            if (Name_Equals8(name, sub_080C0148(i + 0x8000)) == 0)
+            if (Name_Equals8(name, Party_GetMember(i + 0x8000)) == 0)
                 return;
         }
         if (menu->mode != 0x8000 && Name_Equals8(name, gGameState.names[0]) == 0)
@@ -1029,7 +1029,7 @@ void NameEntry_StoreName(void)
         isHero = FALSE;
         if (!(menu->mode & 0x8000))
         {
-            dst = sub_080C0148(menu->mode + 0x8000);
+            dst = Party_GetMember(menu->mode + 0x8000);
             if (dst[0xC] == 0)
                 isHero = TRUE;
         }

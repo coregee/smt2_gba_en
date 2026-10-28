@@ -240,7 +240,7 @@ sub_080E47A8: @ 0x080E47A8
 	lsls r4, r0, #0x10
 	asrs r4, r4, #0x10
 	adds r0, r4, #0
-	bl sub_080BFD94
+	bl Combatant_UpdateStats
 	adds r4, #1
 	lsls r4, r4, #0x10
 	lsrs r0, r4, #0x10
@@ -509,7 +509,7 @@ gUnknown_080E4B04:
 	ldr r1, [r5]
 	cmp r1, r0
 	beq .L080E4C04
-	bl sub_080C2244
+	bl Random_Byte
 	mov r1, r8
 	ands r0, r1
 	cmp r7, r0
@@ -1302,7 +1302,7 @@ gUnknown_080E5248:
 	movs r4, #0
 .L080E52B0:
 	adds r0, r4, #0
-	bl sub_080BF938
+	bl Combatant_RecalcStats
 	adds r0, r4, #1
 	lsls r0, r0, #0x18
 	lsrs r4, r0, #0x18
@@ -2314,7 +2314,7 @@ sub_080E5A58: @ 0x080E5A58
 	movs r5, #0
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_080C00DC
+	bl Combatant_GetEquip
 	cmp r0, #0xff
 	bne .L080E5B02
 	movs r5, #1
@@ -2324,19 +2324,19 @@ sub_080E5A58: @ 0x080E5A58
 	movs r5, #0
 	movs r0, #0
 	movs r1, #0
-	bl sub_080C00DC
+	bl Combatant_GetEquip
 	cmp r0, #0xff
 	bne .L080E5AD6
 	movs r5, #1
 .L080E5AD6:
 	movs r0, #0
 	movs r1, #1
-	bl sub_080C00DC
+	bl Combatant_GetEquip
 	cmp r0, #0xff
 	beq .L080E5AEE
 	movs r0, #0
 	movs r1, #6
-	bl sub_080C00DC
+	bl Combatant_GetEquip
 	cmp r0, #0xff
 	bne .L080E5AF2
 .L080E5AEE:
@@ -2352,12 +2352,12 @@ sub_080E5A58: @ 0x080E5A58
 .L080E5B02:
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_080C00DC
+	bl Combatant_GetEquip
 	cmp r0, #0xff
 	beq .L080E5B1A
 	adds r0, r4, #0
 	movs r1, #6
-	bl sub_080C00DC
+	bl Combatant_GetEquip
 	cmp r0, #0xff
 	bne .L080E5B22
 .L080E5B1A:
@@ -3693,7 +3693,7 @@ sub_080E6610: @ 0x080E6610
 	ldr r0, .L080E6644
 	adds r4, r5, r0
 	ldrh r0, [r4]
-	bl sub_080C0148
+	bl Party_GetMember
 	ldr r1, .L080E6648
 	movs r3, #0
 	ldrsh r2, [r4, r3]
@@ -3745,7 +3745,7 @@ sub_080E6678: @ 0x080E6678
 	ldr r0, .L080E66AC
 	adds r4, r5, r0
 	ldrh r0, [r4]
-	bl sub_080C0148
+	bl Party_GetMember
 	ldr r1, .L080E66B0
 	movs r3, #0
 	ldrsh r2, [r4, r3]
@@ -5702,12 +5702,12 @@ sub_080E760C: @ 0x080E760C
 	adds r4, r5, #0
 	adds r4, #0x10
 	adds r0, r4, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	bne .L080E7646
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L080E7646
 	lsls r2, r5, #1
@@ -5738,12 +5738,12 @@ sub_080E760C: @ 0x080E760C
 	adds r4, r5, #0
 	adds r4, #0x10
 	adds r0, r4, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	bne .L080E769E
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L080E769E
 	lsls r2, r6, #1
@@ -5820,12 +5820,12 @@ sub_080E760C: @ 0x080E760C
 	adds r4, r5, #0
 	adds r4, #0x10
 	adds r0, r4, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	bne .L080E7744
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L080E7744
 	lsls r2, r6, #1
@@ -5890,12 +5890,12 @@ sub_080E760C: @ 0x080E760C
 	adds r4, r5, #0
 	adds r4, #0x10
 	adds r0, r4, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	bne .L080E77CE
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L080E77CE
 	lsls r2, r6, #1
@@ -5971,7 +5971,7 @@ sub_080E7834: @ 0x080E7834
 	lsls r4, r4, #0x10
 	lsrs r4, r4, #0x10
 	adds r0, r4, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	lsls r0, r0, #0x10
 	lsrs r5, r0, #0x10
 	adds r0, r4, #0
@@ -6675,7 +6675,7 @@ sub_080E7D58: @ 0x080E7D58
 	adds r4, r5, #0
 	adds r4, #0x10
 	adds r0, r4, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	lsls r0, r0, #0x10
 	lsrs r1, r0, #0x10
 	asrs r0, r0, #0x10
@@ -6696,7 +6696,7 @@ sub_080E7D58: @ 0x080E7D58
 	cmp r1, #0
 	bne .L080E7DAE
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L080E7DAE
 	adds r0, r6, #1
@@ -6794,7 +6794,7 @@ sub_080E7D58: @ 0x080E7D58
 .L080E7E60:
 	adds r0, r5, #0
 	adds r0, #0x10
-	bl sub_080C0830
+	bl Combatant_IsDead
 	lsls r0, r0, #0x10
 	lsrs r1, r0, #0x10
 	asrs r0, r0, #0x10
@@ -6816,7 +6816,7 @@ sub_080E7D58: @ 0x080E7D58
 	bne .L080E7E9E
 	adds r0, r5, #0
 	adds r0, #0x10
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L080E7E9E
 	adds r0, r6, #1
@@ -6906,7 +6906,7 @@ sub_080E7D58: @ 0x080E7D58
 	adds r4, r5, #0
 	adds r4, #0x10
 	adds r0, r4, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	lsls r0, r0, #0x10
 	lsrs r1, r0, #0x10
 	asrs r0, r0, #0x10
@@ -6927,7 +6927,7 @@ sub_080E7D58: @ 0x080E7D58
 	cmp r1, #0
 	bne .L080E7F7A
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L080E7F7A
 	adds r0, r6, #1
@@ -7042,7 +7042,7 @@ sub_080E8034: @ 0x080E8034
 	adds r4, r5, #0
 	adds r4, #0x10
 	adds r0, r4, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	lsls r0, r0, #0x10
 	lsrs r1, r0, #0x10
 	asrs r0, r0, #0x10
@@ -7063,7 +7063,7 @@ sub_080E8034: @ 0x080E8034
 	cmp r1, #0
 	bne .L080E808C
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L080E808C
 	adds r0, r6, #1
@@ -7265,7 +7265,7 @@ sub_080E8034: @ 0x080E8034
 	adds r4, r5, #0
 	adds r4, #0x10
 	adds r0, r4, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	lsls r0, r0, #0x10
 	lsrs r1, r0, #0x10
 	asrs r0, r0, #0x10
@@ -7286,7 +7286,7 @@ sub_080E8034: @ 0x080E8034
 	cmp r1, #0
 	bne .L080E8252
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L080E8252
 	adds r0, r6, #1
@@ -7414,7 +7414,7 @@ sub_080E832C: @ 0x080E832C
 	adds r4, r5, #0
 	adds r4, #0x10
 	adds r0, r4, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	lsls r0, r0, #0x10
 	lsrs r1, r0, #0x10
 	asrs r0, r0, #0x10
@@ -7435,7 +7435,7 @@ sub_080E832C: @ 0x080E832C
 	cmp r1, #0
 	bne .L080E8378
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L080E8378
 	adds r0, r6, #1

@@ -445,10 +445,10 @@ gUnknown_080F0620:
 	beq .L080F081C
 	ldr r1, .L080F0814
 	adds r0, r4, #0
-	bl sub_080C08BC
+	bl Combatant_ClearStatus
 	ldr r1, [r5, #0x18]
 	adds r0, r4, #0
-	bl sub_080C0AD4
+	bl Combatant_ChangeHp
 	ldr r0, .L080F0818
 	bl Battle_GetMessage
 	adds r4, r0, #0
@@ -580,7 +580,7 @@ gUnknown_080F0620:
 	lsls r4, r4, #0x10
 	asrs r5, r4, #0x10
 	adds r0, r5, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	movs r1, #0x80
 	lsls r1, r1, #8
 	ands r1, r0

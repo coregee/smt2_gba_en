@@ -16,9 +16,9 @@ void Cards_Deal(struct Task *task)
             g->cards[i] = i + 1;
         for (i = 0; i <= 26; i++)
         {
-            if (!(sub_080C2244() & 1))
+            if (!(Random_Byte() & 1))
             {
-                u32 j = (sub_080C2244() & 0x1F) + 1;
+                u32 j = (Random_Byte() & 0x1F) + 1;
 
                 if (j <= 26)
                 {
@@ -73,12 +73,12 @@ void Cards_Deal(struct Task *task)
         "    movs r4, #0\n"
         "    adds r6, r7, #0\n"
         ".L080DDE54:\n"
-        "    bl sub_080C2244\n"
+        "    bl Random_Byte\n"
         "    movs r1, #1\n"
         "    ands r0, r1\n"
         "    cmp r0, #0\n"
         "    bne .L080DDE7A\n"
-        "    bl sub_080C2244\n"
+        "    bl Random_Byte\n"
         "    movs r1, #0x1f\n"
         "    ands r0, r1\n"
         "    adds r0, #1\n"

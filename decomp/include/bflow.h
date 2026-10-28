@@ -161,14 +161,14 @@ u16 *MessageBox_ComposeNameText(u32 who, const u16 *tmpl);
 u8 *Battle_GetCombatant(u16 idx);
 void Combatant_DecodeName(u8 *combatant, u16 *dst);
 bool32 sub_080F3EC8(u16 idx);
-bool32 sub_080C0A00(u16 idx);
+bool32 Combatant_IsAlive(u16 idx);
 s32 sub_080F4968(void);
 void Window_SetHeight(void *window, u32 h);
 void Window_Close(void *window, u32 arg1);
 struct Task *Task_Create(const void *script, u32 parent);
 void Task_End(struct Task *task);
 u32 Flag_Test(u32 flag);
-u16 sub_080C0818(u32 who);
+u16 Combatant_GetStatus(u32 who);
 
 /* region 1 */
 u16 *MessageBox_ComposeWrappedText(u16 *src, u32 who);
@@ -274,7 +274,7 @@ void sub_080E9044(u32 h, u16 i);
 u32 sub_080C3100(void);
 void sub_080C3114(u16 a);
 void sub_080C30AC(s32 v);
-u16 sub_080C2244(void);
+u16 Random_Byte(void);
 bool8 sub_080C32D4(u16 item);
 u32 sub_080C4C7C(u16 item);
 u32 sub_080D3400(u32 a, u32 b, u16 c);

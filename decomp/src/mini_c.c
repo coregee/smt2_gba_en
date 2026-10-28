@@ -105,6 +105,6 @@ void sub_080DE98C(void)
     {
         sub_080DEA9C();
         Task_RunAll();
-        sub_080C22E4();
+        PlayTime_Tick();
     }
 }

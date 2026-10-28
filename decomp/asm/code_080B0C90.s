@@ -811,7 +811,7 @@ gUnknown_080B0EB0:
 	ldr r0, .L080B13C8
 	ldr r4, [r0]
 	movs r0, #0
-	bl sub_080C2230
+	bl Encounter_SetCounter
 	movs r0, #4
 	ldrsb r0, [r4, r0]
 	movs r1, #6

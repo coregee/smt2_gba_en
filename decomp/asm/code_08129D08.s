@@ -353,7 +353,7 @@ sub_08129F5C: @ 0x08129F5C
 	adds r0, r0, r1
 	ldrh r0, [r0]
 	movs r1, #0
-	bl sub_080C0290
+	bl Party_Remove
 	bl sub_080C366C
 	movs r0, #2
 	bl sub_081269B0
@@ -622,7 +622,7 @@ sub_0812A1C8: @ 0x0812A1C8
 	adds r0, r0, r1
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	ldrh r0, [r0, #0x12]
 	movs r1, #1
 	bl sub_0815B8F8
@@ -800,9 +800,9 @@ sub_0812A338: @ 0x0812A338
 	lsls r0, r0, #0x10
 	lsrs r5, r0, #0x10
 	adds r0, r5, #0
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r0, r4, #0
-	bl sub_080C0A00
+	bl Combatant_IsAlive
 	cmp r0, #0
 	beq .L0812A380
 	ldr r1, .L0812A37C
@@ -1127,7 +1127,7 @@ sub_0812A5C4: @ 0x0812A5C4
 	adds r0, r0, r1
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	ldrh r0, [r0, #0x12]
 	movs r1, #1
 	bl sub_0815B8F8

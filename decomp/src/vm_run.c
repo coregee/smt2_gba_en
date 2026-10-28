@@ -617,12 +617,12 @@ u16 Demon_GetField(u16 id, u16 field)
 u16 sub_0813E804(u16 id)
 {
     u32 count = 0;
-    s32 n = sub_080C104C();
+    s32 n = Stock_GetCapacity();
     u16 i;
 
     for (i = 4; i < n + 4; i++)
     {
-        if (sub_080C09B0(i) != 0 && sub_080C07E0(i) == id)
+        if (Combatant_IsUsed(i) != 0 && Combatant_GetDemonId(i) == id)
             count++;
     }
     if (sub_08134C3C(id) != 0)
@@ -704,7 +704,7 @@ u16 sub_0813E8A8(void)
     u16 a;
     u16 b;
 
-    if ((sub_080C1D9C() & 0xF0) != 0x80)
+    if ((Moon_GetPhase() & 0xF0) != 0x80)
     {
         a = sub_0813E854(gUnk_0203DB7C);
         if (gUnk_03006860 == 0)
@@ -761,7 +761,7 @@ void sub_0813E914(void)
     v >>= 3;
     gUnk_030068B4 = v + bonus;
     sub_080EF930(gUnk_030068B4);
-    t = sub_080C0F8C(0);
+    t = Combatant_GetLevel(0);
     v = (((u16)(t - Demon_GetField(gUnk_0203DB7C, 0)) >> 1) + 8) & 0xFF;
     if (v & 0x80)
         gUnk_030069E8 = 0;
@@ -771,7 +771,7 @@ void sub_0813E914(void)
         gUnk_030069E8 = v;
     sub_080EF978(gUnk_030069E8);
     gUnk_0300685C.raw = Demon_GetField(gUnk_0203DB7C, 0x1F);
-    sub_080C0818(0);
+    Combatant_GetStatus(0);
     if (sub_0813E804(gUnk_0203DB7C) != 0)
     {
         sub_0815BAC8(gUnk_0203DB7C, 3);
@@ -797,7 +797,7 @@ void sub_0813E914(void)
             gUnk_0203DB70 = 0xFFFF;
             goto done;
         }
-        if ((sub_080C1D9C() & 0xF0) == 0x80)
+        if ((Moon_GetPhase() & 0xF0) == 0x80)
         {
             idx = gUnk_0300685C.bits.hi;
             gScriptBase = gUnknown_08032D4C;
@@ -806,7 +806,7 @@ void sub_0813E914(void)
             target = target << 16 | lo;
             script = (u16 *)target;
         }
-        else if (Demon_GetField(gUnk_0203DB7C, 0) > (s16)sub_080C0F8C(0))
+        else if (Demon_GetField(gUnk_0203DB7C, 0) > (s16)Combatant_GetLevel(0))
         {
             idx = gUnk_0300685C.bits.hi;
             gScriptBase = gUnknown_08032CA8;
@@ -910,7 +910,7 @@ void sub_0813E914(void)
         "    ldr r4, .L0813E9F0\n"
         "    movs r5, #0xff\n"
         "    movs r0, #0\n"
-        "    bl sub_080C0F8C\n"
+        "    bl Combatant_GetLevel\n"
         "    lsls r0, r0, #0x10\n"
         "    lsrs r6, r0, #0x10\n"
         "    ldrh r0, [r4]\n"
@@ -960,7 +960,7 @@ void sub_0813E914(void)
         "    mov r1, r8\n"
         "    strb r0, [r1]\n"
         "    movs r0, #0\n"
-        "    bl sub_080C0818\n"
+        "    bl Combatant_GetStatus\n"
         "    ldrh r0, [r5]\n"
         "    bl sub_0813E804\n"
         "    lsls r0, r0, #0x10\n"
@@ -1017,7 +1017,7 @@ void sub_0813E914(void)
         ".L0813EAAC: .4byte gUnknown_08032C78\n"
         ".L0813EAB0: .4byte 0x0203DB70 @ EWRAM+0x3DB70\n"
         ".L0813EAB4:\n"
-        "    bl sub_080C1D9C\n"
+        "    bl Moon_GetPhase\n"
         "    movs r1, #0xf0\n"
         "    ands r1, r0\n"
         "    cmp r1, #0x80\n"
@@ -1047,7 +1047,7 @@ void sub_0813E914(void)
         "    lsls r0, r0, #0x10\n"
         "    lsrs r6, r0, #0x10\n"
         "    movs r0, #0\n"
-        "    bl sub_080C0F8C\n"
+        "    bl Combatant_GetLevel\n"
         "    lsls r0, r0, #0x10\n"
         "    asrs r0, r0, #0x10\n"
         "    cmp r6, r0\n"

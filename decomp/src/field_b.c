@@ -151,7 +151,7 @@ void sub_080AEFD0(void)
 // sub_080AEFFC @ 0x080AEFFC
 void sub_080AEFFC(void)
 {
-    sub_080C2230(0);
+    Encounter_SetCounter(0);
     sub_080AEFD0();
     gFieldState.unk44 = 0;
 }
@@ -159,7 +159,7 @@ void sub_080AEFFC(void)
 // sub_080AF018 @ 0x080AF018
 void sub_080AF018(void)
 {
-    sub_080C2230(0);
+    Encounter_SetCounter(0);
     sub_080AEFD0();
     gFieldState.unk44 = 1;
 }
@@ -213,20 +213,20 @@ s32 sub_080AF0AC(const void *script)
 
         for (i = 4; i < 16; i++)
         {
-            if (sub_080C09B0(i))
+            if (Combatant_IsUsed(i))
                 count++;
         }
         if (count != 0 && sub_0814E8B0() && !Flag_Test(0xCA))
         {
             Flag_Set(0xCA);
-            if ((sub_080C2244() & 0xFF) < 8)
+            if ((Random_Byte() & 0xFF) < 8)
                 return 2;
         }
         return 0;
     }
-    if (script == gUnknown_08052210 && (sub_080C2244() & 1))
+    if (script == gUnknown_08052210 && (Random_Byte() & 1))
         return 0;
-    if (script == gUnknown_080522F8 && (sub_080C2244() & 3))
+    if (script == gUnknown_080522F8 && (Random_Byte() & 3))
         return 0;
     if (script == NULL)
         return 1;

@@ -322,7 +322,7 @@ sub_0812C180: @ 0x0812C180
 	cmp r1, r0
 	beq .L0812C1FC
 	adds r0, r1, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	movs r1, #0x80
 	lsls r1, r1, #8
 	ands r1, r0
@@ -4372,7 +4372,7 @@ sub_0812E244: @ 0x0812E244
 	lsls r0, r1, #0x10
 	asrs r4, r0, #0x10
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L0812E284
 	adds r0, r4, #0

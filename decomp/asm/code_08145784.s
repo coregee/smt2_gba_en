@@ -4191,7 +4191,7 @@ sub_0814789C: @ 0x0814789C
 	adds r5, #0x2e
 	movs r0, #0
 	strb r0, [r5]
-	bl sub_080C2244
+	bl Random_Byte
 	movs r4, #0xff
 	ands r0, r4
 	strh r0, [r6, #0x28]
@@ -4199,7 +4199,7 @@ sub_0814789C: @ 0x0814789C
 	movs r1, #0x55
 	bl __divsi3
 	strh r0, [r6, #0x28]
-	bl sub_080C2244
+	bl Random_Byte
 	ands r0, r4
 	strh r0, [r6, #0x2a]
 	ldrh r1, [r6, #0x2a]
@@ -6304,7 +6304,7 @@ sub_081487D8: @ 0x081487D8
 	movs r5, #0
 	adds r7, r0, #1
 .L08148862:
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #0x3f
 	ands r0, r1
 	lsls r0, r0, #1
@@ -7522,7 +7522,7 @@ sub_081491BC: @ 0x081491BC
 	lsls r0, r0, #1
 	adds r7, r4, r0
 .L081491CC:
-	bl sub_080C2244
+	bl Random_Byte
 	adds r2, r0, #0
 	movs r0, #0x3f
 	ands r2, r0

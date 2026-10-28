@@ -35,10 +35,10 @@ u32 sub_080EFE60(s32 who)
 // sub_080EFEDC @ 0x080EFEDC
 u32 sub_080EFEDC(void)
 {
-    if (sub_080C07E0(0x10) == 0x12D || sub_080C07E0(0x10) == 0x10F || sub_080C07E0(0x10) == 0x110
-        || sub_080C07E0(0x10) == 0x111 || sub_080C07E0(0x10) == 0x12E || sub_080C07E0(0x10) == 0x12F
-        || sub_080C07E0(0x10) == 0x127 || sub_080C07E0(0x10) == 0x128 || sub_080C07E0(0x10) == 0x12C
-        || sub_080C07E0(0x10) == 0x129 || sub_080C07E0(0x10) == 0x12A || sub_080C07E0(0x10) == 0x12B)
+    if (Combatant_GetDemonId(0x10) == 0x12D || Combatant_GetDemonId(0x10) == 0x10F || Combatant_GetDemonId(0x10) == 0x110
+        || Combatant_GetDemonId(0x10) == 0x111 || Combatant_GetDemonId(0x10) == 0x12E || Combatant_GetDemonId(0x10) == 0x12F
+        || Combatant_GetDemonId(0x10) == 0x127 || Combatant_GetDemonId(0x10) == 0x128 || Combatant_GetDemonId(0x10) == 0x12C
+        || Combatant_GetDemonId(0x10) == 0x129 || Combatant_GetDemonId(0x10) == 0x12A || Combatant_GetDemonId(0x10) == 0x12B)
         return 0x1B;
     if (sub_080EDAD0() != 0)
         return 0x13;
@@ -79,15 +79,15 @@ s32 sub_080EFFF8(s32 who, s16 i)
             {
                 u16 *t = &b->unk11AC;
 
-                if (*t != 0xFFFF && !sub_080C0830(*t)
-                    && *(u16 *)(sub_080C0148(*t + 0x8000) + 0xE) == 0xC000)
+                if (*t != 0xFFFF && !Combatant_IsDead(*t)
+                    && *(u16 *)(Party_GetMember(*t + 0x8000) + 0xE) == 0xC000)
                     return (s16)*t;
             }
             else
             {
                 u16 *t = &b->unk11AE;
 
-                if (*t != 0xFFFF && !sub_080C0830(*t))
+                if (*t != 0xFFFF && !Combatant_IsDead(*t))
                     return (s16)*t;
             }
         }
@@ -143,7 +143,7 @@ NAKED s32 sub_080EFFF8(s32 who, s16 i)
         "    cmp r1, r0\n"
         "    beq .L080F00B0\n"
         "    adds r0, r1, #0\n"
-        "    bl sub_080C0830\n"
+        "    bl Combatant_IsDead\n"
         "    cmp r0, #0\n"
         "    bne .L080F00B0\n"
         "    movs r1, #0x80\n"
@@ -153,7 +153,7 @@ NAKED s32 sub_080EFFF8(s32 who, s16 i)
         "    adds r0, r0, r2\n"
         "    lsls r0, r0, #0x10\n"
         "    lsrs r0, r0, #0x10\n"
-        "    bl sub_080C0148\n"
+        "    bl Party_GetMember\n"
         "    ldrh r1, [r0, #0xe]\n"
         "    movs r0, #0xc0\n"
         "    lsls r0, r0, #8\n"
@@ -174,7 +174,7 @@ NAKED s32 sub_080EFFF8(s32 who, s16 i)
         "    cmp r1, r0\n"
         "    beq .L080F00B0\n"
         "    adds r0, r1, #0\n"
-        "    bl sub_080C0830\n"
+        "    bl Combatant_IsDead\n"
         "    cmp r0, #0\n"
         "    bne .L080F00B0\n"
         "    movs r1, #0\n"
@@ -267,7 +267,7 @@ void sub_080F0178(s32 i, s16 d)
 // sub_080F0194 @ 0x080F0194
 u32 sub_080F0194(s32 who)
 {
-    if (!Flag_Test(0xD5) && !Flag_Test(0xB7) && !(sub_080C0818(who) & 0x800))
+    if (!Flag_Test(0xD5) && !Flag_Test(0xB7) && !(Combatant_GetStatus(who) & 0x800))
         return BSTATE->unk68[who];
     return 0;
 }

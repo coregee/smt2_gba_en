@@ -213,8 +213,8 @@ void Field_Step(u16 dir)
 // sub_080B0350 @ 0x080B0350
 u32 sub_080B0350(void)
 {
-    u32 a = sub_080C1D9C() & 0xF0;
-    u32 b = sub_080C1D9C() & 0xFF;
+    u32 a = Moon_GetPhase() & 0xF0;
+    u32 b = Moon_GetPhase() & 0xFF;
 
     if (a == 0)
     {
@@ -238,7 +238,7 @@ u32 sub_080B0350(void)
 #ifdef NONMATCHING
 u32 sub_080B03BC(u16 state)
 {
-    u16 saved = sub_080C221C();
+    u16 saved = Encounter_GetCounter();
     u16 a, b;
     void *ev = sub_080C1B74(&a, &b);
 
@@ -266,13 +266,13 @@ u32 sub_080B03BC(u16 state)
     nothing:
         if (RandomEvent_Try())
             return 1;
-        if (sub_080C2280(0) == 1)
+        if (Encounter_Check(0) == 1)
         {
             u32 wall = View_GetWall(0, 0, 1);
 
             if (sub_080B6170() == 0xFFFF && (wall == 2 || wall == 3) && FieldMap_CellRecordsRel(0, 1))
             {
-                sub_080C2230(saved);
+                Encounter_SetCounter(saved);
             }
             else
             {
@@ -296,7 +296,7 @@ u32 sub_080B03BC(u16 state)
         "    sub sp, #4\n"
         "    lsls r0, r0, #0x10\n"
         "    lsrs r5, r0, #0x10\n"
-        "    bl sub_080C221C\n"
+        "    bl Encounter_GetCounter\n"
         "    lsls r0, r0, #0x10\n"
         "    lsrs r0, r0, #0x10\n"
         "    mov r8, r0\n"
@@ -366,7 +366,7 @@ u32 sub_080B03BC(u16 state)
         "    b .L080B04B0\n"
         ".L080B0460:\n"
         "    movs r0, #0\n"
-        "    bl sub_080C2280\n"
+        "    bl Encounter_Check\n"
         "    cmp r0, #1\n"
         "    bne .L080B04A8\n"
         "    movs r0, #0\n"
@@ -388,7 +388,7 @@ u32 sub_080B03BC(u16 state)
         "    cmp r0, #0\n"
         "    beq .L080B04A0\n"
         "    mov r0, r8\n"
-        "    bl sub_080C2230\n"
+        "    bl Encounter_SetCounter\n"
         "    b .L080B04A8\n"
         ".L080B049C: .4byte 0xFFFF0000\n"
         ".L080B04A0:\n"

@@ -26,9 +26,9 @@ void AgbMain(void)
     PalFade_Init(0);
     sub_080DF2E8();
     sub_080C2998();
-    sub_080C2AA8();
+    Options_Load();
     sub_080D5B8C(0);
-    sub_080C10F4();
+    Game_NewGame();
     for (;;)
     {
         gInMainLoop = 1;

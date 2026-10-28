@@ -47,12 +47,12 @@ sub_080EE2E8: @ 0x080EE2E8
 .L080EE332:
 	lsls r0, r5, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r4, r0, #0
 	cmp r4, #0
 	beq .L080EE36A
 	ldrb r0, [r4, #0xc]
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #0
 	bne .L080EE36A
 	ldrb r1, [r4, #0xc]
@@ -80,14 +80,14 @@ sub_080EE2E8: @ 0x080EE2E8
 	adds r0, r5, r1
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r4, r0, #0
 	adds r0, r5, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #1
 	bne .L080EE3B2
 	adds r0, r5, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #0
 	bne .L080EE3B2
 	ldr r0, [sp]
@@ -137,12 +137,12 @@ sub_080EE2E8: @ 0x080EE2E8
 .L080EE3EA:
 	lsls r0, r5, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r4, r0, #0
 	cmp r4, #0
 	beq .L080EE424
 	ldrb r0, [r4, #0xc]
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #0
 	bne .L080EE424
 	ldrh r0, [r4, #0x10]
@@ -266,7 +266,7 @@ sub_080EE2E8: @ 0x080EE2E8
 	adds r0, r2, r4
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r4, r0, #0
 	adds r4, #0x40
 	lsls r6, r5, #7
@@ -279,12 +279,12 @@ sub_080EE2E8: @ 0x080EE2E8
 	movs r0, #4
 	ldrsb r0, [r4, r0]
 	movs r1, #2
-	bl sub_080C1F94
+	bl Math_DivRound
 	adds r5, r0, #0
 	movs r0, #5
 	ldrsb r0, [r4, r0]
 	movs r1, #4
-	bl sub_080C1F94
+	bl Math_DivRound
 	movs r1, #1
 	ldrsb r1, [r4, r1]
 	lsls r1, r1, #1
@@ -294,7 +294,7 @@ sub_080EE2E8: @ 0x080EE2E8
 	ldr r4, [sp]
 	cmp r4, #3
 	ble .L080EE578
-	bl sub_080C2244
+	bl Random_Byte
 	movs r6, #7
 	ands r0, r6
 	add sb, r0
@@ -302,15 +302,15 @@ sub_080EE2E8: @ 0x080EE2E8
 	movs r0, #4
 	ldrsb r0, [r1, r0]
 	movs r1, #2
-	bl sub_080C1F94
+	bl Math_DivRound
 	adds r5, r0, #0
 	mov r2, r8
 	movs r0, #5
 	ldrsb r0, [r2, r0]
 	movs r1, #4
-	bl sub_080C1F94
+	bl Math_DivRound
 	adds r4, r0, #0
-	bl sub_080C2244
+	bl Random_Byte
 	mov r2, r8
 	movs r1, #1
 	ldrsb r1, [r2, r1]
@@ -323,7 +323,7 @@ sub_080EE2E8: @ 0x080EE2E8
 .L080EE570: .4byte 0xFFFF8000
 .L080EE574: .4byte 0x0203C200 @ EWRAM+0x3C200
 .L080EE578:
-	bl sub_080C2244
+	bl Random_Byte
 	ldr r4, .L080EE5C4
 	adds r1, r4, r6
 	ldr r2, .L080EE5C8
@@ -434,8 +434,8 @@ sub_080EE2E8: @ 0x080EE2E8
 	lsls r1, r1, #1
 	adds r0, r0, r1
 	strh r5, [r0]
-	bl sub_080C2244
-	bl sub_080C2244
+	bl Random_Byte
+	bl Random_Byte
 	mov r2, r8
 	ldr r1, [r2]
 	adds r1, r1, r4

@@ -2729,7 +2729,7 @@ sub_080E4554: @ 0x080E4554
 	lsls r4, r0, #0x10
 	asrs r4, r4, #0x10
 	adds r0, r4, #0
-	bl sub_080BFD94
+	bl Combatant_UpdateStats
 	adds r4, #1
 	lsls r4, r4, #0x10
 	lsrs r0, r4, #0x10

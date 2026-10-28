@@ -5223,7 +5223,7 @@ sub_080E1C20: @ 0x080E1C20
 	cmp r5, sb
 	beq .L080E1F52
 	movs r0, #0
-	bl sub_080C0F8C
+	bl Combatant_GetLevel
 	adds r4, r0, #0
 	lsls r4, r4, #0x10
 	asrs r4, r4, #0x10
@@ -5450,7 +5450,7 @@ sub_080E2080: @ 0x080E2080
 	cmp r6, #0
 	blt .L080E2116
 	adds r0, r2, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	movs r7, #0xa0
 	lsls r7, r7, #8
 	adds r1, r7, #0
@@ -5458,7 +5458,7 @@ sub_080E2080: @ 0x080E2080
 	cmp r1, #0
 	beq .L080E2116
 	adds r0, r6, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	adds r1, r7, #0
 	ands r1, r0
 	cmp r1, #0
@@ -5718,7 +5718,7 @@ sub_080E2148: @ 0x080E2148
 .L080E2304:
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_080C0290
+	bl Party_Remove
 .L080E230C:
 	adds r0, r6, #1
 	lsls r0, r0, #0x10
@@ -5734,7 +5734,7 @@ sub_080E2148: @ 0x080E2148
 	cmp r5, r4
 	beq .L080E2330
 	adds r0, r5, #0
-	bl sub_080C062C
+	bl Stock_AddDemon
 	adds r0, r5, #0
 	bl sub_080C29E8
 .L080E2330:

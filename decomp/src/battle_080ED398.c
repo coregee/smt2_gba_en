@@ -30,7 +30,7 @@ s32 sub_080ED3FC(s32 table, s32 row)
     s32 n;
     u32 r;
     n = gUnknown_0876F660[table].stride * row; p = gUnknown_0876F660[table].data + n; n = 0;
-    r = sub_080C2244();
+    r = Random_Byte();
 
     do
     {

@@ -131,7 +131,7 @@ void sub_080BEC84(struct Task *task)
 /* Moon phase 0..0x80 (rises to full at 0x80, then falls back). */
 u32 sub_080BECA4(void)
 {
-    u8 phase = sub_080C1D9C() & 0xF0;
+    u8 phase = Moon_GetPhase() & 0xF0;
 
     if (phase > 0x8F)
     {
@@ -142,38 +142,38 @@ u32 sub_080BECA4(void)
 }
 
 // sub_080BECCC @ 0x080BECCC
-/* Picks 1-4 from the moon phase, story flags and a random byte (sub_080C2244). */
+/* Picks 1-4 from the moon phase, story flags and a random byte (Random_Byte). */
 u32 sub_080BECCC(void)
 {
     u8 phase = sub_080BECA4();
 
     if (!Flag_Test(0x1D))
     {
-        if (phase == 0x80 || (sub_080C2244() & 0xFF) <= 0x1F)
+        if (phase == 0x80 || (Random_Byte() & 0xFF) <= 0x1F)
             goto two;
         goto one;
     }
     if (!Flag_Test(0x23))
     {
-        if ((sub_080C2244() & 0xFF) > 0x7F)
+        if ((Random_Byte() & 0xFF) > 0x7F)
             goto one;
     two:
         return 2;
     }
     if (!Flag_Test(0x68))
     {
-        if ((sub_080C2244() & 0xFF) <= 0x7F)
+        if ((Random_Byte() & 0xFF) <= 0x7F)
             goto three;
         goto one;
     }
     if (!Flag_Test(0x96) && !Flag_Test(0x7D))
     {
-        if ((sub_080C2244() & 0xFF) > 0x1F)
+        if ((Random_Byte() & 0xFF) > 0x1F)
             goto one;
     three:
         return 3;
     }
-    if ((sub_080C2244() & 0xFF) > 0x3F)
+    if ((Random_Byte() & 0xFF) > 0x3F)
     {
     one:
         return 1;

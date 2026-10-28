@@ -90,7 +90,7 @@ sub_080C4C98: @ 0x080C4C98
 	cmp r0, #0
 	bne .L080C4CD6
 	adds r0, r4, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #0
 	bne .L080C4CD6
 	ldr r1, .L080C4CE4
@@ -99,7 +99,7 @@ sub_080C4C98: @ 0x080C4C98
 	lsrs r0, r0, #0x10
 	bl Battle_GetCombatant
 	adds r0, r4, #0
-	bl sub_080C0F8C
+	bl Combatant_GetLevel
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	cmp r0, #0
@@ -109,7 +109,7 @@ sub_080C4C98: @ 0x080C4C98
 	asrs r1, r0, #2
 	adds r1, #1
 	adds r0, r4, #0
-	bl sub_080C0B30
+	bl Combatant_ChangeHpCapped
 .L080C4CD6:
 	adds r4, #1
 	cmp r4, #0xf
@@ -134,14 +134,14 @@ sub_080C4CE8: @ 0x080C4CE8
 	movs r5, #0
 .L080C4CFA:
 	adds r0, r5, #0
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r4, r0, #0
 	cmp r4, #0
 	beq .L080C4D22
 	ldrb r0, [r4, #0xc]
 	cmp r0, r6
 	beq .L080C4D22
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #0
 	bne .L080C4D22
 	movs r1, #0x18
@@ -165,7 +165,7 @@ sub_080C4CE8: @ 0x080C4CE8
 	adds r0, r6, r3
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r4, r0, #0
 	ldrh r0, [r4, #0x18]
 	adds r0, #1
@@ -181,7 +181,7 @@ sub_080C4CE8: @ 0x080C4CE8
 .L080C4D58:
 	mov r0, r8
 	movs r1, #1
-	bl sub_080C0C70
+	bl Combatant_Damage
 	bl sub_080C84A0
 .L080C4D64:
 	mov r0, r8
@@ -202,10 +202,10 @@ sub_080C4D74: @ 0x080C4D74
 	lsls r1, r1, #0x18
 	adds r0, r0, r1
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r4, r0, #0
 	adds r0, r5, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	lsls r0, r0, #0x10
 	lsrs r6, r0, #0x10
 	movs r0, #0x40
@@ -231,7 +231,7 @@ sub_080C4D74: @ 0x080C4D74
 	beq .L080C4DC8
 	ldr r1, .L080C4DF8
 	adds r0, r5, #0
-	bl sub_080C08BC
+	bl Combatant_ClearStatus
 	bl sub_080C84A0
 .L080C4DC8:
 	movs r0, #0x20
@@ -249,7 +249,7 @@ sub_080C4D74: @ 0x080C4D74
 	beq .L080C4DF2
 	ldr r1, .L080C4DFC
 	adds r0, r5, #0
-	bl sub_080C08BC
+	bl Combatant_ClearStatus
 	bl sub_080C84A0
 .L080C4DF2:
 	pop {r4, r5, r6}
@@ -266,7 +266,7 @@ sub_080C4E00: @ 0x080C4E00
 	lsrs r4, r0, #0x10
 	cmp r4, #0xe
 	bhi .L080C4E16
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #0xf
 	ands r1, r0
 	cmp r4, r1
@@ -286,7 +286,7 @@ sub_080C4E00: @ 0x080C4E00
 sub_080C4E24: @ 0x080C4E24
 .L080C4E24:
 	push {lr}
-	bl sub_080C1D9C
+	bl Moon_GetPhase
 	lsls r0, r0, #0x10
 	movs r1, #0xff
 	lsls r1, r1, #0x10
@@ -330,21 +330,21 @@ sub_080C4E48: @ 0x080C4E48
 	mov r1, sb
 	lsls r0, r1, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	cmp r0, #0
 	beq .L080C4F50
 	ldrb r5, [r0, #0xc]
 	adds r0, r5, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	adds r6, r0, #0
 	cmp r6, #1
 	bne .L080C4F50
 	adds r0, r5, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #0
 	bne .L080C4F50
 	adds r0, r5, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	lsls r0, r0, #0x10
 	lsrs r2, r0, #0x10
 	movs r0, #0x80
@@ -423,7 +423,7 @@ sub_080C4E48: @ 0x080C4E48
 .L080C4F2E:
 	adds r0, r5, #0
 	movs r1, #1
-	bl sub_080C0C70
+	bl Combatant_Damage
 	mov r0, sb
 	bl sub_080C8490
 	movs r0, #1
@@ -484,21 +484,21 @@ sub_080C4F88: @ 0x080C4F88
 	mov r1, r8
 	lsls r0, r1, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	cmp r0, #0
 	beq .L080C509A
 	ldrb r5, [r0, #0xc]
 	adds r0, r5, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	adds r6, r0, #0
 	cmp r6, #1
 	bne .L080C509A
 	adds r0, r5, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #0
 	bne .L080C509A
 	adds r0, r5, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	lsls r0, r0, #0x10
 	lsrs r2, r0, #0x10
 	movs r0, #0x80
@@ -548,7 +548,7 @@ sub_080C4F88: @ 0x080C4F88
 	adds r0, r5, #0
 	movs r1, #1
 	rsbs r1, r1, #0
-	bl sub_080C0AD4
+	bl Combatant_ChangeHp
 .L080C503C:
 	orrs r7, r6
 	b .L080C5060
@@ -565,7 +565,7 @@ sub_080C4F88: @ 0x080C4F88
 	adds r0, r5, #0
 	movs r1, #1
 	rsbs r1, r1, #0
-	bl sub_080C0AD4
+	bl Combatant_ChangeHp
 	movs r0, #1
 	orrs r7, r0
 .L080C5060:
@@ -574,11 +574,11 @@ sub_080C4F88: @ 0x080C4F88
 	cmp r0, #0
 	bgt .L080C5094
 	adds r0, r5, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	adds r0, r5, #0
 	movs r1, #0x80
 	lsls r1, r1, #8
-	bl sub_080C08F8
+	bl Combatant_SetStatus
 	cmp r5, #3
 	ble .L080C508E
 	adds r0, r5, #0
@@ -609,7 +609,7 @@ sub_080C4F88: @ 0x080C4F88
 	add r0, r8
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r4, r0, #0
 	movs r0, #1
 	mov r1, r8
@@ -621,7 +621,7 @@ sub_080C4F88: @ 0x080C4F88
 	ldrb r0, [r4, #0xc]
 	movs r1, #0x80
 	lsls r1, r1, #8
-	bl sub_080C08F8
+	bl Combatant_SetStatus
 	ldrb r0, [r4, #0xc]
 	cmp r0, #3
 	bls .L080C50E8
@@ -662,7 +662,7 @@ sub_080C5108: @ 0x080C5108
 	adds r0, r4, r1
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r2, r0, #0
 	cmp r2, #0
 	beq .L080C513E
@@ -1654,7 +1654,7 @@ gUnknown_080C57FC:
 	cmp r0, #0
 	beq .L080C5988
 	movs r0, #0
-	bl sub_080C06BC
+	bl Combatant_GetAlignment
 	cmp r0, #2
 	bne .L080C5988
 	movs r0, #0x4e
@@ -1690,7 +1690,7 @@ gUnknown_080C57FC:
 	cmp r0, #0
 	beq .L080C5988
 	movs r0, #0
-	bl sub_080C06BC
+	bl Combatant_GetAlignment
 	cmp r0, #0
 	bne .L080C5988
 	movs r0, #0x71
@@ -1714,7 +1714,7 @@ gUnknown_080C57FC:
 	beq .L080C5988
 .L080C597C:
 	movs r0, #0
-	bl sub_080C06BC
+	bl Combatant_GetAlignment
 	cmp r0, #0
 	bne .L080C5988
 	b .L080C5B08
@@ -1739,7 +1739,7 @@ gUnknown_080C57FC:
 	beq .L080C5988
 .L080C59B0:
 	movs r0, #0
-	bl sub_080C06BC
+	bl Combatant_GetAlignment
 	cmp r0, #2
 	bne .L080C5988
 	movs r0, #0x5d
@@ -1772,7 +1772,7 @@ gUnknown_080C57FC:
 	beq .L080C5988
 .L080C59FA:
 	movs r0, #0
-	bl sub_080C06BC
+	bl Combatant_GetAlignment
 	cmp r0, #0
 	bne .L080C5988
 	movs r0, #0x5d
@@ -1796,7 +1796,7 @@ gUnknown_080C57FC:
 	beq .L080C5988
 .L080C5A30:
 	movs r0, #0
-	bl sub_080C06BC
+	bl Combatant_GetAlignment
 	cmp r0, #1
 	bne .L080C5988
 	movs r0, #0x5d
@@ -1949,7 +1949,7 @@ sub_080C5B3C: @ 0x080C5B3C
 	beq .L080C5B5C
 	adds r0, r1, #0
 	movs r1, #0
-	bl sub_080C0290
+	bl Party_Remove
 .L080C5B5C:
 	adds r4, #1
 	cmp r4, #5
@@ -2018,7 +2018,7 @@ sub_080C5BCC: @ 0x080C5BCC
 	adds r0, r1, r0
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	movs r1, #0xc0
 	lsls r1, r1, #8
 	strh r1, [r0, #0xe]
@@ -2075,7 +2075,7 @@ sub_080C5C50: @ 0x080C5C50
 	movs r4, #0
 .L080C5C56:
 	adds r0, r4, #4
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L080C5C62
 	adds r5, #1
@@ -2083,7 +2083,7 @@ sub_080C5C50: @ 0x080C5C50
 	adds r4, #1
 	cmp r4, #0xb
 	bls .L080C5C56
-	bl sub_080C104C
+	bl Stock_GetCapacity
 	cmp r5, r0
 	bhs .L080C5C74
 	movs r0, #1
@@ -2103,14 +2103,14 @@ sub_080C5C7C: @ 0x080C5C7C
 	movs r4, #0
 .L080C5C82:
 	adds r0, r4, #4
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L080C5CAA
 	ldr r1, .L080C5CB8
 	adds r0, r4, r1
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	ldr r2, .L080C5CBC
 	adds r1, r2, #0
 	ldrh r0, [r0, #0x12]
@@ -2151,7 +2151,7 @@ sub_080C5CC0: @ 0x080C5CC0
 	adds r0, r1, r2
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	ldr r2, .L080C5D08
 	adds r1, r2, #0
 	ldrh r0, [r0, #0x12]
@@ -2327,7 +2327,7 @@ sub_080C5DE0: @ 0x080C5DE0
 	bls .L080C5DF0
 	bl sub_080C6FD8
 	movs r0, #0
-	bl sub_080C2230
+	bl Encounter_SetCounter
 	movs r0, #0xdf
 	bl Flag_Clear
 	pop {r4, r5, r6, r7}
@@ -3486,7 +3486,7 @@ sub_080C6764: @ 0x080C6764
 sub_080C67A0: @ 0x080C67A0
 .L080C67A0:
 	push {lr}
-	bl sub_080C21D0
+	bl Encounter_GetDangerLevel
 	ldr r2, .L080C67B8
 	ldr r1, .L080C67BC
 	lsls r0, r0, #0x10
@@ -3506,7 +3506,7 @@ sub_080C67C0: @ 0x080C67C0
 	adds r5, r0, #0
 	lsls r4, r1, #0x10
 	lsrs r4, r4, #0x10
-	bl sub_080C21D0
+	bl Encounter_GetDangerLevel
 	lsls r0, r0, #0x10
 	lsrs r2, r0, #0x10
 	lsls r0, r4, #0x14
@@ -4051,7 +4051,7 @@ sub_080C6BE0: @ 0x080C6BE0
 .L080C6C54: .4byte gUnknown_0800082C
 .L080C6C58:
 	adds r0, r4, #0
-	bl sub_080C0148
+	bl Party_GetMember
 	mov sb, r0
 	movs r2, #0
 	mov r8, r2
@@ -4326,7 +4326,7 @@ Party_BuildMemberNameTiles: @ 0x080C6E78
 .L080C6E7C:
 	lsls r0, r4, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r6, r4, #1
 	cmp r0, #0
 	beq .L080C6EE6
@@ -4419,7 +4419,7 @@ sub_080C6F30: @ 0x080C6F30
 	lsls r0, r0, #0x10
 	lsrs r5, r0, #0x10
 	adds r0, r5, #0
-	bl sub_080C0148
+	bl Party_GetMember
 	cmp r0, #0
 	beq .L080C6F9E
 	ldr r6, .L080C6FA4

@@ -276,3 +276,23 @@ No text is drawn here, so nothing limits the translation. Oddities in the origin
 - `0x080EDD8C` rolls each enemy's speed twice and throws the first roll away (only the random
   sequence changes); `0x080EEEE8` has unreachable affinity cases 1-7.
 - `0x080EDBCC` passes (lo, n) to an insertion sort that expects (lo, hi); harmless, lo is always 0.
+
+## Found in the fifth conversion round
+
+### Combatant records, field main loop, moon/encounters, flags (`0x080BF908`-`0x080C2D48`)
+
+- **Name encoding.** Combatant names are 8 encoded bytes (a u32 follows at `+0x08`); demon
+  names are 8 glyphs at `+0x22` (defaults: 4x8 bytes at `0x081A6244`). `Name_EncodeChar`
+  (`0x080C03E8`) knows only the 224-entry table at `0x081A5A6C` and maps anything else to 0xE0;
+  `Combatant_DecodeName` and two neighbours read the same table. Already handled: the
+  translation points all four literals (`0x080C0358`, `0x080C03A4`, `0x080C03CC`, `0x080C041C`)
+  at its own table at `0x0869C26C` (checked in the patched build).
+- **Race names** (`Race_GetName`, `ParentRace_GetName`, `sub_080C06AC`) are fixed 16-byte slots.
+- `sub_080C0378` decodes until 0 or 0xFF with no length limit, but nothing calls it.
+
+### More possible original bugs
+
+- `sub_080BFE98` computes an over-70 cap for the extra stats and discards it, so they are never
+  capped (bonus stats are, by `Stat_CapBonus`).
+- `sub_080C0E44` and `sub_080C0EC0` return an uninitialised value for a stat index above 5.
+- Play time stops at 255:59:59 (`0x080C22E4`), apparently on purpose.

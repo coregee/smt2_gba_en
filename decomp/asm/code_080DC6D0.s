@@ -252,7 +252,7 @@ sub_080DC6D0: @ 0x080DC6D0
 	lsrs r2, r2, #0x10
 	adds r0, r4, #0
 	movs r1, #4
-	bl sub_080C0444
+	bl Combatant_InitDemon
 	ldr r0, .L080DCB98
 	movs r1, #0
 	movs r2, #2

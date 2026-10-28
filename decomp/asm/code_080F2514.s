@@ -119,7 +119,7 @@ sub_080F2514: @ 0x080F2514
 	movs r5, #0x10
 .L080F2602:
 	adds r0, r5, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #0
 	bne .L080F2612
 	adds r0, r6, #1
@@ -155,7 +155,7 @@ sub_080F2514: @ 0x080F2514
 .L080F2646:
 	ldr r5, .L080F2670
 	ldr r0, [r5, #4]
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	lsls r0, r0, #0x10
 	lsrs r6, r0, #0x10
 	ldr r1, [sp]
@@ -263,7 +263,7 @@ sub_080F2514: @ 0x080F2514
 	strh r0, [r1]
 	ldr r4, .L080F276C
 	ldr r0, [r4, #4]
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	cmp r6, r0
@@ -271,7 +271,7 @@ sub_080F2514: @ 0x080F2514
 	ldr r0, [r4, #4]
 	cmp r0, #0xf
 	bgt .L080F27B8
-	bl sub_080BFFC4
+	bl Party_FindPosition
 	lsls r0, r0, #0x10
 	asrs r4, r0, #0x10
 	adds r0, r4, #0
@@ -368,7 +368,7 @@ sub_080F27CC: @ 0x080F27CC
 	movs r1, #0
 	ldrsh r0, [r0, r1]
 	str r0, [r2, #4]
-	bl sub_080C07E0
+	bl Combatant_GetDemonId
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	bl sub_080F40C4
@@ -388,7 +388,7 @@ sub_080F27CC: @ 0x080F27CC
 .L080F2844:
 	ldr r5, .L080F28B4
 	ldr r0, [r5, #4]
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	mov r8, r0
@@ -609,7 +609,7 @@ sub_080F27CC: @ 0x080F27CC
 	strh r0, [r1]
 	ldr r4, .L080F2A6C
 	ldr r0, [r4, #4]
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	cmp r8, r0
@@ -617,7 +617,7 @@ sub_080F27CC: @ 0x080F27CC
 	ldr r0, [r4, #4]
 	cmp r0, #0xf
 	bgt .L080F2AB8
-	bl sub_080BFFC4
+	bl Party_FindPosition
 	lsls r0, r0, #0x10
 	asrs r4, r0, #0x10
 	adds r0, r4, #0

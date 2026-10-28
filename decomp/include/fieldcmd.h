@@ -112,18 +112,18 @@ void Palette_FillWithEffect(u32 a0, u32 a1, void *dest, u32 size, u32 a4);
 void Palette_MarkDirty(void);
 s32 FieldMap_HasRecordRel(u32 a, u32 b, u32 c);
 u16 *sub_080C5F60(u16 a);
-u8 *sub_080C0148(u16 id);
-s32 sub_080C0830(s32 id);
-s32 sub_080C09B0(s32 a);
-u16 sub_080C0818(u32 who);
-u32 sub_080C2244(void);
-void sub_080C08F8(s32 a, u32 b);
+u8 *Party_GetMember(u16 id);
+s32 Combatant_IsDead(s32 id);
+s32 Combatant_IsUsed(s32 a);
+u16 Combatant_GetStatus(u32 who);
+u32 Random_Byte(void);
+void Combatant_SetStatus(s32 a, u32 b);
 void sub_080C8490(u32 slot);
 void sub_080C86F4(u16 slot);
-s32 sub_080C06BC(u32 a);
+s32 Combatant_GetAlignment(u32 a);
 s32 sub_080F4038(s32 a);
 s32 sub_080F401C(s32 a);
-void sub_080C0C70(s32 id, s32 n);
+void Combatant_Damage(s32 id, s32 n);
 void sub_080B8874(struct Task *task, u32 step, u32 a, u32 b);
 void sub_080B832C(struct Task *task, const u16 *text);
 void Text_CopyToMenuBuffer(const u16 *src);
@@ -341,7 +341,7 @@ void sub_080C6764(void);
 void sub_080AE304(void);
 void BgPicture_LoadAll(void);
 void SetMainCallback(VoidFunc func);
-void sub_080C1850(void);
+void FieldMain_Loop(void);
 
 struct WinRect
 {
@@ -402,7 +402,7 @@ u32 *Door_KeypadInitInputState(void);
 
 u8 *Battle_GetCombatant(u16 idx);
 u16 sub_080C1B50(void);
-u32 sub_080C1D9C(void);
+u32 Moon_GetPhase(void);
 extern const u16 gUnknown_0819873C[], gUnknown_08198748[], gUnknown_0819875E[], gUnknown_0819876C[],
     gUnknown_08198780[], gUnknown_08198794[], gUnknown_081987A8[], gUnknown_081987BA[], gUnknown_081987C8[],
     gUnknown_081987D4[], gUnknown_081987E6[], gUnknown_081987FC[], gUnknown_0819880E[], gUnknown_08198822[],
@@ -451,8 +451,8 @@ extern u32 gUnk_03003FF8;
 u16 sub_080F6278(void);
 u16 sub_080F6390(void);
 void sub_080F4260(u32 who);
-void sub_080C0074(u32 a, u32 b, u32 c);
-void sub_080BF938(u32 a);
+void Combatant_SetEquip(u32 a, u32 b, u32 c);
+void Combatant_RecalcStats(u32 a);
 extern u8 gUnk_030050C0[], gUnk_030050C8[], gUnk_030050D0[];
 extern const u8 gUnknown_0819B9F4[], gUnknown_0819CB74[];
 extern const u8 gUnknown_081A5A00[], gUnknown_081A5A20[], gUnknown_081A5A38[], gUnknown_081A59FC[], gUnknown_081A5A50[];

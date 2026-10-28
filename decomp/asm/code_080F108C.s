@@ -30,7 +30,7 @@ sub_080F108C: @ 0x080F108C
 	lsls r0, r0, #0x10
 	lsrs r5, r0, #0x10
 	adds r0, r4, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	str r0, [sp, #0xc]
@@ -103,7 +103,7 @@ gUnknown_080F112C:
 	asrs r4, r4, #0x10
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_080C00DC
+	bl Combatant_GetEquip
 	ldr r1, .L080F11A0
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -143,7 +143,7 @@ gUnknown_080F112C:
 	asrs r4, r4, #0x10
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_080C00DC
+	bl Combatant_GetEquip
 	ldr r1, .L080F11FC
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -476,7 +476,7 @@ gUnknown_080F112C:
 	bl sub_080F1678
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	movs r1, #3
 	b .L080F14AA
 .L080F1498:
@@ -486,7 +486,7 @@ gUnknown_080F112C:
 .L080F149E:
 	ldr r0, [sp, #4]
 	movs r1, #0
-	bl sub_080C0290
+	bl Party_Remove
 	mov r0, sl
 	movs r1, #5
 .L080F14AA:
@@ -741,7 +741,7 @@ sub_080F1678: @ 0x080F1678
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	movs r1, #0
-	bl sub_080C0290
+	bl Party_Remove
 .L080F16CA:
 	ldr r0, .L080F16F8
 	strh r0, [r4]
@@ -787,7 +787,7 @@ sub_080F1678: @ 0x080F1678
 	lsls r6, r6, #0x10
 	lsrs r1, r6, #0x10
 	adds r0, r5, #0
-	bl sub_080C0248
+	bl Party_AddAt
 	asrs r4, r7, #0x10
 	cmp r4, #0
 	bne .L080F173A
@@ -808,7 +808,7 @@ sub_080F1678: @ 0x080F1678
 	ldrsb r0, [r4, r0]
 	movs r1, #0x80
 	lsls r1, r1, #7
-	bl sub_080C08F8
+	bl Combatant_SetStatus
 	movs r0, #0
 	ldrsb r0, [r4, r0]
 	movs r1, #0
@@ -820,7 +820,7 @@ sub_080F1678: @ 0x080F1678
 	bl Party_BuildMemberNameTiles
 	mov r2, r8
 	asrs r0, r2, #0x10
-	bl sub_080BFFC4
+	bl Party_FindPosition
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	pop {r3}

@@ -48,9 +48,9 @@ void sub_080BC198(void)
 
     if (!odd)
     {
-        sub_080C4618(3, 0xC8, (sub_080C2244() & 0x7F) + 0x30, 0, odd, odd);
-        sub_080C4618(4, 0xC9, (sub_080C2244() & 0x7F) + 0x30, 0, odd, odd);
-        sub_080C4618(5, 0xCA, (sub_080C2244() & 0x7F) + 0x30, 0, odd, odd);
+        sub_080C4618(3, 0xC8, (Random_Byte() & 0x7F) + 0x30, 0, odd, odd);
+        sub_080C4618(4, 0xC9, (Random_Byte() & 0x7F) + 0x30, 0, odd, odd);
+        sub_080C4618(5, 0xCA, (Random_Byte() & 0x7F) + 0x30, 0, odd, odd);
     }
 }
 

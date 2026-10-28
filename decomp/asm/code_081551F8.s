@@ -79,7 +79,7 @@ sub_081551F8: @ 0x081551F8
 .L08155290:
 	strb r0, [r4, #3]
 	movs r0, #0
-	bl sub_080C06BC
+	bl Combatant_GetAlignment
 	cmp r0, #1
 	beq .L081552B6
 	cmp r0, #1
@@ -486,12 +486,12 @@ sub_08155554: @ 0x08155554
 	adds r4, r5, #4
 	adds r0, r4, #0
 	str r3, [sp]
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	ldr r3, [sp]
 	cmp r0, #0
 	beq .L081555E6
 	adds r0, r4, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	ldr r3, [sp]
 	cmp r0, #0
 	bne .L081555E6
@@ -756,7 +756,7 @@ sub_0815571C: @ 0x0815571C
 	ldrh r0, [r2, #0x12]
 	strh r0, [r1]
 	str r3, [sp, #0x14]
-	bl sub_080C2244
+	bl Random_Byte
 	adds r1, r6, r4
 	strh r0, [r1]
 	ldr r3, [sp, #0x14]
@@ -1915,7 +1915,7 @@ sub_08156088: @ 0x08156088
 	adds r0, r4, #0
 	movs r1, #1
 	adds r2, r7, #0
-	bl sub_080C0444
+	bl Combatant_InitDemon
 	lsls r1, r6, #2
 	mov r0, sb
 	adds r0, #0x1c
@@ -4082,7 +4082,7 @@ sub_081571F0: @ 0x081571F0
 	adds r5, r0, #0
 	movs r0, #0x80
 	lsls r0, r0, #8
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r4, r0, #0
 	adds r0, r6, #0
 	bl sub_081571DC
@@ -5390,10 +5390,10 @@ sub_08157C2C: @ 0x08157C2C
 	movs r6, #0
 	ldr r5, .L08157C60
 	ldrh r0, [r5]
-	bl sub_080C0198
+	bl Stock_FindDemon
 	adds r4, r0, #0
 	ldrh r0, [r5, #2]
-	bl sub_080C0198
+	bl Stock_FindDemon
 	adds r2, r0, #0
 	ldrh r0, [r5]
 	cmp r0, #0xfb
@@ -5472,7 +5472,7 @@ sub_08157C90: @ 0x08157C90
 	bne .L08157CF8
 	ldr r4, .L08157CF4
 	ldrh r0, [r4, #6]
-	bl sub_080C062C
+	bl Stock_AddDemon
 	ldrh r0, [r4, #6]
 	bl sub_081571DC
 	rsbs r0, r0, #0
@@ -5523,10 +5523,10 @@ sub_08157C90: @ 0x08157C90
 	bl sub_080C33AC
 	ldrh r0, [r5, #4]
 .L08157D5C:
-	bl sub_080C0198
+	bl Stock_FindDemon
 	ldrb r0, [r0, #0xc]
 	movs r1, #1
-	bl sub_080C0290
+	bl Party_Remove
 .L08157D68:
 	ldrh r0, [r5, #6]
 	bl sub_08154968
@@ -5542,43 +5542,43 @@ sub_08157C90: @ 0x08157C90
 	cmp r0, #2
 	bne .L08157DAE
 	ldrh r0, [r5]
-	bl sub_080C0198
+	bl Stock_FindDemon
 	adds r4, r0, #0
 	ldrh r0, [r5, #2]
-	bl sub_080C0198
+	bl Stock_FindDemon
 	adds r5, r0, #0
 	bl sub_08157C2C
 	lsls r0, r0, #0x10
 	lsrs r6, r0, #0x10
 	ldrb r0, [r4, #0xc]
 	movs r1, #1
-	bl sub_080C0290
+	bl Party_Remove
 	ldrb r0, [r5, #0xc]
 	movs r1, #1
-	bl sub_080C0290
+	bl Party_Remove
 	b .L08157DDC
 .L08157DAE:
 	cmp r0, #3
 	bne .L08157DDC
 	ldrh r0, [r5]
-	bl sub_080C0198
+	bl Stock_FindDemon
 	ldrb r0, [r0, #0xc]
 	movs r1, #1
-	bl sub_080C0290
+	bl Party_Remove
 	ldrh r0, [r5, #2]
-	bl sub_080C0198
+	bl Stock_FindDemon
 	ldrb r0, [r0, #0xc]
 	movs r1, #1
-	bl sub_080C0290
+	bl Party_Remove
 	ldrh r0, [r5, #4]
-	bl sub_080C0198
+	bl Stock_FindDemon
 	ldrb r0, [r0, #0xc]
 	movs r1, #1
-	bl sub_080C0290
+	bl Party_Remove
 .L08157DDC:
 	ldr r4, .L08157E80
 	ldrh r0, [r4, #6]
-	bl sub_080C062C
+	bl Stock_AddDemon
 	ldrh r0, [r4, #6]
 	bl sub_080C3560
 	adds r3, r0, #0

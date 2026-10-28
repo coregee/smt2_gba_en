@@ -185,20 +185,20 @@ void ScriptOp_30D(void)
     u16 a, bits;
 
     target = target << 16 | lo;
-    if (sub_080C09B0(1) == 0 && sub_080C09B0(2) == 0)
+    if (Combatant_IsUsed(1) == 0 && Combatant_IsUsed(2) == 0)
         return;
     a = gGameState[0].unk18;
-    if (sub_080C09B0(1) != 0)
+    if (Combatant_IsUsed(1) != 0)
         b = gGameState[1].unk18;
-    if (sub_080C09B0(2) != 0)
+    if (Combatant_IsUsed(2) != 0)
         b = gGameState[2].unk18;
     if (a != 0 && b != 0)
     {
-        bits = sub_080C0818(0);
-        if (sub_080C09B0(1) == 0)
-            bits |= sub_080C0818(1);
-        if (sub_080C09B0(2) == 0)
-            bits |= sub_080C0818(2);
+        bits = Combatant_GetStatus(0);
+        if (Combatant_IsUsed(1) == 0)
+            bits |= Combatant_GetStatus(1);
+        if (Combatant_IsUsed(2) == 0)
+            bits |= Combatant_GetStatus(2);
         if (!(bits & 0x3000))
             return;
     }

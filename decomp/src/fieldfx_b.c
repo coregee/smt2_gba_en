@@ -407,7 +407,7 @@ void sub_080BE57C(struct Task *task, u32 step)
         break;
     case 0x100:
         PalFade_FadeInFromBlack(1);
-        SetMainCallback(sub_080C1850);
+        SetMainCallback(FieldMain_Loop);
         break;
     }
 }

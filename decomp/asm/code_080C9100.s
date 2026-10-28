@@ -9,7 +9,7 @@
 sub_080C9100: @ 0x080C9100
 .L080C9100:
 	push {r4, r5, lr}
-	bl sub_080C1D9C
+	bl Moon_GetPhase
 	adds r4, r0, #0
 	movs r0, #0xf0
 	ands r4, r0
@@ -34,16 +34,16 @@ sub_080C9100: @ 0x080C9100
 	bne .L080C915E
 	movs r0, #0xc4
 	bl Flag_Set
-	bl sub_080C2244
+	bl Random_Byte
 	movs r5, #0xff
 	ands r0, r5
 	cmp r0, #0x7f
 	bls .L080C9178
-	bl sub_080C2244
+	bl Random_Byte
 	ands r0, r5
 	cmp r0, #0x7f
 	bls .L080C9162
-	bl sub_080C2244
+	bl Random_Byte
 	ands r0, r5
 	cmp r0, #0x7f
 	bhi .L080C918C
@@ -53,7 +53,7 @@ sub_080C9100: @ 0x080C9100
 	movs r0, #0
 	b .L080C9208
 .L080C9162:
-	bl sub_080C2244
+	bl Random_Byte
 	ands r0, r5
 	cmp r0, #0x7f
 	bls .L080C9172
@@ -65,11 +65,11 @@ sub_080C9100: @ 0x080C9100
 	bne .L080C91AC
 	b .L080C915E
 .L080C9178:
-	bl sub_080C2244
+	bl Random_Byte
 	ands r0, r5
 	cmp r0, #0x7f
 	bls .L080C9198
-	bl sub_080C2244
+	bl Random_Byte
 	ands r0, r5
 	cmp r0, #0x7f
 	bls .L080C9192
@@ -82,7 +82,7 @@ sub_080C9100: @ 0x080C9100
 	bne .L080C91AC
 	b .L080C915E
 .L080C9198:
-	bl sub_080C2244
+	bl Random_Byte
 	ands r0, r5
 	cmp r0, #0x7f
 	bls .L080C91A8
@@ -93,22 +93,22 @@ sub_080C9100: @ 0x080C9100
 	cmp r4, #0x70
 	beq .L080C915E
 .L080C91AC:
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #0xff
 	ands r1, r0
 	cmp r1, #0x1f
 	bhi .L080C915E
 .L080C91B8:
-	bl sub_080C2244
+	bl Random_Byte
 	movs r4, #0xff
 	ands r0, r4
 	cmp r0, #0x7f
 	bls .L080C91F2
-	bl sub_080C2244
+	bl Random_Byte
 	ands r0, r4
 	cmp r0, #0x7f
 	bls .L080C91E0
-	bl sub_080C2244
+	bl Random_Byte
 	ands r0, r4
 	cmp r0, #0x7f
 	bls .L080C91DC
@@ -118,7 +118,7 @@ sub_080C9100: @ 0x080C9100
 	movs r0, #0x31
 	b .L080C9208
 .L080C91E0:
-	bl sub_080C2244
+	bl Random_Byte
 	ands r0, r4
 	cmp r0, #0x7f
 	bls .L080C91EE
@@ -132,7 +132,7 @@ sub_080C9100: @ 0x080C9100
 	bl Flag_Test
 	cmp r0, #0
 	bne .L080C9206
-	bl sub_080C2244
+	bl Random_Byte
 	ands r0, r4
 	cmp r0, #0x3f
 	bls .L080C915E
@@ -286,7 +286,7 @@ sub_080C92C8: @ 0x080C92C8
 	lsrs r2, r2, #0x10
 	adds r0, r6, #0
 	movs r1, #4
-	bl sub_080C0444
+	bl Combatant_InitDemon
 	adds r4, r5, #0
 	adds r4, #0x66
 	ldrh r0, [r4]
@@ -461,7 +461,7 @@ sub_080C9414: @ 0x080C9414
 	adds r1, #1
 	strb r0, [r1]
 	ldrb r0, [r5, #0xc]
-	bl sub_080BF938
+	bl Combatant_RecalcStats
 	movs r0, #0xaa
 	lsls r0, r0, #1
 	adds r1, r6, r0
@@ -4100,7 +4100,7 @@ sub_080CB0B8: @ 0x080CB0B8
 	b .L080CB368
 .L080CB0F0:
 	ldrb r0, [r7, #0xc]
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	lsls r0, r0, #0x10
 	lsrs r5, r0, #0x10
 	ldr r0, .L080CB184
@@ -4328,7 +4328,7 @@ sub_080CB0B8: @ 0x080CB0B8
 	cmp r0, #0x63
 	beq .L080CB2EE
 	adds r0, #1
-	bl sub_080C1098
+	bl Exp_GetForLevel
 	ldr r1, [r7, #8]
 	subs r0, r0, r1
 	movs r1, #0x80
@@ -4365,7 +4365,7 @@ sub_080CB0B8: @ 0x080CB0B8
 	movs r4, #4
 .L080CB32A:
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L080CB336
 	adds r5, #1
@@ -4488,7 +4488,7 @@ sub_080CB0B8: @ 0x080CB0B8
 	cmp r0, #0
 	beq .L080CB46A
 	ldrb r0, [r0, #0xc]
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	lsls r0, r0, #0x10
 	lsrs r5, r0, #0x10
 	b .L080CB46C
@@ -6546,9 +6546,9 @@ sub_080CC630: @ 0x080CC630
 	ldrh r2, [r0]
 	ldrh r1, [r4, #0x30]
 	ldrb r0, [r5, #0xc]
-	bl sub_080C0074
+	bl Combatant_SetEquip
 	ldrb r0, [r5, #0xc]
-	bl sub_080BF938
+	bl Combatant_RecalcStats
 	adds r0, r6, #0
 	bl sub_080CC4B4
 	adds r0, r6, #0
@@ -6574,7 +6574,7 @@ sub_080CC694: @ 0x080CC694
 	bl sub_080C92C8
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
-	bl sub_080BF938
+	bl Combatant_RecalcStats
 	ldrh r0, [r4, #0x1a]
 	strh r0, [r4, #0x18]
 	ldrh r0, [r4, #0x1e]
@@ -6608,7 +6608,7 @@ sub_080CC694: @ 0x080CC694
 	adds r1, #1
 	strb r0, [r1]
 	ldrb r0, [r4, #0xc]
-	bl sub_080BF938
+	bl Combatant_RecalcStats
 	movs r1, #0xaa
 	lsls r1, r1, #1
 	adds r0, r6, r1

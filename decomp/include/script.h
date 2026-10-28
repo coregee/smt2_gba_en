@@ -92,8 +92,8 @@ void sub_080C3328(u16);
 bool8 sub_080C32D4(u16);
 u16 sub_080C2A84(u32);
 s32 Flag_Test(u16);
-s32 sub_080C09B0(u32);
-u16 sub_080C0818(u32);
+s32 Combatant_IsUsed(u32);
+u16 Combatant_GetStatus(u32);
 u32 YesNo_Create(u32);
 void sub_080E47A8(u32, u16, u16, u16, u16);
 void Flag_Set(u16);
@@ -127,7 +127,7 @@ u8 *sub_080BF5C0(u16);
 u8 *Item_GetRecord(u16);
 u8 *Equipment_GetRecord36_MidRange(u16);
 u8 *Action_GetRecord(u16);
-s32 sub_080C0A00(s16);
+s32 Combatant_IsAlive(s16);
 s32 sub_080C31F0(void);
 
 #define SCRIPT_READ() (gScriptBase[gScriptPc++])

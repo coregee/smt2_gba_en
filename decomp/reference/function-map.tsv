@@ -73,7 +73,7 @@ address	mode	size	name	confidence	state	file
 080AB184	thumb	34	PalFade_AllDone	probable	c	src/sys_palette.c
 080AB1A8	thumb	26			c	src/sys_palette.c
 080AB1C4	thumb	140	Tilemap_OffsetRect	probable	c	src/sys_tilemap.c
-080AB250	thumb	164	Tilemap_CopyRectSkipZero	probable	c	src/sys_tilemap.c
+080AB250	thumb	164	Tilemap_CopyRectSkipZero	probable	nonmatching	src/sys_tilemap.c
 080AB2F4	thumb	154	Tilemap_CopyRect	probable	c	src/sys_tilemap.c
 080AB390	thumb	166	Tilemap_CopyRectStride	probable	c	src/sys_tilemap.c
 080AB438	thumb	100	Tilemap_FillRect	probable	c	src/sys_tilemap.c
@@ -393,7 +393,7 @@ address	mode	size	name	confidence	state	file
 080B47CC	thumb	134	Automap_BuildAroundPlayer	probable	nonmatching	src/automap_a.c
 080B4854	thumb	512	Automap_BuildIconMap	probable	c	src/automap_a.c
 080B4A54	thumb	80	Automap_HasCells	probable	c	src/automap_a.c
-080B4AA4	thumb	180	Automap_DrawTilemap	probable	c	src/automap_a.c
+080B4AA4	thumb	180	Automap_DrawTilemap	probable	nonmatching	src/automap_a.c
 080B4B58	thumb	36			c	src/automap_a.c
 080B4B7C	thumb	36			c	src/automap_a.c
 080B4BA0	thumb	36			c	src/automap_a.c
@@ -430,7 +430,7 @@ address	mode	size	name	confidence	state	file
 080B5E10	thumb	28			c	src/fieldevent_a.c
 080B5E2C	thumb	36			c	src/fieldevent_a.c
 080B5E50	thumb	36			c	src/fieldevent_a.c
-080B5E74	thumb	92			c	src/fieldevent_a.c
+080B5E74	thumb	92			nonmatching	src/fieldevent_a.c
 080B5ED0	thumb	28			c	src/fieldevent_a.c
 080B5EEC	thumb	56			c	src/fieldevent_a.c
 080B5F24	thumb	36			c	src/fieldevent_a.c
@@ -456,7 +456,7 @@ address	mode	size	name	confidence	state	file
 080B633C	thumb	2			c	src/fieldevent_b.c
 080B6340	thumb	36			c	src/fieldevent_b.c
 080B6364	thumb	252	LocationBanner_BuildTiles	probable	c	src/fieldevent_b.c
-080B6460	thumb	198	LocationBanner_Update	probable	c	src/fieldevent_b.c
+080B6460	thumb	198	LocationBanner_Update	probable	nonmatching	src/fieldevent_b.c
 080B6528	thumb	24			c	src/fieldevent_b.c
 080B6540	thumb	40			c	src/fieldevent_b.c
 080B6568	thumb	104	LocationBanner_Start	probable	c	src/fieldevent_b.c
@@ -494,7 +494,7 @@ address	mode	size	name	confidence	state	file
 080B6D9C	thumb	22			c	src/fieldevent_c.c
 080B6DB4	thumb	372	BgPicture_StartTask	probable	c	src/fieldevent_c.c
 080B6F28	thumb	24			c	src/fieldevent_c.c
-080B6F40	thumb	380	Picture_ScaleStep	probable	c	src/fieldevent_c.c
+080B6F40	thumb	380	Picture_ScaleStep	probable	nonmatching	src/fieldevent_c.c
 080B70BC	thumb	80			c	src/fieldevent_c.c
 080B710C	thumb	80			c	src/fieldevent_c.c
 080B715C	thumb	4			c	src/fieldevent_c.c
@@ -534,11 +534,11 @@ address	mode	size	name	confidence	state	file
 080B78DC	thumb	56			c	src/fieldevent_d.c
 080B7914	thumb	46	Rect_IsOutside	probable	c	src/fieldevent_d.c
 080B7944	thumb	438	SubMap_IsOutsideExclusions	probable	c	src/fieldevent_e.c
-080B7AFC	thumb	580	Warp_ToWorldPosition	probable	c	src/fieldevent_e.c
+080B7AFC	thumb	580	Warp_ToWorldPosition	probable	nonmatching	src/fieldevent_e.c
 080B7D40	thumb	184			c	src/fieldevent_e.c
 080B7DF8	thumb	18			c	src/fieldevent_e.c
 080B7E0C	thumb	48			c	src/fieldevent_e.c
-080B7E3C	thumb	240			c	src/fieldevent_e.c
+080B7E3C	thumb	240			nonmatching	src/fieldevent_e.c
 080B7F2C	thumb	68			c	src/fieldevent_e.c
 080B7F70	thumb	12			c	src/fieldevent_e.c
 080B7F7C	thumb	108			c	src/fieldevent_e.c
@@ -567,7 +567,7 @@ address	mode	size	name	confidence	state	file
 080B85C8	thumb	46			c	src/fieldevent_f.c
 080B85F8	thumb	104			nonmatching	src/fieldevent_f.c
 080B8660	thumb	78	Spring_GetKindAt	probable	c	src/fieldevent_f.c
-080B86B0	thumb	314	Spring_HealMember	probable	c	src/fieldevent_f.c
+080B86B0	thumb	314	Spring_HealMember	probable	nonmatching	src/fieldevent_f.c
 080B87EC	thumb	136			c	src/fieldevent_f.c
 080B8874	thumb	48			nonmatching	src/fieldevent_f.c
 080B88A4	thumb	40			c	src/fieldevent_f.c
@@ -962,198 +962,198 @@ address	mode	size	name	confidence	state	file
 080BF6D4	thumb	114	Demon_DrawName	probable	c	src/records_a.c
 080BF748	thumb	400	Party_InitMember	probable	nonmatching	src/records_a.c
 080BF8D8	thumb	48			c	src/records_a.c
-080BF908	thumb	48			asm	asm/code_080BF908.s
-080BF938	thumb	996			asm	asm/code_080BF908.s
-080BFD1C	thumb	120			asm	asm/code_080BF908.s
-080BFD94	thumb	48			asm	asm/code_080BF908.s
-080BFDC4	thumb	192			asm	asm/code_080BF908.s
-080BFE84	thumb	18			asm	asm/code_080BF908.s
-080BFE98	thumb	14			asm	asm/code_080BF908.s
-080BFEA8	thumb	100			asm	asm/code_080BF908.s
-080BFF0C	thumb	128			asm	asm/code_080BF908.s
-080BFF8C	thumb	56			asm	asm/code_080BF908.s
-080BFFC4	thumb	42			asm	asm/code_080BF908.s
-080BFFF0	thumb	30			asm	asm/code_080BF908.s
-080C0010	thumb	100			asm	asm/code_080BF908.s
-080C0074	thumb	104			asm	asm/code_080BF908.s
-080C00DC	thumb	108			asm	asm/code_080BF908.s
-080C0148	thumb	80			asm	asm/code_080BF908.s
-080C0198	thumb	66			asm	asm/code_080BF908.s
-080C01DC	thumb	106			asm	asm/code_080BF908.s
-080C0248	thumb	72			asm	asm/code_080BF908.s
-080C0290	thumb	178			asm	asm/code_080BF908.s
-080C0344	thumb	50	Combatant_DecodeName	tentative	named	asm/code_080BF908.s
-080C0378	thumb	48			asm	asm/code_080BF908.s
-080C03A8	thumb	64			asm	asm/code_080BF908.s
-080C03E8	thumb	56			asm	asm/code_080BF908.s
-080C0420	thumb	36			asm	asm/code_080BF908.s
-080C0444	thumb	268			asm	asm/code_080BF908.s
-080C0550	thumb	36			asm	asm/code_080BF908.s
-080C0574	thumb	136			asm	asm/code_080BF908.s
-080C05FC	thumb	48			asm	asm/code_080BF908.s
-080C062C	thumb	96			asm	asm/code_080BF908.s
-080C068C	thumb	16	Race_GetName	tentative	named	asm/code_080BF908.s
-080C069C	thumb	16	ParentRace_GetName	tentative	named	asm/code_080BF908.s
-080C06AC	thumb	16			asm	asm/code_080BF908.s
-080C06BC	thumb	46			asm	asm/code_080BF908.s
-080C06EC	thumb	136			asm	asm/code_080BF908.s
-080C0774	thumb	32			asm	asm/code_080BF908.s
-080C0794	thumb	28			asm	asm/code_080BF908.s
-080C07B0	thumb	48			asm	asm/code_080BF908.s
-080C07E0	thumb	28			asm	asm/code_080BF908.s
-080C07FC	thumb	28			asm	asm/code_080BF908.s
-080C0818	thumb	24			asm	asm/code_080BF908.s
-080C0830	thumb	26			asm	asm/code_080BF908.s
-080C084C	thumb	110			asm	asm/code_080BF908.s
-080C08BC	thumb	44			asm	asm/code_080BF908.s
-080C08E8	thumb	14			asm	asm/code_080BF908.s
-080C08F8	thumb	170			asm	asm/code_080BF908.s
-080C09A4	thumb	12	Race_GetParentId	tentative	named	asm/code_080BF908.s
-080C09B0	thumb	34			asm	asm/code_080BF908.s
-080C09D4	thumb	44			asm	asm/code_080BF908.s
-080C0A00	thumb	34			asm	asm/code_080BF908.s
-080C0A24	thumb	42			asm	asm/code_080BF908.s
-080C0A50	thumb	42			asm	asm/code_080BF908.s
-080C0A7C	thumb	44			asm	asm/code_080BF908.s
-080C0AA8	thumb	44			asm	asm/code_080BF908.s
-080C0AD4	thumb	92			asm	asm/code_080BF908.s
-080C0B30	thumb	90			asm	asm/code_080BF908.s
-080C0B8C	thumb	48			asm	asm/code_080BF908.s
-080C0BBC	thumb	88			asm	asm/code_080BF908.s
-080C0C14	thumb	90			asm	asm/code_080BF908.s
-080C0C70	thumb	60			asm	asm/code_080BF908.s
-080C0CAC	thumb	38			asm	asm/code_080BF908.s
-080C0CD4	thumb	38			asm	asm/code_080BF908.s
-080C0CFC	thumb	28			asm	asm/code_080BF908.s
-080C0D18	thumb	28			asm	asm/code_080BF908.s
-080C0D34	thumb	28			asm	asm/code_080BF908.s
-080C0D50	thumb	28			asm	asm/code_080BF908.s
-080C0D6C	thumb	36			asm	asm/code_080BF908.s
-080C0D90	thumb	36			asm	asm/code_080BF908.s
-080C0DB4	thumb	36			asm	asm/code_080BF908.s
-080C0DD8	thumb	36			asm	asm/code_080BF908.s
-080C0DFC	thumb	36			asm	asm/code_080BF908.s
-080C0E20	thumb	36			asm	asm/code_080BF908.s
-080C0E44	thumb	104			asm	asm/code_080BF908.s
-080C0EAC	thumb	20			asm	asm/code_080BF908.s
-080C0EC0	thumb	162			asm	asm/code_080BF908.s
-080C0F64	thumb	12			asm	asm/code_080BF908.s
-080C0F70	thumb	28			asm	asm/code_080BF908.s
-080C0F8C	thumb	24			asm	asm/code_080BF908.s
-080C0FA4	thumb	28			asm	asm/code_080BF908.s
-080C0FC0	thumb	40			asm	asm/code_080BF908.s
-080C0FE8	thumb	50			asm	asm/code_080BF908.s
-080C101C	thumb	46			asm	asm/code_080BF908.s
-080C104C	thumb	36			asm	asm/code_080BF908.s
-080C1070	thumb	38			asm	asm/code_080BF908.s
-080C1098	thumb	16			asm	asm/code_080BF908.s
-080C10A8	thumb	12			asm	asm/code_080BF908.s
-080C10B4	thumb	44			asm	asm/code_080BF908.s
-080C10E0	thumb	4			asm	asm/code_080BF908.s
-080C10E4	thumb	16			asm	asm/code_080BF908.s
-080C10F4	thumb	456			asm	asm/code_080BF908.s
-080C12BC	thumb	2			asm	asm/code_080BF908.s
-080C12C0	thumb	64			asm	asm/code_080BF908.s
-080C1300	thumb	40			asm	asm/code_080BF908.s
-080C1328	thumb	92			asm	asm/code_080BF908.s
-080C1384	thumb	120			asm	asm/code_080BF908.s
-080C13FC	thumb	16			asm	asm/code_080BF908.s
-080C140C	thumb	52			asm	asm/code_080C140C.s
-080C1440	thumb	14			asm	asm/code_080C140C.s
-080C1450	thumb	172			asm	asm/code_080C140C.s
-080C14FC	thumb	64			asm	asm/code_080C140C.s
-080C153C	thumb	36			asm	asm/code_080C140C.s
-080C1560	thumb	208			asm	asm/code_080C140C.s
-080C1630	thumb	84			asm	asm/code_080C140C.s
-080C1684	thumb	364			asm	asm/code_080C140C.s
-080C17F0	thumb	96			asm	asm/code_080C140C.s
-080C1850	thumb	48			asm	asm/code_080C140C.s
-080C1880	thumb	472			asm	asm/code_080C140C.s
-080C1A58	thumb	68			asm	asm/code_080C140C.s
-080C1A9C	thumb	18			asm	asm/code_080C140C.s
-080C1AB0	thumb	66			asm	asm/code_080C140C.s
-080C1AF4	thumb	90			asm	asm/code_080C140C.s
-080C1B50	thumb	34			asm	asm/code_080C140C.s
-080C1B74	thumb	312			asm	asm/code_080C140C.s
-080C1CAC	thumb	82			asm	asm/code_080C140C.s
-080C1D00	thumb	156			asm	asm/code_080C140C.s
-080C1D9C	thumb	20			asm	asm/code_080C140C.s
-080C1DB0	thumb	48			asm	asm/code_080C140C.s
-080C1DE0	thumb	64			asm	asm/code_080C140C.s
-080C1E20	thumb	64			asm	asm/code_080C140C.s
-080C1E60	thumb	240			asm	asm/code_080C140C.s
-080C1F50	thumb	68			asm	asm/code_080C140C.s
-080C1F94	thumb	50			asm	asm/code_080C140C.s
-080C1FC8	thumb	56			asm	asm/code_080C140C.s
-080C2000	thumb	142			asm	asm/code_080C140C.s
-080C2090	thumb	56			asm	asm/code_080C140C.s
-080C20C8	thumb	36			asm	asm/code_080C140C.s
-080C20EC	thumb	122			asm	asm/code_080C140C.s
-080C2168	thumb	102			asm	asm/code_080C140C.s
-080C21D0	thumb	76			asm	asm/code_080C140C.s
-080C221C	thumb	20			asm	asm/code_080C140C.s
-080C2230	thumb	20			asm	asm/code_080C140C.s
-080C2244	thumb	16			asm	asm/code_080C140C.s
-080C2254	thumb	44			asm	asm/code_080C140C.s
-080C2280	thumb	98			asm	asm/code_080C140C.s
-080C22E4	thumb	84			asm	asm/code_080C140C.s
-080C2338	thumb	8			asm	asm/code_080C140C.s
-080C2340	thumb	36	Flag_Test	probable	named	asm/code_080C140C.s
-080C2364	thumb	88	Flag_Set	probable	named	asm/code_080C140C.s
-080C23BC	thumb	88	Flag_Clear	probable	named	asm/code_080C140C.s
-080C2414	thumb	36			asm	asm/code_080C140C.s
-080C2438	thumb	36			asm	asm/code_080C140C.s
-080C245C	thumb	36			asm	asm/code_080C140C.s
-080C2480	thumb	54			asm	asm/code_080C140C.s
-080C24B8	thumb	104			asm	asm/code_080C140C.s
-080C2520	thumb	52			asm	asm/code_080C140C.s
-080C2554	thumb	46			asm	asm/code_080C140C.s
-080C2584	thumb	80			asm	asm/code_080C140C.s
-080C25D4	thumb	44			asm	asm/code_080C140C.s
-080C2600	thumb	58			asm	asm/code_080C140C.s
-080C263C	thumb	6			asm	asm/code_080C140C.s
-080C2644	thumb	46			asm	asm/code_080C140C.s
-080C2674	thumb	68			asm	asm/code_080C140C.s
-080C26B8	thumb	76			asm	asm/code_080C140C.s
-080C2704	thumb	24			asm	asm/code_080C140C.s
-080C271C	thumb	24			asm	asm/code_080C140C.s
-080C2734	thumb	46			asm	asm/code_080C140C.s
-080C2764	thumb	44			asm	asm/code_080C140C.s
-080C2790	thumb	44			asm	asm/code_080C140C.s
-080C27BC	thumb	52			asm	asm/code_080C140C.s
-080C27F0	thumb	140			asm	asm/code_080C140C.s
-080C287C	thumb	78			asm	asm/code_080C140C.s
-080C28CC	thumb	44			asm	asm/code_080C140C.s
-080C28F8	thumb	44			asm	asm/code_080C140C.s
-080C2924	thumb	44			asm	asm/code_080C140C.s
-080C2950	thumb	24			asm	asm/code_080C140C.s
-080C2968	thumb	24			asm	asm/code_080C140C.s
-080C2980	thumb	24			asm	asm/code_080C140C.s
-080C2998	thumb	24			asm	asm/code_080C140C.s
-080C29B0	thumb	54			asm	asm/code_080C140C.s
-080C29E8	thumb	52			asm	asm/code_080C140C.s
-080C2A1C	thumb	52			asm	asm/code_080C140C.s
-080C2A50	thumb	52			asm	asm/code_080C140C.s
-080C2A84	thumb	36			asm	asm/code_080C140C.s
-080C2AA8	thumb	36			asm	asm/code_080C140C.s
-080C2ACC	thumb	12			asm	asm/code_080C140C.s
-080C2AD8	thumb	36			asm	asm/code_080C140C.s
-080C2AFC	thumb	24			asm	asm/code_080C140C.s
-080C2B14	thumb	32			asm	asm/code_080C140C.s
-080C2B34	thumb	24	Settings_GetBattleMsgSpeed	tentative	named	asm/code_080C140C.s
-080C2B4C	thumb	32			asm	asm/code_080C140C.s
-080C2B6C	thumb	24			asm	asm/code_080C140C.s
-080C2B84	thumb	32			asm	asm/code_080C140C.s
-080C2BA4	thumb	38			asm	asm/code_080C140C.s
-080C2BCC	thumb	36			asm	asm/code_080C140C.s
-080C2BF0	thumb	26			asm	asm/code_080C140C.s
-080C2C0C	thumb	36			asm	asm/code_080C140C.s
-080C2C30	thumb	26			asm	asm/code_080C140C.s
-080C2C4C	thumb	36			asm	asm/code_080C140C.s
-080C2C70	thumb	42			asm	asm/code_080C140C.s
-080C2C9C	thumb	36			asm	asm/code_080C140C.s
-080C2CC0	thumb	24			asm	asm/code_080C140C.s
-080C2CD8	thumb	112			asm	asm/code_080C140C.s
+080BF908	thumb	48			c	src/combatant_a.c
+080BF938	thumb	996	Combatant_RecalcStats	probable	nonmatching	src/combatant_a.c
+080BFD1C	thumb	120	Combatant_ApplyBackRow	probable	c	src/combatant_a.c
+080BFD94	thumb	48	Combatant_UpdateStats	probable	c	src/combatant_a.c
+080BFDC4	thumb	192	Equipment_SumStatBonuses	probable	nonmatching	src/combatant_a.c
+080BFE84	thumb	18	Stat_CapBonus	probable	c	src/combatant_a.c
+080BFE98	thumb	14			c	src/combatant_a.c
+080BFEA8	thumb	100			c	src/combatant_a.c
+080BFF0C	thumb	128			c	src/combatant_a.c
+080BFF8C	thumb	56			c	src/combatant_a.c
+080BFFC4	thumb	42	Party_FindPosition	probable	c	src/combatant_a.c
+080BFFF0	thumb	30	Party_GetRow	probable	c	src/combatant_a.c
+080C0010	thumb	100			c	src/combatant_a.c
+080C0074	thumb	104	Combatant_SetEquip	probable	c	src/combatant_a.c
+080C00DC	thumb	108	Combatant_GetEquip	probable	c	src/combatant_a.c
+080C0148	thumb	80	Party_GetMember	probable	c	src/combatant_a.c
+080C0198	thumb	66	Stock_FindDemon	probable	c	src/combatant_a.c
+080C01DC	thumb	106	Party_Add	probable	c	src/combatant_a.c
+080C0248	thumb	72	Party_AddAt	probable	c	src/combatant_a.c
+080C0290	thumb	178	Party_Remove	probable	c	src/combatant_a.c
+080C0344	thumb	50	Combatant_DecodeName	tentative	c	src/combatant_a.c
+080C0378	thumb	48			c	src/combatant_a.c
+080C03A8	thumb	64			c	src/combatant_a.c
+080C03E8	thumb	56	Name_EncodeChar	probable	c	src/combatant_a.c
+080C0420	thumb	36	Name_Encode	probable	c	src/combatant_a.c
+080C0444	thumb	268	Combatant_InitDemon	probable	c	src/combatant_a.c
+080C0550	thumb	36	Member_InitDemon	probable	c	src/combatant_a.c
+080C0574	thumb	136	Stats_CalcDerived	probable	c	src/combatant_a.c
+080C05FC	thumb	48	Combatant_CalcDerived	probable	c	src/combatant_a.c
+080C062C	thumb	96	Stock_AddDemon	probable	c	src/combatant_a.c
+080C068C	thumb	16	Race_GetName	tentative	c	src/combatant_a.c
+080C069C	thumb	16	ParentRace_GetName	tentative	c	src/combatant_a.c
+080C06AC	thumb	16			c	src/combatant_a.c
+080C06BC	thumb	46	Combatant_GetAlignment	probable	c	src/combatant_a.c
+080C06EC	thumb	136	Combatant_AddAlignment	probable	c	src/combatant_a.c
+080C0774	thumb	32			c	src/combatant_a.c
+080C0794	thumb	28			c	src/combatant_a.c
+080C07B0	thumb	48	Alignment_AreCompatible	probable	c	src/combatant_a.c
+080C07E0	thumb	28	Combatant_GetDemonId	probable	c	src/combatant_a.c
+080C07FC	thumb	28			c	src/combatant_a.c
+080C0818	thumb	24	Combatant_GetStatus	probable	c	src/combatant_a.c
+080C0830	thumb	26	Combatant_IsDead	probable	c	src/combatant_a.c
+080C084C	thumb	110	Combatant_OnStatusChange	probable	c	src/combatant_b.c
+080C08BC	thumb	44	Combatant_ClearStatus	probable	c	src/combatant_b.c
+080C08E8	thumb	14			c	src/combatant_b.c
+080C08F8	thumb	170	Combatant_SetStatus	probable	c	src/combatant_b.c
+080C09A4	thumb	12	Race_GetParentId	tentative	c	src/combatant_b.c
+080C09B0	thumb	34	Combatant_IsUsed	probable	c	src/combatant_b.c
+080C09D4	thumb	44			c	src/combatant_b.c
+080C0A00	thumb	34	Combatant_IsAlive	probable	c	src/combatant_b.c
+080C0A24	thumb	42	Combatant_IsHpFull	probable	c	src/combatant_b.c
+080C0A50	thumb	42	Combatant_IsMpFull	probable	c	src/combatant_b.c
+080C0A7C	thumb	44	Combatant_RestoreHp	probable	c	src/combatant_b.c
+080C0AA8	thumb	44	Combatant_RestoreMp	probable	c	src/combatant_b.c
+080C0AD4	thumb	92	Combatant_ChangeHp	probable	c	src/combatant_b.c
+080C0B30	thumb	90	Combatant_ChangeHpCapped	probable	c	src/combatant_b.c
+080C0B8C	thumb	48	Combatant_ChangeHpPercent	probable	c	src/combatant_b.c
+080C0BBC	thumb	88	Combatant_ChangeMp	probable	c	src/combatant_b.c
+080C0C14	thumb	90	Combatant_ChangeMpCapped	probable	c	src/combatant_b.c
+080C0C70	thumb	60	Combatant_Damage	probable	c	src/combatant_b.c
+080C0CAC	thumb	38			c	src/combatant_b.c
+080C0CD4	thumb	38			c	src/combatant_b.c
+080C0CFC	thumb	28			c	src/combatant_b.c
+080C0D18	thumb	28			c	src/combatant_b.c
+080C0D34	thumb	28			c	src/combatant_b.c
+080C0D50	thumb	28			c	src/combatant_b.c
+080C0D6C	thumb	36	Combatant_GetStrength	probable	c	src/combatant_b.c
+080C0D90	thumb	36	Combatant_GetIntelligence	probable	c	src/combatant_b.c
+080C0DB4	thumb	36	Combatant_GetMagic	probable	c	src/combatant_b.c
+080C0DD8	thumb	36	Combatant_GetVitality	probable	c	src/combatant_b.c
+080C0DFC	thumb	36	Combatant_GetAgility	probable	c	src/combatant_b.c
+080C0E20	thumb	36	Combatant_GetLuck	probable	c	src/combatant_b.c
+080C0E44	thumb	104	Combatant_GetStat	probable	c	src/combatant_b.c
+080C0EAC	thumb	20	Stat_ClampBase	probable	c	src/combatant_b.c
+080C0EC0	thumb	162	Combatant_AddBaseStat	probable	c	src/combatant_b.c
+080C0F64	thumb	12	Combatant_GetBaseStat	probable	c	src/combatant_b.c
+080C0F70	thumb	28			c	src/combatant_b.c
+080C0F8C	thumb	24	Combatant_GetLevel	probable	c	src/combatant_b.c
+080C0FA4	thumb	28	Combatant_SetLevel	probable	c	src/combatant_b.c
+080C0FC0	thumb	40	Party_CountMembers	probable	c	src/combatant_b.c
+080C0FE8	thumb	50	Stock_FindDemonIndex	probable	c	src/combatant_b.c
+080C101C	thumb	46	Stock_FindFreeSlot	probable	c	src/combatant_b.c
+080C104C	thumb	36	Stock_GetCapacity	probable	c	src/combatant_b.c
+080C1070	thumb	38	Exp_GetLevel	probable	c	src/combatant_b.c
+080C1098	thumb	16	Exp_GetForLevel	probable	c	src/combatant_b.c
+080C10A8	thumb	12			c	src/combatant_b.c
+080C10B4	thumb	44			c	src/combatant_b.c
+080C10E0	thumb	4			c	src/combatant_b.c
+080C10E4	thumb	16			c	src/combatant_b.c
+080C10F4	thumb	456	Game_NewGame	probable	c	src/combatant_b.c
+080C12BC	thumb	2			c	src/combatant_b.c
+080C12C0	thumb	64			c	src/combatant_b.c
+080C1300	thumb	40			c	src/combatant_b.c
+080C1328	thumb	92			c	src/combatant_b.c
+080C1384	thumb	120			c	src/combatant_b.c
+080C13FC	thumb	16			c	src/combatant_b.c
+080C140C	thumb	52			c	src/fieldmain_a.c
+080C1440	thumb	14			c	src/fieldmain_a.c
+080C1450	thumb	172			c	src/fieldmain_a.c
+080C14FC	thumb	64			c	src/fieldmain_a.c
+080C153C	thumb	36			c	src/fieldmain_a.c
+080C1560	thumb	208			c	src/fieldmain_a.c
+080C1630	thumb	84			c	src/fieldmain_a.c
+080C1684	thumb	364			c	src/fieldmain_a.c
+080C17F0	thumb	96			c	src/fieldmain_a.c
+080C1850	thumb	48	FieldMain_Loop	probable	c	src/fieldmain_a.c
+080C1880	thumb	472			c	src/fieldmain_a.c
+080C1A58	thumb	68			c	src/fieldmain_a.c
+080C1A9C	thumb	18			c	src/fieldmain_a.c
+080C1AB0	thumb	66			c	src/fieldmain_a.c
+080C1AF4	thumb	90			c	src/fieldmain_a.c
+080C1B50	thumb	34			c	src/fieldmain_a.c
+080C1B74	thumb	312			nonmatching	src/fieldmain_a.c
+080C1CAC	thumb	82			c	src/fieldmain_a.c
+080C1D00	thumb	156	Moon_Advance	probable	c	src/moon_a.c
+080C1D9C	thumb	20	Moon_GetPhase	probable	c	src/moon_a.c
+080C1DB0	thumb	48	Moon_PhaseChanged	probable	c	src/moon_a.c
+080C1DE0	thumb	64			c	src/moon_a.c
+080C1E20	thumb	64			c	src/moon_a.c
+080C1E60	thumb	240			c	src/moon_a.c
+080C1F50	thumb	68			c	src/moon_a.c
+080C1F94	thumb	50	Math_DivRound	probable	c	src/moon_a.c
+080C1FC8	thumb	56			c	src/moon_a.c
+080C2000	thumb	142			nonmatching	src/moon_a.c
+080C2090	thumb	56			c	src/moon_a.c
+080C20C8	thumb	36			c	src/moon_a.c
+080C20EC	thumb	122			nonmatching	src/moon_a.c
+080C2168	thumb	102			nonmatching	src/moon_a.c
+080C21D0	thumb	76	Encounter_GetDangerLevel	probable	c	src/moon_a.c
+080C221C	thumb	20	Encounter_GetCounter	probable	c	src/moon_a.c
+080C2230	thumb	20	Encounter_SetCounter	probable	c	src/moon_a.c
+080C2244	thumb	16	Random_Byte	probable	c	src/moon_a.c
+080C2254	thumb	44			c	src/moon_a.c
+080C2280	thumb	98	Encounter_Check	probable	c	src/moon_a.c
+080C22E4	thumb	84	PlayTime_Tick	probable	nonmatching	src/moon_a.c
+080C2338	thumb	8	PlayTime_Get	probable	c	src/moon_a.c
+080C2340	thumb	36	Flag_Test	probable	c	src/flags_a.c
+080C2364	thumb	88	Flag_Set	probable	c	src/flags_a.c
+080C23BC	thumb	88	Flag_Clear	probable	c	src/flags_a.c
+080C2414	thumb	36			c	src/flags_a.c
+080C2438	thumb	36			c	src/flags_a.c
+080C245C	thumb	36			c	src/flags_a.c
+080C2480	thumb	54			c	src/flags_a.c
+080C24B8	thumb	104			c	src/flags_a.c
+080C2520	thumb	52			c	src/flags_a.c
+080C2554	thumb	46			c	src/flags_a.c
+080C2584	thumb	80			c	src/flags_a.c
+080C25D4	thumb	44			c	src/flags_a.c
+080C2600	thumb	58			c	src/flags_a.c
+080C263C	thumb	6			c	src/flags_a.c
+080C2644	thumb	46			c	src/flags_a.c
+080C2674	thumb	68			c	src/flags_a.c
+080C26B8	thumb	76			c	src/flags_a.c
+080C2704	thumb	24			c	src/flags_a.c
+080C271C	thumb	24			c	src/flags_a.c
+080C2734	thumb	46			c	src/flags_a.c
+080C2764	thumb	44			c	src/flags_a.c
+080C2790	thumb	44			c	src/flags_a.c
+080C27BC	thumb	52			c	src/flags_a.c
+080C27F0	thumb	140			c	src/flags_a.c
+080C287C	thumb	78			c	src/flags_a.c
+080C28CC	thumb	44			c	src/flags_a.c
+080C28F8	thumb	44			c	src/flags_a.c
+080C2924	thumb	44			c	src/flags_a.c
+080C2950	thumb	24			c	src/flags_a.c
+080C2968	thumb	24			c	src/flags_a.c
+080C2980	thumb	24			c	src/flags_a.c
+080C2998	thumb	24			c	src/flags_a.c
+080C29B0	thumb	54			c	src/flags_a.c
+080C29E8	thumb	52			c	src/flags_a.c
+080C2A1C	thumb	52			c	src/flags_a.c
+080C2A50	thumb	52			c	src/flags_a.c
+080C2A84	thumb	36			c	src/flags_a.c
+080C2AA8	thumb	36	Options_Load	probable	c	src/flags_a.c
+080C2ACC	thumb	12	Options_Get	probable	c	src/flags_a.c
+080C2AD8	thumb	36	Options_Save	probable	c	src/flags_a.c
+080C2AFC	thumb	24			c	src/flags_a.c
+080C2B14	thumb	32			c	src/flags_a.c
+080C2B34	thumb	24	Settings_GetBattleMsgSpeed	tentative	c	src/flags_a.c
+080C2B4C	thumb	32			c	src/flags_a.c
+080C2B6C	thumb	24			c	src/flags_a.c
+080C2B84	thumb	32			c	src/flags_a.c
+080C2BA4	thumb	38			c	src/flags_a.c
+080C2BCC	thumb	36			c	src/flags_a.c
+080C2BF0	thumb	26			c	src/flags_a.c
+080C2C0C	thumb	36			c	src/flags_a.c
+080C2C30	thumb	26			c	src/flags_a.c
+080C2C4C	thumb	36			c	src/flags_a.c
+080C2C70	thumb	42			c	src/flags_a.c
+080C2C9C	thumb	36			c	src/flags_a.c
+080C2CC0	thumb	24			c	src/flags_a.c
+080C2CD8	thumb	112			c	src/flags_a.c
 080C2D48	thumb	48			asm	asm/code_080C2D48.s
 080C2D78	thumb	72			asm	asm/code_080C2D48.s
 080C2DC0	thumb	32			asm	asm/code_080C2D48.s
@@ -2525,7 +2525,7 @@ address	mode	size	name	confidence	state	file
 080EA314	thumb	104			asm	asm/code_080E8D88.s
 080EA37C	thumb	378	BattleMenu_SetMode	tentative	c	src/btext_menu.c
 080EA4F8	thumb	48	BattleMenu_SetModeAutoClose	probable	c	src/btext_menu.c
-080EA528	thumb	14	BattleMenu_Reset	probable	c	src/btext_menu.c
+080EA528	thumb	14	BattleMenu_Reset	probable	nonmatching	src/btext_menu.c
 080EA538	thumb	1020	BattleMsg_Update	probable	nonmatching	src/btext_menu.c
 080EA934	thumb	46	BattleMsg_IsDone	probable	c	src/btext_menu2.c
 080EA964	thumb	64	BattleMsg_Close	probable	c	src/btext_menu2.c
@@ -2678,10 +2678,10 @@ address	mode	size	name	confidence	state	file
 080EE028	thumb	228			nonmatching	src/battle_080EDB6C.c
 080EE10C	thumb	476	Battle_BuildTargetList	probable	c	src/battle_080EDB6C.c
 080EE2E8	thumb	980			asm	asm/code_080EE2E8.s
-080EE6BC	thumb	340	Battle_FinishDamage	probable	c	src/battle_080EE6BC.c
+080EE6BC	thumb	340	Battle_FinishDamage	probable	nonmatching	src/battle_080EE6BC.c
 080EE810	thumb	82			c	src/battle_080EE6BC.c
 080EE864	thumb	404	Battle_PhysicalDamage	probable	c	src/battle_080EE6BC.c
-080EE9F8	thumb	412	Battle_SkillDamage	probable	c	src/battle_080EE6BC.c
+080EE9F8	thumb	412	Battle_SkillDamage	probable	nonmatching	src/battle_080EE6BC.c
 080EEB94	thumb	462			asm	asm/code_080EEB94.s
 080EED64	thumb	36			c	src/battle_080EED64.c
 080EED88	thumb	352			c	src/battle_080EED64.c
@@ -2762,7 +2762,7 @@ address	mode	size	name	confidence	state	file
 080F0194	thumb	68			c	src/battle_080EFE60.c
 080F01D8	thumb	20			c	src/battle_080EFE60.c
 080F01EC	thumb	20			c	src/battle_080EFE60.c
-080F0200	thumb	268	Battle_InitEnemyUnit	probable	c	src/battle_080F0200.c
+080F0200	thumb	268	Battle_InitEnemyUnit	probable	nonmatching	src/battle_080F0200.c
 080F030C	thumb	54			nonmatching	src/battle_080F0200.c
 080F0344	thumb	72			nonmatching	src/battle_080F0200.c
 080F038C	thumb	74			c	src/battle_080F0200.c
@@ -2772,7 +2772,7 @@ address	mode	size	name	confidence	state	file
 080F0BC0	thumb	24			c	src/battle_080F0B78.c
 080F0BD8	thumb	20			c	src/battle_080F0B78.c
 080F0BEC	thumb	44			c	src/battle_080F0B78.c
-080F0C18	thumb	228			c	src/battle_080F0B78.c
+080F0C18	thumb	228			nonmatching	src/battle_080F0B78.c
 080F0CFC	thumb	620			asm	asm/code_080F0CFC.s
 080F0F68	thumb	228			asm	asm/code_080F0CFC.s
 080F104C	thumb	64			nonmatching	src/battle_080F104C.c
@@ -3360,7 +3360,7 @@ address	mode	size	name	confidence	state	file
 08132ACC	thumb	44	ScriptOp_317	probable	c	src/script_ops_304.c
 08132AF8	thumb	36	ScriptOp_ReturnFromSubst	probable	c	src/script_ops_304.c
 08132B1C	thumb	36	ScriptOp_ClearFlag	probable	c	src/script_ops_304.c
-08132B40	thumb	1916	ScriptOp_Substitute	probable	c	src/script_subst.c
+08132B40	thumb	1916	ScriptOp_Substitute	probable	nonmatching	src/script_subst.c
 081332BC	thumb	56	ScriptOp_32A	probable	c	src/script2_a.c
 081332F4	thumb	136	ScriptOp_32B	probable	c	src/script2_a.c
 0813337C	thumb	12			c	src/script2_a.c

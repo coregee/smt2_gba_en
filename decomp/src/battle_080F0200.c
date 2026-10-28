@@ -49,8 +49,8 @@ void Battle_InitEnemyUnit(s32 slot, s32 id)
         for (i = 0, j = 0; j < 7; i++, j++)
             skills[i] = src[j];
     }
-    sub_080C0574(u[0xD], u + 0x40, u + 0x48);
-    sub_080C0420(rec + 0x22, u);
+    Stats_CalcDerived(u[0xD], u + 0x40, u + 0x48);
+    Name_Encode(rec + 0x22, u);
 }
 #else
 NAKED void Battle_InitEnemyUnit(s32 slot, s32 id)
@@ -174,10 +174,10 @@ NAKED void Battle_InitEnemyUnit(s32 slot, s32 id)
         "    ldrb r0, [r6, #0xd]\n"
         "    mov r1, sb\n"
         "    mov r2, ip\n"
-        "    bl sub_080C0574\n"
+        "    bl Stats_CalcDerived\n"
         "    mov r0, r8\n"
         "    adds r1, r6, #0\n"
-        "    bl sub_080C0420\n"
+        "    bl Name_Encode\n"
         "    add sp, #4\n"
         "    pop {r3, r4}\n"
         "    mov r8, r3\n"

@@ -34,7 +34,7 @@ u16 *MessageBox_ComposeWrappedText(u16 *src, u32 who)
             p++;
             for (i = 0; i < 4; i++)
             {
-                if (sub_080F3EC8(i) && sub_080C0A00(i))
+                if (sub_080F3EC8(i) && Combatant_IsAlive(i))
                     break;
             }
             Combatant_DecodeName(Battle_GetCombatant(i + 0x8000), name);
@@ -143,7 +143,7 @@ u16 *MessageBox_ComposeWrappedText(u16 *src, u32 who)
         "    cmp r0, #0\n"
         "    beq .L080EBF4A\n"
         "    adds r0, r4, #0\n"
-        "    bl sub_080C0A00\n"
+        "    bl Combatant_IsAlive\n"
         "    cmp r0, #0\n"
         "    beq .L080EBF4A\n"
         ".L080EBF68:\n"
@@ -446,9 +446,9 @@ void sub_080EC35C(struct Task *task)
             tmpl = (u16 *)gUnknown_0812490C;
             goto expand;
         }
-        if (b->unkF6A != 0 || (sub_080C0818(0) & 0xB160))
+        if (b->unkF6A != 0 || (Combatant_GetStatus(0) & 0xB160))
         {
-            id = (sub_080C0818(0) & 0xB160) ? 0x161 : 0x160;
+            id = (Combatant_GetStatus(0) & 0xB160) ? 0x161 : 0x160;
             goto lookup;
         }
         if (sub_080ED8F4() & 0x80)
@@ -703,14 +703,14 @@ void sub_080EC35C(struct Task *task)
         "    cmp r0, #0\n"
         "    bne .L080EC42E\n"
         "    movs r0, #0\n"
-        "    bl sub_080C0818\n"
+        "    bl Combatant_GetStatus\n"
         "    ldr r1, .L080EC44C\n"
         "    ands r1, r0\n"
         "    cmp r1, #0\n"
         "    beq .L080EC450\n"
         ".L080EC42E:\n"
         "    movs r0, #0\n"
-        "    bl sub_080C0818\n"
+        "    bl Combatant_GetStatus\n"
         "    ldr r1, .L080EC44C\n"
         "    ands r1, r0\n"
         "    movs r0, #0xb0\n"

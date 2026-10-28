@@ -59,7 +59,7 @@ void Warp_ToWorldPosition(u16 mode, u16 x, u16 y, u16 dir, u16 flag)
         gUnk_03003BB8 = flag;
         gGameState.unkAC0 = flag;
         if (saved == 0)
-            sub_080C2230(0);
+            Encounter_SetCounter(0);
         if (mode == 1)
             sub_080B7738(0, 0, x, y, dir, 0);
         else
@@ -99,7 +99,7 @@ void Warp_ToWorldPosition(u16 mode, u16 x, u16 y, u16 dir, u16 flag)
     if (gGameState.unkAC0 == 1 && Palette_IsBg13Black() == 1)
         sub_080C1384();
     if (saved == 1)
-        sub_080C2230(0);
+        Encounter_SetCounter(0);
     gUnk_03004530 = 0x19;
     gUnk_03003BB8 = 0;
     gGameState.unkAC0 = 0;
@@ -181,7 +181,7 @@ void Warp_ToWorldPosition(u16 mode, u16 x, u16 y, u16 dir, u16 flag)
         "    cmp r0, #0\n"
         "    bne .L080B7B7A\n"
         "    movs r0, #0\n"
-        "    bl sub_080C2230\n"
+        "    bl Encounter_SetCounter\n"
         ".L080B7B7A:\n"
         "    ldr r1, [sp, #8]\n"
         "    cmp r1, #1\n"
@@ -329,7 +329,7 @@ void Warp_ToWorldPosition(u16 mode, u16 x, u16 y, u16 dir, u16 flag)
         "    cmp r2, #1\n"
         "    bne .L080B7CA0\n"
         "    movs r0, #0\n"
-        "    bl sub_080C2230\n"
+        "    bl Encounter_SetCounter\n"
         ".L080B7CA0:\n"
         "    ldr r1, .L080B7CF4\n"
         "    movs r0, #0x19\n"
@@ -913,7 +913,7 @@ void sub_080B82B4(struct Task *task)
 
     if (((struct ItemTaskData *)task->data)->rec->u.id == 0x11F)
     {
-        if (sub_080C2414(((struct ItemTaskData *)task->data)->rec->unk8) != 0 || (r = sub_080C1D9C() & 0xF0) != 0)
+        if (sub_080C2414(((struct ItemTaskData *)task->data)->rec->unk8) != 0 || (r = Moon_GetPhase() & 0xF0) != 0)
             goto set;
         goto clear;
     }

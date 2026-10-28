@@ -46,9 +46,9 @@ void sub_080ED260(void)
     {
         s8 *slot = (s8 *)(i + (u32)slots);
 
-        if (*slot != -1 && (sub_080C0818(sub_080C0148(i)[0xC]) & 0x4000))
+        if (*slot != -1 && (Combatant_GetStatus(Party_GetMember(i)[0xC]) & 0x4000))
         {
-            sub_080C0290((u16)*slot, 0);
+            Party_Remove((u16)*slot, 0);
             changed = 1;
         }
     }

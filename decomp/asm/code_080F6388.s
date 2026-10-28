@@ -16,7 +16,7 @@ sub_080F6388: @ 0x080F6388
 sub_080F6390: @ 0x080F6390
 .L080F6390:
 	push {lr}
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #0xf
 	ands r0, r1
 	movs r1, #3

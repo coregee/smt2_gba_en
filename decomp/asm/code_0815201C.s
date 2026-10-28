@@ -2172,7 +2172,7 @@ sub_0815300C: @ 0x0815300C
 	bl Flag_Test
 	cmp r0, #0
 	bne .L0815311C
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #1
 	ands r1, r0
 	cmp r1, #0
@@ -2249,7 +2249,7 @@ sub_0815300C: @ 0x0815300C
 	b .L081531C2
 .L081531A6:
 	movs r0, #1
-	bl sub_080C2280
+	bl Encounter_Check
 	cmp r0, #1
 	bne .L081531B6
 	movs r0, #6
@@ -3042,7 +3042,7 @@ sub_0815374C: @ 0x0815374C
 	ldrh r0, [r4, #2]
 	cmp r6, r0
 	bne .L081537B4
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #5
 	bl __umodsi3
 	cmp r0, #0
@@ -3896,11 +3896,11 @@ sub_08153E70: @ 0x08153E70
 .L08153E76:
 	adds r4, r5, #4
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L08153E8E
 	adds r0, r4, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #0
 	bne .L08153E8E
 	adds r6, #1
@@ -3941,11 +3941,11 @@ sub_08153EB8: @ 0x08153EB8
 .L08153EC0:
 	adds r4, r5, #4
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L08153EEC
 	adds r0, r4, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #0
 	bne .L08153EEC
 	lsls r0, r6, #2
@@ -4549,11 +4549,11 @@ sub_08154344: @ 0x08154344
 .L0815434C:
 	adds r4, r5, #4
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L0815437C
 	adds r0, r4, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #0
 	bne .L0815437C
 	lsls r0, r5, #7
@@ -4669,11 +4669,11 @@ sub_081543E8: @ 0x081543E8
 .L08154424:
 	adds r4, r5, #4
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L0815444E
 	adds r0, r4, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #0
 	bne .L0815444E
 	ldr r0, [r6]
@@ -5041,7 +5041,7 @@ sub_081546E8: @ 0x081546E8
 	lsrs r6, r2, #0x10
 	movs r0, #0x80
 	lsls r0, r0, #8
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r0, r4, #0
 	bl Demon_GetRecord
 	ldrb r0, [r0]
@@ -5089,7 +5089,7 @@ sub_0815473C: @ 0x0815473C
 	lsrs r5, r3, #0x10
 	movs r0, #0x80
 	lsls r0, r0, #8
-	bl sub_080C0148
+	bl Party_GetMember
 	mov r8, r0
 	ldr r0, .L081547B4
 	mov sb, r0

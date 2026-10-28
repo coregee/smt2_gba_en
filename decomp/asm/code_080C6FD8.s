@@ -2012,7 +2012,7 @@ sub_080C7EFC: @ 0x080C7EFC
 .L080C7EFC:
 	push {r4, lr}
 	ldr r4, .L080C7F44
-	bl sub_080C1D9C
+	bl Moon_GetPhase
 	lsrs r0, r0, #4
 	ldr r1, .L080C7F48
 	ldr r2, .L080C7F4C
@@ -2797,7 +2797,7 @@ sub_080C84E0: @ 0x080C84E0
 	push {r4, r5, lr}
 	lsls r4, r0, #0x10
 	lsrs r0, r4, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	cmp r0, #0
 	bne .L080C84F0
 	b .L080C861C
@@ -2983,7 +2983,7 @@ sub_080C8624: @ 0x080C8624
 	push {r4, r5, lr}
 	lsls r5, r0, #0x10
 	lsrs r0, r5, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	cmp r0, #0
 	beq .L080C86A4
 	ldrh r4, [r0, #0x10]
@@ -4120,7 +4120,7 @@ sub_080C8E30: @ 0x080C8E30
 sub_080C8E64: @ 0x080C8E64
 	push {r4, lr}
 	ldr r4, .L080C8EF0
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #1
 	ands r1, r0
 	cmp r1, #0

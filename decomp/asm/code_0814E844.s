@@ -15,7 +15,7 @@ sub_0814E844: @ 0x0814E844
 	adds r0, r0, r5
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r4, r0, #0
 	ldrh r1, [r4, #0x12]
 	ldr r2, .L0814E8A4
@@ -31,12 +31,12 @@ sub_0814E844: @ 0x0814E844
 	cmp r0, #0
 	beq .L0814E8A0
 	ldrb r0, [r4, #0xc]
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	ands r0, r5
 	cmp r0, #0
 	bne .L0814E8A0
 	ldrb r0, [r4, #0xc]
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	movs r1, #0x80
 	lsls r1, r1, #6
 	ands r1, r0
@@ -73,7 +73,7 @@ sub_0814E8B0: @ 0x0814E8B0
 	adds r5, r0, r1
 .L0814E8BE:
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L0814E8D4
 	ldrb r0, [r5, #0xc]

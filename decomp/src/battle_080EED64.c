@@ -172,7 +172,7 @@ void sub_080EEF98(void)
     {
         s32 id = sub_080EF878();
 
-        sub_080C08F8(id, 0x8000);
+        Combatant_SetStatus(id, 0x8000);
         sub_080F4104(id);
         sub_08126834(-1);
         sub_080E760C();
@@ -207,8 +207,8 @@ void sub_080EEF98(void)
             sub_080C366C();
             b->unk118E |= 0xFFFF;
         }
-        sub_080C062C(gUnk_0203DB7C);
-        sub_080C101C();
+        Stock_AddDemon(gUnk_0203DB7C);
+        Stock_FindFreeSlot();
         BSTATE->unk4 |= 0xFFFF;
         break;
     }
@@ -227,7 +227,7 @@ u32 sub_080EF0E4(s32 who)
     if (who > 15)
         return 0;
     f = sub_080F3F44();
-    who = sub_080C06BC(who);
+    who = Combatant_GetAlignment(who);
     sub_080EDA90();
     if ((f & 2) && (u32)(who - 1) <= 1)
     {
@@ -257,9 +257,9 @@ void Battle_RemoveDefeated(s32 who, s32 give)
 
     if (who < 0)
         who = 0;
-    sub_080C0818(who);
-    sub_080C08F8(who, 0x8000);
-    id = sub_080C07E0(who);
+    Combatant_GetStatus(who);
+    Combatant_SetStatus(who, 0x8000);
+    id = Combatant_GetDemonId(who);
     sub_080F4054(who, 0);
     sub_080F40C4(id);
     if (who > 15)
@@ -272,7 +272,7 @@ void Battle_RemoveDefeated(s32 who, s32 give)
                 u32 p = sub_080F40EC(i);
 
                 if (p <= 3)
-                    BSTATE->unk68[p] += sub_080EF494(sub_080C0F8C(p), id);
+                    BSTATE->unk68[p] += sub_080EF494(Combatant_GetLevel(p), id);
             }
             BSTATE->unk4C += sub_080EF538(id);
             BSTATE->unk50 += sub_080EF580(id);
@@ -285,7 +285,7 @@ void Battle_RemoveDefeated(s32 who, s32 give)
         sub_080F4190(who);
     else
     {
-        sub_080BFFC4(who);
+        Party_FindPosition(who);
         sub_080C8490();
     }
 }

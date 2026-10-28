@@ -239,7 +239,7 @@ void sub_080D0BF0(struct MenuTask *task, u32 cancelled)
 {
     if (!cancelled)
     {
-        sub_080C10F4();
+        Game_NewGame();
         task->unk1E = SaveSlot_Read(3, &gGameState, 0);
         if (task->unk1E == 1)
             task->unk1E = SaveSlot_ClearSuspend();
@@ -712,7 +712,7 @@ void sub_080D10B8(void)
         sub_080C5170(0x16);
     else if (menu->mode == 2)
     {
-        switch (sub_080C06BC(0))
+        switch (Combatant_GetAlignment(0))
         {
         case 0:
             sub_080C5170(0x0E);

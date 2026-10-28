@@ -22,7 +22,7 @@ s32 sub_080ED33C(void)
     {
         if (n > 4)
             break;
-        if (sub_080C2244() & 0xF)
+        if (Random_Byte() & 0xF)
             break;
         n++;
     } while (1);

@@ -217,13 +217,13 @@ void Party_InitMember(u8 *c, s32 who)
     {
         if (who == 1)
         {
-            st = &gUnknown_081A5A20[(sub_080C2244() & 3) * 6];
+            st = &gUnknown_081A5A20[(Random_Byte() & 3) * 6];
             c[0xD] = 0x12;
             *(u32 *)(c + 8) = 0x25DA;
         }
         else
         {
-            st = &gUnknown_081A5A38[(sub_080C2244() & 3) * 6];
+            st = &gUnknown_081A5A38[(Random_Byte() & 3) * 6];
             c[0xD] = 0x18;
             *(u32 *)(c + 8) = 0x59D8;
         }
@@ -338,7 +338,7 @@ void Party_InitMember(u8 *c, s32 who)
         ".L080BF7E4:\n"
         "    cmp r6, #1\n"
         "    bne .L080BF80C\n"
-        "    bl sub_080C2244\n"
+        "    bl Random_Byte\n"
         "    movs r1, #3\n"
         "    ands r0, r1\n"
         "    lsls r1, r0, #1\n"
@@ -354,7 +354,7 @@ void Party_InitMember(u8 *c, s32 who)
         ".L080BF804: .4byte gUnknown_081A5A20\n"
         ".L080BF808: .4byte 0x000025DA\n"
         ".L080BF80C:\n"
-        "    bl sub_080C2244\n"
+        "    bl Random_Byte\n"
         "    movs r1, #3\n"
         "    ands r0, r1\n"
         "    lsls r1, r0, #1\n"
@@ -463,6 +463,6 @@ void sub_080BF8D8(s32 who)
     s32 i;
 
     for (i = 0; i <= 6; i++)
-        sub_080C0074(who, i, gUnknown_081A5A50[who * 7 + i]);
-    sub_080BF938(who);
+        Combatant_SetEquip(who, i, gUnknown_081A5A50[who * 7 + i]);
+    Combatant_RecalcStats(who);
 }

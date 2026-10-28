@@ -177,9 +177,9 @@ void PalFade_UpdateAll(void);
 void sub_080DF2E8(void);
 void sub_080DF15C(void);
 void sub_080C2998(void);
-void sub_080C2AA8(void);
+void Options_Load(void);
 void sub_080D5B8C(u32 arg);
-void sub_080C10F4(void);
+void Game_NewGame(void);
 void System_CheckSoftReset(void);
 void sub_080DF370(void);
 void Random_Next(void);
@@ -276,6 +276,6 @@ struct WindowObj *Window_Create(u16 x, u16 y, u16 w, u16 h, u16 bg);
 void *Task_Create(const void *script, u16 arg);
 void Task_End(void *obj);
 u32 sub_080C8AF8(u16 arg);
-void sub_080C1850(void);
+void FieldMain_Loop(void);
 
 #endif /* GUARD_SYS_H */

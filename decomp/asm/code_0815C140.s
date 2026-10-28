@@ -1114,7 +1114,7 @@ sub_0815C9E0: @ 0x0815C9E0
 	thumb_func_start sub_0815CA08
 sub_0815CA08: @ 0x0815CA08
 	push {lr}
-	bl sub_080C10F4
+	bl Game_NewGame
 	movs r0, #0xee
 	bl Flag_Set
 	movs r0, #2

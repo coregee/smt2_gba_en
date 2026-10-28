@@ -192,7 +192,7 @@ void sub_080BE880(struct Task *task, u32 step)
    status every stat counts as 1 (and the sixth as 40). */
 void Door_CheckStat(struct Task *task)
 {
-    u8 *e = sub_080C0148(0x8000);
+    u8 *e = Party_GetMember(0x8000);
     const struct DoorRec *p = Door_FindAtPlayer();
     u8 stats[6];
     u32 idx;
@@ -203,7 +203,7 @@ void Door_CheckStat(struct Task *task)
     stats[3] = e[0x2B];
     stats[4] = e[0x2C];
     stats[5] = e[0x2D];
-    if (sub_080C0818(e[0xC]) & 0x800)
+    if (Combatant_GetStatus(e[0xC]) & 0x800)
     {
         stats[0] = 1;
         stats[1] = 1;
@@ -231,7 +231,7 @@ void Door_CheckStat(struct Task *task)
    through. */
 void Door_CheckAlignment(struct Task *task)
 {
-    u8 *e = sub_080C0148(0x8000);
+    u8 *e = Party_GetMember(0x8000);
     const struct DoorRec *p = Door_FindAtPlayer();
     u16 align = *(u16 *)(e + 0x58);
     u32 ok = 0;
@@ -265,7 +265,7 @@ void Door_CheckAlignment(struct Task *task)
         "    adds r5, r0, #0\n"
         "    movs r0, #0x80\n"
         "    lsls r0, r0, #8\n"
-        "    bl sub_080C0148\n"
+        "    bl Party_GetMember\n"
         "    adds r4, r0, #0\n"
         "    bl Door_FindAtPlayer\n"
         "    adds r1, r0, #0\n"

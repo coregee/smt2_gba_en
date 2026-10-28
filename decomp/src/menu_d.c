@@ -342,7 +342,7 @@ u32 sub_080D2268(u16 id)
 u32 sub_080D229C(u16 id, u8 *combatant)
 {
     u16 range = sub_080D2268(id);
-    u32 ret = sub_080C00DC(combatant[0xC], range);
+    u32 ret = Combatant_GetEquip(combatant[0xC], range);
 
     return ret & 0xFF;
 }
@@ -361,7 +361,7 @@ u32 sub_080D229C(u16 id, u8 *combatant)
         "    lsls r1, r1, #0x10\n"
         "    lsrs r1, r1, #0x10\n"
         "    ldrb r0, [r4, #0xc]\n"
-        "    bl sub_080C00DC\n"
+        "    bl Combatant_GetEquip\n"
         "    movs r1, #0xff\n"
         "    ands r0, r1\n"
         "    pop {r4}\n"
@@ -377,7 +377,7 @@ u32 sub_080D229C(u16 id, u8 *combatant)
 void StatsPage_DrawLabelGrid(void)
 {
     struct StatusMenu *menu = STATUS_MENU;
-    u8 *c = sub_080C0148(menu->member + 0x8000);
+    u8 *c = Party_GetMember(menu->member + 0x8000);
     u16 id = menu->id;
 
     sub_080D229C(id, c);
@@ -433,8 +433,8 @@ void StatsPage_ApplyPreview(u8 *combatant, u16 id)
     u16 range = sub_080D2268(id);
 
     CpuSet(combatant, &menu->backup, 0x04000020);
-    sub_080C0074(combatant[0xC], range, id);
-    sub_080BF938(combatant[0xC]);
+    Combatant_SetEquip(combatant[0xC], range, id);
+    Combatant_RecalcStats(combatant[0xC]);
 }
 
 // StatsPage_RestoreCombatant @ 0x080D2554
@@ -450,7 +450,7 @@ void StatsPage_DrawBaseStats(void)
 {
     s32 yBias = 0x8B;  /* the original keeps this in a register; 0x8E - yBias == 3 */
     struct StatusMenu *menu = STATUS_MENU;
-    struct PartyMember *c = (struct PartyMember *)sub_080C0148(menu->member + 0x8000);
+    struct PartyMember *c = (struct PartyMember *)Party_GetMember(menu->member + 0x8000);
     u16 id = menu->id;
     u32 color;
 
@@ -477,7 +477,7 @@ void StatsPage_DrawDerivedStats(void)
 {
     s32 yBias = 0x8B;
     struct StatusMenu *menu = STATUS_MENU;
-    struct PartyMember *c = (struct PartyMember *)sub_080C0148(menu->member + 0x8000);
+    struct PartyMember *c = (struct PartyMember *)Party_GetMember(menu->member + 0x8000);
     u16 id = menu->id;
     u32 color;
 
@@ -503,7 +503,7 @@ void StatsPage_DrawDerivedStats2(void)
 {
     s32 yBias = 0x8B;
     struct StatusMenu *menu = STATUS_MENU;
-    struct PartyMember *c = (struct PartyMember *)sub_080C0148(menu->member + 0x8000);
+    struct PartyMember *c = (struct PartyMember *)Party_GetMember(menu->member + 0x8000);
     u16 id = menu->id;
     u32 color;
 

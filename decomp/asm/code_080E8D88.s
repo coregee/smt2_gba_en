@@ -221,7 +221,7 @@ sub_080E8E00: @ 0x080E8E00
 	adds r0, r6, #0
 	adds r0, #0x10
 	movs r1, #0
-	bl sub_080C08F8
+	bl Combatant_SetStatus
 .L080E8F48:
 	ldr r1, .L080E8F6C
 	adds r0, r1, r6
@@ -565,7 +565,7 @@ sub_080E91F0: @ 0x080E91F0
 	sub sp, #4
 	lsls r0, r0, #0x10
 	lsrs r5, r0, #0x10
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #1
 	ands r1, r0
 	lsls r1, r1, #2
@@ -597,7 +597,7 @@ sub_080E91F0: @ 0x080E91F0
 	asrs r4, r0, #0x10
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_080C00DC
+	bl Combatant_GetEquip
 	cmp r0, #0xff
 	beq .L080E9252
 	adds r0, r4, #0
@@ -647,7 +647,7 @@ sub_080E926C: @ 0x080E926C
 	bl sub_080C3620
 	lsls r0, r0, #0x10
 	lsrs r7, r0, #0x10
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #1
 	ands r1, r0
 	lsls r1, r1, #2
@@ -722,7 +722,7 @@ sub_080E926C: @ 0x080E926C
 	cmp r0, #0
 	beq .L080E93EC
 	adds r0, r5, #0
-	bl sub_080C0A00
+	bl Combatant_IsAlive
 	cmp r0, #0
 	beq .L080E93EC
 .L080E9348:
@@ -788,7 +788,7 @@ sub_080E926C: @ 0x080E926C
 	cmp r0, #0
 	beq .L080E93EC
 	adds r0, r4, #0
-	bl sub_080C0A00
+	bl Combatant_IsAlive
 	cmp r0, #0
 	beq .L080E93EC
 .L080E93CE:
@@ -946,7 +946,7 @@ gUnknown_080E944C:
 	lsls r4, r5, #0x10
 	asrs r4, r4, #0x10
 	adds r0, r4, #0
-	bl sub_080BFD94
+	bl Combatant_UpdateStats
 	adds r4, #1
 	lsls r4, r4, #0x10
 	lsrs r5, r4, #0x10
@@ -1636,10 +1636,10 @@ gUnknown_080E994C:
 	adds r1, r6, r2
 	movs r0, #2
 	strh r0, [r1]
-	bl sub_080C2244
+	bl Random_Byte
 	ldr r4, .L080E9B14
 	strh r0, [r4]
-	bl sub_080C2244
+	bl Random_Byte
 	strh r0, [r4, #2]
 	bl sub_080EF364
 .L080E9B06:
@@ -1662,14 +1662,14 @@ gUnknown_080E994C:
 	lsls r0, r5, #0x10
 	asrs r4, r0, #0x10
 	adds r0, r4, #0
-	bl sub_080C0A00
+	bl Combatant_IsAlive
 	cmp r0, #0
 	beq .L080E9B68
 	adds r0, r4, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	adds r1, r7, #0
 	adds r0, r4, #0
-	bl sub_080C08F8
+	bl Combatant_SetStatus
 	adds r0, r4, #0
 	movs r1, #0
 	bl sub_080F4054
@@ -1882,7 +1882,7 @@ gUnknown_080E994C:
 	bne .L080E9D20
 	b .L080EA168
 .L080E9D20:
-	bl sub_080C2244
+	bl Random_Byte
 	ands r0, r5
 	movs r1, #0xdb
 	cmp r0, #0
@@ -2021,7 +2021,7 @@ gUnknown_080E994C:
 .L080E9E4E:
 	movs r2, #0
 	ldrsh r0, [r5, r2]
-	bl sub_080C0A00
+	bl Combatant_IsAlive
 	cmp r0, #0
 	bne .L080E9E5C
 	b .L080E9F7C
@@ -2039,7 +2039,7 @@ gUnknown_080E994C:
 	bl sub_080F0194
 	adds r7, r0, #0
 	ldr r0, [r4, #8]
-	bl sub_080C1070
+	bl Exp_GetLevel
 	mov sl, r0
 	ldr r1, .L080E9F38
 	movs r0, #0
@@ -2094,14 +2094,14 @@ gUnknown_080E994C:
 	mov sb, r0
 .L080E9EE4:
 	ldr r0, [r4, #8]
-	bl sub_080C1070
+	bl Exp_GetLevel
 	adds r4, r0, #0
 	ldr r1, .L080E9F30
 	adds r5, r6, r1
 	movs r2, #0
 	ldrsh r0, [r5, r2]
 	adds r1, r4, #0
-	bl sub_080C0FA4
+	bl Combatant_SetLevel
 	ldr r0, .L080E9F4C
 	mov r3, sl
 	subs r4, r4, r3
@@ -2125,7 +2125,7 @@ gUnknown_080E994C:
 	strh r4, [r0]
 	movs r1, #0
 	ldrsh r0, [r5, r1]
-	bl sub_080BF938
+	bl Combatant_RecalcStats
 	b .L080EA168
 	.byte 0x00, 0x00
 .L080E9F30: .4byte 0x00000ECE
@@ -2412,7 +2412,7 @@ sub_080EA178: @ 0x080EA178
 	cmp r0, #0
 	beq .L080EA1BC
 	adds r0, r5, #0
-	bl sub_080C0A00
+	bl Combatant_IsAlive
 	cmp r0, #0
 	beq .L080EA1BC
 	movs r6, #1

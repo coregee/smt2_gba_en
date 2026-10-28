@@ -8,7 +8,7 @@ void sub_080DE0DC(void)
     {
         sub_080DE208();
         Task_RunAll();
-        sub_080C22E4();
+        PlayTime_Tick();
     }
 }
 

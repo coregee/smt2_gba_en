@@ -25,7 +25,7 @@ sub_080EEB94: @ 0x080EEB94
 	rsbs r0, r0, #0
 	str r0, [r5, #8]
 	mov r0, sb
-	bl sub_080C0D90
+	bl Combatant_GetIntelligence
 	adds r4, r0, #0
 	mov r0, sl
 	bl sub_080ED7A4
@@ -33,7 +33,7 @@ sub_080EEB94: @ 0x080EEB94
 	lsrs r4, r4, #0x10
 	muls r4, r0, r4
 	adds r0, r7, #0
-	bl sub_080C0D90
+	bl Combatant_GetIntelligence
 	lsls r0, r0, #0x10
 	lsrs r1, r0, #0x10
 	cmp r1, #0
@@ -79,7 +79,7 @@ sub_080EEB94: @ 0x080EEB94
 	cmp r1, #0
 	beq .L080EECE4
 	adds r0, r7, #0
-	bl sub_080C0D90
+	bl Combatant_GetIntelligence
 	adds r4, r0, #0
 	mov r0, sl
 	bl sub_080ED7A4
@@ -87,7 +87,7 @@ sub_080EEB94: @ 0x080EEB94
 	lsrs r4, r4, #0x10
 	muls r4, r0, r4
 	adds r0, r7, #0
-	bl sub_080C0D90
+	bl Combatant_GetIntelligence
 	lsls r0, r0, #0x10
 	lsrs r1, r0, #0x10
 	cmp r1, #0
@@ -165,7 +165,7 @@ sub_080EEB94: @ 0x080EEB94
 	bl sub_080EDA7C
 .L080EECE4:
 	adds r0, r7, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	adds r4, r0, #0
 	mov r0, sl
 	bl sub_080ED794
@@ -179,7 +179,7 @@ sub_080EEB94: @ 0x080EEB94
 .L080EED00:
 	cmp r6, #0
 	beq .L080EED50
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #0x1f
 	ands r1, r0
 	cmp r1, r6

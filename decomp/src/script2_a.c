@@ -138,7 +138,7 @@ void ScriptOp_32C(void)
         sub_080C30AC(v);
 }
 
-/* Jumps when sub_080C2244() < 0x80 >> operand. */
+/* Jumps when Random_Byte() < 0x80 >> operand. */
 // ScriptOp_32D @ 0x08133500
 void ScriptOp_32D(void)
 {
@@ -146,7 +146,7 @@ void ScriptOp_32D(void)
     u16 lo = SCRIPT_READ();
     u32 target = SCRIPT_READ() << 16 | lo;
 
-    if (sub_080C2244() < n)
+    if (Random_Byte() < n)
         gScriptJumpTarget = (u16 *)target;
 }
 

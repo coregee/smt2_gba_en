@@ -1027,7 +1027,7 @@ sub_080CDB74: @ 0x080CDB74
 	lsls r4, r4, #0x10
 	lsrs r4, r4, #0x10
 	adds r0, r5, #0
-	bl sub_080C06BC
+	bl Combatant_GetAlignment
 	adds r5, r0, #0
 	lsls r4, r4, #0x10
 	asrs r4, r4, #0x10
@@ -1214,7 +1214,7 @@ sub_080CDC54: @ 0x080CDC54
 	bl sub_080CDFD0
 	bl sub_080CDC34
 	ldrb r0, [r4, #0xc]
-	bl sub_080BF938
+	bl Combatant_RecalcStats
 	ldrh r2, [r4, #0x1a]
 	movs r3, #0x1a
 	ldrsh r1, [r4, r3]
@@ -1457,7 +1457,7 @@ sub_080CDEEC: @ 0x080CDEEC
 	adds r0, r0, r4
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r6, r0, #0
 	adds r0, r5, #0
 	ands r0, r4
@@ -1520,7 +1520,7 @@ sub_080CDEEC: @ 0x080CDEEC
 	bl sub_080C3328
 .L080CDF98:
 	ldrb r0, [r6, #0xc]
-	bl sub_080BF938
+	bl Combatant_RecalcStats
 	ldrh r2, [r6, #0x1a]
 	movs r0, #0x1a
 	ldrsh r1, [r6, r0]
@@ -1563,7 +1563,7 @@ sub_080CDFD0: @ 0x080CDFD0
 	lsls r1, r1, #0x18
 	adds r0, r0, r1
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	ldr r2, .L080CDFF4
 	adds r1, r4, #0
 	bl sub_080C34B0
@@ -1584,13 +1584,13 @@ sub_080CDFF8: @ 0x080CDFF8
 	lsls r1, r1, #0x18
 	adds r0, r0, r1
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r5, r0, #0
 	ldrb r0, [r5, #0xc]
 	adds r1, r4, #0
 	bl sub_080CDFD0
 	ldrb r0, [r5, #0xc]
-	bl sub_080BF938
+	bl Combatant_RecalcStats
 	ldrh r2, [r5, #0x1a]
 	movs r3, #0x1a
 	ldrsh r1, [r5, r3]
@@ -1917,32 +1917,32 @@ sub_080CE2A8: @ 0x080CE2A8
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
 	movs r1, #0
-	bl sub_080C0F64
+	bl Combatant_GetBaseStat
 	cmp r0, #0x28
 	bne .L080CE2F8
 	ldrb r0, [r4, #0xc]
 	movs r1, #1
-	bl sub_080C0F64
+	bl Combatant_GetBaseStat
 	cmp r0, #0x28
 	bne .L080CE2F8
 	ldrb r0, [r4, #0xc]
 	movs r1, #2
-	bl sub_080C0F64
+	bl Combatant_GetBaseStat
 	cmp r0, #0x28
 	bne .L080CE2F8
 	ldrb r0, [r4, #0xc]
 	movs r1, #3
-	bl sub_080C0F64
+	bl Combatant_GetBaseStat
 	cmp r0, #0x28
 	bne .L080CE2F8
 	ldrb r0, [r4, #0xc]
 	movs r1, #4
-	bl sub_080C0F64
+	bl Combatant_GetBaseStat
 	cmp r0, #0x28
 	bne .L080CE2F8
 	ldrb r0, [r4, #0xc]
 	movs r1, #5
-	bl sub_080C0F64
+	bl Combatant_GetBaseStat
 	cmp r0, #0x28
 	bne .L080CE2F8
 	movs r0, #0
@@ -1979,7 +1979,7 @@ sub_080CE300: @ 0x080CE300
 	beq .L080CE3A4
 	ldrb r0, [r6, #0xc]
 	ldrh r1, [r4, #0x2c]
-	bl sub_080C0F64
+	bl Combatant_GetBaseStat
 	adds r5, r0, #0
 	movs r0, #0xff
 	ands r5, r0
@@ -2004,7 +2004,7 @@ sub_080CE300: @ 0x080CE300
 	ldrb r0, [r6, #0xc]
 	ldrh r1, [r4, #0x2c]
 	movs r2, #1
-	bl sub_080C0EC0
+	bl Combatant_AddBaseStat
 	ldrh r0, [r4, #0x36]
 	subs r0, #1
 	strh r0, [r4, #0x36]
@@ -2038,7 +2038,7 @@ sub_080CE300: @ 0x080CE300
 	beq .L080CE438
 	ldrb r0, [r6, #0xc]
 	ldrh r1, [r4, #0x2c]
-	bl sub_080C0F64
+	bl Combatant_GetBaseStat
 	adds r2, r0, #0
 	ldrh r0, [r4, #0x2c]
 	cmp r0, #5
@@ -2096,7 +2096,7 @@ gUnknown_080CE3CC:
 	ldrh r1, [r4, #0x2c]
 	movs r2, #1
 	rsbs r2, r2, #0
-	bl sub_080C0EC0
+	bl Combatant_AddBaseStat
 	ldrh r0, [r4, #0x36]
 	adds r0, #1
 	strh r0, [r4, #0x36]
@@ -2528,7 +2528,7 @@ sub_080CE760: @ 0x080CE760
 	ldr r7, .L080CE7D0
 	movs r0, #0x80
 	lsls r0, r0, #8
-	bl sub_080C0148
+	bl Party_GetMember
 	mov r8, r0
 	ldr r5, .L080CE7D4
 	ldrh r0, [r5, #8]
@@ -2587,7 +2587,7 @@ sub_080CE760: @ 0x080CE760
 	movs r4, #0
 .L080CE7EA:
 	adds r0, r4, #4
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L080CE7FA
 	adds r0, r5, #1
@@ -2599,7 +2599,7 @@ sub_080CE760: @ 0x080CE760
 	lsrs r4, r0, #0x10
 	cmp r4, #0xb
 	bls .L080CE7EA
-	bl sub_080C104C
+	bl Stock_GetCapacity
 	cmp r5, r0
 	blt .L080CE83A
 	movs r0, #1
@@ -2775,7 +2775,7 @@ sub_080CE760: @ 0x080CE760
 	bne .L080CE99E
 	mov r1, r8
 	ldrb r0, [r1, #0xc]
-	bl sub_080C06BC
+	bl Combatant_GetAlignment
 	adds r4, r0, #0
 	ldrh r0, [r5, #6]
 	bl sub_0815B864
@@ -4010,7 +4010,7 @@ sub_080CF324: @ 0x080CF324
 	mov sb, r0
 	movs r0, #0x80
 	lsls r0, r0, #8
-	bl sub_080C0148
+	bl Party_GetMember
 	mov r8, r0
 	mov r1, sb
 	ldrh r0, [r1, #2]
@@ -4048,7 +4048,7 @@ sub_080CF324: @ 0x080CF324
 	movs r4, #0
 .L080CF38C:
 	adds r0, r4, #4
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L080CF398
 	adds r5, #1
@@ -4056,7 +4056,7 @@ sub_080CF324: @ 0x080CF324
 	adds r4, #1
 	cmp r4, #0xb
 	ble .L080CF38C
-	bl sub_080C104C
+	bl Stock_GetCapacity
 	cmp r5, r0
 	blt .L080CF3AC
 	movs r0, #3
@@ -4076,7 +4076,7 @@ sub_080CF324: @ 0x080CF324
 .L080CF3C2:
 	mov r1, r8
 	ldrb r0, [r1, #0xc]
-	bl sub_080C06BC
+	bl Combatant_GetAlignment
 	adds r4, r0, #0
 	adds r0, r7, #0
 	bl sub_0815B864

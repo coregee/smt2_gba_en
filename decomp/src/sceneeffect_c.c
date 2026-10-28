@@ -134,7 +134,7 @@ void sub_080BB164(struct Task *task)
                 break;
         }
         if (i != 6)
-            sub_080C4618(i, 0x177, (sub_080C2244() + 0x40) & 0x7F, d[2] + 0xE, 0, 0);
+            sub_080C4618(i, 0x177, (Random_Byte() + 0x40) & 0x7F, d[2] + 0xE, 0, 0);
     }
 }
 

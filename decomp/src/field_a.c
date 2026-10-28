@@ -698,7 +698,7 @@ void sub_080AE234(void)
 void sub_080AE294(void)
 {
     sub_080F3F58(-0x11);
-    sub_080C2230(0);
+    Encounter_SetCounter(0);
 }
 
 // Field_SetPosition @ 0x080AE2A8

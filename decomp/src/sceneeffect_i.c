@@ -117,6 +117,6 @@ void sub_080BCC7C(void)
 {
     u16 *d = Task_Create(gUnknown_0818F760, 0xFFFF)->data.h;
 
-    d[5] = (sub_080C2244() & 0x3F) + 0x30;
-    d[6] = (sub_080C2244() & 0x3F) + 0xFFF3;
+    d[5] = (Random_Byte() & 0x3F) + 0x30;
+    d[6] = (Random_Byte() & 0x3F) + 0xFFF3;
 }

@@ -27,12 +27,12 @@ u32 sub_080EF224(s32 pos, s32 count)
         base = 0x14;
     for (i = base; i < base + 8; i++)
     {
-        if (sub_080C0A00(i))
+        if (Combatant_IsAlive(i))
             continue;
         sub_080F44D8(base, i);
-        sub_080C08F8(i, 0);
-        sub_080C0A7C(i);
-        sub_080C0AA8(i);
+        Combatant_SetStatus(i, 0);
+        Combatant_RestoreHp(i);
+        Combatant_RestoreMp(i);
         added = 1;
         if (--count == 0)
             break;
@@ -54,18 +54,18 @@ void sub_080EF2A0(void)
         if (who >= 0)
         {
             for (j = 0; j < 4; j++)
-                if (sub_080C2244() < gUnknown_0876F7C6[j])
-                    sub_080C08BC(who, gUnknown_0876F7BE[j]);
+                if (Random_Byte() < gUnknown_0876F7C6[j])
+                    Combatant_ClearStatus(who, gUnknown_0876F7BE[j]);
         }
     }
-    sub_080C08BC(0, 0xFFBF);
-    sub_080C08BC(1, 0xFFBF);
+    Combatant_ClearStatus(0, 0xFFBF);
+    Combatant_ClearStatus(1, 0xFFBF);
     for (i = 0; i < 8; i++)
     {
         who = i + 0x10;
         for (j = 0; j < 4; j++)
-            if (sub_080C2244() < gUnknown_0876F7C6[j])
-                sub_080C08BC(who, gUnknown_0876F7BE[j]);
+            if (Random_Byte() < gUnknown_0876F7C6[j])
+                Combatant_ClearStatus(who, gUnknown_0876F7BE[j]);
     }
     for (i = 0; i < 14; i++)
         BSTATE->unk78[0][i] &= ~0x23;
@@ -87,7 +87,7 @@ void sub_080EF364(void)
 
             if (who <= 3)
                 m |= 0x40;
-            sub_080C08BC(who, m ^ 0xFFFF);
+            Combatant_ClearStatus(who, m ^ 0xFFFF);
         }
     }
 }
@@ -117,7 +117,7 @@ s32 sub_080EF3C8(s32 id)
     v = (u16)(v * v) >> 1;
     if (v == 0)
         v = 1;
-    if ((sub_080C2244() & 0xFF) >= v)
+    if ((Random_Byte() & 0xFF) >= v)
         return -1;
     v = rec[0x1F] & 1;
     v = (u16)((v << 8) | rec[0x1A]);
@@ -158,7 +158,7 @@ NAKED s32 sub_080EF3C8(s32 id)
         "    bne .L080EF40A\n"
         "    movs r4, #1\n"
         ".L080EF40A:\n"
-        "    bl sub_080C2244\n"
+        "    bl Random_Byte\n"
         "    movs r1, #0xff\n"
         "    ands r0, r1\n"
         "    cmp r0, r4\n"

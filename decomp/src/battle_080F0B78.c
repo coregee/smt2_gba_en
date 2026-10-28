@@ -95,12 +95,12 @@ u32 sub_080F0C18(u8 *c, u16 who)
 
         if (w > 3)
             sub_080C35C4(w, 10);
-        else if (sub_080C00DC(w, 0) != 0xFF)
+        else if (Combatant_GetEquip(w, 0) != 0xFF)
             sub_080C35C4(w, 4);
         else
             sub_080C35C4(w, 9);
     }
-    else if ((f & 8) && sub_080C2244() % 40 <= 0x13)
+    else if ((f & 8) && Random_Byte() % 40 <= 0x13)
     {
         BattleMenu_SetModeAutoClose(3, Menu_ExpandListTemplate(Battle_GetMessage(0x172), (s16)who));
         b->unk97C = 11;
@@ -109,7 +109,7 @@ u32 sub_080F0C18(u8 *c, u16 who)
     }
     else if (f & 0x10)
     {
-        u32 r = sub_080C2244() & 3;
+        u32 r = Random_Byte() & 3;
 
         if (r & 2)
         {
@@ -156,7 +156,7 @@ NAKED u32 sub_080F0C18(u8 *c, u16 who)
         ".L080F0C44:\n"
         "    adds r0, r4, #0\n"
         "    movs r1, #0\n"
-        "    bl sub_080C00DC\n"
+        "    bl Combatant_GetEquip\n"
         "    cmp r0, #0xff\n"
         "    beq .L080F0C5A\n"
         "    adds r0, r4, #0\n"
@@ -173,7 +173,7 @@ NAKED u32 sub_080F0C18(u8 *c, u16 who)
         "    ands r0, r4\n"
         "    cmp r0, #0\n"
         "    beq .L080F0CAC\n"
-        "    bl sub_080C2244\n"
+        "    bl Random_Byte\n"
         "    movs r1, #0x28\n"
         "    bl __umodsi3\n"
         "    cmp r0, #0x13\n"
@@ -203,7 +203,7 @@ NAKED u32 sub_080F0C18(u8 *c, u16 who)
         "    ands r4, r0\n"
         "    cmp r4, #0\n"
         "    beq .L080F0CF4\n"
-        "    bl sub_080C2244\n"
+        "    bl Random_Byte\n"
         "    adds r2, r0, #0\n"
         "    movs r0, #3\n"
         "    ands r2, r0\n"

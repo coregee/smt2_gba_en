@@ -1775,7 +1775,7 @@ sub_081590CC: @ 0x081590CC
 sub_08159144: @ 0x08159144
 .L08159144:
 	push {lr}
-	bl sub_080C2244
+	bl Random_Byte
 	adds r1, r0, #0
 	movs r0, #0xff
 	ands r1, r0
@@ -5993,7 +5993,7 @@ sub_0815B08C: @ 0x0815B08C
 sub_0815B11C: @ 0x0815B11C
 .L0815B11C:
 	push {r4, r5, r6, lr}
-	bl sub_080C2244
+	bl Random_Byte
 	adds r4, r0, #0
 	movs r0, #0xff
 	ands r4, r0

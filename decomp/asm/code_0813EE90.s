@@ -713,7 +713,7 @@ sub_0813F22C: @ 0x0813F22C
 	adds r0, r0, r6
 	mov r8, r0
 .L0813F440:
-	bl sub_080C2244
+	bl Random_Byte
 	lsls r4, r7, #3
 	mov r1, r8
 	adds r5, r1, r4
@@ -977,7 +977,7 @@ sub_0813F22C: @ 0x0813F22C
 	ldrh r0, [r6, #0xa]
 	adds r0, #9
 	strh r0, [r6, #0xa]
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #0xff
 	ands r0, r1
 	adds r1, r6, #0
@@ -1002,7 +1002,7 @@ sub_0813F22C: @ 0x0813F22C
 	ldrh r0, [r6, #0xc]
 	adds r0, #9
 	strh r0, [r6, #0xc]
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #0xff
 	ands r0, r1
 	adds r1, r6, #0
@@ -1027,7 +1027,7 @@ sub_0813F22C: @ 0x0813F22C
 	ldrh r0, [r6, #0xe]
 	adds r0, #9
 	strh r0, [r6, #0xe]
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #0xff
 	ands r0, r1
 	adds r1, r6, #0
@@ -6202,7 +6202,7 @@ sub_08141F24: @ 0x08141F24
 	ldr r2, [r4, #0x78]
 	cmp r2, #8
 	bne .L08141FB4
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #4
 	ands r0, r1
 	lsls r0, r0, #0x10
@@ -6223,7 +6223,7 @@ sub_08141F24: @ 0x08141F24
 	ldr r2, [r4, #0x74]
 	cmp r2, #8
 	bne .L08141FB4
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #4
 	ands r0, r1
 	lsls r0, r0, #0x10
@@ -6244,7 +6244,7 @@ sub_08141F24: @ 0x08141F24
 	ldr r2, [r4, #0x70]
 	cmp r2, #8
 	bne .L08141FB4
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #4
 	ands r0, r1
 	lsls r0, r0, #0x10
@@ -8743,7 +8743,7 @@ gUnknown_081432B0:
 	ldrh r0, [r4, #0xe]
 	adds r0, #9
 	strh r0, [r4, #0xe]
-	bl sub_080C2244
+	bl Random_Byte
 	adds r1, r4, #0
 	adds r1, #0x34
 	strb r0, [r1]
@@ -8764,7 +8764,7 @@ gUnknown_081432B0:
 	ldrh r0, [r4, #0x10]
 	adds r0, #9
 	strh r0, [r4, #0x10]
-	bl sub_080C2244
+	bl Random_Byte
 	adds r1, r4, #0
 	adds r1, #0x34
 	strb r0, [r1]
@@ -8785,7 +8785,7 @@ gUnknown_081432B0:
 	ldrh r0, [r4, #0x12]
 	adds r0, #9
 	strh r0, [r4, #0x12]
-	bl sub_080C2244
+	bl Random_Byte
 	adds r1, r4, #0
 	adds r1, #0x34
 	strb r0, [r1]
@@ -8806,7 +8806,7 @@ gUnknown_081432B0:
 	ldrh r0, [r4, #0x14]
 	adds r0, #9
 	strh r0, [r4, #0x14]
-	bl sub_080C2244
+	bl Random_Byte
 	adds r1, r4, #0
 	adds r1, #0x34
 	strb r0, [r1]
@@ -11786,7 +11786,7 @@ sub_08144A08: @ 0x08144A08
 	adds r0, r4, r0
 	ldr r0, [r0]
 	str r0, [r1]
-	bl sub_080C2244
+	bl Random_Byte
 	adds r5, #4
 	adds r4, r4, r5
 	lsls r1, r0, #1
@@ -12845,7 +12845,7 @@ sub_081452BC: @ 0x081452BC
 	push {r4, r5, r6, r7, lr}
 	adds r5, r0, #0
 	ldr r7, .L0814532C
-	bl sub_080C2244
+	bl Random_Byte
 	lsls r1, r0, #1
 	adds r1, r1, r0
 	lsls r1, r1, #3

@@ -1022,10 +1022,10 @@ ScriptOp_353: @ 0x08134A78
 .L08134A9A:
 	movs r0, #0
 	adds r1, r4, #0
-	bl sub_080C06EC
+	bl Combatant_AddAlignment
 	movs r0, #1
 	adds r1, r4, #0
-	bl sub_080C06EC
+	bl Combatant_AddAlignment
 	pop {r4}
 	pop {r0}
 	bx r0
@@ -1043,7 +1043,7 @@ ScriptOp_354: @ 0x08134AC0
 ScriptOp_355: @ 0x08134AC4
 	push {lr}
 	movs r0, #0
-	bl sub_080C06BC
+	bl Combatant_GetAlignment
 	cmp r0, #0
 	bne .L08134AF8
 	ldr r2, .L08134AF0
@@ -1181,7 +1181,7 @@ ScriptOp_357: @ 0x08134BA8
 	lsls r6, r0, #0x10
 	orrs r6, r4
 	movs r0, #0
-	bl sub_080C0F8C
+	bl Combatant_GetLevel
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	cmp r0, r5
@@ -1250,7 +1250,7 @@ ScriptOp_359: @ 0x08134C40
 	lsls r0, r0, #1
 	adds r0, r0, r1
 	ldrh r7, [r0]
-	bl sub_080C104C
+	bl Stock_GetCapacity
 	adds r5, r0, #0
 	movs r4, #4
 	b .L08134C94
@@ -1259,11 +1259,11 @@ ScriptOp_359: @ 0x08134C40
 .L08134C74: .4byte 0x0203DB28 @ EWRAM+0x3DB28
 .L08134C78:
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L08134C92
 	adds r0, r4, #0
-	bl sub_080C07E0
+	bl Combatant_GetDemonId
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	cmp r0, r7
@@ -1332,14 +1332,14 @@ ScriptOp_35A: @ 0x08134CE4
 	ldrh r6, [r1]
 	lsls r6, r6, #0x10
 	orrs r6, r4
-	bl sub_080C104C
+	bl Stock_GetCapacity
 	adds r5, r0, #0
 	movs r4, #0
 	cmp r4, r5
 	bhs .L08134D26
 .L08134D16:
 	adds r0, r4, #4
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L08134D2A
 	adds r4, #1
@@ -1364,7 +1364,7 @@ ScriptOp_35B: @ 0x08134D3C
 	thumb_func_start ScriptOp_35C
 ScriptOp_35C: @ 0x08134D40
 	push {r4, r5, r6, lr}
-	bl sub_080C104C
+	bl Stock_GetCapacity
 	adds r5, r0, #0
 	ldr r3, .L08134DA8
 	ldrh r0, [r3]
@@ -1390,11 +1390,11 @@ ScriptOp_35C: @ 0x08134D40
 	bge .L08134DB8
 .L08134D74:
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L08134D9A
 	adds r0, r4, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #0
 	bne .L08134D9A
 	adds r0, r4, #0
@@ -1403,7 +1403,7 @@ ScriptOp_35C: @ 0x08134D40
 	beq .L08134D9A
 	adds r0, r4, #0
 	rsbs r1, r6, #0
-	bl sub_080C0B8C
+	bl Combatant_ChangeHpPercent
 .L08134D9A:
 	adds r0, r4, #1
 	lsls r0, r0, #0x10
@@ -1417,7 +1417,7 @@ ScriptOp_35C: @ 0x08134D40
 .L08134DB0:
 	rsbs r1, r6, #0
 	adds r0, r4, #0
-	bl sub_080C0B8C
+	bl Combatant_ChangeHpPercent
 .L08134DB8:
 	bl sub_080C84A0
 	pop {r4, r5, r6}
@@ -1493,7 +1493,7 @@ sub_08134E10: @ 0x08134E10
 	thumb_func_start ScriptOp_35E
 ScriptOp_35E: @ 0x08134E28
 	push {r4, r5, r6, lr}
-	bl sub_080C104C
+	bl Stock_GetCapacity
 	adds r5, r0, #0
 	ldr r2, .L08134E68
 	ldrh r0, [r2]
@@ -1532,7 +1532,7 @@ ScriptOp_35E: @ 0x08134E28
 	b .L08134F5A
 .L08134E7A:
 	movs r0, #0
-	bl sub_080C0A00
+	bl Combatant_IsAlive
 	cmp r0, #0
 	bne .L08134E86
 	b .L08134FAE
@@ -1541,7 +1541,7 @@ ScriptOp_35E: @ 0x08134E28
 	adds r1, r6, #0
 	bl sub_080C08E8
 	movs r0, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	movs r1, #0x80
 	lsls r1, r1, #8
 	ands r1, r0
@@ -1556,18 +1556,18 @@ ScriptOp_35E: @ 0x08134E28
 	asrs r1, r1, #0x10
 	rsbs r1, r1, #0
 	movs r0, #0
-	bl sub_080C0AD4
+	bl Combatant_ChangeHp
 	b .L08134FAE
 .L08134EB6:
 	movs r0, #0
-	bl sub_080C0A00
+	bl Combatant_IsAlive
 	cmp r0, #0
 	beq .L08134EEC
 	movs r0, #0
 	adds r1, r6, #0
 	bl sub_080C08E8
 	movs r0, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	movs r1, #0x80
 	lsls r1, r1, #8
 	ands r1, r0
@@ -1580,17 +1580,17 @@ ScriptOp_35E: @ 0x08134E28
 	asrs r1, r1, #0x10
 	rsbs r1, r1, #0
 	movs r0, #0
-	bl sub_080C0AD4
+	bl Combatant_ChangeHp
 .L08134EEC:
 	movs r0, #1
-	bl sub_080C0A00
+	bl Combatant_IsAlive
 	cmp r0, #0
 	beq .L08134F22
 	movs r0, #1
 	adds r1, r6, #0
 	bl sub_080C08E8
 	movs r0, #1
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	movs r1, #0x80
 	lsls r1, r1, #8
 	ands r1, r0
@@ -1603,17 +1603,17 @@ ScriptOp_35E: @ 0x08134E28
 	asrs r1, r1, #0x10
 	rsbs r1, r1, #0
 	movs r0, #1
-	bl sub_080C0AD4
+	bl Combatant_ChangeHp
 .L08134F22:
 	movs r0, #2
-	bl sub_080C0A00
+	bl Combatant_IsAlive
 	cmp r0, #0
 	beq .L08134FAE
 	movs r0, #2
 	adds r1, r6, #0
 	bl sub_080C08E8
 	movs r0, #2
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	movs r1, #0x80
 	lsls r1, r1, #8
 	ands r1, r0
@@ -1626,7 +1626,7 @@ ScriptOp_35E: @ 0x08134E28
 	asrs r1, r1, #0x10
 	rsbs r1, r1, #0
 	movs r0, #2
-	bl sub_080C0AD4
+	bl Combatant_ChangeHp
 	b .L08134FAE
 .L08134F5A:
 	movs r4, #0
@@ -1635,7 +1635,7 @@ ScriptOp_35E: @ 0x08134E28
 	bge .L08134FAE
 .L08134F62:
 	adds r0, r4, #0
-	bl sub_080C0A00
+	bl Combatant_IsAlive
 	cmp r0, #0
 	beq .L08134FA4
 	adds r0, r4, #0
@@ -1646,7 +1646,7 @@ ScriptOp_35E: @ 0x08134E28
 	adds r1, r6, #0
 	bl sub_080C08E8
 	adds r0, r4, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	movs r2, #0x80
 	lsls r2, r2, #8
 	adds r1, r2, #0
@@ -1660,7 +1660,7 @@ ScriptOp_35E: @ 0x08134E28
 	asrs r1, r1, #0x10
 	rsbs r1, r1, #0
 	adds r0, r4, #0
-	bl sub_080C0AD4
+	bl Combatant_ChangeHp
 .L08134FA4:
 	adds r0, r4, #1
 	lsls r0, r0, #0x10
@@ -1842,33 +1842,33 @@ gUnknown_081350E8:
 .L081350FC:
 	adds r0, r4, #0
 	ldr r1, .L08135108
-	bl sub_080C08BC
+	bl Combatant_ClearStatus
 	b .L08135170
 	.byte 0x00, 0x00
 .L08135108: .4byte 0x00008C01
 .L0813510C:
 	ldr r1, .L08135124
 	adds r0, r4, #0
-	bl sub_080C08BC
+	bl Combatant_ClearStatus
 .L08135114:
 	adds r0, r4, #0
-	bl sub_080C0A7C
+	bl Combatant_RestoreHp
 	adds r0, r4, #0
-	bl sub_080C0AA8
+	bl Combatant_RestoreMp
 	b .L08135170
 	.byte 0x00, 0x00
 .L08135124: .4byte 0x00007FFF
 .L08135128:
 	ldr r1, .L08135138
 	adds r0, r4, #0
-	bl sub_080C08BC
+	bl Combatant_ClearStatus
 	adds r0, r4, #0
 	bl sub_081360D4
 	b .L08135170
 .L08135138: .4byte 0x0000F3FE
 .L0813513C:
 	adds r0, r4, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	ldr r2, .L08135178
 	adds r1, r2, #0
 	ands r1, r0
@@ -1877,17 +1877,17 @@ gUnknown_081350E8:
 	ldr r1, .L0813517C
 	eors r1, r2
 	adds r0, r4, #0
-	bl sub_080C08BC
+	bl Combatant_ClearStatus
 	adds r0, r4, #0
 	bl sub_081360D4
 .L0813515C:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_080C08BC
+	bl Combatant_ClearStatus
 	adds r0, r4, #0
-	bl sub_080C0A7C
+	bl Combatant_RestoreHp
 	adds r0, r4, #0
-	bl sub_080C0AA8
+	bl Combatant_RestoreMp
 .L08135170:
 	pop {r4}
 	pop {r0}
@@ -1907,7 +1907,7 @@ sub_08135180: @ 0x08135180
 	movs r5, #0
 	bl sub_0812DBF0
 	adds r7, r0, #0
-	bl sub_080C104C
+	bl Stock_GetCapacity
 	cmp r4, #0
 	bne .L081351E8
 	movs r4, #4
@@ -1918,11 +1918,11 @@ sub_08135180: @ 0x08135180
 	mov r8, r0
 .L081351A6:
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L081351CA
 	adds r0, r4, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	mov r1, r8
 	ands r0, r1
 	cmp r0, #0
@@ -2063,7 +2063,7 @@ sub_08135290: @ 0x08135290
 	adds r0, r0, r1
 	ldrh r4, [r0]
 	mov r0, r8
-	bl sub_080C0F8C
+	bl Combatant_GetLevel
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	muls r0, r4, r0
@@ -2099,7 +2099,7 @@ sub_081352F8: @ 0x081352F8
 	lsls r4, r4, #0x10
 	lsrs r4, r4, #0x10
 	adds r0, r4, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	adds r1, r0, #0
 	lsls r1, r1, #0x10
 	ldr r0, .L0813531C
@@ -2120,7 +2120,7 @@ sub_08135320: @ 0x08135320
 	lsls r4, r4, #0x10
 	lsrs r4, r4, #0x10
 	adds r0, r4, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	movs r1, #0x80
@@ -2142,7 +2142,7 @@ sub_08135348: @ 0x08135348
 	lsls r4, r4, #0x10
 	lsrs r4, r4, #0x10
 	adds r0, r4, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	adds r1, r0, #0
 	lsls r1, r1, #0x10
 	ldr r0, .L0813536C
@@ -2167,7 +2167,7 @@ sub_08135370: @ 0x08135370
 	mov r8, r0
 	bl sub_0812DC00
 	mov sb, r0
-	bl sub_080C104C
+	bl Stock_GetCapacity
 	adds r7, r0, #0
 	movs r5, #0
 	adds r0, r7, #4
@@ -2175,7 +2175,7 @@ sub_08135370: @ 0x08135370
 	bge .L081353EE
 .L08135394:
 	adds r0, r5, #0
-	bl sub_080C0A00
+	bl Combatant_IsAlive
 	cmp r0, #0
 	beq .L081353E2
 	adds r0, r5, #0
@@ -2254,7 +2254,7 @@ sub_08135420: @ 0x08135420
 	adds r7, r0, #0
 	bl sub_0812DC00
 	mov r8, r0
-	bl sub_080C104C
+	bl Stock_GetCapacity
 	adds r6, r0, #0
 	movs r4, #0
 	adds r0, r6, #4
@@ -2262,11 +2262,11 @@ sub_08135420: @ 0x08135420
 	bge .L08135480
 .L08135442:
 	adds r0, r4, #0
-	bl sub_080C0A00
+	bl Combatant_IsAlive
 	cmp r0, #0
 	beq .L08135474
 	adds r0, r4, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	ldr r2, .L0813549C
 	adds r1, r2, #0
 	ands r1, r0
@@ -2327,7 +2327,7 @@ sub_081354B0: @ 0x081354B0
 	adds r7, r0, #0
 	bl sub_0812DC00
 	mov r8, r0
-	bl sub_080C104C
+	bl Stock_GetCapacity
 	adds r6, r0, #0
 	movs r4, #0
 	adds r0, r6, #4
@@ -2335,11 +2335,11 @@ sub_081354B0: @ 0x081354B0
 	bge .L08135512
 .L081354D2:
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L08135506
 	adds r0, r4, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	movs r2, #0x80
 	lsls r2, r2, #8
 	adds r1, r2, #0
@@ -2401,7 +2401,7 @@ sub_08135540: @ 0x08135540
 	adds r7, r0, #0
 	bl sub_0812DC00
 	mov r8, r0
-	bl sub_080C104C
+	bl Stock_GetCapacity
 	adds r6, r0, #0
 	movs r4, #0
 	adds r0, r6, #4
@@ -2409,11 +2409,11 @@ sub_08135540: @ 0x08135540
 	bge .L081355A0
 .L08135562:
 	adds r0, r4, #0
-	bl sub_080C0A00
+	bl Combatant_IsAlive
 	cmp r0, #0
 	beq .L08135594
 	adds r0, r4, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	ldr r2, .L081355BC
 	adds r1, r2, #0
 	ands r1, r0
@@ -2505,7 +2505,7 @@ sub_0813560C: @ 0x0813560C
 	mov r8, r0
 	bl sub_0812DC00
 	mov sb, r0
-	bl sub_080C104C
+	bl Stock_GetCapacity
 	adds r7, r0, #0
 	movs r5, #0
 	adds r0, r7, #4
@@ -2513,11 +2513,11 @@ sub_0813560C: @ 0x0813560C
 	bge .L08135696
 .L08135630:
 	adds r0, r5, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L0813568A
 	adds r0, r5, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	bne .L08135672
@@ -2847,7 +2847,7 @@ ScriptOp_366: @ 0x081358A4
 	adds r2, r2, r0
 	ldrh r4, [r2]
 	movs r0, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	ands r4, r0
 	cmp r4, #0
 	beq .L081358EE
@@ -3077,7 +3077,7 @@ ScriptOp_36F: @ 0x08135AA8
 	mov r7, sb
 	mov r6, r8
 	push {r6, r7}
-	bl sub_080C104C
+	bl Stock_GetCapacity
 	mov r8, r0
 	ldr r3, .L08135B40
 	ldrh r0, [r3]
@@ -3121,11 +3121,11 @@ ScriptOp_36F: @ 0x08135AA8
 	mov sb, r0
 .L08135B06:
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L08135B24
 	adds r0, r4, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	mov r1, sb
 	ands r0, r1
 	cmp r0, #0
@@ -3480,7 +3480,7 @@ ScriptOp_373: @ 0x08135E10
 	thumb_func_start ScriptOp_374
 ScriptOp_374: @ 0x08135E14
 	push {r4, r5, lr}
-	bl sub_080C104C
+	bl Stock_GetCapacity
 	adds r3, r0, #0
 	ldr r2, .L08135E54
 	ldrh r0, [r2]
@@ -3496,15 +3496,15 @@ ScriptOp_374: @ 0x08135E14
 	cmp r0, #0
 	bne .L08135E5C
 	movs r0, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L08135EE0
 	movs r0, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #0
 	bne .L08135EE0
 	movs r0, #0
-	bl sub_080C0A7C
+	bl Combatant_RestoreHp
 	b .L08135EE0
 	.byte 0x00, 0x00
 .L08135E54: .4byte 0x0203DB40 @ EWRAM+0x3DB40
@@ -3515,37 +3515,37 @@ ScriptOp_374: @ 0x08135E14
 	cmp r1, #2
 	bne .L08135EB4
 	movs r0, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L08135E7E
 	movs r0, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #0
 	bne .L08135E7E
 	movs r0, #0
-	bl sub_080C0A7C
+	bl Combatant_RestoreHp
 .L08135E7E:
 	movs r0, #1
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L08135E98
 	movs r0, #1
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #0
 	bne .L08135E98
 	movs r0, #1
-	bl sub_080C0A7C
+	bl Combatant_RestoreHp
 .L08135E98:
 	movs r0, #2
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L08135EE0
 	movs r0, #2
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #0
 	bne .L08135EE0
 	movs r0, #2
-	bl sub_080C0A7C
+	bl Combatant_RestoreHp
 	b .L08135EE0
 .L08135EB4:
 	movs r4, #0
@@ -3554,15 +3554,15 @@ ScriptOp_374: @ 0x08135E14
 	bge .L08135EE0
 .L08135EBC:
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L08135ED6
 	adds r0, r4, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #0
 	bne .L08135ED6
 	adds r0, r4, #0
-	bl sub_080C0A7C
+	bl Combatant_RestoreHp
 .L08135ED6:
 	adds r0, r4, #1
 	lsls r0, r0, #0x10
@@ -3579,7 +3579,7 @@ ScriptOp_374: @ 0x08135E14
 	thumb_func_start ScriptOp_375
 ScriptOp_375: @ 0x08135EEC
 	push {r4, r5, lr}
-	bl sub_080C104C
+	bl Stock_GetCapacity
 	adds r3, r0, #0
 	ldr r2, .L08135F2C
 	ldrh r0, [r2]
@@ -3595,15 +3595,15 @@ ScriptOp_375: @ 0x08135EEC
 	cmp r0, #0
 	bne .L08135F34
 	movs r0, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L08135FB8
 	movs r0, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #0
 	bne .L08135FB8
 	movs r0, #0
-	bl sub_080C0AA8
+	bl Combatant_RestoreMp
 	b .L08135FB8
 	.byte 0x00, 0x00
 .L08135F2C: .4byte 0x0203DB40 @ EWRAM+0x3DB40
@@ -3614,37 +3614,37 @@ ScriptOp_375: @ 0x08135EEC
 	cmp r1, #2
 	bne .L08135F8C
 	movs r0, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L08135F56
 	movs r0, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #0
 	bne .L08135F56
 	movs r0, #0
-	bl sub_080C0AA8
+	bl Combatant_RestoreMp
 .L08135F56:
 	movs r0, #1
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L08135F70
 	movs r0, #1
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #0
 	bne .L08135F70
 	movs r0, #1
-	bl sub_080C0AA8
+	bl Combatant_RestoreMp
 .L08135F70:
 	movs r0, #2
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L08135FB8
 	movs r0, #2
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #0
 	bne .L08135FB8
 	movs r0, #2
-	bl sub_080C0AA8
+	bl Combatant_RestoreMp
 	b .L08135FB8
 .L08135F8C:
 	movs r4, #0
@@ -3653,15 +3653,15 @@ ScriptOp_375: @ 0x08135EEC
 	bge .L08135FB8
 .L08135F94:
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L08135FAE
 	adds r0, r4, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #0
 	bne .L08135FAE
 	adds r0, r4, #0
-	bl sub_080C0AA8
+	bl Combatant_RestoreMp
 .L08135FAE:
 	adds r0, r4, #1
 	lsls r0, r0, #0x10
@@ -3681,7 +3681,7 @@ sub_08135FC4: @ 0x08135FC4
 	sub sp, #4
 	adds r4, r0, #0
 	movs r1, #0
-	bl sub_080C00DC
+	bl Combatant_GetEquip
 	adds r1, r0, #0
 	cmp r1, #0xff
 	beq .L08135FF2
@@ -3701,7 +3701,7 @@ sub_08135FC4: @ 0x08135FC4
 .L08135FF2:
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_080C00DC
+	bl Combatant_GetEquip
 	adds r1, r0, #0
 	cmp r1, #0xff
 	beq .L0813601C
@@ -3721,7 +3721,7 @@ sub_08135FC4: @ 0x08135FC4
 .L0813601C:
 	adds r0, r4, #0
 	movs r1, #2
-	bl sub_080C00DC
+	bl Combatant_GetEquip
 	adds r1, r0, #0
 	cmp r1, #0xff
 	beq .L08136046
@@ -3741,7 +3741,7 @@ sub_08135FC4: @ 0x08135FC4
 .L08136046:
 	adds r0, r4, #0
 	movs r1, #3
-	bl sub_080C00DC
+	bl Combatant_GetEquip
 	adds r1, r0, #0
 	cmp r1, #0xff
 	beq .L08136070
@@ -3761,7 +3761,7 @@ sub_08135FC4: @ 0x08135FC4
 .L08136070:
 	adds r0, r4, #0
 	movs r1, #4
-	bl sub_080C00DC
+	bl Combatant_GetEquip
 	adds r1, r0, #0
 	cmp r1, #0xff
 	beq .L0813609A
@@ -3781,7 +3781,7 @@ sub_08135FC4: @ 0x08135FC4
 .L0813609A:
 	adds r0, r4, #0
 	movs r1, #5
-	bl sub_080C00DC
+	bl Combatant_GetEquip
 	adds r1, r0, #0
 	cmp r1, #0xff
 	beq .L081360C8
@@ -3817,7 +3817,7 @@ sub_081360D4: @ 0x081360D4
 	sub sp, #4
 	adds r4, r0, #0
 	movs r1, #0
-	bl sub_080C00DC
+	bl Combatant_GetEquip
 	adds r1, r0, #0
 	cmp r1, #0xff
 	beq .L0813610C
@@ -3851,7 +3851,7 @@ sub_08136114: @ 0x08136114
 	sub sp, #4
 	movs r0, #1
 	movs r1, #0
-	bl sub_080C00DC
+	bl Combatant_GetEquip
 	adds r4, r0, #0
 	cmp r4, #0xff
 	beq .L08136152
@@ -3884,7 +3884,7 @@ sub_08136114: @ 0x08136114
 	thumb_func_start ScriptOp_376
 ScriptOp_376: @ 0x0813615C
 	push {r4, r5, lr}
-	bl sub_080C104C
+	bl Stock_GetCapacity
 	adds r3, r0, #0
 	ldr r2, .L0813618C
 	ldrh r0, [r2]
@@ -3900,7 +3900,7 @@ ScriptOp_376: @ 0x0813615C
 	cmp r0, #0
 	bne .L08136194
 	movs r0, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L081361F8
 	movs r0, #0
@@ -3913,29 +3913,29 @@ ScriptOp_376: @ 0x0813615C
 	cmp r1, #2
 	bne .L081361D4
 	movs r0, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L081361AE
 	movs r0, #0
 	movs r1, #1
-	bl sub_080C08BC
+	bl Combatant_ClearStatus
 .L081361AE:
 	movs r0, #1
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L081361C0
 	movs r0, #1
 	movs r1, #1
-	bl sub_080C08BC
+	bl Combatant_ClearStatus
 .L081361C0:
 	movs r0, #2
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L081361F8
 	movs r0, #2
 .L081361CC:
 	movs r1, #1
-	bl sub_080C08BC
+	bl Combatant_ClearStatus
 	b .L081361F8
 .L081361D4:
 	movs r4, #0
@@ -3944,12 +3944,12 @@ ScriptOp_376: @ 0x0813615C
 	bge .L081361F8
 .L081361DC:
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L081361EE
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_080C08BC
+	bl Combatant_ClearStatus
 .L081361EE:
 	adds r0, r4, #1
 	lsls r0, r0, #0x10
@@ -4098,39 +4098,39 @@ sub_081362DC: @ 0x081362DC
 .L081362F2:
 	movs r0, #1
 	movs r1, #0x12
-	bl sub_080C0FA4
+	bl Combatant_SetLevel
 	ldr r1, .L08136420
 	movs r0, #1
 	bl sub_080C0F70
 	movs r0, #1
 	movs r1, #0
 	movs r2, #6
-	bl sub_080C0074
+	bl Combatant_SetEquip
 	movs r0, #1
 	movs r1, #1
 	movs r2, #0x58
-	bl sub_080C0074
+	bl Combatant_SetEquip
 	movs r0, #1
 	movs r1, #6
 	movs r2, #0x70
-	bl sub_080C0074
+	bl Combatant_SetEquip
 	movs r0, #1
 	movs r1, #2
 	movs r2, #0x81
-	bl sub_080C0074
+	bl Combatant_SetEquip
 	movs r0, #1
 	movs r1, #3
 	movs r2, #0x96
-	bl sub_080C0074
+	bl Combatant_SetEquip
 	movs r0, #1
 	movs r1, #4
 	movs r2, #0xaa
-	bl sub_080C0074
+	bl Combatant_SetEquip
 	movs r0, #1
 	movs r1, #5
 	movs r2, #0xbf
-	bl sub_080C0074
-	bl sub_080C2244
+	bl Combatant_SetEquip
+	bl Random_Byte
 	movs r1, #3
 	ands r0, r1
 	lsls r1, r0, #1
@@ -4203,7 +4203,7 @@ sub_081362DC: @ 0x081362DC
 	movs r2, #0
 	bl sub_08136270
 	movs r0, #1
-	bl sub_080BF938
+	bl Combatant_RecalcStats
 	bl sub_080CDC34
 	ldr r2, .L08136428
 	adds r0, r2, #0
@@ -4230,39 +4230,39 @@ sub_081362DC: @ 0x081362DC
 .L08136432:
 	movs r0, #2
 	movs r1, #0x18
-	bl sub_080C0FA4
+	bl Combatant_SetLevel
 	ldr r1, .L0813656C
 	movs r0, #2
 	bl sub_080C0F70
 	movs r0, #2
 	movs r1, #0
 	movs r2, #2
-	bl sub_080C0074
+	bl Combatant_SetEquip
 	movs r0, #2
 	movs r1, #1
 	movs r2, #0x58
-	bl sub_080C0074
+	bl Combatant_SetEquip
 	movs r0, #2
 	movs r1, #6
 	movs r2, #0x70
-	bl sub_080C0074
+	bl Combatant_SetEquip
 	movs r0, #2
 	movs r1, #2
 	movs r2, #0x82
-	bl sub_080C0074
+	bl Combatant_SetEquip
 	movs r0, #2
 	movs r1, #3
 	movs r2, #0x98
-	bl sub_080C0074
+	bl Combatant_SetEquip
 	movs r0, #2
 	movs r1, #4
 	movs r2, #0xac
-	bl sub_080C0074
+	bl Combatant_SetEquip
 	movs r0, #2
 	movs r1, #5
 	movs r2, #0xbf
-	bl sub_080C0074
-	bl sub_080C2244
+	bl Combatant_SetEquip
+	bl Random_Byte
 	movs r1, #3
 	ands r0, r1
 	lsls r1, r0, #1
@@ -4339,7 +4339,7 @@ sub_081362DC: @ 0x081362DC
 	movs r2, #0
 	bl sub_08136270
 	movs r0, #2
-	bl sub_080BF938
+	bl Combatant_RecalcStats
 	bl sub_080CDC34
 	ldr r2, .L08136574
 	movs r1, #0x8d
@@ -4365,7 +4365,7 @@ sub_081362DC: @ 0x081362DC
 .L08136574: .4byte 0x030046C0 @ IWRAM+0x46C0
 .L08136578:
 	movs r0, #1
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	ldr r2, .L081365C4
 	adds r1, r2, #0
 	ands r1, r0
@@ -4374,13 +4374,13 @@ sub_081362DC: @ 0x081362DC
 	ldr r1, .L081365C8
 	eors r1, r2
 	movs r0, #1
-	bl sub_080C08BC
+	bl Combatant_ClearStatus
 	movs r0, #1
 	bl sub_081360D4
 .L08136598:
 	movs r0, #1
 	movs r1, #0
-	bl sub_080C08BC
+	bl Combatant_ClearStatus
 	bl sub_08136114
 	ldr r2, .L081365CC
 	adds r0, r2, #0
@@ -4430,7 +4430,7 @@ ScriptOp_377: @ 0x081365D0
 	movs r5, #1
 .L08136602:
 	adds r0, r5, #0
-	bl sub_080C01DC
+	bl Party_Add
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	bne .L08136630
@@ -4485,12 +4485,12 @@ ScriptOp_377: @ 0x081365D0
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	movs r1, #0
-	bl sub_080C0290
+	bl Party_Remove
 	adds r0, r5, #0
-	bl sub_080C01DC
+	bl Party_Add
 	b .L081366F8
 .L08136686:
-	bl sub_080C104C
+	bl Stock_GetCapacity
 	adds r6, r0, #0
 	movs r4, #4
 	adds r0, r6, #4
@@ -4500,11 +4500,11 @@ ScriptOp_377: @ 0x081365D0
 	lsls r5, r5, #0xb
 .L08136698:
 	adds r0, r4, #0
-	bl sub_080C0A00
+	bl Combatant_IsAlive
 	cmp r0, #0
 	beq .L08136702
 	adds r0, r4, #0
-	bl sub_080C07E0
+	bl Combatant_GetDemonId
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	ldr r1, .L081366C8
@@ -4512,7 +4512,7 @@ ScriptOp_377: @ 0x081365D0
 	cmp r0, r1
 	bne .L08136702
 	lsrs r0, r5, #0x10
-	bl sub_080C01DC
+	bl Party_Add
 	lsls r0, r0, #0x10
 	adds r4, r5, #0
 	cmp r0, #0
@@ -4539,9 +4539,9 @@ ScriptOp_377: @ 0x081365D0
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	movs r1, #0
-	bl sub_080C0290
+	bl Party_Remove
 	lsrs r0, r4, #0x10
-	bl sub_080C01DC
+	bl Party_Add
 .L081366F8:
 	bl Party_BuildMemberNameTiles
 	bl sub_080C6FD8
@@ -4577,7 +4577,7 @@ ScriptOp_378: @ 0x08136718
 	cmp r2, #3
 	bgt .L08136762
 	movs r0, #1
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L0813674C
 	movs r4, #1
@@ -4587,14 +4587,14 @@ ScriptOp_378: @ 0x08136718
 .L08136748: .4byte 0x03006950 @ IWRAM+0x6950
 .L0813674C:
 	movs r0, #2
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L08136758
 	movs r4, #2
 .L08136758:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_080C0290
+	bl Party_Remove
 	b .L08136780
 .L08136762:
 	ldr r1, .L0813678C
@@ -4603,13 +4603,13 @@ ScriptOp_378: @ 0x08136718
 	lsls r0, r2, #1
 	adds r0, r0, r1
 	ldrh r0, [r0]
-	bl sub_080C0FE8
+	bl Stock_FindDemonIndex
 	cmp r0, #0
 	blt .L08136780
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	movs r1, #1
-	bl sub_080C0290
+	bl Party_Remove
 .L08136780:
 	bl sub_080C366C
 	pop {r4}
@@ -4704,12 +4704,12 @@ ScriptOp_37A: @ 0x081367E4
 	cmp r4, #3
 	bhi .L0813685E
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L08136830
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_080C00DC
+	bl Combatant_GetEquip
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	ldrh r1, [r7]
@@ -4869,7 +4869,7 @@ ScriptOp_37F: @ 0x0813695C
 	ldrh r1, [r2]
 	lsls r4, r1, #0x10
 	orrs r4, r6
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	ands r5, r0
 	cmp r5, #0
 	beq .L081369A8
@@ -4900,7 +4900,7 @@ ScriptOp_381: @ 0x081369CC
 	mov r7, sb
 	mov r6, r8
 	push {r6, r7}
-	bl sub_080C104C
+	bl Stock_GetCapacity
 	mov ip, r0
 	ldr r3, .L08136A7C
 	ldrh r0, [r3]
@@ -4955,12 +4955,12 @@ ScriptOp_381: @ 0x081369CC
 	lsls r4, r4, #0x10
 	asrs r5, r4, #0x10
 	adds r0, r5, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	adds r6, r4, #0
 	cmp r0, #0
 	beq .L08136A64
 	adds r0, r5, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	ldr r2, .L08136A84
 	adds r1, r2, #0
 	ands r1, r0
@@ -5090,7 +5090,7 @@ ScriptOp_381: @ 0x081369CC
 .L08136B68:
 	lsrs r0, r6, #0x10
 	movs r1, #1
-	bl sub_080C0290
+	bl Party_Remove
 	b .L08136BB4
 .L08136B72:
 	cmp r7, #0
@@ -5104,16 +5104,16 @@ ScriptOp_381: @ 0x081369CC
 	lsls r4, r4, #0x10
 	asrs r5, r4, #0x10
 	adds r0, r5, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	adds r6, r4, #0
 	cmp r0, #0
 	beq .L08136BA8
 	adds r0, r5, #0
-	bl sub_080C07E0
+	bl Combatant_GetDemonId
 	adds r4, r0, #0
 	ldr r0, .L08136BCC
 	ldrh r0, [r0]
-	bl sub_080C07E0
+	bl Combatant_GetDemonId
 	lsls r4, r4, #0x10
 	lsls r0, r0, #0x10
 	cmp r4, r0

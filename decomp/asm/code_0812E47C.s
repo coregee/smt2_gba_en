@@ -160,7 +160,7 @@ sub_0812E558: @ 0x0812E558
 	cmp r0, #0
 	beq .L0812E5D2
 	adds r0, r5, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	ldr r2, .L0812E5B8
 	adds r1, r2, #0
 	ands r1, r0
@@ -210,7 +210,7 @@ sub_0812E558: @ 0x0812E558
 	cmp r0, #0
 	beq .L0812E636
 	adds r0, r5, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	ldr r2, .L0812E61C
 	adds r1, r2, #0
 	ands r1, r0
@@ -355,7 +355,7 @@ sub_0812E6C4: @ 0x0812E6C4
 	adds r4, r0, #0
 	cmp r1, #0xb5
 	bne .L0812E718
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #7
 	ands r1, r0
 	cmp r1, #0
@@ -766,7 +766,7 @@ sub_0812EA54: @ 0x0812EA54
 	adds r5, r0, #0
 .L0812EA5C:
 	adds r0, r4, #0
-	bl sub_080C0A00
+	bl Combatant_IsAlive
 	cmp r0, #0
 	beq .L0812EA88
 	adds r0, r4, #0
@@ -774,7 +774,7 @@ sub_0812EA54: @ 0x0812EA54
 	cmp r0, #0
 	beq .L0812EA88
 	adds r0, r4, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	ands r0, r5
 	cmp r0, #0
 	bne .L0812EA88
@@ -1032,7 +1032,7 @@ gUnknown_0812EAF4:
 	movs r3, #0
 	ldrsh r0, [r0, r3]
 	str r0, [sp, #4]
-	bl sub_080C07E0
+	bl Combatant_GetDemonId
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	bl sub_080F40C4
@@ -3738,7 +3738,7 @@ sub_08130184: @ 0x08130184
 	ldr r0, .L081301D4
 	strh r1, [r0]
 	movs r0, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L081301A6
 	ldrh r0, [r4]
@@ -3746,7 +3746,7 @@ sub_08130184: @ 0x08130184
 	strh r0, [r4]
 .L081301A6:
 	movs r0, #1
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L081301B6
 	ldrh r0, [r4]
@@ -3754,7 +3754,7 @@ sub_08130184: @ 0x08130184
 	strh r0, [r4]
 .L081301B6:
 	movs r0, #2
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L081301C6
 	ldrh r0, [r4]
@@ -4101,7 +4101,7 @@ sub_081303E8: @ 0x081303E8
 	cmp r2, #0
 	beq .L081304C4
 	movs r0, #1
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L081304B4
 	ldr r0, .L081304B0
@@ -6773,12 +6773,12 @@ sub_08131AB0: @ 0x08131AB0
 	movs r4, #0
 .L08131AD8:
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L08131AF8
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_080C00DC
+	bl Combatant_GetEquip
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	cmp r0, r6
@@ -6795,7 +6795,7 @@ sub_08131AB0: @ 0x08131AB0
 	b .L08131B14
 .L08131B04:
 	adds r1, r5, #0
-	bl sub_080C00DC
+	bl Combatant_GetEquip
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	cmp r0, r6

@@ -148,10 +148,10 @@ u32 sub_080B8C18(u16 mode)
 
     for (i = 0; i <= 5; i++)
     {
-        u8 *e = sub_080C0148(i);
+        u8 *e = Party_GetMember(i);
         u16 v;
 
-        if (e == NULL || sub_080C0830(e[0xC]))
+        if (e == NULL || Combatant_IsDead(e[0xC]))
             continue;
         if (mode == 0)
             v = (s8)e[0x44];
@@ -169,7 +169,7 @@ u32 sub_080B8C18(u16 mode)
 // sub_080B8C7C @ 0x080B8C7C
 void sub_080B8C7C(struct Task *task, u32 slot, u32 apply)
 {
-    u8 *e = sub_080C0148(slot);
+    u8 *e = Party_GetMember(slot);
     u32 id, id2;
 
     s32 v;
@@ -181,16 +181,16 @@ void sub_080B8C7C(struct Task *task, u32 slot, u32 apply)
     id2 = id;
     if (HEAL_DATA(task)->params[1] == 0)
     {
-        v = sub_080C09B0(id);
-        if (v != 1 || sub_080C0830(id) || apply)
+        v = Combatant_IsUsed(id);
+        if (v != 1 || Combatant_IsDead(id) || apply)
             return;
         if ((u16)sub_080B8C18(0) != id)
             return;
-        if (sub_080C0818(id) & 4)
+        if (Combatant_GetStatus(id) & 4)
             return;
-        if (!(sub_080C2244() & v))
+        if (!(Random_Byte() & v))
             return;
-        sub_080C08F8(id, 4);
+        Combatant_SetStatus(id, 4);
         sub_080C8490(slot);
         HEAL_DATA(task)->amount[slot] = v;
     }
@@ -199,11 +199,11 @@ void sub_080B8C7C(struct Task *task, u32 slot, u32 apply)
         v = 0;
         if (HEAL_DATA(task)->params[1] == 1)
             v = 2;
-        if (sub_080C09B0(id) != 1 || sub_080C0830(id))
+        if (Combatant_IsUsed(id) != 1 || Combatant_IsDead(id))
             return;
         if (!apply)
         {
-            if (sub_080C06BC(id) == v)
+            if (Combatant_GetAlignment(id) == v)
                 return;
             v = (sub_080F4038(id) * 38) >> 7;
             if (v == 0)
@@ -218,9 +218,9 @@ void sub_080B8C7C(struct Task *task, u32 slot, u32 apply)
             if (v == 0)
                 return;
             if (sub_080F401C(id) == 1)
-                sub_080C0C70(id, v);
+                Combatant_Damage(id, v);
             else
-                sub_080C0C70(id, v);
+                Combatant_Damage(id, v);
             sub_080C8490(slot);
             sub_080C86F4(slot);
             task->result = 1;
@@ -228,9 +228,9 @@ void sub_080B8C7C(struct Task *task, u32 slot, u32 apply)
     }
     else if (HEAL_DATA(task)->params[1] == 3)
     {
-        s32 ok = sub_080C09B0(id);
+        s32 ok = Combatant_IsUsed(id);
 
-        if (ok != 1 || sub_080C0830(id))
+        if (ok != 1 || Combatant_IsDead(id))
             return;
         if (!apply)
         {
@@ -242,7 +242,7 @@ void sub_080B8C7C(struct Task *task, u32 slot, u32 apply)
             v = (v * 12) >> 7;
             if (v == 0)
                 v = 1;
-            sub_080C0C70(id, v);
+            Combatant_Damage(id, v);
             HEAL_DATA(task)->amount[slot] = v;
             task->result = ok;
             sub_080C8490(slot);
@@ -250,18 +250,18 @@ void sub_080B8C7C(struct Task *task, u32 slot, u32 apply)
     }
     else if (HEAL_DATA(task)->params[1] == 4)
     {
-        s32 ok = sub_080C09B0(id2);
+        s32 ok = Combatant_IsUsed(id2);
 
-        if (ok != 1 || sub_080C0830(id2) || apply)
+        if (ok != 1 || Combatant_IsDead(id2) || apply)
             return;
         v = (u16)sub_080B8C18(1);
         if (v != id2)
             return;
-        if (sub_080C0818(v) & 0x1000)
+        if (Combatant_GetStatus(v) & 0x1000)
             return;
-        if (!(sub_080C2244() & ok))
+        if (!(Random_Byte() & ok))
             return;
-        sub_080C08F8(v, 0x1000);
+        Combatant_SetStatus(v, 0x1000);
         sub_080C8490(slot);
         HEAL_DATA(task)->amount[slot] = ok;
     }
@@ -287,7 +287,7 @@ void sub_080B8E88(struct Task *task)
 void sub_080B8EB8(struct Task *task, u32 slot)
 {
     struct HealData *d = HEAL_DATA(task);
-    u8 *e = sub_080C0148(slot);
+    u8 *e = Party_GetMember(slot);
     u16 *buf = gMenuState;
 
     Text_CopyToMenuBuffer(gUnknown_080034EA);
@@ -318,7 +318,7 @@ void sub_080B8EB8(struct Task *task, u32 slot)
 void sub_080B8F5C(struct Task *task, u32 slot)
 {
     struct HealData *d = HEAL_DATA(task);
-    u8 *e = sub_080C0148(slot);
+    u8 *e = Party_GetMember(slot);
 
     switch (e[0xC])
     {
@@ -458,7 +458,7 @@ void sub_080B9130(struct Task *task)
    most 8 glyphs) followed by gUnknown_081652D8 as glyph sprites; A sets the result. */
 void sub_080B9150(struct Task *task)
 {
-    u8 *e = sub_080C0148(task->data.w[1] + 0x8000);
+    u8 *e = Party_GetMember(task->data.w[1] + 0x8000);
     u16 x = 0x12;
     u16 y = 0x59;
     u16 name[16];

@@ -14,7 +14,7 @@ s32 sub_080EF5FC(u8 *c, s32 who)
     case 4:
     case 5:
         v = (kind == 4) ? 0 : 1;
-        v = sub_080C00DC(who, v);
+        v = Combatant_GetEquip(who, v);
         Item_GetAttribute(v, 4, &v);
         x = v;
         goto lookup;
@@ -89,7 +89,7 @@ NAKED s32 sub_080EF5FC(u8 *c, s32 who)
         "    str r0, [sp]\n"
         "    adds r0, r4, #0\n"
         "    ldr r1, [sp]\n"
-        "    bl sub_080C00DC\n"
+        "    bl Combatant_GetEquip\n"
         "    str r0, [sp]\n"
         "    movs r1, #4\n"
         "    mov r2, sp\n"
@@ -148,9 +148,9 @@ void sub_080EF6B4(s32 x)
 
     for (i = 4; i < 16; i++)
     {
-        if (sub_080C09B0(i) && sub_080C07E0(i) == x)
+        if (Combatant_IsUsed(i) && Combatant_GetDemonId(i) == x)
         {
-            sub_080C06EC(0, 0x19);
+            Combatant_AddAlignment(0, 0x19);
             return;
         }
     }
@@ -223,15 +223,15 @@ u32 Battle_CanUseCommand(s32 who, s32 kind, s32 *msg)
     switch (kind)
     {
     case 4:
-        if (sub_080C00DC(who, 0) == 0xFF)
+        if (Combatant_GetEquip(who, 0) == 0xFF)
         {
             *msg = 0x162;
             return 0;
         }
         break;
     case 5:
-        r = sub_080C00DC(who, 1);
-        if (r == 0xFF || (sub_080C00DC(who, 6) == 0xFF && (u32)(r - 0x6D) > 1))
+        r = Combatant_GetEquip(who, 1);
+        if (r == 0xFF || (Combatant_GetEquip(who, 6) == 0xFF && (u32)(r - 0x6D) > 1))
         {
             *msg = 0x162;
             return 0;
@@ -250,7 +250,7 @@ u32 Battle_CanUseCommand(s32 who, s32 kind, s32 *msg)
             *msg = 0x8F;
             return 0;
         }
-        if (sub_080C0818(who) & 0xB063)
+        if (Combatant_GetStatus(who) & 0xB063)
         {
             *msg = 0x90;
             return 0;
@@ -294,7 +294,7 @@ s32 sub_080EF840(void)
     {
         s32 id = base + i;
 
-        if (sub_080C09B0(id))
+        if (Combatant_IsUsed(id))
             return id;
     }
     return base;
@@ -311,7 +311,7 @@ s32 sub_080EF878(void)
     {
         s32 id = base + i;
 
-        if (sub_080C09B0(id) && !sub_080C0830(id))
+        if (Combatant_IsUsed(id) && !Combatant_IsDead(id))
             return id;
     }
     return base;

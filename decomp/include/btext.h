@@ -62,7 +62,7 @@ u8 *Action_GetRecord(u16 id);
 u8 *Item_GetRecord(u16 id);
 u8 *Equipment_GetRecord36_MidRange(u16 id);
 bool32 sub_080F3EC8(u16 idx);
-bool32 sub_080C0A00(u16 idx);
+bool32 Combatant_IsAlive(u16 idx);
 s32 sub_080F4968(void);
 extern const u16 gUnknown_0812430C[];
 extern const u16 gUnknown_081236FC[];

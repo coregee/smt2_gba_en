@@ -109,8 +109,8 @@ void Debug_SetupTestGame(void)
     gGameState.unkAC3 = 0xC;
     for (i = 0; i < 7; i++)
     {
-        sub_080C0074(0, i, gUnknown_08509640[i]);
-        sub_080BF938(0);
+        Combatant_SetEquip(0, i, gUnknown_08509640[i]);
+        Combatant_RecalcStats(0);
     }
     gGameState.unk00D = 50;
     gGameState.unk008 = 208250;
@@ -119,18 +119,18 @@ void Debug_SetupTestGame(void)
         for (j = 0; j < 50; j++)
             sub_080C3328(i);
     }
-    sub_080C062C(0x6E);
-    sub_080C062C(0x71);
-    sub_080C062C(0x40);
-    sub_080C062C(0x64);
-    sub_080C062C(0xAE);
-    sub_080C062C(0x7D);
-    sub_080C062C(0x59);
-    sub_080C062C(0xB);
-    sub_080C062C(0x4D);
-    sub_080C062C(0x9C);
-    sub_080C062C(0x6B);
-    sub_080C062C(0x76);
+    Stock_AddDemon(0x6E);
+    Stock_AddDemon(0x71);
+    Stock_AddDemon(0x40);
+    Stock_AddDemon(0x64);
+    Stock_AddDemon(0xAE);
+    Stock_AddDemon(0x7D);
+    Stock_AddDemon(0x59);
+    Stock_AddDemon(0xB);
+    Stock_AddDemon(0x4D);
+    Stock_AddDemon(0x9C);
+    Stock_AddDemon(0x6B);
+    Stock_AddDemon(0x76);
     gGameState.unkADC = 10000;
     gGameState.unkAD8 = 10000;
     gGameState.unkAE0 = 10000;

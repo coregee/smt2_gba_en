@@ -37,7 +37,7 @@ s16 sub_080ED610(s32 id)
         v &= 7;
     else
     {
-        s16 r = (sub_080C2244() & 3) - 1;
+        s16 r = (Random_Byte() & 3) - 1;
 
         if (r >= 0)
             r >>= 1;
@@ -73,7 +73,7 @@ NAKED s16 sub_080ED610(s32 id)
         "    b .L080ED664\n"
         ".L080ED62C:\n"
         "    lsrs r4, r0, #0x10\n"
-        "    bl sub_080C2244\n"
+        "    bl Random_Byte\n"
         "    movs r1, #3\n"
         "    ands r0, r1\n"
         "    subs r0, #1\n"
@@ -378,7 +378,7 @@ void sub_080EDA04(void)
 
     for (i = 0x10; i < 0x18; i++)
     {
-        sub_080C08F8(i, 0x8000);
+        Combatant_SetStatus(i, 0x8000);
         sub_080F4104(i);
     }
 }
@@ -439,7 +439,7 @@ void sub_080EDAB8(s16 v)
 // sub_080EDAD0 @ 0x080EDAD0
 u32 sub_080EDAD0(void)
 {
-    if (sub_080C07E0(0x10) > 0xFF)
+    if (Combatant_GetDemonId(0x10) > 0xFF)
         return 1;
     return 0;
 }
@@ -460,7 +460,7 @@ u32 sub_080EDB04(void)
     u8 tbl[16];
 
     memcpy(tbl, gUnknown_0876F6B4, 16);
-    return tbl[(sub_080C1D9C() >> 4) & 0xF];
+    return tbl[(Moon_GetPhase() >> 4) & 0xF];
 }
 
 // sub_080EDB2C @ 0x080EDB2C

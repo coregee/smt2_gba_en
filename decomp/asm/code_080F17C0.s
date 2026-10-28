@@ -126,7 +126,7 @@ gUnknown_080F1854:
 	adds r0, r6, r1
 	strh r4, [r0]
 	adds r0, r3, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #0
 	bne .L080F18D8
 	bl .L080F20C6
@@ -303,7 +303,7 @@ gUnknown_080F1854:
 	movs r1, #0x80
 	lsls r1, r1, #8
 	adds r0, r4, #0
-	bl sub_080C08F8
+	bl Combatant_SetStatus
 	adds r0, r4, #0
 	movs r1, #0
 	bl sub_080F4054
@@ -463,7 +463,7 @@ gUnknown_080F1854:
 	cmp r4, sb
 	bne .L080F1C04
 	ldr r0, [r7, #4]
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	movs r1, #0x80
 	lsls r1, r1, #8
 	ands r1, r0
@@ -714,7 +714,7 @@ gUnknown_080F1D64:
 .L080F1DCC:
 	ldr r0, [r5, #4]
 	ldr r1, [r5, #0x18]
-	bl sub_080C0AD4
+	bl Combatant_ChangeHp
 .L080F1DD4:
 	ldr r3, .L080F1DE0
 	adds r1, r6, r3
@@ -809,7 +809,7 @@ gUnknown_080F1D64:
 	cmp r0, #0
 	ble .L080F1EA0
 	ldr r0, [r5, #4]
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	movs r1, #0x80
 	lsls r1, r1, #8
 	ands r1, r0
@@ -890,7 +890,7 @@ gUnknown_080F1D64:
 	ldr r0, [r5, #4]
 	cmp r0, #0xf
 	bgt .L080F1F6C
-	bl sub_080BFFC4
+	bl Party_FindPosition
 	lsls r0, r0, #0x10
 	asrs r5, r0, #0x10
 	adds r0, r5, #0
@@ -1014,7 +1014,7 @@ gUnknown_080F1D64:
 	bne .L080F20C6
 	ldr r4, .L080F2070
 	ldr r0, [r4, #4]
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	movs r1, #0x80
 	lsls r1, r1, #7
 	ands r1, r0
@@ -1031,7 +1031,7 @@ gUnknown_080F1D64:
 	cmp r0, #0
 	ble .L080F2092
 	ldr r0, [r4, #4]
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	movs r1, #0x80
 	lsls r1, r1, #8
 	ands r1, r0
@@ -1129,7 +1129,7 @@ sub_080F20E0: @ 0x080F20E0
 	cmp r0, #0
 	beq .L080F2158
 	ldrh r0, [r5, #4]
-	bl sub_080C0148
+	bl Party_GetMember
 	movs r2, #0x1e
 	ldrsh r0, [r0, r2]
 	cmp r0, #0
@@ -1268,7 +1268,7 @@ gUnknown_080F222C:
 .L080F2294:
 	ldr r0, [r5, #4]
 	ldr r1, [r5, #0x18]
-	bl sub_080C0AD4
+	bl Combatant_ChangeHp
 .L080F229C:
 	ldr r0, .L080F22B0
 	adds r1, r6, r0
@@ -1318,7 +1318,7 @@ sub_080F22B4: @ 0x080F22B4
 	bl sub_080EFE60
 	adds r5, r0, #0
 	ldr r0, [r4, #4]
-	bl sub_080C07E0
+	bl Combatant_GetDemonId
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	bl sub_080ED494
@@ -1407,7 +1407,7 @@ sub_080F22B4: @ 0x080F22B4
 .L080F23B8: .4byte 0x00000ECA
 .L080F23BC:
 	adds r0, r5, #0
-	bl sub_080BFFC4
+	bl Party_FindPosition
 	movs r1, #0
 	ldr r0, .L080F24A4
 	movs r3, #0xa2

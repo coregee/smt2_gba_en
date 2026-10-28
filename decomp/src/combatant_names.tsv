@@ -1,0 +1,77 @@
+080BF938	Combatant_RecalcStats	func	recomputes total stats (+0x40 = base+equipment+extra, +hero bonus items 0x120-0x12B) and derived values +0x48..+0x56; humans: max HP (St+Vi)*(Lv+1)/4+14, max MP (In+Ma)*(Lv+4)/8+4, caps 999
+080BFD1C	Combatant_ApplyBackRow	func	mode 1 (back row from Party_GetRow): derived[1],[3] *7/8, derived[4],[5] *9/8
+080BFD94	Combatant_UpdateStats	func	Combatant_RecalcStats then Combatant_ApplyBackRow(who, Party_GetRow(who))
+080BFDC4	Equipment_SumStatBonuses	func	zeroes out[8] then adds Item_GetAttribute(id, 5) of each of the 7 equip slots (0xFF = empty)
+080BFE84	Stat_CapBonus	func	returns bonus - max(0, base + bonus - 70)
+080BFFC4	Party_FindPosition	func	index of member id in gGameState+0xA20 (6 s8 party positions), -1 if absent
+080BFFF0	Party_GetRow	func	Party_FindPosition: <0 -> -1, 0-2 -> 0 (front), else 1 (back)
+080C0074	Combatant_SetEquip	func	switch slot 0-6: combatant+0x20+slot = item
+080C00DC	Combatant_GetEquip	func	switch slot 0-6: returns combatant+0x20+slot (u8), 0 otherwise
+080C0148	Party_GetMember	func	id&0x8000: &gGameState[id&0x7FFF] (0x80-byte records); else record of party position id, NULL when that position is -1
+080C0198	Stock_FindDemon	func	first record 4-15 in use (sub_080C09B0) whose +0x12 equals the demon id, else NULL
+080C01DC	Party_Add	func	puts member in the first -1 party position, sets +0xE = 0xC000; humans 1-3 copy the hero's alignment +0x58
+080C0248	Party_AddAt	func	puts member at position slot if it is -1 (+0xE = 0xC000); returns 1/0
+080C0290	Party_Remove	func	clears the member's party position; release!=0 frees the record (+0xE = 0, demon via sub_080C2A1C), else stocks it (+0xE = 0x8000, status & 0xB000)
+080C03E8	Name_EncodeChar	func	glyph -> index into the name table gUnknown_081A5A6C (0 -> 0xFF terminator, not found -> 0xE0)
+080C0420	Name_Encode	func	8 x Name_EncodeChar from a u16 glyph string into an 8-byte name
+080C0444	Combatant_InitDemon	func	DMA-clears the 0x80-byte record and fills it from Demon_GetRecord (level, HP/MP, stats, alignment, skills, encoded name +0x22)
+080C0550	Member_InitDemon	func	Combatant_InitDemon(Party_GetMember(who|0x8000), who, demon)
+080C0574	Stats_CalcDerived	func	out[0]=(Lv+St)*2, out[1]=Ag+1.5Lv+(St+Lu)/4, out[4]=(Lv+Vi)*2, out[5]=Ag+1.5Lv+(In+Lu)/4, out[6]=In/4+Ma, out[7]=Ma/4+In
+080C05FC	Combatant_CalcDerived	func	Stats_CalcDerived from +0x40, or from the fixed table gUnknown_081A5C2C when status 0x800 is set
+080C062C	Stock_AddDemon	func	first free record 4-15 (+0xE == 0) gets Member_InitDemon; returns the record index or -1
+080C06BC	Combatant_GetAlignment	func	high byte of +0x58: <0x70 -> 0, >0x8F -> 2, else 1
+080C06EC	Combatant_AddAlignment	func	adds delta to +0x58 (clamped 0-0xFFFF) unless flag 0xE0; hero's value copied to members 1-2; returns Combatant_GetAlignment
+080C07B0	Alignment_AreCompatible	func	0 when the two alignments are 0 and 2 (either order), else 1
+080C07E0	Combatant_GetDemonId	func	returns s16 +0x12
+080C0818	Combatant_GetStatus	func	returns u16 +0x10 (status bits; 0x8000 dead)
+080C0830	Combatant_IsDead	func	status & 0x8000 ? 1 : 0
+080C084C	Combatant_OnStatusChange	func	when bit 0x800 toggles between old and new status: recalculates stats (humans) or derived values, refills HP/MP of living humans; then sub_080C65C8
+080C08BC	Combatant_ClearStatus	func	status &= mask, then Combatant_OnStatusChange
+080C08F8	Combatant_SetStatus	func	0 clears all; otherwise per bit: 1 already set, 2 blocked by gUnknown_081A6044, else status = (status & gUnknown_081A6064[i]) | bits
+080C09B0	Combatant_IsUsed	func	+0xE != 0
+080C0A00	Combatant_IsAlive	func	Combatant_IsUsed && !Combatant_IsDead
+080C0A24	Combatant_IsHpFull	func	hp +0x18 >= max +0x1A
+080C0A50	Combatant_IsMpFull	func	mp +0x1C >= max +0x1E
+080C0A7C	Combatant_RestoreHp	func	hp = max hp when below
+080C0AA8	Combatant_RestoreMp	func	mp = max mp when below
+080C0AD4	Combatant_ChangeHp	func	adds delta to +0x18 (no gain above max), floor 0, cap 999 for records < 16; returns HP
+080C0B30	Combatant_ChangeHpCapped	func	Combatant_ChangeHp then caps at max HP unless HP was already above it
+080C0B8C	Combatant_ChangeHpPercent	func	Combatant_ChangeHp(who, hp * percent / 100)
+080C0BBC	Combatant_ChangeMp	func	MP (+0x1C) version of Combatant_ChangeHp, cap 999
+080C0C14	Combatant_ChangeMpCapped	func	MP version of Combatant_ChangeHpCapped
+080C0C70	Combatant_Damage	func	Combatant_ChangeHp(-damage); at <= 0 sets status 0x8000 (dead), sub_080F4190 for demons, sub_080C366C
+080C0D6C	Combatant_GetStrength	func	(s8)+0x40; total stat 0 (with In +0x41 they give max MP, with Vi +0x43 max HP in Combatant_RecalcStats)
+080C0D90	Combatant_GetIntelligence	func	(s8)+0x41
+080C0DB4	Combatant_GetMagic	func	(s8)+0x42
+080C0DD8	Combatant_GetVitality	func	(s8)+0x43
+080C0DFC	Combatant_GetAgility	func	(s8)+0x44; set to 40 by status 0x800 in Combatant_RecalcStats
+080C0E20	Combatant_GetLuck	func	(s8)+0x45
+080C0E44	Combatant_GetStat	func	switch 0-5 over the six total-stat getters
+080C0EAC	Stat_ClampBase	func	clamps to 0-40
+080C0EC0	Combatant_AddBaseStat	func	base stat +0x28+i = Stat_ClampBase(stat + delta), returned
+080C0F64	Combatant_GetBaseStat	func	Combatant_AddBaseStat(who, i, 0)
+080C0F8C	Combatant_GetLevel	func	returns +0xD
+080C0FA4	Combatant_SetLevel	func	+0xD = level
+080C0FC0	Party_CountMembers	func	number of party positions >= 0
+080C0FE8	Stock_FindDemonIndex	func	record 4-15 in use holding the demon id, else -1
+080C101C	Stock_FindFreeSlot	func	first unused record 4..Stock_GetCapacity()+3, else -1
+080C104C	Stock_GetCapacity	func	6, 9 with flag 0xE6, +3 with flag 0xE7; stored to gGameState+0xAC3 every field frame
+080C1070	Exp_GetLevel	func	first level 1-99 whose gUnknown_081A60B4[level] (s32) exceeds exp, else 99
+080C1098	Exp_GetForLevel	func	gUnknown_081A60B4[level - 1]
+080C10F4	Game_NewGame	func	DMA-clears gGameState (0x18F8), Party_InitMember x4, default names from gUnknown_081A6244, party = hero only, visited map cells, moon 0x80, then reloads the cross-game SRAM bit arrays
+080C1850	FieldMain_Loop	func	main callback: stock capacity, field update, Task_RunAll, PlayTime_Tick
+080C1D00	Moon_Advance	func	gGameState+0xA2A = old, +0xA28 += n wrapping at 0x100, then moon events (sub_080C1AF4) and the +0x18BB counter
+080C1D9C	Moon_GetPhase	func	returns gGameState+0xA28 (callers use & 0xF0; 0x80 = full moon, 0 = new moon)
+080C1DB0	Moon_PhaseChanged	func	(+0xA2A & 0xF0) != (Moon_GetPhase() & 0xF0)
+080C1F94	Math_DivRound	func	a / b rounded to nearest (b = 0 treated as 1)
+080C21D0	Encounter_GetDangerLevel	func	encounter counter 0 -> 0, 1-250 -> 1, 251-500 -> 2, 501-750 -> 3, else 4
+080C221C	Encounter_GetCounter	func	returns gGameState+0xAEA
+080C2230	Encounter_SetCounter	func	gGameState+0xAEA = v
+080C2244	Random_Byte	func	Random_Next() & 0xFF
+080C2280	Encounter_Check	func	no encounter with flag 0xFF or when sub_080C2000 skips weak encounters; field: counter > Random_Byte*10; dungeon: sub_080C2254(counter/10, 1)
+080C22E4	PlayTime_Tick	func	gGameState+0xAE4 {hours, minutes, seconds, frames}: frames/seconds/minutes wrap at 60; overflow of hours to 0 freezes at 255:59:59:59
+080C2338	PlayTime_Get	func	returns &gGameState+0xAE4
+080C2AA8	Options_Load	func	Sram_ReadVerified(0x0E000010, 4) into 0x03004688, returned
+080C2ACC	Options_Get	func	returns 0x03004688
+080C2AD8	Options_Save	func	Sram_WriteVerified of the word to 0x0E000010 and 0x03004688 = v; callers OR in fields (bits 0-1, 2-3, 4-5, 6-8, 9-10, 11-12, 13-15)
+03004688	gOptions	ram	options word, loaded/saved by Options_Load/Options_Save at SRAM 0x0E000010; Settings_GetBattleMsgSpeed tests bit 2

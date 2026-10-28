@@ -228,7 +228,7 @@ void Palette_MarkDirty(void);
 struct PalFade *PalFade_FadeRangeToBlack(u16 start, u16 count, u16 delay);
 struct PalFade *PalFade_FadeRangeToWhite(u16 start, u16 count, u16 delay);
 struct PalFade *PalFade_FadeRangeToBlackWithDuration(u16 start, u16 count, u16 delay, u16 duration);
-u32 sub_080C2244(void);
+u32 Random_Byte(void);
 void sub_080C1440(void);
 void sub_080C7C60(void);
 void sub_080C48CC(struct Task *t, u16 x, u16 y);

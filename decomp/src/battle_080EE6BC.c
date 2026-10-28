@@ -31,9 +31,9 @@ s32 Battle_FinishDamage(u8 *a, u8 *d, s32 power)
     /* r is now the threshold a d256 roll must reach for a critical hit */
     if ((u8)(a[0x17] - 4) <= 1 || a[0x17] == 10 || sub_080EED64((s8)a[0x17], a[0x5C]) == 1)
     {
-        if (sub_080C2244() >= r)
+        if (Random_Byte() >= r)
         {
-            u32 rr = sub_080C2244();
+            u32 rr = Random_Byte();
 
             if (rr <= 3)
             {
@@ -50,11 +50,11 @@ s32 Battle_FinishDamage(u8 *a, u8 *d, s32 power)
     if ((s8)d[0x17] == 9)
         power /= 2;
     {
-        s32 cut = ((sub_080C2244() & 0x1F) * power) >> 7;
+        s32 cut = ((Random_Byte() & 0x1F) * power) >> 7;
         s32 left = power - cut;
 
         if (left == 0 || (left & 0x8000))
-            left = sub_080C2244() & 1;
+            left = Random_Byte() & 1;
         power = left;
     }
     if (power <= 0)
@@ -165,10 +165,10 @@ NAKED s32 Battle_FinishDamage(u8 *a, u8 *d, s32 power)
         "    cmp r0, #1\n"
         "    bne .L080EE7B2\n"
         ".L080EE780:\n"
-        "    bl sub_080C2244\n"
+        "    bl Random_Byte\n"
         "    cmp r0, r4\n"
         "    blo .L080EE7B2\n"
-        "    bl sub_080C2244\n"
+        "    bl Random_Byte\n"
         "    adds r1, r0, #0\n"
         "    cmp r1, #3\n"
         "    bhi .L080EE7A4\n"
@@ -199,7 +199,7 @@ NAKED s32 Battle_FinishDamage(u8 *a, u8 *d, s32 power)
         "    adds r0, r5, r0\n"
         "    asrs r5, r0, #1\n"
         ".L080EE7C2:\n"
-        "    bl sub_080C2244\n"
+        "    bl Random_Byte\n"
         "    movs r1, #0x1f\n"
         "    ands r1, r0\n"
         "    muls r1, r5, r1\n"
@@ -213,7 +213,7 @@ NAKED s32 Battle_FinishDamage(u8 *a, u8 *d, s32 power)
         "    cmp r0, #0\n"
         "    beq .L080EE7E8\n"
         ".L080EE7DE:\n"
-        "    bl sub_080C2244\n"
+        "    bl Random_Byte\n"
         "    adds r1, r0, #0\n"
         "    movs r0, #1\n"
         "    ands r1, r0\n"
@@ -284,9 +284,9 @@ s32 Battle_PhysicalDamage(s32 att, s32 def)
         pow = *(s16 *)(a + 0x48);
     else if (kind == 4)
     {
-        if (sub_080C2244() <= 0x3F)
+        if (Random_Byte() <= 0x3F)
         {
-            v = sub_080C00DC(att, 0);
+            v = Combatant_GetEquip(att, 0);
             if (v != 0xFF)
             {
                 Item_GetAttribute(v, 6, &v);
@@ -300,9 +300,9 @@ s32 Battle_PhysicalDamage(s32 att, s32 def)
     }
     else
     {
-        if (sub_080C2244() <= 0x3F)
+        if (Random_Byte() <= 0x3F)
         {
-            v = sub_080C00DC(att, 6);
+            v = Combatant_GetEquip(att, 6);
             if (v != 0xFF)
             {
                 Item_GetAttribute(v, 6, &v);
@@ -319,7 +319,7 @@ s32 Battle_PhysicalDamage(s32 att, s32 def)
     pow = pow * gUnknown_0876F78E[i] / 8;
     i = sub_080EFD3C(def) + 4;
     dv = *(s16 *)(d + 0x50) * gUnknown_0876F78E[i] / 8;
-    pow *= sub_080C1F94(pow, 4) + 4;
+    pow *= Math_DivRound(pow, 4) + 4;
     pow /= dv;
     if (kind == 11)
         pow += sub_080BF5C0(sub_080F3F14(att))[1] * pow / 100;
@@ -366,7 +366,7 @@ void Battle_SkillDamage(struct Action *act)
     }
     else
         dmg = Battle_PhysicalDamage(att, def);
-    if (sub_080C2244() <= 0x3F && sub_080F3214(def, ailment) && sub_080EE810(ailment, def))
+    if (Random_Byte() <= 0x3F && sub_080F3214(def, ailment) && sub_080EE810(ailment, def))
         sub_080EDA7C(ailment);
     k = skill - 0x5C;
     for (i = 0; i < 32; i++)
@@ -512,7 +512,7 @@ NAKED void Battle_SkillDamage(struct Action *act)
         "    bl Battle_PhysicalDamage\n"
         ".L080EEAFC:\n"
         "    adds r4, r0, #0\n"
-        "    bl sub_080C2244\n"
+        "    bl Random_Byte\n"
         "    cmp r0, #0x3f\n"
         "    bhi .L080EEB28\n"
         "    mov r0, sb\n"

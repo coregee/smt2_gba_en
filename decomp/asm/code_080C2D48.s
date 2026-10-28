@@ -51,7 +51,7 @@ sub_080C2D78: @ 0x080C2D78
 	movs r1, #0
 	strh r1, [r0]
 	movs r0, #0
-	bl sub_080C2230
+	bl Encounter_SetCounter
 	ldr r0, .L080C2DBC
 	ldrh r0, [r0]
 	adds r1, r4, #0
@@ -220,7 +220,7 @@ sub_080C2EFC: @ 0x080C2EFC
 	ldr r1, .L080C2F2C
 	strh r0, [r1]
 	movs r0, #0
-	bl sub_080C06BC
+	bl Combatant_GetAlignment
 	cmp r0, #1
 	bne .L080C2F16
 	movs r0, #4
@@ -303,7 +303,7 @@ sub_080C2F44: @ 0x080C2F44
 	cmp r4, #0
 	bne .L080C3082
 	movs r0, #0
-	bl sub_080C06BC
+	bl Combatant_GetAlignment
 	adds r1, r0, #0
 	cmp r1, #1
 	beq .L080C2FF0
@@ -859,7 +859,7 @@ sub_080C3328: @ 0x080C3328
 	cmp r0, #0xb
 	bhi .L080C339E
 	movs r0, #0
-	bl sub_080BF938
+	bl Combatant_RecalcStats
 .L080C339E:
 	pop {r4, r5}
 	pop {r0}
@@ -933,7 +933,7 @@ sub_080C33AC: @ 0x080C33AC
 	cmp r0, #0xb
 	bhi .L080C3428
 	movs r0, #0
-	bl sub_080BF938
+	bl Combatant_RecalcStats
 .L080C3428:
 	pop {r4, r5}
 	pop {r0}
@@ -1077,7 +1077,7 @@ sub_080C351C: @ 0x080C351C
 	lsls r0, r0, #0x10
 	lsrs r5, r0, #0x10
 	ldr r0, .L080C355C
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r1, r0, #0
 	movs r3, #0
 	movs r4, #0
@@ -1116,7 +1116,7 @@ sub_080C3560: @ 0x080C3560
 	lsls r0, r0, #0x10
 	lsrs r4, r0, #0x10
 	ldr r0, .L080C3584
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r1, r0, #0
 	movs r2, #0
 .L080C3570:
@@ -1321,7 +1321,7 @@ sub_080C366C: @ 0x080C366C
 	cmp r6, #0
 	blt .L080C3702
 	adds r0, r2, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	movs r7, #0xa0
 	lsls r7, r7, #8
 	adds r1, r7, #0
@@ -1329,7 +1329,7 @@ sub_080C366C: @ 0x080C366C
 	cmp r1, #0
 	beq .L080C3702
 	adds r0, r6, #0
-	bl sub_080C0818
+	bl Combatant_GetStatus
 	adds r1, r7, #0
 	ands r1, r0
 	cmp r1, #0

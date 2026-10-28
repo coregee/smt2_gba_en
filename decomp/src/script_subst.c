@@ -54,7 +54,7 @@ void ScriptOp_Substitute(void)
             {
                 struct PartySlot *p;
 
-                if (sub_080C09B0(2))
+                if (Combatant_IsUsed(2))
                     p = &gGameState[2];
                 else
                     p = &gGameState[1];
@@ -118,7 +118,7 @@ void ScriptOp_Substitute(void)
             }
             break;
         case 0x320:
-            for (i = 0; i < 4 && sub_080C0A00(i) != 1; i++)
+            for (i = 0; i < 4 && Combatant_IsAlive(i) != 1; i++)
                 ;
             Combatant_DecodeName(&gGameState[i], gScriptSubstBuf);
             j = 8;
@@ -134,7 +134,7 @@ void ScriptOp_Substitute(void)
             n = 0;
             for (i = 0; i < 4; i++)
             {
-                if (sub_080C09B0(i))
+                if (Combatant_IsUsed(i))
                     n++;
             }
             if (n > 1)
@@ -416,7 +416,7 @@ void ScriptOp_Substitute(void)
         "    cmp r0, #1\n"
         "    bne .L08132CA8\n"
         "    movs r0, #2\n"
-        "    bl sub_080C09B0\n"
+        "    bl Combatant_IsUsed\n"
         "    cmp r0, #0\n"
         "    beq .L08132C94\n"
         "    ldr r0, .L08132C90\n"
@@ -639,7 +639,7 @@ void ScriptOp_Substitute(void)
         "    cmp r4, #3\n"
         "    bgt .L08132E58\n"
         "    adds r0, r4, #0\n"
-        "    bl sub_080C0A00\n"
+        "    bl Combatant_IsAlive\n"
         "    cmp r0, #1\n"
         "    bne .L08132E40\n"
         ".L08132E58:\n"
@@ -689,7 +689,7 @@ void ScriptOp_Substitute(void)
         "    lsls r0, r1, #0x10\n"
         "    asrs r4, r0, #0x10\n"
         "    adds r0, r4, #0\n"
-        "    bl sub_080C09B0\n"
+        "    bl Combatant_IsUsed\n"
         "    cmp r0, #0\n"
         "    beq .L08132EBE\n"
         "    lsls r0, r5, #0x10\n"

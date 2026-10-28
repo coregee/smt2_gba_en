@@ -222,8 +222,8 @@ void sub_080D8C34(struct Task *task)
     Palette_CopyWithEffect(3, gUnknown_08536318, gUnk_03003170, 0x20, 0x20);
     Palette_MarkDirty();
     VBlankTask_AddCounted(sub_080D8C10, 1);
-    obj->unk24 = (u32)gUnknown_08565C08[sub_080C2244() & 0xF];
-    speed = (sub_080C2244() & 1) + 1;
+    obj->unk24 = (u32)gUnknown_08565C08[Random_Byte() & 0xF];
+    speed = (Random_Byte() & 1) + 1;
     obj->unk28 = speed;
     obj->unk2C = speed;
     obj->unk30 = 0x50;

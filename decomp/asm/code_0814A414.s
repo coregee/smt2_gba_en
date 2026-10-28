@@ -84,7 +84,7 @@ sub_0814A4AC: @ 0x0814A4AC
 .L0814A4AC:
 	push {r4, lr}
 	ldr r4, .L0814A4D8
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #5
 	ands r0, r1
 	adds r1, r4, #0
@@ -3624,7 +3624,7 @@ sub_0814C098: @ 0x0814C098
 .L0814C0A4:
 	movs r0, #0
 	strb r0, [r4, #0x14]
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #0xff
 	ands r0, r1
 	strh r0, [r4, #0x22]
@@ -6854,7 +6854,7 @@ sub_0814D7BC: @ 0x0814D7BC
 	adds r6, r0, r1
 .L0814D902:
 	adds r0, r4, #0
-	bl sub_080C09B0
+	bl Combatant_IsUsed
 	cmp r0, #0
 	beq .L0814D91A
 	lsls r0, r5, #1
@@ -7196,9 +7196,9 @@ sub_0814DB7C: @ 0x0814DB7C
 	bl Demon_GetRecord
 	adds r0, #0x22
 	add r1, sp, #4
-	bl sub_080C0420
+	bl Name_Encode
 	adds r0, r4, #0
-	bl sub_080C0198
+	bl Stock_FindDemon
 	ldrb r0, [r0, #0xc]
 	bl sub_0814E844
 	cmp r0, #1
@@ -7267,7 +7267,7 @@ sub_0814DC20: @ 0x0814DC20
 	adds r1, #0x80
 	adds r0, r0, r1
 	ldrh r0, [r0]
-	bl sub_080C0198
+	bl Stock_FindDemon
 	ldrb r0, [r0, #0xc]
 	bl sub_0814E844
 	adds r5, r0, #0
@@ -7501,7 +7501,7 @@ sub_0814DDC8: @ 0x0814DDC8
 	bl Demon_GetRecord
 	adds r0, #0x22
 	add r1, sp, #4
-	bl sub_080C0420
+	bl Name_Encode
 	movs r0, #0
 	str r0, [sp]
 	add r0, sp, #4
@@ -7712,7 +7712,7 @@ sub_0814DF54: @ 0x0814DF54
 	bl Demon_GetRecord
 	adds r0, #0x22
 	add r1, sp, #4
-	bl sub_080C0420
+	bl Name_Encode
 	str r5, [sp]
 	add r0, sp, #4
 	movs r1, #0x5c
@@ -7754,7 +7754,7 @@ sub_0814DF54: @ 0x0814DF54
 	bl Demon_GetRecord
 	adds r0, #0x22
 	add r1, sp, #4
-	bl sub_080C0420
+	bl Name_Encode
 	movs r0, #0
 	str r0, [sp]
 	add r0, sp, #4
@@ -7777,7 +7777,7 @@ sub_0814DF54: @ 0x0814DF54
 sub_0814E044: @ 0x0814E044
 	push {r4, lr}
 	ldr r4, .L0814E060
-	bl sub_080C2244
+	bl Random_Byte
 	movs r1, #7
 	ands r0, r1
 	lsls r1, r0, #1
@@ -7976,10 +7976,10 @@ sub_0814E174: @ 0x0814E174
 	adds r4, #0x80
 	adds r0, r0, r4
 	ldrh r0, [r0]
-	bl sub_080C0198
+	bl Stock_FindDemon
 	ldrb r0, [r0, #0xc]
 	movs r1, #1
-	bl sub_080C0290
+	bl Party_Remove
 	ldrh r0, [r5]
 	lsls r0, r0, #1
 	adds r0, r0, r4
@@ -8240,7 +8240,7 @@ sub_0814E3A8: @ 0x0814E3A8
 	bl Demon_GetRecord
 	adds r0, #0x22
 	add r1, sp, #4
-	bl sub_080C0420
+	bl Name_Encode
 	movs r0, #0
 	str r0, [sp]
 	add r0, sp, #4
@@ -8262,7 +8262,7 @@ sub_0814E3A8: @ 0x0814E3A8
 	bl Demon_GetRecord
 	adds r0, #0x22
 	add r1, sp, #4
-	bl sub_080C0420
+	bl Name_Encode
 	movs r0, #0
 	str r0, [sp]
 	add r0, sp, #4
@@ -8303,10 +8303,10 @@ sub_0814E438: @ 0x0814E438
 	adds r4, #0x80
 	adds r0, r0, r4
 	ldrh r0, [r0]
-	bl sub_080C0198
+	bl Stock_FindDemon
 	ldrb r0, [r0, #0xc]
 	movs r1, #1
-	bl sub_080C0290
+	bl Party_Remove
 	ldrh r0, [r5]
 	lsls r0, r0, #1
 	adds r0, r0, r4
@@ -8325,7 +8325,7 @@ sub_0814E438: @ 0x0814E438
 	adds r0, r0, r1
 	ldrh r4, [r0]
 	adds r0, r4, #0
-	bl sub_080C062C
+	bl Stock_AddDemon
 	adds r0, r6, #0
 	adds r0, #0xc8
 	ldrh r0, [r0]

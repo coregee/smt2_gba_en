@@ -481,7 +481,7 @@ sub_080AF8D0: @ 0x080AF8D0
 	cmp r3, #0
 	beq .L080AFD4E
 	movs r0, #0
-	bl sub_080C06BC
+	bl Combatant_GetAlignment
 	lsls r0, r0, #2
 	ldr r1, [sp, #0x28]
 	adds r1, #4

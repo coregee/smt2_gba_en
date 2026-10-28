@@ -996,7 +996,7 @@ gUnknown_08127ACC:
 	adds r0, r4, r6
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r1, r0, #0
 	ldrh r0, [r1, #0xe]
 	cmp r0, #0
@@ -1027,7 +1027,7 @@ gUnknown_08127ACC:
 	adds r0, r4, r1
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r1, r0, #0
 	ldrh r0, [r1, #0xe]
 	cmp r0, r6
@@ -1052,7 +1052,7 @@ gUnknown_08127ACC:
 	adds r0, r4, r1
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r1, r0, #0
 	ldrh r0, [r1, #0xe]
 	cmp r0, #0
@@ -1079,7 +1079,7 @@ gUnknown_08127ACC:
 	adds r0, r4, r1
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r1, r0, #0
 	ldrh r0, [r1, #0xe]
 	cmp r0, r6
@@ -1107,7 +1107,7 @@ gUnknown_08127ACC:
 	adds r0, r4, r1
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r1, r0, #0
 	ldrh r0, [r1, #0xe]
 	cmp r0, r6
@@ -1152,7 +1152,7 @@ gUnknown_08127ACC:
 	adds r0, r4, r1
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r1, r0, #0
 	ldrh r0, [r1, #0xe]
 	cmp r0, r6
@@ -1180,7 +1180,7 @@ gUnknown_08127ACC:
 	adds r0, r4, r1
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r1, r0, #0
 	ldrh r0, [r1, #0xe]
 	adds r6, r4, #1
@@ -1188,7 +1188,7 @@ gUnknown_08127ACC:
 	cmp r0, sb
 	bne .L08127CAC
 	adds r0, r4, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #0
 	bne .L08127CAC
 	adds r0, r4, #0
@@ -1236,7 +1236,7 @@ gUnknown_08127ACC:
 	adds r0, r4, r1
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r1, r0, #0
 	ldrh r0, [r1, #0xe]
 	cmp r0, #0
@@ -1267,7 +1267,7 @@ gUnknown_08127ACC:
 	adds r0, r4, r1
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r1, r0, #0
 	ldrh r0, [r1, #0xe]
 	adds r6, r4, #1
@@ -1275,7 +1275,7 @@ gUnknown_08127ACC:
 	cmp r0, sb
 	bne .L08127D48
 	adds r0, r4, #0
-	bl sub_080C0830
+	bl Combatant_IsDead
 	cmp r0, #1
 	bne .L08127D48
 	movs r3, #0
@@ -1559,7 +1559,7 @@ gUnknown_08127EF4:
 	adds r0, r4, r1
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r1, r0, #0
 	ldrb r0, [r1, #0xc]
 	cmp r0, #3
@@ -1684,7 +1684,7 @@ gUnknown_08127EF4:
 	adds r0, r4, r1
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r4, r0, #0
 	movs r5, #0
 	movs r2, #0x12
@@ -2111,7 +2111,7 @@ sub_0812839C: @ 0x0812839C
 	lsls r1, r1, #0x18
 	adds r0, r0, r1
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r4, r0, #0
 	movs r1, #0x12
 	ldrsh r0, [r4, r1]
@@ -2169,7 +2169,7 @@ sub_081283C4: @ 0x081283C4
 	adds r0, r5, r1
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r4, r0, #0
 	ldrh r0, [r4, #0x18]
 	ldrh r1, [r4, #0x1a]
@@ -2239,7 +2239,7 @@ sub_081283C4: @ 0x081283C4
 	adds r0, r5, r2
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	adds r4, r0, #0
 	ldrh r0, [r4, #0x18]
 	ldrh r1, [r4, #0x1a]
@@ -4188,7 +4188,7 @@ sub_08129460: @ 0x08129460
 .L08129460:
 	push {r4, r5, r6, lr}
 	ldr r4, .L081294A4
-	bl sub_080C0FC0
+	bl Party_CountMembers
 	lsls r0, r0, #0x10
 	lsrs r3, r0, #0x10
 	movs r2, #0
@@ -4269,7 +4269,7 @@ sub_081294B0: @ 0x081294B0
 	bl sub_080F45D4
 	cmp r4, r0
 	ble .L08129510
-	bl sub_080C0FC0
+	bl Party_CountMembers
 	cmp r0, #5
 	ble .L0812952C
 .L08129510:
@@ -4467,7 +4467,7 @@ sub_08129604: @ 0x08129604
 	adds r0, r0, r1
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_080C0148
+	bl Party_GetMember
 	str r0, [sp, #0x10]
 	strh r5, [r6, #0x1e]
 	mov r0, sl
@@ -4511,7 +4511,7 @@ sub_08129604: @ 0x08129604
 	add r0, r8
 	ldrb r1, [r0]
 	movs r0, #0
-	bl sub_080C07B0
+	bl Alignment_AreCompatible
 	cmp r0, #0
 	bne .L0812970E
 	strh r4, [r6, #0x1e]
@@ -4557,7 +4557,7 @@ sub_08129604: @ 0x08129604
 	bl sub_080F45D4
 	cmp r4, r0
 	ble .L0812975C
-	bl sub_080C0FC0
+	bl Party_CountMembers
 	cmp r0, #5
 	ble .L08129770
 .L0812975C:
@@ -4914,7 +4914,7 @@ gUnknown_08129A0C:
 	lsls r0, r3, #0x10
 	lsrs r0, r0, #0x10
 	movs r1, #0
-	bl sub_080C0290
+	bl Party_Remove
 .L08129A3E:
 	ldr r4, .L08129A7C
 	adds r0, r7, r4
@@ -4932,7 +4932,7 @@ gUnknown_08129A0C:
 	bl BattleMenu_SetMode
 	ldrh r1, [r6, #0x1e]
 	adds r0, r5, #0
-	bl sub_080C0248
+	bl Party_AddAt
 	bl sub_080C366C
 	bl Party_BuildMemberNameTiles
 	bl sub_080C6FD8
@@ -4986,7 +4986,7 @@ gUnknown_08129A0C:
 	lsls r0, r3, #0x10
 	lsrs r0, r0, #0x10
 	movs r1, #0
-	bl sub_080C0290
+	bl Party_Remove
 .L08129AE2:
 	ldr r4, .L08129B14
 	adds r0, r7, r4
@@ -5000,7 +5000,7 @@ gUnknown_08129A0C:
 	bl BattleMenu_SetMode
 	ldrh r1, [r6, #0x1e]
 	adds r0, r5, #0
-	bl sub_080C0248
+	bl Party_AddAt
 	bl sub_080C366C
 	bl Party_BuildMemberNameTiles
 	bl sub_080C6FD8
