@@ -34,6 +34,14 @@ from chunks 0–2 and the first attribute map. Type-2 records list fewer distinc
 Chunk PNGs are named `scene_NNN_chunkK` after the first record that uses them and are
 coloured with the scene palette's most common line (the real colours vary per block).
 
+## Battle effect animations (`assets/battle_effects/`)
+
+211 records of 24 bytes at `0x0876CE10`, indexed by a byte effect id (`sub_080EC9AC` and
+neighbours; ids >= 200 are handled differently): `+0x00` a sprite layout in the program's
+read-only data near `0x080F68E0`, `+0x04` a 16-colour palette, `+0x08..+0x14` four frame
+graphics (Huffman+LZ77, 4bpp tiles in OAM order, shown 8 tiles wide). Frames shared
+between effects are named after the first id that uses them (288 frames).
+
 ## Fonts
 
 - Main font: 4,608 glyphs, 16×16 2bpp, banked through the table at `0x0815ED88`
@@ -43,6 +51,6 @@ coloured with the scene palette's most common line (the real colours vary per bl
 ## Still unclassified
 
 The remaining streams carry a format guessed from their size (`4bpp` when the size is a
-multiple of 32) and grey previews. Families still to identify: the Huffman sprite frames at
-`0x086C0000-0x08770000` (tables at `0x0876CE18-0x0876E1D4`), the 2 KB LZ77 blocks at
+multiple of 32) and grey previews. Families still to identify: the other Huffman frames at `0x086C0000-0x08770000` (tables
+from `0x0876E1D8`, used by `sub_080F0F68`/`sub_080F108C`), the 2 KB LZ77 blocks at
 `0x08500000-0x08580000`, and the large images at `0x08340000-0x084D0000`.
