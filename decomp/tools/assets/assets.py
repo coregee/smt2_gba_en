@@ -278,9 +278,7 @@ def palette_for(e, by_name, rom):
         n = 16 if e["format"] == "4bpp" else 256
         return [(r, g, b) for r, g, b, _ in bgr555(rom[o:o + 2 * n])]
     if p and p in by_name:
-        pe = by_name[p]
-        o = int(pe["addr"], 16) - BASE
-        cols = bgr555(rom[o:o + pe["len"]])
+        cols = bgr555(payload(by_name[p], rom))           # decoded: palettes may be compressed
         base = e.get("palette_index", 0) * 16
         cols = cols[base:base + (16 if e["format"] == "4bpp" else 256)]
         return [(r, g, b) for r, g, b, _ in cols]

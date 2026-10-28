@@ -48,9 +48,99 @@ between effects are named after the first id that uses them (288 frames).
   (`font/script/font_codec.py` in the translation project decodes it).
 - 8-pixel font sheet at `0x081AD7B8`.
 
+## Demon battle sprites (`assets/demons/`)
+
+388 records of 0x1C bytes at `0x0872C774` (`Demon_GetGfxRecord` 0x080E444C; ids 0-379, id 0x12D
+is replaced by one of the variants at `0x0872F104` + variant*0x1C, id 0x12E by `0x0872F174`):
+
+| Offset | Field |
+|---|---|
+| `+0x00` | u16 flags (`0x0101`; `0x9200` = affine-scaled, bit 15 tested by 0x080E7D3C) |
+| `+0x04` | 16-colour palette (copied to an OBJ line by `Demon_LoadGfx` 0x080E5678) |
+| `+0x08` | cell animation: u16 w, u16 h, pointer to (sprite def, u32 duration) pairs ended by `0xFFFFFFFF` |
+| `+0x0C` | OBJ tiles 0-127 (Huffman+LZ77, 4 KB) |
+| `+0x14` | OBJ tiles 128-255 for large demons (0 otherwise) |
+
+The tiles are in the **2D OBJ layout** (32 tiles per row): DMA'd to `0x06016000`, the sprite
+defs (`Sprite_DrawWithMode` format) cut a 256x32 (or 256x64) strip into the 64x32/16x16/...
+objects that form the demon. The PNGs are therefore 32 tiles wide; `tools/assets/sprites.py
+demons` composes every record through its cells into `assets/previews/demons/`. 374 graphics
+(13 two-part halves stay Huffman-compressed `.bin`, see "raw").
+
+## Event character sprites (`assets/characters/`)
+
+474 records of 0x2C bytes at `0x08568D78` (`Char_GetRecord` 0x080D95F4): `+0x00` type (0, or 2 =
+scripted), `+0x04..+0x20` four poses x two 2 KB halves (LZ77; half k fills OBJ rows 2k-2k+1 of the
+2D layout, `Char_LoadGfxHalf` 0x080C4080), `+0x24` palette, `+0x28` command script (type 2).
+The default sprite def `0x08004FF8` draws an 80x96 figure from OBJ tile 0x300; `sprites.py
+characters` writes previews. Script animation frames are 0x18 bytes {gfx half 0, gfx half 1,
+sprite def, u16 duration (0xFFFF end, 0xFFFE loop), u16 tile base, u16 palette, u16 reload,
+u16 sound}; their graphics are named `char_NNN_frame_<entry>_halfH` after the record whose
+script contains them. `characters/set_<loader>_k` are the multi-part sprite sets loaded directly
+by 0x080BC5A8, 0x080D7F20, 0x080D80C8, 0x080D920C and 0x080D9344.
+
+## Field map (`assets/fieldmap/`)
+
+12 area records of 0xD8 bytes at `0x087DE924` (`FieldMap_GetArea` 0x08151EB4; 10 and 11 are the
+early versions of areas 2 and 5):
+
+| Offset | Field |
+|---|---|
+| `+0x00` | 8 BG tile sets (4 KB each, to 0x02001000 + k*0x1000, DMA'd to `0x06004000`) |
+| `+0x20` | 16 tilemap chunks of the upper layer (4 KB, concatenated to 0x0200F874; `+0x24 != 0` = present) |
+| `+0x60` | 16 tilemap chunks of the lower layer (to 0x0201F874) |
+| `+0xA0`, `+0xA4` | palettes: 8 lines copied to BG lines 8-15 (`0x03002AB0`) |
+| `+0xA8` | 8 block-data chunks (byte per 16x16 block at +0x2000, 64 per row) |
+| `+0xC8`, `+0xCA` | width, height in pixels (tilemap rows are width/8 entries) |
+| `+0xCC`, `+0xCE` | origin; `+0xD0` 8 bytes of per-area ids |
+
+The map is isometric; tile previews use the most common palette line of the tilemap entries
+that reference the set. Area 6 animates tile set 4 with `area06_tiles4_alt` (0x08153DD8).
+`objects0/1` are the map's OBJ sprites (palette 0x087DE8C4), `panel_*` a BG panel (0x08153890).
+
+## Casino (`assets/casino/`)
+
+Eight minigames (Super 27, Lucky Symbol, Joker and Stars, Baccarat, Keno, Big & Small, Code
+Breaker, Russian Roulette - names from the debug menu text) are set up by command scripts at
+`0x08794E00-0x0879F5A0`: words `op, func, args...` with op 0 = wait n frames, 0x0A/0x0B/0x0C =
+call func with 0/1/2 arguments. Handlers: `0x0813EF64(gfx, slot)` tile set to 0x02001000 +
+slot*0x1000, then `0x0813EFB4` (to BG 0x06008000) or `0x0813EFEC` (to OBJ 0x06010000);
+`0x0813F000`/`0x0813F030` 512-byte BG/OBJ palettes (LZ77, `pal` assets); `0x0813F0EC(map,
+layer)` 32x20 tilemaps (screen block 0x06000000 + layer*0x1000). Baccarat's cards are 8
+blocks of 0x1200 bytes (table 0x0879CCF4): 20-tile 32x40 cards, `suit*0x2400 + rank*0x280`.
+
+## Cathedral of Shadows (`assets/fusion/`)
+
+BG tiles from `0x087E5D3C` plus the capsule tiles `0x087E5D48` (tile 0x2C0), four 32x20
+tilemaps (2-way and 3-way fusion rooms and their capsules; `0x080AB250` adds tile base and
+palette line), BG palettes `0x087EFF4C` (lines 2-3) and `0x087EFFCC` (lines 6-15). Room animation
+frames: table `0x087F01AC` (image + 0x40-byte map patch, uploaded to tile 329). OBJ: mist frames
+`0x087F020C` (11 x 2 KB, palette 0x087F012C) and effect sets `0x087F0954` (three 4 KB parts +
+palette, 2D layout).
+
+## Dungeon views (`assets/dungeon/`)
+
+`gDungeonMaps` at `0x084ED59C`: 93 x 0x18 {floor records, floor count}; floor records are 0x268
+bytes (`DungeonMap_GetFloor` 0x080C8B10): a 0x98-byte header, then two variants of 0xE8 bytes.
+Variant words (index: buffer): 0-6 -> 0x0201D874 (set A), 8-11 -> 0x02024074 (B), 16-19 ->
+0x0202D874 (C), 24-31 -> 0x0200F874 (D), 32-37 -> 0x02017874 (E), 40-45 -> 0x02028074 (F), one
+LZ77 4 KB step each (`DungeonMap_LoadViewStep` 0x080AD824), usually only the first part is a
+single large stream; `+0xC0/+0xC4/+0xC8` palettes (16/32/16 colours, darkened copies by
+`Map_SetGraphicsPointers`), `+0xCC/+0xD4/+0xDC` 4 KB door OBJ graphics (to 0x06015000). The view
+sets are perspective wall slices in 8x8 tiles, composed by the renderer; their layout is not
+decoded, so the PNGs are plain 16-wide tile sheets.
+
+## Event effects and menus (`assets/event_fx/`, `assets/ui/`)
+
+The 0x08160000-0x081B0000 LZ77 blocks are named after the function that loads them
+(`event_fx/<func>_NN` for the field event effects module 0x080BA000-0x080BD7FF, `ui/<func>_NN`
+otherwise) with the first palette the loader copies; many of these loaders build their palette at
+run time, so those previews stay grey. `ui/title_menu_tiles0-3` come from the command script at
+`0x08162AB0` (sub_080B4C48).
+
 ## Still unclassified
 
-The remaining streams carry a format guessed from their size (`4bpp` when the size is a
-multiple of 32) and grey previews. Families still to identify: the other Huffman frames at `0x086C0000-0x08770000` (tables
-from `0x0876E1D8`, used by `sub_080F0F68`/`sub_080F108C`), the 2 KB LZ77 blocks at
-`0x08500000-0x08580000`, and the large images at `0x08340000-0x084D0000`.
+62 streams: LZ77 blocks at 0x0822E194, 0x08245B80-0x0824DF94, 0x084F2974-0x084F9CD0 (event
+background group of `0x080D6274`, partly RLE inside), Huffman+LZ77 frames at
+0x0856DEF0-0x0857D558 (referenced from command tables at 0x08581xxx-0x08589xxx) and
+0x0858689C-0x0858979C. `event_bg/bg_6C_rle`, `bg_65_rle`, `bg_6E_rle` (0x080D6274) are Huffman/LZ77 around a BIOS RLE stream and are kept as the inner RLE `.bin`.

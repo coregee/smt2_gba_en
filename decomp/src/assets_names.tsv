@@ -1,0 +1,32 @@
+080E444C	Demon_GetGfxRecord	func	returns 0x0872C774 + id*0x1C (id 0x12D -> 0x0872F104 + variant*0x1C, id 0x12E -> 0x0872F174); docs/assets.md "Demon battle sprites"
+080E5678	Demon_LoadGfx	func	(id < 0x17C, half, stage, palette slot): HuffUnComp record +0x0C/+0x14 to 0x0200AFC8, LZ77 to 0x030000B4, palette +0x04 to the OBJ palette
+080C397C	Demon_LoadGfxForTask	func	same record walk as Demon_LoadGfx for a task's demon (+0x2A id); reads 0x0872C780 + half*8 + stage*4
+0872C774	gDemonGfxRecords	data	388 x 0x1C: u16 flags, palette, cell animation, gfx tiles 0-127, (unused), gfx tiles 128-255, (unused)
+080D95F4	Char_GetRecord	func	returns 0x08568D78 + id*0x2C (event character sprite records)
+080C4080	Char_LoadGfxHalf	func	LZ77s one 2 KB half of a character pose to 0x02001000 + slot*0x1000 + half*0x800, palette record +0x24
+08568D78	gCharGfxRecords	data	474 x 0x2C: u32 type (0/2), 4 poses x 2 halves of 2 KB gfx, palette, script (+0x28)
+080C8B10	DungeonMap_GetFloor	func	returns gDungeonMaps[map].floors + floor*0x268 (0 if none)
+084ED59C	gDungeonMaps	data	93 x 0x18: floor records ptr, floor count, ...
+080AD824	DungeonMap_LoadViewStep	func	switch over a step counter: LZ77s one floor-variant view tile part per step into the EWRAM view buffers (0x0200F874.., 0x0201D874.., 0x02028074..)
+080AE1C4	DungeonMap_LoadDoorGfx	func	LZ77 floor variant +0xCC (DAT_0300461C) to 0x0200AFC8 and DMA to OBJ 0x06015000
+08151EB4	FieldMap_GetArea	func	returns 0x087DE924 + area*0xD8 (area 2 -> 10 and 5 -> 11 until flags 0x11/0xEC are set)
+087DE924	gFieldMapAreas	data	12 x 0xD8: 8 tile sets, 16+16 tilemap chunks, 2 palettes, 8 block-data chunks, width, height, origin
+08152584	FieldMap_LoadTiles	func	HuffUnComp+LZ77 area tile set k (+k*4) to 0x02001000 + k*0x1000
+08152630	FieldMap_LoadMapChunk	func	area tilemap chunk k of both layers (+0x20, +0x60) to 0x0200F874 / 0x0201F874 + k*0x1000
+081525D8	FieldMap_LoadBlockData	func	area block data k (+0xA8) to 0x02005004 / 0x02030C74 + k*0x1000
+0813EF64	CasinoScene_LoadTiles	func	scene command 0x0C handler: HuffUnComp+LZ77 a 4 KB tile set to 0x02001000 + slot*0x1000
+0813EFB4	CasinoScene_QueueBgTiles	func	queues the DMA of 0x02001000 (32 KB) to BG VRAM 0x06008000
+0813EFEC	CasinoScene_QueueObjTiles	func	queues the DMA of 0x02001000 (32 KB) to OBJ VRAM 0x06010000
+0813F000	CasinoScene_LoadBgPalette	func	LZ77 a 512-byte palette and copy it to gPaletteTarget (BG)
+0813F030	CasinoScene_LoadObjPalette	func	LZ77 a 512-byte palette and copy it to the OBJ half of gPaletteTarget
+0813F0EC	CasinoScene_LoadBgMap	func	LZ77 a 32x20 tilemap to 0x02000000 and queue its DMA to screen block 0x06000000 + layer*0x1000
+0814842C	Baccarat_LoadCards	func	HuffUnComp+LZ77 card block k of 0x0879CCF4 to 0x0200F874 + k*0x1200
+0879CCF4	gBaccaratCardGfx	data	8 pointers to 0x1200-byte blocks of 20-tile playing cards
+08157490	Fusion_LoadRoomTiles	func	k < 6: LZ77 0x087E5D3C[k] to 0x02001000 + k*0x1000; else the current room animation frame to 0x02003920
+087E5D3C	gFusionRoomTiles	data	3 pointers to the Cathedral of Shadows BG tile sets
+087F01AC	gFusionRoomAnim	data	12 x (4bpp frame, 0x40-byte map patch)
+081582E0	Fusion_LoadMistFrame	func	HuffUnComp+LZ77 0x087F020C[n] to 0x02008000 and queue its DMA to OBJ 0x06013800
+087F020C	gFusionMistFrames	data	11 pointers to 2 KB capsule-mist OBJ frames
+081580CC	Fusion_LoadEffectPart	func	HuffUnComp+LZ77 part k of effect set 0x087F0954[set] to 0x02001000 + k*0x1000, palette on part 2
+087F0954	gFusionEffectSets	data	4 x 0x10: three 4 KB OBJ parts and a palette
+08162AB0	gTitleMenuLoadScript	data	scene command script loading ui/title_menu_tiles0-3 through 0x080B4BE8
