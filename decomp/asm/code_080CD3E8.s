@@ -45,7 +45,7 @@ sub_080CD3E8: @ 0x080CD3E8
 .L080CD42E:
 	adds r2, r6, #0
 	adds r3, r5, #0
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	b .L080CD44C
 .L080CD438: .4byte gUnknown_084F02DE
 .L080CD43C:
@@ -55,7 +55,7 @@ sub_080CD3E8: @ 0x080CD3E8
 	adds r1, r4, #0
 	mov r2, sb
 	mov r3, r8
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 .L080CD44C:
 	pop {r3, r4}
 	mov r8, r3
@@ -132,7 +132,7 @@ sub_080CD45C: @ 0x080CD45C
 .L080CD4D6:
 	adds r2, r6, #0
 	movs r3, #4
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	b .L080CD4FA
 .L080CD4E0: .4byte gUnknown_084F0324
 .L080CD4E4:
@@ -145,7 +145,7 @@ sub_080CD45C: @ 0x080CD45C
 	lsrs r1, r1, #0x10
 	mov r2, r8
 	movs r3, #4
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 .L080CD4FA:
 	add sp, #4
 	pop {r3}
@@ -316,7 +316,7 @@ sub_080CD50C: @ 0x080CD50C
 .L080CD63E:
 	adds r2, r4, #0
 	movs r3, #4
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	b .L080CD658
 .L080CD648: .4byte gUnknown_084F0154
 .L080CD64C:
@@ -324,7 +324,7 @@ sub_080CD50C: @ 0x080CD50C
 	adds r1, r5, #0
 	adds r2, r4, #0
 	movs r3, #4
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 .L080CD658:
 	pop {r3}
 	mov r8, r3
@@ -363,14 +363,14 @@ sub_080CD668: @ 0x080CD668
 	adds r1, r4, #0
 	adds r2, r6, #0
 	mov r3, r8
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	lsls r5, r5, #0x10
 	lsrs r5, r5, #0x10
 	mov r0, sb
 	adds r1, r5, #0
 	adds r2, r6, #0
 	mov r3, r8
-	bl sub_080CCFC4
+	bl DigitFont_DrawNumber
 	pop {r3, r4}
 	mov r8, r3
 	mov sb, r4
@@ -409,14 +409,14 @@ sub_080CD6C4: @ 0x080CD6C4
 	adds r1, r4, #0
 	adds r2, r6, #0
 	mov r3, r8
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	lsls r5, r5, #0x10
 	lsrs r5, r5, #0x10
 	mov r0, sb
 	adds r1, r5, #0
 	adds r2, r6, #0
 	mov r3, r8
-	bl sub_080CCFC4
+	bl DigitFont_DrawNumber
 	pop {r3, r4}
 	mov r8, r3
 	mov sb, r4
@@ -586,7 +586,7 @@ sub_080CD720: @ 0x080CD720
 .L080CD852:
 	adds r2, r4, #0
 	movs r3, #4
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	b .L080CD86C
 .L080CD85C: .4byte gUnknown_084F0154
 .L080CD860:
@@ -594,7 +594,7 @@ sub_080CD720: @ 0x080CD720
 	adds r1, r5, #0
 	adds r2, r4, #0
 	movs r3, #4
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 .L080CD86C:
 	pop {r3}
 	mov r8, r3
@@ -1079,7 +1079,7 @@ sub_080CDBE8: @ 0x080CDBE8
 	lsrs r5, r5, #0x10
 	ldr r6, .L080CDC24
 	ldrh r0, [r6, #2]
-	bl sub_080C92C8
+	bl Status_GetCombatant
 	mov r1, sp
 	ldr r2, .L080CDC28
 	adds r0, r2, #0
@@ -1090,7 +1090,7 @@ sub_080CDBE8: @ 0x080CDBE8
 	bl CpuSet
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_080CA84C
+	bl Inventory_ListRange
 	strh r0, [r6, #0x28]
 	add sp, #4
 	pop {r4, r5, r6}
@@ -1132,7 +1132,7 @@ sub_080CDC54: @ 0x080CDC54
 	adds r6, r0, #0
 	ldr r5, .L080CDD04
 	ldrh r0, [r5, #2]
-	bl sub_080C92C8
+	bl Status_GetCombatant
 	adds r4, r0, #0
 	movs r0, #0
 	bl sub_080C964C
@@ -1616,7 +1616,7 @@ sub_080CE038: @ 0x080CE038
 	adds r6, r0, #0
 	ldr r7, .L080CE0C4
 	ldrh r0, [r7, #2]
-	bl sub_080C92C8
+	bl Status_GetCombatant
 	mov r8, r0
 	ldrh r5, [r7, #0x28]
 	movs r0, #0
@@ -1964,7 +1964,7 @@ sub_080CE300: @ 0x080CE300
 	adds r7, r0, #0
 	ldr r4, .L080CE358
 	ldrh r0, [r4, #2]
-	bl sub_080C92C8
+	bl Status_GetCombatant
 	adds r6, r0, #0
 	movs r0, #0
 	mov sb, r0
@@ -2196,7 +2196,7 @@ sub_080CE4D0: @ 0x080CE4D0
 	adds r4, r0, #0
 	ldr r5, .L080CE4FC
 	ldrh r0, [r5, #2]
-	bl sub_080C92C8
+	bl Status_GetCombatant
 	adds r6, r0, #0
 	movs r0, #0
 	strh r0, [r4, #0x1e]
@@ -2312,7 +2312,7 @@ sub_080CE5BC: @ 0x080CE5BC
 	push {r4, lr}
 	ldr r4, .L080CE5DC
 	ldrh r0, [r4, #2]
-	bl sub_080C92C8
+	bl Status_GetCombatant
 	adds r1, r0, #0
 	ldrh r0, [r4]
 	cmp r0, #5
@@ -3035,7 +3035,7 @@ sub_080CEB60: @ 0x080CEB60
 	adds r4, r0, #0
 	ldr r5, .L080CEBAC
 	ldrh r0, [r5, #2]
-	bl sub_080C92C8
+	bl Status_GetCombatant
 	movs r0, #0
 	bl sub_080C964C
 	movs r6, #0
@@ -3306,7 +3306,7 @@ sub_080CEDA4: @ 0x080CEDA4
 	adds r5, r0, #0
 	ldr r7, .L080CEDEC
 	ldrh r0, [r7, #2]
-	bl sub_080C92C8
+	bl Status_GetCombatant
 	adds r4, r0, #0
 	movs r0, #0
 	bl sub_080C964C
@@ -3396,7 +3396,7 @@ sub_080CEE4C: @ 0x080CEE4C
 	thumb_func_start sub_080CEE60
 sub_080CEE60: @ 0x080CEE60
 	push {lr}
-	bl sub_080C9E30
+	bl Status_DrawScreen
 	ldr r0, .L080CEE74
 	movs r1, #1
 	bl VBlankTask_AddCounted
@@ -3617,7 +3617,7 @@ sub_080CF010: @ 0x080CF010
 	adds r5, r0, #0
 	ldr r6, .L080CF06C
 	ldrh r0, [r6, #2]
-	bl sub_080C92C8
+	bl Status_GetCombatant
 	adds r7, r0, #0
 	movs r2, #0
 	movs r4, #0
@@ -3670,7 +3670,7 @@ sub_080CF078: @ 0x080CF078
 	adds r7, r0, #0
 	ldr r5, .L080CF0A8
 	ldrh r0, [r5, #2]
-	bl sub_080C92C8
+	bl Status_GetCombatant
 	movs r0, #0
 	bl sub_080C964C
 	mov sb, r0
@@ -3905,7 +3905,7 @@ sub_080CF250: @ 0x080CF250
 	adds r5, r0, #0
 	ldr r4, .L080CF2B8
 	ldrh r0, [r4, #2]
-	bl sub_080C92C8
+	bl Status_GetCombatant
 	ldrh r7, [r0, #0x12]
 	movs r0, #0
 	strh r0, [r5, #0x1c]
@@ -4014,7 +4014,7 @@ sub_080CF324: @ 0x080CF324
 	mov r8, r0
 	mov r1, sb
 	ldrh r0, [r1, #2]
-	bl sub_080C92C8
+	bl Status_GetCombatant
 	ldrh r7, [r0, #0x12]
 	movs r0, #0
 	strh r0, [r6, #0x1e]
@@ -4290,7 +4290,7 @@ sub_080CF57C: @ 0x080CF57C
 	push {r4, r5, lr}
 	ldr r4, .L080CF59C
 	ldrh r0, [r4, #2]
-	bl sub_080C92C8
+	bl Status_GetCombatant
 	adds r5, r0, #0
 	ldrh r0, [r4]
 	cmp r0, #0xb
@@ -4660,12 +4660,12 @@ gUnknown_080CF83C:
 	movs r1, #0xc
 	movs r2, #0x1b
 	adds r3, r5, #0
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	ldr r0, .L080CF8C8
 	movs r1, #0x2a
 	movs r2, #0x1b
 	adds r3, r5, #0
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	movs r0, #0
 	bl sub_080CF680
 	lsls r0, r0, #0x10
@@ -4681,13 +4681,13 @@ gUnknown_080CF83C:
 	ldrh r3, [r1]
 	movs r1, #0x7c
 	movs r2, #0x1b
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	ldr r0, .L080CF8D0
 	add r1, sp, #8
 	ldrh r3, [r1, #2]
 	movs r1, #0xb4
 	movs r2, #0x1b
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	b .L080CFBDA
 	.byte 0x00, 0x00
 .L080CF8C4: .4byte gUnknown_084F18A0
@@ -4712,17 +4712,17 @@ gUnknown_080CF83C:
 	movs r1, #0xc
 	adds r2, r4, #0
 	adds r3, r5, #0
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	ldr r0, .L080CF948
 	movs r1, #0x2a
 	adds r2, r4, #0
 	adds r3, r5, #0
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	ldr r0, .L080CF94C
 	movs r1, #0x48
 	adds r2, r4, #0
 	adds r3, r5, #0
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	movs r0, #1
 	bl sub_080CF680
 	lsls r0, r0, #0x10
@@ -4738,7 +4738,7 @@ gUnknown_080CF83C:
 	ldrh r3, [r1]
 	movs r1, #0x7c
 	adds r2, r4, #0
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	ldr r0, .L080CF954
 	add r1, sp, #8
 	ldrh r3, [r1, #2]
@@ -4768,12 +4768,12 @@ gUnknown_080CF83C:
 	movs r1, #0xc
 	adds r2, r4, #0
 	adds r3, r5, #0
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	ldr r0, .L080CF9C0
 	movs r1, #0x2a
 	adds r2, r4, #0
 	adds r3, r5, #0
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	movs r0, #2
 	bl sub_080CF680
 	lsls r0, r0, #0x10
@@ -4789,7 +4789,7 @@ gUnknown_080CF83C:
 	ldrh r3, [r1]
 	movs r1, #0x8c
 	adds r2, r4, #0
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	ldr r0, .L080CF9C8
 	add r1, sp, #8
 	ldrh r3, [r1, #2]
@@ -4818,12 +4818,12 @@ gUnknown_080CF83C:
 	movs r1, #0xc
 	adds r2, r4, #0
 	adds r3, r5, #0
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	ldr r0, .L080CFA40
 	movs r1, #0x32
 	adds r2, r4, #0
 	adds r3, r5, #0
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	movs r0, #3
 	bl sub_080CF680
 	lsls r0, r0, #0x10
@@ -4839,13 +4839,13 @@ gUnknown_080CF83C:
 	ldrh r3, [r1]
 	movs r1, #0x5e
 	adds r2, r4, #0
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	ldr r0, .L080CFA48
 	add r1, sp, #8
 	ldrh r3, [r1, #2]
 	movs r1, #0x8e
 	adds r2, r4, #0
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	ldr r0, .L080CFA4C
 	add r1, sp, #8
 	ldrh r3, [r1, #4]
@@ -4874,12 +4874,12 @@ gUnknown_080CF83C:
 	movs r1, #0xc
 	adds r2, r4, #0
 	adds r3, r5, #0
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	ldr r0, .L080CFAB8
 	movs r1, #0x32
 	adds r2, r4, #0
 	adds r3, r5, #0
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	movs r0, #4
 	bl sub_080CF680
 	lsls r0, r0, #0x10
@@ -4895,7 +4895,7 @@ gUnknown_080CF83C:
 	ldrh r3, [r1]
 	movs r1, #0x88
 	adds r2, r4, #0
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	ldr r0, .L080CFAC0
 	add r1, sp, #8
 	ldrh r3, [r1, #2]
@@ -4924,12 +4924,12 @@ gUnknown_080CF83C:
 	movs r1, #0xc
 	adds r2, r4, #0
 	adds r3, r5, #0
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	ldr r0, .L080CFB2C
 	movs r1, #0x32
 	adds r2, r4, #0
 	adds r3, r5, #0
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	movs r0, #5
 	bl sub_080CF680
 	lsls r0, r0, #0x10
@@ -4945,7 +4945,7 @@ gUnknown_080CF83C:
 	ldrh r3, [r1]
 	movs r1, #0x84
 	adds r2, r4, #0
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	ldr r0, .L080CFB34
 	add r1, sp, #8
 	ldrh r3, [r1, #2]
@@ -4974,7 +4974,7 @@ gUnknown_080CF83C:
 	movs r1, #0xc
 	adds r2, r4, #0
 	adds r3, r5, #0
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	movs r0, #6
 	bl sub_080CF680
 	lsls r0, r0, #0x10
@@ -4990,20 +4990,20 @@ gUnknown_080CF83C:
 	ldrh r3, [r1]
 	movs r1, #0x5e
 	adds r2, r4, #0
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	ldr r0, .L080CFBAC
 	add r1, sp, #8
 	ldrh r3, [r1, #2]
 	movs r1, #0xa2
 	adds r2, r4, #0
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	ldr r0, .L080CFBB0
 	add r1, sp, #8
 	ldrh r3, [r1, #4]
 	movs r1, #0xc8
 .L080CFB9A:
 	adds r2, r4, #0
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	b .L080CFBDA
 	.byte 0x00, 0x00
 .L080CFBA4: .4byte gUnknown_084F1918
@@ -5027,7 +5027,7 @@ gUnknown_080CF83C:
 	movs r1, #0x68
 	movs r2, #0x7b
 	adds r3, r5, #0
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 .L080CFBDA:
 	add sp, #0x10
 	pop {r4, r5, r6, r7}
@@ -5147,7 +5147,7 @@ sub_080CFC10: @ 0x080CFC10
 	movs r1, #0x60
 	movs r2, #0xc
 	movs r3, #4
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	adds r0, r6, #0
 	bl sub_080CFBE8
 	movs r0, #0

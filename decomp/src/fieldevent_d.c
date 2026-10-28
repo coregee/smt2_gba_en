@@ -6,7 +6,7 @@
 // sub_080B7424 @ 0x080B7424
 void sub_080B7424(void)
 {
-    gUnk_0200E7D4[0x1A] = 0;
+    gHudState[0x1A] = 0;
 }
 
 // sub_080B7430 @ 0x080B7430
@@ -113,7 +113,7 @@ void sub_080B7684(void)
 // sub_080B76CC @ 0x080B76CC
 void sub_080B76CC(void)
 {
-    gUnk_0200E7D4[0x1A] = 1;
+    gHudState[0x1A] = 1;
 }
 
 // sub_080B76D8 @ 0x080B76D8

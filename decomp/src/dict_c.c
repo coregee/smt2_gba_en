@@ -27,7 +27,7 @@ void sub_080DBCDC(struct Task *task)
     {
         for (row = 0; row < 6; row++)
         {
-            u16 v = gUnk_0203B554[d->unk0E + row];
+            u16 v = gStatusList[d->unk0E + row];
 
             if (v != 0xFFFF)
             {

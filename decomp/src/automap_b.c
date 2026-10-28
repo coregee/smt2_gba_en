@@ -57,7 +57,7 @@ void Automap_Update(void)
         Automap_BuildAroundPlayer();
         break;
     case 0x33:
-        if (gUnk_0200E7D4[6] == 0)
+        if (gHudState[6] == 0)
         {
             Automap_DrawTilemap();
             gFieldState.unk1E++;
@@ -215,7 +215,7 @@ void Automap_VBlankStep(void)
         sub_080C7864();
         return;
     case 0x64:
-        if (gUnk_0200E7D4[6] == 3)
+        if (gHudState[6] == 3)
         {
             if (gFieldState.unk32 == 0)
             {

@@ -894,7 +894,7 @@ gUnknown_080F1D64:
 	lsls r0, r0, #0x10
 	asrs r5, r0, #0x10
 	adds r0, r5, #0
-	bl sub_080C86B4
+	bl Hud_GetMemberFace
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	cmp r0, #0x12

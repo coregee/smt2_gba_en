@@ -417,3 +417,24 @@ No text is drawn here, so nothing limits the translation. Oddities in the origin
   `sub_08153668`'s switch has no default (uninitialised shifts); harmless only because it runs
   after a real step.
 - `sub_081540B8`: the colour is uninitialised when `sub_0815B958` returns anything but 0-2.
+
+### Field HUD slides, dungeon map, status screen (`0x080C6FD8`-`0x080CD3E8`)
+
+- **Fixed-width text on the status screen.** Location names stop at 16 glyphs
+  (`0x080C8B7C`, `0x080C8BFC`); combatant names are exactly 8 glyphs, 12 px apart
+  (`Status_DrawDemonInfo` `0x080C99C4`), with five demons given 3-glyph titles hard-coded as glyph
+  numbers; item/equipment/skill names are exactly 8 glyphs (`0x080CD100`/`0x080CD1A0`/
+  `0x080CD1F8`); the demon description is 11 + up to 11 glyphs (`0x080CD2A0`). Stat labels
+  (`0x080CBB34`, `0x080CC7D4`, `0x080CCAB4`) and the 6-glyph "no drop item" text
+  (`0x080CBA7C`) are glyph numbers in code, not text-bank strings. The translation patches every
+  one of these functions (checked in the patched build).
+- The mini-font string drawers (`0x080CCE5C`, `0x080CCEC8`) index `table[c - 0x2B]`; a space or
+  anything below 0x2B reads before the table.
+- `sub_080C7DD0` uploads only 12 tiles of sprite text with no length check, but nothing calls it.
+
+### More possible original bugs
+
+- Special encounter roll (`sub_080C9100`): the 8-way branch tests moon phase 0 twice, never 0x40.
+- Money panel slide (`sub_080C76B4`): sliding in tests step > 2, sliding out step > 1.
+- Item and skill lists (`0x080CAA78`, `0x080CACD4`): page up moves 6 rows, page down 7.
+- `sub_080C8AF8` always returns 1 and `sub_080C99B8` always 0.

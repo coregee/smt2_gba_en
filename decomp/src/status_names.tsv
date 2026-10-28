@@ -1,0 +1,26 @@
+080C6FD8	Hud_LoadAllMemberFaces	func	calls Hud_LoadMemberFace for party slots 0-5
+080C7070	Hud_SlidePartyPanel	func	slides the 7x3 party panel tilemap gUnknown_081B8270 in (state 1) or out (state 2) with the state/timer/step words of gHudState; called by sub_080C71EC for panels 0 and 1
+080C7DD0	Hud_RenderSpriteText	func	clears 0x180 bytes at 0x0200E8D8, renders str with sub_080C7E24, queues the DMA to VRAM 0x06016040 (sub_080C7DAC); returns strlen
+080C7E24	Hud_RenderGlyphTiles	func	copies one 8-word tile per character of str ('.', ' ' or gUnknown_0834A5DC[c - 0x2F]) from gUnknown_081AD898 to dst
+080C7EFC	Hud_UploadMoonTiles	func	DMA3 0x80 bytes of gUnknown_081BBA70 for (Moon_GetPhase() >> 4) * 8 + animation frame gGameState+0xA27 to VRAM 0x06010120 and 0x06010020
+080C8214	Hud_DrawGauge	func	draws the 46-pixel HP (kind 0) or MP bar of a party slot from six tiles plus the value (sub_080C8174), redrawn when the value differs from 0x0200F7D8[slot][kind]
+080C8174	Hud_DrawGaugeValue	func	NumberToDigits(cur, or alt when cur > 999), three digits from gUnknown_081B17B8 blitted at x 0/4/8 with Canvas_BlitOr
+080C84E0	Hud_GetStatusFace	func	face index of a party slot from its status bits (1 dead, 2 dying or below 1/4 HP, 3-0x12 per ailment, 0 normal)
+080C8624	Hud_GetAltFace	func	alternative face 0x13-0x1B from sub_080C35E4, -1 when none or flags & 0xB1E0
+080C86B4	Hud_GetMemberFace	func	Hud_GetAltFace when gHudState+0x60[slot] is set and not -1, else Hud_GetStatusFace
+080C9084	FieldEvent_FindAt	func	scans gUnknown_084EDE54 (12-byte records, 0xFFFF ends) for map square (x, y) (via sub_080C1F50) and facing; stores the id (+8) or 0xFFFF
+080C92C8	Status_GetCombatant	func	status list entry i (gStatusList): a party member (gGameState.members[i]) or, bit 15, a demon built with Combatant_InitDemon in gMenuState+0x54
+080C947C	Status_BuildList	func	fills gStatusList (0x0203B554) for gMenuState.mode: members with unkE != 0, sub_0812ACCC demons (filtered by flag 0xB6), or one entry
+080C9E30	Status_DrawScreen	func	clears the window tilemap, opens the three status windows (stored at gMenuState+0x40/0x44/0x48) and calls Status_DrawDemonInfo and the page drawers
+080CAF6C	Status_Close	func	ends the demon sprite (gMenuState+0x3C), closes the three windows, sets the fade task done and resets the glyph sprite cache
+080CA84C	Inventory_ListRange	func	writes the ids in [lo, hi] of held gInventory entries to 0x0203B454; returns the count
+080CCE5C	SmallFont_DrawAscii	func	draws an ASCII string with SmallFont_DrawGlyphTinted via gUnknown_084F01F4[c - 0x2B] ('?' 0x13, '-' 6), 8 pixels apart
+080CCEC8	DigitFont_DrawAscii	func	draws an ASCII string with DigitFont_DrawGlyphTinted via gUnknown_084F0254[c - 0x2B] ('?' 0x1F, '-' 0xD, '\' 0x3E), 8 pixels apart
+080CCF44	SmallFont_DrawNumber	func	NumberToDigits, 8 digits right-aligned ending at x, leading zeros hidden, SmallFont glyphs gUnknown_084F01F4[d + 5]
+080CCFC4	DigitFont_DrawNumber	func	same as SmallFont_DrawNumber with DigitFont glyphs gUnknown_084F0254[d + 5]
+080CD100	Status_DrawEquipName	func	8 glyphs of Equipment_GetRecord36_MidRange(id)+0x14, 12 pixels apart (empty: 8x glyph 0x3C; id 0xFF: string gUnknown_084F02CA)
+080CD1A0	Status_DrawActionName	func	8 glyphs of Action_GetRecord(id)+0xC, 12 pixels apart
+080CD1F8	Status_DrawSkillName	func	8 glyphs of sub_080BF5C0(id)+6, 12 pixels apart (empty: 8x glyph 0x3C)
+080CD2A0	Status_DrawDemonDescription	func	11 glyphs from Demon_GetRecord(id)+0x32, then up to 11 (0 ends) from +0x48 on the line 15 pixels lower
+0200E7D4	gHudState	ram	field HUD state cleared by Hud_Init: per panel slide state[8], step[8], timer[8] (0x00/0x10/0x20), alt-face flags 0x60, upload flags 0x6C/0x6E, magnetite blink 0x70
+0203B554	gStatusList	ram	u16 list of the status screen entries built by Status_BuildList (bit 15 = demon id), count in gMenuState+0x24

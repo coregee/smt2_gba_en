@@ -137,8 +137,8 @@ void sub_080AB758(struct WindowObj *win)
 
     if (rect->h == 8 && rect->y == 11 && gMainCallback == FieldMain_Loop)
     {
-        gUnk_0200E7D4[0x18] = 1;
-        gUnk_0200E7D4[0x1F] = 1;
+        gHudState[0x18] = 1;
+        gHudState[0x1F] = 1;
     }
 }
 
@@ -223,11 +223,11 @@ void Window_Close(struct WindowObj *win, u32 erase)
         return;
     rect = &win->rect;
     if (rect->h == 8 && rect->y == 11 && gMainCallback == FieldMain_Loop
-        && gUnk_0200E7D4[0x1E] == 0)
+        && gHudState[0x1E] == 0)
     {
-        gUnk_0200E7D4[0x1F] = 0;
-        if (sub_080C8AF8(gUnk_03004614) == 1 && gUnk_0200E7D4[5] == 0)
-            gUnk_0200E7D4[0x18] = 0;
+        gHudState[0x1F] = 0;
+        if (sub_080C8AF8(gUnk_03004614) == 1 && gHudState[5] == 0)
+            gHudState[0x18] = 0;
     }
     if (erase == 0)
     {

@@ -162,7 +162,7 @@ void sub_0812A7E4(struct Task *task)
     else
     {
         blk->unk4C = TextWindow_Create(9, 1, 0xC, 7, 1);
-        sub_080C7E24(gUnk_030000B4, gUnknown_08778A9C);
+        Hud_RenderGlyphTiles(gUnk_030000B4, gUnknown_08778A9C);
         VBlankTask_AddCounted(sub_08128F28, 1);
         sub_08126928(2, 1, 1, 4, 4);
     }

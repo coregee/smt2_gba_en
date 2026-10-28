@@ -145,7 +145,7 @@ struct BattleFlowIwram  /* 0x030063A0 */
 };
 extern struct BattleFlowIwram gUnk_030063A0;
 extern u8 *gUnk_03006434;
-extern u16 gUnk_0200E7D4[];
+extern u16 gHudState[];
 
 void *memset(void *dst, int c, u32 n);
 

@@ -605,7 +605,7 @@ void sub_080F5254(struct Action *a)
         a->msg = 0x39A;
         sub_080C08E8(who, 0x1000);
     }
-    sub_080C6FD8();
+    Hud_LoadAllMemberFaces();
     a->unkC = 1;
 }
 

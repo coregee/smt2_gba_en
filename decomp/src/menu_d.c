@@ -9,7 +9,7 @@
         color = 8;                  \
     else if ((cur) < (old))         \
         color = 10;                 \
-    sub_080CCFC4(cur, x, y, color); \
+    DigitFont_DrawNumber(cur, x, y, color); \
 }
 
 /* NONMATCHING: the mode load/copy order differs and the window+0x24 argument is built in another register. */
@@ -628,8 +628,8 @@ u16 Action_CountDescriptionBreaks(u16 id)
 // sub_080D2D58 @ 0x080D2D58
 void sub_080D2D58(void)
 {
-    sub_080CCEC8(gUnknown_084F313C, 0x9E, 14, 0);
-    sub_080CCFC4(gUnk_0203DB2C, 0xDE, 14, 0);
+    DigitFont_DrawAscii(gUnknown_084F313C, 0x9E, 14, 0);
+    DigitFont_DrawNumber(gUnk_0203DB2C, 0xDE, 14, 0);
 }
 
 /* Page 0 of a two-page description is drawn glyph by glyph up to the second 0x300 line break;
@@ -654,7 +654,7 @@ void Item_RenderDescription(u32 arg0)
         return;
     if (menu->mode == 2)
     {
-        sub_080CCE5C(gUnknown_084F3140, 0x99, 2, 0);
+        SmallFont_DrawAscii(gUnknown_084F3140, 0x99, 2, 0);
         sub_080D2D58();
         sub_080D1F0C();
     }
@@ -773,7 +773,7 @@ void Item_RenderDescription(u32 arg0)
         "    movs r1, #0x99\n"
         "    movs r2, #2\n"
         "    movs r3, #0\n"
-        "    bl sub_080CCE5C\n"
+        "    bl SmallFont_DrawAscii\n"
         "    bl sub_080D2D58\n"
         "    bl sub_080D1F0C\n"
         "    b .L080D2EF4\n"

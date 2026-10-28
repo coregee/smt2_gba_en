@@ -47,7 +47,7 @@ sub_080DC6D0: @ 0x080DC6D0
 	movs r1, #0
 	movs r2, #2
 	movs r3, #4
-	bl sub_080CCE5C
+	bl SmallFont_DrawAscii
 	movs r0, #0
 	ldrsb r0, [r7, r0]
 	bl Race_GetParentId
@@ -158,7 +158,7 @@ sub_080DC6D0: @ 0x080DC6D0
 	movs r1, #0x6a
 	movs r2, #2
 	movs r3, #4
-	bl sub_080CCE5C
+	bl SmallFont_DrawAscii
 	movs r5, #0
 .L080DC81E:
 	ldr r1, [sp, #0x14]
@@ -171,7 +171,7 @@ sub_080DC6D0: @ 0x080DC6D0
 	lsls r2, r2, #0x10
 	lsrs r2, r2, #0x10
 	movs r1, #0x6e
-	bl sub_080CD1F8
+	bl Status_DrawSkillName
 	mov r0, sb
 	adds r0, #0xf
 	lsls r0, r0, #0x10
@@ -257,50 +257,50 @@ sub_080DC6D0: @ 0x080DC6D0
 	movs r1, #0
 	movs r2, #2
 	movs r3, #4
-	bl sub_080CCE5C
+	bl SmallFont_DrawAscii
 	ldr r0, .L080DCB9C
 	movs r4, #4
 	movs r1, #4
 	movs r2, #0x10
 	movs r3, #4
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	ldrb r0, [r7, #1]
 	movs r1, #0x45
 	movs r2, #0x10
 	movs r3, #0
-	bl sub_080CCFC4
+	bl DigitFont_DrawNumber
 	ldr r0, .L080DCBA0
 	movs r1, #4
 	movs r2, #0x1f
 	movs r3, #4
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	movs r1, #2
 	ldrsh r0, [r7, r1]
 	movs r1, #0x45
 	movs r2, #0x1f
 	movs r3, #0
-	bl sub_080CCFC4
+	bl DigitFont_DrawNumber
 	ldr r0, .L080DCBA4
 	movs r1, #4
 	movs r2, #0x2e
 	movs r3, #4
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	movs r6, #4
 	ldrsh r0, [r7, r6]
 	movs r1, #0x45
 	movs r2, #0x2e
 	movs r3, #0
-	bl sub_080CCFC4
+	bl DigitFont_DrawNumber
 	ldr r0, .L080DCBA8
 	movs r1, #4
 	movs r2, #0x3d
 	movs r3, #4
-	bl sub_080CCEC8
+	bl DigitFont_DrawAscii
 	ldrb r0, [r7, #0x1d]
 	movs r1, #0x45
 	movs r2, #0x3d
 	movs r3, #0
-	bl sub_080CCFC4
+	bl DigitFont_DrawNumber
 	ldr r0, .L080DCBAC
 	mov r8, r0
 	str r4, [sp]
@@ -313,7 +313,7 @@ sub_080DC6D0: @ 0x080DC6D0
 	movs r1, #0x6d
 	movs r2, #0x11
 	movs r3, #0
-	bl sub_080CCFC4
+	bl DigitFont_DrawNumber
 	ldr r0, .L080DCBB0
 	str r4, [sp]
 	mov r1, sl
@@ -326,7 +326,7 @@ sub_080DC6D0: @ 0x080DC6D0
 	mov sb, r1
 	movs r2, #0x11
 	movs r3, #0
-	bl sub_080CCFC4
+	bl DigitFont_DrawNumber
 	ldr r6, .L080DCBB4
 	str r4, [sp]
 	adds r0, r6, #0
@@ -339,7 +339,7 @@ sub_080DC6D0: @ 0x080DC6D0
 	movs r1, #0x6d
 	movs r2, #0x20
 	movs r3, #0
-	bl sub_080CCFC4
+	bl DigitFont_DrawNumber
 	ldr r0, .L080DCBB8
 	str r4, [sp]
 	mov r1, sl
@@ -351,7 +351,7 @@ sub_080DC6D0: @ 0x080DC6D0
 	movs r1, #0x96
 	movs r2, #0x20
 	movs r3, #0
-	bl sub_080CCFC4
+	bl DigitFont_DrawNumber
 	ldr r0, .L080DCBBC
 	str r4, [sp]
 	mov r1, sl
@@ -363,7 +363,7 @@ sub_080DC6D0: @ 0x080DC6D0
 	movs r1, #0x6d
 	movs r2, #0x2f
 	movs r3, #0
-	bl sub_080CCFC4
+	bl DigitFont_DrawNumber
 	ldr r0, .L080DCBC0
 	str r4, [sp]
 	mov r1, sl
@@ -375,7 +375,7 @@ sub_080DC6D0: @ 0x080DC6D0
 	movs r1, #0x96
 	movs r2, #0x2f
 	movs r3, #0
-	bl sub_080CCFC4
+	bl DigitFont_DrawNumber
 	ldr r0, .L080DCBC4
 	str r4, [sp]
 	mov r1, sl
@@ -395,7 +395,7 @@ sub_080DC6D0: @ 0x080DC6D0
 	movs r1, #0x45
 	movs r2, #0x52
 	movs r3, #0
-	bl sub_080CCFC4
+	bl DigitFont_DrawNumber
 	ldr r0, .L080DCBCC
 	str r4, [sp]
 	mov r1, sl
@@ -415,7 +415,7 @@ sub_080DC6D0: @ 0x080DC6D0
 	movs r1, #0x45
 	movs r2, #0x61
 	movs r3, #0
-	bl sub_080CCFC4
+	bl DigitFont_DrawNumber
 	ldr r0, .L080DCBD4
 	str r4, [sp]
 	mov r1, sl
@@ -435,7 +435,7 @@ sub_080DC6D0: @ 0x080DC6D0
 	movs r1, #0x45
 	movs r2, #0x70
 	movs r3, #0
-	bl sub_080CCFC4
+	bl DigitFont_DrawNumber
 	ldr r0, .L080DCBDC
 	str r4, [sp]
 	mov r1, sl
@@ -455,7 +455,7 @@ sub_080DC6D0: @ 0x080DC6D0
 	movs r1, #0x45
 	movs r2, #0x7f
 	movs r3, #0
-	bl sub_080CCFC4
+	bl DigitFont_DrawNumber
 	str r4, [sp]
 	adds r0, r6, #0
 	mov r1, sl
@@ -488,7 +488,7 @@ sub_080DC6D0: @ 0x080DC6D0
 	movs r1, #0x96
 	movs r2, #0x52
 	movs r3, #0
-	bl sub_080CCFC4
+	bl DigitFont_DrawNumber
 	str r4, [sp]
 	adds r0, r6, #0
 	mov r1, sl
@@ -520,7 +520,7 @@ sub_080DC6D0: @ 0x080DC6D0
 	movs r1, #0x96
 	movs r2, #0x61
 	movs r3, #0
-	bl sub_080CCFC4
+	bl DigitFont_DrawNumber
 	ldr r0, .L080DCBF4
 	mov r1, sb
 	str r1, [sp]

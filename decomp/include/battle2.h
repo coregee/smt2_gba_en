@@ -221,7 +221,7 @@ u32 sub_080C0794(void);
 void Combatant_AddAlignment(s32 a, s32 d);
 void Party_AddAt(u16 who, u16 slot);
 void Party_BuildMemberNameTiles(void);
-void sub_080C6FD8(void);
+void Hud_LoadAllMemberFaces(void);
 void Party_Remove(u16 who, u32 release);
 void Combatant_ClearStatus(s32 who, u32 mask);
 void *memcpy(void *dst, const void *src, unsigned long n);

@@ -319,7 +319,7 @@ void sub_080C2764(u16 id);
 void sub_080C2790(u16 id);
 void Combatant_RecalcStats(s32 who);
 void Party_BuildMemberNameTiles(void);
-void sub_080C6FD8(void);
+void Hud_LoadAllMemberFaces(void);
 u16 Combatant_GetStatus(u32 who);
 void sub_080E9044(struct Task *h, u16 i);
 void CharObj_End(struct Task *t, u32 a);
@@ -368,7 +368,7 @@ u16 Color_StepComponent(u16 cur, u16 target, u16 up);
 void sub_080C457C(struct Task *t, u32 v);
 const struct DemonGfxRecord *sub_080D8248(u16 id);
 struct PalFade *PalFade_FadeRangeToBlackWithDuration(u16 start, u16 count, u16 delay, u16 duration);
-struct C0c2FieldEvent *sub_080C9084(u16 x, u16 y, u16 dir, u16 *id);
+struct C0c2FieldEvent *FieldEvent_FindAt(u16 x, u16 y, u16 dir, u16 *id);
 void Sprite_DrawSingle(const void *tmpl, u16 layer, u16 palette, u16 priority, u16 tile, u16 x, u16 y);
 struct Task *CharObj_FindInGroup(u16 key, u16 id);
 void sub_080C4614(u16 key);
@@ -484,8 +484,8 @@ struct C0c2FaceRef
 };
 extern const struct C0c2FaceRef gUnknown_0834A2EC[];
 void sub_080D2F60(struct Task *t);
-void sub_080C8214(u16 slot, u16 kind, u16 x, u16 y, u16 max, u16 cur);
-s16 sub_080C86B4(s16 slot);
+void Hud_DrawGauge(u16 slot, u16 kind, u16 x, u16 y, u16 max, u16 cur);
+s16 Hud_GetMemberFace(s16 slot);
 u32 sub_080C6FB8(u16 slot);
 void sub_080C6AD8(u16 slot, u16 layer, u16 prio, u16 x, u16 y);
 struct Task *sub_080C6BA8(void);
@@ -512,7 +512,7 @@ extern const u16 gUnknown_0834A230[];
 extern const u16 gUnknown_0834A224[];
 extern const u8 gUnknown_081B7030[];
 u32 sub_080C8AF8(u16 map);
-void sub_080C7EFC(void);
+void Hud_UploadMoonTiles(void);
 void sub_080C8440(void);
 u32 Encounter_GetDangerLevel(void);
 void sub_080C7EB4(const void *src, void *dst);
@@ -551,7 +551,7 @@ void Sound_Play(u16 se);
 extern u16 gUnk_030031B4;   /* current song */
 extern u16 gUnk_030031EC;   /* previous song */
 extern u8 gUnk_0203F2E0[];  /* music player */
-extern u16 gUnk_0200E7D4[];
+extern u16 gHudState[];
 extern const u8 gUnknown_081A65F4[];
 extern const u8 gUnknown_081A6634[];
 void CharTask_Register(struct Task *t);

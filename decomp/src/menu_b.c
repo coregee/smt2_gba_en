@@ -27,16 +27,16 @@ void SaveScreen_DrawPage(u32 arg0, u32 page)
         {
         case 0:
         case 4:
-            sub_080CCEC8(gUnknown_084F2110, 0x68, 12, 4);
+            DigitFont_DrawAscii(gUnknown_084F2110, 0x68, 12, 4);
             break;
         case 1:
-            sub_080CCEC8(gUnknown_084F2118, 0x58, 12, 4);
+            DigitFont_DrawAscii(gUnknown_084F2118, 0x58, 12, 4);
             break;
         case 2:
-            sub_080CCEC8(gUnknown_084F2124, 0x68, 12, 4);
+            DigitFont_DrawAscii(gUnknown_084F2124, 0x68, 12, 4);
             break;
         case 3:
-            sub_080CCEC8(gUnknown_084F212C, 0x68, 12, 4);
+            DigitFont_DrawAscii(gUnknown_084F212C, 0x68, 12, 4);
             break;
         }
         VBlankTask_AddCounted(sub_080D0674, 1);
@@ -964,8 +964,8 @@ void NameEntry_RenderName(void)
     for (i = 0; i < 8; i++)
         Font_CopyGlyphCell(Font_GetGlyphBitmap(glyphs[i]), gUnk_02000000 + i * 0x40);
     VBlankTask_AddCounted(sub_080D1538, 1);
-    gUnk_0200E7D4[0x1F] = 1;
-    gUnk_0200E7D4[0x20] = 1;
+    gHudState[0x1F] = 1;
+    gHudState[0x20] = 1;
 }
 
 // sub_080D15B0 @ 0x080D15B0

@@ -78,11 +78,11 @@ void sub_080B1AD8(u16 a, u16 b)
 // sub_080B1B58 @ 0x080B1B58
 s32 sub_080B1B58(void)
 {
-    if (sub_080C8AF8(gUnk_03004614) == 1 && gUnk_0200E7D4[2] != 0)
+    if (sub_080C8AF8(gUnk_03004614) == 1 && gHudState[2] != 0)
         return 0;
-    if (sub_080C8AF8(gUnk_03004614) == 1 && gUnk_0200E7D4[0] != 0)
+    if (sub_080C8AF8(gUnk_03004614) == 1 && gHudState[0] != 0)
         return 0;
-    if (sub_080C8AF8(gUnk_03004614) == 1 && gUnk_0200E7D4[3] != 0)
+    if (sub_080C8AF8(gUnk_03004614) == 1 && gHudState[3] != 0)
         return 0;
     if (sub_080B78A4() != 0)
         return 0;
@@ -134,7 +134,7 @@ void Field_HandleInput(u16 keys)
 
     Automap_SetVisited(gFieldState.unk12, gFieldState.unk14);
     if (gFieldState.unk40 == 0 && gFieldState.unk3E == 0
-        && (ev = sub_080C9084(gFieldState.unk12, gFieldState.unk14, gFieldState.unk02, &id)) != NULL
+        && (ev = FieldEvent_FindAt(gFieldState.unk12, gFieldState.unk14, gFieldState.unk02, &id)) != NULL
         && id != 0xFFFF
         && sub_080C2480(id) == 1
         && sub_080AF0AC(ev->script) != 0)
@@ -150,7 +150,7 @@ void Field_HandleInput(u16 keys)
             {
                 if (*(u16 *)(gFieldState.unk40 + 0x1E) != 0)
                 {
-                    struct FieldEvent *ev2 = sub_080C9084(gFieldState.unk12, gFieldState.unk14, gFieldState.unk02, &unused);
+                    struct FieldEvent *ev2 = FieldEvent_FindAt(gFieldState.unk12, gFieldState.unk14, gFieldState.unk02, &unused);
                     sub_080AF7E8(ev2, ev2, 0);
                 }
             }
@@ -334,7 +334,7 @@ void Field_HandleInput(u16 keys)
         "    mov r4, sp\n"
         "    adds r4, #2\n"
         "    adds r3, r4, #0\n"
-        "    bl sub_080C9084\n"
+        "    bl FieldEvent_FindAt\n"
         "    adds r6, r0, #0\n"
         "    cmp r6, #0\n"
         "    beq .L080B1C8C\n"
@@ -378,7 +378,7 @@ void Field_HandleInput(u16 keys)
         "    ldrh r1, [r2, #0x14]\n"
         "    ldrh r2, [r2, #2]\n"
         "    add r3, sp, #4\n"
-        "    bl sub_080C9084\n"
+        "    bl FieldEvent_FindAt\n"
         "    adds r1, r0, #0\n"
         "    movs r2, #0\n"
         "    bl sub_080AF7E8\n"

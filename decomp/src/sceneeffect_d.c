@@ -280,7 +280,7 @@ void sub_080BB8E0(void)
     Tilemap_FillRect(0, gUnk_02000000, 1, 0, 0x1C, 0xD);
     VBlankTask_AddCounted(sub_080BB8A0, 1);
     VBlankTask_AddCounted(sub_080C153C, 1);
-    gUnk_0200E7D4[0x18] = 1;
+    gHudState[0x18] = 1;
 }
 
 // sub_080BB928 @ 0x080BB928

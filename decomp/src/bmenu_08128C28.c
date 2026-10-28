@@ -185,7 +185,7 @@ void sub_08128F60(void)
     u8 n = 0;
     u16 *p;
 
-    sub_080C7E24(gUnk_030000B4, gUnknown_08777F2C);
+    Hud_RenderGlyphTiles(gUnk_030000B4, gUnknown_08777F2C);
     VBlankTask_AddCounted(sub_08128F28, 1);
     p = blk->list;
     if (Flag_Test(3))

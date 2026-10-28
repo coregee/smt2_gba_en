@@ -257,7 +257,7 @@ void sub_0812C2E4(struct Task *task)
             task->pad1E = 0xFE;
             Party_FixFormation();
             Party_BuildMemberNameTiles();
-            sub_080C6FD8();
+            Hud_LoadAllMemberFaces();
             if (!Battle_IsPartyDefeated())
                 break;
             sub_080B9058();
@@ -425,7 +425,7 @@ void sub_0812C2E4(struct Task *task)
         "    strh r0, [r5, #0x1e]\n"
         "    bl Party_FixFormation\n"
         "    bl Party_BuildMemberNameTiles\n"
-        "    bl sub_080C6FD8\n"
+        "    bl Hud_LoadAllMemberFaces\n"
         "    bl Battle_IsPartyDefeated\n"
         "    cmp r0, #0\n"
         "    beq .L0812C46A\n"

@@ -372,7 +372,7 @@ void sub_080B9954(struct Task *task)
     Elevator_SetCursorToCurrentFloor(task);
     d->textWin = TextWindow_Create(0x13, 0, 9, (u16)h, 1);
     d->win = Window_Create(2, 0xB, 0x1A, 8, 0);
-    gUnk_0200E7D4[0x18] = 1;
+    gHudState[0x18] = 1;
 }
 
 // sub_080B99B0 @ 0x080B99B0
@@ -392,7 +392,7 @@ void sub_080B99C8(struct Task *task)
 
     TextWindow_Close(task->data.w[0], 0);
     Window_Close((void *)d->win, 0);
-    gUnk_0200E7D4[0x18] = 0;
+    gHudState[0x18] = 0;
 }
 
 // sub_080B99F0 @ 0x080B99F0

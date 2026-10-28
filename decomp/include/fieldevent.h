@@ -138,7 +138,7 @@ void sub_080B5084(void);
 
 extern u16 gPaletteBuffer[0x200];
 extern u32 gFrameCounter;
-extern u16 gUnk_0200E7D4[];
+extern u16 gHudState[];
 extern struct Task *gUnk_03003FEC;
 extern u32 gUnk_03003FF0;
 extern u32 gUnk_030045F8;

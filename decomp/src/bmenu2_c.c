@@ -163,7 +163,7 @@ void sub_0812D168(void)
     struct C127Block *blk = C127_BLOCK;
 
     blk->unk4C = TextWindow_Create(0xB, 1, 8, 6, 1);
-    sub_080C7E24(gUnk_030000B4, gUnknown_08779E9C);
+    Hud_RenderGlyphTiles(gUnk_030000B4, gUnknown_08779E9C);
     VBlankTask_AddCounted(sub_0812D130, 1);
     sub_08126928(0, 1, 1, 3, 3);
 }
@@ -278,7 +278,7 @@ void sub_0812D3F0(void)
     struct C127Block *blk = C127_BLOCK;
 
     blk->unk4C = TextWindow_Create(8, 1, 0xE, 6, 1);
-    sub_080C7E24(gUnk_030000B4, gUnknown_08779FD0);
+    Hud_RenderGlyphTiles(gUnk_030000B4, gUnknown_08779FD0);
     VBlankTask_AddCounted(sub_0812D3B8, 1);
     sub_08126928(3, 1, 1, 3, 3);
     BattleMenu_SetMode(3, gUnknown_081232AE);

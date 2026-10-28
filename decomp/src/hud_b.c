@@ -149,12 +149,12 @@ struct Task *sub_080C6BA8(void)
 #ifdef NONMATCHING
 void Hud_DrawMemberPanel(u16 slot, u16 x, u16 y)
 {
-    u16 *shake = &gUnk_0200E7D4[0x24 + slot];
-    u16 *dir = &gUnk_0200E7D4[0x2A + slot];
+    u16 *shake = &gHudState[0x24 + slot];
+    u16 *dir = &gHudState[0x2A + slot];
     struct Combatant *c;
     u16 dx, dy;
 
-    if (gUnk_0200E7D4[0x1E + slot] == 1)
+    if (gHudState[0x1E + slot] == 1)
         return;
     if (gGameState.order[slot] == -1)
     {
@@ -175,18 +175,18 @@ void Hud_DrawMemberPanel(u16 slot, u16 x, u16 y)
         }
         dy += *dir;
     }
-    if (gUnk_0200E7D4[0x1F] != 1 || sub_080C6BA8() == NULL)
+    if (gHudState[0x1F] != 1 || sub_080C6BA8() == NULL)
         Sprite_Draw(gUnknown_0834A23C[slot], 7, 0, 1, 0, gUnknown_0834A274[slot].x + dx,
                     dy + gUnknown_0834A274[slot].y);
-    if (gUnk_0200E7D4[0x1F] != 1 || slot != 2)
+    if (gHudState[0x1F] != 1 || slot != 2)
         sub_080C6AD8(slot, 7, 1, gUnknown_0834A28C[slot].x + dx, dy + gUnknown_0834A28C[slot].y);
-    if (gUnk_0200E7D4[0x1F] != 1 || (slot != 0 && slot != 3 && slot != 4))
-        sub_080C8214(slot, 0, gUnknown_0834A2BC[slot].x + dx, dy + gUnknown_0834A2BC[slot].y,
+    if (gHudState[0x1F] != 1 || (slot != 0 && slot != 3 && slot != 4))
+        Hud_DrawGauge(slot, 0, gUnknown_0834A2BC[slot].x + dx, dy + gUnknown_0834A2BC[slot].y,
                      c->maxHp, c->hp);
     if (c->maxMp != 0)
-        sub_080C8214(slot, 1, gUnknown_0834A2D4[slot].x + dx, dy + gUnknown_0834A2D4[slot].y,
+        Hud_DrawGauge(slot, 1, gUnknown_0834A2D4[slot].x + dx, dy + gUnknown_0834A2D4[slot].y,
                      c->maxMp, c->mp);
-    if (gUnk_0200E7D4[0x1F] == 1 && (slot == 0 || slot == 2))
+    if (gHudState[0x1F] == 1 && (slot == 0 || slot == 2))
         return;
     if (c->maxMp != 0)
         Sprite_Draw(gUnknown_080005EC, 7, 0, 1, 0, gUnknown_0834A2A4[slot].x + dx,
@@ -380,7 +380,7 @@ void Hud_DrawMemberPanel(u16 slot, u16 x, u16 y)
         "    str r0, [sp, #4]\n"
         "    adds r0, r4, #0\n"
         "    movs r1, #0\n"
-        "    bl sub_080C8214\n"
+        "    bl Hud_DrawGauge\n"
         ".L080C6D48:\n"
         "    mov r2, sb\n"
         "    movs r1, #0x1e\n"
@@ -407,7 +407,7 @@ void Hud_DrawMemberPanel(u16 slot, u16 x, u16 y)
         "    str r0, [sp, #4]\n"
         "    adds r0, r4, #0\n"
         "    movs r1, #1\n"
-        "    bl sub_080C8214\n"
+        "    bl Hud_DrawGauge\n"
         ".L080C6D7E:\n"
         "    ldr r0, .L080C6DCC\n"
         "    ldrh r0, [r0, #0x3e]\n"
@@ -495,7 +495,7 @@ void Hud_DrawMemberPanel(u16 slot, u16 x, u16 y)
 // sub_080C6E30 @ 0x080C6E30
 void sub_080C6E30(u16 v)
 {
-    u16 *hud = gUnk_0200E7D4;
+    u16 *hud = gHudState;
 
     hud[0x1E] = v;
     hud[0x1F] = v;
@@ -645,7 +645,7 @@ void sub_080C6F00(void)
     u16 *hud;
 
     DmaCopy32(3, (void *)0x02039FE4, (void *)0x06011200, 0x300);
-    hud = gUnk_0200E7D4;
+    hud = gHudState;
     hud[0x37] = 0;
 }
 
@@ -661,7 +661,7 @@ void Hud_LoadMemberFace(u16 i)
         u32 k;
         u16 *hud;
 
-        src += gUnknown_0834A2EC[sub_080C86B4(i)].tile;
+        src += gUnknown_0834A2EC[Hud_GetMemberFace(i)].tile;
         for (k = 0; k < 4; k++)
         {
             *dst++ = *src++;
@@ -673,7 +673,7 @@ void Hud_LoadMemberFace(u16 i)
             *dst++ = *src++;
             *dst++ = *src++;
         }
-        hud = gUnk_0200E7D4;
+        hud = gHudState;
         if (hud[0x37] == 0)
         {
             VBlankTask_AddCounted(sub_080C6F00, 1);
@@ -700,7 +700,7 @@ void Hud_LoadMemberFace(u16 i)
         "    adds r4, r1, r0\n"
         "    lsls r0, r5, #0x10\n"
         "    asrs r0, r0, #0x10\n"
-        "    bl sub_080C86B4\n"
+        "    bl Hud_GetMemberFace\n"
         "    ldr r1, .L080C6FAC\n"
         "    lsls r0, r0, #0x10\n"
         "    asrs r0, r0, #0xd\n"
@@ -756,5 +756,5 @@ void Hud_LoadMemberFace(u16 i)
 // sub_080C6FB8 @ 0x080C6FB8
 u32 sub_080C6FB8(u16 slot)
 {
-    return gUnknown_0834A2EC[sub_080C86B4(slot)].palette;
+    return gUnknown_0834A2EC[Hud_GetMemberFace(slot)].palette;
 }

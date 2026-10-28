@@ -229,7 +229,7 @@ void YesNo_LoadCursor(struct Task *task, s32 mode)
 
     if (mode == 0)
     {
-        sub_080C7E24(gBannerTiles, gUnknown_0815ED28);
+        Hud_RenderGlyphTiles(gBannerTiles, gUnknown_0815ED28);
         gUnk_03000048 = cur->tile;
         VBlankTask_AddCounted(YesNo_UploadCursorTiles, 1);
     }

@@ -286,7 +286,7 @@ void sub_080BB8A0(void);
 
 extern void *gUnk_03004640;
 extern u16 gRepeatedKeys;
-extern u16 gUnk_0200E7D4[];
+extern u16 gHudState[];
 extern u8 gUnk_03003800[];
 extern const void *const gUnknown_080073B0[], *const gUnknown_08007174[], *const gUnknown_080071FC[], *const gUnknown_080071B0[];
 extern const void *const *const gUnknown_081894B4[], *const *const gUnknown_081894C8[];

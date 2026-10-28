@@ -2,11 +2,11 @@
 #include "inventory.h"
 
 // Hud_Init @ 0x080C65E8
-/* Sets up the field HUD state (gUnk_0200E7D4) and its tilemap. */
+/* Sets up the field HUD state (gHudState) and its tilemap. */
 #ifdef NONMATCHING
 void Hud_Init(void)
 {
-    u16 *hud = gUnk_0200E7D4;
+    u16 *hud = gHudState;
 
     DmaFill16(3, 0, hud, 0x74);
     hud[0xC] = 8;
@@ -44,9 +44,9 @@ void Hud_Init(void)
         hud[0x18] = 1;
     }
     sub_080C65A4();
-    sub_080C7EFC();
+    Hud_UploadMoonTiles();
     Party_BuildMemberNameTiles();
-    sub_080C6FD8();
+    Hud_LoadAllMemberFaces();
     DmaFill32(3, 0, gUnk_0200E8D8, 0xF00);
     sub_080C8440();
     sub_080C65C8();
@@ -176,9 +176,9 @@ void Hud_Init(void)
         "    strh r0, [r4, #0x30]\n"
         ".L080C66EC:\n"
         "    bl sub_080C65A4\n"
-        "    bl sub_080C7EFC\n"
+        "    bl Hud_UploadMoonTiles\n"
         "    bl Party_BuildMemberNameTiles\n"
-        "    bl sub_080C6FD8\n"
+        "    bl Hud_LoadAllMemberFaces\n"
         "    movs r0, #0\n"
         "    str r0, [sp, #0x14]\n"
         "    ldr r1, .L080C6728\n"
@@ -210,7 +210,7 @@ void Hud_Init(void)
 void sub_080C6734(void)
 {
     DmaCopy16(3, gWindowTilemapBuffer, (void *)0x06001000, 0x800);
-    gUnk_0200E7D4[0x36] = 0;
+    gHudState[0x36] = 0;
 }
 
 // sub_080C6764 @ 0x080C6764
@@ -218,7 +218,7 @@ void sub_080C6764(void)
 {
     if (gMainCallback != sub_080D977C)
     {
-        u16 *hud = gUnk_0200E7D4;
+        u16 *hud = gHudState;
         u16 *pending = &hud[0x36];
 
         if (*pending == 0)
@@ -232,7 +232,7 @@ void sub_080C6764(void)
 // sub_080C67A0 @ 0x080C67A0
 void sub_080C67A0(void)
 {
-    gUnk_0200E7D4[0x1C] = gUnknown_0834A230[(u16)Encounter_GetDangerLevel()];
+    gHudState[0x1C] = gUnknown_0834A230[(u16)Encounter_GetDangerLevel()];
 }
 
 // sub_080C67C0 @ 0x080C67C0
@@ -290,7 +290,7 @@ void Hud_Update(void)
 {
     u16 *p;
 
-    if (gUnk_0200E7D4[0x1B] == 1)
+    if (gHudState[0x1B] == 1)
         return;
     if (gFieldState.unk00 == 1)
     {
@@ -311,13 +311,13 @@ void Hud_Update(void)
     if ((gFrameCounter & 0xF) == 0)
     {
         gGameState.unkA27 = (gGameState.unkA27 + 1) & 7;
-        VBlankTask_AddCounted(sub_080C7EFC, 1);
+        VBlankTask_AddCounted(Hud_UploadMoonTiles, 1);
     }
     sub_080C745C();
     sub_080C76B4();
     if (!Flag_Test(0xC6) && gMainCallback != sub_080D977C)
     {
-        u16 *hud = gUnk_0200E7D4;
+        u16 *hud = gHudState;
         u16 t = hud[0x18];
 
         if (t == 0)
@@ -341,7 +341,7 @@ void Hud_Update(void)
     }
     gUnk_0200F7F0 = 0;
     {
-        u16 *base = gUnk_0200E7D4;
+        u16 *base = gHudState;
 
         p = &base[0x39];
     }

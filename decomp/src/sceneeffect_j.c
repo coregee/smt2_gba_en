@@ -39,7 +39,7 @@ void sub_080BCCB4(struct Task *task, u32 step)
 // sub_080BCD84 @ 0x080BCD84
 void sub_080BCD84(void)
 {
-    gUnk_0200E7D4[0x1A] = 1;
+    gHudState[0x1A] = 1;
     PalFade_FadeRangeToBlack(0, 0x200, 8);
 }
 

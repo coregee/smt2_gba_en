@@ -64,7 +64,7 @@ void sub_080C1560(void)
     DmaFill32(3, 0, (void *)0x06000000, 0x4000);
     Windows_Init();
     sub_080C1328();
-    gUnk_0200E7D4[0x19] = 0;
+    gHudState[0x19] = 0;
     sub_080C1384();
     Font_ResetGlyphSpriteCache(0x180);
     sub_080C14FC();
@@ -114,7 +114,7 @@ void sub_080C1684(void)
     sub_080ADFEC(*(u16 *)&gUnk_03004544);
     Task_ClearAll();
     sub_080AE364(*(u16 *)&gUnk_03004544);
-    gUnk_0200E7D4[0x1A] = 1;
+    gHudState[0x1A] = 1;
     if (gUnk_03004544 == 4
      && (FieldMap_HasRecordRel(0, 0, 0x12) == 1 || FieldMap_HasRecordRel(0, 0, 0x13) == 1
       || FieldMap_HasRecordRel(0, 0, 0x1E) == 1)
@@ -160,7 +160,7 @@ void sub_080C17F0(void)
 
     if (done == 1)
     {
-        gUnk_0200E7D4[0x1A] = 0;
+        gHudState[0x1A] = 0;
         Field_SetState(*(u16 *)&gUnk_030045FC);
         SetMainCallback(FieldMain_Loop);
         if (gUnk_03004544 == 4 || sub_080D0E74() == 1)
@@ -214,7 +214,7 @@ void sub_080C1880(void)
     DmaSet(3, gUnk_02000000, (void *)0x06001000, 0x84000400);
     Windows_Init();
     sub_080C1328();
-    gUnk_0200E7D4[0x19] = 0;
+    gHudState[0x19] = 0;
     sub_080C1384();
     sub_080C2EFC();
     Font_ResetGlyphSpriteCache(0x100);

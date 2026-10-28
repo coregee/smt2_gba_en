@@ -79,7 +79,7 @@ void sub_0812D644(void)
     struct C127Block *blk = C127_BLOCK;
 
     blk->unk4C = TextWindow_Create(0xC, 1, 6, 4, 1);
-    sub_080C7E24(gUnk_030000B4, gUnknown_0877A010);
+    Hud_RenderGlyphTiles(gUnk_030000B4, gUnknown_0877A010);
     VBlankTask_AddCounted(sub_0812D60C, 1);
     sub_08126928(3, 1, 1, 2, 2);
     MenuCursor_SetIndex(3, sub_080C2B6C());
@@ -137,7 +137,7 @@ void sub_0812D81C(void)
     struct C127Block *blk = C127_BLOCK;
 
     blk->unk4C = TextWindow_Create(0xB, 1, 8, 4, 1);
-    sub_080C7E24(gUnk_030000B4, gUnknown_0877A028);
+    Hud_RenderGlyphTiles(gUnk_030000B4, gUnknown_0877A028);
     VBlankTask_AddCounted(sub_0812D7E4, 1);
     sub_08126928(3, 1, 1, 2, 2);
     MenuCursor_SetIndex(3, Settings_GetBattleMsgSpeed());
@@ -199,7 +199,7 @@ void sub_0812DA24(void)
     struct C127Block *blk = C127_BLOCK;
 
     blk->unk4C = TextWindow_Create(0xB, 1, 8, 6, 1);
-    sub_080C7E24(gUnk_030000B4, gUnknown_0877A048);
+    Hud_RenderGlyphTiles(gUnk_030000B4, gUnknown_0877A048);
     VBlankTask_AddCounted(sub_0812D9EC, 1);
     sub_08126928(3, 1, 1, 3, 3);
     MenuCursor_SetIndex(3, sub_080C2BA4());

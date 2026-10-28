@@ -13,11 +13,11 @@ void Menu_DrawCombatantName8px(u8 *name, u16 x, u16 y)
         if (i > 7)
             break;
     }
-    sub_080CCE5C(gUnknown_084F20A4, x + 0x48, y + 1, 0);
+    SmallFont_DrawAscii(gUnknown_084F20A4, x + 0x48, y + 1, 0);
     if (name[13] < 10)
-        sub_080CCF44(name[13], x + 0x58, y + 1, 0);
+        SmallFont_DrawNumber(name[13], x + 0x58, y + 1, 0);
     else
-        sub_080CCF44(name[13], x + 0x60, y + 1, 0);
+        SmallFont_DrawNumber(name[13], x + 0x60, y + 1, 0);
 }
 
 // GameState_TestFlag @ 0x080D0340
@@ -193,8 +193,8 @@ void SaveScreen_DrawSlot(u32 unused, u32 slot)
         y = 0x46;
     else
     {
-        sub_080CCE5C(gUnknown_084F20EC, 13, y, 4);
-        sub_080CCF44(slot + 1, 0x2D, y, 4);
+        SmallFont_DrawAscii(gUnknown_084F20EC, 13, y, 4);
+        SmallFont_DrawNumber(slot + 1, 0x2D, y, 4);
     }
 
     if (SaveSlot_IsValid(slot) == 1 && SaveSlot_Read(slot, &gSaveSlotPreview, 1) == 1)
@@ -260,8 +260,8 @@ void SaveScreen_DrawSlot(u32 unused, u32 slot)
     }
     else
     {
-        sub_080CCE5C(gUnknown_084F20F4, 13, y + 11, 2);
-        sub_080CCE5C(gUnknown_084F20F8, 0x25, y + 11, 2);
+        SmallFont_DrawAscii(gUnknown_084F20F4, 13, y + 11, 2);
+        SmallFont_DrawAscii(gUnknown_084F20F8, 0x25, y + 11, 2);
     }
 }
 #else
@@ -293,12 +293,12 @@ void SaveScreen_DrawSlot(u32 unused, u32 slot)
         "    movs r1, #0xd\n"
         "    adds r2, r7, #0\n"
         "    movs r3, #4\n"
-        "    bl sub_080CCE5C\n"
+        "    bl SmallFont_DrawAscii\n"
         "    adds r0, r6, #1\n"
         "    movs r1, #0x2d\n"
         "    adds r2, r7, #0\n"
         "    movs r3, #4\n"
-        "    bl sub_080CCF44\n"
+        "    bl SmallFont_DrawNumber\n"
         ".L080D04D4:\n"
         "    adds r0, r6, #0\n"
         "    bl SaveSlot_IsValid\n"
@@ -484,12 +484,12 @@ void SaveScreen_DrawSlot(u32 unused, u32 slot)
         "    movs r1, #0xd\n"
         "    adds r2, r4, #0\n"
         "    movs r3, #2\n"
-        "    bl sub_080CCE5C\n"
+        "    bl SmallFont_DrawAscii\n"
         "    ldr r0, .L080D0670\n"
         "    movs r1, #0x25\n"
         "    adds r2, r4, #0\n"
         "    movs r3, #2\n"
-        "    bl sub_080CCE5C\n"
+        "    bl SmallFont_DrawAscii\n"
         ".L080D065A:\n"
         "    add sp, #4\n"
         "    pop {r3, r4, r5}\n"

@@ -180,7 +180,7 @@ extern u16 gDispRegs, gUnk_03000002, gUnk_03000004, gUnk_03000006, gUnk_03000008
     gUnk_0300000C, gUnk_0300000E, gUnk_03000040, gUnk_03000042, gUnk_03000044;
 extern u8 gUnk_03000030, gUnk_03000031, gUnk_03000032, gUnk_03000033, gUnk_03000034,
     gUnk_03000035, gUnk_03000036, gUnk_03000037, gUnk_03000038, gUnk_03000039, gUnk_0300003A;
-extern u16 gUnk_0200E7D4[];
+extern u16 gHudState[];
 extern u16 gUnk_02000000[];   /* EWRAM tilemap work buffer */
 extern u32 gUnk_03003FF8;
 extern u16 gUnk_03003FF4;

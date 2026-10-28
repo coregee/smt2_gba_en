@@ -122,7 +122,7 @@ u16 Combatant_GetStatus(u32 who);
 void Party_Remove(u16 a, u32 b);
 void Party_FixFormation(void);
 void Party_BuildMemberNameTiles(void);
-void sub_080C6FD8(void);
+void Hud_LoadAllMemberFaces(void);
 u32 Random_Byte(void);
 u8 *sub_080C5D48(u16 id);
 u32 Flag_Test(u32 flag);

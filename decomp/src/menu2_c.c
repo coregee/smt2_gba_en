@@ -18,29 +18,29 @@ void sub_080D3F04(struct Task *task, u32 id, u32 vblank)
     zero2 = 0;
     CpuSet(&zero2, gUnk_02000800, 0x05000200);
     Tilemap_CopyRectSkipZero(gUnknown_081B93B0, gUnk_02000800, 0x100, 0, 0, 0, 0x1E, 0xA);
-    sub_080CCE5C(gUnknown_084F367C, x, y, 4);
+    SmallFont_DrawAscii(gUnknown_084F367C, x, y, 4);
     if (rec[1] < 10)
-        sub_080CCF44(rec[1], 0xDC, 0xD, 0);
+        SmallFont_DrawNumber(rec[1], 0xDC, 0xD, 0);
     else
-        sub_080CCF44(rec[1], 0xDC, 0xD, 0);
+        SmallFont_DrawNumber(rec[1], 0xDC, 0xD, 0);
     y += 10;
-    sub_080CCE5C(gUnknown_084F3680, x, y, 4);
+    SmallFont_DrawAscii(gUnknown_084F3680, x, y, 4);
     if ((s8)rec[0] <= 12)
-        sub_080CCE5C(gUnknown_084F3684, x + 0x32, y, 0);
+        SmallFont_DrawAscii(gUnknown_084F3684, x + 0x32, y, 0);
     else if ((s8)rec[0] <= 26)
-        sub_080CCE5C(gUnknown_084F368C, x + 0x22, y, 0);
+        SmallFont_DrawAscii(gUnknown_084F368C, x + 0x22, y, 0);
     else
-        sub_080CCE5C(gUnknown_084F3694, x + 0x3A, y, 0);
+        SmallFont_DrawAscii(gUnknown_084F3694, x + 0x3A, y, 0);
     y += 10;
     if (kind == 0)
-        sub_080CCE5C(gUnknown_084F369C, x + 0x42, y, 0);
+        SmallFont_DrawAscii(gUnknown_084F369C, x + 0x42, y, 0);
     else if (kind == 1)
-        sub_080CCE5C(gUnknown_084F368C, x + 0x22, y, 0);
+        SmallFont_DrawAscii(gUnknown_084F368C, x + 0x22, y, 0);
     else if (kind == 2)
-        sub_080CCE5C(gUnknown_084F36A0, x + 0x32, y, 0);
+        SmallFont_DrawAscii(gUnknown_084F36A0, x + 0x32, y, 0);
     y += 10;
-    sub_080CCE5C(gUnknown_084F36A8, x, y, 4);
-    sub_080CCF44(value, x + 0x52, y, 0);
+    SmallFont_DrawAscii(gUnknown_084F36A8, x, y, 4);
+    SmallFont_DrawNumber(value, x + 0x52, y, 0);
     if (vblank == 0)
         VBlankTask_AddCounted(sub_080D3EA0, 1);
     else

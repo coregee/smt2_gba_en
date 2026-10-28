@@ -307,7 +307,7 @@ void sub_080BE4C4(void)
 void sub_080BE4D4(void)
 {
     PalFade_FadeToBlack(1);
-    gUnk_0200E7D4[0x1A] = 1;
+    gHudState[0x1A] = 1;
 }
 
 // sub_080BE4EC @ 0x080BE4EC
@@ -349,7 +349,7 @@ void sub_080BE57C(struct Task *task, u32 step)
         break;
     case 2:
         Party_BuildMemberNameTiles();
-        sub_080C6FD8();
+        Hud_LoadAllMemberFaces();
         sub_080C65C8();
         sub_080C6764();
         break;
@@ -402,7 +402,7 @@ void sub_080BE57C(struct Task *task, u32 step)
         }
         break;
     case 6:
-        gUnk_0200E7D4[0x1A] = 0;
+        gHudState[0x1A] = 0;
         sub_080C1440();
         break;
     case 0x100:

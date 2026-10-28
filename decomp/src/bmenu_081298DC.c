@@ -72,7 +72,7 @@ void sub_081299C8(struct Task *task, u32 arg)
         Party_AddAt(m, task->pad1E);
         Party_FixFormation();
         Party_BuildMemberNameTiles();
-        sub_080C6FD8();
+        Hud_LoadAllMemberFaces();
         r = 1;
         break;
     case 1:
@@ -91,7 +91,7 @@ void sub_081299C8(struct Task *task, u32 arg)
         Party_AddAt(m, task->pad1E);
         Party_FixFormation();
         Party_BuildMemberNameTiles();
-        sub_080C6FD8();
+        Hud_LoadAllMemberFaces();
         r = 1;
         break;
     default:
@@ -179,7 +179,7 @@ void sub_081299C8(struct Task *task, u32 arg)
         "    bl Party_AddAt\n"
         "    bl Party_FixFormation\n"
         "    bl Party_BuildMemberNameTiles\n"
-        "    bl sub_080C6FD8\n"
+        "    bl Hud_LoadAllMemberFaces\n"
         "    movs r0, #1\n"
         "    b .L08129B1A\n"
         ".L08129A7C: .4byte 0x00000692\n"
@@ -247,7 +247,7 @@ void sub_081299C8(struct Task *task, u32 arg)
         "    bl Party_AddAt\n"
         "    bl Party_FixFormation\n"
         "    bl Party_BuildMemberNameTiles\n"
-        "    bl sub_080C6FD8\n"
+        "    bl Hud_LoadAllMemberFaces\n"
         "    movs r0, #1\n"
         "    b .L08129B1A\n"
         ".L08129B14: .4byte 0x00000692\n"

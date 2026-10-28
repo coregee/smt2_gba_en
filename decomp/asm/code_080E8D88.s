@@ -940,7 +940,7 @@ gUnknown_080E944C:
 .L080E9510:
 	bl Party_FixFormation
 	bl Party_BuildMemberNameTiles
-	bl sub_080C6FD8
+	bl Hud_LoadAllMemberFaces
 	movs r5, #0
 .L080E951E:
 	lsls r4, r5, #0x10

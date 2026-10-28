@@ -28,7 +28,7 @@ void sub_080B366C(void)
         if (!Flag_Test(0xAE))
         {
             gUnk_0300452C = PalFade_FadeToBlack(1);
-            gUnk_0200E7D4[0x1A] = r;
+            gHudState[0x1A] = r;
         }
         else
         {

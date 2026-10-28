@@ -382,7 +382,7 @@ void sub_080EC288(void)
     b->state = 7;
     if (!(sub_080ED8F4() & 0x100))
     {
-        if (gUnk_0200E7D4[0] != 0 && gUnk_0200E7D4[0] != 2)
+        if (gHudState[0] != 0 && gHudState[0] != 2)
             sub_080C700C();
     }
     else

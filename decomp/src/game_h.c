@@ -52,7 +52,7 @@ s32 sub_080B38A8(void)
         if (PalFade_AllDone() == 1)
         {
             gFieldState.unk1E++;
-            gUnk_0200E7D4[0x1A] = 0;
+            gHudState[0x1A] = 0;
             if (Flag_Test(0x105))
             {
                 Flag_Clear(0x102);

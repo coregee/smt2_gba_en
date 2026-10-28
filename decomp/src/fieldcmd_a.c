@@ -373,7 +373,7 @@ void sub_080B9038(struct Task *task)
 {
     u32 *d = task->data.w;
 
-    gUnk_0200E7D4[0x1A] = 1;
+    gHudState[0x1A] = 1;
     d[1] = (u32)PalFade_FadeToBlack(4);
 }
 

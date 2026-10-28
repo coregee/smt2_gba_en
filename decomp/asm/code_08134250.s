@@ -4453,7 +4453,7 @@ ScriptOp_377: @ 0x081365D0
 .L0813662C: .4byte 0x030046C0 @ IWRAM+0x46C0
 .L08136630:
 	bl Party_BuildMemberNameTiles
-	bl sub_080C6FD8
+	bl Hud_LoadAllMemberFaces
 .L08136638:
 	cmp r5, #1
 	bne .L08136656
@@ -4544,7 +4544,7 @@ ScriptOp_377: @ 0x081365D0
 	bl Party_Add
 .L081366F8:
 	bl Party_BuildMemberNameTiles
-	bl sub_080C6FD8
+	bl Hud_LoadAllMemberFaces
 	b .L08136710
 .L08136702:
 	movs r0, #0x80

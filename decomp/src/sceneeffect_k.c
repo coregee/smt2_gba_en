@@ -4,14 +4,14 @@
 // sub_080BCFB0 @ 0x080BCFB0
 void sub_080BCFB0(struct Task *task)
 {
-    gUnk_0200E7D4[0x1A] = 1;
+    gHudState[0x1A] = 1;
 }
 
 // sub_080BCFBC @ 0x080BCFBC
 void sub_080BCFBC(struct Task *task)
 {
     sub_080C6E30(1);
-    gUnk_0200E7D4[0x18] = 1;
+    gHudState[0x18] = 1;
     sub_080BCFB0(task);
     gUnk_03004534 = 0;
     VBlankTask_AddCounted(sub_080BCEF0, 1);

@@ -543,7 +543,7 @@ gUnknown_080B0EB0:
 	ldrh r1, [r2, #0x14]
 	ldrh r2, [r2, #2]
 	add r3, sp, #4
-	bl sub_080C9084
+	bl FieldEvent_FindAt
 	adds r4, r0, #0
 	movs r3, #0
 	mov sb, r3

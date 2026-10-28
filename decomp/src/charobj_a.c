@@ -36,7 +36,7 @@ void Party_FixFormation(void)
     for (i = 0; i < 6; i++)
         gGameState.order[i] = buf[i];
     Party_BuildMemberNameTiles();
-    sub_080C6FD8();
+    Hud_LoadAllMemberFaces();
 }
 
 // GfxSlot_Acquire @ 0x080C373C

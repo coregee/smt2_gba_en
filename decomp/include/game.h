@@ -137,7 +137,7 @@ void Automap_SetVisitedAhead(u16 a, u16 b, u16 c);
 extern const u16 gUnknown_0815F2FC[][4];
 extern const u32 gUnknown_08165380[];
 extern u32 gUnk_03004614;
-extern u16 gUnk_0200E7D4[];
+extern u16 gHudState[];
 extern u32 gUnk_03003BB8;
 
 u8 *Task_Create(const void *script, u32 parent);
@@ -175,7 +175,7 @@ extern const u16 gUnknown_0815F31C[];
 extern u16 gUnk_03004540;
 
 void Automap_SetVisited(u16 x, u16 y);
-struct FieldEvent *sub_080C9084(u16 x, u16 y, u16 dir, u16 *id);
+struct FieldEvent *FieldEvent_FindAt(u16 x, u16 y, u16 dir, u16 *id);
 s32 sub_080C2480(u16 id);
 u16 sub_080AF0AC(const void *script);
 u32 sub_080B828C(void);

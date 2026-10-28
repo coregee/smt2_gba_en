@@ -157,7 +157,7 @@ extern const u8 gUnknown_0857F500[];
 extern const u16 *const gUnknown_08582D28[];
 extern const u16 gUnknown_080095B4[];
 extern u32 gUnk_03004690[];
-extern u16 gUnk_0203B554[];
+extern u16 gStatusList[];
 extern const u16 gUnknown_08583258[];
 
 /* Compendium state at 0x020399E0 (only the fields used here). */

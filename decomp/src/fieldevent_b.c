@@ -350,7 +350,7 @@ void sub_080B65D0(struct Task *task, u32 arg)
 
     if (arg == 0)
         DmaCopy32(3, gPaletteBuffer, (void *)0x0201B874, 0x400);
-    gUnk_0200E7D4[0x1A] = 1;
+    gHudState[0x1A] = 1;
     d->fade = PalFade_FadeToBlack(1);
 }
 
@@ -386,7 +386,7 @@ void sub_080B6658(struct Task *task, u32 arg)
     }
     else
     {
-        gUnk_0200E7D4[0x1B] = 0;
+        gHudState[0x1B] = 0;
     }
 }
 
@@ -471,7 +471,7 @@ void sub_080B67F8(struct Task *task, u32 arg)
         }
         VBlankTask_AddCounted(sub_080B6758, 1);
     }
-    gUnk_0200E7D4[0x1B] = 1;
+    gHudState[0x1B] = 1;
 }
 
 // sub_080B6850 @ 0x080B6850
@@ -611,7 +611,7 @@ void sub_080B6A50(struct Task *task, u32 step)
     case 4:
         DmaFill32(3, 0, (void *)0x06008000, 0x3C00);
         DmaCopy32(3, gUnknown_081A91B8, (void *)0x0600BC00, 0x4400);
-        if (gUnk_0200E7D4[0x18] == 0)
+        if (gHudState[0x18] == 0)
             sub_080C6558();
         break;
     }
@@ -637,5 +637,5 @@ void sub_080B6B34(struct Task *task)
         d->func();
     else
         Field_SetState(1);
-    gUnk_0200E7D4[0x1A] = 0;
+    gHudState[0x1A] = 0;
 }

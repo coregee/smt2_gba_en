@@ -7,6 +7,7 @@ address	name	kind	confidence	note
 0200AFC8	gBgPictureBuffer	ram	probable	0x2000-byte decode buffer of BgPicture_LoadPiece (Huffman stage at +0x1000); DMA'd to VRAM by sub_080B3ADC..sub_080B3BE8
 0200DFCC	gAutomapScroll	ram	probable	s16 row offset added/subtracted in Automap_Build
 0200DFD4	gWindowTilemapBuffer	ram	probable	32x32 u16 tilemap built by TextWindow_DrawFrame, DMA'd to VRAM screenblocks by sub_080AB9B0..sub_080ABA18
+0200E7D4	gHudState	ram	probable	field HUD state cleared by Hud_Init: per panel slide state[8], step[8], timer[8] (0x00/0x10/0x20), alt-face flags 0x60, upload flags 0x6C/0x6E, magnetite blink 0x70
 0200E8D4	gOpenWindowCount	ram	probable	incremented by TextWindow_Create, decremented by TextWindow_Erase
 02017874	gSaveSlotPreview	ram	probable	sub_080D0498 loads each save slot here (sub_080D1328(slot, 0x02017874, 1)) to draw it
 02036074	gGfxSlots	ram	probable	8 (users, id) u16 pairs: GfxSlot_Acquire, GfxSlot_FindShared, DemonObj_End, CharObj_End
@@ -19,6 +20,7 @@ address	name	kind	confidence	note
 020391E0	gGlyphBitmap	ram	probable	Font_GetGlyphBitmap output (2x2 tiles in a 32-tile-wide canvas)
 0203A2E4	gBannerTiles	ram	probable	0x100-byte tile buffer of the location banner (LocationBanner_BuildTiles), uploaded to 0x06012F00
 0203A454	gMenuState	ram	probable	shared state block of the save, name entry and status screens (cleared with CpuSet 0x200 words)
+0203B554	gStatusList	ram	probable	u16 list of the status screen entries built by Status_BuildList (bit 15 = demon id), count in gMenuState+0x24
 0203BB74	gShopItemIds	ram	probable	u16[256] item ids of the shop list, 0xFFFF = end (filled by ScriptOp_333 from held items, read by Shop_InitItemList)
 0203BD74	gShopItemPrices	ram	probable	u32[256] prices parallel to 0x0203BB74 (sub_080C4C7C per item in ScriptOp_333; -1 = none)
 0203C9E0	gBattleMsg	ram	probable	battle message window state (mode, delay, typed, done, row, lines, locked, src, text/text2/compose u16[64] buffers, auto-close); base+0x7E0 of the EWRAM block at 0x0203C200
@@ -530,11 +532,35 @@ address	name	kind	confidence	note
 080C6BE0	Hud_DrawMemberPanel	func	probable	draws a party slot panel: empty frame for order -1, else face, name (sub_080C6AD8), HP and MP bars (sub_080C8214), shaking while +0x48[slot] counts down
 080C6E78	Party_BuildMemberNameTiles	func	tentative	from translation patches (lost Ghidra session); verify
 080C6F30	Hud_LoadMemberFace	func	probable	copies the 4 face tiles (gUnknown_081A81B8 + gUnknown_0834A2EC[sub_080C86B4(slot)].tile words) to 0x02039FE4 + slot * 0x80 and queues sub_080C6F00
+080C6FD8	Hud_LoadAllMemberFaces	func	probable	calls Hud_LoadMemberFace for party slots 0-5
+080C7070	Hud_SlidePartyPanel	func	probable	slides the 7x3 party panel tilemap gUnknown_081B8270 in (state 1) or out (state 2) with the state/timer/step words of gHudState; called by sub_080C71EC for panels 0 and 1
+080C7DD0	Hud_RenderSpriteText	func	probable	clears 0x180 bytes at 0x0200E8D8, renders str with sub_080C7E24, queues the DMA to VRAM 0x06016040 (sub_080C7DAC); returns strlen
+080C7E24	Hud_RenderGlyphTiles	func	probable	copies one 8-word tile per character of str ('.', ' ' or gUnknown_0834A5DC[c - 0x2F]) from gUnknown_081AD898 to dst
+080C7EFC	Hud_UploadMoonTiles	func	probable	DMA3 0x80 bytes of gUnknown_081BBA70 for (Moon_GetPhase() >> 4) * 8 + animation frame gGameState+0xA27 to VRAM 0x06010120 and 0x06010020
+080C8174	Hud_DrawGaugeValue	func	probable	NumberToDigits(cur, or alt when cur > 999), three digits from gUnknown_081B17B8 blitted at x 0/4/8 with Canvas_BlitOr
+080C8214	Hud_DrawGauge	func	probable	draws the 46-pixel HP (kind 0) or MP bar of a party slot from six tiles plus the value (sub_080C8174), redrawn when the value differs from 0x0200F7D8[slot][kind]
+080C84E0	Hud_GetStatusFace	func	probable	face index of a party slot from its status bits (1 dead, 2 dying or below 1/4 HP, 3-0x12 per ailment, 0 normal)
+080C8624	Hud_GetAltFace	func	probable	alternative face 0x13-0x1B from sub_080C35E4, -1 when none or flags & 0xB1E0
+080C86B4	Hud_GetMemberFace	func	probable	Hud_GetAltFace when gHudState+0x60[slot] is set and not -1, else Hud_GetStatusFace
 080C8B10	DungeonMap_GetFloor	func	probable	returns gDungeonMaps[map].floors + floor*0x268 (0 if none)
 080C8B7C	MarkerHeader_DrawLocationName	func	tentative	from translation patches (lost Ghidra session); verify
 080C8BFC	MarkerList_DrawLocationName	func	tentative	from translation patches (lost Ghidra session); verify
+080C9084	FieldEvent_FindAt	func	probable	scans gUnknown_084EDE54 (12-byte records, 0xFFFF ends) for map square (x, y) (via sub_080C1F50) and facing; stores the id (+8) or 0xFFFF
+080C92C8	Status_GetCombatant	func	probable	status list entry i (gStatusList): a party member (gGameState.members[i]) or, bit 15, a demon built with Combatant_InitDemon in gMenuState+0x54
+080C947C	Status_BuildList	func	probable	fills gStatusList (0x0203B554) for gMenuState.mode: members with unkE != 0, sub_0812ACCC demons (filtered by flag 0xB6), or one entry
 080C99C4	Status_DrawDemonInfo	func	tentative	from translation patches (lost Ghidra session); verify
+080C9E30	Status_DrawScreen	func	probable	clears the window tilemap, opens the three status windows (stored at gMenuState+0x40/0x44/0x48) and calls Status_DrawDemonInfo and the page drawers
+080CA84C	Inventory_ListRange	func	probable	writes the ids in [lo, hi] of held gInventory entries to 0x0203B454; returns the count
+080CAF6C	Status_Close	func	probable	ends the demon sprite (gMenuState+0x3C), closes the three windows, sets the fade task done and resets the glyph sprite cache
 080CBA7C	Status_DrawDropItem	func	tentative	from translation patches (lost Ghidra session); verify
+080CCE5C	SmallFont_DrawAscii	func	probable	draws an ASCII string with SmallFont_DrawGlyphTinted via gUnknown_084F01F4[c - 0x2B] ('?' 0x13, '-' 6), 8 pixels apart
+080CCEC8	DigitFont_DrawAscii	func	probable	draws an ASCII string with DigitFont_DrawGlyphTinted via gUnknown_084F0254[c - 0x2B] ('?' 0x1F, '-' 0xD, '\' 0x3E), 8 pixels apart
+080CCF44	SmallFont_DrawNumber	func	probable	NumberToDigits, 8 digits right-aligned ending at x, leading zeros hidden, SmallFont glyphs gUnknown_084F01F4[d + 5]
+080CCFC4	DigitFont_DrawNumber	func	probable	same as SmallFont_DrawNumber with DigitFont glyphs gUnknown_084F0254[d + 5]
+080CD100	Status_DrawEquipName	func	probable	8 glyphs of Equipment_GetRecord36_MidRange(id)+0x14, 12 pixels apart (empty: 8x glyph 0x3C; id 0xFF: string gUnknown_084F02CA)
+080CD1A0	Status_DrawActionName	func	probable	8 glyphs of Action_GetRecord(id)+0xC, 12 pixels apart
+080CD1F8	Status_DrawSkillName	func	probable	8 glyphs of sub_080BF5C0(id)+6, 12 pixels apart (empty: 8x glyph 0x3C)
+080CD2A0	Status_DrawDemonDescription	func	probable	11 glyphs from Demon_GetRecord(id)+0x32, then up to 11 (0 ends) from +0x48 on the line 15 pixels lower
 080CEAD0	Comp_DrawSummonCost	func	tentative	from translation patches (lost Ghidra session); verify
 080D0288	Menu_DrawCombatantName8px	func	tentative	from translation patches (lost Ghidra session); verify
 080D0340	GameState_TestFlag	func	probable	returns bit n of the byte array at state+0x15E8 (event flags 0xEE, 0x163 tested by the save screen)

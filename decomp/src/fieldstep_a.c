@@ -430,7 +430,7 @@ void Sound_Play(u16 se)
 // sub_080C51E4 @ 0x080C51E4
 void sub_080C51E4(void)
 {
-    gUnk_0200E7D4[0x1A] = 1;
+    gHudState[0x1A] = 1;
 }
 
 // sub_080C51F0 @ 0x080C51F0
@@ -463,7 +463,7 @@ u32 sub_080C5240(void)
 // sub_080C528C @ 0x080C528C
 void sub_080C528C(void)
 {
-    gUnk_0200E7D4[0x1A] = 1;
+    gHudState[0x1A] = 1;
 }
 
 // sub_080C5298 @ 0x080C5298

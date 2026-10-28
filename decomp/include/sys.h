@@ -258,7 +258,7 @@ struct WindowObj
 
 extern u16 gWindowTilemapBuffer[0x400];
 extern u32 gWindowCount;
-extern u16 gUnk_0200E7D4[0x20];
+extern u16 gHudState[0x20];
 extern u16 gUnk_03004614;
 extern const u16 gWindowFrameTiles[9];
 extern const u16 gWindowFrameTilesAlt[9];

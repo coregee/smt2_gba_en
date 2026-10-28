@@ -2350,14 +2350,14 @@ sub_081563F4: @ 0x081563F4
 	movs r1, #0x82
 	movs r2, #0x45
 	movs r3, #4
-	bl sub_080CCE5C
+	bl SmallFont_DrawAscii
 	ldrb r0, [r6, #1]
 	cmp r0, #9
 	bhi .L0815647C
 	movs r1, #0xd4
 	movs r2, #0x45
 	movs r3, #0
-	bl sub_080CCF44
+	bl SmallFont_DrawNumber
 	b .L08156488
 .L08156460: .4byte 0x0203A454 @ EWRAM+0x3A454
 .L08156464: .4byte 0x0203B554 @ EWRAM+0x3B554
@@ -2371,7 +2371,7 @@ sub_081563F4: @ 0x081563F4
 	movs r1, #0xd4
 	movs r2, #0x45
 	movs r3, #0
-	bl sub_080CCF44
+	bl SmallFont_DrawNumber
 .L08156488:
 	adds r0, r5, #0
 	adds r0, #0xa
@@ -2381,7 +2381,7 @@ sub_081563F4: @ 0x081563F4
 	adds r1, r7, #0
 	adds r2, r5, #0
 	movs r3, #4
-	bl sub_080CCE5C
+	bl SmallFont_DrawAscii
 	movs r0, #0
 	ldrsb r0, [r6, r0]
 	cmp r0, #0xc
@@ -2401,7 +2401,7 @@ sub_081563F4: @ 0x081563F4
 .L081564BE:
 	adds r2, r5, #0
 	movs r3, #0
-	bl sub_080CCE5C
+	bl SmallFont_DrawAscii
 	b .L081564DA
 .L081564C8: .4byte gUnknown_087E325C
 .L081564CC:
@@ -2410,7 +2410,7 @@ sub_081563F4: @ 0x081563F4
 	adds r1, #0x3a
 	adds r2, r5, #0
 	movs r3, #0
-	bl sub_080CCE5C
+	bl SmallFont_DrawAscii
 .L081564DA:
 	adds r0, r5, #0
 	adds r0, #0xa
@@ -2435,7 +2435,7 @@ sub_081563F4: @ 0x081563F4
 .L08156504:
 	adds r2, r5, #0
 	movs r3, #0
-	bl sub_080CCE5C
+	bl SmallFont_DrawAscii
 	b .L08156528
 	.byte 0x00, 0x00
 .L08156510: .4byte gUnknown_087E325C
@@ -2448,7 +2448,7 @@ sub_081563F4: @ 0x081563F4
 	adds r1, #0x32
 	adds r2, r5, #0
 	movs r3, #0
-	bl sub_080CCE5C
+	bl SmallFont_DrawAscii
 .L08156528:
 	adds r0, r5, #0
 	adds r0, #0xa
@@ -2458,13 +2458,13 @@ sub_081563F4: @ 0x081563F4
 	adds r1, r7, #0
 	adds r2, r5, #0
 	movs r3, #4
-	bl sub_080CCE5C
+	bl SmallFont_DrawAscii
 	adds r1, r7, #0
 	adds r1, #0x52
 	adds r0, r4, #0
 	adds r2, r5, #0
 	movs r3, #0
-	bl sub_080CCF44
+	bl SmallFont_DrawNumber
 	ldr r0, .L08156568
 	movs r1, #1
 	bl VBlankTask_AddCounted

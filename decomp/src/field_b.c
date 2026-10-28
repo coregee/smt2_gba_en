@@ -961,7 +961,7 @@ s32 sub_080AF72C(const u16 *ev)
 void sub_080AF7E8(u32 a, const u32 *b, u32 c)
 {
     u16 flag;
-    const u32 *ev = sub_080C9084(gFieldState.unk12, gFieldState.unk14, gFieldState.unk02, &flag);
+    const u32 *ev = FieldEvent_FindAt(gFieldState.unk12, gFieldState.unk14, gFieldState.unk02, &flag);
 
     sub_080AF6E4(a, b);
     gFieldState.unk1E = 0;

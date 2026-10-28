@@ -275,7 +275,7 @@ sub_080F2514: @ 0x080F2514
 	lsls r0, r0, #0x10
 	asrs r4, r0, #0x10
 	adds r0, r4, #0
-	bl sub_080C86B4
+	bl Hud_GetMemberFace
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	cmp r0, #0x12
@@ -621,7 +621,7 @@ sub_080F27CC: @ 0x080F27CC
 	lsls r0, r0, #0x10
 	asrs r4, r0, #0x10
 	adds r0, r4, #0
-	bl sub_080C86B4
+	bl Hud_GetMemberFace
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	cmp r0, #0x12

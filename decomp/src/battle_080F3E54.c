@@ -213,7 +213,7 @@ void sub_080F4168(s32 who, s32 slot)
     sub_080F413C();
     Party_AddAt(who, slot);
     Party_BuildMemberNameTiles();
-    sub_080C6FD8();
+    Hud_LoadAllMemberFaces();
 }
 
 // sub_080F4190 @ 0x080F4190

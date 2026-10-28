@@ -60,7 +60,7 @@ void Party_RestoreHumans(void)
         if (old & 1)
             gGameState.members[i].flags |= 1;
     }
-    sub_080C6FD8();
+    Hud_LoadAllMemberFaces();
     Encounter_SetCounter(0);
     Flag_Clear(0xDF);
 }
@@ -105,7 +105,7 @@ void Party_RestoreHumans(void)
         "    adds r5, #1\n"
         "    cmp r5, #3\n"
         "    bls .L080C5DF0\n"
-        "    bl sub_080C6FD8\n"
+        "    bl Hud_LoadAllMemberFaces\n"
         "    movs r0, #0\n"
         "    bl Encounter_SetCounter\n"
         "    movs r0, #0xdf\n"

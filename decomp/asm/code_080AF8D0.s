@@ -123,7 +123,7 @@ sub_080AF8D0: @ 0x080AF8D0
 	ldrh r1, [r2, #0x14]
 	ldrh r2, [r2, #2]
 	mov r3, sp
-	bl sub_080C9084
+	bl FieldEvent_FindAt
 	adds r7, r0, #0
 	adds r0, r4, #0
 	movs r1, #0x14

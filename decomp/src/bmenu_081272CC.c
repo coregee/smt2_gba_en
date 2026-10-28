@@ -221,12 +221,12 @@ void sub_081279D4(void)
 void sub_08127A38(struct Task *task)
 {
     task->result = 0;
-    if ((u16)(gUnk_0200E7D4[0] - 1) > 1
-     && (u16)(gUnk_0200E7D4[2] - 1) > 1
-     && (u16)(gUnk_0200E7D4[3] - 1) > 1
-     && (u16)(gUnk_0200E7D4[4] - 1) > 1
-     && (u16)(gUnk_0200E7D4[5] - 1) > 1
-     && (u16)(gUnk_0200E7D4[6] - 1) > 1)
+    if ((u16)(gHudState[0] - 1) > 1
+     && (u16)(gHudState[2] - 1) > 1
+     && (u16)(gHudState[3] - 1) > 1
+     && (u16)(gHudState[4] - 1) > 1
+     && (u16)(gHudState[5] - 1) > 1
+     && (u16)(gHudState[6] - 1) > 1)
         task->result = 1;
 }
 

@@ -191,7 +191,7 @@ void sub_080DCF80(struct Task *task)
     }
     if (moved == 1)
     {
-        u16 *list = gUnk_0203B554;
+        u16 *list = gStatusList;
 
         gDict.selected = list[gDict.unk3C] & 0x7FFF;
         sub_080DB464(task);

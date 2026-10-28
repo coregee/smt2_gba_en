@@ -116,11 +116,11 @@ void sub_080C1E60(u32 *mask)
                         *mask |= r << who;
                     Combatant_Damage(who, 1);
                     sub_080C8490(i);
-                    gUnk_0200E7D4[0x38] = 1;
+                    gHudState[0x38] = 1;
                 }
             }
         }
-        if (gUnk_0200E7D4[0x38])
+        if (gHudState[0x38])
             Sound_Play(0x12B);
     }
 }

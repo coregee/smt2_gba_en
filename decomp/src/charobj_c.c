@@ -100,7 +100,7 @@ struct Task *CharObj_Create(u16 key, u16 id, u16 x, u16 y, u16 e, u16 f)
     /* fadeIn and fadeWhite read as one word */
     if (*(u32 *)&d->fadeIn == 0 && !Flag_Test(0xC6))
     {
-        struct C0c2FieldEvent *ev = sub_080C9084(gFieldState.x, gFieldState.y, gFieldState.facing, &evId);
+        struct C0c2FieldEvent *ev = FieldEvent_FindAt(gFieldState.x, gFieldState.y, gFieldState.facing, &evId);
 
         if (ev != NULL && ScriptVM_RunAlt(ev->script) == 2)
             d->fadeIn = 1;

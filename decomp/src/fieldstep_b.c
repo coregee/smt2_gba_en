@@ -1193,7 +1193,7 @@ void Party_SaveOrderHeroOnly(void)
     gGameState.order[4] = -1;
     gGameState.order[5] = -1;
     Party_BuildMemberNameTiles();
-    sub_080C6FD8();
+    Hud_LoadAllMemberFaces();
 }
 
 // Party_RestoreOrder @ 0x080C5BCC
@@ -1211,7 +1211,7 @@ void Party_RestoreOrder(void)
             Party_GetMember(m + 0x8000)->unkE = 0xC000;
     }
     Party_BuildMemberNameTiles();
-    sub_080C6FD8();
+    Hud_LoadAllMemberFaces();
 }
 
 // sub_080C5C14 @ 0x080C5C14

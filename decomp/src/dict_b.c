@@ -7,7 +7,7 @@ u32 Dict_CountListed(void)
 {
     u32 n = 0;
     u32 i;
-    u16 *list = gUnk_0203B554;
+    u16 *list = gStatusList;
 
     for (i = 0; i <= 0x17B; i++)
     {
@@ -25,7 +25,7 @@ u32 sub_080DB8D4(void)
 
     for (i = 0; i <= 0x17B; i++)
     {
-        if (gUnk_0203B554[i] != 0xFFFF && sub_080C2644(gUnk_0203B554[i] & 0x7FFF))
+        if (gStatusList[i] != 0xFFFF && sub_080C2644(gStatusList[i] & 0x7FFF))
             n++;
     }
     return n;

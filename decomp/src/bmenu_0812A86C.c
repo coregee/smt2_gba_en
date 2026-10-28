@@ -269,7 +269,7 @@ void sub_0812AD90(void)
     struct C127Block *blk = C127_BLOCK;
 
     blk->unk4C = TextWindow_Create(9, 1, 0xC, 7, 1);
-    sub_080C7E24(gUnk_030000B4, gUnknown_08778DD0);
+    Hud_RenderGlyphTiles(gUnk_030000B4, gUnknown_08778DD0);
     VBlankTask_AddCounted(sub_08128F28, 1);
     BattleMsg_Close();
     sub_08126928(5, 1, 1, 4, 4);

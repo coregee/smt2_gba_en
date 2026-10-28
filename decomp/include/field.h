@@ -354,7 +354,7 @@ void Automap_SetVisited(u16 x, u16 y);
 void sub_080AF178(u16 a, const void *script);
 void sub_080AF1D0(u16 a, const void *script);
 void sub_080AF6E4(u32 a, const u32 *b);
-const u32 *sub_080C9084(u16 x, u16 y, u16 dir, u16 *flag);
+const u32 *FieldEvent_FindAt(u16 x, u16 y, u16 dir, u16 *flag);
 void sub_080C24B8(u16 flag);
 
 u32 Moon_GetPhase(void);

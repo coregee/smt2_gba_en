@@ -17,7 +17,7 @@ void sub_080DC2B0(struct Task *task)
     {
         for (row = 0; row < 6; row++)
         {
-            u16 v = gUnk_0203B554[d->unk02 + row];
+            u16 v = gStatusList[d->unk02 + row];
 
             if (v != 0xFFFF)
             {
@@ -236,7 +236,7 @@ void sub_080DC2B0(struct Task *task)
 void sub_080DC418(struct Task *task)
 {
     struct C0d9Menu *d = (struct C0d9Menu *)&task->data;
-    u16 *list = gUnk_0203B554;
+    u16 *list = gStatusList;
     struct C0d9Dict *dict = &gDict;
     u16 cursor = task->data.h[0];
     u16 top = d->unk02;

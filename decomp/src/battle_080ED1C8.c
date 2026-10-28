@@ -56,7 +56,7 @@ void sub_080ED260(void)
     {
         Party_FixFormation();
         Party_BuildMemberNameTiles();
-        sub_080C6FD8();
+        Hud_LoadAllMemberFaces();
     }
 }
 

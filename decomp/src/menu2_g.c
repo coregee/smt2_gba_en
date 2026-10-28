@@ -87,7 +87,7 @@ void sub_080D58A4(void)
 void sub_080D58D0(void)
 {
     PalFade_FadeToBlack(4);
-    gUnk_0200E7D4[0x1A] = 1;
+    gHudState[0x1A] = 1;
 }
 
 // sub_080D58E8 @ 0x080D58E8

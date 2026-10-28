@@ -33,7 +33,7 @@ void sub_080DB1FC(struct Task *task)
                 task->unk1E = 3;
             else
             {
-                u16 *list = gUnk_0203B554;
+                u16 *list = gStatusList;
 
                 gDict.selected = *list & 0x7FFF;
             }

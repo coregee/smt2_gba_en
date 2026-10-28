@@ -553,5 +553,5 @@ void Party_SwapSlots(u16 a, u16 b)
     gGameState.order[b] = gGameState.order[a];
     gGameState.order[a] = t;
     Party_BuildMemberNameTiles();
-    sub_080C6FD8();
+    Hud_LoadAllMemberFaces();
 }

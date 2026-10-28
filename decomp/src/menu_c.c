@@ -1055,7 +1055,7 @@ void NameEntry_StoreName(void)
     gUnk_0200F7D8[4] = 0x5000;
     gUnk_0200F7D8[5] = 0x5000;
     Party_BuildMemberNameTiles();
-    sub_080C6FD8();
+    Hud_LoadAllMemberFaces();
     Font_ResetGlyphSpriteCache(0x180);
 }
 
