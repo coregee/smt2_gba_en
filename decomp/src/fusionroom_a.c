@@ -420,7 +420,7 @@ void Fusion_Commit(void)
             }
         }
         sub_080E5DA0();
-        sub_0815B3F4();
+        Fusion_ApplyResult();
         Music_Play(0xF);
     }
     Party_FixFormation();

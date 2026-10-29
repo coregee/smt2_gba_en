@@ -60,30 +60,30 @@ u32 Fusion_CalcThree(void)
         else if (c->race[0] > 0x1A)
         {
             c->unkA6 &= 3;
-            r = sub_08159E9C();
+            r = Fusion_ThreeHighRaceFirst();
         }
         else if (c->race[1] > 0x1A)
         {
             c->unkA6 &= 3;
-            r = sub_08159DF0();
+            r = Fusion_ThreeHighRaceMiddle();
         }
         else if (c->race[2] > 0x1A)
         {
             c->unkA6 &= 3;
-            r = sub_08159D50();
+            r = Fusion_ThreeHighRaceLast();
         }
         else if (gUnk_0203B868.align[0] == 0xB || gUnk_0203B868.align[1] == 0xB || gUnk_0203B868.align[2] == 0xB)
         {
-            r = sub_08159F18();
+            r = Fusion_ThreeDark();
         }
         else if (c->race[0] == 0x16 || c->race[1] == 0x16 || c->race[2] == 0x16)
         {
-            r = sub_0815A150();
+            r = Fusion_ThreeRace16();
         }
         else
         {
             c->unkA6 &= 3;
-            r = sub_0815A30C();
+            r = Fusion_ThreeNormal();
         }
     }
     gUnk_0203B868.ids[0] = gUnk_0203B868.orig[0];
@@ -117,9 +117,9 @@ u32 sub_0815993C(void)
     case 1:
         return sub_0815999C();
     case 2:
-        return sub_08159A60();
+        return Fusion_ThreeTwoRace8();
     case 3:
-        return sub_08159BFC();
+        return Fusion_ThreeRace8();
     }
 }
 

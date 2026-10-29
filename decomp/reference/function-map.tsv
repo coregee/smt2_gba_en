@@ -4348,39 +4348,39 @@ address	mode	size	name	confidence	state	file
 081596F0	thumb	588	Fusion_CalcThree	probable	c	src/fusioncalc_b.c
 0815993C	thumb	94			c	src/fusioncalc_b.c
 0815999C	thumb	196			nonmatching	src/fusioncalc_b.c
-08159A60	thumb	410			asm	asm/code_08159A60.s
-08159BFC	thumb	340			asm	asm/code_08159A60.s
-08159D50	thumb	160			asm	asm/code_08159A60.s
-08159DF0	thumb	172			asm	asm/code_08159A60.s
-08159E9C	thumb	124			asm	asm/code_08159A60.s
-08159F18	thumb	328			asm	asm/code_08159A60.s
-0815A060	thumb	240			asm	asm/code_08159A60.s
-0815A150	thumb	222			asm	asm/code_08159A60.s
-0815A230	thumb	194			asm	asm/code_08159A60.s
-0815A2F4	thumb	24			asm	asm/code_08159A60.s
-0815A30C	thumb	868			asm	asm/code_08159A60.s
-0815A670	thumb	128			asm	asm/code_08159A60.s
-0815A6F0	thumb	684			asm	asm/code_08159A60.s
-0815A99C	thumb	148			asm	asm/code_08159A60.s
-0815AA30	thumb	148			asm	asm/code_08159A60.s
-0815AAC4	thumb	2			asm	asm/code_08159A60.s
-0815AAC8	thumb	112			asm	asm/code_08159A60.s
-0815AB38	thumb	112			asm	asm/code_08159A60.s
-0815ABA8	thumb	484			asm	asm/code_08159A60.s
-0815AD8C	thumb	62			asm	asm/code_08159A60.s
-0815ADCC	thumb	76			asm	asm/code_08159A60.s
-0815AE18	thumb	80			asm	asm/code_08159A60.s
-0815AE68	thumb	28			asm	asm/code_08159A60.s
-0815AE84	thumb	124			asm	asm/code_08159A60.s
-0815AF00	thumb	176			asm	asm/code_08159A60.s
-0815AFB0	thumb	218			asm	asm/code_08159A60.s
-0815B08C	thumb	144			asm	asm/code_08159A60.s
-0815B11C	thumb	300			asm	asm/code_08159A60.s
-0815B248	thumb	2			asm	asm/code_08159A60.s
-0815B24C	thumb	20			asm	asm/code_08159A60.s
-0815B260	thumb	404			asm	asm/code_08159A60.s
-0815B3F4	thumb	190			asm	asm/code_08159A60.s
-0815B4B4	thumb	880			asm	asm/code_08159A60.s
+08159A60	thumb	410	Fusion_ThreeTwoRace8	probable	nonmatching	src/fusioncalc_d.c
+08159BFC	thumb	340	Fusion_ThreeRace8	probable	nonmatching	src/fusioncalc_d.c
+08159D50	thumb	160	Fusion_ThreeHighRaceLast	probable	c	src/fusioncalc_d.c
+08159DF0	thumb	172	Fusion_ThreeHighRaceMiddle	probable	c	src/fusioncalc_d.c
+08159E9C	thumb	124	Fusion_ThreeHighRaceFirst	probable	c	src/fusioncalc_d.c
+08159F18	thumb	328	Fusion_ThreeDark	probable	c	src/fusioncalc_d.c
+0815A060	thumb	240	Fusion_SwapMaterials	probable	c	src/fusioncalc_d.c
+0815A150	thumb	222	Fusion_ThreeRace16	probable	c	src/fusioncalc_d.c
+0815A230	thumb	194	Fusion_ThreeTwoRace16	probable	c	src/fusioncalc_d.c
+0815A2F4	thumb	24	Fusion_ThreeAllRace16	probable	c	src/fusioncalc_d.c
+0815A30C	thumb	868	Fusion_ThreeNormal	probable	nonmatching	src/fusioncalc_d.c
+0815A670	thumb	128	Fusion_ThreeFallback	probable	c	src/fusioncalc_d.c
+0815A6F0	thumb	684	Fusion_BuildResultSkills	probable	nonmatching	src/fusioncalc_e.c
+0815A99C	thumb	148	Fusion_BuildSkillsNoClass	probable	c	src/fusioncalc_e.c
+0815AA30	thumb	148	Fusion_AppendMaterialSkills	probable	c	src/fusioncalc_e.c
+0815AAC4	thumb	2			c	src/fusioncalc_e.c
+0815AAC8	thumb	112	SkillList_SortAscending	probable	nonmatching	src/fusioncalc_e.c
+0815AB38	thumb	112	SkillList_SortDescending	probable	nonmatching	src/fusioncalc_e.c
+0815ABA8	thumb	484	Fusion_CollectMaterialSkills	probable	nonmatching	src/fusioncalc_e.c
+0815AD8C	thumb	62	Fusion_HasOwnOtherSkill	probable	c	src/fusioncalc_e.c
+0815ADCC	thumb	76	Fusion_IsSkillInherited	probable	c	src/fusioncalc_e.c
+0815AE18	thumb	80	Fusion_IsSkillCollected	probable	c	src/fusioncalc_e.c
+0815AE68	thumb	28	Skill_GetClass	probable	c	src/fusioncalc_e.c
+0815AE84	thumb	124	Fusion_CalcItem	probable	c	src/fusioncalc_f.c
+0815AF00	thumb	176	Fusion_CalcItemThree	probable	c	src/fusioncalc_f.c
+0815AFB0	thumb	218	Fusion_CalcItemDemon	probable	nonmatching	src/fusioncalc_f.c
+0815B08C	thumb	144	Fusion_CalcItemPair	probable	c	src/fusioncalc_f.c
+0815B11C	thumb	300	Fusion_RollAccident	probable	nonmatching	src/fusioncalc_f.c
+0815B248	thumb	2			c	src/fusioncalc_f.c
+0815B24C	thumb	20	Fusion_FindKeptMaterial	probable	c	src/fusioncalc_f.c
+0815B260	thumb	404	Fusion_CheckResult	probable	nonmatching	src/fusioncalc_f.c
+0815B3F4	thumb	190	Fusion_ApplyResult	probable	c	src/fusioncalc_f.c
+0815B4B4	thumb	880	Fusion_IsRandomResult	probable	nonmatching	src/fusioncalc_f.c
 0815B824	thumb	64			nonmatching	src/fusioncalc_c.c
 0815B864	thumb	28			c	src/fusioncalc_c.c
 0815B880	thumb	2			c	src/fusioncalc_c.c

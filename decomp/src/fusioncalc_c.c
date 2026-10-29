@@ -87,7 +87,7 @@ void sub_0815B884(u16 a, u16 b, u16 c, u16 *out, u16 *out2)
     else
         gUnk_0203B868.ids[1] |= b;
     gUnk_0203B868.ids[2] = c;
-    sub_0815AE84();
+    Fusion_CalcItem();
     r = gUnk_0203B868.result;
     if (r != 0xFF)
         r = Fusion_GetIndexByDemon(r);
@@ -136,7 +136,7 @@ void sub_0815B884(u16 a, u16 b, u16 c, u16 *out, u16 *out2)
         "    adds r0, r4, #0\n"
         "    adds r0, #0x94\n"
         "    strh r6, [r0]\n"
-        "    bl sub_0815AE84\n"
+        "    bl Fusion_CalcItem\n"
         "    adds r4, #0xa0\n"
         "    ldrh r0, [r4]\n"
         "    cmp r0, #0xff\n"

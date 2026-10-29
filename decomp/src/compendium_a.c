@@ -1699,9 +1699,9 @@ u16 sub_081572AC(void)
         gUnk_0203B868.ids[0] = gUnk_0203B854[0];
         gUnk_0203B868.ids[1] = gUnk_0203B854[1];
         gUnk_0203B868.ids[2] = 0xFFFF;
-        sub_0815B4B4();
+        Fusion_IsRandomResult();
         Fusion_CalcTwo();
-        sub_0815B260();
+        Fusion_CheckResult();
         return gUnk_0203B868.result;
     }
     if (mode == 3)
@@ -1710,9 +1710,9 @@ u16 sub_081572AC(void)
         gUnk_0203B868.ids[1] = gUnk_0203B854[1];
         gUnk_0203B868.ids[2] = gUnk_0203B854[2];
         Fusion_SortMaterials();
-        sub_0815B4B4();
+        Fusion_IsRandomResult();
         Fusion_CalcThree();
-        sub_0815B260();
+        Fusion_CheckResult();
         return gUnk_0203B868.result;
     }
     if (mode == 1)
@@ -1744,7 +1744,7 @@ void sub_0815739C(void)
 
     if (r->unk0 == 0 && (mode == 2 || mode == 3))
     {
-        u16 id = sub_0815B11C();
+        u16 id = Fusion_RollAccident();
 
         if (id != 0xFFFF)
         {

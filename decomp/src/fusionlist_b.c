@@ -1318,7 +1318,7 @@ void sub_08155C80(void)
     }
     else if (f->mode == 2 || f->mode == 3)
     {
-        sub_0815B260();
+        Fusion_CheckResult();
         gUnk_0203B854[3] = sub_081572AC();
         if (gUnk_0203B854[3] > 0xFE)
             gUnk_0203B854[3] = 0xFB;

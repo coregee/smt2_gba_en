@@ -161,9 +161,9 @@ u8 Fusion_GetPairIcon(u16 id, u16 slot)
         gUnk_0203B868.ids[0] = id;
         gUnk_0203B868.ids[1] = m->demonId;
         gUnk_0203B868.ids[2] = 0xFFFF;
-        good = sub_0815B4B4();
+        good = Fusion_IsRandomResult();
         Fusion_CalcTwo();
-        sub_0815B260();
+        Fusion_CheckResult();
     }
     else if (f->mode == 3)
     {
@@ -171,16 +171,16 @@ u8 Fusion_GetPairIcon(u16 id, u16 slot)
         gUnk_0203B868.ids[1] = id;
         gUnk_0203B868.ids[2] = m->demonId;
         Fusion_SortMaterials();
-        good = sub_0815B4B4();
+        good = Fusion_IsRandomResult();
         Fusion_CalcThree();
-        sub_0815B260();
+        Fusion_CheckResult();
     }
     else if (f->mode == 1)
     {
         gUnk_0203B868.ids[0] = Fusion_GetDemonByIndex(id);
         gUnk_0203B868.ids[1] = 0xFFFF;
         gUnk_0203B868.ids[2] = gCombatants[slot + 4].demonId;
-        r = sub_0815AE84();
+        r = Fusion_CalcItem();
         if (r != 0)
             return 0x10;
         return 0x16;
@@ -190,7 +190,7 @@ u8 Fusion_GetPairIcon(u16 id, u16 slot)
         gUnk_0203B868.ids[0] = Fusion_GetDemonByIndex(id);
         gUnk_0203B868.ids[1] = Fusion_GetDemonByIndex(m->demonId);
         gUnk_0203B868.ids[2] = 0xFFFF;
-        r = sub_0815AE84();
+        r = Fusion_CalcItem();
         if (id != m->demonId)
         {
             if (r != 0)
@@ -203,7 +203,7 @@ u8 Fusion_GetPairIcon(u16 id, u16 slot)
         gUnk_0203B868.ids[0] = Fusion_GetDemonByIndex(gUnk_0203B854[0]);
         gUnk_0203B868.ids[1] = Fusion_GetDemonByIndex(id);
         gUnk_0203B868.ids[2] = gCombatants[slot + 4].demonId;
-        r = sub_0815AE84();
+        r = Fusion_CalcItem();
         if (r != 0)
             return 0x10;
         return 0x16;
@@ -306,10 +306,10 @@ u8 Fusion_GetPairIcon(u16 id, u16 slot)
         "    adds r1, #0x94\n"
         "    ldr r0, .L08154118\n"
         "    strh r0, [r1]\n"
-        "    bl sub_0815B4B4\n"
+        "    bl Fusion_IsRandomResult\n"
         "    mov r8, r0\n"
         "    bl Fusion_CalcTwo\n"
-        "    bl sub_0815B260\n"
+        "    bl Fusion_CheckResult\n"
         "    b .L0815421C\n"
         "    .byte 0x00, 0x00\n"
         ".L08154110: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
@@ -330,10 +330,10 @@ u8 Fusion_GetPairIcon(u16 id, u16 slot)
         "    adds r0, #2\n"
         "    strh r1, [r0]\n"
         "    bl Fusion_SortMaterials\n"
-        "    bl sub_0815B4B4\n"
+        "    bl Fusion_IsRandomResult\n"
         "    mov r8, r0\n"
         "    bl Fusion_CalcThree\n"
-        "    bl sub_0815B260\n"
+        "    bl Fusion_CheckResult\n"
         "    b .L0815421C\n"
         "    .byte 0x00, 0x00\n"
         ".L0815414C: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
@@ -358,7 +358,7 @@ u8 Fusion_GetPairIcon(u16 id, u16 slot)
         "    adds r0, r2, #0\n"
         "    adds r0, #0x94\n"
         "    strh r1, [r0]\n"
-        "    bl sub_0815AE84\n"
+        "    bl Fusion_CalcItem\n"
         "    adds r1, r0, #0\n"
         ".L08154182:\n"
         "    cmp r1, #0\n"
@@ -384,7 +384,7 @@ u8 Fusion_GetPairIcon(u16 id, u16 slot)
         "    adds r1, #2\n"
         "    ldr r0, .L081541CC\n"
         "    strh r0, [r1]\n"
-        "    bl sub_0815AE84\n"
+        "    bl Fusion_CalcItem\n"
         "    adds r1, r0, #0\n"
         "    movs r2, #0x12\n"
         "    ldrsh r0, [r6, r2]\n"
@@ -417,7 +417,7 @@ u8 Fusion_GetPairIcon(u16 id, u16 slot)
         "    adds r0, r4, #0\n"
         "    adds r0, #0x94\n"
         "    strh r1, [r0]\n"
-        "    bl sub_0815AE84\n"
+        "    bl Fusion_CalcItem\n"
         "    adds r1, r0, #0\n"
         "    cmp r1, #0\n"
         "    beq .L0815423C\n"
@@ -818,7 +818,7 @@ u32 sub_081544AC(u16 id)
         gUnk_0203B868.ids[0] = Fusion_GetDemonByIndex(gUnk_0203B854[0]);
         gUnk_0203B868.ids[1] = Fusion_GetDemonByIndex(gUnk_0203B854[1]);
         gUnk_0203B868.ids[2] = id;
-        if (sub_0815AE84() == 0)
+        if (Fusion_CalcItem() == 0)
             return 0;
     }
     return 1;
@@ -1050,7 +1050,7 @@ u32 sub_081544AC(u16 id)
         "    adds r0, r5, #0\n"
         "    adds r0, #0x94\n"
         "    strh r6, [r0]\n"
-        "    bl sub_0815AE84\n"
+        "    bl Fusion_CalcItem\n"
         "    cmp r0, #0\n"
         "    bne .L08154684\n"
         ".L08154678:\n"
@@ -1543,7 +1543,7 @@ void Fusion_DrawListRow(struct FusionMenu *f, u16 row, u16 y)
         gUnk_0203B868.ids[0] = f->picks[0]->demonId;
         gUnk_0203B868.ids[1] = m->demonId;
         gUnk_0203B868.ids[2] = 0xFFFF;
-        sub_0815B4B4();
+        Fusion_IsRandomResult();
         Fusion_CalcTwo();
         gUnk_0203B854[3] = gUnk_0203B868.result;
         sub_0815438C(f->picks[0]->demonId, Fusion_FindListSlot(m->demonId), 0x82, y + 4);
@@ -1565,7 +1565,7 @@ void Fusion_DrawListRow(struct FusionMenu *f, u16 row, u16 y)
         gUnk_0203B868.ids[1] = f->picks[1]->demonId;
         gUnk_0203B868.ids[2] = m->demonId;
         Fusion_SortMaterials();
-        sub_0815B4B4();
+        Fusion_IsRandomResult();
         Fusion_CalcThree();
         gUnk_0203B854[3] = gUnk_0203B868.result;
         if (gUnk_0203B868.result > 0xFE)
@@ -1974,7 +1974,7 @@ void Fusion_DrawListRow(struct FusionMenu *f, u16 row, u16 y)
         "    adds r1, #2\n"
         "    ldr r0, .L08154DD0\n"
         "    strh r0, [r1]\n"
-        "    bl sub_0815B4B4\n"
+        "    bl Fusion_IsRandomResult\n"
         "    bl Fusion_CalcTwo\n"
         "    ldr r1, .L08154DD4\n"
         "    adds r6, r4, #0\n"
@@ -2076,7 +2076,7 @@ void Fusion_DrawListRow(struct FusionMenu *f, u16 row, u16 y)
         "    adds r0, #0x94\n"
         "    strh r1, [r0]\n"
         "    bl Fusion_SortMaterials\n"
-        "    bl sub_0815B4B4\n"
+        "    bl Fusion_IsRandomResult\n"
         "    bl Fusion_CalcThree\n"
         "    ldr r1, .L08154E80\n"
         "    adds r4, #0xa0\n"

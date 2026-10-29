@@ -1,0 +1,31 @@
+08159A60	Fusion_ThreeTwoRace8	func	three materials, two of race 8: non-race-8 one first; same element type ((id-0x32)&3) -> rank shift of the first by both 0x087F1611 values (+1, 0 counts -1), else fuse 1+2, rank down 1, fuse with 3
+08159BFC	Fusion_ThreeRace8	func	three race-8 materials (ids 0x32-0x39): all in 0x32-0x35 or all in 0x36-0x39 -> table 0x087F198B by the first unused id of the group; mixed -> pair fusions, one rank down
+08159D50	Fusion_ThreeHighRaceLast	func	three materials, third above race 0x1A: fuse 1+2, result one rank down, fuse with 3; retried while gUnk_03006A38 and sub_08158CBC fails
+08159DF0	Fusion_ThreeHighRaceMiddle	func	as Fusion_ThreeHighRaceLast with materials 0 and 2 swapped first
+08159E9C	Fusion_ThreeHighRaceFirst	func	three materials, first above race 0x1A: sets unkA4 bit 0x40 and moves the highest-level material 3 ranks down
+08159F18	Fusion_ThreeDark	func	three materials with one of alignment 0xB: dark one first, then the lower-level other; fuse until a result, fuse with the third, one rank down; equal to a material or not allowed -> accident (sub_08158CA4); two or more dark -> none
+0815A060	Fusion_SwapMaterials	func	(a, b) swaps alignment, race, level and id of materials a and b (0-2)
+0815A150	Fusion_ThreeRace16	func	three materials with race 0x16: 3 -> Fusion_ThreeAllRace16, 2 -> Fusion_ThreeTwoRace16, 1 -> it goes last, fuse 1+2, fuse with 3, one rank down
+0815A230	Fusion_ThreeTwoRace16	func	two race-0x16 materials go last (higher level first); fuse 1+2, fuse with 3, one rank down
+0815A2F4	Fusion_ThreeAllRace16	func	result = demon 0x35, sub_08158CBC
+0815A30C	Fusion_ThreeNormal	func	ordinary three-material fusion: level sort, alignment tables 0x087F1993/0x087F1A23 -> race, first demon at/above mean level + 4*(materials of race <= 0xC) - 4; race 0xFF -> random demon below the hero's level; else Fusion_ThreeFallback
+0815A670	Fusion_ThreeFallback	func	fuse materials 3+2, then with 1, one rank down
+0815A6F0	Fusion_BuildResultSkills	func	builds gUnk_0203B918 (6 skills, 0xFF ends) for the result: own skills of its class plus inherited ones of that class from the materials (Fusion_CollectMaterialSkills), sorted
+0815A99C	Fusion_BuildSkillsNoClass	func	result without own class skills: its other skills, its class skills, then Fusion_AppendMaterialSkills
+0815AA30	Fusion_AppendMaterialSkills	func	sorts the list ascending and appends the materials' other skills (descending) up to 6
+0815AAC8	SkillList_SortAscending	func	sorts a 0xFF-terminated byte list ascending, dropping duplicates
+0815AB38	SkillList_SortDescending	func	sorts a 0xFF-terminated byte list descending, dropping duplicates
+0815ABA8	Fusion_CollectMaterialSkills	func	(id) stock demon's skills: of the result's class (if its record byte 0x1E equals it) into +0x180, others in 0x24-0x39 into +0x290, no duplicates
+0815AD8C	Fusion_HasOwnOtherSkill	func	(skill) whether it is in the result's other skills (+0x270, max 6)
+0815ADCC	Fusion_IsSkillInherited	func	whether gUnk_0203B868+0x83 is already in the +0x180 list
+0815AE18	Fusion_IsSkillCollected	func	whether gUnk_0203B868+0x83 is already in the +0x290 list
+0815AE68	Skill_GetClass	func	(skill) sub_080BF5C0(skill & 0xFF)[0] & 0xF
+0815AE84	Fusion_CalcItem	func	item-demon fusions (ids from Fusion_GetDemonByIndex): ids[2] 0xFFFF -> Fusion_CalcItemPair, ids[1] 0xFFFF -> Fusion_CalcItemDemon, else Fusion_CalcItemThree; ids kept
+0815AF00	Fusion_CalcItemThree	func	table 0x087F1C53 {a, b, c, result} x30: c == ids[2], {a, b} == ids[0..1] either order
+0815AFB0	Fusion_CalcItemDemon	func	item demon ids[0] + demon ids[2]: row (ids[0]-0x40)*10 of 0x087F1B13, entries 0-4 (id, or 0x80|race), result from 0x087F1BB3
+0815B08C	Fusion_CalcItemPair	func	two item demons: entries 5-9 of ids[0]'s row in 0x087F1B13 hold ids[1], result from 0x087F1BB3
+0815B11C	Fusion_RollAccident	func	fusion accident: flag 0xD8 or a 1/256 roll; random allowed demon not in the stock in a level band above the hero (16/26 up, 25/40 wide, cap 0x4B), fallback 0xFB; 0xFFFF none
+0815B24C	Fusion_FindKeptMaterial	func	Stock_FindByDemonId(gUnk_0203B868.unkA5)
+0815B260	Fusion_CheckResult	func	sorts ids, builds the result skills; 0 none, 4 already owned, 3 level above the hero (+9 with unkA4 bit 0x40), 1 alignment class fits the hero's, 2 not
+0815B3F4	Fusion_ApplyResult	func	ItemStock -2 per material, +4 for the result; unless flag 0xE0, hero alignment value (+0x58, copied to members 1, 2) -26 for class 0, +26 for class 2
+0815B4B4	Fusion_IsRandomResult	func	1 when the combination gives a random result: exactly one dark (0xB) material (not with 0xFB), or for three (no race > 0x1A) certain alignments of the highest-level material and the other two
