@@ -13,7 +13,7 @@ struct BattleMsg
     u8 typed;           /* characters of src typed so far */
     u8 done;            /* 1 = player pressed a key or the auto-close timer ran out */
     u8 row;             /* window position: text y = row * 16 + 0x59 */
-    u8 lines;           /* line count of the message (sub_080EA314) */
+    u8 lines;           /* line count of the message (BattleMsg_FitWindow) */
     u8 locked;          /* 0x07: 1 = mode changes and text composition are ignored */
     u16 *src;           /* 0x08: message being typed */
     u16 text[0x40];     /* 0x0C */
@@ -38,7 +38,7 @@ void BattleMenu_SetMode(u8 mode, u16 *src);
 void Font_ResetGlyphSpriteCache(u32 arg);
 u8 *Demon_GetRecord(u16 id);
 u16 *Race_GetName(u16 race);
-u8 sub_080EA314(u16 *src);
+u8 BattleMsg_FitWindow(u16 *src);
 struct Task;
 void Window_SetHeight(void *window, u32 arg1);
 void Window_Close(void *window, u32 arg1);

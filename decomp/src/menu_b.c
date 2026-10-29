@@ -772,8 +772,8 @@ void Sram_FormatIfInvalid(void)
         buf->unk6CA2 = 0x17;
         for (i = 0; i < 3; i++)
         {
-            sub_0815CBB4(buf, SRAM_BASE, 0x8000);
-            if (sub_0815CC24(buf, SRAM_BASE, 0x8000) == 0)
+            WriteSram(buf, SRAM_BASE, 0x8000);
+            if (VerifySram(buf, SRAM_BASE, 0x8000) == 0)
                 break;
         }
     }
@@ -786,8 +786,8 @@ u32 Sram_WriteVerified(const void *src, void *dst, u32 size)
 
     for (i = 0; i < 3; i++)
     {
-        sub_0815CBB4(src, dst, size);
-        if (sub_0815CC24(src, dst, size) == 0)
+        WriteSram(src, dst, size);
+        if (VerifySram(src, dst, size) == 0)
             return 1;
     }
     return 0;
@@ -829,8 +829,8 @@ u32 Sram_ReadVerified(const void *src, void *dst, u32 size)
 
     for (i = 0; i < 3; i++)
     {
-        sub_0815CB50(src, dst, size);
-        if (sub_0815CC24(src, dst, size) == 0)
+        ReadSram(src, dst, size);
+        if (VerifySram(src, dst, size) == 0)
             return 1;
     }
     return 0;

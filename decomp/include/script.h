@@ -95,7 +95,7 @@ s32 Flag_Test(u16);
 s32 Combatant_IsUsed(u32);
 u16 Combatant_GetStatus(u32);
 u32 YesNo_Create(u32);
-void sub_080E47A8(u32, u16, u16, u16, u16);
+void Battle_Start(u32, u16, u16, u16, u16);
 void Flag_Set(u16);
 void Flag_Clear(u16);
 void Window_Close(u32, u32);

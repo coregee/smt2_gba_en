@@ -39,14 +39,14 @@ void BattleMenu_SetMode(u8 mode, u16 *src)
         msg->typed = 0;
         msg->done = 0;
         msg->mode = 2;
-        msg->lines = sub_080EA314(src);
+        msg->lines = BattleMsg_FitWindow(src);
         break;
     case 4:
         Font_ResetGlyphSpriteCache(0x180);
         msg->typed = 0;
         msg->delay = 0;
         dst = msg->text;
-        msg->lines = sub_080EA314(src);
+        msg->lines = BattleMsg_FitWindow(src);
         while (*src != 0)
             *dst++ = *src++;
         break;

@@ -561,10 +561,10 @@ void sub_080E1C20(struct Task *t)
         double d;
 
         me->unk20 |= 0x40;
-        d = sub_0815DBB4(v);
+        d = __floatsidf(v);
         if (v < 0)
-            d = sub_0815D428(d, 4294967296.0);
-        amount = sub_0815E5B4(sub_0815DCF4(sub_0815D490(d, 0.08)));
+            d = __adddf3(d, 4294967296.0);
+        amount = __fixsfsi(__truncdfsf2(__muldf3(d, 0.08)));
     }
     else
     {
@@ -1022,18 +1022,18 @@ void sub_080E1C20(struct Task *t)
         "    mov r2, sl\n"
         "    str r0, [r2, #0x20]\n"
         "    adds r0, r4, #0\n"
-        "    bl sub_0815DBB4\n"
+        "    bl __floatsidf\n"
         "    cmp r4, #0\n"
         "    bge .L080E1F94\n"
         "    ldr r2, .L080E1FC0\n"
         "    ldr r3, .L080E1FC4\n"
-        "    bl sub_0815D428\n"
+        "    bl __adddf3\n"
         ".L080E1F94:\n"
         "    ldr r2, .L080E1FC8\n"
         "    ldr r3, .L080E1FCC\n"
-        "    bl sub_0815D490\n"
-        "    bl sub_0815DCF4\n"
-        "    bl sub_0815E5B4\n"
+        "    bl __muldf3\n"
+        "    bl __truncdfsf2\n"
+        "    bl __fixsfsi\n"
         "    adds r4, r0, #0\n"
         "    b .L080E1FD4\n"
         ".L080E1FA8: .4byte 0x030046C0 @ IWRAM+0x46C0\n"
@@ -1174,11 +1174,11 @@ void LinkTrade_Execute(void)
         if (v != 0)
         {
             /* (s32)(float)((double)(u32)v * 0.08) */
-            double d = sub_0815DBB4(v);
+            double d = __floatsidf(v);
 
             if (v < 0)
-                d = sub_0815D428(d, 4294967296.0);
-            amount = sub_0815E5B4(sub_0815DCF4(sub_0815D490(d, 0.08)));
+                d = __adddf3(d, 4294967296.0);
+            amount = __fixsfsi(__truncdfsf2(__muldf3(d, 0.08)));
         }
         else
         {
@@ -1285,18 +1285,18 @@ void LinkTrade_Execute(void)
         "    cmp r4, #0\n"
         "    beq .L080E21BC\n"
         "    adds r0, r4, #0\n"
-        "    bl sub_0815DBB4\n"
+        "    bl __floatsidf\n"
         "    cmp r4, #0\n"
         "    bge .L080E2194\n"
         "    ldr r2, .L080E21AC\n"
         "    ldr r3, .L080E21B0\n"
-        "    bl sub_0815D428\n"
+        "    bl __adddf3\n"
         ".L080E2194:\n"
         "    ldr r2, .L080E21B4\n"
         "    ldr r3, .L080E21B8\n"
-        "    bl sub_0815D490\n"
-        "    bl sub_0815DCF4\n"
-        "    bl sub_0815E5B4\n"
+        "    bl __muldf3\n"
+        "    bl __truncdfsf2\n"
+        "    bl __fixsfsi\n"
         "    b .L080E21C0\n"
         "    .byte 0x00, 0x00\n"
         ".L080E21A8: .4byte 0x0203B554 @ EWRAM+0x3B554\n"

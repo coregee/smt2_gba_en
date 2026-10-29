@@ -782,7 +782,15 @@ address	name	kind	confidence	note
 080E4434	ply_xswee	func	proven	gMPlayJumpTableTemplate entry
 080E4448	DummyFunc	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
 080E444C	Demon_GetGfxRecord	func	probable	"returns 0x0872C774 + id*0x1C (id 0x12D -> 0x0872F104 + variant*0x1C, id 0x12E -> 0x0872F174); docs/assets.md ""Demon battle sprites"""
+080E47A8	Battle_Start	func	probable	called by script op sub_08132890 with the two encounter groups and counts; stores them at 0x0203C200+0x990/0x998, inits the four party combatants, creates the battle main task gUnknown_086BEF88
+080E4A40	Battle_LoadGroupPalette	func	probable	loads enemy group n's demon palette (placeholder 0x086BE584 for unseen demons on the compendium screen) into OBJ palette 14/15 and fades it in
+080E4AD0	Battle_IntroTask	func	probable	state machine at +0x978: picks the enemy groups (sub_080ED5B4), creates the enemy units (Battle_InitEnemyUnit), shows each group (portrait, fade-in, intro task gUnknown_086BE738)
 080E5678	Demon_LoadGfx	func	probable	(id < 0x17C, half, stage, palette slot): HuffUnComp record +0x0C/+0x14 to 0x0200AFC8, LZ77 to 0x030000B4, palette +0x04 to the OBJ palette
+080E739C	StatusIcon_FromStatus	func	probable	maps a combatant status word to a status icon index; the last matching bit wins
+080E7834	StatusIcon_ForCombatant	func	probable	icon for combatant 16-23: ailment priority list, 2 when HP < max/4
+080E8B20	DemonSprite_StepShake	func	probable	steps a 10-entry (dx, dy) hit-shake table (gUnknown_086BE7BC) into sprite+6/+7; returns 1 when done
+080E8B78	DemonSprite_LoadPalette	func	probable	loads enemy sprite slot n's palette (kind 0 = demon record, 1-5 = flash palettes gUnknown_086BE884) into OBJ palette 14+n
+080EA314	BattleMsg_FitWindow	func	probable	counts lines (0x300 separators up to 0 or 0x301) and sets the battle message window height (lines*2, 7 for four lines); returns the line count
 080EA37C	BattleMenu_SetMode	func	tentative	from translation patches (lost Ghidra session); verify
 080EA4F8	BattleMenu_SetModeAutoClose	func	probable	calls BattleMenu_SetMode then sets msg.autoClose=1, autoCloseTimer=75; sub_080EA538 mode 1 sets done when the timer runs out
 080EA528	BattleMenu_Reset	func	probable	BattleMenu_SetMode(0, NULL)
@@ -1322,6 +1330,12 @@ address	name	kind	confidence	note
 0815CB08	RLUnCompWram	func	proven	svc 0x14; bx lr
 0815CB0C	SoftReset	func	proven	clears 0x03007FFA, RegisterRamReset (svc 1) then SoftReset (svc 0)
 0815CB24	VBlankIntrWait	func	proven	movs r2,#0; svc 5; bx lr
+0815CB2C	ReadSram_Core	func	probable	Nintendo AgbSram library: byte copy loop run from a stack copy; the whole 0x0815CB2C-0x0815CCBC block rebuilds byte-for-byte from the AgbSram C at agbcc -O1
+0815CB50	ReadSram	func	probable	sets WAITCNT SRAM wait 8, copies ReadSram_Core to the stack and calls it (Sram_ReadVerified caller)
+0815CBB4	WriteSram	func	probable	sets WAITCNT SRAM wait 8, byte copy src->SRAM
+0815CBF4	VerifySram_Core	func	probable	compares bytes, returns address of the first mismatch or 0
+0815CC24	VerifySram	func	probable	copies VerifySram_Core to the stack and calls it
+0815CC88	WriteSramEx	func	probable	WriteSram + VerifySram up to 3 times, returns the error address
 0815CCC0	_call_via_r0	func	proven	libgcc interworking thunk: bx r0
 0815CCC4	_call_via_r1	func	proven	libgcc interworking thunk: bx r1
 0815CCC8	_call_via_r2	func	proven	libgcc interworking thunk: bx r2
@@ -1342,6 +1356,49 @@ address	name	kind	confidence	note
 0815CD94	__modsi3	func	proven	libgcc: signed remainder
 0815CE64	__udivsi3	func	proven	libgcc: unsigned quotient
 0815CEDC	__umodsi3	func	proven	libgcc: unsigned remainder
+0815CF9C	__pack_d	func	probable	libgcc dp-bit: called last by every double op; builds sign/exponent/fraction
+0815D0E4	__unpack_d	func	probable	libgcc dp-bit: called twice at the start of every binary double op
+0815D1BC	__fpadd_parts_d	func	probable	libgcc dp-bit _fpadd_parts: uses __negdi2; called by add and sub
+0815D428	__adddf3	func	probable	unpack x2, _fpadd_parts, pack
+0815D458	__subdf3	func	probable	as __adddf3 with the sign of b flipped
+0815D490	__muldf3	func	probable	unpack x2, four __muldi3, pack
+0815D738	__divdf3	func	probable	unpack x2, pack (fp-bit divide)
+0815D8C0	__fpcmp_parts_d	func	probable	called by the seven double comparisons
+0815D9C0	__cmpdf2	func	probable	first of the fp-bit comparisons (no NaN default)
+0815D9EC	__eqdf2	func	probable	NaN default 1
+0815DA38	__nedf2	func	probable	NaN default 1
+0815DA84	__gtdf2	func	probable	NaN default -1
+0815DAD0	__gedf2	func	probable	NaN default -1
+0815DB1C	__ltdf2	func	probable	NaN default 1
+0815DB68	__ledf2	func	probable	NaN default 1
+0815DBB4	__floatsidf	func	probable	int -> double: builds parts, pack only
+0815DC30	__fixdfsi	func	probable	double -> int: unpack then __lshrdi3
+0815DCA4	__negdf2	func	probable	unpack, flip sign, pack
+0815DCCC	__make_dp	func	probable	fills a fp_number from (class, sign, exp, frac) and packs it; used by __extendsfdf2
+0815DCF4	__truncdfsf2	func	probable	unpack_d then __make_fp
+0815DD38	__pack_f	func	probable	libgcc fp-bit single-precision pack
+0815DDF0	__unpack_f	func	probable	libgcc fp-bit single-precision unpack
+0815DE6C	__fpadd_parts_f	func	probable	single-precision _fpadd_parts
+0815DFE8	__addsf3	func	probable	unpack_f x2, _fpadd_parts, pack_f
+0815E014	__subsf3	func	probable	as __addsf3 with b negated
+0815E048	__mulsf3	func	probable	unpack_f x2, __muldi3, pack_f
+0815E1AC	__divsf3	func	probable	unpack_f x2, pack_f
+0815E298	__fpcmp_parts_f	func	probable	called by the seven float comparisons
+0815E37C	__cmpsf2	func	probable	float comparison, same order as the double ones
+0815E3A4	__eqsf2	func	probable	float comparison
+0815E3EC	__nesf2	func	probable	float comparison
+0815E434	__gtsf2	func	probable	float comparison
+0815E47C	__gesf2	func	probable	float comparison
+0815E4C4	__ltsf2	func	probable	float comparison
+0815E50C	__lesf2	func	probable	float comparison
+0815E554	__floatsisf	func	probable	int -> float
+0815E5B4	__fixsfsi	func	probable	float -> int
+0815E61C	__negsf2	func	probable	unpack_f, flip sign, pack_f
+0815E640	__make_fp	func	probable	fills a fp_number and packs it as float
+0815E658	__extendsfdf2	func	probable	unpack_f then __make_dp
+0815E684	__lshrdi3	func	probable	64-bit logical shift right (hi/lo in r1/r0, count r2)
+0815E6B8	__muldi3	func	probable	64-bit multiply from 16-bit partial products
+0815E728	__negdi2	func	probable	64-bit negate
 0815E740	memcpy	func	proven	newlib (word copy when len >= 16)
 0815E7A0	memset	func	proven	newlib (word fill when len >= 4)
 0815E7F4	srand	func	proven	newlib: _impure_ptr->_rand_next = seed

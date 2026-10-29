@@ -509,3 +509,27 @@ No text is drawn here, so nothing limits the translation. Oddities in the origin
   works only because `sub_080CF7D8` holds `gUnk_0200F874` there.
 - `sub_080CEF60` passes an uninitialised filter for modes other than 0xB/0xC; `sub_080E2080`
   fills an uninitialised stack array before overwriting it.
+
+### Ending credits and battle display (`0x0815C140`-`0x0815CAE8`, `0x080E47A8`-`0x080EA37C`)
+
+- **Staff credits are still Japanese.** The credits records at `0x087F28B0` point to staff-name
+  strings at `0x087F1DC0`-`0x087F28B0` in kanji (金子　一馬, 副島　成記, ...), drawn with a fixed
+  12 px advance and no wrapping onto the canvas at `0x0200F874`. None of the 2,800 bytes, the
+  table or the credits code is changed in the patched build; only the post-credits prompt
+  (`0x0815CA58`, string `0x087F2D50`) is repointed. Romanised credits need new strings and
+  repointed records.
+- **Battle message window** (`BattleMsg_FitWindow`, `0x080EA314`): 2 rows per line (0x300) and 7
+  rows for exactly 4 lines; more line breaks grow the window with no cap. Unpatched; the battle
+  budget tool checks glyph counts, not line counts.
+- Library code that agbcc cannot produce stays assembly: the Nintendo SRAM routines
+  (`0x0815CB2C`-`0x0815CC88`, which match only at -O1) and libgcc's soft-float and 64-bit
+  helpers (`0x0815CF9C`-`0x0815E728`); both are now named.
+
+### More possible original bugs
+
+- `0x080E7D58`: in two-group battles the right group's blend check reads `groups[2]` (actually
+  `counts[0]`) instead of `groups[1]`, so the right-hand demon can get the wrong draw mode.
+- `0x080E586C` compares `groups[1]` with 0xFF while single-group battles store 0xFFFF, then
+  reads demon record 0xFFFF.
+- `0x080E8E00`: a slot-2 sprite would put its VBlank task over battle flags at +0x1120.
+- Credits (`0x0815C1A8`): the first walker's scale comes from `path[9]`, past the table.

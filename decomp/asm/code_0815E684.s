@@ -5,8 +5,8 @@
 
 	.thumb
 
-	thumb_func_start sub_0815E684
-sub_0815E684: @ 0x0815E684
+	thumb_func_start __lshrdi3
+__lshrdi3: @ 0x0815E684
 .L0815E684:
 	push {r4, r5, r6, lr}
 	adds r6, r1, #0
@@ -38,8 +38,8 @@ sub_0815E684: @ 0x0815E684
 	pop {r4, r5, r6, pc}
 	.byte 0x00, 0x00
 
-	thumb_func_start sub_0815E6B8
-sub_0815E6B8: @ 0x0815E6B8
+	thumb_func_start __muldi3
+__muldi3: @ 0x0815E6B8
 .L0815E6B8:
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x10
@@ -98,8 +98,8 @@ sub_0815E6B8: @ 0x0815E6B8
 	pop {r4, r5, r6, r7, pc}
 .L0815E724: .4byte 0x0000FFFF
 
-	thumb_func_start sub_0815E728
-sub_0815E728: @ 0x0815E728
+	thumb_func_start __negdi2
+__negdi2: @ 0x0815E728
 .L0815E728:
 	push {r4, lr}
 	rsbs r2, r0, #0

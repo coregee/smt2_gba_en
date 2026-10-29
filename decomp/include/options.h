@@ -372,11 +372,11 @@ void sub_080C29E8(u16 id);
 u32 SaveSlot_Write(u32 slot, void *src);
 /* libgcc soft-float helpers (unnamed in symbols.tsv): __floatsidf, __adddf3, __muldf3,
    __truncdfsf2, __fixsfsi.  Called explicitly because match.py cannot resolve the libcall names. */
-double sub_0815DBB4(s32 v);
-double sub_0815D428(double a, double b);
-double sub_0815D490(double a, double b);
-float sub_0815DCF4(double a);
-s32 sub_0815E5B4(float a);
+double __floatsidf(s32 v);
+double __adddf3(double a, double b);
+double __muldf3(double a, double b);
+float __truncdfsf2(double a);
+s32 __fixsfsi(float a);
 void Party_FixOrderAfterTrade(void);
 s16 sub_08134C3C(u16 id);
 s32 sub_0815BA28(u16 id);

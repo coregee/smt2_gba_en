@@ -235,11 +235,11 @@ void ScriptOp_Jump(void)
 void sub_08132890(void)
 {
     if (gUnk_0203DB66 & gUnk_0203DB68)
-        sub_080E47A8(1, gUnk_0203DB28[0], gUnk_0203DB28[1], gUnk_03006970[0], gUnk_03006970[1]);
+        Battle_Start(1, gUnk_0203DB28[0], gUnk_0203DB28[1], gUnk_03006970[0], gUnk_03006970[1]);
     else if (gUnk_0203DB66 != 0 && gUnk_0203DB68 == 0)
-        sub_080E47A8(1, gUnk_0203DB28[0], 0xFFFF, gUnk_03006970[0], 0);
+        Battle_Start(1, gUnk_0203DB28[0], 0xFFFF, gUnk_03006970[0], 0);
     else
-        sub_080E47A8(1, 0xFFFF, gUnk_0203DB28[1], 0, gUnk_03006970[1]);
+        Battle_Start(1, 0xFFFF, gUnk_0203DB28[1], 0, gUnk_03006970[1]);
 }
 
 // ScriptOp_CloseMessage @ 0x0813291C

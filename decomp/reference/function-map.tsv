@@ -2402,127 +2402,127 @@ address	mode	size	name	confidence	state	file
 080E4520	thumb	50			asm	asm/code_080E325C.s
 080E4554	thumb	456			asm	asm/code_080E325C.s
 080E471C	thumb	140			asm	asm/code_080E325C.s
-080E47A8	thumb	664			asm	asm/code_080E47A8.s
-080E4A40	thumb	144			asm	asm/code_080E47A8.s
-080E4AD0	thumb	1772			asm	asm/code_080E47A8.s
-080E51BC	thumb	64			asm	asm/code_080E47A8.s
-080E51FC	thumb	34			asm	asm/code_080E47A8.s
-080E5220	thumb	692			asm	asm/code_080E47A8.s
-080E54D4	thumb	26			asm	asm/code_080E47A8.s
-080E54F0	thumb	20			asm	asm/code_080E47A8.s
-080E5504	thumb	36			asm	asm/code_080E47A8.s
-080E5528	thumb	148			asm	asm/code_080E47A8.s
-080E55BC	thumb	84			asm	asm/code_080E47A8.s
-080E5610	thumb	88			asm	asm/code_080E47A8.s
-080E5668	thumb	12			asm	asm/code_080E47A8.s
-080E5674	thumb	2			asm	asm/code_080E47A8.s
-080E5678	thumb	340	Demon_LoadGfx	probable	named	asm/code_080E47A8.s
-080E57CC	thumb	36			asm	asm/code_080E47A8.s
-080E57F0	thumb	92			asm	asm/code_080E47A8.s
-080E584C	thumb	32			asm	asm/code_080E47A8.s
-080E586C	thumb	92			asm	asm/code_080E47A8.s
-080E58C8	thumb	40			asm	asm/code_080E47A8.s
-080E58F0	thumb	32			asm	asm/code_080E47A8.s
-080E5910	thumb	48			asm	asm/code_080E47A8.s
-080E5940	thumb	80			asm	asm/code_080E47A8.s
-080E5990	thumb	56			asm	asm/code_080E47A8.s
-080E59C8	thumb	80			asm	asm/code_080E47A8.s
-080E5A18	thumb	36			asm	asm/code_080E47A8.s
-080E5A3C	thumb	28			asm	asm/code_080E47A8.s
-080E5A58	thumb	420			asm	asm/code_080E47A8.s
-080E5BFC	thumb	200			asm	asm/code_080E47A8.s
-080E5CC4	thumb	64			asm	asm/code_080E47A8.s
-080E5D04	thumb	52			asm	asm/code_080E47A8.s
-080E5D38	thumb	48			asm	asm/code_080E47A8.s
-080E5D68	thumb	56			asm	asm/code_080E47A8.s
-080E5DA0	thumb	52			asm	asm/code_080E47A8.s
-080E5DD4	thumb	540			asm	asm/code_080E47A8.s
-080E5FF0	thumb	320			asm	asm/code_080E47A8.s
-080E6130	thumb	52			asm	asm/code_080E47A8.s
-080E6164	thumb	388			asm	asm/code_080E47A8.s
-080E62E8	thumb	48			asm	asm/code_080E47A8.s
-080E6318	thumb	240			asm	asm/code_080E47A8.s
-080E6408	thumb	96			asm	asm/code_080E47A8.s
-080E6468	thumb	232			asm	asm/code_080E47A8.s
-080E6550	thumb	190			asm	asm/code_080E47A8.s
-080E6610	thumb	104			asm	asm/code_080E47A8.s
-080E6678	thumb	104			asm	asm/code_080E47A8.s
-080E66E0	thumb	20			asm	asm/code_080E47A8.s
-080E66F4	thumb	48			asm	asm/code_080E47A8.s
-080E6724	thumb	20			asm	asm/code_080E47A8.s
-080E6738	thumb	40			asm	asm/code_080E47A8.s
-080E6760	thumb	796			asm	asm/code_080E47A8.s
-080E6A7C	thumb	360			asm	asm/code_080E47A8.s
-080E6BE4	thumb	232			asm	asm/code_080E47A8.s
-080E6CCC	thumb	240			asm	asm/code_080E47A8.s
-080E6DBC	thumb	76			asm	asm/code_080E47A8.s
-080E6E08	thumb	408			asm	asm/code_080E47A8.s
-080E6FA0	thumb	380			asm	asm/code_080E47A8.s
-080E711C	thumb	120			asm	asm/code_080E47A8.s
-080E7194	thumb	48			asm	asm/code_080E47A8.s
-080E71C4	thumb	24			asm	asm/code_080E47A8.s
-080E71DC	thumb	112			asm	asm/code_080E47A8.s
-080E724C	thumb	204			asm	asm/code_080E47A8.s
-080E7318	thumb	76			asm	asm/code_080E47A8.s
-080E7364	thumb	56			asm	asm/code_080E47A8.s
-080E739C	thumb	166			asm	asm/code_080E47A8.s
-080E7444	thumb	64			asm	asm/code_080E47A8.s
-080E7484	thumb	56			asm	asm/code_080E47A8.s
-080E74BC	thumb	32			asm	asm/code_080E47A8.s
-080E74DC	thumb	92			asm	asm/code_080E47A8.s
-080E7538	thumb	162			asm	asm/code_080E47A8.s
-080E75DC	thumb	46			asm	asm/code_080E47A8.s
-080E760C	thumb	552			asm	asm/code_080E47A8.s
-080E7834	thumb	308			asm	asm/code_080E47A8.s
-080E7968	thumb	218			asm	asm/code_080E47A8.s
-080E7A44	thumb	594			asm	asm/code_080E47A8.s
-080E7C98	thumb	152			asm	asm/code_080E47A8.s
-080E7D30	thumb	38			asm	asm/code_080E47A8.s
-080E7D58	thumb	732			asm	asm/code_080E47A8.s
-080E8034	thumb	760			asm	asm/code_080E47A8.s
-080E832C	thumb	304			asm	asm/code_080E47A8.s
-080E845C	thumb	32			asm	asm/code_080E47A8.s
-080E847C	thumb	274			asm	asm/code_080E47A8.s
-080E8590	thumb	292			asm	asm/code_080E47A8.s
-080E86B4	thumb	132			asm	asm/code_080E47A8.s
-080E8738	thumb	392			asm	asm/code_080E47A8.s
-080E88C0	thumb	360			asm	asm/code_080E47A8.s
-080E8A28	thumb	120			asm	asm/code_080E47A8.s
-080E8AA0	thumb	32			asm	asm/code_080E47A8.s
-080E8AC0	thumb	58			asm	asm/code_080E47A8.s
-080E8AFC	thumb	36			asm	asm/code_080E47A8.s
-080E8B20	thumb	86			asm	asm/code_080E47A8.s
-080E8B78	thumb	152			asm	asm/code_080E47A8.s
-080E8C10	thumb	18			asm	asm/code_080E47A8.s
-080E8C24	thumb	18			asm	asm/code_080E47A8.s
-080E8C38	thumb	32			asm	asm/code_080E47A8.s
-080E8C58	thumb	268			asm	asm/code_080E47A8.s
-080E8D64	thumb	34			asm	asm/code_080E47A8.s
-080E8D88	thumb	20			asm	asm/code_080E8D88.s
-080E8D9C	thumb	12			asm	asm/code_080E8D88.s
-080E8DA8	thumb	12			asm	asm/code_080E8D88.s
-080E8DB4	thumb	56			asm	asm/code_080E8D88.s
-080E8DEC	thumb	18			asm	asm/code_080E8D88.s
-080E8E00	thumb	384			asm	asm/code_080E8D88.s
-080E8F80	thumb	32			asm	asm/code_080E8D88.s
-080E8FA0	thumb	72			asm	asm/code_080E8D88.s
-080E8FE8	thumb	32			asm	asm/code_080E8D88.s
-080E9008	thumb	60			asm	asm/code_080E8D88.s
-080E9044	thumb	104			asm	asm/code_080E8D88.s
-080E90AC	thumb	324			asm	asm/code_080E8D88.s
-080E91F0	thumb	124			asm	asm/code_080E8D88.s
-080E926C	thumb	430			asm	asm/code_080E8D88.s
-080E941C	thumb	860			asm	asm/code_080E8D88.s
-080E9778	thumb	32			asm	asm/code_080E8D88.s
-080E9798	thumb	114			asm	asm/code_080E8D88.s
-080E980C	thumb	100			asm	asm/code_080E8D88.s
-080E9870	thumb	136			asm	asm/code_080E8D88.s
-080E98F8	thumb	2176			asm	asm/code_080E8D88.s
-080EA178	thumb	152			asm	asm/code_080E8D88.s
-080EA210	thumb	112			asm	asm/code_080E8D88.s
-080EA280	thumb	44			asm	asm/code_080E8D88.s
-080EA2AC	thumb	104			asm	asm/code_080E8D88.s
-080EA314	thumb	104			asm	asm/code_080E8D88.s
+080E47A8	thumb	664	Battle_Start	probable	c	src/battlestart_a.c
+080E4A40	thumb	144	Battle_LoadGroupPalette	probable	c	src/battlestart_a.c
+080E4AD0	thumb	1772	Battle_IntroTask	probable	c	src/battlestart_a.c
+080E51BC	thumb	64			c	src/battlestart_a.c
+080E51FC	thumb	34			c	src/battlestart_a.c
+080E5220	thumb	692			c	src/battlestart_a.c
+080E54D4	thumb	26			c	src/battlestart_a.c
+080E54F0	thumb	20			nonmatching	src/battlestart_a.c
+080E5504	thumb	36			c	src/battlestart_a.c
+080E5528	thumb	148			c	src/battlestart_a.c
+080E55BC	thumb	84			c	src/battlestart_a.c
+080E5610	thumb	88			c	src/battlestart_a.c
+080E5668	thumb	12			c	src/battlestart_a.c
+080E5674	thumb	2			c	src/battlestart_a.c
+080E5678	thumb	340	Demon_LoadGfx	probable	nonmatching	src/battlestart_a.c
+080E57CC	thumb	36			c	src/battlestart_a.c
+080E57F0	thumb	92			c	src/battlestart_a.c
+080E584C	thumb	32			c	src/battlestart_a.c
+080E586C	thumb	92			c	src/battlestart_a.c
+080E58C8	thumb	40			c	src/battlestart_a.c
+080E58F0	thumb	32			c	src/battlestart_a.c
+080E5910	thumb	48			c	src/battlestart_a.c
+080E5940	thumb	80			nonmatching	src/battlecmd_a.c
+080E5990	thumb	56			c	src/battlecmd_a.c
+080E59C8	thumb	80			c	src/battlecmd_a.c
+080E5A18	thumb	36			c	src/battlecmd_a.c
+080E5A3C	thumb	28			c	src/battlecmd_a.c
+080E5A58	thumb	420			c	src/battlecmd_a.c
+080E5BFC	thumb	200			c	src/battlecmd_a.c
+080E5CC4	thumb	64			c	src/battlecmd_a.c
+080E5D04	thumb	52			c	src/battlecmd_a.c
+080E5D38	thumb	48			c	src/battlecmd_a.c
+080E5D68	thumb	56			c	src/battlecmd_a.c
+080E5DA0	thumb	52			nonmatching	src/battlecmd_a.c
+080E5DD4	thumb	540			c	src/battlecmd_a.c
+080E5FF0	thumb	320			c	src/battlecmd_a.c
+080E6130	thumb	52			c	src/battlecmd_a.c
+080E6164	thumb	388			c	src/battlecmd_a.c
+080E62E8	thumb	48			c	src/battlecmd_a.c
+080E6318	thumb	240			c	src/battlecmd_a.c
+080E6408	thumb	96			c	src/battlecmd_b.c
+080E6468	thumb	232			c	src/battlecmd_b.c
+080E6550	thumb	190			c	src/battlecmd_b.c
+080E6610	thumb	104			c	src/battlecmd_b.c
+080E6678	thumb	104			c	src/battlecmd_b.c
+080E66E0	thumb	20			c	src/battlecmd_b.c
+080E66F4	thumb	48			c	src/battlecmd_b.c
+080E6724	thumb	20			c	src/battlecmd_b.c
+080E6738	thumb	40			c	src/battlecmd_b.c
+080E6760	thumb	796			c	src/battlecmd_b.c
+080E6A7C	thumb	360			c	src/battlecmd_b.c
+080E6BE4	thumb	232			c	src/battlecmd_b.c
+080E6CCC	thumb	240			c	src/battlecmd_b.c
+080E6DBC	thumb	76			c	src/battlecmd_b.c
+080E6E08	thumb	408			c	src/battlecmd_b.c
+080E6FA0	thumb	380			c	src/battlecmd_b.c
+080E711C	thumb	120			c	src/battlecmd_b.c
+080E7194	thumb	48			c	src/battlecmd_b.c
+080E71C4	thumb	24			c	src/battlecmd_b.c
+080E71DC	thumb	112			c	src/battleicons_a.c
+080E724C	thumb	204			c	src/battleicons_a.c
+080E7318	thumb	76			nonmatching	src/battleicons_a.c
+080E7364	thumb	56			c	src/battleicons_a.c
+080E739C	thumb	166	StatusIcon_FromStatus	probable	c	src/battleicons_a.c
+080E7444	thumb	64			c	src/battleicons_a.c
+080E7484	thumb	56			c	src/battleicons_a.c
+080E74BC	thumb	32			c	src/battleicons_a.c
+080E74DC	thumb	92			c	src/battleicons_a.c
+080E7538	thumb	162			c	src/battleicons_a.c
+080E75DC	thumb	46			c	src/battleicons_a.c
+080E760C	thumb	552			c	src/battleicons_a.c
+080E7834	thumb	308	StatusIcon_ForCombatant	probable	c	src/battleicons_a.c
+080E7968	thumb	218			c	src/battleicons_a.c
+080E7A44	thumb	594			c	src/battleicons_a.c
+080E7C98	thumb	152			c	src/battleicons_a.c
+080E7D30	thumb	38			c	src/battleicons_a.c
+080E7D58	thumb	732			c	src/battlesprite_a.c
+080E8034	thumb	760			c	src/battlesprite_a.c
+080E832C	thumb	304			c	src/battlesprite_a.c
+080E845C	thumb	32			c	src/battlesprite_a.c
+080E847C	thumb	274			nonmatching	src/battlesprite_a.c
+080E8590	thumb	292			nonmatching	src/battlesprite_a.c
+080E86B4	thumb	132			c	src/battlesprite_a.c
+080E8738	thumb	392			c	src/battlesprite_a.c
+080E88C0	thumb	360			c	src/battlesprite_a.c
+080E8A28	thumb	120			c	src/battlesprite_a.c
+080E8AA0	thumb	32			c	src/battlesprite_a.c
+080E8AC0	thumb	58			c	src/battlesprite_a.c
+080E8AFC	thumb	36			c	src/battlesprite_a.c
+080E8B20	thumb	86	DemonSprite_StepShake	probable	c	src/battlesprite_a.c
+080E8B78	thumb	152	DemonSprite_LoadPalette	probable	c	src/battlesprite_a.c
+080E8C10	thumb	18			c	src/battlesprite_a.c
+080E8C24	thumb	18			c	src/battlesprite_a.c
+080E8C38	thumb	32			c	src/battlesprite_a.c
+080E8C58	thumb	268			c	src/battlesprite_a.c
+080E8D64	thumb	34			c	src/battlesprite_a.c
+080E8D88	thumb	20			c	src/battleslots_a.c
+080E8D9C	thumb	12			c	src/battleslots_a.c
+080E8DA8	thumb	12			c	src/battleslots_a.c
+080E8DB4	thumb	56			c	src/battleslots_a.c
+080E8DEC	thumb	18			c	src/battleslots_a.c
+080E8E00	thumb	384			nonmatching	src/battleslots_a.c
+080E8F80	thumb	32			c	src/battleslots_a.c
+080E8FA0	thumb	72			c	src/battleslots_a.c
+080E8FE8	thumb	32			c	src/battleslots_a.c
+080E9008	thumb	60			c	src/battleslots_a.c
+080E9044	thumb	104			nonmatching	src/battleslots_a.c
+080E90AC	thumb	324			c	src/battleslots_a.c
+080E91F0	thumb	124			c	src/battleslots_a.c
+080E926C	thumb	430			nonmatching	src/battleslots_a.c
+080E941C	thumb	860			nonmatching	src/battleturn_a.c
+080E9778	thumb	32			c	src/battleturn_a.c
+080E9798	thumb	114			c	src/battleturn_a.c
+080E980C	thumb	100			c	src/battleturn_a.c
+080E9870	thumb	136			c	src/battleturn_a.c
+080E98F8	thumb	2176			asm	asm/code_080E98F8.s
+080EA178	thumb	152			c	src/battlemsgwin_a.c
+080EA210	thumb	112			c	src/battlemsgwin_a.c
+080EA280	thumb	44			c	src/battlemsgwin_a.c
+080EA2AC	thumb	104			c	src/battlemsgwin_a.c
+080EA314	thumb	104	BattleMsg_FitWindow	probable	c	src/battlemsgwin_a.c
 080EA37C	thumb	378	BattleMenu_SetMode	tentative	c	src/btext_menu.c
 080EA4F8	thumb	48	BattleMenu_SetModeAutoClose	probable	c	src/btext_menu.c
 080EA528	thumb	14	BattleMenu_Reset	probable	nonmatching	src/btext_menu.c
@@ -4397,105 +4397,105 @@ address	mode	size	name	confidence	state	file
 0815BAC8	thumb	80	ItemStock_Add	probable	c	src/fusioncalc_c.c
 0815BB18	thumb	88	ItemStock_Remove	probable	c	src/fusioncalc_c.c
 0815BB70	thumb	32	ItemStock_GetIndex	probable	c	src/fusioncalc_c.c
-0815C140	thumb	44			asm	asm/code_0815C140.s
-0815C16C	thumb	60			asm	asm/code_0815C140.s
-0815C1A8	thumb	472			asm	asm/code_0815C140.s
-0815C380	thumb	988			asm	asm/code_0815C140.s
-0815C75C	thumb	112			asm	asm/code_0815C140.s
-0815C7CC	thumb	20			asm	asm/code_0815C140.s
-0815C7E0	thumb	72			asm	asm/code_0815C140.s
-0815C828	thumb	56			asm	asm/code_0815C140.s
-0815C860	thumb	36			asm	asm/code_0815C140.s
-0815C884	thumb	128			asm	asm/code_0815C140.s
-0815C904	thumb	24			asm	asm/code_0815C140.s
-0815C91C	thumb	48			asm	asm/code_0815C140.s
-0815C94C	thumb	84			asm	asm/code_0815C140.s
-0815C9A0	thumb	14			asm	asm/code_0815C140.s
-0815C9B0	thumb	48			asm	asm/code_0815C140.s
-0815C9E0	thumb	38			asm	asm/code_0815C140.s
-0815CA08	thumb	80			asm	asm/code_0815C140.s
-0815CA58	thumb	36			asm	asm/code_0815C140.s
-0815CA7C	thumb	44			asm	asm/code_0815C140.s
-0815CAA8	thumb	12			asm	asm/code_0815C140.s
-0815CAB4	thumb	52			asm	asm/code_0815C140.s
-0815CAE8	thumb	10			asm	asm/code_0815C140.s
-0815CAF4	thumb	4	CpuFastSet	proven	named	asm/code_0815C140.s
-0815CAF8	thumb	4	CpuSet	proven	named	asm/code_0815C140.s
-0815CAFC	thumb	4	HuffUnComp	proven	named	asm/code_0815C140.s
-0815CB00	thumb	4	LZ77UnCompWram	proven	named	asm/code_0815C140.s
-0815CB04	thumb	4	ObjAffineSet	proven	named	asm/code_0815C140.s
-0815CB08	thumb	4	RLUnCompWram	proven	named	asm/code_0815C140.s
-0815CB0C	thumb	24	SoftReset	proven	named	asm/code_0815C140.s
-0815CB24	thumb	6	VBlankIntrWait	proven	named	asm/code_0815C140.s
-0815CB2C	thumb	34			asm	asm/code_0815C140.s
-0815CB50	thumb	100			asm	asm/code_0815C140.s
-0815CBB4	thumb	64			asm	asm/code_0815C140.s
-0815CBF4	thumb	46			asm	asm/code_0815C140.s
-0815CC24	thumb	100			asm	asm/code_0815C140.s
-0815CC88	thumb	56			asm	asm/code_0815C140.s
-0815CCC0	thumb	2	_call_via_r0	proven	named	asm/code_0815C140.s
-0815CCC4	thumb	2	_call_via_r1	proven	named	asm/code_0815C140.s
-0815CCC8	thumb	2	_call_via_r2	proven	named	asm/code_0815C140.s
-0815CCCC	thumb	2	_call_via_r3	proven	named	asm/code_0815C140.s
-0815CCD0	thumb	2	_call_via_r4	proven	named	asm/code_0815C140.s
-0815CCD4	thumb	2	_call_via_r5	proven	named	asm/code_0815C140.s
-0815CCD8	thumb	2	_call_via_r6	proven	named	asm/code_0815C140.s
-0815CCDC	thumb	2	_call_via_r7	proven	named	asm/code_0815C140.s
-0815CCE0	thumb	2	_call_via_r8	proven	named	asm/code_0815C140.s
-0815CCE4	thumb	2	_call_via_sb	proven	named	asm/code_0815C140.s
-0815CCE8	thumb	2	_call_via_sl	proven	named	asm/code_0815C140.s
-0815CCEC	thumb	2	_call_via_fp	proven	named	asm/code_0815C140.s
-0815CCF0	thumb	2	_call_via_ip	proven	named	asm/code_0815C140.s
-0815CCF4	thumb	2	_call_via_sp	proven	named	asm/code_0815C140.s
-0815CCF8	thumb	2	_call_via_lr	proven	named	asm/code_0815C140.s
-0815CCFC	thumb	146	__divsi3	proven	named	asm/code_0815C140.s
-0815CD90	thumb	2	__div0	proven	named	asm/code_0815C140.s
-0815CD94	thumb	206	__modsi3	proven	named	asm/code_0815C140.s
-0815CE64	thumb	120	__udivsi3	proven	named	asm/code_0815C140.s
-0815CEDC	thumb	192	__umodsi3	proven	named	asm/code_0815C140.s
-0815CF9C	thumb	328			asm	asm/code_0815C140.s
-0815D0E4	thumb	216			asm	asm/code_0815C140.s
-0815D1BC	thumb	620			asm	asm/code_0815C140.s
-0815D428	thumb	48			asm	asm/code_0815C140.s
-0815D458	thumb	56			asm	asm/code_0815C140.s
-0815D490	thumb	680			asm	asm/code_0815C140.s
-0815D738	thumb	392			asm	asm/code_0815C140.s
-0815D8C0	thumb	254			asm	asm/code_0815C140.s
-0815D9C0	thumb	42			asm	asm/code_0815C140.s
-0815D9EC	thumb	74			asm	asm/code_0815C140.s
-0815DA38	thumb	74			asm	asm/code_0815C140.s
-0815DA84	thumb	76			asm	asm/code_0815C140.s
-0815DAD0	thumb	76			asm	asm/code_0815C140.s
-0815DB1C	thumb	74			asm	asm/code_0815C140.s
-0815DB68	thumb	74			asm	asm/code_0815C140.s
-0815DBB4	thumb	124			asm	asm/code_0815C140.s
-0815DC30	thumb	114			asm	asm/code_0815C140.s
-0815DCA4	thumb	38			asm	asm/code_0815C140.s
-0815DCCC	thumb	38			asm	asm/code_0815C140.s
-0815DCF4	thumb	68			asm	asm/code_0815C140.s
-0815DD38	thumb	184			asm	asm/code_0815C140.s
-0815DDF0	thumb	122			asm	asm/code_0815C140.s
-0815DE6C	thumb	378			asm	asm/code_0815C140.s
-0815DFE8	thumb	44			asm	asm/code_0815C140.s
-0815E014	thumb	52			asm	asm/code_0815C140.s
-0815E048	thumb	356			asm	asm/code_0815C140.s
-0815E1AC	thumb	234			asm	asm/code_0815C140.s
-0815E298	thumb	228			asm	asm/code_0815C140.s
-0815E37C	thumb	38			asm	asm/code_0815C140.s
-0815E3A4	thumb	70			asm	asm/code_0815C140.s
-0815E3EC	thumb	70			asm	asm/code_0815C140.s
-0815E434	thumb	72			asm	asm/code_0815C140.s
-0815E47C	thumb	72			asm	asm/code_0815C140.s
-0815E4C4	thumb	70			asm	asm/code_0815C140.s
-0815E50C	thumb	70			asm	asm/code_0815C140.s
-0815E554	thumb	96			asm	asm/code_0815C140.s
-0815E5B4	thumb	104			asm	asm/code_0815C140.s
-0815E61C	thumb	36			asm	asm/code_0815C140.s
-0815E640	thumb	22			asm	asm/code_0815C140.s
-0815E658	thumb	44			asm	asm/code_0815C140.s
-0815E684	thumb	50			asm	asm/code_0815E684.s
-0815E6B8	thumb	112			asm	asm/code_0815E684.s
-0815E728	thumb	22			asm	asm/code_0815E684.s
+0815C140	thumb	44			c	src/credits_a.c
+0815C16C	thumb	60			c	src/credits_a.c
+0815C1A8	thumb	472			c	src/credits_a.c
+0815C380	thumb	988			nonmatching	src/credits_a.c
+0815C75C	thumb	112			c	src/credits_a.c
+0815C7CC	thumb	20			c	src/credits_a.c
+0815C7E0	thumb	72			c	src/credits_a.c
+0815C828	thumb	56			c	src/credits_a.c
+0815C860	thumb	36			c	src/credits_a.c
+0815C884	thumb	128			c	src/credits_a.c
+0815C904	thumb	24			c	src/credits_a.c
+0815C91C	thumb	48			c	src/credits_a.c
+0815C94C	thumb	84			c	src/credits_a.c
+0815C9A0	thumb	14			c	src/credits_a.c
+0815C9B0	thumb	48			c	src/credits_a.c
+0815C9E0	thumb	38			c	src/credits_a.c
+0815CA08	thumb	80			c	src/credits_a.c
+0815CA58	thumb	36			c	src/credits_a.c
+0815CA7C	thumb	44			c	src/credits_a.c
+0815CAA8	thumb	12			c	src/credits_a.c
+0815CAB4	thumb	52			c	src/credits_a.c
+0815CAE8	thumb	10			c	src/credits_a.c
+0815CAF4	thumb	4	CpuFastSet	proven	named	asm/code_0815CAF4.s
+0815CAF8	thumb	4	CpuSet	proven	named	asm/code_0815CAF4.s
+0815CAFC	thumb	4	HuffUnComp	proven	named	asm/code_0815CAF4.s
+0815CB00	thumb	4	LZ77UnCompWram	proven	named	asm/code_0815CAF4.s
+0815CB04	thumb	4	ObjAffineSet	proven	named	asm/code_0815CAF4.s
+0815CB08	thumb	4	RLUnCompWram	proven	named	asm/code_0815CAF4.s
+0815CB0C	thumb	24	SoftReset	proven	named	asm/code_0815CAF4.s
+0815CB24	thumb	6	VBlankIntrWait	proven	named	asm/code_0815CAF4.s
+0815CB2C	thumb	34	ReadSram_Core	probable	named	asm/code_0815CAF4.s
+0815CB50	thumb	100	ReadSram	probable	named	asm/code_0815CAF4.s
+0815CBB4	thumb	64	WriteSram	probable	named	asm/code_0815CAF4.s
+0815CBF4	thumb	46	VerifySram_Core	probable	named	asm/code_0815CAF4.s
+0815CC24	thumb	100	VerifySram	probable	named	asm/code_0815CAF4.s
+0815CC88	thumb	56	WriteSramEx	probable	named	asm/code_0815CAF4.s
+0815CCC0	thumb	2	_call_via_r0	proven	named	asm/code_0815CAF4.s
+0815CCC4	thumb	2	_call_via_r1	proven	named	asm/code_0815CAF4.s
+0815CCC8	thumb	2	_call_via_r2	proven	named	asm/code_0815CAF4.s
+0815CCCC	thumb	2	_call_via_r3	proven	named	asm/code_0815CAF4.s
+0815CCD0	thumb	2	_call_via_r4	proven	named	asm/code_0815CAF4.s
+0815CCD4	thumb	2	_call_via_r5	proven	named	asm/code_0815CAF4.s
+0815CCD8	thumb	2	_call_via_r6	proven	named	asm/code_0815CAF4.s
+0815CCDC	thumb	2	_call_via_r7	proven	named	asm/code_0815CAF4.s
+0815CCE0	thumb	2	_call_via_r8	proven	named	asm/code_0815CAF4.s
+0815CCE4	thumb	2	_call_via_sb	proven	named	asm/code_0815CAF4.s
+0815CCE8	thumb	2	_call_via_sl	proven	named	asm/code_0815CAF4.s
+0815CCEC	thumb	2	_call_via_fp	proven	named	asm/code_0815CAF4.s
+0815CCF0	thumb	2	_call_via_ip	proven	named	asm/code_0815CAF4.s
+0815CCF4	thumb	2	_call_via_sp	proven	named	asm/code_0815CAF4.s
+0815CCF8	thumb	2	_call_via_lr	proven	named	asm/code_0815CAF4.s
+0815CCFC	thumb	146	__divsi3	proven	named	asm/code_0815CAF4.s
+0815CD90	thumb	2	__div0	proven	named	asm/code_0815CAF4.s
+0815CD94	thumb	206	__modsi3	proven	named	asm/code_0815CAF4.s
+0815CE64	thumb	120	__udivsi3	proven	named	asm/code_0815CAF4.s
+0815CEDC	thumb	192	__umodsi3	proven	named	asm/code_0815CAF4.s
+0815CF9C	thumb	328	__pack_d	probable	named	asm/code_0815CAF4.s
+0815D0E4	thumb	216	__unpack_d	probable	named	asm/code_0815CAF4.s
+0815D1BC	thumb	620	__fpadd_parts_d	probable	named	asm/code_0815CAF4.s
+0815D428	thumb	48	__adddf3	probable	named	asm/code_0815CAF4.s
+0815D458	thumb	56	__subdf3	probable	named	asm/code_0815CAF4.s
+0815D490	thumb	680	__muldf3	probable	named	asm/code_0815CAF4.s
+0815D738	thumb	392	__divdf3	probable	named	asm/code_0815CAF4.s
+0815D8C0	thumb	254	__fpcmp_parts_d	probable	named	asm/code_0815CAF4.s
+0815D9C0	thumb	42	__cmpdf2	probable	named	asm/code_0815CAF4.s
+0815D9EC	thumb	74	__eqdf2	probable	named	asm/code_0815CAF4.s
+0815DA38	thumb	74	__nedf2	probable	named	asm/code_0815CAF4.s
+0815DA84	thumb	76	__gtdf2	probable	named	asm/code_0815CAF4.s
+0815DAD0	thumb	76	__gedf2	probable	named	asm/code_0815CAF4.s
+0815DB1C	thumb	74	__ltdf2	probable	named	asm/code_0815CAF4.s
+0815DB68	thumb	74	__ledf2	probable	named	asm/code_0815CAF4.s
+0815DBB4	thumb	124	__floatsidf	probable	named	asm/code_0815CAF4.s
+0815DC30	thumb	114	__fixdfsi	probable	named	asm/code_0815CAF4.s
+0815DCA4	thumb	38	__negdf2	probable	named	asm/code_0815CAF4.s
+0815DCCC	thumb	38	__make_dp	probable	named	asm/code_0815CAF4.s
+0815DCF4	thumb	68	__truncdfsf2	probable	named	asm/code_0815CAF4.s
+0815DD38	thumb	184	__pack_f	probable	named	asm/code_0815CAF4.s
+0815DDF0	thumb	122	__unpack_f	probable	named	asm/code_0815CAF4.s
+0815DE6C	thumb	378	__fpadd_parts_f	probable	named	asm/code_0815CAF4.s
+0815DFE8	thumb	44	__addsf3	probable	named	asm/code_0815CAF4.s
+0815E014	thumb	52	__subsf3	probable	named	asm/code_0815CAF4.s
+0815E048	thumb	356	__mulsf3	probable	named	asm/code_0815CAF4.s
+0815E1AC	thumb	234	__divsf3	probable	named	asm/code_0815CAF4.s
+0815E298	thumb	228	__fpcmp_parts_f	probable	named	asm/code_0815CAF4.s
+0815E37C	thumb	38	__cmpsf2	probable	named	asm/code_0815CAF4.s
+0815E3A4	thumb	70	__eqsf2	probable	named	asm/code_0815CAF4.s
+0815E3EC	thumb	70	__nesf2	probable	named	asm/code_0815CAF4.s
+0815E434	thumb	72	__gtsf2	probable	named	asm/code_0815CAF4.s
+0815E47C	thumb	72	__gesf2	probable	named	asm/code_0815CAF4.s
+0815E4C4	thumb	70	__ltsf2	probable	named	asm/code_0815CAF4.s
+0815E50C	thumb	70	__lesf2	probable	named	asm/code_0815CAF4.s
+0815E554	thumb	96	__floatsisf	probable	named	asm/code_0815CAF4.s
+0815E5B4	thumb	104	__fixsfsi	probable	named	asm/code_0815CAF4.s
+0815E61C	thumb	36	__negsf2	probable	named	asm/code_0815CAF4.s
+0815E640	thumb	22	__make_fp	probable	named	asm/code_0815CAF4.s
+0815E658	thumb	44	__extendsfdf2	probable	named	asm/code_0815CAF4.s
+0815E684	thumb	50	__lshrdi3	probable	named	asm/code_0815E684.s
+0815E6B8	thumb	112	__muldi3	probable	named	asm/code_0815E684.s
+0815E728	thumb	22	__negdi2	probable	named	asm/code_0815E684.s
 0815E740	thumb	94	memcpy	proven	named	asm/code_0815E684.s
 0815E7A0	thumb	82	memset	proven	named	asm/code_0815E684.s
 0815E7F4	thumb	12	srand	proven	named	asm/code_0815E684.s
