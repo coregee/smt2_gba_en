@@ -612,3 +612,30 @@ in `docs/screens/`.
   (sub-op 0x1E, `0x0815C0AA`) uses the same drawer and was not opened.
 - **Not reached:** Russian Roulette (the jump to its entry script `0x080775B6` landed after the
   scene had ended) and the staff credits.
+
+### Patched (translation build, 2026-10-30)
+
+Three new translation patches fix the confirmed bugs; each was checked in mGBA on the rebuilt ROM
+(SHA-256 `45B94265…59BC`, reproduced by `build.py --profile full --check`). Screenshots are the
+`*-patched.png` files in `docs/screens/`.
+
+- **Default hero name** (`engine/script/patch_defaultnames.py`, `patch_hero_decline_name`):
+  `ScriptOp_432` now stores `17 EB E4 EF E7 FF FF FF`. Declining the name gives
+  "...It's Aleph!" and the party bar reads "Aleph". The 8px party-bar font draws lowercase p
+  without its descender, so it looks like a capital P; that cell comes from the existing
+  small-font build, not this patch.
+- **Shop owned-count header** (`patch_shopowned.py`, `cave_shopowned.c`): four hooks in
+  `Shop_InitItemList` and `sub_081305D8` write "Owned: " on one row of 13 px steps, which the
+  message-window renderer reflows, and raise the record count to 15 so the two count digits
+  show. Turning the header off restores the prompt's tokens, positions and count (saved at
+  `0x0203FF98`). Checked: "Owned: 00"/"Owned: 03" on the list and the "How many?" step,
+  updates on cursor moves and scrolling, and both prompts come back.
+- **Ex-appraiser extraction/return screen** (`patch_extract.py`, `cave_extract.c`): the
+  list rows draw `NAME_TABLE[id]` with variable-width glyphs (Apsaras, Skuld, Kushinada-Hime,
+  Jinn, Pascal I, Urd, Yurlungur); the cost prompts are repointed to English strings
+  ("Extracting it will cost / 4 Memory Chip(s) and ћ7360. / That okay?", "Returning this demon
+  will cost / ћ3360. / That okay?") and the cave expands the 0xCC/0xCD number placeholders
+  wherever they fall.
+
+The near cave pool is now at 14,878 of 15,140 bytes; further near caves will need
+`cave_c_far`.

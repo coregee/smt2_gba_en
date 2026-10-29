@@ -62,6 +62,28 @@ DEFAULTS = [
 ]
 
 
+# ScriptOp_432 (0x0813A310, "SETSKILLS" in the opcode spec) is a THIRD default-name writer: when
+# the player declines to name the hero ("Your name is... Aleph...", event_b @Txt_08071624) it
+# stores アレフ (31 7C 65 FF..) into Battle_GetCombatant(0x8000) byte by byte from immediates,
+# so the hero was named in katakana (drawn "ア・フ"; confirmed on screen).  Rewrite the immediates:
+# bytes 0-3 are `movs r1,#imm8`; bytes 4-7 are `movs r1,#1 ; negs r1,r1` (= 0xFF), of which the
+# 5th becomes `movs r1,#imm8 ; nop` when the name needs it.
+HERO_DECLINE_NAME = "Aleph"
+HERO_DECLINE_SITES = [0x0813A324, 0x0813A32E, 0x0813A338, 0x0813A342,   # movs r1,#imm8
+                      0x0813A34C, 0x0813A358, 0x0813A364, 0x0813A370]   # movs r1,#1 ; negs r1,r1
+HERO_DECLINE_OLD = "317c65ff"
+
+
+def patch_hero_decline_name(p):
+    name = encode_name(HERO_DECLINE_NAME)
+    for i, (site, b) in enumerate(zip(HERO_DECLINE_SITES, name)):
+        if i < 4:
+            p.patch(site, f"{int(HERO_DECLINE_OLD[2 * i:2 * i + 2], 16):02x}21", bytes([b, 0x21]),
+                    name=f"hero decline name byte {i}")
+        elif b != 0xFF:
+            p.patch(site, "01214942", bytes([b, 0x21, 0xC0, 0x46]), name=f"hero decline name byte {i}")
+
+
 def encode_name(name):
     out = bytearray()
     for ch in name:
@@ -142,3 +164,4 @@ def apply(p):
 
     for cell, old_hex, name in DEFAULTS:
         p.patch(cell, old_hex, encode_name(name), name=f"default name {name}")
+    patch_hero_decline_name(p)

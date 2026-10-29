@@ -832,10 +832,10 @@ SECTIONS = [
     # the event-VM field window FUN_080af178 (which is what expands return-ok's {=2303} count).
     # route=literal_ptr (inline-when-fits, else slot repoint; NEVER sentinel — the "Blend"
     # copy path is sentinel-unaware). Fusion-master voice = gruff archaic OLD MAN ("じゃ").
-    # DEFERRED (NOT here): 0x0815BFEA (extract cost) + 0x0815C0AA (return cost) carry bare
-    # placeholder digit glyphs 0xCC('0')/0xCD('1') (+ ћ 0x52) that the 0x080cf2xx loop detects
-    # by glyph code at stream position and overdraws with the runtime chip/macca value —
-    # reflowing EN moves the placeholder; needs an overdraw cave first. 0x0815C0DE (return ok)
+    # NOT here: 0x0815BFEA (extract cost) + 0x0815C0AA (return cost) carry bare placeholder
+    # digit glyphs 0xCC('0')/0xCD('1') (+ ћ 0x52) that the 0x080cf2xx loop detects by glyph code
+    # and replaces with the runtime chip/macca value — engine/script/patch_extract.py repoints
+    # them and its cave expands the placeholders wherever the English puts them. 0x0815C0DE (return ok)
     # is SAFE (real {=2303} count token) and IS included. Also excluded: 0x08009534/40
     # (Visionary extract = patch_vision) and the 0x0815BFxx COMP-summon strings (= comp_messages,
     # a different screen — keep wording consistent across the two).

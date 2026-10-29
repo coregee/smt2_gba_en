@@ -58,6 +58,8 @@ PATCH_NAMES = (
 
     "patch_markerlist",
     "patch_compcost",       # VWF the macca-cost number in the COMP summon/confirm window
+    "patch_extract",        # ex-appraiser demon extract/return: list names + cost prompts -> EN VWF
+    "patch_shopowned",      # shop SELECT owned-count header -> EN (AFTER patch_msgwin)
     "patch_dictname",
     "patch_dictsort",       # pure-data: dictionary NAME page (kana sort -> EN alphabetical buckets)
     "patch_parentrace",     # pure-data: demon-dictionary "parent race" (clan family) names -> English

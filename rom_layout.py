@@ -354,6 +354,13 @@ FARDATA_NOITEM          = 0x0869CB40   # "(No item)" = 9 glyphs + term = 20 B, e
 # table; NameEntry_HandleInput's A-press reads the stored charset index directly from here (bypasses
 # the 0-token-limited token->index scanner, so lowercase 0xE0+ works).  Absolute-ptr referenced.
 FARDATA_NAMEGRID_IDX    = 0x0869CB60   # 275 B, ends ~0x0869CC73, under the 0x0869D000 ceiling
+# Ex-appraiser extraction/return cost prompts (patch_extract): two pooled EN glyph strings with the
+# 0xCC/0xCD number placeholders, referenced from the literals @0x080CF2C0/C4.
+FARDATA_EXTRACT         = 0x0869CC80   # ~150 B
+FARDATA_EXTRACT_END     = 0x0869CE00   # reserved span end, under the 0x0869D000 ceiling
+# Shop owned-count header label (patch_shopowned): 13 glyph tokens (0 = blank slot) read by
+# cave_shopowned in place of the JP codes written by Shop_InitItemList / sub_081305D8.
+FARDATA_SHOPOWNED       = 0x0869CE00   # 26 B
 PARENTRACE_EN_PTRS      = FARDATA_PARENTRACE          # the u32[15] slot table
 PARENTRACE_EN_POOL      = FARDATA_PARENTRACE + 15 * 4 # strings begin here
 
@@ -487,6 +494,9 @@ VISION_STRIP     = 0x0203FED0     # cave_strip StripState for cave_vision's NPC 
                                   #   renderer (vis2_*): 0xC8 B (ends 0x0203FF98; 0x0203FF98..FFFF
                                   #   = the run's remaining FREE scratch).  Keyed by ITEM ID so a
                                   #   row's strip persists in VRAM across scroll.
+SHOP_OWNED_SAVE  = 0x0203FF98     # cave_shopowned: the prompt's record count + x,y of records
+                                  #   0..14 while the owned-count header replaces them (62 B,
+                                  #   ends 0x0203FFD6)
 REVEAL_STEP      = 24             # px revealed per tick.  Drives BOTH typewriter paths (strip
                                   #   reveal + the short-string per-glyph sprite reveal) via
                                   #   REVEAL_PX, so they stay in step.  JP glyph = 12-13px/tick;
@@ -501,7 +511,8 @@ assert REVEAL_PX + 8 == NEGONAME_BUF                      # PX/STAMP/LASTCOL/FIN
 assert NEGONAME_BUF + 16 == MARKER_CACHE
 assert MARKER_CACHE + 40 == RUNTEXT_STRIP
 assert RUNTEXT_STRIP + 0xC8 == VISION_STRIP               # sizeof(StripState) = 0xC8
-assert VISION_STRIP + 0xC8 <= 0x02040000
+assert VISION_STRIP + 0xC8 == SHOP_OWNED_SAVE
+assert SHOP_OWNED_SAVE + 62 <= 0x02040000
 assert MSG_ROWSAVE2 + (MSG_GLYPH_REC_MAX + 1) * 2 <= SHOP_GLYPH_LIST  # dead-block tenant fits
 BMSG_STATE       = 0x0203C9E0     # battle message-box state object (0x0203C200 + 0x7E0)
 BMSG_LINE_LO     = 0x0203C9EC     # state+0xC  = line-1 display buffer (clip range start)
