@@ -18,6 +18,13 @@ python tools/emu/send.py <workdir> run=20 keys=DOWN every=20 shot=menu
   (`Font_CacheGlyphSprite` `0x080AC134`, with caller and cache contents), the cache's
   count/capacity high-water mark every 30 frames, and every write to the cache capacity.
   Add breakpoints (`Z0`) or write watchpoints (`Z2`) in `main()` for other checks.
+- **Memory**: `peek=ADDR:LEN` (hex, after any run) and `poke=ADDR:HEXBYTES` (before any run).
+- **Reaching a scene** without playing to it: while any dialogue is running, poke the
+  script's address into `gScriptJumpTarget` (`0x030068E4`, little-endian); `ScriptVM_Run`
+  jumps there at the top of its loop. Use the translation's copy of the script (find it by
+  its opcode bytes in the English ROM; most scenes are relocated to `0x088xxxxx`), or the
+  original Japanese text shows. Shops also need a shop id in `0x03006914`
+  (`gUnknown_0878EFB8` rows) and money at `0x03005198`.
 
 Field controls observed: UP moves forward, B opens the field command menu, A on a dialogue
 choice takes the highlighted entry. The game saves to `<rom>.sav` next to the ROM, so use a

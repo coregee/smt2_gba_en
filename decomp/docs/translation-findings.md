@@ -573,3 +573,42 @@ are identified from their code (probable).
   against guess AA? scores 1 hit + 1 blow.
 - Russian Roulette (`0x0814E044`): chamber = `((rand & 7) * 3) >> 2`, so chambers 0 and 3 come
   up a quarter of the time each; a loss permanently removes the staked demon.
+
+## Confirmed on screen (mGBA, translation build `rom/smt2-en.gba`)
+
+Run with `tools/emu/gdbdrive.py` from a new game: the script VM was sent to each scene by
+writing the English copy of the script's address into `gScriptJumpTarget` (`0x030068E4`) during
+a running dialogue, which `ScriptVM_Run` takes at the top of its loop. Screenshots (240x160) are
+in `docs/screens/`.
+
+- **Default hero name: confirmed.** Declining to name the hero (English script copy
+  `0x088D9282`, decline branch `0x088D940C`) shows "Your name is... Aleph...", then the next
+  scene says "...It's ア・フ!" (`default-name-katakana.png`). The hero record
+  (`gGameState.members[0]`, `0x030046C0`) holds `31 7C 65 FF FF FF FF FF`; the English font
+  has no レ, so the name is drawn as ア, a gap and フ. The field HUD keeps showing アレフ.
+  With `17 22 1B 26 1E FF FF FF` written to the record, the status screen and the dialogue
+  read ALEPH ("Well? Do you remember now, ALEPH?", `default-name-fixed.png`). The other
+  default names in the English name table are mixed case (Gimmel `1D E8 EC EC E4 EB`, Daleth
+  `1A E0 EB E4 F3 E7`, Zayin `30 E0 F8 E8 ED`; A-Z = `0x17`-`0x30`, a-z = `0xE0`-`0xF9`), so
+  **Aleph = `17 EB E4 EF E7 FF FF FF`** matches them and the dialogue's spelling (checked: the
+  status party list then reads "Aleph"). Patch the
+  eight immediates in `ScriptOp_432` (`0x0813A310`). The HUD name is drawn when the op calls
+  `Party_FixFormation`, so the patch fixes the HUD too (not checked: writing memory skips
+  that call).
+- **Shop owned-count header: confirmed at both sites.** SELECT in a shop toggles
+  `0x030065E4` (`sub_08131B1C`, key bit 2), which draws 選択中のアイテムの所持数 and the count.
+  On the item list (`Shop_InitItemList`, `shop-header-list.png`) and on the "How many?" step
+  (`sub_081305D8`, `shop-header-quantity.png`) the 13 kanji/kana are drawn by the
+  translation's renderer at English widths, so they overlap into an unreadable strip ending
+  in the count. Normal shopping never shows it; pressing SELECT does. Tested with shop 2
+  (Medicine, Dis-Poison, Muscle Drink) through the English shop menu `0x088EAB28`.
+- **Former appraiser's demon extraction: cost prompt confirmed, and a new finding.** The
+  extraction list (script op 0x445 sub-op 0x1D, English copy `0x088B0B02`) lists the demon
+  records in **Japanese katakana** with broken glyphs (アプサ・ス for アプサラス, ス)ド,
+  パス)), `extract-list-names.png`): the record-list drawer (`0x080D4190`) copies the 8-glyph
+  record names, which the translation never repointed. Choosing a demon opens its status
+  page (English) and then the prompt 抽出するのに／メ（ーチップ 2 枚と／ћ3360 かかるが／いいかい？
+  in Japanese (`extract-cost-prompt.png`), as read from `sub_080CF250`. The restore prompt
+  (sub-op 0x1E, `0x0815C0AA`) uses the same drawer and was not opened.
+- **Not reached:** Russian Roulette (the jump to its entry script `0x080775B6` landed after the
+  scene had ended) and the staff credits.

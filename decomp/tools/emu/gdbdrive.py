@@ -18,6 +18,8 @@ Commands are JSON files dropped in WORKDIR/cmd/ (processed in name order, then d
                                           (K=1: hold them); keys from A B SELECT START RIGHT
                                           LEFT UP DOWN R L
   {"shot": "name"}                        screenshot the window to WORKDIR/name.png
+  {"peek": "ADDR:LEN"}                    read memory (hex) into status.json after any run
+  {"poke": "ADDR:HEXBYTES"}               write memory before any run
   {"quit": true}
 Status is written to WORKDIR/status.json after each command.
 """
@@ -224,13 +226,18 @@ def main():
         cmds[0].unlink()
         if c.get("quit"):
             break
+        extra = {}
+        if "poke" in c:
+            addr, data = c["poke"].split(":")
+            extra["poke"] = g.cmd(f"M{int(addr, 16):x},{len(data) // 2:x}:{data}")
         if "run" in c:
             step_frames(int(c["run"]), c.get("keys", []), int(c.get("every", 1)))
+        if "peek" in c:
+            addr, n = c["peek"].split(":")
+            extra["peek"] = g.read(int(addr, 16), int(n, 16)).hex()
         if "shot" in c:
-            ok = capture("mGBA", str(work / f"{c['shot']}.png"))
-            status({"shot": c["shot"], "shot_ok": ok})
-        else:
-            status()
+            extra.update(shot=c["shot"], shot_ok=capture("mGBA", str(work / f"{c['shot']}.png")))
+        status(extra)
     proc.terminate()
 
 
