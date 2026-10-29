@@ -681,7 +681,7 @@ void ScriptOp_40D(void)
         Combatant_RestoreHp(1);
         Combatant_RestoreMp(1);
     }
-    sub_080CDC34();
+    Hud_InvalidateGauges();
 }
 
 // ScriptOpAlt_40D @ 0x08139758

@@ -102,7 +102,7 @@ u32 sub_080C4C60(u16 item);
 u32 sub_080C4C7C(u16 item);
 u32 sub_080D3400(u32 a, u32 b, u16 c);
 struct Task *Task_Create(const void *script, u32 parent);
-s32 sub_080CDB74(s16 a, u8 item);
+s32 Equip_CanEquip(s16 a, u8 item);
 void Inventory_AddItem(u16 item);
 void sub_080CDFBC(u16 a, u16 item);
 
@@ -210,7 +210,7 @@ void sub_080C0F70(s32 who, u32 exp);
 void Combatant_SetEquip(u32 who, u32 slot, u32 id);
 u32 Random_Byte(void);
 void Combatant_RecalcStats(s32 who);
-void sub_080CDC34(void);
+void Hud_InvalidateGauges(void);
 void Party_BuildSkillList(s32 who);
 s32 sub_08136204(s32 who, u32 slot, s32 val);
 s32 sub_08136270(s32 who, u32 slot, s32 val);

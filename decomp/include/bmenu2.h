@@ -660,7 +660,7 @@ extern const u16 gUnknown_08124198[];
 u32 sub_080C8AC4(u32 a, u32 b);
 void Party_SwapSlots(u16 a, u16 b);
 u32 SaveScreen_Open(u16 mode, u16 arg1);
-void sub_080CFFE0(u32 a);
+void Options_Create(u32 a);
 
 extern const u32 gUnknown_08779EC4[];
 extern const u16 *const gUnknown_08779EB8[];

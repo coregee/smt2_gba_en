@@ -482,3 +482,30 @@ No text is drawn here, so nothing limits the translation. Oddities in the origin
 - `sub_081563F4` has an `if (level < 10)` whose branches draw the same thing; several functions
   read uninitialised locals for unexpected slots or modes (`sub_081551F8`, `sub_0815565C`,
   `sub_08156088`, `sub_08157238`, `sub_081572AC`).
+
+### Equipment, fusion/compendium checks, options, link cable and trade (`0x080CD3E8`-`0x080D2F04`, `0x080DF6D0`-`0x080E2364`)
+
+- **Likely untranslated: compendium cost prompts.** `sub_080CF250` draws, as sprite text at
+  (0x12, 0x5B) with a fixed 12 px advance and no wrapping, the prompts
+  抽出するのに／メモリーチップ　{CC}枚と／ћ{CD}　かかるが／いいかい？ (`0x0815BFEA`, extract a
+  demon: memory chips and macca) and この悪魔を還元するのに／ћ{CD}　かかるが／いいかい？
+  (`0x0815C0AA`, restore a demon: macca). Neither the function, its literals
+  (`0x080CF2C0`/`0x080CF2C4`), the strings, nor the task script that calls it
+  (`0x084F1514`, started by `sub_080D44A0` for list modes 0xB/0xC) is changed in the patched
+  build, so these prompts should still appear in Japanese. Fix: repoint the two literals at
+  English strings (0x300 = newline back to x 0x12, 0x301 = end, 0xCC/0xCD = the numbers) that
+  fit the 26x7-tile window. Confirm on screen.
+- **Link trade lists:** four drawers copy exactly 8 name glyphs from the item/demon records
+  (`0x080E0A1C`, `0x080E1030`, `0x080E13E4`, `0x080E1644`). The records' names are still
+  Japanese in the patched build; the translation hooks the first and third but not
+  `0x080E1030` and `0x080E1644`, so two trade lists would show Japanese names (needs two
+  linked consoles to see).
+- Options labels (MES, SPEED, ...) and the sprite words "NOTHING!" and "TOTAL" are ASCII in the
+  Japanese release, drawn with the digit font (`+`-`z`, `?`, `-`, `\` only) at fixed x.
+
+### More possible original bugs
+
+- `sub_080D0020` draws on an uninitialised canvas pointer (whatever the caller left in r7); it
+  works only because `sub_080CF7D8` holds `gUnk_0200F874` there.
+- `sub_080CEF60` passes an uninitialised filter for modes other than 0xB/0xC; `sub_080E2080`
+  fills an uninitialised stack array before overwriting it.

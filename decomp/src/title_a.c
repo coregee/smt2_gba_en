@@ -398,7 +398,7 @@ void sub_080D6E10(void)
 // sub_080D6E20 @ 0x080D6E20
 void sub_080D6E20(void)
 {
-    sub_080CFFE0(0);
+    Options_Create(0);
 }
 
 // sub_080D6E2C @ 0x080D6E2C

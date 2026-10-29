@@ -344,7 +344,7 @@ s32 sub_080C2644(u32);
 s32 sub_080C2734(u32);
 void Game_NewGame(void);
 void sub_080B70BC(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5);
-void sub_080CFFE0(u32);
+void Options_Create(u32);
 void sub_080C1450(void);
 void sub_080C1328(void);
 void sub_080C1384(void);

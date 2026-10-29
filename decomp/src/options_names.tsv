@@ -1,0 +1,32 @@
+080CDB74	Equip_CanEquip	func	1 when Item_GetAttribute(item,0) matches the alignment class of sub_080C07FC(who) (sub_080CDAE4) and attribute 1 & 7 matches Combatant_GetAlignment(who) (sub_080CDB18)
+080CDC34	Hud_InvalidateGauges	func	writes 0x5000 to both u16 of the six 0x0200F7D8 entries that Hud_DrawGauge compares against, forcing a redraw
+080CDEEC	Equip_EquipItem	func	Combatant_SetEquipSlot(member, sub_080D2268(item), item) + Inventory_RemoveItem(item), returning the old item with Inventory_AddItem; same item and keep==0 unequips (sub_080CDFD0); then Combatant_RecalcStats and HP clamp
+080CDFD0	Equip_ClearSlot	func	Combatant_SetEquipSlot(Party_GetMember(who + 0x8000), slot, 0xFFFF)
+080CF1DC	FontSprite_DrawNumber	func	NumberToDigits, 8 digits with leading zeros hidden, FontSprite_DrawGlyph(gUnknown_084F0EAC[d]) 12 pixels apart; returns the next x (Comp_DrawSummonCost without the 0x52 glyph)
+080CF680	Options_GetValue	func	switch on option row 0-6 calling the seven settings getters (row 1 Settings_GetBattleMsgSpeed); row 7 returns 0
+080CF708	Options_SetValue	func	switch on option row 0-6 calling the seven settings setters; row 6 also reloads palettes
+080CF7D8	Options_DrawRow	func	draws one CONFIG row with DigitFont_DrawAscii labels MES/SPEED/BTL/EFFECT/AUTO/MAP/RECOVER/COLOR/EXIT and the choices, current one tinted
+080CFBE8	Options_DrawAll	func	sub_080CF7D8 for rows 0-7
+080CFC10	Options_Open	func	creates nine windows at gMenuState+0xC.., draws "CONFIG" (gUnknown_084F1930) and all rows
+080CFD00	Options_HandleInput	func	CONFIG screen task: up/down row with scroll, left/right cycle the value through gUnknown_084F1938 and sub_080CF708, A on EXIT (row 7) ends, B jumps to EXIT
+080CFF18	Options_Close	func	closes the nine CONFIG windows, then ends the fade task or sub_080D5B8C(4)
+080CFFE0	Options_Create	func	Task_Create(gUnknown_084F1970), clears gMenuState, stores the opener flag at +6
+080D0020	Options_DrawHelp	func	draws gUnknown_084F1D5C[row][value] with Text_DrawString at (0x12, 0x8C) after clearing 0x02013C74
+080D01B0	PlayTime_Draw	func	formats time[0] as 3 digits, ':', time[1] as 2 digits (NumberToDigits) and draws it with SmallFont_DrawAsciiTinted
+080DF6D0	Link_Checksum	func	16-bit sum of n bytes
+080DF878	Link_StartTransfer	func	clears 0x0203BB74/0x0203BD74, copies size bytes to 0x0203BB74, stores Link_Checksum and destinations in 0x03006300, sets state 0x0300636C = 1
+080DF954	Link_Exchange	func	sub_080DF878 with the destination pair ordered by the SIOCNT multiplayer id (bits 4-5)
+080DFA00	Link_TransferStep	func	state machine on 0x0300636C sending headers 0xE100 (checksum), 0xE300+block (12 data bytes), 0xE400, 0xE500 (retry); returns 1 done, 0xFF after 600 idle frames
+080DFB88	Link_GetMultiplayerId	func	returns (REG_SIOCNT >> 4) & 3
+080DFDC4	SpriteFont_DrawAscii	func	draws character c - 0x20 (< 0x40) with Sprite_Draw(gUnknown_080087C8) tile 0x2FA + (c - 0x20) + 32 * ((c - 0x20) >> 5)
+080E0CDC	LinkTrade_IsItemOffered	func	searches the five (id, count) offers at record +0x40 for id
+080E0D1C	LinkTrade_AddItemOffer	func	stores (id, count) in the first offer slot with id 0xFFFF and increments the count byte at +0x25
+080E0D74	LinkTrade_RemoveItemOffer	func	sets the offer with id to 0xFFFF/0xFFFF and decrements +0x25
+080E0DC8	LinkTrade_ClearItemOffers	func	clears +0x25 and the five offers at +0x40
+080E1540	LinkTrade_IsDemonOffered	func	searches the twelve demon ids at record +0x26 for id
+080E1580	LinkTrade_AddDemonOffer	func	stores id in the first free (0xFFFF) of the twelve slots at +0x26 and increments +0x24
+080E15CC	LinkTrade_RemoveDemonOffer	func	sets the slot holding id to 0xFFFF and decrements +0x24
+080E1610	LinkTrade_ClearDemonOffers	func	clears +0x24 and the twelve demon slots at +0x26
+080E2080	Party_FixOrderAfterTrade	func	copies gGameState.order[6], fills empty front slots from the back row and swaps front members with status 0xA000 bits behind healthy ones, writes it back
+080E2148	LinkTrade_Execute	func	applies the agreed parts of the exchange (money incl. 8% of the other's amount, magnetite, items via Inventory_Remove/AddItem, demons via Party_Remove/Stock_AddDemon) then SaveSlot_Write(gGameState.saveSlot)
+080E0A1C	LinkTrade_DrawItemListPage	func	draws a 5-row page of the trade item list built at 0x0203C4D0 by sub_080E0864 (names, x, two-digit counts, offered ones tinted via LinkTrade_IsItemOffered); not battle code (replaces the tentative Battle_DrawItemListPage)

@@ -269,7 +269,7 @@ void Task_End(struct Task *task);
 void sub_080C4AB0(u32 a0, u32 a1, u32 x, u32 y);
 u8 *NumberToDigits(u32 n);
 void CpuSet(const void *src, void *dst, u32 control);
-void sub_080DF954(u32 a0, void *a1, void *a2);
+void Link_Exchange(u32 a0, void *a1, void *a2);
 u8 Inventory_GetCount(u16 id);
 void Inventory_AddItem(u16 id);
 void sub_080AE2D0(void);

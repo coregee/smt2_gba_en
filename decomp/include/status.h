@@ -284,7 +284,7 @@ void Status_DrawSkillName(u16 id, u16 x, u16 y);
 void sub_080CD260(u16 id, u16 x, u16 y, u16 y2);
 void Status_DrawDemonDescription(u16 id, u16 x, u16 y);
 u16 Combatant_GetEquipSlot(struct Combatant *c, u16 slot);
-s32 sub_080CDB74(s16 who, u8 item);
+s32 Equip_CanEquip(s16 who, u8 item);
 u8 Inventory_GetCount(u16 id);
 struct Combatant *Stock_FindByDemonId(u16 demonId);
 u32 sub_0812C4E0(u16 id, u16 demon);

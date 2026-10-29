@@ -17,7 +17,7 @@ void sub_080DAAA8(void)
 // sub_080DAAEC @ 0x080DAAEC
 void sub_080DAAEC(void)
 {
-    sub_080DF954(12, &gMenuState, &gMenuState.magic);
+    Link_Exchange(12, &gMenuState, &gMenuState.magic);
 }
 
 // sub_080DAB04 @ 0x080DAB04

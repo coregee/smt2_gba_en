@@ -235,7 +235,7 @@ void BattleFlags_Mask(s32 v);
 u32 BattleFlags_Get(void);
 void Flag_Set(u32 flag);
 void Flag_Clear(u32 flag);
-void sub_080CDC34(void);
+void Hud_InvalidateGauges(void);
 void sub_080C84A0(void);
 extern s8 gUnk_030050E0[];
 extern u16 gUnk_0200E844;

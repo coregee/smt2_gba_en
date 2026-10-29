@@ -903,7 +903,7 @@ void Shop_InitItemList(u16 first, u16 mode)
                     pal = 0;
                     if (item < 0xD0)
                     {
-                        ok = sub_080CDB74(gUnk_03006898, item);
+                        ok = Equip_CanEquip(gUnk_03006898, item);
                         pal = 4;
                         if (ok)
                             pal = 0;
@@ -1178,7 +1178,7 @@ void Shop_InitItemList(u16 first, u16 mode)
         "    ldrsh r0, [r0, r1]\n"
         "    lsls r1, r6, #0x18\n"
         "    lsrs r1, r1, #0x18\n"
-        "    bl sub_080CDB74\n"
+        "    bl Equip_CanEquip\n"
         "    movs r2, #4\n"
         "    mov r8, r2\n"
         "    cmp r0, #0\n"

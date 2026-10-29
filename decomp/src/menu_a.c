@@ -201,9 +201,9 @@ void SaveScreen_DrawSlot(u32 unused, u32 slot)
     {
         state = &gSaveSlotPreview;
         if (!GameState_TestFlag(state, 0xEE))
-            sub_080D01B0(state->unkAE4, 0xB4, y + 22, 0);
+            PlayTime_Draw(state->unkAE4, 0xB4, y + 22, 0);
         else
-            sub_080D01B0(state->unkAE4, 0xB4, y + 22, 10);
+            PlayTime_Draw(state->unkAE4, 0xB4, y + 22, 10);
 
         if (state->unkAC0 == 0)
         {
@@ -329,7 +329,7 @@ void SaveScreen_DrawSlot(u32 unused, u32 slot)
         "    lsrs r2, r2, #0x10\n"
         "    movs r1, #0xb4\n"
         "    movs r3, #0\n"
-        "    bl sub_080D01B0\n"
+        "    bl PlayTime_Draw\n"
         "    b .L080D0538\n"
         "    .byte 0x00, 0x00\n"
         ".L080D0518: .4byte gUnknown_084F20EC\n"
@@ -344,7 +344,7 @@ void SaveScreen_DrawSlot(u32 unused, u32 slot)
         "    lsrs r2, r2, #0x10\n"
         "    movs r1, #0xb4\n"
         "    movs r3, #0xa\n"
-        "    bl sub_080D01B0\n"
+        "    bl PlayTime_Draw\n"
         ".L080D0538:\n"
         "    mov sl, r4\n"
         "    movs r0, #0xac\n"

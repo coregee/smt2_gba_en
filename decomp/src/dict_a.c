@@ -97,7 +97,7 @@ void sub_080DB314(void)
 // sub_080DB358 @ 0x080DB358
 void sub_080DB358(void)
 {
-    sub_080DF954(0x34, &gMenuState, &gMenuState.magic);
+    Link_Exchange(0x34, &gMenuState, &gMenuState.magic);
 }
 
 // sub_080DB370 @ 0x080DB370

@@ -1497,5 +1497,5 @@ void sub_0813B438(u16 who)
         break;
     }
     Combatant_RecalcStats(who);
-    sub_080CDC34();
+    Hud_InvalidateGauges();
 }

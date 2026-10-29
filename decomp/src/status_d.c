@@ -47,7 +47,7 @@ void sub_080CB7A0(u32 a, struct Task *t)
             else
             {
                 cy = y + 2;
-                if (sub_080CDB74(c->id, id) != 1)
+                if (Equip_CanEquip(c->id, id) != 1)
                     tint = 2;
             }
             Status_DrawEquipName(id & 0x7FFF, 10, y, tint);
@@ -132,7 +132,7 @@ void sub_080CB7A0(u32 a, struct Task *t)
         "    ldrb r0, [r1, #0xc]\n"
         "    lsls r1, r5, #0x18\n"
         "    lsrs r1, r1, #0x18\n"
-        "    bl sub_080CDB74\n"
+        "    bl Equip_CanEquip\n"
         "    mov r6, r8\n"
         "    adds r6, #2\n"
         "    cmp r0, #1\n"

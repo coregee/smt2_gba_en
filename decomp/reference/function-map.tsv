@@ -1538,97 +1538,97 @@ address	mode	size	name	confidence	state	file
 080CD2A0	thumb	144	Status_DrawDemonDescription	probable	c	src/statusfont_a.c
 080CD330	thumb	92			c	src/statusfont_a.c
 080CD38C	thumb	92			c	src/statusfont_a.c
-080CD3E8	thumb	116			asm	asm/code_080CD3E8.s
-080CD45C	thumb	176			asm	asm/code_080CD3E8.s
-080CD50C	thumb	348			asm	asm/code_080CD3E8.s
-080CD668	thumb	92			asm	asm/code_080CD3E8.s
-080CD6C4	thumb	92			asm	asm/code_080CD3E8.s
-080CD720	thumb	348			asm	asm/code_080CD3E8.s
-080CD87C	thumb	72			asm	asm/code_080CD3E8.s
-080CD8C4	thumb	72			asm	asm/code_080CD3E8.s
-080CD90C	thumb	188			asm	asm/code_080CD3E8.s
-080CD9C8	thumb	284			asm	asm/code_080CD3E8.s
-080CDAE4	thumb	50			asm	asm/code_080CD3E8.s
-080CDB18	thumb	90			asm	asm/code_080CD3E8.s
-080CDB74	thumb	96			asm	asm/code_080CD3E8.s
-080CDBD4	thumb	20			asm	asm/code_080CD3E8.s
-080CDBE8	thumb	76			asm	asm/code_080CD3E8.s
-080CDC34	thumb	32			asm	asm/code_080CD3E8.s
-080CDC54	thumb	560			asm	asm/code_080CD3E8.s
-080CDE84	thumb	104			asm	asm/code_080CD3E8.s
-080CDEEC	thumb	206			asm	asm/code_080CD3E8.s
-080CDFBC	thumb	20			asm	asm/code_080CD3E8.s
-080CDFD0	thumb	40			asm	asm/code_080CD3E8.s
-080CDFF8	thumb	64			asm	asm/code_080CD3E8.s
-080CE038	thumb	542			asm	asm/code_080CD3E8.s
-080CE258	thumb	80			asm	asm/code_080CD3E8.s
-080CE2A8	thumb	88			asm	asm/code_080CD3E8.s
-080CE300	thumb	464			asm	asm/code_080CD3E8.s
-080CE4D0	thumb	148			asm	asm/code_080CD3E8.s
-080CE564	thumb	28			asm	asm/code_080CD3E8.s
-080CE580	thumb	58			asm	asm/code_080CD3E8.s
-080CE5BC	thumb	36			asm	asm/code_080CD3E8.s
-080CE5E0	thumb	52			asm	asm/code_080CD3E8.s
-080CE614	thumb	12			asm	asm/code_080CD3E8.s
-080CE620	thumb	12			asm	asm/code_080CD3E8.s
-080CE62C	thumb	152			asm	asm/code_080CD3E8.s
-080CE6C4	thumb	136			asm	asm/code_080CD3E8.s
-080CE74C	thumb	18			asm	asm/code_080CD3E8.s
-080CE760	thumb	880			asm	asm/code_080CD3E8.s
-080CEAD0	thumb	144	Comp_DrawSummonCost	tentative	named	asm/code_080CD3E8.s
-080CEB60	thumb	236			asm	asm/code_080CD3E8.s
-080CEC4C	thumb	92			asm	asm/code_080CD3E8.s
-080CECA8	thumb	76			asm	asm/code_080CD3E8.s
-080CECF4	thumb	10			asm	asm/code_080CD3E8.s
-080CED00	thumb	64			asm	asm/code_080CD3E8.s
-080CED40	thumb	98			asm	asm/code_080CD3E8.s
-080CEDA4	thumb	168			asm	asm/code_080CD3E8.s
-080CEE4C	thumb	18			asm	asm/code_080CD3E8.s
-080CEE60	thumb	24			asm	asm/code_080CD3E8.s
-080CEE78	thumb	80			asm	asm/code_080CD3E8.s
-080CEEC8	thumb	32			asm	asm/code_080CD3E8.s
-080CEEE8	thumb	84			asm	asm/code_080CD3E8.s
-080CEF3C	thumb	36			asm	asm/code_080CD3E8.s
-080CEF60	thumb	114			asm	asm/code_080CD3E8.s
-080CEFD4	thumb	60			asm	asm/code_080CD3E8.s
-080CF010	thumb	104			asm	asm/code_080CD3E8.s
-080CF078	thumb	302			asm	asm/code_080CD3E8.s
-080CF1A8	thumb	52			asm	asm/code_080CD3E8.s
-080CF1DC	thumb	116			asm	asm/code_080CD3E8.s
-080CF250	thumb	210			asm	asm/code_080CD3E8.s
-080CF324	thumb	240			asm	asm/code_080CD3E8.s
-080CF414	thumb	200			asm	asm/code_080CD3E8.s
-080CF4DC	thumb	160			asm	asm/code_080CD3E8.s
-080CF57C	thumb	68			asm	asm/code_080CD3E8.s
-080CF5C0	thumb	12			asm	asm/code_080CD3E8.s
-080CF5CC	thumb	28			asm	asm/code_080CD3E8.s
-080CF5E8	thumb	36			asm	asm/code_080CD3E8.s
-080CF60C	thumb	16			asm	asm/code_080CD3E8.s
-080CF61C	thumb	100			asm	asm/code_080CD3E8.s
-080CF680	thumb	136			asm	asm/code_080CD3E8.s
-080CF708	thumb	208			asm	asm/code_080CD3E8.s
-080CF7D8	thumb	1040			asm	asm/code_080CD3E8.s
-080CFBE8	thumb	26			asm	asm/code_080CD3E8.s
-080CFC04	thumb	10			asm	asm/code_080CD3E8.s
-080CFC10	thumb	240			asm	asm/code_080CD3E8.s
-080CFD00	thumb	534			asm	asm/code_080CD3E8.s
-080CFF18	thumb	108			asm	asm/code_080CD3E8.s
-080CFF84	thumb	72			asm	asm/code_080CD3E8.s
-080CFFCC	thumb	20			asm	asm/code_080CD3E8.s
-080CFFE0	thumb	64			asm	asm/code_080CD3E8.s
-080D0020	thumb	100			asm	asm/code_080CD3E8.s
-080D0084	thumb	72			asm	asm/code_080CD3E8.s
-080D00CC	thumb	32			asm	asm/code_080CD3E8.s
-080D00EC	thumb	32			asm	asm/code_080CD3E8.s
-080D010C	thumb	12			asm	asm/code_080CD3E8.s
-080D0118	thumb	60			asm	asm/code_080CD3E8.s
-080D0154	thumb	28			asm	asm/code_080CD3E8.s
-080D0170	thumb	36			asm	asm/code_080CD3E8.s
-080D0194	thumb	16			asm	asm/code_080CD3E8.s
-080D01A4	thumb	12			asm	asm/code_080CD3E8.s
-080D01B0	thumb	136			asm	asm/code_080CD3E8.s
-080D0238	thumb	44			asm	asm/code_080CD3E8.s
-080D0264	thumb	36			asm	asm/code_080CD3E8.s
+080CD3E8	thumb	116			nonmatching	src/statusequip_a.c
+080CD45C	thumb	176			c	src/statusequip_a.c
+080CD50C	thumb	348			c	src/statusequip_a.c
+080CD668	thumb	92			nonmatching	src/statusequip_a.c
+080CD6C4	thumb	92			nonmatching	src/statusequip_a.c
+080CD720	thumb	348			c	src/statusequip_a.c
+080CD87C	thumb	72			c	src/statusequip_a.c
+080CD8C4	thumb	72			c	src/statusequip_a.c
+080CD90C	thumb	188			c	src/statusequip_a.c
+080CD9C8	thumb	284			c	src/statusequip_a.c
+080CDAE4	thumb	50			c	src/statusequip_a.c
+080CDB18	thumb	90			c	src/statusequip_a.c
+080CDB74	thumb	96	Equip_CanEquip	probable	c	src/statusequip_a.c
+080CDBD4	thumb	20			c	src/statusequip_a.c
+080CDBE8	thumb	76			c	src/statusequip_a.c
+080CDC34	thumb	32	Hud_InvalidateGauges	probable	c	src/statusequip_a.c
+080CDC54	thumb	560			c	src/statusequip_a.c
+080CDE84	thumb	104			c	src/statusequip_a.c
+080CDEEC	thumb	206	Equip_EquipItem	probable	c	src/statusequip_a.c
+080CDFBC	thumb	20			c	src/statusequip_a.c
+080CDFD0	thumb	40	Equip_ClearSlot	probable	c	src/statusequip_a.c
+080CDFF8	thumb	64			c	src/statusequip_a.c
+080CE038	thumb	542			c	src/statusequip_a.c
+080CE258	thumb	80			c	src/statusequip_a.c
+080CE2A8	thumb	88			c	src/statusequip_a.c
+080CE300	thumb	464			c	src/statusequip_a.c
+080CE4D0	thumb	148			c	src/statusequip_a.c
+080CE564	thumb	28			c	src/statusequip_a.c
+080CE580	thumb	58			c	src/statusequip_a.c
+080CE5BC	thumb	36			c	src/statusequip_a.c
+080CE5E0	thumb	52			c	src/statusequip_a.c
+080CE614	thumb	12			c	src/statusequip_a.c
+080CE620	thumb	12			c	src/statusequip_a.c
+080CE62C	thumb	152			c	src/fusioncheck_a.c
+080CE6C4	thumb	136			c	src/fusioncheck_a.c
+080CE74C	thumb	18			c	src/fusioncheck_a.c
+080CE760	thumb	880			c	src/fusioncheck_a.c
+080CEAD0	thumb	144	Comp_DrawSummonCost	tentative	c	src/fusioncheck_a.c
+080CEB60	thumb	236			c	src/fusioncheck_a.c
+080CEC4C	thumb	92			c	src/fusioncheck_a.c
+080CECA8	thumb	76			c	src/fusioncheck_a.c
+080CECF4	thumb	10			c	src/fusioncheck_a.c
+080CED00	thumb	64			c	src/fusioncheck_a.c
+080CED40	thumb	98			c	src/fusioncheck_a.c
+080CEDA4	thumb	168			c	src/fusioncheck_a.c
+080CEE4C	thumb	18			c	src/fusioncheck_a.c
+080CEE60	thumb	24			c	src/fusioncheck_a.c
+080CEE78	thumb	80			c	src/fusioncheck_a.c
+080CEEC8	thumb	32			c	src/fusioncheck_a.c
+080CEEE8	thumb	84			c	src/fusioncheck_a.c
+080CEF3C	thumb	36			c	src/fusioncheck_a.c
+080CEF60	thumb	114			c	src/fusioncheck_a.c
+080CEFD4	thumb	60			c	src/fusioncheck_a.c
+080CF010	thumb	104			c	src/fusioncheck_a.c
+080CF078	thumb	302			c	src/fusioncheck_a.c
+080CF1A8	thumb	52			c	src/fusioncheck_a.c
+080CF1DC	thumb	116	FontSprite_DrawNumber	probable	c	src/fusioncheck_a.c
+080CF250	thumb	210			c	src/fusioncheck_a.c
+080CF324	thumb	240			c	src/fusioncheck_a.c
+080CF414	thumb	200			c	src/fusioncheck_a.c
+080CF4DC	thumb	160			c	src/fusioncheck_a.c
+080CF57C	thumb	68			c	src/fusioncheck_a.c
+080CF5C0	thumb	12			c	src/fusioncheck_a.c
+080CF5CC	thumb	28			c	src/fusioncheck_a.c
+080CF5E8	thumb	36			c	src/fusioncheck_a.c
+080CF60C	thumb	16			c	src/fusioncheck_a.c
+080CF61C	thumb	100			c	src/fusioncheck_a.c
+080CF680	thumb	136	Options_GetValue	probable	c	src/fusioncheck_a.c
+080CF708	thumb	208	Options_SetValue	probable	c	src/fusioncheck_a.c
+080CF7D8	thumb	1040	Options_DrawRow	probable	c	src/options_a.c
+080CFBE8	thumb	26	Options_DrawAll	probable	c	src/options_a.c
+080CFC04	thumb	10			c	src/options_a.c
+080CFC10	thumb	240	Options_Open	probable	c	src/options_a.c
+080CFD00	thumb	534	Options_HandleInput	probable	c	src/options_a.c
+080CFF18	thumb	108	Options_Close	probable	c	src/options_a.c
+080CFF84	thumb	72			c	src/options_a.c
+080CFFCC	thumb	20			c	src/options_a.c
+080CFFE0	thumb	64	Options_Create	probable	c	src/options_a.c
+080D0020	thumb	100	Options_DrawHelp	probable	c	src/options_a.c
+080D0084	thumb	72			c	src/options_a.c
+080D00CC	thumb	32			c	src/options_a.c
+080D00EC	thumb	32			c	src/options_a.c
+080D010C	thumb	12			c	src/options_a.c
+080D0118	thumb	60			c	src/options_a.c
+080D0154	thumb	28			c	src/options_a.c
+080D0170	thumb	36			c	src/options_a.c
+080D0194	thumb	16			c	src/options_a.c
+080D01A4	thumb	12			c	src/options_a.c
+080D01B0	thumb	136	PlayTime_Draw	probable	c	src/options_a.c
+080D0238	thumb	44			c	src/options_a.c
+080D0264	thumb	36			c	src/options_a.c
 080D0288	thumb	182	Menu_DrawCombatantName8px	tentative	c	src/menu_a.c
 080D0340	thumb	28	GameState_TestFlag	probable	c	src/menu_a.c
 080D035C	thumb	208	SaveScreen_DrawLocationName	tentative	nonmatching	src/menu_a.c
@@ -2210,102 +2210,102 @@ address	mode	size	name	confidence	state	file
 080DF388	thumb	272			asm	asm/code_080DF388.s
 080DF498	thumb	32			c	src/link_c.c
 080DF4B8	thumb	534			asm	asm/code_080DF4B8.s
-080DF6D0	thumb	42			asm	asm/code_080DF6D0.s
-080DF6FC	thumb	98			asm	asm/code_080DF6D0.s
-080DF760	thumb	86			asm	asm/code_080DF6D0.s
-080DF7B8	thumb	190			asm	asm/code_080DF6D0.s
-080DF878	thumb	220			asm	asm/code_080DF6D0.s
-080DF954	thumb	60			asm	asm/code_080DF6D0.s
-080DF990	thumb	112			asm	asm/code_080DF6D0.s
-080DFA00	thumb	392			asm	asm/code_080DF6D0.s
-080DFB88	thumb	16			asm	asm/code_080DF6D0.s
-080DFB98	thumb	72			asm	asm/code_080DF6D0.s
-080DFBE0	thumb	26			asm	asm/code_080DF6D0.s
-080DFBFC	thumb	92			asm	asm/code_080DF6D0.s
-080DFC58	thumb	92			asm	asm/code_080DF6D0.s
-080DFCB4	thumb	36			asm	asm/code_080DF6D0.s
-080DFCD8	thumb	148			asm	asm/code_080DF6D0.s
-080DFD6C	thumb	48			asm	asm/code_080DF6D0.s
-080DFD9C	thumb	40			asm	asm/code_080DF6D0.s
-080DFDC4	thumb	80			asm	asm/code_080DF6D0.s
-080DFE14	thumb	244			asm	asm/code_080DF6D0.s
-080DFF08	thumb	676			asm	asm/code_080DF6D0.s
-080E01AC	thumb	260			asm	asm/code_080DF6D0.s
-080E02B0	thumb	236			asm	asm/code_080DF6D0.s
-080E039C	thumb	20			asm	asm/code_080DF6D0.s
-080E03B0	thumb	20			asm	asm/code_080DF6D0.s
-080E03C4	thumb	112			asm	asm/code_080DF6D0.s
-080E0434	thumb	460			asm	asm/code_080DF6D0.s
-080E0600	thumb	236			asm	asm/code_080DF6D0.s
-080E06EC	thumb	104			asm	asm/code_080DF6D0.s
-080E0754	thumb	20			asm	asm/code_080DF6D0.s
-080E0768	thumb	20			asm	asm/code_080DF6D0.s
-080E077C	thumb	84			asm	asm/code_080DF6D0.s
-080E07D0	thumb	148			asm	asm/code_080DF6D0.s
-080E0864	thumb	196			asm	asm/code_080DF6D0.s
-080E0928	thumb	86			asm	asm/code_080DF6D0.s
-080E0980	thumb	156			asm	asm/code_080DF6D0.s
-080E0A1C	thumb	470	Battle_DrawItemListPage	tentative	named	asm/code_080DF6D0.s
-080E0BF4	thumb	186			asm	asm/code_080DF6D0.s
-080E0CB0	thumb	20			asm	asm/code_080DF6D0.s
-080E0CC4	thumb	24			asm	asm/code_080DF6D0.s
-080E0CDC	thumb	42			asm	asm/code_080DF6D0.s
-080E0D08	thumb	20			asm	asm/code_080DF6D0.s
-080E0D1C	thumb	88			asm	asm/code_080DF6D0.s
-080E0D74	thumb	82			asm	asm/code_080DF6D0.s
-080E0DC8	thumb	60			asm	asm/code_080DF6D0.s
-080E0E04	thumb	48			asm	asm/code_080DF6D0.s
-080E0E34	thumb	364			asm	asm/code_080DF6D0.s
-080E0FA0	thumb	142			asm	asm/code_080DF6D0.s
-080E1030	thumb	446			asm	asm/code_080DF6D0.s
-080E11F0	thumb	20			asm	asm/code_080DF6D0.s
-080E1204	thumb	20			asm	asm/code_080DF6D0.s
-080E1218	thumb	16			asm	asm/code_080DF6D0.s
-080E1228	thumb	88			asm	asm/code_080DF6D0.s
-080E1280	thumb	200			asm	asm/code_080DF6D0.s
-080E1348	thumb	156			asm	asm/code_080DF6D0.s
-080E13E4	thumb	334			asm	asm/code_080DF6D0.s
-080E1534	thumb	12			asm	asm/code_080DF6D0.s
-080E1540	thumb	42			asm	asm/code_080DF6D0.s
-080E156C	thumb	20			asm	asm/code_080DF6D0.s
-080E1580	thumb	76			asm	asm/code_080DF6D0.s
-080E15CC	thumb	66			asm	asm/code_080DF6D0.s
-080E1610	thumb	52			asm	asm/code_080DF6D0.s
-080E1644	thumb	430			asm	asm/code_080DF6D0.s
-080E17F4	thumb	20			asm	asm/code_080DF6D0.s
-080E1808	thumb	20			asm	asm/code_080DF6D0.s
-080E181C	thumb	72			asm	asm/code_080DF6D0.s
-080E1864	thumb	72			asm	asm/code_080DF6D0.s
-080E18AC	thumb	16			asm	asm/code_080DF6D0.s
-080E18BC	thumb	16			asm	asm/code_080DF6D0.s
-080E18CC	thumb	12			asm	asm/code_080DF6D0.s
-080E18D8	thumb	60			asm	asm/code_080DF6D0.s
-080E1914	thumb	136			asm	asm/code_080DF6D0.s
-080E199C	thumb	136			asm	asm/code_080DF6D0.s
-080E1A24	thumb	72			asm	asm/code_080DF6D0.s
-080E1A6C	thumb	28			asm	asm/code_080DF6D0.s
-080E1A88	thumb	28			asm	asm/code_080DF6D0.s
-080E1AA4	thumb	12			asm	asm/code_080DF6D0.s
-080E1AB0	thumb	60			asm	asm/code_080DF6D0.s
-080E1AEC	thumb	20			asm	asm/code_080DF6D0.s
-080E1B00	thumb	60			asm	asm/code_080DF6D0.s
-080E1B3C	thumb	20			asm	asm/code_080DF6D0.s
-080E1B50	thumb	24			asm	asm/code_080DF6D0.s
-080E1B68	thumb	36			asm	asm/code_080DF6D0.s
-080E1B8C	thumb	48			asm	asm/code_080DF6D0.s
-080E1BBC	thumb	12			asm	asm/code_080DF6D0.s
-080E1BC8	thumb	24			asm	asm/code_080DF6D0.s
-080E1BE0	thumb	64			asm	asm/code_080DF6D0.s
-080E1C20	thumb	1008			asm	asm/code_080DF6D0.s
-080E2010	thumb	52			asm	asm/code_080DF6D0.s
-080E2044	thumb	60			asm	asm/code_080DF6D0.s
-080E2080	thumb	200			asm	asm/code_080DF6D0.s
-080E2148	thumb	540			asm	asm/code_080DF6D0.s
-080E2364	thumb	16	umul3232H32	probable	named	asm/code_080DF6D0.s
-080E2374	thumb	132	SoundMain	probable	named	asm/code_080DF6D0.s
-080E23F8	thumb	816	SoundMainRAM	probable	named	asm/code_080DF6D0.s
-080E2722	thumb	2			asm	asm/code_080DF6D0.s
-080E2728	thumb	22	SoundMainBTM	proven	named	asm/code_080DF6D0.s
+080DF6D0	thumb	42	Link_Checksum	probable	c	src/linkxfer_a.c
+080DF6FC	thumb	98			nonmatching	src/linkxfer_a.c
+080DF760	thumb	86			c	src/linkxfer_a.c
+080DF7B8	thumb	190			nonmatching	src/linkxfer_a.c
+080DF878	thumb	220	Link_StartTransfer	probable	nonmatching	src/linkxfer_a.c
+080DF954	thumb	60	Link_Exchange	probable	c	src/linkxfer_a.c
+080DF990	thumb	112			c	src/linkxfer_a.c
+080DFA00	thumb	392	Link_TransferStep	probable	nonmatching	src/linkxfer_a.c
+080DFB88	thumb	16	Link_GetMultiplayerId	probable	c	src/linkxfer_a.c
+080DFB98	thumb	72			c	src/linkxfer_a.c
+080DFBE0	thumb	26			c	src/linkxfer_a.c
+080DFBFC	thumb	92			c	src/linkxfer_a.c
+080DFC58	thumb	92			c	src/linkxfer_a.c
+080DFCB4	thumb	36			c	src/linkxfer_a.c
+080DFCD8	thumb	148			c	src/linkxfer_a.c
+080DFD6C	thumb	48			c	src/linkxfer_a.c
+080DFD9C	thumb	40			c	src/linkxfer_a.c
+080DFDC4	thumb	80	SpriteFont_DrawAscii	probable	c	src/linkxfer_a.c
+080DFE14	thumb	244			c	src/linkxfer_a.c
+080DFF08	thumb	676			c	src/linkxfer_a.c
+080E01AC	thumb	260			c	src/linkxfer_a.c
+080E02B0	thumb	236			c	src/linkxfer_a.c
+080E039C	thumb	20			c	src/linkxfer_a.c
+080E03B0	thumb	20			c	src/linkxfer_a.c
+080E03C4	thumb	112			c	src/linkxfer_a.c
+080E0434	thumb	460			c	src/linkxfer_a.c
+080E0600	thumb	236			c	src/linkxfer_a.c
+080E06EC	thumb	104			c	src/linkxfer_a.c
+080E0754	thumb	20			c	src/linkxfer_a.c
+080E0768	thumb	20			c	src/linkxfer_a.c
+080E077C	thumb	84			c	src/linktrade_a.c
+080E07D0	thumb	148			c	src/linktrade_a.c
+080E0864	thumb	196			nonmatching	src/linktrade_a.c
+080E0928	thumb	86			c	src/linktrade_a.c
+080E0980	thumb	156			c	src/linktrade_a.c
+080E0A1C	thumb	470	LinkTrade_DrawItemListPage	probable	c	src/linktrade_a.c
+080E0BF4	thumb	186			c	src/linktrade_a.c
+080E0CB0	thumb	20			c	src/linktrade_a.c
+080E0CC4	thumb	24			c	src/linktrade_a.c
+080E0CDC	thumb	42	LinkTrade_IsItemOffered	probable	c	src/linktrade_a.c
+080E0D08	thumb	20			c	src/linktrade_a.c
+080E0D1C	thumb	88	LinkTrade_AddItemOffer	probable	c	src/linktrade_a.c
+080E0D74	thumb	82	LinkTrade_RemoveItemOffer	probable	c	src/linktrade_a.c
+080E0DC8	thumb	60	LinkTrade_ClearItemOffers	probable	c	src/linktrade_a.c
+080E0E04	thumb	48			c	src/linktrade_a.c
+080E0E34	thumb	364			c	src/linktrade_a.c
+080E0FA0	thumb	142			c	src/linktrade_a.c
+080E1030	thumb	446			c	src/linktrade_a.c
+080E11F0	thumb	20			c	src/linktrade_a.c
+080E1204	thumb	20			c	src/linktrade_a.c
+080E1218	thumb	16			c	src/linktrade_a.c
+080E1228	thumb	88			c	src/linktrade_a.c
+080E1280	thumb	200			c	src/linktrade_a.c
+080E1348	thumb	156			c	src/linktrade_a.c
+080E13E4	thumb	334			c	src/linktrade_a.c
+080E1534	thumb	12			c	src/linktrade_b.c
+080E1540	thumb	42	LinkTrade_IsDemonOffered	probable	c	src/linktrade_b.c
+080E156C	thumb	20			c	src/linktrade_b.c
+080E1580	thumb	76	LinkTrade_AddDemonOffer	probable	c	src/linktrade_b.c
+080E15CC	thumb	66	LinkTrade_RemoveDemonOffer	probable	c	src/linktrade_b.c
+080E1610	thumb	52	LinkTrade_ClearDemonOffers	probable	c	src/linktrade_b.c
+080E1644	thumb	430			c	src/linktrade_b.c
+080E17F4	thumb	20			c	src/linktrade_b.c
+080E1808	thumb	20			c	src/linktrade_b.c
+080E181C	thumb	72			c	src/linktrade_b.c
+080E1864	thumb	72			c	src/linktrade_b.c
+080E18AC	thumb	16			c	src/linktrade_b.c
+080E18BC	thumb	16			c	src/linktrade_b.c
+080E18CC	thumb	12			c	src/linktrade_b.c
+080E18D8	thumb	60			c	src/linktrade_b.c
+080E1914	thumb	136			c	src/linktrade_b.c
+080E199C	thumb	136			c	src/linktrade_b.c
+080E1A24	thumb	72			c	src/linktrade_b.c
+080E1A6C	thumb	28			c	src/linktrade_b.c
+080E1A88	thumb	28			c	src/linktrade_b.c
+080E1AA4	thumb	12			c	src/linktrade_b.c
+080E1AB0	thumb	60			c	src/linktrade_b.c
+080E1AEC	thumb	20			c	src/linktrade_b.c
+080E1B00	thumb	60			c	src/linktrade_b.c
+080E1B3C	thumb	20			c	src/linktrade_b.c
+080E1B50	thumb	24			c	src/linktrade_b.c
+080E1B68	thumb	36			c	src/linktrade_b.c
+080E1B8C	thumb	48			c	src/linktrade_b.c
+080E1BBC	thumb	12			c	src/linktrade_b.c
+080E1BC8	thumb	24			c	src/linktrade_b.c
+080E1BE0	thumb	64			c	src/linktrade_b.c
+080E1C20	thumb	1008			nonmatching	src/linktrade_b.c
+080E2010	thumb	52			c	src/linktrade_b.c
+080E2044	thumb	60			c	src/linktrade_b.c
+080E2080	thumb	200	Party_FixOrderAfterTrade	probable	c	src/linktrade_b.c
+080E2148	thumb	540	LinkTrade_Execute	probable	nonmatching	src/linktrade_b.c
+080E2364	thumb	16	umul3232H32	probable	named	asm/code_080E2364.s
+080E2374	thumb	132	SoundMain	probable	named	asm/code_080E2364.s
+080E23F8	thumb	816	SoundMainRAM	probable	named	asm/code_080E2364.s
+080E2722	thumb	2			asm	asm/code_080E2364.s
+080E2728	thumb	22	SoundMainBTM	proven	named	asm/code_080E2364.s
 080E2740	thumb	32	RealClearChain	proven	named	asm/code_080E2740.s
 080E2790	thumb	52	MPlayJumpTableCopy	probable	named	asm/code_080E2740.s
 080E27A8	thumb	2	ldrb_r3_r2	probable	named	asm/code_080E2740.s

@@ -859,7 +859,7 @@ ScriptOp_445: @ 0x0813B524
 	ldr r1, .L0813BC28
 	ldrh r0, [r1, #0x1a]
 	strh r0, [r1, #0x18]
-	bl sub_080CDC34
+	bl Hud_InvalidateGauges
 .L0813BC20:
 	pop {r4, r5, r6, r7}
 	pop {r0}

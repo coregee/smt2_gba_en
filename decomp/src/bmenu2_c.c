@@ -252,7 +252,7 @@ void sub_0812D360(struct Task *task)
         SaveScreen_Open(0, 1);
         break;
     case 2:
-        sub_080CFFE0(1);
+        Options_Create(1);
         break;
     }
 }

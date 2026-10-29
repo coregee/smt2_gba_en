@@ -504,7 +504,7 @@ void sub_080D3CF0(void)
 // sub_080D3D30 @ 0x080D3D30
 void sub_080D3D30(void)
 {
-    sub_080DF954(0x2C, &gMenuState, (u8 *)&gMenuState + 0x34);
+    Link_Exchange(0x2C, &gMenuState, (u8 *)&gMenuState + 0x34);
 }
 
 // sub_080D3D48 @ 0x080D3D48

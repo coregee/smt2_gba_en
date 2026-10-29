@@ -68,7 +68,7 @@ void DungeonMap_GetFloor(u16 a, u16 b);
 u16 *sub_080C8B54(u16 a);
 void SmallFont_DrawAscii(const void *str, u16 x, u16 y, u32 a3);
 void SmallFont_DrawNumber(u32 num, u16 x, u16 y, u32 a3);
-void sub_080D01B0(void *a, u16 x, u16 y, u32 a3);
+void PlayTime_Draw(void *a, u16 x, u16 y, u32 a3);
 void Menu_DrawCombatantName8px(u8 *name, u16 x, u16 y);
 u32 GameState_TestFlag(struct GameState *state, u32 flag);
 void SaveScreen_DrawLocationName(struct GameState *state, u16 mode, u16 x, u16 y);

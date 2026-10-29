@@ -345,7 +345,7 @@ u32 sub_080C1B74(u16 *a, u16 *b)
             Flag_Clear(0xE2);
             Flag_Clear(0xE3);
             Flag_Clear(0xCF);
-            sub_080CDC34();
+            Hud_InvalidateGauges();
         }
     }
     else if (Flag_Test(0xE2) || Flag_Test(0xE3))
@@ -451,7 +451,7 @@ u32 sub_080C1B74(u16 *a, u16 *b)
         "    bl Flag_Clear\n"
         "    movs r0, #0xcf\n"
         "    bl Flag_Clear\n"
-        "    bl sub_080CDC34\n"
+        "    bl Hud_InvalidateGauges\n"
         "    b .L080C1C4E\n"
         ".L080C1C34:\n"
         "    movs r0, #0xe2\n"

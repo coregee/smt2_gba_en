@@ -374,7 +374,7 @@ void Tilemap_CopyRectStride(const u16 *src, u16 (*dst)[32], u16 tileAdd, u16 pal
 u8 *Stock_FindByDemonId(u16 item);
 void sub_080DA5DC(struct Task *task);
 void sub_080DA608(struct Task *task);
-void sub_080DF954(u32 a0, void *a1, void *a2);
+void Link_Exchange(u32 a0, void *a1, void *a2);
 
 /* Status screen (menu_d.c) */
 void sub_080D1F0C(void);

@@ -561,7 +561,22 @@ address	name	kind	confidence	note
 080CD1A0	Status_DrawActionName	func	probable	8 glyphs of Action_GetRecord(id)+0xC, 12 pixels apart
 080CD1F8	Status_DrawSkillName	func	probable	8 glyphs of sub_080BF5C0(id)+6, 12 pixels apart (empty: 8x glyph 0x3C)
 080CD2A0	Status_DrawDemonDescription	func	probable	11 glyphs from Demon_GetRecord(id)+0x32, then up to 11 (0 ends) from +0x48 on the line 15 pixels lower
+080CDB74	Equip_CanEquip	func	probable	1 when Item_GetAttribute(item,0) matches the alignment class of sub_080C07FC(who) (sub_080CDAE4) and attribute 1 & 7 matches Combatant_GetAlignment(who) (sub_080CDB18)
+080CDC34	Hud_InvalidateGauges	func	probable	writes 0x5000 to both u16 of the six 0x0200F7D8 entries that Hud_DrawGauge compares against, forcing a redraw
+080CDEEC	Equip_EquipItem	func	probable	Combatant_SetEquipSlot(member, sub_080D2268(item), item) + Inventory_RemoveItem(item), returning the old item with Inventory_AddItem; same item and keep==0 unequips (sub_080CDFD0); then Combatant_RecalcStats and HP clamp
+080CDFD0	Equip_ClearSlot	func	probable	Combatant_SetEquipSlot(Party_GetMember(who + 0x8000), slot, 0xFFFF)
 080CEAD0	Comp_DrawSummonCost	func	tentative	from translation patches (lost Ghidra session); verify
+080CF1DC	FontSprite_DrawNumber	func	probable	NumberToDigits, 8 digits with leading zeros hidden, FontSprite_DrawGlyph(gUnknown_084F0EAC[d]) 12 pixels apart; returns the next x (Comp_DrawSummonCost without the 0x52 glyph)
+080CF680	Options_GetValue	func	probable	switch on option row 0-6 calling the seven settings getters (row 1 Settings_GetBattleMsgSpeed); row 7 returns 0
+080CF708	Options_SetValue	func	probable	switch on option row 0-6 calling the seven settings setters; row 6 also reloads palettes
+080CF7D8	Options_DrawRow	func	probable	draws one CONFIG row with DigitFont_DrawAscii labels MES/SPEED/BTL/EFFECT/AUTO/MAP/RECOVER/COLOR/EXIT and the choices, current one tinted
+080CFBE8	Options_DrawAll	func	probable	sub_080CF7D8 for rows 0-7
+080CFC10	Options_Open	func	probable	"creates nine windows at gMenuState+0xC.., draws ""CONFIG"" (gUnknown_084F1930) and all rows"
+080CFD00	Options_HandleInput	func	probable	CONFIG screen task: up/down row with scroll, left/right cycle the value through gUnknown_084F1938 and sub_080CF708, A on EXIT (row 7) ends, B jumps to EXIT
+080CFF18	Options_Close	func	probable	closes the nine CONFIG windows, then ends the fade task or sub_080D5B8C(4)
+080CFFE0	Options_Create	func	probable	Task_Create(gUnknown_084F1970), clears gMenuState, stores the opener flag at +6
+080D0020	Options_DrawHelp	func	probable	draws gUnknown_084F1D5C[row][value] with Text_DrawString at (0x12, 0x8C) after clearing 0x02013C74
+080D01B0	PlayTime_Draw	func	probable	formats time[0] as 3 digits, ':', time[1] as 2 digits (NumberToDigits) and draws it with SmallFont_DrawAsciiTinted
 080D0288	Menu_DrawCombatantName8px	func	tentative	from translation patches (lost Ghidra session); verify
 080D0340	GameState_TestFlag	func	probable	returns bit n of the byte array at state+0x15E8 (event flags 0xEE, 0x163 tested by the save screen)
 080D035C	SaveScreen_DrawLocationName	func	tentative	from translation patches (lost Ghidra session); verify
@@ -655,7 +670,23 @@ address	name	kind	confidence	note
 080DEDD8	Mini_UploadBg2Affine	func	probable	VBlank task: copies PA..PD and the 28-bit BG2X/BG2Y from gUnk_020399E0+8..+0x17 to REG_BG2PA.. (queued by sub_080DE680/sub_080DECEC)
 080DEE20	Link_InitSerial	func	probable	link cable: disables serial/timer3 IRQs, RCNT=0, SIOCNT=0x2000|0x4003, clears 0x030061C0 (0xF0 bytes), copies arm_08032B7C to 0x030062B0 and SerialTimer3Intr to 0x030060A0, sets up the buffer pointers, re-enables the serial IRQ
 080DF1EC	SerialTimer3Intr	func	proven	IRQ table entries 6-7 (Timer3, Serial): link cable
-080E0A1C	Battle_DrawItemListPage	func	tentative	from translation patches (lost Ghidra session); verify
+080DF6D0	Link_Checksum	func	probable	16-bit sum of n bytes
+080DF878	Link_StartTransfer	func	probable	clears 0x0203BB74/0x0203BD74, copies size bytes to 0x0203BB74, stores Link_Checksum and destinations in 0x03006300, sets state 0x0300636C = 1
+080DF954	Link_Exchange	func	probable	sub_080DF878 with the destination pair ordered by the SIOCNT multiplayer id (bits 4-5)
+080DFA00	Link_TransferStep	func	probable	state machine on 0x0300636C sending headers 0xE100 (checksum), 0xE300+block (12 data bytes), 0xE400, 0xE500 (retry); returns 1 done, 0xFF after 600 idle frames
+080DFB88	Link_GetMultiplayerId	func	probable	returns (REG_SIOCNT >> 4) & 3
+080DFDC4	SpriteFont_DrawAscii	func	probable	draws character c - 0x20 (< 0x40) with Sprite_Draw(gUnknown_080087C8) tile 0x2FA + (c - 0x20) + 32 * ((c - 0x20) >> 5)
+080E0A1C	LinkTrade_DrawItemListPage	func	probable	draws a 5-row page of the trade item list built at 0x0203C4D0 by sub_080E0864 (names, x, two-digit counts, offered ones tinted via LinkTrade_IsItemOffered); not battle code (replaces the tentative Battle_DrawItemListPage)
+080E0CDC	LinkTrade_IsItemOffered	func	probable	searches the five (id, count) offers at record +0x40 for id
+080E0D1C	LinkTrade_AddItemOffer	func	probable	stores (id, count) in the first offer slot with id 0xFFFF and increments the count byte at +0x25
+080E0D74	LinkTrade_RemoveItemOffer	func	probable	sets the offer with id to 0xFFFF/0xFFFF and decrements +0x25
+080E0DC8	LinkTrade_ClearItemOffers	func	probable	clears +0x25 and the five offers at +0x40
+080E1540	LinkTrade_IsDemonOffered	func	probable	searches the twelve demon ids at record +0x26 for id
+080E1580	LinkTrade_AddDemonOffer	func	probable	stores id in the first free (0xFFFF) of the twelve slots at +0x26 and increments +0x24
+080E15CC	LinkTrade_RemoveDemonOffer	func	probable	sets the slot holding id to 0xFFFF and decrements +0x24
+080E1610	LinkTrade_ClearDemonOffers	func	probable	clears +0x24 and the twelve demon slots at +0x26
+080E2080	Party_FixOrderAfterTrade	func	probable	copies gGameState.order[6], fills empty front slots from the back row and swaps front members with status 0xA000 bits behind healthy ones, writes it back
+080E2148	LinkTrade_Execute	func	probable	applies the agreed parts of the exchange (money incl. 8% of the other's amount, magnetite, items via Inventory_Remove/AddItem, demons via Party_Remove/Stock_AddDemon) then SaveSlot_Write(gGameState.saveSlot)
 080E2364	umul3232H32	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
 080E2374	SoundMain	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
 080E23F8	SoundMainRAM	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order

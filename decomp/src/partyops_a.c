@@ -709,7 +709,7 @@ void Party_SetupGuest(s32 mode)
         sub_08136270(1, 4, 0);
         sub_08136270(1, 5, 0);
         Combatant_RecalcStats(1);
-        sub_080CDC34();
+        Hud_InvalidateGauges();
         gGameState[1].hp = gGameState[1].maxHp;
         gGameState[1].mp = gGameState[1].maxMp;
         Party_BuildSkillList(1);
@@ -739,7 +739,7 @@ void Party_SetupGuest(s32 mode)
         sub_08136270(2, 4, 0);
         sub_08136270(2, 5, 0);
         Combatant_RecalcStats(2);
-        sub_080CDC34();
+        Hud_InvalidateGauges();
         gGameState[2].hp = gGameState[2].maxHp;
         gGameState[2].mp = gGameState[2].maxMp;
         Party_BuildSkillList(2);

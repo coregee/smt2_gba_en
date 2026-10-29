@@ -231,7 +231,7 @@ s32 Combatant_AddBaseStat(s32 who, u32 stat, s32 delta);
 void Combatant_RecalcStats(s32 who);
 void Combatant_RestoreHp(s32 who);
 void Combatant_RestoreMp(s32 who);
-void sub_080CDC34(void);
+void Hud_InvalidateGauges(void);
 
 extern u16 gShopItemIds[];
 extern u32 gUnk_0203DB30;

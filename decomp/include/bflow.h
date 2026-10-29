@@ -282,7 +282,7 @@ u32 sub_080D2268(u16 id);
 void Font_ResetGlyphSpriteCache(u32 arg);
 void MsgWindow_DrawItemCount(u16 a);
 u16 Party_CountEquipped(s16 a, u16 item);
-s32 sub_080CDB74(s16 a, u8 item);
+s32 Equip_CanEquip(s16 a, u8 item);
 u8 *Action_GetRecord(u16 id);
 u8 *Equipment_GetRecord36_MidRange(u16 id);
 u8 *Item_GetRecord(u16 id);

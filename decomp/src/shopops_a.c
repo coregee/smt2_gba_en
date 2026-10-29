@@ -497,7 +497,7 @@ void ScriptOp_33C(void)
 
     lo = SCRIPT_READ();
     target = SCRIPT_READ() << 16 | lo;
-    if (gUnk_030069A8 < 0xD0 && sub_080CDB74(gUnk_03006898, gUnk_030069A8) == 0)
+    if (gUnk_030069A8 < 0xD0 && Equip_CanEquip(gUnk_03006898, gUnk_030069A8) == 0)
         gScriptJumpTarget = (u16 *)target;
 }
 
@@ -571,7 +571,7 @@ void ScriptOp_33E(void)
     target = target << 16 | lo;
     if (gUnk_030069A8 >= 0xD0)
         gScriptJumpTarget = (u16 *)target;
-    if (sub_080CDB74(gUnk_03006898, gUnk_030069A8) == 0)
+    if (Equip_CanEquip(gUnk_03006898, gUnk_030069A8) == 0)
         gScriptJumpTarget = (u16 *)target;
 }
 
