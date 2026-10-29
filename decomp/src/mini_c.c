@@ -101,7 +101,7 @@ void sub_080DE85C(void)
 // sub_080DE98C @ 0x080DE98C
 void sub_080DE98C(void)
 {
-    if (sub_080DE9A8())
+    if (Mini_LoadGraphicsStep())
     {
         sub_080DEA9C();
         Task_RunAll();

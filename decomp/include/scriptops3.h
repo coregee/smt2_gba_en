@@ -115,7 +115,7 @@ extern u16 gUnk_0203DB28[];
 extern s16 gUnk_0203DB5C;
 
 void MsgWindow_SaveGlyphs(void);
-void sub_0812F2B4(u32);
+void MsgWindow_DrawItemList(u32);
 void Music_Play(u16 se);
 void Sound_Play(u32 se);
 void Combatant_AddAlignment(s32 who, s32 d);

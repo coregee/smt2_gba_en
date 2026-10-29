@@ -5,8 +5,8 @@
 
 	.arm
 
-	arm_func_start arm_08032B7C
-arm_08032B7C: @ 0x08032B7C
+	arm_func_start MultiSio_RecvBufChange
+MultiSio_RecvBufChange: @ 0x08032B7C
 	push {r8, sb, sl, fp}
 	mov ip, #0x4000000
 	ldr fp, .L08032BB8

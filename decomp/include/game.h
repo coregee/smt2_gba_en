@@ -41,7 +41,7 @@ struct PalFade
     u16 accum[32];
 };
 
-/* Field state at 0x03004550: unk00 is the state that the field main loop (sub_080B0C90)
+/* Field state at 0x03004550: unk00 is the state that the field main loop (Field_UpdateFrame)
    switches on, unk1E the step within that state. */
 struct Unk03004550
 {
@@ -130,7 +130,7 @@ void Field_SetState(u32 state);
 void sub_080D977C(void);
 void sub_080C3818(u32 a);
 u16 *sub_080C5F60(u16 a);
-u32 sub_080AF8D0(u32 a, u32 b, u32 c);
+u32 Field_CheckCellEvents(u32 a, u32 b, u32 c);
 void sub_080B03BC(u32 a);
 void Automap_SetVisitedAhead(u16 a, u16 b, u16 c);
 
@@ -255,7 +255,7 @@ u16 Field_GetState(void);
 u32 sub_080B2980(u16 x, u16 y);
 u32 sub_080B2938(void);
 void sub_080B29A8(u16 mode);
-void sub_080AE574(u16 a, u32 b);
+void View_BuildCells(u16 a, u32 b);
 s32 sub_080BA6B4(u16 a);
 void sub_080B2AB0(void);
 void Sprite_Draw(const void *def, u16 layer, u16 palette, u16 priority, u16 tile, u16 x, u16 y);

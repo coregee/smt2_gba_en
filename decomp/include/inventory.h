@@ -410,7 +410,7 @@ struct C0c2ViewCell;
 struct MapHeader *DungeonMap_GetFloor(u16 map, u16 floor);
 u32 SubMap_IsOutsideExclusions(struct MapHeader *m, u16 x, u16 y);
 u16 sub_080B4448(const struct C0c2ViewCell *cell);
-void sub_080AE574(u16 dir, u32 a);
+void View_BuildCells(u16 dir, u32 a);
 u32 BattleFlags_Get(void);
 void MiniView_SampleSquare(u16 x, u16 y, u16 col, u16 row);
 void MiniView_SampleAhead(u32 dir);

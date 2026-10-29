@@ -1,0 +1,7 @@
+0203F150	gMPlayJumpTable	ram	proven	SoundInit: MPlayJumpTableCopy(table) and soundInfo->MPlayJumpTable; MPlayExtender patches entries 8/17/19/28-33, ClearChain/Clear64byte call [34]/[35]
+0858BD30	gPcmSamplesPerVBlankTable	data	proven	SampleFreqSet: pcmSamplesPerVBlank = table[freq - 1] (12 u16)
+0858BD48	gCgbScaleTable	data	proven	MidiKeyToCgbFreq: scale index of key - 36
+0858BDCC	gCgbFreqTable	data	proven	MidiKeyToCgbFreq: s16 frequency table indexed by scale & 0xF
+0858BDE4	gNoiseTable	data	proven	MidiKeyToCgbFreq: channel 4 (noise) NR43 value of key - 21
+0858BE20	gCgb3Vol	data	proven	CgbSound: channel 3 NR32 value of envelopeVolume
+0858BE64	gXcmdTable	data	proven	ply_xcmd: 12 handlers (ply_xxx, ply_xwave, ply_xtype, ply_xxx, ply_xatta..ply_xswee)

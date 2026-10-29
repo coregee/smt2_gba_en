@@ -204,7 +204,7 @@ s32 sub_080EFFD8(s16 kind, s32 x);
 void Stats_CalcDerived(u8 race, u8 *stats, u8 *out);
 void Name_Encode(u8 *src, u8 *unit);
 s32 Battle_IsEnemyId(s16 who);
-void sub_080EE2E8(s16 who);
+void Battle_BuildActionTargets(s16 who);
 void Battle_BuildTargetList(s32 who);
 
 s32 Combatant_GetAffinity(s32 who, s32 a);

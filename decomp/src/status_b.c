@@ -104,7 +104,7 @@ void sub_080C9BCC(struct Task *t)
     switch (st->page)
     {
     case 0:
-        sub_080CB0B8(0, t);
+        Status_DrawVitals(0, t);
         if (st->sprite != NULL)
             sub_080C3E5C(st->sprite, -gUnk_03000004, 0x18);
         break;
@@ -152,7 +152,7 @@ void sub_080C9D00(struct Task *t)
     switch (st->unk06)
     {
     case 0:
-        sub_080CBC8C(0, t);
+        Status_DrawDerivedStats(0, t);
         break;
     case 1:
         sub_080CC630(0, t);

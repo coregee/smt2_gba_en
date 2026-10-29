@@ -110,7 +110,7 @@ void sub_080B37F0(u8 *task, u32 arg)
 // sub_080B3814 @ 0x080B3814
 void sub_080B3814(u8 *task, u32 arg)
 {
-    s32 r = sub_080AF8D0(1, 1, 0);
+    s32 r = Field_CheckCellEvents(1, 1, 0);
 
     if (r == 0)
     {

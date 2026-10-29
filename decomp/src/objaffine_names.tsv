@@ -1,0 +1,2 @@
+0815862C	ObjList_ScalePositions	func	copies the OBJ list args[0] to 0x03003800 and scales each OBJ centre about the origin by sx/w, sy/h (or sx/d, sy/d), w/h from gUnknown_087F1494 halved unless double-size
+08158824	ObjList_RotatePositions	func	copies the OBJ list args[0] to 0x03003800 and transforms each OBJ centre (signed 9/8-bit) by the matrix ObjAffineSet builds from args[1] into 0x03006A30

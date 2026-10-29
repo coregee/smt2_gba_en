@@ -1,0 +1,3 @@
+0814E844	RussianRoulette_CanBetDemon	func	stock demon Party_GetMember(id+0x8000) can be staked: demon id not 0, 0xDE or 0x16A-0x17B, Combatant_GetStatus(+0x0C) without 0x8000/0x2000, id 0x8B only with flag 0x23
+0814E8B0	RussianRoulette_CountBettableDemons	func	counts Combatant_IsUsed slots 4-15 for which RussianRoulette_CanBetDemon(gGameState.members[i]+0x0C) == 1
+08145F44	Baccarat_Update	func	per-frame step of baccarat: draws coins/bets/totals, betting input (phases 0 and 3), then the phase switch (deal, third-card rules on gUnknown_0879C91C points, result, collect, 99 = leave via sub_080C31FC(coins / 100))

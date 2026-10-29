@@ -39,6 +39,7 @@ address	name	kind	confidence	note
 0203DB6E	gScriptYield	ram	probable	set to 1 by handlers; ScriptVM_Run returns after the handler when 1
 0203DB82	gMsgGlyphDelay	ram	probable	frames between glyphs: ScriptVM_Run copies it to the wait timer 0x0203DB5C with wait state 15; ScriptVM_Init sets 2
 0203E7D0	gSoundInfo	ram	proven	m4aSoundInit: SoundInit argument
+0203F150	gMPlayJumpTable	ram	probable	proven
 0203F1E0	gCgbChans	ram	proven	m4aSoundInit: MPlayExtender argument
 0203F3A0	gMPlayMemAccArea	ram	proven	m4aSoundInit: mplayInfo->memAccArea
 03000000	gDispRegs	ram	probable	0x44 bytes DMA'd to REG_BG0HOFS.. by sub_080A9AF4
@@ -93,6 +94,7 @@ address	name	kind	confidence	note
 03007000	SoundMainRAM_Buffer	ram	proven	m4aSoundInit: CpuSet destination for SoundMainRAM
 080000C0	Start	func	proven	AGB SDK crt0 reset entry (ARM)
 080000FC	IntrMain	func	proven	AGB SDK crt0 IRQ dispatcher, address stored to 0x03007FFC
+08032B7C	MultiSio_RecvBufChange	func	probable	ARM, copied to 0x030062B0 by Link_InitSerial: with IME off swaps the current/last receive buffer pointers (0x030061C0+0x24/+0x28) and returns and clears the receive-done flag (+5)
 080A96CC	AgbMain	func	proven	crt0 bx target; init then infinite frame loop
 080A9794	InitMemory	func	probable	calls ClearWorkRam then ClearVideoMemory; first call in AgbMain
 080A97A4	ClearWorkRam	func	probable	DMA3 32-bit fills of 0 over EWRAM (0x40000) and IWRAM (0x7E00)
@@ -276,6 +278,7 @@ address	name	kind	confidence	note
 080AE2C0	Field_SavePrevPosition	func	probable	copies position +0x12/+0x14 to +0x16/+0x18
 080AE330	Field_CopyIwramCode	func	probable	CpuSet copies sub_080B210C (0x400 bytes) to 03003BC0 and sub_080B23D0 (0x500 bytes) to 03004010
 080AE4AC	View_FillCell	func	probable	view cell [row][col] (0x0200AB08, 12 bytes, 9 per row) = four 2-bit wall codes of map square (x,y) rotated to the facing direction; valid = 0 outside the map
+080AE574	View_BuildCells	func	probable	clears gViewCells (DMA), fills the 9x9 cells around (gFieldState+0x12/+0x14) for facing dir with View_FillCell, then unless a != 0 or sub_080ADF40() clears wall faces hidden behind two View_GetWall hits
 080AECD4	Automap_FillCell	func	probable	automap cell [row][col] (0x02005000, 28 per row) from map square if Automap_IsVisited; wall code 3 shown as 2; bit 15 for event squares
 080AEDB4	Automap_Build	func	probable	clears 0x02005000 (28x11 cells) and fills it around (x,y) rotated by direction, scrolled by 0x0200DFCC; sets 0x0200DFC8/0x0200DFCA scroll flags
 080AF4B8	Automap_SetVisitedRaw	func	probable	sets bit (x&7) of gGameState+0x1188 + y*16 + x/8
@@ -285,11 +288,13 @@ address	name	kind	confidence	note
 080AF5B8	Automap_SetVisitedAhead	func	probable	Automap_SetVisited on the square next to (x,y) in direction dir (0 y+1, 1 x-1, 2 y-1, 3 x+1) when inside the map
 080AF620	Automap_IsVisited	func	probable	visited bit of map-local (x,y) (0 when sub_080B7944 rejects the square)
 080AF68C	Automap_IsVisitedUnchecked	func	probable	visited bit of map-local (x,y) without the sub_080B7944 check
+080AF8D0	Field_CheckCellEvents	func	probable	FieldMap_FindRecord for kinds 4,0x15,1,2,0x1B,0x1C,0x10,0x13,0x1D,0x1E,3,9,8,0x19,5,0xB-0xF,0x25-0x27,0x14,0x1F,0x16-0x18,0x1A plus FieldEvent_FindAt; starts the first that applies (Field_SetState 0xB-0xE/0x21/0x22, sub_080AF178/sub_080AF1D0 scripts, Treasure_StartTask, Elevator_Start); returns gUnk_03004538
 080B0204	View_IsSideOpen	func	probable	view cell [5][4] (player square) walls[dir] == 0
 080B0248	View_GetWall	func	probable	walls[dir] of view cell [5+dy][4+dx] (0x0200AD54 = player cell); 0 for dir > 3
 080B02A0	Field_Step	func	probable	moves position 03004550+0x12/0x14 one square in dir clamped to map size +0x1A/+0x1C, Automap_SetVisited, 03003FF4 = 1
 080B098C	Palette_IsBg13Black	func	probable	TRUE when the 32 bytes at 0x03002F50 (gPaletteBuffer colours 0xD0-0xDF) are all zero
 080B0BBC	Field_HBlankWobble	func	probable	installed as gIntrTable[1] by sub_080B0C38; sets BG2VOFS/BG3VOFS from gSineTable[(phase+VCOUNT)&0xFF]/4&3 on lines <100
+080B0C90	Field_UpdateFrame	func	probable	copies keys to gFieldState+0x38..0x3C, runs Map_LoadGraphicsStep or the floor hook (MapHeader variant +0xE4), palette blinks for flags 0x102/0x106/0x108, then switches on gFieldState.unk00 (states 1-0x25: input, steps, turns, examine via sub_080B2090, stairs, battle, map exit); ends with sub_080B2CC0
 080B1C18	Field_HandleInput	func	probable	called by the field main loop with the keys; checks events under the player, A/menu/map keys, then moves/turns from the D-pad via tables 0x0815F2FC/0x0815F31C/0x0815F324
 080B200C	Field_SetFacing	func	probable	stores the old facing (+4) and new facing (+2) of 0x03004550; returns 1 if already facing that way
 080B210C	FieldView_BlitPixels	func	probable	4bpp pixel copy into the view tile buffer skipping non-zero destination nibbles, x clipped to 8..0xE7, mirrored when dir != 1
@@ -550,9 +555,12 @@ address	name	kind	confidence	note
 080C947C	Status_BuildList	func	probable	fills gStatusList (0x0203B554) for gMenuState.mode: members with unkE != 0, sub_0812ACCC demons (filtered by flag 0xB6), or one entry
 080C99C4	Status_DrawDemonInfo	func	tentative	from translation patches (lost Ghidra session); verify
 080C9E30	Status_DrawScreen	func	probable	clears the window tilemap, opens the three status windows (stored at gMenuState+0x40/0x44/0x48) and calls Status_DrawDemonInfo and the page drawers
+080C9F98	Status_DrawSprites	func	probable	per-frame status sprites: markers (gMenuState +0x16/+0x1C/+0x1E/+0x10), six stat bars via sub_080CD9C8 (base/+0x30/+0x38 and incense bonuses of items 0x120-0x12B from gUnknown_081A6ED4), alignment icons (+0x32, Item_GetAttribute), portrait frames sub_080C97F0/sub_080C9854, cursor in modes 4-5
 080CA84C	Inventory_ListRange	func	probable	writes the ids in [lo, hi] of held gInventory entries to 0x0203B454; returns the count
 080CAF6C	Status_Close	func	probable	ends the demon sprite (gMenuState+0x3C), closes the three windows, sets the fade task done and resets the glyph sprite cache
+080CB0B8	Status_DrawVitals	func	probable	SmallFont_DrawAscii/DrawNumber of HP, MP, ST (ailment names 0x084F00E8.. right-aligned by fixed x), EXP, NEXT (Exp_GetForLevel), MEMORY (stock count) for humans; ALI/HP/MP/ST/CP or dashes for demons; then DemonObj_Create
 080CBA7C	Status_DrawDropItem	func	tentative	from translation patches (lost Ghidra session); verify
+080CBC8C	Status_DrawDerivedStats	func	probable	second status page: combatant derived[0..7] (+0x48) with DigitFont_DrawNumber at x 0xE6; kanji labels via Font_DrawGlyph; special layouts for Fusion_GetDemonByIndex 0x93/0xA7/0xBB/0xCF and sub_080C92AC demons; dashes when sub_080C99B8
 080CCE5C	SmallFont_DrawAscii	func	probable	draws an ASCII string with SmallFont_DrawGlyphTinted via gUnknown_084F01F4[c - 0x2B] ('?' 0x13, '-' 6), 8 pixels apart
 080CCEC8	DigitFont_DrawAscii	func	probable	draws an ASCII string with DigitFont_DrawGlyphTinted via gUnknown_084F0254[c - 0x2B] ('?' 0x1F, '-' 0xD, '\' 0x3E), 8 pixels apart
 080CCF44	SmallFont_DrawNumber	func	probable	NumberToDigits, 8 digits right-aligned ending at x, leading zeros hidden, SmallFont glyphs gUnknown_084F01F4[d + 5]
@@ -663,13 +671,26 @@ address	name	kind	confidence	note
 080DB394	Dict_ApplyReceivedEntries	func	probable	for each set bit i (0..0x17B) of gMenuState+0x38 calls sub_080C2674(i), then saves like Vision_ApplyReceivedFlags; magic 0x10570010 (sub_080DB370)
 080DB4A8	Dict_BuildList	func	tentative	from translation patches (lost Ghidra session); verify
 080DB8A4	Dict_CountListed	func	probable	counts entries != 0xFFFF in the 0x17C-entry compendium list gUnk_0203B554 built by Dict_BuildList
+080DBA1C	Dict_HandleListInput	func	probable	compendium list input: top buttons (task data +0x24) or list row/scroll (+0x30/+0x32) over gStatusList with Dict_CountListed; A on a registered demon (sub_080C2644) result 3, B result 2; updates gDict selected/unk3C/unk44/unk46 and redraws via sub_080DB464
+080DC6D0	Dict_DrawDemonPage	func	probable	draws the selected demon page into canvas 0x0200F874: page 0 race names, name (8 glyphs x 12 px from record +0x22), race group text, skills (record +0x11, 7, 0xFF = dashes); page 1 level/HP/MP/stats and Combatant_InitDemon values; then palette and VBlank upload sub_080DC6A4
 080DD21C	Dict_GetMapScript	func	probable	returns the event script of gUnknown_08583E84[id] (0x14-byte records: script, two marker positions) for id <= 0x17B, else NULL; the script is run by sub_080DCE4C via sub_080AF218(0x24, ...)
+080DD30C	MusicRoom_HandleInput	func	probable	music player task: 7 buttons (prev/stop/play/next/continuous/shuffle/exit) with Music_Play/m4aSongNumStop of gUnknown_085861C8[track].song, L/R tracks, SELECT view, play-time counter and Music_FadeOut 2 s before the track length
+080DD7CC	MusicRoom_Draw	func	probable	draws track number, title (Text_DrawSpriteStringTinted at 0x15,0x3A), shuffle/continuous markers, the time (elapsed/remaining/rolling digit by view) and the button sprites gUnknown_0858614C
 080DDE2C	Cards_Deal	func	probable	fills 27 bytes at task data +0x15 with 1..27, shuffled with sub_080C2244 when data[4] == 1, and stores at data[0x14] the position of card data[2]
+080DE2C0	Mini_StepTimeline1	func	probable	timeline of the first BG2 mini program: step +0x34 of gC0d9Bg every 8 frames reloads gUnk_03000031/35 and BG0 offsets from gUnknown_085864B0, per-step effects, 0x6F fades out and sets exit
 080DE680	Mini_ZoomBg2Affine	func	probable	as Mini_UpdateBg2Affine after adding the step +0x28 to both scales; stops at 0x100
+080DE9A8	Mini_LoadGraphicsStep	func	probable	LZ77UnCompWram of one graphics block per call (step +0x36) to 0x02001000.. and DMA to VRAM; at step 4 starts PalFade_FadeInFromBlack; returns 1 when done
+080DEB4C	Mini_StepTimeline2	func	probable	as Mini_StepTimeline1 with gUnknown_08586670 and steps up to 0x8A
 080DECEC	Mini_UpdateBg2Affine	func	probable	computes the BG2 rotation/scaling (gSineTable, FixedMul8/FixedInverse8) from angle +0x1C, scale +0x1E/+0x20 and centres +0x18/+0x24 of gUnk_020399E0 and queues Mini_UploadBg2Affine
 080DEDD8	Mini_UploadBg2Affine	func	probable	VBlank task: copies PA..PD and the 28-bit BG2X/BG2Y from gUnk_020399E0+8..+0x17 to REG_BG2PA.. (queued by sub_080DE680/sub_080DECEC)
 080DEE20	Link_InitSerial	func	probable	link cable: disables serial/timer3 IRQs, RCNT=0, SIOCNT=0x2000|0x4003, clears 0x030061C0 (0xF0 bytes), copies arm_08032B7C to 0x030062B0 and SerialTimer3Intr to 0x030060A0, sets up the buffer pointers, re-enables the serial IRQ
+080DEF50	MultiSio_Main	func	probable	AGB SDK multi-play SIO sample MultiSioMain: master/slave decision, waits 8 frames, MultiSio_CheckRecvData; returns the status word (receive bits, connected bits << 8, 0x80 master, 0x1000 error, 0x2000 id >= 2, 0x8000 synced)
+080DF05C	MultiSio_SetSendData	func	probable	MultiSioSendDataSet: builds the next 0x18-byte packet (frame counter, error flags, 16 data bytes, checksum ~sum-12)
+080DF0AC	MultiSio_CheckRecvData	func	probable	MultiSioRecvDataCheck: runs the IWRAM copy of arm_08032B7C, copies packets with a valid checksum (sum == -13) to recvp + 16*player
+080DF15C	MultiSio_StartTransfer	func	probable	master: once started, swaps buffers and starts the transfer (SIOMLT_SEND 0xFEFE, SIOCNT start, TM3CNT_H 0xC0); slave: re-arms the serial interrupt check
 080DF1EC	SerialTimer3Intr	func	proven	IRQ table entries 6-7 (Timer3, Serial): link cable
+080DF388	Link_ExchangeIds	func	probable	sends packet 0xC100 with an 8-byte id once SIO status bit 8 is set, then compares both players' ids (sub_080DF6FC(0xC100)); returns 1 when equal
+080DF4B8	Link_Handshake	func	probable	sends 0xF100, 0xF200, 0xF300 in turn until both players echo each (state 0x030062F4 1-5), restarts after 60 frames (max 20) and fails after 600 error frames (0xFF); returns 1 when done
 080DF6D0	Link_Checksum	func	probable	16-bit sum of n bytes
 080DF878	Link_StartTransfer	func	probable	clears 0x0203BB74/0x0203BD74, copies size bytes to 0x0203BB74, stores Link_Checksum and destinations in 0x03006300, sets state 0x0300636C = 1
 080DF954	Link_Exchange	func	probable	sub_080DF878 with the destination pair ordered by the SIOCNT multiplayer id (bits 4-5)
@@ -782,6 +803,11 @@ address	name	kind	confidence	note
 080E4434	ply_xswee	func	proven	gMPlayJumpTableTemplate entry
 080E4448	DummyFunc	func	probable	m4a (MP2K) library; position matches pret m4a_1.s/m4a.c order
 080E444C	Demon_GetGfxRecord	func	probable	"returns 0x0872C774 + id*0x1C (id 0x12D -> 0x0872F104 + variant*0x1C, id 0x12E -> 0x0872F174); docs/assets.md ""Demon battle sprites"""
+080E44A4	Battle_ResetGlobals	func	probable	CpuFill32 of the battle IWRAM state 0x030063A0 (0x1C bytes), both enemy groups (0x0203C200+0x990/0x994) := 0xFFFF, BattleMsg_SetLocked(0), sub_080E44F8, sub_080EA280, +0x1188 := 0
+080E44F8	Battle_ClearSpriteTasks	func	probable	zeroes 0x0203C200+0x4..0x24 (tasks[3] and the next six words) and +0x119E
+080E4520	Battle_ResetCombatantStates	func	probable	for combatants 0-15: sub_080C35C4 and sub_080C3600 with 4 for 0-3, 10 for the rest
+080E4554	Battle_StartRandomEncounter	func	probable	like Battle_Start but the encounter comes from sub_080ED398 (dungeon zone sub_080C5D0C & 0x7F, >0x6B -> 0x3E) or on the world map (gGameState+0xAC0 == 1) sub_080F450C; creates the battle task gUnknown_086BEF88
+080E471C	Battle_StartWithGroups	func	probable	(group0, count0, group1, count1): Battle_StartRandomEncounter then overrides 0x0203C200+0x990/0x994/0x998/0x99A, encounter 0, waves 1; +0x1123 := 1
 080E47A8	Battle_Start	func	probable	called by script op sub_08132890 with the two encounter groups and counts; stores them at 0x0203C200+0x990/0x998, inits the four party combatants, creates the battle main task gUnknown_086BEF88
 080E4A40	Battle_LoadGroupPalette	func	probable	loads enemy group n's demon palette (placeholder 0x086BE584 for unseen demons on the compendium screen) into OBJ palette 14/15 and fades it in
 080E4AD0	Battle_IntroTask	func	probable	state machine at +0x978: picks the enemy groups (sub_080ED5B4), creates the enemy units (Battle_InitEnemyUnit), shows each group (portrait, fade-in, intro task gUnknown_086BE738)
@@ -790,6 +816,7 @@ address	name	kind	confidence	note
 080E7834	StatusIcon_ForCombatant	func	probable	icon for combatant 16-23: ailment priority list, 2 when HP < max/4
 080E8B20	DemonSprite_StepShake	func	probable	steps a 10-entry (dx, dy) hit-shake table (gUnknown_086BE7BC) into sprite+6/+7; returns 1 when done
 080E8B78	DemonSprite_LoadPalette	func	probable	loads enemy sprite slot n's palette (kind 0 = demon record, 1-5 = flash palettes gUnknown_086BE884) into OBJ palette 14+n
+080E98F8	Battle_VictoryStep	func	probable	task step on substate 0x0203C200+0x97A (21 states): compendium, Battle_BuildRaceCountText, item drops (Battle_BuildItemDropText), money/macca/magnetite (Battle_BuildValueRewardText), EXP (capped 9999999, Battle_BuildRewardText), level-up (sub_080CE62C) and new skills (sub_080EB008); src/battlewin_a.c
 080EA314	BattleMsg_FitWindow	func	probable	counts lines (0x300 separators up to 0 or 0x301) and sets the battle message window height (lines*2, 7 for four lines); returns the line count
 080EA37C	BattleMenu_SetMode	func	tentative	from translation patches (lost Ghidra session); verify
 080EA4F8	BattleMenu_SetModeAutoClose	func	probable	calls BattleMenu_SetMode then sets msg.autoClose=1, autoCloseTimer=75; sub_080EA538 mode 1 sets done when the timer runs out
@@ -833,16 +860,29 @@ address	name	kind	confidence	note
 080EDD1C	Battle_RollSpeed	func	probable	(s8 agility at +0x44 or 60 when +0x10 & 0x800)*2 + level bonus (sub_080C1F94) + rand&15 (+ luck roll for kind 7); used as -key in sub_080EDD8C
 080EDD8C	Battle_BuildActionOrder	func	probable	fills BattleState+0xC with living party members and enemies keyed by -sub_080EDD1C, 0xFFFF end mark, sorts with sub_080EDB6C
 080EE10C	Battle_BuildTargetList	func	probable	fills BattleState+0x130 with target ids (0xFFFF end mark); random keys sorted with sub_080EDB6C
+080EE2E8	Battle_BuildActionTargets	func	probable	fills BattleState+0x130 for who: skill 0x5C = all alignment-incompatible, items 0xF1/0xF2 = living party; else enemy group units not excluded by BattleState+0x15C, sorted by status/HP when the attacker's roll beats the defender's, else random keys; src/battle_080EE2E8.c
 080EE6BC	Battle_FinishDamage	func	probable	race/luck table gUnknown_0876F6CA, critical x3/x2 (records kind in BFLOW+0x11B0), halving for defender kind 9, random cut of up to 31/128, minimum 1, 0 when defender +0x10 & 0x4000
 080EE864	Battle_PhysicalDamage	func	probable	attack stat (+0x48 / +0x4C) * modifier table / defence (+0x50) then sub_080EE6BC; may set a weapon ailment via sub_080EDA7C
 080EE9F8	Battle_SkillDamage	func	probable	skill ids <=0x67 and 0x9B-0x9C use magic stats (+0x54) with defence term capped at 255, others call sub_080EE864; result in action+0x18
+080EEB94	Battle_RollAilment	func	probable	(action, skill): chance = INT * sub_080ED7A4(skill) / def INT through Battle_ApplyAffinity; affinity 12/13 reflects (message 0x16E/0x16F); queues the ailment with sub_080EDA7C when Random_Byte & 0x1F < chance; returns 1 when the target already had it
 080EEEE8	Battle_ApplyAffinity	func	probable	scales damage by affinity code from sub_080F3F90: 12/14 halve, 13/15 unchanged, <=8 v*aff/8, 9-11 x1.5/x2/x2.5
 080EF148	Battle_RemoveDefeated	func	probable	kills combatant; for an enemy with arg 1 adds sub_080EF494 to each party member's BattleState+0x68[i] and sub_080EF538/sub_080EF580 to +0x4C/+0x50
 080EF740	Battle_CanUseCommand	func	probable	per command kind 4-12 checks equipment/skills/flag 3; writes the refusal message id (0x162, 0x165, 0x8F, 0x90, 0x393, sub_080F3190) through the third argument and returns 0
 080EF99C	Battle_ActiveSide	func	probable	returns BattleState+0x122, flipping it in two-sided battles to the side whose combatant equals gUnk_0203DB7C; indexes the per-side arrays at +0x128/+0x12C
 080EFC1C	Battle_AddModifierClamped	func	probable	adds to BattleState+0x78 row/slot (sub_080ED8C0 index), clamps to the s8 pair at gUnknown_0876F7CE[row], returns 1 when clamped
 080F0200	Battle_InitEnemyUnit	func	probable	clears BFLOW unit slot (0x80 bytes) and fills it from demon record sub_080BF648(id): level, HP/MP, stats, skills
+080F0434	Battle_CombatantTurnStep	func	probable	phase machine on 0x0203C200+0x97C for one combatant's turn (announce, animate, pay, resolve, defeat messages, next target); returns 1 when the turn ends; src/battle_080F0434.c
+080F0CFC	Battle_PayActionCost	func	probable	MP for magic (party only, +0x11AA == 0; messages gUnknown_081241B0/081241D0), item consumption (sub_080F3E54), sub_080ED744 check for kind 11; dodge text when sub_080EE028 fails; sets the next phase
+080F0F68	Battle_GetActionAnim	func	probable	gUnknown_0876E1D8[a].id[b] with special ids 0xDC-0xE8 mapped to animation ids (0xFF none)
+080F108C	Battle_AnnounceAction	func	probable	shows the action message (Battle_BuildCombatActionList / Battle_BuildActorActionText / sub_080EAE30) and sets animation +0xEC6, sound +0xECA, side 0x030000A8; src/battle_080F108C.c
+080F157C	Battle_GetAnimKind	func	probable	0x030000AA := kind of gUnknown_0876E1D8[a].id[b]: 0xDC-0xDF 4, 0xE0-0xE2 7, 0xE3-0xE5 8, 0xE6-0xE8 5, else 0xFF; returns it
+080F1678	Battle_SummonQueuedDemon	func	probable	(slot, mode): Party_AddAt of the demon queued at 0x0203C200+0xEF0[slot] into position +0xF10[slot] (first free if taken); mode 2 removes the occupant, 0 pays sub_0812839C, 3 adds it dead; returns Party_FindPosition
+080F17C0	Battle_ResolveActionStep	func	probable	step machine on 0x0203C200+0x97E resolving one hit of an action through gUnk_03000088 (damage, affinity, ailments, reflection, HP loss, messages); src/battle_080F17C0.c
+080F20E0	Battle_ReflectAction	func	probable	'repels' message (Battle_BuildNamePrependText + gUnknown_081241F0, enemies gUnknown_08124200), then redoes the action and ailment on the attacker with its own affinity
+080F22B4	Battle_ApplyDamage	func	probable	instant death (ailment 0x8000) takes all HP; hit sound 0x12C/0x12B, Combatant_AddHp(-dmg) clamped at 0, damage text gUnknown_08123BCC (enemy) / gUnknown_0812310C (party)
 080F24F0	Combatant_AddHp	func	probable	adds the argument to the s16 at Battle_GetCombatant(who)+0x18 (HP, as in vm_wait.c) and returns it
+080F2514	Battle_CastSupportSkill	func	probable	non-damage skill: target = chosen ally (+0xF30) or other side, sub_080F4988, result message from gUnknown_0876F9CC; skills 0x3E/0x3F summon (message 0xE9)
+080F27CC	Battle_UseItem	func	probable	Item_RunUseEffect on the item's target; 0xF1/0xF2 revive (message 0x123) or defeat (damage text); other items message gUnknown_0876FAE4[attr 0xC - 0x80]
 080F2EAC	Battle_PickEnemySupportTarget	func	probable	returns the first used, living enemy unit (0x10+i) with HP below max (skill kind 0x80) or with any status bits (kind 0x82), -1 if none; used by sub_080F2D4C before storing BattleFlow+0xF50[i]
 080F2F14	Battle_GetLastOrderIndex	func	probable	index of the last BattleState+0xC action-order entry before the 0xFFFF end mark (max 12), -1 when empty
 080F2F64	Battle_GetCombatant	func	probable	callers read +0xC (<4 = human: Combatant_DecodeName) and +0x12 (demon id for sub_080BF648) from the returned record
@@ -887,6 +927,7 @@ address	name	kind	confidence	note
 080F55F4	Combatant_IsAlignmentCompatible	func	probable	1 when Combatant_GetAlignment(b) is 1 (neutral) or equals Combatant_GetAlignment(a)
 080F57F4	Party_FindLowestStatTarget	func	probable	party member with the lowest Combatant_GetStat(stat) below 100 on whom status mask would take (sub_080F3214), -1 if none
 080F5C90	Item_RunUseEffect	func	probable	Item_GetAttribute(item, 12) - 0x80 indexes the effect table gUnknown_0876FA58 (action+0x10 = index)
+080F63DC	Automap_RevealAroundPlayer	func	probable	Automap_SetVisited on the 5x5 squares around gFieldState+0x12/0x14 (non-negative coordinates only)
 08127960	MenuCursor_SetIndex	func	probable	(id, index): clamps index to count-1, recomputes column/row (index / % perColumn), scrolls top so the index is visible, sets onScreen
 08127A98	BattleMenu_BuildMemberList	func	probable	(mode 0-9): fills the battle block list (+0x2D0) with member slots 0-15 (or 0-255 for mode 5) filtered by sub_080C0148(slot|0x8000)->unkE (0xC000 party / 0x8000 stock), 0xFFFF-terminated; returns the count
 08127EAC	BattleMenu_DrawListPage	func	probable	(mode, start): clears the 0x030000B4 canvas and draws up to five rows of the block list from `start` (names, prices/counts) one row per VBlank via sub_08127D70/sub_08127E04
@@ -912,8 +953,15 @@ address	name	kind	confidence	note
 0812EFD8	MsgWindow_BlinkCursor	func	probable	while 0x0203DB56 != 0 counts 0x0203DB54 down and every 30 frames toggles 0x0203DB52 (ScriptOp_316 sets 1/0x1E/1)
 0812F198	MsgWindow_SaveGlyphs	func	probable	copies the glyph of each gMsgGlyphQueue entry (max 16, gMsgGlyphCount) to 0x03006870, 0x301-terminated
 0812F1E4	MsgWindow_RestoreGlyphs	func	probable	re-queues the 0x03006870 glyphs at gTextColumn*13+0x11, gTextLine*13+gMsgTextTop, advancing gTextColumn (count capped at 0x3F)
+0812F2B4	MsgWindow_DrawItemList	func	probable	queues the names of list 0x0203DB88[0x03006940..] (0xFFFF-ended, max 8 rows) as glyphs at the (x, y) of layout gUnknown_0878FBA4[layout], 13 px per glyph, names via pointer tables 0x08036156/0x0803631E/0x08036666 (halfword pairs, 0x301-ended); layout 4 also fills price slots 0x03006620 (sub_0812F188(id - 0x9D), attr 4 when Money_Get is lower)
+0812F54C	MsgWindow_ItemListInput	func	probable	wait handler of the list drawn by sub_0812F2B4: layouts 0 (4 rows), 1/4 (3 rows), 2/3 (2 columns); up/down/left/right/L/R move or scroll (redraw via sub_0812F2B4), A stores 0x0203DB88[top+row] in 0x030065E0 and sets wait state 0x19/0x0E, B (not in battle) 0x37/0x1C; ends with sub_0812F010
 08130578	MsgWindow_DrawItemCount	func	probable	writes the two digits (gScriptDigitGlyphs) of sub_080C32D4(item) + Party_CountEquipped(0xFF, item) into gMsgGlyphQueue entries 13 and 14
+08130694	Shop_ListInput	func	probable	wait handler of the shop list 0x0203BB74 (3 rows): SELECT toggles 0x030065E4 and calls Shop_InitItemList; A on a sale (wait state 0x28) checks money + 0x0203BD74[i] <= 999999, on a purchase checks 99 owned (Inventory_GetCount + Party_CountEquipped) and sub_080C4C60(id) <= Money_Get, then opens the quantity window (0x030065FC = 1, 0x0203DB2C = price); B wait state 0x24 (or 0 + target 2)
+08130D24	MsgWindow_DescListInput	func	probable	wait handler of an 11-entry list with a description pane (gUnknown_0878FDB4 via sub_080D347C/sub_080D34A4 mode 3); A needs Inventory_GetCount(0x0203DB88[row+top]) and sets wait state 0x30 + gScriptItemCheckId; B wait state 0x2F
+08131400	CasinoPrize_ExchangeInput	func	probable	wait handler of the prize exchange window: CasinoPrize_GetSet, rows 0-2 + CasinoPrize_DrawList scrolling; A buys gUnknown_0878FEA8[set] entry when sub_080C31F0 (coins) >= price (0xFFFF = 100000) and < 99 owned: Inventory_AddItem, sub_080C31B4(-price), jump target 0203DAC8[2]; else [0] (coins) / [1] (owned)
+081316FC	Shop_UpdateQuantityArrows	func	probable	sets the quantity window arrows 0x03006848 (more) / 0x03006680 (fewer) to row*2+2/3 or 0 from quantity 0x030065FC, owned count, unit price 0x03006694, Money_Get and 999999; selling when wait state is 0x2A
 08131AB0	Party_CountEquipped	func	probable	(who, item): items >= 0xD0 -> 0; slot = sub_080D2268(item); who 0xFF counts used members 0-2 with Combatant_GetEquip(i, slot) == item, else 1/0 for member who; sub_080C10B4 adds it to the held count
+08131B1C	Shop_QuantityInput	func	probable	wait handler of the quantity window: up/down change 0x030065FC by the step 0x030068BC (RIGHT 1, LEFT 10) within money/999999/99-owned limits, digits in price slots 3/4, total 0x0203DB2C = 0x03006694 * quantity (sale: sub_080C4C7C); A wait state 0x27 (0x35 for 0), B 0x26, sale over 999999 0x47
 081321B4	ScriptOp_Nop	func	probable	empty body; table entry for 0x302, 0x314 and ~100 unused opcodes in both tables
 081321B8	ScriptOpAlt_Shared_081321B8	func	probable	gScriptOpAltTable handler for opcode(s) 300,307,30E,310,313,315,316,317,318,31A,31B,31C...
 081321C4	ScriptOpAlt_Shared_081321C4	func	probable	gScriptOpAltTable handler for opcode(s) 305,37B,388,38B,39F,426
@@ -1224,6 +1272,7 @@ address	name	kind	confidence	note
 0813C8E0	ScriptOpAlt_44B	func	probable	gScriptOpAltTable handler for opcode(s) 44B
 0813C900	ScriptOpAlt_44C	func	probable	gScriptOpAltTable handler for opcode(s) 44C
 0813C9F8	ScriptWait_YesNo	func	probable	wait handler: waits for Task_IsFree(gUnk_030068E0), resets the text cursor, jumps to gUnk_0203DAC8[0] on gYesNoResult != 0 (== 0 in battle)
+0813D0F4	ScriptWait_Fade	func	probable	wait-state handler: busy while sub_080B092C (palette fade 0x0300452C) returns 1, then clears gScriptWaitState
 0813DB34	ScriptVM_Run	func	probable	indexes gScriptOpTable with (op - 0x300), op <= 0x470
 0813DE04	ScriptVM_ClearPage	func	probable	clears glyph count, column and line, sets wait state 6, Font_ResetGlyphSpriteCache(0x180), reloads 0x0203DB48 from ScriptVM_GetTextSpeed; task-script entry 0x087900E4 after the 0x317 scroll
 0813DE44	ScriptTask_WaitForKey	func	probable	task-script entry at 0x08790108 (script 0x087900EC, started by op 0x316): when gNewKeys has A/B/Up/Down/Right/Left it plays SE 0x65 and sets task->unk1C = 1
@@ -1312,6 +1361,7 @@ address	name	kind	confidence	note
 08145C98	JokerStars_CheckAllStars	func	probable	JokerStars_CountStars() == 9 starts the star bonus task 0x0879B8D4 (symbol 6, count 9)
 08145CC8	JokerStars_CheckLine	func	probable	JokerStars_GetReelSymbol on three reels (1-based); a star (6) never pays, joker (5) is wild; marks winning reels at state+0xC8; returns the symbol or -1
 08145E44	Baccarat_Init	func	probable	clears gMenuState (0x200 words), coins = sub_080C31F0()*100, six card slots from gUnknown_0879C8EC; the state block whose cards Baccarat_LoadCards decodes
+08145F44	Baccarat_Update	func	probable	per-frame step of baccarat: draws coins/bets/totals, betting input (phases 0 and 3), then the phase switch (deal, third-card rules on gUnknown_0879C91C points, result, collect, 99 = leave via sub_080C31FC(coins / 100))
 08146FC8	Baccarat_DrawNumber8	func	probable	NumberToDigits + 8 digit sprites (gUnknown_0879C7F4) with a separator glyph [10] between digits 2 and 3
 08147128	Baccarat_DrawNumber3	func	probable	3 digit sprites from gUnknown_0879C7F4, right-aligned at x
 081471CC	Baccarat_CountUpCoins	func	probable	every 4th frame adds 55 (500 when state+0x2F != 0) to coins until coinsTarget; caps at 99999900
@@ -1359,6 +1409,8 @@ address	name	kind	confidence	note
 0814E064	RussianRoulette_Fire	func	probable	script callback: shot n hits when n == chamber; shooter by n & 1, result2 says whose demon is lost
 0814E438	RussianRoulette_SettleBet	func	probable	mode 0 releases the bet demon (Party_Remove(.., 1)); else Stock_AddDemon(opponent's demon) in its place
 0814E798	RussianRoulette_MakeOpponentDemons	func	probable	builds the opponent's list from the player's via the id tables 0x087A045C/0x087A055B/0x087A065A
+0814E844	RussianRoulette_CanBetDemon	func	probable	stock demon Party_GetMember(id+0x8000) can be staked: demon id not 0, 0xDE or 0x16A-0x17B, Combatant_GetStatus(+0x0C) without 0x8000/0x2000, id 0x8B only with flag 0x23
+0814E8B0	RussianRoulette_CountBettableDemons	func	probable	counts Combatant_IsUsed slots 4-15 for which RussianRoulette_CanBetDemon(gGameState.members[i]+0x0C) == 1
 08151EB4	FieldMap_GetArea	func	probable	returns 0x087DE924 + area*0xD8 (area 2 -> 10 and 5 -> 11 until flags 0x11/0xEC are set)
 08152384	WorldMap_StartWindowRaster	func	probable	sets V-count IRQ (DISPSTAT 0x24 | line << 8) and resets the raster line counter unk1A; queued by sub_08152420
 081523C8	WorldMap_WindowRasterIrq	func	probable	installed in gIntrTable[2]; per line writes WIN0H from table 0x087DFA58 and advances the V-count line, 32 lines
@@ -1424,6 +1476,8 @@ address	name	kind	confidence	note
 08157C90	Fusion_Commit	func	probable	removes the materials (Party_Remove / Inventory_RemoveItem by mode), adds the result with the chosen skills, Music_Play(0xF); unk0 3 = compendium summon with Money_Add(-price)
 081580CC	Fusion_LoadEffectPart	func	probable	HuffUnComp+LZ77 part k of effect set 0x087F0954[set] to 0x02001000 + k*0x1000, palette on part 2
 081582E0	Fusion_LoadMistFrame	func	probable	HuffUnComp+LZ77 0x087F020C[n] to 0x02008000 and queue its DMA to OBJ 0x06013800
+0815862C	ObjList_ScalePositions	func	probable	copies the OBJ list args[0] to 0x03003800 and scales each OBJ centre about the origin by sx/w, sy/h (or sx/d, sy/d), w/h from gUnknown_087F1494 halved unless double-size
+08158824	ObjList_RotatePositions	func	probable	copies the OBJ list args[0] to 0x03003800 and transforms each OBJ centre (signed 9/8-bit) by the matrix ObjAffineSet builds from args[1] into 0x03006A30
 08158970	Fusion_CalcTwo	func	probable	sorts the two materials of gUnk_0203B868, runs Fusion_CalcPair, restores the order and sets result flags 0x10/0x20
 08158A40	Fusion_CalcPair	func	probable	two-material rule dispatch: special table, demon 0xFB, same race, same alignment, alignment 0xB, race 8, element races > 0x1A, race table
 08158B9C	Fusion_FindSpecialPair	func	probable	scans the (a, b, result) table 0x087F1AD3 for the two materials
@@ -1538,6 +1592,12 @@ address	name	kind	confidence	note
 0858BBBC	gMPlayJumpTableTemplate	data	proven	m4a ply_* dispatch table
 0858BC4C	gScaleTable	data	proven	m4a note scale table
 0858BD00	gFreqTable	data	proven	MidiKeyToFreq: 12 note frequencies
+0858BD30	gPcmSamplesPerVBlankTable	data	probable	proven
+0858BD48	gCgbScaleTable	data	probable	proven
+0858BDCC	gCgbFreqTable	data	probable	proven
+0858BDE4	gNoiseTable	data	probable	proven
+0858BE20	gCgb3Vol	data	probable	proven
+0858BE64	gXcmdTable	data	probable	proven
 0858D354	gMPlayTable	data	proven	m4aSongNumStart: table of {info, track, numTracks, unk_A}
 0858D384	gSongTable	data	proven	m4aSongNumStart: {header, ms, me} per song
 086BEC94	gBattleMsgSpeedFrames	data	probable	u8 table indexed by Settings_GetBattleMsgSpeed(), stored into the per-character delay

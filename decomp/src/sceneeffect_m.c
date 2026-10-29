@@ -24,7 +24,7 @@ void sub_080BD628(struct Task *task, u32 objMode)
 
     def[0] = gUnknown_080078A8[0];
     def[1] = d;
-    sub_0815862C(def, d[1], d[2], 0);
+    ObjList_ScalePositions(def, d[1], d[2], 0);
     def[0] = gUnk_03003800;
     def[1] = d;
     Sprite_DrawSharedAffineDouble(def, 0, 0xD, 0, 0x280, 0x78, 0x2B, 0, objMode);
@@ -55,7 +55,7 @@ void sub_080BD6D8(struct Task *task)
 
     def[0] = *tbl;
     def[1] = d;
-    sub_0815862C(def, d->affine[1], d->affine[2], 0);
+    ObjList_ScalePositions(def, d->affine[1], d->affine[2], 0);
     def[0] = gUnk_03003800;
     def[1] = d;
     Sprite_DrawSharedAffineDouble(def, 0, 0xD, 0, 0x280, 0x78, 0x27, zero, zero);

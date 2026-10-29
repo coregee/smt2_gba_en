@@ -58,7 +58,9 @@ void Func(...)
 
 ## Known oddities
 
-- The m4a library here is an older revision than pret's: `MPlayContinue` has no ident lock,
-  and four `ident == ID_NUMBER` functions allocate the loaded ident to `r3` in a way no source
-  spelling or flag tried so far reproduces (they are NONMATCHING).
+- The m4a library here is an older revision than pret's: mono output (DMA1/FIFO A only, one
+  0x630-byte PCM buffer), no `soundInfo->mode & 1` test in `CgbModVol`, and a 12-entry
+  extended-command table. The `ident == ID_NUMBER` functions keep pret's ident lock
+  (`ident++; ... ident = ID_NUMBER;`): old_agbcc deletes both stores as redundant, and that is
+  what leaves the loaded ident in `r3`.
 - `gNumMusicPlayers` is an absolute symbol whose *address* is the player count (4).

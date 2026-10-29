@@ -11,7 +11,7 @@ void sub_081294B0(struct Task *task, u32 arg)
     u16 v;
 
     task->pad1E = n;
-    if (Flag_Test(0xD5) && (v = gShopItemIds) == 1)
+    if (Flag_Test(0xD5) && (v = gShopItemIds[0]) == 1)
     {
         BattleMenu_SetMode(3, gUnknown_0812410A);
         task->pad1E = v;

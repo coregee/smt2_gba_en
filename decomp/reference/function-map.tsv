@@ -1,7 +1,7 @@
 address	mode	size	name	confidence	state	file
 080000C0	arm	268	Start	proven	named	asm/crt0.s
 080000FC	arm	212	IntrMain	proven	named	asm/crt0.s
-08032B7C	arm	64			asm	asm/code_08032B7C.s
+08032B7C	arm	64	MultiSio_RecvBufChange	probable	named	asm/code_08032B7C.s
 080A96CC	thumb	200	AgbMain	proven	c	src/sys_main.c
 080A9794	thumb	14	InitMemory	probable	c	src/sys_main.c
 080A97A4	thumb	60	ClearWorkRam	probable	c	src/sys_main.c
@@ -247,7 +247,7 @@ address	mode	size	name	confidence	state	file
 080AE364	thumb	304			c	src/field_a.c
 080AE494	thumb	24			c	src/field_a.c
 080AE4AC	thumb	200	View_FillCell	probable	c	src/field_a.c
-080AE574	thumb	1888			asm	asm/code_080AE574.s
+080AE574	thumb	1888	View_BuildCells	probable	c	src/fieldview_a.c
 080AECD4	thumb	224	Automap_FillCell	probable	c	src/field_b.c
 080AEDB4	thumb	504	Automap_Build	probable	c	src/field_b.c
 080AEFAC	thumb	36			c	src/field_b.c
@@ -280,7 +280,7 @@ address	mode	size	name	confidence	state	file
 080AF72C	thumb	188			nonmatching	src/field_b.c
 080AF7E8	thumb	116			c	src/field_b.c
 080AF85C	thumb	116			c	src/field_b.c
-080AF8D0	thumb	2124			asm	asm/code_080AF8D0.s
+080AF8D0	thumb	2124	Field_CheckCellEvents	probable	nonmatching	src/fieldcheck_a.c
 080B011C	thumb	60			c	src/field_c.c
 080B0158	thumb	52			c	src/field_c.c
 080B018C	thumb	60			c	src/field_c.c
@@ -315,7 +315,7 @@ address	mode	size	name	confidence	state	file
 080B0BBC	thumb	124	Field_HBlankWobble	probable	c	src/game_a.c
 080B0C38	thumb	68			c	src/game_a.c
 080B0C7C	thumb	20			c	src/game_a.c
-080B0C90	thumb	3466			asm	asm/code_080B0C90.s
+080B0C90	thumb	3466	Field_UpdateFrame	probable	nonmatching	src/fieldframe_a.c
 080B1A1C	thumb	20			c	src/game_c.c
 080B1A30	thumb	28			c	src/game_c.c
 080B1A4C	thumb	140			c	src/game_c.c
@@ -1488,7 +1488,7 @@ address	mode	size	name	confidence	state	file
 080C9F14	thumb	44			c	src/status_b.c
 080C9F40	thumb	68			c	src/status_b.c
 080C9F84	thumb	20			c	src/status_b.c
-080C9F98	thumb	1772			asm	asm/code_080C9F98.s
+080C9F98	thumb	1772	Status_DrawSprites	probable	c	src/statusdraw_a.c
 080CA684	thumb	16			c	src/status_c.c
 080CA694	thumb	132			c	src/status_c.c
 080CA718	thumb	306			c	src/status_c.c
@@ -1509,14 +1509,14 @@ address	mode	size	name	confidence	state	file
 080CAFD0	thumb	76			c	src/status_c.c
 080CB01C	thumb	76			c	src/status_c.c
 080CB068	thumb	80			c	src/status_c.c
-080CB0B8	thumb	1636			asm	asm/code_080CB0B8.s
+080CB0B8	thumb	1636	Status_DrawVitals	probable	c	src/statustext_a.c
 080CB71C	thumb	132			c	src/status_d.c
 080CB7A0	thumb	296			nonmatching	src/status_d.c
 080CB8C8	thumb	96			c	src/status_d.c
 080CB928	thumb	340			nonmatching	src/status_d.c
 080CBA7C	thumb	184	Status_DrawDropItem	tentative	c	src/status_d.c
 080CBB34	thumb	344			c	src/status_d.c
-080CBC8C	thumb	2088			asm	asm/code_080CBC8C.s
+080CBC8C	thumb	2088	Status_DrawDerivedStats	probable	c	src/statustext_b.c
 080CC4B4	thumb	380			c	src/status_e.c
 080CC630	thumb	100			nonmatching	src/status_e.c
 080CC694	thumb	320			c	src/status_e.c
@@ -2127,7 +2127,7 @@ address	mode	size	name	confidence	state	file
 080DB3E4	thumb	56			c	src/dict_a.c
 080DB41C	thumb	72			c	src/dict_a.c
 080DB464	thumb	68			c	src/dict_a.c
-080DB4A8	thumb	1020	Dict_BuildList	tentative	named	asm/code_080DB4A8.s
+080DB4A8	thumb	1020	Dict_BuildList	tentative	nonmatching	src/dict_list_a.c
 080DB8A4	thumb	48	Dict_CountListed	probable	c	src/dict_b.c
 080DB8D4	thumb	76			c	src/dict_b.c
 080DB920	thumb	22			c	src/dict_b.c
@@ -2135,7 +2135,7 @@ address	mode	size	name	confidence	state	file
 080DB9AC	thumb	24			c	src/dict_b.c
 080DB9C4	thumb	64			c	src/dict_b.c
 080DBA04	thumb	24			c	src/dict_b.c
-080DBA1C	thumb	656			asm	asm/code_080DBA1C.s
+080DBA1C	thumb	656	Dict_HandleListInput	probable	nonmatching	src/dict_input_a.c
 080DBCAC	thumb	48			c	src/dict_c.c
 080DBCDC	thumb	424			nonmatching	src/dict_c.c
 080DBE84	thumb	24			c	src/dict_c.c
@@ -2152,7 +2152,7 @@ address	mode	size	name	confidence	state	file
 080DC618	thumb	140			c	src/dict_d.c
 080DC6A4	thumb	36			c	src/dict_d.c
 080DC6C8	thumb	6			c	src/dict_d.c
-080DC6D0	thumb	1332			asm	asm/code_080DC6D0.s
+080DC6D0	thumb	1332	Dict_DrawDemonPage	probable	nonmatching	src/dict_page_a.c
 080DCC04	thumb	116			c	src/dict_e.c
 080DCC78	thumb	252			c	src/dict_e.c
 080DCD74	thumb	68			c	src/dict_e.c
@@ -2170,8 +2170,8 @@ address	mode	size	name	confidence	state	file
 080DD278	thumb	76			nonmatching	src/cards_a.c
 080DD2C4	thumb	36			c	src/cards_a.c
 080DD2E8	thumb	36			c	src/cards_a.c
-080DD30C	thumb	1216			asm	asm/code_080DD30C.s
-080DD7CC	thumb	1632			asm	asm/code_080DD30C.s
+080DD30C	thumb	1216	MusicRoom_HandleInput	probable	c	src/musicroom_a.c
+080DD7CC	thumb	1632	MusicRoom_Draw	probable	c	src/musicroom_a.c
 080DDE2C	thumb	154	Cards_Deal	probable	nonmatching	src/mini_a.c
 080DDEC8	thumb	8			c	src/mini_a.c
 080DDED0	thumb	12			c	src/mini_a.c
@@ -2182,34 +2182,34 @@ address	mode	size	name	confidence	state	file
 080DE208	thumb	20			c	src/mini_b.c
 080DE21C	thumb	60			c	src/mini_b.c
 080DE258	thumb	102			nonmatching	src/mini_b.c
-080DE2C0	thumb	960			asm	asm/code_080DE2C0.s
+080DE2C0	thumb	960	Mini_StepTimeline1	probable	c	src/mini_script_a.c
 080DE680	thumb	268	Mini_ZoomBg2Affine	probable	c	src/mini_c.c
 080DE78C	thumb	208			c	src/mini_c.c
 080DE85C	thumb	304			c	src/mini_c.c
 080DE98C	thumb	28			c	src/mini_c.c
-080DE9A8	thumb	244			asm	asm/code_080DE9A8.s
+080DE9A8	thumb	244	Mini_LoadGraphicsStep	probable	c	src/mini_load_a.c
 080DEA9C	thumb	20			c	src/mini_d.c
 080DEAB0	thumb	52			c	src/mini_d.c
 080DEAE4	thumb	102			nonmatching	src/mini_d.c
-080DEB4C	thumb	416			asm	asm/code_080DEB4C.s
+080DEB4C	thumb	416	Mini_StepTimeline2	probable	c	src/mini_script_b.c
 080DECEC	thumb	236	Mini_UpdateBg2Affine	probable	c	src/link_a.c
 080DEDD8	thumb	72	Mini_UploadBg2Affine	probable	nonmatching	src/link_a.c
 080DEE20	thumb	200	Link_InitSerial	probable	c	src/link_a.c
 080DEEE8	thumb	24			c	src/link_a.c
 080DEF00	thumb	80			c	src/link_a.c
-080DEF50	thumb	268			asm	asm/code_080DEF50.s
-080DF05C	thumb	80			asm	asm/code_080DEF50.s
-080DF0AC	thumb	176			asm	asm/code_080DEF50.s
-080DF15C	thumb	144			asm	asm/code_080DEF50.s
-080DF1EC	thumb	252	SerialTimer3Intr	proven	named	asm/code_080DEF50.s
+080DEF50	thumb	268	MultiSio_Main	probable	c	src/link_multisio_a.c
+080DF05C	thumb	80	MultiSio_SetSendData	probable	c	src/link_multisio_a.c
+080DF0AC	thumb	176	MultiSio_CheckRecvData	probable	c	src/link_multisio_a.c
+080DF15C	thumb	144	MultiSio_StartTransfer	probable	c	src/link_multisio_a.c
+080DF1EC	thumb	252	SerialTimer3Intr	proven	c	src/link_multisio_a.c
 080DF2E8	thumb	52			nonmatching	src/link_b.c
 080DF31C	thumb	20			c	src/link_b.c
 080DF330	thumb	48			c	src/link_b.c
 080DF360	thumb	16			c	src/link_b.c
 080DF370	thumb	24			c	src/link_b.c
-080DF388	thumb	272			asm	asm/code_080DF388.s
+080DF388	thumb	272	Link_ExchangeIds	probable	nonmatching	src/link_handshake_a.c
 080DF498	thumb	32			c	src/link_c.c
-080DF4B8	thumb	534			asm	asm/code_080DF4B8.s
+080DF4B8	thumb	534	Link_Handshake	probable	c	src/link_sync_a.c
 080DF6D0	thumb	42	Link_Checksum	probable	c	src/linkxfer_a.c
 080DF6FC	thumb	98			nonmatching	src/linkxfer_a.c
 080DF760	thumb	86			c	src/linkxfer_a.c
@@ -2340,8 +2340,8 @@ address	mode	size	name	confidence	state	file
 080E2EE8	thumb	18	ply_mod	proven	named	asm/code_080E2740.s
 080E2EFC	thumb	100	MidiKeyToFreq	probable	c	src/m4a.c
 080E2F60	thumb	2	UnusedDummyFunc	probable	c	src/m4a.c
-080E2F64	thumb	28	MPlayContinue	probable	nonmatching	src/m4a.c
-080E2F80	thumb	32	MPlayFadeOut	probable	nonmatching	src/m4a.c
+080E2F64	thumb	28	MPlayContinue	probable	c	src/m4a.c
+080E2F80	thumb	32	MPlayFadeOut	probable	c	src/m4a.c
 080E2FA0	thumb	120	m4aSoundInit	probable	c	src/m4a.c
 080E3018	thumb	10	m4aSoundMain	probable	c	src/m4a.c
 080E3024	thumb	44	m4aSongNumStart	probable	c	src/m4a.c
@@ -2353,55 +2353,55 @@ address	mode	size	name	confidence	state	file
 080E3184	thumb	10	m4aMPlayContinue	probable	c	src/m4a.c
 080E3190	thumb	44	m4aMPlayAllContinue	probable	c	src/m4a.c
 080E31BC	thumb	14	m4aMPlayFadeOut	probable	c	src/m4a.c
-080E31CC	thumb	32	m4aMPlayFadeOutTemporarily	probable	nonmatching	src/m4a.c
-080E31EC	thumb	40	m4aMPlayFadeIn	probable	nonmatching	src/m4a.c
+080E31CC	thumb	32	m4aMPlayFadeOutTemporarily	probable	c	src/m4a.c
+080E31EC	thumb	40	m4aMPlayFadeIn	probable	c	src/m4a.c
 080E3214	thumb	72	m4aMPlayImmInit	probable	c	src/m4a.c
-080E325C	thumb	280	MPlayExtender	probable	named	asm/code_080E325C.s
-080E3374	thumb	4	MusicPlayerJumpTableCopy	probable	named	asm/code_080E325C.s
-080E3378	thumb	20	ClearChain	probable	named	asm/code_080E325C.s
-080E338C	thumb	20	Clear64byte	probable	named	asm/code_080E325C.s
-080E33A0	thumb	204	SoundInit	probable	named	asm/code_080E325C.s
-080E346C	thumb	164	SampleFreqSet	proven	named	asm/code_080E325C.s
-080E3510	thumb	152	m4aSoundMode	probable	named	asm/code_080E325C.s
-080E35A8	thumb	84	SoundClear	probable	named	asm/code_080E325C.s
-080E35FC	thumb	100	m4aSoundVSyncOff	probable	named	asm/code_080E325C.s
-080E3660	thumb	56	m4aSoundVSyncOn	probable	named	asm/code_080E325C.s
-080E3698	thumb	120	MPlayOpen	probable	named	asm/code_080E325C.s
-080E3710	thumb	228	MPlayStart	probable	named	asm/code_080E325C.s
-080E37F4	thumb	64	m4aMPlayStop	probable	named	asm/code_080E325C.s
-080E3834	thumb	200	FadeOutBody	proven	named	asm/code_080E325C.s
-080E38FC	thumb	180	TrkVolPitSet	proven	named	asm/code_080E325C.s
-080E39B0	thumb	168	MidiKeyToCgbFreq	probable	named	asm/code_080E325C.s
-080E3A58	thumb	80	CgbOscOff	probable	named	asm/code_080E325C.s
-080E3AA8	thumb	104	CgbModVol	probable	named	asm/code_080E325C.s
-080E3B10	thumb	1098	CgbSound	probable	named	asm/code_080E325C.s
-080E3F5C	thumb	40	m4aMPlayTempoControl	probable	named	asm/code_080E325C.s
-080E3F84	thumb	104	m4aMPlayVolumeControl	probable	named	asm/code_080E325C.s
-080E3FEC	thumb	116	m4aMPlayPitchControl	probable	named	asm/code_080E325C.s
-080E4060	thumb	104	m4aMPlayPanpotControl	probable	named	asm/code_080E325C.s
-080E40C8	thumb	30	ClearModM	probable	named	asm/code_080E325C.s
-080E40E8	thumb	116	m4aMPlayModDepthSet	probable	named	asm/code_080E325C.s
-080E415C	thumb	116	m4aMPlayLFOSpeedSet	probable	named	asm/code_080E325C.s
-080E41D0	thumb	344	ply_memacc	proven	named	asm/code_080E325C.s
-080E4328	thumb	32	ply_xcmd	proven	named	asm/code_080E325C.s
-080E4348	thumb	20	ply_xxx	proven	named	asm/code_080E325C.s
-080E435C	thumb	72	ply_xwave	proven	named	asm/code_080E325C.s
-080E43A4	thumb	18	ply_xtype	proven	named	asm/code_080E325C.s
-080E43B8	thumb	18	ply_xatta	proven	named	asm/code_080E325C.s
-080E43CC	thumb	18	ply_xdeca	proven	named	asm/code_080E325C.s
-080E43E0	thumb	18	ply_xsust	proven	named	asm/code_080E325C.s
-080E43F4	thumb	18	ply_xrele	proven	named	asm/code_080E325C.s
-080E4408	thumb	12	ply_xiecv	proven	named	asm/code_080E325C.s
-080E4414	thumb	12	ply_xiecl	proven	named	asm/code_080E325C.s
-080E4420	thumb	18	ply_xleng	proven	named	asm/code_080E325C.s
-080E4434	thumb	18	ply_xswee	proven	named	asm/code_080E325C.s
-080E4448	thumb	2	DummyFunc	probable	named	asm/code_080E325C.s
-080E444C	thumb	88	Demon_GetGfxRecord	probable	named	asm/code_080E325C.s
-080E44A4	thumb	84			asm	asm/code_080E325C.s
-080E44F8	thumb	40			asm	asm/code_080E325C.s
-080E4520	thumb	50			asm	asm/code_080E325C.s
-080E4554	thumb	456			asm	asm/code_080E325C.s
-080E471C	thumb	140			asm	asm/code_080E325C.s
+080E325C	thumb	280	MPlayExtender	probable	c	src/m4a_b.c
+080E3374	thumb	4	MusicPlayerJumpTableCopy	probable	c	src/m4a_b.c
+080E3378	thumb	20	ClearChain	probable	c	src/m4a_b.c
+080E338C	thumb	20	Clear64byte	probable	c	src/m4a_b.c
+080E33A0	thumb	204	SoundInit	probable	c	src/m4a_b.c
+080E346C	thumb	164	SampleFreqSet	proven	c	src/m4a_b.c
+080E3510	thumb	152	m4aSoundMode	probable	c	src/m4a_b.c
+080E35A8	thumb	84	SoundClear	probable	c	src/m4a_b.c
+080E35FC	thumb	100	m4aSoundVSyncOff	probable	c	src/m4a_b.c
+080E3660	thumb	56	m4aSoundVSyncOn	probable	c	src/m4a_b.c
+080E3698	thumb	120	MPlayOpen	probable	c	src/m4a_b.c
+080E3710	thumb	228	MPlayStart	probable	c	src/m4a_b.c
+080E37F4	thumb	64	m4aMPlayStop	probable	c	src/m4a_b.c
+080E3834	thumb	200	FadeOutBody	proven	c	src/m4a_b.c
+080E38FC	thumb	180	TrkVolPitSet	proven	c	src/m4a_b.c
+080E39B0	thumb	168	MidiKeyToCgbFreq	probable	c	src/m4a_b.c
+080E3A58	thumb	80	CgbOscOff	probable	c	src/m4a_b.c
+080E3AA8	thumb	104	CgbModVol	probable	c	src/m4a_b.c
+080E3B10	thumb	1098	CgbSound	probable	c	src/m4a_b.c
+080E3F5C	thumb	40	m4aMPlayTempoControl	probable	c	src/m4a_b.c
+080E3F84	thumb	104	m4aMPlayVolumeControl	probable	c	src/m4a_b.c
+080E3FEC	thumb	116	m4aMPlayPitchControl	probable	c	src/m4a_b.c
+080E4060	thumb	104	m4aMPlayPanpotControl	probable	c	src/m4a_b.c
+080E40C8	thumb	30	ClearModM	probable	c	src/m4a_b.c
+080E40E8	thumb	116	m4aMPlayModDepthSet	probable	c	src/m4a_b.c
+080E415C	thumb	116	m4aMPlayLFOSpeedSet	probable	c	src/m4a_b.c
+080E41D0	thumb	344	ply_memacc	proven	c	src/m4a_b.c
+080E4328	thumb	32	ply_xcmd	proven	c	src/m4a_b.c
+080E4348	thumb	20	ply_xxx	proven	c	src/m4a_b.c
+080E435C	thumb	72	ply_xwave	proven	c	src/m4a_b.c
+080E43A4	thumb	18	ply_xtype	proven	c	src/m4a_b.c
+080E43B8	thumb	18	ply_xatta	proven	c	src/m4a_b.c
+080E43CC	thumb	18	ply_xdeca	proven	c	src/m4a_b.c
+080E43E0	thumb	18	ply_xsust	proven	c	src/m4a_b.c
+080E43F4	thumb	18	ply_xrele	proven	c	src/m4a_b.c
+080E4408	thumb	12	ply_xiecv	proven	c	src/m4a_b.c
+080E4414	thumb	12	ply_xiecl	proven	c	src/m4a_b.c
+080E4420	thumb	18	ply_xleng	proven	c	src/m4a_b.c
+080E4434	thumb	18	ply_xswee	proven	c	src/m4a_b.c
+080E4448	thumb	2	DummyFunc	probable	c	src/m4a_b.c
+080E444C	thumb	88	Demon_GetGfxRecord	probable	c	src/battleinit_a.c
+080E44A4	thumb	84	Battle_ResetGlobals	probable	c	src/battleinit_a.c
+080E44F8	thumb	40	Battle_ClearSpriteTasks	probable	c	src/battleinit_a.c
+080E4520	thumb	50	Battle_ResetCombatantStates	probable	c	src/battleinit_a.c
+080E4554	thumb	456	Battle_StartRandomEncounter	probable	c	src/battleinit_a.c
+080E471C	thumb	140	Battle_StartWithGroups	probable	c	src/battleinit_a.c
 080E47A8	thumb	664	Battle_Start	probable	c	src/battlestart_a.c
 080E4A40	thumb	144	Battle_LoadGroupPalette	probable	c	src/battlestart_a.c
 080E4AD0	thumb	1772	Battle_IntroTask	probable	c	src/battlestart_a.c
@@ -2517,7 +2517,7 @@ address	mode	size	name	confidence	state	file
 080E9798	thumb	114			c	src/battleturn_a.c
 080E980C	thumb	100			c	src/battleturn_a.c
 080E9870	thumb	136			c	src/battleturn_a.c
-080E98F8	thumb	2176			asm	asm/code_080E98F8.s
+080E98F8	thumb	2176	Battle_VictoryStep	probable	nonmatching	src/battlewin_a.c
 080EA178	thumb	152			c	src/battlemsgwin_a.c
 080EA210	thumb	112			c	src/battlemsgwin_a.c
 080EA280	thumb	44			c	src/battlemsgwin_a.c
@@ -2677,12 +2677,12 @@ address	mode	size	name	confidence	state	file
 080EDF0C	thumb	282			c	src/battle_080EDB6C.c
 080EE028	thumb	228			nonmatching	src/battle_080EDB6C.c
 080EE10C	thumb	476	Battle_BuildTargetList	probable	c	src/battle_080EDB6C.c
-080EE2E8	thumb	980			asm	asm/code_080EE2E8.s
+080EE2E8	thumb	980	Battle_BuildActionTargets	probable	nonmatching	src/battle_080EE2E8.c
 080EE6BC	thumb	340	Battle_FinishDamage	probable	nonmatching	src/battle_080EE6BC.c
 080EE810	thumb	82			c	src/battle_080EE6BC.c
 080EE864	thumb	404	Battle_PhysicalDamage	probable	c	src/battle_080EE6BC.c
 080EE9F8	thumb	412	Battle_SkillDamage	probable	nonmatching	src/battle_080EE6BC.c
-080EEB94	thumb	462			asm	asm/code_080EEB94.s
+080EEB94	thumb	462	Battle_RollAilment	probable	c	src/battle_080EEB94.c
 080EED64	thumb	36			c	src/battle_080EED64.c
 080EED88	thumb	352			c	src/battle_080EED64.c
 080EEEE8	thumb	174	Battle_ApplyAffinity	probable	c	src/battle_080EED64.c
@@ -2767,25 +2767,25 @@ address	mode	size	name	confidence	state	file
 080F0344	thumb	72			nonmatching	src/battle_080F0200.c
 080F038C	thumb	74			c	src/battle_080F0200.c
 080F03D8	thumb	92			c	src/battle_080F0200.c
-080F0434	thumb	1858			asm	asm/code_080F0434.s
+080F0434	thumb	1858	Battle_CombatantTurnStep	probable	nonmatching	src/battle_080F0434.c
 080F0B78	thumb	70			nonmatching	src/battle_080F0B78.c
 080F0BC0	thumb	24			c	src/battle_080F0B78.c
 080F0BD8	thumb	20			c	src/battle_080F0B78.c
 080F0BEC	thumb	44			c	src/battle_080F0B78.c
 080F0C18	thumb	228			nonmatching	src/battle_080F0B78.c
-080F0CFC	thumb	620			asm	asm/code_080F0CFC.s
-080F0F68	thumb	228			asm	asm/code_080F0CFC.s
+080F0CFC	thumb	620	Battle_PayActionCost	probable	nonmatching	src/battle_080F0CFC.c
+080F0F68	thumb	228	Battle_GetActionAnim	probable	c	src/battle_080F0CFC.c
 080F104C	thumb	64			nonmatching	src/battle_080F104C.c
-080F108C	thumb	1264			asm	asm/code_080F108C.s
-080F157C	thumb	252			asm	asm/code_080F108C.s
-080F1678	thumb	272			asm	asm/code_080F108C.s
+080F108C	thumb	1264	Battle_AnnounceAction	probable	nonmatching	src/battle_080F108C.c
+080F157C	thumb	252	Battle_GetAnimKind	probable	c	src/battle_080F108C.c
+080F1678	thumb	272	Battle_SummonQueuedDemon	probable	nonmatching	src/battle_080F108C.c
 080F1788	thumb	54			c	src/battle_080F1788.c
-080F17C0	thumb	2336			asm	asm/code_080F17C0.s
-080F20E0	thumb	468			asm	asm/code_080F17C0.s
-080F22B4	thumb	572			asm	asm/code_080F17C0.s
+080F17C0	thumb	2336	Battle_ResolveActionStep	probable	nonmatching	src/battle_080F17C0.c
+080F20E0	thumb	468	Battle_ReflectAction	probable	c	src/battle_080F17C0.c
+080F22B4	thumb	572	Battle_ApplyDamage	probable	nonmatching	src/battle_080F17C0.c
 080F24F0	thumb	36	Combatant_AddHp	probable	c	src/battle_080F24F0.c
-080F2514	thumb	696			asm	asm/code_080F2514.s
-080F27CC	thumb	764			asm	asm/code_080F2514.s
+080F2514	thumb	696	Battle_CastSupportSkill	probable	nonmatching	src/battle_080F2514.c
+080F27CC	thumb	764	Battle_UseItem	probable	c	src/battle_080F2514.c
 080F2AC8	thumb	468			c	src/battle_080F2AC8.c
 080F2C9C	thumb	174			nonmatching	src/battle_080F2AC8.c
 080F2D4C	thumb	352			nonmatching	src/battle_080F2AC8.c
@@ -2978,13 +2978,13 @@ address	mode	size	name	confidence	state	file
 080F6278	thumb	28			c	src/battle_080F60A4.c
 080F6294	thumb	226			c	src/battle_080F60A4.c
 080F6378	thumb	14			c	src/battle_080F60A4.c
-080F6388	thumb	6			asm	asm/code_080F6388.s
-080F6390	thumb	18			asm	asm/code_080F6388.s
-080F63A4	thumb	36			asm	asm/code_080F6388.s
-080F63C8	thumb	20			asm	asm/code_080F6388.s
-080F63DC	thumb	108			asm	asm/code_080F6388.s
-080F6448	thumb	36			asm	asm/code_080F6388.s
-080F646C	thumb	6			asm	asm/code_080F6388.s
+080F6388	thumb	6			c	src/battle_080F6388.c
+080F6390	thumb	18			c	src/battle_080F6388.c
+080F63A4	thumb	36			c	src/battle_080F6388.c
+080F63C8	thumb	20			c	src/battle_080F6388.c
+080F63DC	thumb	108	Automap_RevealAroundPlayer	probable	c	src/battle_080F6388.c
+080F6448	thumb	36			c	src/battle_080F6388.c
+080F646C	thumb	6			c	src/battle_080F6388.c
 081267F4	thumb	10			c	src/menucur_081267F4.c
 08126800	thumb	28			c	src/menucur_081267F4.c
 0812681C	thumb	12			c	src/menucur_081267F4.c
@@ -3299,8 +3299,8 @@ address	mode	size	name	confidence	state	file
 0812F188	thumb	16			c	src/msgwin_a.c
 0812F198	thumb	76	MsgWindow_SaveGlyphs	probable	c	src/msgwin_a.c
 0812F1E4	thumb	208	MsgWindow_RestoreGlyphs	probable	c	src/msgwin_a.c
-0812F2B4	thumb	664			asm	asm/code_0812F2B4.s
-0812F54C	thumb	3082			asm	asm/code_0812F2B4.s
+0812F2B4	thumb	664	MsgWindow_DrawItemList	probable	nonmatching	src/msgwin_list.c
+0812F54C	thumb	3082	MsgWindow_ItemListInput	probable	nonmatching	src/msgwin_list.c
 08130158	thumb	44			c	src/msgwin_b.c
 08130184	thumb	84			c	src/msgwin_b.c
 081301D8	thumb	296			c	src/msgwin_b.c
@@ -3312,19 +3312,19 @@ address	mode	size	name	confidence	state	file
 08130550	thumb	40			c	src/msgwin_b.c
 08130578	thumb	96	MsgWindow_DrawItemCount	probable	c	src/msgwin_b.c
 081305D8	thumb	188			c	src/msgwin_b.c
-08130694	thumb	1444			asm	asm/code_08130694.s
+08130694	thumb	1444	Shop_ListInput	probable	nonmatching	src/msgwin_shoplist.c
 08130C38	thumb	20			c	src/msgwin_c.c
 08130C4C	thumb	32			c	src/msgwin_c.c
 08130C6C	thumb	184			nonmatching	src/msgwin_c.c
-08130D24	thumb	1600			asm	asm/code_08130D24.s
+08130D24	thumb	1600	MsgWindow_DescListInput	probable	nonmatching	src/msgwin_pagedlist.c
 08131364	thumb	132			c	src/msgwin_d.c
 081313E8	thumb	24			c	src/msgwin_d.c
-08131400	thumb	660			asm	asm/code_08131400.s
+08131400	thumb	660	CasinoPrize_ExchangeInput	probable	nonmatching	src/msgwin_prize.c
 08131694	thumb	104			c	src/msgwin_e.c
-081316FC	thumb	904			asm	asm/code_081316FC.s
+081316FC	thumb	904	Shop_UpdateQuantityArrows	probable	nonmatching	src/msgwin_qty.c
 08131A84	thumb	44			c	src/msgwin_f.c
 08131AB0	thumb	108	Party_CountEquipped	probable	c	src/msgwin_f.c
-08131B1C	thumb	1668			asm	asm/code_08131B1C.s
+08131B1C	thumb	1668	Shop_QuantityInput	probable	nonmatching	src/msgwin_qtyinput.c
 081321A0	thumb	20			c	src/msgwin_g.c
 081321B4	thumb	2	ScriptOp_Nop	probable	c	src/script_ops_300.c
 081321B8	thumb	12	ScriptOpAlt_Shared_081321B8	probable	c	src/script_ops_300.c
@@ -3690,7 +3690,7 @@ address	mode	size	name	confidence	state	file
 0813B350	thumb	174	Combatant_InflictStatus	probable	nonmatching	src/negotiateops_a.c
 0813B400	thumb	56			c	src/negotiateops_a.c
 0813B438	thumb	234			c	src/negotiateops_a.c
-0813B524	thumb	1800	ScriptOp_445	probable	named	asm/code_0813B524.s
+0813B524	thumb	1800	ScriptOp_445	probable	nonmatching	src/negotiateops_445.c
 0813BC2C	thumb	16	ScriptOpAlt_445	probable	c	src/negotiateops_b.c
 0813BC3C	thumb	268	ScriptOp_446	probable	nonmatching	src/negotiateops_b.c
 0813BD48	thumb	16	ScriptOpAlt_446	probable	c	src/negotiateops_b.c
@@ -3706,7 +3706,7 @@ address	mode	size	name	confidence	state	file
 0813BECC	thumb	140			c	src/negotiateops_b.c
 0813BF58	thumb	30			c	src/negotiateops_b.c
 0813BF78	thumb	30			c	src/negotiateops_b.c
-0813BF98	thumb	1360	ScriptOp_447	probable	named	asm/code_0813BF98.s
+0813BF98	thumb	1360	ScriptOp_447	probable	nonmatching	src/negotiateops_447.c
 0813C4E8	thumb	16	ScriptOpAlt_447	probable	c	src/negotiateops_c.c
 0813C4F8	thumb	2			c	src/negotiateops_c.c
 0813C4FC	thumb	88			c	src/negotiateops_c.c
@@ -3753,7 +3753,7 @@ address	mode	size	name	confidence	state	file
 0813D04C	thumb	56			c	src/negotiateops_c.c
 0813D084	thumb	56			c	src/negotiateops_c.c
 0813D0BC	thumb	56			c	src/negotiateops_c.c
-0813D0F4	thumb	36			asm	asm/code_0813D0F4.s
+0813D0F4	thumb	36	ScriptWait_Fade	probable	c	src/vm_wait_fade.c
 0813D118	thumb	52			c	src/vm_wait.c
 0813D14C	thumb	12			c	src/vm_wait.c
 0813D158	thumb	12			c	src/vm_wait.c
@@ -3947,7 +3947,7 @@ address	mode	size	name	confidence	state	file
 08145C98	thumb	48	JokerStars_CheckAllStars	probable	c	src/casino_joker_c.c
 08145CC8	thumb	380	JokerStars_CheckLine	probable	c	src/casino_joker_c.c
 08145E44	thumb	256	Baccarat_Init	probable	c	src/casino_baccarat_a.c
-08145F44	thumb	4024			asm	asm/code_08145F44.s
+08145F44	thumb	4024	Baccarat_Update	probable	nonmatching	src/casino_baccarat_main.c
 08146EFC	thumb	72			c	src/casino_baccarat_b.c
 08146F44	thumb	132			c	src/casino_baccarat_b.c
 08146FC8	thumb	352	Baccarat_DrawNumber8	probable	c	src/casino_baccarat_b.c
@@ -4119,8 +4119,8 @@ address	mode	size	name	confidence	state	file
 0814E568	thumb	388			nonmatching	src/casino_roulette_a.c
 0814E6EC	thumb	170			c	src/casino_roulette_a.c
 0814E798	thumb	172	RussianRoulette_MakeOpponentDemons	probable	c	src/casino_roulette_a.c
-0814E844	thumb	108			asm	asm/code_0814E844.s
-0814E8B0	thumb	56			asm	asm/code_0814E844.s
+0814E844	thumb	108	RussianRoulette_CanBetDemon	probable	c	src/casino_roulette_b.c
+0814E8B0	thumb	56	RussianRoulette_CountBettableDemons	probable	c	src/casino_roulette_b.c
 08151EB4	thumb	56	FieldMap_GetArea	probable	c	src/c151_08151EB4.c
 08151EEC	thumb	236			c	src/c151_08151EB4.c
 08151FD8	thumb	68			c	src/c151_08151EB4.c
@@ -4315,8 +4315,8 @@ address	mode	size	name	confidence	state	file
 081583A0	thumb	84			c	src/fusionroom_b.c
 081583F4	thumb	296			nonmatching	src/objaffine_a.c
 0815851C	thumb	272			nonmatching	src/objaffine_a.c
-0815862C	thumb	502			asm	asm/code_0815862C.s
-08158824	thumb	332			asm	asm/code_0815862C.s
+0815862C	thumb	502	ObjList_ScalePositions	probable	nonmatching	src/objaffine_b.c
+08158824	thumb	332	ObjList_RotatePositions	probable	c	src/objaffine_b.c
 08158970	thumb	196	Fusion_CalcTwo	probable	c	src/fusioncalc_a.c
 08158A34	thumb	10			c	src/fusioncalc_a.c
 08158A40	thumb	346	Fusion_CalcPair	probable	c	src/fusioncalc_a.c

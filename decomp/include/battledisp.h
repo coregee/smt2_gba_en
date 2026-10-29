@@ -418,7 +418,7 @@ struct DemonGfxRecord
     const void *gfx[2][2];      /* 0x0C */
 };
 
-void sub_080E44F8(void);
+void Battle_ClearSpriteTasks(void);
 void BattleState_Init(void);
 void sub_080ED938(u32 v);
 void sub_080ED90C(u16 v);
@@ -718,7 +718,7 @@ void sub_080F2D4C(void);
 void Battle_BuildActionOrder(void);
 s16 Battle_GetLastOrderIndex(void);
 s32 sub_080EFFC4(s16 i);
-u32 sub_080F0434(s32 who);
+u32 Battle_CombatantTurnStep(s32 who);
 void Party_FixFormation(void);
 void Party_BuildMemberNameTiles(void);
 void Hud_LoadAllMemberFaces(void);

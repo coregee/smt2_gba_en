@@ -327,7 +327,7 @@ void sub_080CB01C(u32 a, u16 b);
 void Battle_SortEntriesInsertion(u16 lo, u16 hi, void *a);
 s32 sub_080F3E54(s32 id, s32 n);
 void Item_GetAttribute(s32 id, s32 field, s32 *out);
-u16 sub_080F1678(u32 a, u32 b);
+u16 Battle_SummonQueuedDemon(u32 a, u32 b);
 bool8 Inventory_GetCount(u16 item);
 u16 sub_080F3040(s32 who);
 s32 sub_080C35E4(s32 who);
@@ -341,7 +341,7 @@ void sub_080B0888(void);
 void *PalFade_FadeRangeToBlackWithDuration(u16 start, u16 count, u16 delay, u16 duration);
 void Inventory_RemoveItem(u16 id);
 void Flag_Set(u32 flag);
-void sub_080E471C(u16 a, u32 b, u32 c, u32 d);
+void Battle_StartWithGroups(u16 a, u32 b, u32 c, u32 d);
 void Text_DrawSpriteString(const u16 *str, u16 a1, u16 a2, u16 x, u16 y, u16 advance);
 
 extern u8 gUnk_03000030;
@@ -372,7 +372,7 @@ extern const u16 *const gUnknown_08777FE0[];
 extern const u32 gUnknown_08778000[];
 extern const u32 gUnknown_0877812C[];
 extern const u32 gUnknown_08778160[];
-extern u16 gShopItemIds;
+extern u16 gShopItemIds[];
 extern u16 gUnk_030065C0[];
 extern u32 gYesNoResult;
 extern const u16 gUnknown_08124BF4[];
@@ -743,7 +743,7 @@ extern const struct C12BCureEntry gUnknown_0877A52C[];
 s32 Battle_FindPartyPosition(s32 who);     /* declared as the callers here use it */
 void sub_080ECE08(u8 state);
 void sub_080ECE38(s16 id, u32 x, u8 kind);
-u8 sub_080F0F68(u16 a, u16 b);
+u8 Battle_GetActionAnim(u16 a, u16 b);
 u16 sub_080F104C(u16 a, u16 b);
 void sub_080F40C4(s16 v);
 void sub_080F3E38(s32 v);
@@ -826,7 +826,7 @@ u32 Combatant_GetEquip(s32 who, s32 slot);
 
 /* this region */
 u16 Party_CountEquipped(u16 who, u16 item);
-void sub_081316FC(void);
+void Shop_UpdateQuantityArrows(void);
 u16 sub_08130364();
 struct Task *sub_0812EE8C(u32 mode, struct Task *parent);
 struct Task *sub_0812EF8C(struct Task *parent);

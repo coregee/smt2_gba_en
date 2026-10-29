@@ -234,13 +234,13 @@ void DigitFont_DrawNumber(s32 value, u16 x, u16 y, u16 tint);
 u32 sub_080C99B8(struct Combatant *c);
 extern const u8 gUnknown_084EFAD4[], gUnknown_084EFAD8[];
 
-void sub_080CB0B8(u32 a, struct Task *t);
+void Status_DrawVitals(u32 a, struct Task *t);
 void sub_080CB71C(u32 a, struct Task *t);
 void sub_080CB7A0(u32 a, struct Task *t);
 void sub_080CB8C8(u32 a, struct Task *t);
 void sub_080CB928(u32 a, struct Task *t);
 void Status_DrawDropItem(u32 a, struct Task *t);
-void sub_080CBC8C(u32 a, struct Task *t);
+void Status_DrawDerivedStats(u32 a, struct Task *t);
 void sub_080CC630(u32 a, struct Task *t);
 void sub_080CC694(u32 a, struct Task *t);
 void sub_080CC844(u32 a, struct Task *t);

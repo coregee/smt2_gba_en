@@ -249,7 +249,7 @@ void VBlankTasks_Init(void)
 void VBlankHandler(void)
 {
     m4aSoundVSync();
-    sub_080DF15C();
+    MultiSio_StartTransfer();
     if (gInMainLoop == 0)
     {
         DmaCopy32(3, &gDispRegs, &REG_BG0HOFS, 0x44);

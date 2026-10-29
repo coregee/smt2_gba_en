@@ -1,0 +1,14 @@
+080DBA1C	Dict_HandleListInput	func	compendium list input: top buttons (task data +0x24) or list row/scroll (+0x30/+0x32) over gStatusList with Dict_CountListed; A on a registered demon (sub_080C2644) result 3, B result 2; updates gDict selected/unk3C/unk44/unk46 and redraws via sub_080DB464
+080DC6D0	Dict_DrawDemonPage	func	draws the selected demon page into canvas 0x0200F874: page 0 race names, name (8 glyphs x 12 px from record +0x22), race group text, skills (record +0x11, 7, 0xFF = dashes); page 1 level/HP/MP/stats and Combatant_InitDemon values; then palette and VBlank upload sub_080DC6A4
+080DD30C	MusicRoom_HandleInput	func	music player task: 7 buttons (prev/stop/play/next/continuous/shuffle/exit) with Music_Play/m4aSongNumStop of gUnknown_085861C8[track].song, L/R tracks, SELECT view, play-time counter and Music_FadeOut 2 s before the track length
+080DD7CC	MusicRoom_Draw	func	draws track number, title (Text_DrawSpriteStringTinted at 0x15,0x3A), shuffle/continuous markers, the time (elapsed/remaining/rolling digit by view) and the button sprites gUnknown_0858614C
+080DE2C0	Mini_StepTimeline1	func	timeline of the first BG2 mini program: step +0x34 of gC0d9Bg every 8 frames reloads gUnk_03000031/35 and BG0 offsets from gUnknown_085864B0, per-step effects, 0x6F fades out and sets exit
+080DE9A8	Mini_LoadGraphicsStep	func	LZ77UnCompWram of one graphics block per call (step +0x36) to 0x02001000.. and DMA to VRAM; at step 4 starts PalFade_FadeInFromBlack; returns 1 when done
+080DEB4C	Mini_StepTimeline2	func	as Mini_StepTimeline1 with gUnknown_08586670 and steps up to 0x8A
+080DEF50	MultiSio_Main	func	AGB SDK multi-play SIO sample MultiSioMain: master/slave decision, waits 8 frames, MultiSio_CheckRecvData; returns the status word (receive bits, connected bits << 8, 0x80 master, 0x1000 error, 0x2000 id >= 2, 0x8000 synced)
+080DF05C	MultiSio_SetSendData	func	MultiSioSendDataSet: builds the next 0x18-byte packet (frame counter, error flags, 16 data bytes, checksum ~sum-12)
+080DF0AC	MultiSio_CheckRecvData	func	MultiSioRecvDataCheck: runs the IWRAM copy of arm_08032B7C, copies packets with a valid checksum (sum == -13) to recvp + 16*player
+080DF15C	MultiSio_StartTransfer	func	master: once started, swaps buffers and starts the transfer (SIOMLT_SEND 0xFEFE, SIOCNT start, TM3CNT_H 0xC0); slave: re-arms the serial interrupt check
+08032B7C	MultiSio_RecvBufChange	func	ARM, copied to 0x030062B0 by Link_InitSerial: with IME off swaps the current/last receive buffer pointers (0x030061C0+0x24/+0x28) and returns and clears the receive-done flag (+5)
+080DF388	Link_ExchangeIds	func	sends packet 0xC100 with an 8-byte id once SIO status bit 8 is set, then compares both players' ids (sub_080DF6FC(0xC100)); returns 1 when equal
+080DF4B8	Link_Handshake	func	sends 0xF100, 0xF200, 0xF300 in turn until both players echo each (state 0x030062F4 1-5), restarts after 60 frames (max 20) and fails after 600 error frames (0xFF); returns 1 when done

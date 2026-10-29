@@ -216,7 +216,7 @@ s32 sub_080AF0AC(const void *script)
             if (Combatant_IsUsed(i))
                 count++;
         }
-        if (count != 0 && sub_0814E8B0() && !Flag_Test(0xCA))
+        if (count != 0 && RussianRoulette_CountBettableDemons() && !Flag_Test(0xCA))
         {
             Flag_Set(0xCA);
             if ((Random_Byte() & 0xFF) < 8)
@@ -324,7 +324,7 @@ void sub_080AF300(void)
     sub_080C3818(1);
     Music_Play(sub_080AD608(gUnk_03004614, gUnk_03004514));
     sub_080AE234();
-    sub_080AE574(gFieldState.unk02, 0);
+    View_BuildCells(gFieldState.unk02, 0);
     if (Palette_IsBg13Black() == 1)
         sub_080AF2E8();
     else if (View_GetWall(0, 0, 0) == 1 && View_GetWall(1, 0, 0) == 1 && View_GetWall(3, 0, 0) == 1)
@@ -381,7 +381,7 @@ void sub_080AF300(void)
         "    ldr r0, .L080AF340\n"
         "    ldrh r0, [r0, #2]\n"
         "    movs r1, #0\n"
-        "    bl sub_080AE574\n"
+        "    bl View_BuildCells\n"
         "    bl Palette_IsBg13Black\n"
         "    cmp r0, #1\n"
         "    bne .L080AF344\n"

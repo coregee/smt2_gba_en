@@ -175,7 +175,7 @@ bool32 Palette_IsDirty(void);
 void Palette_ClearDirty(void);
 void PalFade_UpdateAll(void);
 void sub_080DF2E8(void);
-void sub_080DF15C(void);
+void MultiSio_StartTransfer(void);
 void sub_080C2998(void);
 void Options_Load(void);
 void sub_080D5B8C(u32 arg);

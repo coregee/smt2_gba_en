@@ -580,7 +580,7 @@ void Game_NewGame(void)
     gGameState.unk18B4 = 0;
     gGameState.unk18B5 = 0xFF;
     gGameState.unk18B6 = 0;
-    sub_080E4520();
+    Battle_ResetCombatantStates();
     sub_080C271C();
     sub_080C27F0();
     sub_080C2968();

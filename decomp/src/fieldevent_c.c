@@ -642,7 +642,7 @@ void sub_080B7384(void)
 void sub_080B73B8(struct Task *task, u32 arg)
 {
     gUnk_03003FF4 = 1;
-    if (sub_0813EB78() == 0 && sub_080AF8D0((u16)arg, (u16)arg, 0) != 0)
+    if (sub_0813EB78() == 0 && Field_CheckCellEvents((u16)arg, (u16)arg, 0) != 0)
         task->result = 1;
     else
         task->result = 0;

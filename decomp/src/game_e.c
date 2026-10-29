@@ -56,7 +56,7 @@ void sub_080B2CC0(void)
 {
     u32 mode = gFieldState.unk24;
 
-    sub_080AE574(gFieldState.unk02, 0);
+    View_BuildCells(gFieldState.unk02, 0);
     if (gFieldState.unk00 == 3)
         sub_080B2AB0();
     if (gFieldState.unk0E == 0)
@@ -104,7 +104,7 @@ void sub_080B2CC0(void)
         "    ldr r4, [r5, #0x24]\n"
         "    ldrh r0, [r5, #2]\n"
         "    movs r1, #0\n"
-        "    bl sub_080AE574\n"
+        "    bl View_BuildCells\n"
         "    ldrh r0, [r5]\n"
         "    cmp r0, #3\n"
         "    bne .L080B2CD8\n"

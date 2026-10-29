@@ -42,7 +42,7 @@ void sub_080E941C(struct Task *t)
         }
         break;
     case 2:
-        if (sub_080F0434((s16)sub_080EFFC4(b->unkECE)))
+        if (Battle_CombatantTurnStep((s16)sub_080EFFC4(b->unkECE)))
             b->substate = 3;
         break;
     case 3:
@@ -232,7 +232,7 @@ void sub_080E941C(struct Task *t)
         "    bl sub_080EFFC4\n"
         "    lsls r0, r0, #0x10\n"
         "    asrs r0, r0, #0x10\n"
-        "    bl sub_080F0434\n"
+        "    bl Battle_CombatantTurnStep\n"
         "    cmp r0, #0\n"
         "    bne .L080E94FE\n"
         "    b .L080E976C\n"

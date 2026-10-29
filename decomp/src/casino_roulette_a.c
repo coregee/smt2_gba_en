@@ -242,7 +242,7 @@ void sub_0814DB7C(void)
         if (id != 0xFFFF)
         {
             Name_Encode(Demon_GetRecord(id) + 0x22, name);
-            if (sub_0814E844(Stock_FindDemon(id)->slot) == 1)
+            if (RussianRoulette_CanBetDemon(Stock_FindDemon(id)->slot) == 1)
                 RussianRoulette_DrawText(name, x, y, 8, 0);
             else
                 RussianRoulette_DrawText(name, x, y, 8, 2);
@@ -262,7 +262,7 @@ void sub_0814DC20(struct C14aTask *task)
     task->result = 0;
     if (gKeysNew & 1)
     {
-        ok = sub_0814E844(Stock_FindDemon(s->mine[s->myPick])->slot);
+        ok = RussianRoulette_CanBetDemon(Stock_FindDemon(s->mine[s->myPick])->slot);
         if (ok == 1)
         {
             Sound_Play(0x65);

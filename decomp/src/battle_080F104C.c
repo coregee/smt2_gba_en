@@ -3,7 +3,7 @@
 
 /* defined in battle_080ED314.c returning u16; this caller re-extends the result */
 u32 sub_080ED32C(u16 i);
-u8 sub_080F0F68(u16 a);
+u8 Battle_GetActionAnim(u16 a);
 
 struct F104CEntry
 {
@@ -21,7 +21,7 @@ u16 sub_080F104C(u16 a, u16 b)
 
     if (*p > 0xD1)
     {
-        v = sub_080F0F68(a);
+        v = Battle_GetActionAnim(a);
         if (v > 0xDB)
             return gUnknown_0876E1D8[a].alt;
     }
@@ -47,7 +47,7 @@ NAKED u16 sub_080F104C(u16 a, u16 b)
         "    cmp r0, #0xd1\n"
         "    bls .L080F107C\n"
         "    adds r0, r3, #0\n"
-        "    bl sub_080F0F68\n"
+        "    bl Battle_GetActionAnim\n"
         "    lsls r0, r0, #0x18\n"
         "    lsrs r0, r0, #0x18\n"
         "    cmp r0, #0xdb\n"

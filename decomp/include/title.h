@@ -292,7 +292,7 @@ void RLUnCompWram(const void *src, void *dest);
 /* other code */
 void Sprite_Draw(const void *def, u16 layer, u16 palette, u16 priority, u16 tile, u16 x, u16 y);
 void Sprite_DrawBlended(const void *def, u16 layer, u16 palette, u16 priority, u16 tile, u16 x, u16 y);
-void sub_0815862C(const void **def, u16 scaleX, u16 scaleY, u32 n);
+void ObjList_ScalePositions(const void **def, u16 scaleX, u16 scaleY, u32 n);
 void Sprite_DrawSharedAffine(const void **def, u16 layer, u16 palette, u16 priority, u16 tile, u16 x, u16 y,
                              u8 matrix);
 void FontSprite_DrawGlyph(u16 glyph, u32 a1, u32 a2, u16 x, u16 y);

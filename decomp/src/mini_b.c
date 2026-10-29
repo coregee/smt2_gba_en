@@ -219,7 +219,7 @@ void sub_080DE258(void)
     }
     else
     {
-        sub_080DE2C0();
+        Mini_StepTimeline1();
         Mini_ZoomBg2Affine();
     }
 }
@@ -266,7 +266,7 @@ void sub_080DE258(void)
         ".L080DE2A8: .4byte 0x030029B0 @ IWRAM+0x29B0\n"
         ".L080DE2AC: .4byte 0x03002DB0 @ IWRAM+0x2DB0\n"
         ".L080DE2B0:\n"
-        "    bl sub_080DE2C0\n"
+        "    bl Mini_StepTimeline1\n"
         "    bl Mini_ZoomBg2Affine\n"
         ".L080DE2B8:\n"
         "    pop {r4}\n"

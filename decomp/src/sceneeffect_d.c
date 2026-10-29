@@ -48,7 +48,7 @@ void sub_080BB444(struct Task *task)
 
     def[0] = gUnknown_080073B0[0];
     def[1] = d;
-    sub_0815862C(def, d->affine[1], d->affine[2], 8);
+    ObjList_ScalePositions(def, d->affine[1], d->affine[2], 8);
     def[0] = gUnk_03003800;
     def[1] = d;
     Sprite_DrawSharedAffine(def, 4, 0xE, 3, 0x280, d->x, d->y, 0);
@@ -56,7 +56,7 @@ void sub_080BB444(struct Task *task)
     {
         def[0] = gUnknown_081894B4[d->glowFrame][0];
         def[1] = d;
-        sub_0815862C(def, d->affine[1], d->affine[2], 8);
+        ObjList_ScalePositions(def, d->affine[1], d->affine[2], 8);
         def[0] = gUnk_03003800;
         def[1] = d;
         Sprite_DrawSharedAffine(def, 3, 0xF, 3, 0x380, d->x + dx, d->y + dy, 0);
@@ -67,7 +67,7 @@ void sub_080BB444(struct Task *task)
     {
         def[0] = gUnknown_081894C8[d->ringFrame][0];
         def[1] = d->ring;
-        sub_0815862C(def, d->ring[1], d->ring[2], 8);
+        ObjList_ScalePositions(def, d->ring[1], d->ring[2], 8);
         def[0] = gUnk_03003800;
         def[1] = d->ring;
         Sprite_DrawSharedAffine(def, 2, 0xD, 3, 0x1E0, d->x + 0x30, d->y + 0x34, 1);
@@ -181,7 +181,7 @@ void sub_080BB70C(struct Task *task)
     tbl = gUnknown_08007174;
     def[0] = *tbl;
     def[1] = d;
-    sub_0815862C(def, d->affine[1], d->affine[2], 8);
+    ObjList_ScalePositions(def, d->affine[1], d->affine[2], 8);
     def[0] = gUnk_03003800;
     def[1] = d;
     Sprite_DrawSharedAffine(def, 1, 0xE, 3, 0x180, d->x, d->y, matrix);
@@ -191,7 +191,7 @@ void sub_080BB70C(struct Task *task)
         tbl = gUnknown_080071FC;
     def[0] = *tbl;
     def[1] = d;
-    sub_0815862C(def, d->affine[1], d->affine[2], 8);
+    ObjList_ScalePositions(def, d->affine[1], d->affine[2], 8);
     def[0] = gUnk_03003800;
     def[1] = d;
     Sprite_DrawSharedAffine(def, 0, 0xF, 3, 0x200, d->x, d->y, matrix);

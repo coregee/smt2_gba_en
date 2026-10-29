@@ -62,6 +62,10 @@ def compile_many(sources, outdir=None):
     text = (r.stdout + r.stderr).decode("utf-8", "replace").replace("\x00", "")
     script.unlink(missing_ok=True)
     if r.returncode:
+        # Drop partial output: a .s without the .align below would look up to date to the
+        # next build and pad with nops.
+        for src in sources:
+            (base / Path(src).with_suffix(".s")).unlink(missing_ok=True)
         raise SystemExit(f"C compile failed:\n{text}")
     # agbcc ends a file without padding; when the last function ends at 2 mod 4, the
     # assembler would pad the section with a Thumb nop where the ROM has zeros.

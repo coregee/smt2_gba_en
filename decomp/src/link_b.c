@@ -62,11 +62,11 @@ void sub_080DF330(void)
 // sub_080DF360 @ 0x080DF360
 void sub_080DF360(void)
 {
-    sub_080DF05C(&gUnk_03006380);
+    MultiSio_SetSendData(&gUnk_03006380);
 }
 
 // sub_080DF370 @ 0x080DF370
 void sub_080DF370(void)
 {
-    gUnk_03006360 = sub_080DEF50(gUnk_03006340);
+    gUnk_03006360 = MultiSio_Main(gUnk_03006340);
 }

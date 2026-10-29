@@ -13,7 +13,7 @@ void Battle_Start(s16 flags, u16 a1, u16 a2, u16 a3, u16 a4)
     s16 i;
 
     b->unk1189 = (s16)(flags & 0x10) >> 4;
-    sub_080E44F8();
+    Battle_ClearSpriteTasks();
     gUnk_030063A0.unk14 = 0;
     if (gUnk_030063A0.active == 1)
     {

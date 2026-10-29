@@ -574,6 +574,53 @@ are identified from their code (probable).
 - Russian Roulette (`0x0814E044`): chamber = `((rand & 7) * 3) >> 2`, so chambers 0 and 3 come
   up a quarter of the time each; a loss permanently removes the staked demon.
 
+## Found in the tenth conversion round: the last large functions
+
+Read from the C; none of these were checked against the translation build yet.
+
+### Shop and item lists (`0x0812F2B4`-`0x08131B1C`)
+
+- The item-list drawer (MsgWindow_DrawItemList) draws up to 8 rows at 13 pixels per glyph
+  into the shared 64-entry glyph queue at `0x0203D800`. At 63 entries every further glyph
+  overwrites entry 63. Layouts 1, 3 and 4 first put back up to 16 saved prompt glyphs, so
+  long English names on a full list run out of queue in the original code; check whether
+  `patch_msgwin`'s relocated queue covers this path.
+- Names come from three pointer tables (`0x08036156` battle, `0x0803631E` field,
+  `0x08036666` sub-script), indexed by `id & 0x7FFF` and read as two halfwords because the
+  tables are not word-aligned; strings end with 0x301.
+- Prices (layout 4) use three sprite slots, quantities two digit sprites; money caps at
+  999,999 and owned counts at 99. Shop_ListInput and Shop_QuantityInput toggle the SELECT
+  owned-count header through Shop_InitItemList / sub_081305D8, the hook points of
+  `patch_shopowned.py`.
+
+### Status screen text (`0x080CB0B8`-`0x080CC4DC`)
+
+- Ailment names (`DYING`, `STONE`, `PALYZE` (sic), `POISON`, ...) are ASCII at
+  `0x084F00E8`-`0x084F0194`, each right-aligned by its own hard-coded x (8 px per letter;
+  humans x 0x58-0x70, demons 0x10 further right). A name of a different length needs its x
+  constant changed in Status_DrawVitals.
+- The kanji stat labels on the next page are glyph ids passed to `Font_DrawGlyph` in code
+  (Status_DrawDerivedStats), 2 or 4 glyphs 12 px apart at x 0xA4 or 0x55.
+
+### Demon dictionary and music room (`0x080DB4A8`-`0x080DE2C0`)
+
+- The compendium page (Dict_DrawDemonPage) draws the demon name as exactly 8 glyphs from
+  record +0x22, at 12 px each; skills from x 0x6E, 15 px per row, at most 7.
+- The race-group label is one of three 16-byte string slots at `0x08583A28` (the code reaches
+  the third by subtracting 0x10), so each must fit in 16 bytes.
+- Music room titles are a sprite string at (0x15, 0x3A), 12 px per glyph; the sprite glyph
+  cache resets at tile 0x3C0. `Cards_Deal` (0x080DDE2C) is misnamed: it builds and shuffles
+  the 27-track playlist.
+
+### Battle actions and rewards (`0x080E44A4`-`0x080F6388`)
+
+- No text is built here directly; everything goes through the `btext_*` builders or
+  `Menu_ExpandListTemplate(template, target | skill << 16)`. Experience is capped at
+  9,999,999, so reward lines need room for 7 digits.
+- On level-up the old skill list is copied to `0x03000060` (32 bytes) and new skills are
+  announced from the old count onward, assuming they are appended to the 0xFF-terminated list
+  at +0x5D.
+
 ## Confirmed on screen (mGBA, translation build `rom/smt2-en.gba`)
 
 Run with `tools/emu/gdbdrive.py` from a new game: the script VM was sent to each scene by

@@ -383,7 +383,7 @@ void sub_0812BA38(struct Task *task, u32 mode)
         else
             gUnk_03003BB8 = 1;
         Flag_Set(0x166);
-        sub_080E471C(sub_0812EEC4(), 1, 0xFFFF, 0);
+        Battle_StartWithGroups(sub_0812EEC4(), 1, 0xFFFF, 0);
     }
 }
 

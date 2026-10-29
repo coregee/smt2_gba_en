@@ -21,7 +21,7 @@ void sub_080D8EA0(struct Task *task)
         entry = gUnknown_08565F20[frame];
         def[0] = *entry;
         def[1] = aff;
-        sub_0815862C(def, aff->scaleX, aff->scaleY, 0x10);
+        ObjList_ScalePositions(def, aff->scaleX, aff->scaleY, 0x10);
         def[0] = gUnk_03003800;
         def[1] = aff;
         Sprite_DrawSharedAffine(def, 0, 0xD, 3, 0x180, obj->unk08 + 0x28, obj->unk0A + 0x58, big);
@@ -52,7 +52,7 @@ void sub_080D8F48(struct Task *task)
         entry = gUnknown_08565FE4[frame];
         def[0] = *entry;
         def[1] = aff;
-        sub_0815862C(def, aff->scaleX, aff->scaleY, 0x10);
+        ObjList_ScalePositions(def, aff->scaleX, aff->scaleY, 0x10);
         def[0] = gUnk_03003800;
         def[1] = aff;
         Sprite_DrawSharedAffine(def, 0, 0xD, 3, 0x180, obj->unk08 + 0x28, obj->unk0A + 0x58, big);

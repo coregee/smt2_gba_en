@@ -275,14 +275,14 @@ void sub_080E199C(struct Task *t)
 }
 
 // sub_080E1A24 @ 0x080E1A24
-/* Waits for sub_080DF388(a) to succeed, counting down t->data.h[0] frames (0xFF on timeout). */
+/* Waits for Link_ExchangeIds(a) to succeed, counting down t->data.h[0] frames (0xFF on timeout). */
 void sub_080E1A24(struct Task *t, u32 a)
 {
     u8 r;
 
     t->pad1E = 0;
     t->result = 0;
-    r = sub_080DF388(a);
+    r = Link_ExchangeIds(a);
     if (r == 1)
     {
         t->result = r;
@@ -316,10 +316,10 @@ void sub_080E1AA4(struct Task *t)
 }
 
 // sub_080E1AB0 @ 0x080E1AB0
-/* Runs sub_080DF4B8 once per frame: t->result on success, t->pad1E = 0xFF on failure. */
+/* Runs Link_Handshake once per frame: t->result on success, t->pad1E = 0xFF on failure. */
 void sub_080E1AB0(struct Task *t)
 {
-    u8 r = sub_080DF4B8();
+    u8 r = Link_Handshake();
 
     t->result = 0;
     t->pad1E = 0;

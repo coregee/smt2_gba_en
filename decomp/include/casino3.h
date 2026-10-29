@@ -350,7 +350,7 @@ u8 *Demon_GetRecord(u16 id);
 struct C14aMember *Stock_FindDemon(u16 id);
 void Name_Encode(const u8 *glyphs, u8 *out);
 void Sprite_DrawSingle(const void *tmpl, u16 layer, u16 palette, u16 priority, u16 tile, u16 x, u16 y);
-u32 sub_0814E844(u32 slot);
+u32 RussianRoulette_CanBetDemon(u32 slot);
 void Party_Remove(u16 who, u32 release);
 s32 Stock_AddDemon(u16 id);
 struct C14aStockRec

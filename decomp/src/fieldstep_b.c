@@ -571,7 +571,7 @@ void MiniView_Clear(void)
     u8 *base = (u8 *)0x0200DFD4;
     u16 row, col;
 
-    sub_080AE574(gFieldState.facing, 1);
+    View_BuildCells(gFieldState.facing, 1);
     for (row = 0; row < 5; row++)
     {
         u16 *line = (u16 *)(base + ((row + 6) << 6));
@@ -593,7 +593,7 @@ void MiniView_Clear(void)
         "    ldr r0, .L080C5760\n"
         "    ldrh r0, [r0, #2]\n"
         "    movs r1, #1\n"
-        "    bl sub_080AE574\n"
+        "    bl View_BuildCells\n"
         "    movs r2, #0\n"
         "    ldr r6, .L080C5764\n"
         "    ldr r7, .L080C5768\n"

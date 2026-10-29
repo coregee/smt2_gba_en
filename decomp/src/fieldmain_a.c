@@ -118,7 +118,7 @@ void sub_080C1684(void)
     if (gUnk_03004544 == 4
      && (FieldMap_HasRecordRel(0, 0, 0x12) == 1 || FieldMap_HasRecordRel(0, 0, 0x13) == 1
       || FieldMap_HasRecordRel(0, 0, 0x1E) == 1)
-     && sub_080AF8D0(1, 1, 0))
+     && Field_CheckCellEvents(1, 1, 0))
     {
         gPaletteTarget[0] = 0;
         Palette_FillWithEffect(3, 0, gPaletteTarget + 0xE0, 0x40, 0x20);
@@ -135,7 +135,7 @@ void sub_080C1684(void)
     {
         Music_Play(sub_080AD67C(gWorldMap[4]));
     }
-    sub_080E44A4();
+    Battle_ResetGlobals();
     if (gUnk_03004544 != 5)
     {
         PalFade_FadeInFromBlack(1);
@@ -166,7 +166,7 @@ void sub_080C17F0(void)
         if (gUnk_03004544 == 4 || sub_080D0E74() == 1)
         {
             gUnk_03003FF4 = done;
-            sub_080AF8D0(1, 2, 0);
+            Field_CheckCellEvents(1, 2, 0);
             gUnk_03003FF4 = 0;
         }
     }
@@ -179,7 +179,7 @@ void FieldMain_Loop(void)
 {
     gGameState.stockMax = Stock_GetCapacity();
     sub_080E5220();
-    sub_080B0C90();
+    Field_UpdateFrame();
     Task_RunAll();
     Hud_Update();
     PlayTime_Tick();

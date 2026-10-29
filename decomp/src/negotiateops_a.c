@@ -288,7 +288,7 @@ void ScriptOp_43F(void)
     gUnk_03006844 = 3;
     gUnk_03006940 = 0;
     gUnk_0300696C = 0;
-    sub_0812F2B4(3);
+    MsgWindow_DrawItemList(3);
     gScriptYield = 1;
     Task_Create(gUnknown_0878FC80, 0xFFFF);
     gScriptWaitState = 0x18;
@@ -348,7 +348,7 @@ void ScriptOp_441(void)
     gUnk_03006940 = 0;
     gUnk_0300696C = 0;
     gUnk_03006844 = 1;
-    sub_0812F2B4(1);
+    MsgWindow_DrawItemList(1);
     gScriptYield = 1;
     Task_Create(gUnknown_0878FC80, 0xFFFF);
     gScriptWaitState = 0xD;
@@ -450,7 +450,7 @@ void ScriptOp_441(void)
         "    strh r0, [r7]\n"
         "    movs r4, #1\n"
         "    movs r0, #1\n"
-        "    bl sub_0812F2B4\n"
+        "    bl MsgWindow_DrawItemList\n"
         "    ldr r0, .L0813AC78\n"
         "    strh r4, [r0]\n"
         "    ldr r0, .L0813AC7C\n"

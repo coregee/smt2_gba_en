@@ -20,7 +20,7 @@ void sub_0812E780(u16 who, u16 *targets, const u16 *unused, u8 isItem)
         Item_GetAttribute(id, 0xC, &id);
     if ((u32)(id - 0x2B) <= 0x14)
     {
-        switch (sub_080F0F68(id, 0))
+        switch (Battle_GetActionAnim(id, 0))
         {
         case 0xF0:
             pos = Battle_FindPartyPosition(targets[(s16)who]);
@@ -159,7 +159,7 @@ void sub_0812E780(u16 who, u16 *targets, const u16 *unused, u8 isItem)
         "    lsls r0, r1, #0x10\n"
         "    lsrs r0, r0, #0x10\n"
         "    movs r1, #0\n"
-        "    bl sub_080F0F68\n"
+        "    bl Battle_GetActionAnim\n"
         "    lsls r0, r0, #0x18\n"
         "    lsrs r0, r0, #0x18\n"
         "    subs r0, #0xf0\n"

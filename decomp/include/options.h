@@ -354,10 +354,10 @@ struct C0cdLinkPick
     u8 pad1;
     u16 id;                     /* 0x02: demon id */
 };
-u8 sub_080DF388(u32 a);
+u8 Link_ExchangeIds(u32 a);
 extern u16 gUnk_03006394;
 extern const u32 gUnknown_0858B180[], gUnknown_0858B1BC[];
-u8 sub_080DF4B8(void);
+u8 Link_Handshake(void);
 u8 Link_TransferStep(void);
 void Link_Exchange(u16 size, const u8 *data, u32 dst);
 extern const u32 gUnknown_0858B1F8[], gUnknown_0858B228[];

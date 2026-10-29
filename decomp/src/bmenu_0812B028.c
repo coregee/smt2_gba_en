@@ -34,7 +34,7 @@ void sub_0812B028(struct Task *task)
                 sub_0812E780(gUnk_030065C0[3], blk->unkF30, gUnknown_08124D5E, 1);
                 if ((u32)(attr - 0x3E) <= 1)
                 {
-                    who = sub_080F1678(0, 2);
+                    who = Battle_SummonQueuedDemon(0, 2);
                     BattleMenu_SetMode(3, Menu_ExpandListTemplate(Battle_GetMessage(0xE9), gGameState.order[who]));
                 }
             }
@@ -377,7 +377,7 @@ u32 sub_0812B37C(void)
     u32 r = 0;
 
     if (Flag_Test(0xD5))
-        r = gShopItemIds != 2;
+        r = gShopItemIds[0] != 2;
     return r;
 }
 

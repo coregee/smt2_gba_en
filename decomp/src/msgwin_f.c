@@ -8,7 +8,7 @@ void sub_08131A84(struct Task *task)
 {
     task->result = 0;
     gUnk_030068BC = 1;
-    sub_081316FC();
+    Shop_UpdateQuantityArrows();
     gUnk_030065E4 = 0;
     gUnk_030068D4 = 10;
 }

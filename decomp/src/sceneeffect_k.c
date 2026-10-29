@@ -90,7 +90,7 @@ void sub_080BD1C4(struct Task *task)
         tbl = gUnknown_080075D8;
     def[0] = *tbl;
     def[1] = d;
-    sub_0815862C(def, d->affine[1], d->affine[2], 0);
+    ObjList_ScalePositions(def, d->affine[1], d->affine[2], 0);
     def[0] = gUnk_03003800;
     def[1] = d;
     if (d->affine[1] != 4)
@@ -98,7 +98,7 @@ void sub_080BD1C4(struct Task *task)
     tbl = gUnknown_08196CA0[d->frame];
     def[0] = *tbl;
     def[1] = d;
-    sub_0815862C(def, d->affine[1], d->affine[2], 0);
+    ObjList_ScalePositions(def, d->affine[1], d->affine[2], 0);
     def[0] = gUnk_03003800;
     def[1] = d;
     if (d->affine[1] != 4)

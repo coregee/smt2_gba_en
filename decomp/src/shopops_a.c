@@ -620,7 +620,7 @@ void ScriptOp_Choice(void)
     }
     gUnk_03006940 = 0;
     gUnk_0300696C = 0;
-    sub_0812F2B4((u16)gUnk_03006844);
+    MsgWindow_DrawItemList((u16)gUnk_03006844);
     gScriptYield = 1;
     Task_Create(gUnknown_0878FC80, 0xFFFF);
     gScriptWaitState = 0xD;
@@ -753,7 +753,7 @@ void ScriptOp_Choice(void)
         "    strh r0, [r2]\n"
         "    ldr r7, .L08134A24\n"
         "    ldrh r0, [r7]\n"
-        "    bl sub_0812F2B4\n"
+        "    bl MsgWindow_DrawItemList\n"
         "    ldr r1, .L08134A3C\n"
         "    movs r0, #1\n"
         "    strh r0, [r1]\n"

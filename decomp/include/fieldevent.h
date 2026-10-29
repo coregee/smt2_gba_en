@@ -481,7 +481,7 @@ void Field_SetPosition(u16 x, u16 y);
 void Automap_SetVisitedAhead(u16 x, u16 y, u16 dir);
 void Automap_SetVisited(u16 x, u16 y);
 u32 FieldMap_HasRecordRel(u16 fwd, u16 side, u16 type);
-u32 sub_080AF8D0(u32 a, u32 b, u32 c);
+u32 Field_CheckCellEvents(u32 a, u32 b, u32 c);
 void sub_080B6CF8(void);
 void sub_080B6D44(void);
 u32 sub_080B721C(const u16 *rec);

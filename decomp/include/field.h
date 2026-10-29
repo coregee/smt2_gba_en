@@ -318,7 +318,7 @@ u16 sub_0813EB78(void);
 s16 ScriptVM_RunAlt(const void *script);
 s32 sub_080B721C(void);
 s32 Combatant_IsUsed(s32 a);
-s32 sub_0814E8B0(void);
+s32 RussianRoulette_CountBettableDemons(void);
 u32 Random_Byte(void);
 void sub_080B6308(u16 a, const void *script);
 void sub_080AF060(const void *script);
@@ -329,7 +329,7 @@ extern u32 gUnk_0200AB04;
 extern u16 gUnk_0300460C;
 
 void sub_080C3818(u32 a);
-void sub_080AE574(u16 dir, u32 a);
+void View_BuildCells(u16 dir, u32 a);
 s32 Palette_IsBg13Black(void);
 s32 sub_080B78DC(void);
 s32 sub_080B78A4(void);

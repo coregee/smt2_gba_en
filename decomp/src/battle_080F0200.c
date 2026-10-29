@@ -316,7 +316,7 @@ s16 sub_080F038C(s16 who, u8 *c)
     if (f & 0x200)
         x = (x == 0);
     if (x == 0)
-        sub_080EE2E8(who);
+        Battle_BuildActionTargets(who);
     else
         Battle_BuildTargetList(who);
     return x;

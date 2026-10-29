@@ -189,7 +189,7 @@ void ScriptOp_39B(void)
     gUnk_03006940 = 0;
     gUnk_0300696C = 0;
     gUnk_03006844 = 4;
-    sub_0812F2B4(4);
+    MsgWindow_DrawItemList(4);
     Task_Create(gUnknown_0878FC80, 0xFFFF);
     gScriptYield = 1;
     gScriptWaitState = 0xD;
@@ -317,7 +317,7 @@ void ScriptOp_39B(void)
         "    mov r6, sl\n"
         "    strh r0, [r6]\n"
         "    movs r0, #4\n"
-        "    bl sub_0812F2B4\n"
+        "    bl MsgWindow_DrawItemList\n"
         "    ldr r0, .L0813704C\n"
         "    ldr r1, .L08137030\n"
         "    bl Task_Create\n"

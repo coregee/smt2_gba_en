@@ -74,7 +74,7 @@ void Font_ResetGlyphSpriteCache(u32 arg);
 u32 SaveScreen_Open(u16 mode, u16 arg1);
 void sub_080C4580(u32);
 void MsgWindow_SaveGlyphs(void);
-void sub_0812F2B4(u32);
+void MsgWindow_DrawItemList(u32);
 struct Task *Task_Create(const void *script, u32 parent);
 void Money_Add(s32 v);
 u32 sub_080B8020(void);

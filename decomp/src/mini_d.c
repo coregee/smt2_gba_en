@@ -44,7 +44,7 @@ void sub_080DEAE4(void)
     }
     else
     {
-        sub_080DEB4C();
+        Mini_StepTimeline2();
         Mini_UpdateBg2Affine();
     }
 }
@@ -91,7 +91,7 @@ void sub_080DEAE4(void)
         ".L080DEB34: .4byte 0x030029B0 @ IWRAM+0x29B0\n"
         ".L080DEB38: .4byte 0x03002DB0 @ IWRAM+0x2DB0\n"
         ".L080DEB3C:\n"
-        "    bl sub_080DEB4C\n"
+        "    bl Mini_StepTimeline2\n"
         "    bl Mini_UpdateBg2Affine\n"
         ".L080DEB44:\n"
         "    pop {r4}\n"

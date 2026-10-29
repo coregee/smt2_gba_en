@@ -1,7 +1,8 @@
 // compiler: old_agbcc
 /* Nintendo MusicPlayer2000 sound library, C part (the assembly part is SoundMain..ply_note in
-   asm/).  Reconstructed from the pret m4a.c layout; this game links an older revision whose
-   MPlayContinue has no ident lock. */
+   asm/).  Reconstructed from the pret m4a.c layout; the rest of the C part is in m4a_b.c.  The
+   ident locks (ident++ ... ident = ID_NUMBER) are in the source: old_agbcc drops both stores,
+   which is why the loaded ident stays in r3. */
 
 #include "global.h"
 #include "gba/m4a_internal.h"
@@ -33,71 +34,28 @@ void UnusedDummyFunc(void)
 }
 
 // MPlayContinue @ 0x080E2F64
-#ifdef NONMATCHING
 void MPlayContinue(struct MusicPlayerInfo *mplayInfo)
 {
     if (mplayInfo->ident == ID_NUMBER)
+    {
+        mplayInfo->ident++;
         mplayInfo->status &= ~MUSICPLAYER_STATUS_PAUSE;
+        mplayInfo->ident = ID_NUMBER;
+    }
 }
-#else
-NAKED
-void MPlayContinue(struct MusicPlayerInfo *mplayInfo)
-{
-    asm_unified(
-        ".L080E2F64:\n"
-        "    adds r2, r0, #0\n"
-        "    ldr r3, [r2, #0x34]\n"
-        "    ldr r0, .L080E2F78\n"
-        "    cmp r3, r0\n"
-        "    bne .L080E2F76\n"
-        "    ldr r0, [r2, #4]\n"
-        "    ldr r1, .L080E2F7C\n"
-        "    ands r0, r1\n"
-        "    str r0, [r2, #4]\n"
-        ".L080E2F76:\n"
-        "    bx lr\n"
-        ".L080E2F78: .4byte 0x68736D53\n"
-        ".L080E2F7C: .4byte 0x7FFFFFFF\n"
-    );
-}
-#endif
 
 // MPlayFadeOut @ 0x080E2F80
-#ifdef NONMATCHING
 void MPlayFadeOut(struct MusicPlayerInfo *mplayInfo, u16 speed)
 {
     if (mplayInfo->ident == ID_NUMBER)
     {
+        mplayInfo->ident++;
         mplayInfo->fadeOC = speed;
         mplayInfo->fadeOI = speed;
         mplayInfo->fadeOV = (64 << FADE_VOL_SHIFT);
+        mplayInfo->ident = ID_NUMBER;
     }
 }
-#else
-NAKED
-void MPlayFadeOut(struct MusicPlayerInfo *mplayInfo, u16 speed)
-{
-    asm_unified(
-        ".L080E2F80:\n"
-        "    adds r2, r0, #0\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    ldr r3, [r2, #0x34]\n"
-        "    ldr r0, .L080E2F9C\n"
-        "    cmp r3, r0\n"
-        "    bne .L080E2F98\n"
-        "    strh r1, [r2, #0x26]\n"
-        "    strh r1, [r2, #0x24]\n"
-        "    movs r0, #0x80\n"
-        "    lsls r0, r0, #1\n"
-        "    strh r0, [r2, #0x28]\n"
-        ".L080E2F98:\n"
-        "    bx lr\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080E2F9C: .4byte 0x68736D53\n"
-    );
-}
-#endif
 
 // m4aSoundInit @ 0x080E2FA0
 void m4aSoundInit(void)
@@ -229,79 +187,31 @@ void m4aMPlayFadeOut(struct MusicPlayerInfo *mplayInfo, u16 speed)
 }
 
 // m4aMPlayFadeOutTemporarily @ 0x080E31CC
-#ifdef NONMATCHING
 void m4aMPlayFadeOutTemporarily(struct MusicPlayerInfo *mplayInfo, u16 speed)
 {
     if (mplayInfo->ident == ID_NUMBER)
     {
+        mplayInfo->ident++;
         mplayInfo->fadeOC = speed;
         mplayInfo->fadeOI = speed;
         mplayInfo->fadeOV = (64 << FADE_VOL_SHIFT) | TEMPORARY_FADE;
+        mplayInfo->ident = ID_NUMBER;
     }
 }
-#else
-NAKED
-void m4aMPlayFadeOutTemporarily(struct MusicPlayerInfo *mplayInfo, u16 speed)
-{
-    asm_unified(
-        "    adds r2, r0, #0\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    ldr r3, [r2, #0x34]\n"
-        "    ldr r0, .L080E31E4\n"
-        "    cmp r3, r0\n"
-        "    bne .L080E31E2\n"
-        "    strh r1, [r2, #0x26]\n"
-        "    strh r1, [r2, #0x24]\n"
-        "    ldr r0, .L080E31E8\n"
-        "    strh r0, [r2, #0x28]\n"
-        ".L080E31E2:\n"
-        "    bx lr\n"
-        ".L080E31E4: .4byte 0x68736D53\n"
-        ".L080E31E8: .4byte 0x00000101\n"
-    );
-}
-#endif
 
 // m4aMPlayFadeIn @ 0x080E31EC
-#ifdef NONMATCHING
 void m4aMPlayFadeIn(struct MusicPlayerInfo *mplayInfo, u16 speed)
 {
     if (mplayInfo->ident == ID_NUMBER)
     {
+        mplayInfo->ident++;
         mplayInfo->fadeOC = speed;
         mplayInfo->fadeOI = speed;
         mplayInfo->fadeOV = (0 << FADE_VOL_SHIFT) | FADE_IN;
         mplayInfo->status &= ~MUSICPLAYER_STATUS_PAUSE;
+        mplayInfo->ident = ID_NUMBER;
     }
 }
-#else
-NAKED
-void m4aMPlayFadeIn(struct MusicPlayerInfo *mplayInfo, u16 speed)
-{
-    asm_unified(
-        "    adds r2, r0, #0\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    ldr r3, [r2, #0x34]\n"
-        "    ldr r0, .L080E320C\n"
-        "    cmp r3, r0\n"
-        "    bne .L080E320A\n"
-        "    strh r1, [r2, #0x26]\n"
-        "    strh r1, [r2, #0x24]\n"
-        "    movs r0, #2\n"
-        "    strh r0, [r2, #0x28]\n"
-        "    ldr r0, [r2, #4]\n"
-        "    ldr r1, .L080E3210\n"
-        "    ands r0, r1\n"
-        "    str r0, [r2, #4]\n"
-        ".L080E320A:\n"
-        "    bx lr\n"
-        ".L080E320C: .4byte 0x68736D53\n"
-        ".L080E3210: .4byte 0x7FFFFFFF\n"
-    );
-}
-#endif
 
 // m4aMPlayImmInit @ 0x080E3214
 void m4aMPlayImmInit(struct MusicPlayerInfo *mplayInfo)

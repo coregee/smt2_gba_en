@@ -1,0 +1,20 @@
+080E44A4	Battle_ResetGlobals	func	CpuFill32 of the battle IWRAM state 0x030063A0 (0x1C bytes), both enemy groups (0x0203C200+0x990/0x994) := 0xFFFF, BattleMsg_SetLocked(0), sub_080E44F8, sub_080EA280, +0x1188 := 0
+080E44F8	Battle_ClearSpriteTasks	func	zeroes 0x0203C200+0x4..0x24 (tasks[3] and the next six words) and +0x119E
+080E4520	Battle_ResetCombatantStates	func	for combatants 0-15: sub_080C35C4 and sub_080C3600 with 4 for 0-3, 10 for the rest
+080E4554	Battle_StartRandomEncounter	func	like Battle_Start but the encounter comes from sub_080ED398 (dungeon zone sub_080C5D0C & 0x7F, >0x6B -> 0x3E) or on the world map (gGameState+0xAC0 == 1) sub_080F450C; creates the battle task gUnknown_086BEF88
+080E471C	Battle_StartWithGroups	func	(group0, count0, group1, count1): Battle_StartRandomEncounter then overrides 0x0203C200+0x990/0x994/0x998/0x99A, encounter 0, waves 1; +0x1123 := 1
+080E98F8	Battle_VictoryStep	func	task step on substate 0x0203C200+0x97A (21 states): compendium, Battle_BuildRaceCountText, item drops (Battle_BuildItemDropText), money/macca/magnetite (Battle_BuildValueRewardText), EXP (capped 9999999, Battle_BuildRewardText), level-up (sub_080CE62C) and new skills (sub_080EB008); src/battlewin_a.c
+080EE2E8	Battle_BuildActionTargets	func	fills BattleState+0x130 for who: skill 0x5C = all alignment-incompatible, items 0xF1/0xF2 = living party; else enemy group units not excluded by BattleState+0x15C, sorted by status/HP when the attacker's roll beats the defender's, else random keys; src/battle_080EE2E8.c
+080EEB94	Battle_RollAilment	func	(action, skill): chance = INT * sub_080ED7A4(skill) / def INT through Battle_ApplyAffinity; affinity 12/13 reflects (message 0x16E/0x16F); queues the ailment with sub_080EDA7C when Random_Byte & 0x1F < chance; returns 1 when the target already had it
+080F0434	Battle_CombatantTurnStep	func	phase machine on 0x0203C200+0x97C for one combatant's turn (announce, animate, pay, resolve, defeat messages, next target); returns 1 when the turn ends; src/battle_080F0434.c
+080F0CFC	Battle_PayActionCost	func	MP for magic (party only, +0x11AA == 0; messages gUnknown_081241B0/081241D0), item consumption (sub_080F3E54), sub_080ED744 check for kind 11; dodge text when sub_080EE028 fails; sets the next phase
+080F0F68	Battle_GetActionAnim	func	gUnknown_0876E1D8[a].id[b] with special ids 0xDC-0xE8 mapped to animation ids (0xFF none)
+080F108C	Battle_AnnounceAction	func	shows the action message (Battle_BuildCombatActionList / Battle_BuildActorActionText / sub_080EAE30) and sets animation +0xEC6, sound +0xECA, side 0x030000A8; src/battle_080F108C.c
+080F157C	Battle_GetAnimKind	func	0x030000AA := kind of gUnknown_0876E1D8[a].id[b]: 0xDC-0xDF 4, 0xE0-0xE2 7, 0xE3-0xE5 8, 0xE6-0xE8 5, else 0xFF; returns it
+080F1678	Battle_SummonQueuedDemon	func	(slot, mode): Party_AddAt of the demon queued at 0x0203C200+0xEF0[slot] into position +0xF10[slot] (first free if taken); mode 2 removes the occupant, 0 pays sub_0812839C, 3 adds it dead; returns Party_FindPosition
+080F17C0	Battle_ResolveActionStep	func	step machine on 0x0203C200+0x97E resolving one hit of an action through gUnk_03000088 (damage, affinity, ailments, reflection, HP loss, messages); src/battle_080F17C0.c
+080F20E0	Battle_ReflectAction	func	'repels' message (Battle_BuildNamePrependText + gUnknown_081241F0, enemies gUnknown_08124200), then redoes the action and ailment on the attacker with its own affinity
+080F22B4	Battle_ApplyDamage	func	instant death (ailment 0x8000) takes all HP; hit sound 0x12C/0x12B, Combatant_AddHp(-dmg) clamped at 0, damage text gUnknown_08123BCC (enemy) / gUnknown_0812310C (party)
+080F2514	Battle_CastSupportSkill	func	non-damage skill: target = chosen ally (+0xF30) or other side, sub_080F4988, result message from gUnknown_0876F9CC; skills 0x3E/0x3F summon (message 0xE9)
+080F27CC	Battle_UseItem	func	Item_RunUseEffect on the item's target; 0xF1/0xF2 revive (message 0x123) or defeat (damage text); other items message gUnknown_0876FAE4[attr 0xC - 0x80]
+080F63DC	Automap_RevealAroundPlayer	func	Automap_SetVisited on the 5x5 squares around gFieldState+0x12/0x14 (non-negative coordinates only)

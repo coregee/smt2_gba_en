@@ -246,7 +246,7 @@ void sub_080B0A08(u16 a)
     {
         gFieldState.unk2E = 0;
         gUnk_03003FF4 = 1;
-        if (sub_080AF8D0(2, 2, 0) == 0)
+        if (Field_CheckCellEvents(2, 2, 0) == 0)
         {
             if (gFieldState.unk46 == 1)
                 Field_SetState(1);
