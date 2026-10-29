@@ -2917,7 +2917,7 @@ sub_080CE760: @ 0x080CE760
 	bl Text_DrawSpriteString
 	ldr r0, .L080CEAC4
 	ldrh r0, [r0, #6]
-	bl sub_081571DC
+	bl Compendium_GetPrice
 	movs r5, #0x67
 	movs r1, #0x12
 	movs r2, #0x67
@@ -3206,7 +3206,7 @@ sub_080CECA8: @ 0x080CECA8
 	lsls r0, r0, #1
 	bl Font_ResetGlyphSpriteCache
 	movs r0, #0
-	bl sub_08156000
+	bl Fusion_ResumeScreen
 	ldr r1, .L080CECF0
 	str r0, [r1]
 	pop {r4}
@@ -3966,7 +3966,7 @@ sub_080CF250: @ 0x080CF250
 	cmp r0, #0xcd
 	bne .L080CF2F4
 	adds r0, r7, #0
-	bl sub_081571DC
+	bl Compendium_GetPrice
 	adds r1, r4, #0
 	adds r2, r5, #0
 	bl sub_080CF1DC
@@ -4041,7 +4041,7 @@ sub_080CF324: @ 0x080CF324
 	bl Money_Get
 	adds r4, r0, #0
 	adds r0, r7, #0
-	bl sub_081571DC
+	bl Compendium_GetPrice
 	cmp r4, r0
 	blo .L080CF3F8
 	movs r5, #0
@@ -4097,7 +4097,7 @@ sub_080CF324: @ 0x080CF324
 	bl Money_Get
 	adds r4, r0, #0
 	adds r0, r7, #0
-	bl sub_081571DC
+	bl Compendium_GetPrice
 	cmp r4, r0
 	bhs .L080CF3FE
 .L080CF3F8:

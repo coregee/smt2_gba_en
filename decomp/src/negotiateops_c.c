@@ -520,11 +520,11 @@ void ScriptOp_44A(void)
     if (n >= 0xF0)
     {
         n = 0x100 - n;
-        sub_0815BB18(gUnk_0203DB7C, n);
+        ItemStock_Remove(gUnk_0203DB7C, n);
     }
     else
     {
-        sub_0815BAC8(gUnk_0203DB7C, n);
+        ItemStock_Add(gUnk_0203DB7C, n);
     }
 }
 

@@ -357,7 +357,7 @@ void sub_080ECA60(u32 a0, u32 a1, u32 a2, u32 a3);
 u32 sub_080ECB10(void);
 u32 CharObj_Create(u16 a0, u16 a1, u16 a2, u16 a3, u32 a4, u32 a5);
 void sub_080AF178(u16 a, const void *script);
-s32 sub_081571DC(u16 id);
+s32 Compendium_GetPrice(u16 id);
 void Money_Add(s32 v);
 void Inventory_RemoveItem(u16 a);
 void Inventory_AddItem(u16 a);

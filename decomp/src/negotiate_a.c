@@ -472,7 +472,7 @@ void Negotiate_DoReaction(u16 reaction)
         break;
     }
     gUnk_0300685C = saved;
-    sub_0815BAC8(gUnk_0203DB7C, 1);
+    ItemStock_Add(gUnk_0203DB7C, 1);
 }
 
 /* Picks a reaction from the 11-entry cumulative table of the demon's personality. */
@@ -483,7 +483,7 @@ void Negotiate_PickReaction(void)
     u16 i;
     u8 r;
 
-    sub_0815B9B8(gUnk_0203DB7C, &out[0], &out[1]);
+    Demon_GetRaceAndAlign(gUnk_0203DB7C, &out[0], &out[1]);
     i = out[0] * 11;
     r = Random_Byte();
 next:

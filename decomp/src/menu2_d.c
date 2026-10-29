@@ -134,7 +134,7 @@ void sub_080D4850(struct Task *task)
     s32 n = sub_080D45B8(task->data.h[0]);
     s32 i;
 
-    Money_Add(-sub_081571DC(task->data.h[0]));
+    Money_Add(-Compendium_GetPrice(task->data.h[0]));
     for (i = 0; i < n; i++)
         Inventory_RemoveItem(0x11F);
     if (data[1] == 0)
@@ -165,7 +165,7 @@ void sub_080D48C8(struct Task *task)
     u8 *item = Stock_FindByDemonId(task->data.h[0]);
     s32 i;
 
-    Money_Add(-sub_081571DC(task->data.h[0]));
+    Money_Add(-Compendium_GetPrice(task->data.h[0]));
     if (data[1] == 0)
     {
         for (i = 0; i < n; i++)

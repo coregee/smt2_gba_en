@@ -214,7 +214,7 @@ u8 sub_0813BD58(void)
     u8 a[2];
     u8 n, row, r;
 
-    sub_0815B9B8(gUnk_0203DB7C, &a[0], &a[1]);
+    Demon_GetRaceAndAlign(gUnk_0203DB7C, &a[0], &a[1]);
     row = a[0];
     row = (row & 0x3F) * 4;
     n = 0;

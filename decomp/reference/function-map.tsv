@@ -4217,186 +4217,186 @@ address	mode	size	name	confidence	state	file
 08154EEC	thumb	96			c	src/fusionlist_a.c
 08154F4C	thumb	604	Fusion_DrawListHeader	probable	nonmatching	src/fusionlist_a.c
 081551A8	thumb	80	Fusion_DrawList	probable	c	src/fusionlist_a.c
-081551F8	thumb	240			asm	asm/code_081551F8.s
-081552E8	thumb	140			asm	asm/code_081551F8.s
-08155374	thumb	408			asm	asm/code_081551F8.s
-0815550C	thumb	12			asm	asm/code_081551F8.s
-08155518	thumb	60			asm	asm/code_081551F8.s
-08155554	thumb	264			asm	asm/code_081551F8.s
-0815565C	thumb	104			asm	asm/code_081551F8.s
-081556C4	thumb	52			asm	asm/code_081551F8.s
-081556F8	thumb	36			asm	asm/code_081551F8.s
-0815571C	thumb	636			asm	asm/code_081551F8.s
-08155998	thumb	544	Fusion_DrawMaterialHeader	tentative	named	asm/code_081551F8.s
-08155BB8	thumb	136			asm	asm/code_081551F8.s
-08155C40	thumb	64			asm	asm/code_081551F8.s
-08155C80	thumb	370			asm	asm/code_081551F8.s
-08155DF4	thumb	48			asm	asm/code_081551F8.s
-08155E24	thumb	156			asm	asm/code_081551F8.s
-08155EC0	thumb	52			asm	asm/code_081551F8.s
-08155EF4	thumb	80			asm	asm/code_081551F8.s
-08155F44	thumb	48			asm	asm/code_081551F8.s
-08155F74	thumb	32			asm	asm/code_081551F8.s
-08155F94	thumb	108			asm	asm/code_081551F8.s
-08156000	thumb	136			asm	asm/code_081551F8.s
-08156088	thumb	172			asm	asm/code_081551F8.s
-08156134	thumb	60			asm	asm/code_081551F8.s
-08156170	thumb	96			asm	asm/code_081551F8.s
-081561D0	thumb	70			asm	asm/code_081551F8.s
-08156218	thumb	100			asm	asm/code_081551F8.s
-0815627C	thumb	84			asm	asm/code_081551F8.s
-081562D0	thumb	28			asm	asm/code_081551F8.s
-081562EC	thumb	48			asm	asm/code_081551F8.s
-0815631C	thumb	96			asm	asm/code_081551F8.s
-0815637C	thumb	60			asm	asm/code_081551F8.s
-081563B8	thumb	60			asm	asm/code_081551F8.s
-081563F4	thumb	376			asm	asm/code_081551F8.s
-0815656C	thumb	48			asm	asm/code_081551F8.s
-0815659C	thumb	24			asm	asm/code_081551F8.s
-081565B4	thumb	272			asm	asm/code_081551F8.s
-081566C4	thumb	28			asm	asm/code_081551F8.s
-081566E0	thumb	20			asm	asm/code_081551F8.s
-081566F4	thumb	46			asm	asm/code_081551F8.s
-08156724	thumb	128			asm	asm/code_081551F8.s
-081567A4	thumb	384			asm	asm/code_081551F8.s
-08156924	thumb	396			asm	asm/code_081551F8.s
-08156AB0	thumb	196			asm	asm/code_081551F8.s
-08156B74	thumb	576			asm	asm/code_081551F8.s
-08156DB4	thumb	120			asm	asm/code_081551F8.s
-08156E2C	thumb	56			asm	asm/code_081551F8.s
-08156E64	thumb	52			asm	asm/code_081551F8.s
-08156E98	thumb	52			asm	asm/code_081551F8.s
-08156ECC	thumb	736			asm	asm/code_081551F8.s
-081571AC	thumb	48			asm	asm/code_081551F8.s
-081571DC	thumb	20			asm	asm/code_081551F8.s
-081571F0	thumb	70			asm	asm/code_081551F8.s
-08157238	thumb	116			asm	asm/code_081551F8.s
-081572AC	thumb	238			asm	asm/code_081551F8.s
-0815739C	thumb	152			asm	asm/code_081551F8.s
-08157434	thumb	12			asm	asm/code_081551F8.s
-08157440	thumb	28			asm	asm/code_081551F8.s
-0815745C	thumb	36			asm	asm/code_081551F8.s
-08157480	thumb	16			asm	asm/code_081551F8.s
-08157490	thumb	64	Fusion_LoadRoomTiles	probable	named	asm/code_081551F8.s
-081574D0	thumb	100			asm	asm/code_081551F8.s
-08157534	thumb	164			asm	asm/code_081551F8.s
-081575D8	thumb	116			asm	asm/code_081551F8.s
-0815764C	thumb	76			asm	asm/code_081551F8.s
-08157698	thumb	36			asm	asm/code_081551F8.s
-081576BC	thumb	38			asm	asm/code_081551F8.s
-081576E4	thumb	188			asm	asm/code_081551F8.s
-081577A0	thumb	72			asm	asm/code_081551F8.s
-081577E8	thumb	128			asm	asm/code_081551F8.s
-08157868	thumb	32			asm	asm/code_081551F8.s
-08157888	thumb	210			asm	asm/code_081551F8.s
-0815795C	thumb	36			asm	asm/code_081551F8.s
-08157980	thumb	36			asm	asm/code_081551F8.s
-081579A4	thumb	48			asm	asm/code_081551F8.s
-081579D4	thumb	420			asm	asm/code_081551F8.s
-08157B78	thumb	64			asm	asm/code_081551F8.s
-08157BB8	thumb	116			asm	asm/code_081551F8.s
-08157C2C	thumb	100			asm	asm/code_081551F8.s
-08157C90	thumb	508			asm	asm/code_081551F8.s
-08157E8C	thumb	24			asm	asm/code_081551F8.s
-08157EA4	thumb	10			asm	asm/code_081551F8.s
-08157EB0	thumb	172			asm	asm/code_081551F8.s
-08157F5C	thumb	56			asm	asm/code_081551F8.s
-08157F94	thumb	156			asm	asm/code_081551F8.s
-08158030	thumb	118			asm	asm/code_081551F8.s
-081580A8	thumb	36			asm	asm/code_081551F8.s
-081580CC	thumb	128	Fusion_LoadEffectPart	probable	named	asm/code_081551F8.s
-0815814C	thumb	116			asm	asm/code_081551F8.s
-081581C0	thumb	94			asm	asm/code_081551F8.s
-08158220	thumb	72			asm	asm/code_081551F8.s
-08158268	thumb	84			asm	asm/code_081551F8.s
-081582BC	thumb	36			asm	asm/code_081551F8.s
-081582E0	thumb	108	Fusion_LoadMistFrame	probable	named	asm/code_081551F8.s
-0815834C	thumb	84			asm	asm/code_081551F8.s
-081583A0	thumb	84			asm	asm/code_081551F8.s
-081583F4	thumb	296			asm	asm/code_081583F4.s
-0815851C	thumb	272			asm	asm/code_081583F4.s
-0815862C	thumb	502			asm	asm/code_081583F4.s
-08158824	thumb	332			asm	asm/code_081583F4.s
-08158970	thumb	196			asm	asm/code_081583F4.s
-08158A34	thumb	10			asm	asm/code_081583F4.s
-08158A40	thumb	346			asm	asm/code_081583F4.s
-08158B9C	thumb	90			asm	asm/code_081583F4.s
-08158BF8	thumb	172			asm	asm/code_081583F4.s
-08158CA4	thumb	24			asm	asm/code_081583F4.s
-08158CBC	thumb	76			asm	asm/code_081583F4.s
-08158D08	thumb	24			asm	asm/code_081583F4.s
-08158D20	thumb	224			asm	asm/code_081583F4.s
-08158E00	thumb	82			asm	asm/code_081583F4.s
-08158E54	thumb	36			asm	asm/code_081583F4.s
-08158E78	thumb	86			asm	asm/code_081583F4.s
-08158ED0	thumb	120			asm	asm/code_081583F4.s
-08158F48	thumb	92			asm	asm/code_081583F4.s
-08158FA4	thumb	242			asm	asm/code_081583F4.s
-08159098	thumb	52			asm	asm/code_081583F4.s
-081590CC	thumb	120			asm	asm/code_081583F4.s
-08159144	thumb	24			asm	asm/code_081583F4.s
-0815915C	thumb	336			asm	asm/code_081583F4.s
-081592AC	thumb	208			asm	asm/code_081583F4.s
-0815937C	thumb	112			asm	asm/code_081583F4.s
-081593EC	thumb	76			asm	asm/code_081583F4.s
-08159438	thumb	124			asm	asm/code_081583F4.s
-081594B4	thumb	178			asm	asm/code_081583F4.s
-08159568	thumb	156			asm	asm/code_081583F4.s
-08159604	thumb	48			asm	asm/code_081583F4.s
-08159634	thumb	92			asm	asm/code_081583F4.s
-08159690	thumb	96			asm	asm/code_081583F4.s
-081596F0	thumb	588			asm	asm/code_081583F4.s
-0815993C	thumb	94			asm	asm/code_081583F4.s
-0815999C	thumb	196			asm	asm/code_081583F4.s
-08159A60	thumb	410			asm	asm/code_081583F4.s
-08159BFC	thumb	340			asm	asm/code_081583F4.s
-08159D50	thumb	160			asm	asm/code_081583F4.s
-08159DF0	thumb	172			asm	asm/code_081583F4.s
-08159E9C	thumb	124			asm	asm/code_081583F4.s
-08159F18	thumb	328			asm	asm/code_081583F4.s
-0815A060	thumb	240			asm	asm/code_081583F4.s
-0815A150	thumb	222			asm	asm/code_081583F4.s
-0815A230	thumb	194			asm	asm/code_081583F4.s
-0815A2F4	thumb	24			asm	asm/code_081583F4.s
-0815A30C	thumb	868			asm	asm/code_081583F4.s
-0815A670	thumb	128			asm	asm/code_081583F4.s
-0815A6F0	thumb	684			asm	asm/code_081583F4.s
-0815A99C	thumb	148			asm	asm/code_081583F4.s
-0815AA30	thumb	148			asm	asm/code_081583F4.s
-0815AAC4	thumb	2			asm	asm/code_081583F4.s
-0815AAC8	thumb	112			asm	asm/code_081583F4.s
-0815AB38	thumb	112			asm	asm/code_081583F4.s
-0815ABA8	thumb	484			asm	asm/code_081583F4.s
-0815AD8C	thumb	62			asm	asm/code_081583F4.s
-0815ADCC	thumb	76			asm	asm/code_081583F4.s
-0815AE18	thumb	80			asm	asm/code_081583F4.s
-0815AE68	thumb	28			asm	asm/code_081583F4.s
-0815AE84	thumb	124			asm	asm/code_081583F4.s
-0815AF00	thumb	176			asm	asm/code_081583F4.s
-0815AFB0	thumb	218			asm	asm/code_081583F4.s
-0815B08C	thumb	144			asm	asm/code_081583F4.s
-0815B11C	thumb	300			asm	asm/code_081583F4.s
-0815B248	thumb	2			asm	asm/code_081583F4.s
-0815B24C	thumb	20			asm	asm/code_081583F4.s
-0815B260	thumb	404			asm	asm/code_081583F4.s
-0815B3F4	thumb	190			asm	asm/code_081583F4.s
-0815B4B4	thumb	880			asm	asm/code_081583F4.s
-0815B824	thumb	64			asm	asm/code_081583F4.s
-0815B864	thumb	28			asm	asm/code_081583F4.s
-0815B880	thumb	2			asm	asm/code_081583F4.s
-0815B884	thumb	116			asm	asm/code_081583F4.s
-0815B8F8	thumb	96			asm	asm/code_081583F4.s
-0815B958	thumb	24			asm	asm/code_081583F4.s
-0815B970	thumb	46			asm	asm/code_081583F4.s
-0815B9A0	thumb	24			asm	asm/code_081583F4.s
-0815B9B8	thumb	36			asm	asm/code_081583F4.s
-0815B9DC	thumb	76			asm	asm/code_081583F4.s
-0815BA28	thumb	82			asm	asm/code_081583F4.s
-0815BA7C	thumb	72			asm	asm/code_081583F4.s
-0815BAC4	thumb	4			asm	asm/code_081583F4.s
-0815BAC8	thumb	80			asm	asm/code_081583F4.s
-0815BB18	thumb	88			asm	asm/code_081583F4.s
-0815BB70	thumb	32			asm	asm/code_081583F4.s
+081551F8	thumb	240			c	src/fusionlist_b.c
+081552E8	thumb	140			c	src/fusionlist_b.c
+08155374	thumb	408			nonmatching	src/fusionlist_b.c
+0815550C	thumb	12			c	src/fusionlist_b.c
+08155518	thumb	60			c	src/fusionlist_b.c
+08155554	thumb	264	Fusion_BuildMaterialList	probable	c	src/fusionlist_b.c
+0815565C	thumb	104			c	src/fusionlist_b.c
+081556C4	thumb	52			c	src/fusionlist_b.c
+081556F8	thumb	36			c	src/fusionlist_b.c
+0815571C	thumb	636			nonmatching	src/fusionlist_b.c
+08155998	thumb	544	Fusion_DrawMaterialHeader	tentative	nonmatching	src/fusionlist_b.c
+08155BB8	thumb	136			c	src/fusionlist_b.c
+08155C40	thumb	64			c	src/fusionlist_b.c
+08155C80	thumb	370			c	src/fusionlist_b.c
+08155DF4	thumb	48			c	src/fusionlist_b.c
+08155E24	thumb	156			c	src/fusionlist_b.c
+08155EC0	thumb	52			c	src/fusionlist_b.c
+08155EF4	thumb	80			c	src/fusionlist_b.c
+08155F44	thumb	48			c	src/fusionlist_b.c
+08155F74	thumb	32			c	src/fusionlist_b.c
+08155F94	thumb	108	Fusion_StartScreen	probable	c	src/fusionlist_b.c
+08156000	thumb	136	Fusion_ResumeScreen	probable	c	src/fusionlist_b.c
+08156088	thumb	172			c	src/fusionlist_b.c
+08156134	thumb	60			c	src/fusionlist_b.c
+08156170	thumb	96			c	src/fusionlist_b.c
+081561D0	thumb	70			c	src/compendium_a.c
+08156218	thumb	100			c	src/compendium_a.c
+0815627C	thumb	84			c	src/compendium_a.c
+081562D0	thumb	28			c	src/compendium_a.c
+081562EC	thumb	48			nonmatching	src/compendium_a.c
+0815631C	thumb	96			c	src/compendium_a.c
+0815637C	thumb	60			c	src/compendium_a.c
+081563B8	thumb	60			c	src/compendium_a.c
+081563F4	thumb	376			c	src/compendium_a.c
+0815656C	thumb	48			c	src/compendium_a.c
+0815659C	thumb	24			c	src/compendium_a.c
+081565B4	thumb	272			c	src/compendium_a.c
+081566C4	thumb	28			c	src/compendium_a.c
+081566E0	thumb	20			c	src/compendium_a.c
+081566F4	thumb	46			c	src/compendium_a.c
+08156724	thumb	128			c	src/compendium_a.c
+081567A4	thumb	384			c	src/compendium_a.c
+08156924	thumb	396			nonmatching	src/compendium_a.c
+08156AB0	thumb	196			c	src/compendium_a.c
+08156B74	thumb	576	List_HandleScrollInput	probable	nonmatching	src/compendium_a.c
+08156DB4	thumb	120			c	src/compendium_a.c
+08156E2C	thumb	56			c	src/compendium_a.c
+08156E64	thumb	52			c	src/compendium_a.c
+08156E98	thumb	52			c	src/compendium_a.c
+08156ECC	thumb	736	Compendium_BuildList	probable	nonmatching	src/compendium_a.c
+081571AC	thumb	48	Compendium_CountList	probable	c	src/compendium_a.c
+081571DC	thumb	20	Compendium_GetPrice	probable	c	src/compendium_a.c
+081571F0	thumb	70	Compendium_CanSummon	probable	c	src/compendium_a.c
+08157238	thumb	116			c	src/compendium_a.c
+081572AC	thumb	238			c	src/compendium_a.c
+0815739C	thumb	152			c	src/compendium_a.c
+08157434	thumb	12			c	src/compendium_a.c
+08157440	thumb	28			c	src/compendium_a.c
+0815745C	thumb	36			c	src/compendium_a.c
+08157480	thumb	16			c	src/compendium_a.c
+08157490	thumb	64	Fusion_LoadRoomTiles	probable	c	src/compendium_a.c
+081574D0	thumb	100			c	src/compendium_a.c
+08157534	thumb	164			nonmatching	src/compendium_a.c
+081575D8	thumb	116			c	src/fusionroom_a.c
+0815764C	thumb	76			c	src/fusionroom_a.c
+08157698	thumb	36			c	src/fusionroom_a.c
+081576BC	thumb	38			c	src/fusionroom_a.c
+081576E4	thumb	188			c	src/fusionroom_a.c
+081577A0	thumb	72			c	src/fusionroom_a.c
+081577E8	thumb	128			c	src/fusionroom_a.c
+08157868	thumb	32			c	src/fusionroom_a.c
+08157888	thumb	210	FusionRoom_DissolveSprite	probable	c	src/fusionroom_a.c
+0815795C	thumb	36			c	src/fusionroom_a.c
+08157980	thumb	36			c	src/fusionroom_a.c
+081579A4	thumb	48			c	src/fusionroom_a.c
+081579D4	thumb	420	FusionRoom_DrawResultMessage	probable	c	src/fusionroom_a.c
+08157B78	thumb	64			c	src/fusionroom_a.c
+08157BB8	thumb	116			c	src/fusionroom_a.c
+08157C2C	thumb	100			c	src/fusionroom_a.c
+08157C90	thumb	508	Fusion_Commit	probable	c	src/fusionroom_a.c
+08157E8C	thumb	24			c	src/fusionroom_a.c
+08157EA4	thumb	10			c	src/fusionroom_a.c
+08157EB0	thumb	172			c	src/fusionroom_b.c
+08157F5C	thumb	56			c	src/fusionroom_b.c
+08157F94	thumb	156			nonmatching	src/fusionroom_b.c
+08158030	thumb	118			nonmatching	src/fusionroom_b.c
+081580A8	thumb	36			c	src/fusionroom_b.c
+081580CC	thumb	128	Fusion_LoadEffectPart	probable	c	src/fusionroom_b.c
+0815814C	thumb	116			c	src/fusionroom_b.c
+081581C0	thumb	94			c	src/fusionroom_b.c
+08158220	thumb	72			c	src/fusionroom_b.c
+08158268	thumb	84			c	src/fusionroom_b.c
+081582BC	thumb	36			c	src/fusionroom_b.c
+081582E0	thumb	108	Fusion_LoadMistFrame	probable	c	src/fusionroom_b.c
+0815834C	thumb	84			c	src/fusionroom_b.c
+081583A0	thumb	84			c	src/fusionroom_b.c
+081583F4	thumb	296			nonmatching	src/objaffine_a.c
+0815851C	thumb	272			nonmatching	src/objaffine_a.c
+0815862C	thumb	502			asm	asm/code_0815862C.s
+08158824	thumb	332			asm	asm/code_0815862C.s
+08158970	thumb	196	Fusion_CalcTwo	probable	c	src/fusioncalc_a.c
+08158A34	thumb	10			c	src/fusioncalc_a.c
+08158A40	thumb	346	Fusion_CalcPair	probable	c	src/fusioncalc_a.c
+08158B9C	thumb	90	Fusion_FindSpecialPair	probable	nonmatching	src/fusioncalc_a.c
+08158BF8	thumb	172	Fusion_FindSpecialTriple	probable	nonmatching	src/fusioncalc_a.c
+08158CA4	thumb	24			c	src/fusioncalc_a.c
+08158CBC	thumb	76			c	src/fusioncalc_a.c
+08158D08	thumb	24			c	src/fusioncalc_a.c
+08158D20	thumb	224			nonmatching	src/fusioncalc_a.c
+08158E00	thumb	82			nonmatching	src/fusioncalc_a.c
+08158E54	thumb	36	Fusion_SetNoResult	probable	c	src/fusioncalc_a.c
+08158E78	thumb	86			nonmatching	src/fusioncalc_a.c
+08158ED0	thumb	120			nonmatching	src/fusioncalc_a.c
+08158F48	thumb	92			c	src/fusioncalc_a.c
+08158FA4	thumb	242			nonmatching	src/fusioncalc_a.c
+08159098	thumb	52			c	src/fusioncalc_a.c
+081590CC	thumb	120			c	src/fusioncalc_a.c
+08159144	thumb	24			c	src/fusioncalc_a.c
+0815915C	thumb	336			nonmatching	src/fusioncalc_a.c
+081592AC	thumb	208			nonmatching	src/fusioncalc_a.c
+0815937C	thumb	112			nonmatching	src/fusioncalc_a.c
+081593EC	thumb	76			c	src/fusioncalc_a.c
+08159438	thumb	124	Fusion_FindRaceDemonByLevel	probable	nonmatching	src/fusioncalc_a.c
+081594B4	thumb	178			nonmatching	src/fusioncalc_a.c
+08159568	thumb	156			nonmatching	src/fusioncalc_a.c
+08159604	thumb	48			nonmatching	src/fusioncalc_a.c
+08159634	thumb	92	Fusion_RankDown	probable	nonmatching	src/fusioncalc_a.c
+08159690	thumb	96	Fusion_RankUp	probable	nonmatching	src/fusioncalc_a.c
+081596F0	thumb	588	Fusion_CalcThree	probable	c	src/fusioncalc_b.c
+0815993C	thumb	94			c	src/fusioncalc_b.c
+0815999C	thumb	196			nonmatching	src/fusioncalc_b.c
+08159A60	thumb	410			asm	asm/code_08159A60.s
+08159BFC	thumb	340			asm	asm/code_08159A60.s
+08159D50	thumb	160			asm	asm/code_08159A60.s
+08159DF0	thumb	172			asm	asm/code_08159A60.s
+08159E9C	thumb	124			asm	asm/code_08159A60.s
+08159F18	thumb	328			asm	asm/code_08159A60.s
+0815A060	thumb	240			asm	asm/code_08159A60.s
+0815A150	thumb	222			asm	asm/code_08159A60.s
+0815A230	thumb	194			asm	asm/code_08159A60.s
+0815A2F4	thumb	24			asm	asm/code_08159A60.s
+0815A30C	thumb	868			asm	asm/code_08159A60.s
+0815A670	thumb	128			asm	asm/code_08159A60.s
+0815A6F0	thumb	684			asm	asm/code_08159A60.s
+0815A99C	thumb	148			asm	asm/code_08159A60.s
+0815AA30	thumb	148			asm	asm/code_08159A60.s
+0815AAC4	thumb	2			asm	asm/code_08159A60.s
+0815AAC8	thumb	112			asm	asm/code_08159A60.s
+0815AB38	thumb	112			asm	asm/code_08159A60.s
+0815ABA8	thumb	484			asm	asm/code_08159A60.s
+0815AD8C	thumb	62			asm	asm/code_08159A60.s
+0815ADCC	thumb	76			asm	asm/code_08159A60.s
+0815AE18	thumb	80			asm	asm/code_08159A60.s
+0815AE68	thumb	28			asm	asm/code_08159A60.s
+0815AE84	thumb	124			asm	asm/code_08159A60.s
+0815AF00	thumb	176			asm	asm/code_08159A60.s
+0815AFB0	thumb	218			asm	asm/code_08159A60.s
+0815B08C	thumb	144			asm	asm/code_08159A60.s
+0815B11C	thumb	300			asm	asm/code_08159A60.s
+0815B248	thumb	2			asm	asm/code_08159A60.s
+0815B24C	thumb	20			asm	asm/code_08159A60.s
+0815B260	thumb	404			asm	asm/code_08159A60.s
+0815B3F4	thumb	190			asm	asm/code_08159A60.s
+0815B4B4	thumb	880			asm	asm/code_08159A60.s
+0815B824	thumb	64			nonmatching	src/fusioncalc_c.c
+0815B864	thumb	28			c	src/fusioncalc_c.c
+0815B880	thumb	2			c	src/fusioncalc_c.c
+0815B884	thumb	116			nonmatching	src/fusioncalc_c.c
+0815B8F8	thumb	96			nonmatching	src/fusioncalc_c.c
+0815B958	thumb	24			c	src/fusioncalc_c.c
+0815B970	thumb	46			nonmatching	src/fusioncalc_c.c
+0815B9A0	thumb	24	Demon_GetLevel	probable	c	src/fusioncalc_c.c
+0815B9B8	thumb	36	Demon_GetRaceAndAlign	probable	c	src/fusioncalc_c.c
+0815B9DC	thumb	76	Demon_GetRace	probable	c	src/fusioncalc_c.c
+0815BA28	thumb	82			nonmatching	src/fusioncalc_c.c
+0815BA7C	thumb	72			nonmatching	src/fusioncalc_c.c
+0815BAC4	thumb	4			c	src/fusioncalc_c.c
+0815BAC8	thumb	80	ItemStock_Add	probable	c	src/fusioncalc_c.c
+0815BB18	thumb	88	ItemStock_Remove	probable	c	src/fusioncalc_c.c
+0815BB70	thumb	32	ItemStock_GetIndex	probable	c	src/fusioncalc_c.c
 0815C140	thumb	44			asm	asm/code_0815C140.s
 0815C16C	thumb	60			asm	asm/code_0815C140.s
 0815C1A8	thumb	472			asm	asm/code_0815C140.s

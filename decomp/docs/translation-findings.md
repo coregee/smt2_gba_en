@@ -460,3 +460,25 @@ No text is drawn here, so nothing limits the translation. Oddities in the origin
 - `ScriptOp_443`: one time in eight it subtracts the demon's level from the hero's record +8
   (probably EXP).
 - `sub_0813CBD8` clears `gScriptWaitBusy` and sets it again (missing `else`): one extra frame.
+
+## Found in the eighth conversion round
+
+### Cathedral of Shadows: material list, compendium, fusion room, fusion rules (`0x081551F8`-`0x0815BB90`)
+
+- **Japanese strings in program rodata** (`0x0815BB90`-`0x0815C140`, not in the text banks):
+  list headers `0x0815BE50`-`0x0815BEBE`, the special-result message `0x0815BB90` and the
+  item-fusion result `0x0815BF92`. The translation leaves the bytes but repoints every
+  reference (`0x08157A30`, `0x0815545C`, `0x08155494`, `0x08155508`, `0x08157A5C`; checked).
+- **Fixed widths:** `Fusion_DrawMaterialHeader` (`0x08155998`) draws exactly 3 race glyphs and
+  up to 8 name glyphs; the compendium pages (`0x081567A4`, `0x08156924`) cut race and demon
+  names at 8; the result message (`0x081579D4`) has no line-length check (about 16 glyphs at
+  12 px from x=0x12). The translation patches all four (checked).
+
+### More possible original bugs
+
+- `sub_08158D20` truncates the fusion result to 8 bits, so demon ids 0x100 and up can never be
+  a fusion result.
+- `sub_0815B824` writes to `0x0203BAFA`, past the fusion calculation fields.
+- `sub_081563F4` has an `if (level < 10)` whose branches draw the same thing; several functions
+  read uninitialised locals for unexpected slots or modes (`sub_081551F8`, `sub_0815565C`,
+  `sub_08156088`, `sub_08157238`, `sub_081572AC`).

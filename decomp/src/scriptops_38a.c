@@ -704,7 +704,7 @@ done:
     if (arg)
         idx |= 1;
     if (!(idx & 1))
-        sub_0815BAC8(gUnk_0203DB7C, 1);
+        ItemStock_Add(gUnk_0203DB7C, 1);
     gScriptBase = gUnknown_08032D7C;
     p = &gUnknown_08032D7C[(u16)(idx * 2)];
     gScriptJumpTarget = (u16 *)(p[1] << 16 | p[0]);
@@ -791,7 +791,7 @@ void ScriptOp_3CD(void)
         "    ldr r0, .L0813769C\n"
         "    ldrh r0, [r0]\n"
         "    movs r1, #1\n"
-        "    bl sub_0815BAC8\n"
+        "    bl ItemStock_Add\n"
         ".L0813767C:\n"
         "    lsls r0, r4, #0x11\n"
         "    ldr r1, .L081376A0\n"

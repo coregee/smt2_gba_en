@@ -1226,7 +1226,7 @@ void ScriptOp_443(void)
     lo = SCRIPT_READ();
     t3 = SCRIPT_READ();
     t3 = t3 << 16 | lo;
-    r = sub_0815B9DC(gUnk_0203DB7C);
+    r = Demon_GetRace(gUnk_0203DB7C);
     if (r == 0x22)
     {
         gUnk_0203DB2C = (Demon_GetField(gUnk_0203DB7C, 0) & 0xFF) * 2;

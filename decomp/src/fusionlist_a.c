@@ -162,7 +162,7 @@ u8 Fusion_GetPairIcon(u16 id, u16 slot)
         gUnk_0203B868.ids[1] = m->demonId;
         gUnk_0203B868.ids[2] = 0xFFFF;
         good = sub_0815B4B4();
-        sub_08158970();
+        Fusion_CalcTwo();
         sub_0815B260();
     }
     else if (f->mode == 3)
@@ -172,7 +172,7 @@ u8 Fusion_GetPairIcon(u16 id, u16 slot)
         gUnk_0203B868.ids[2] = m->demonId;
         Fusion_SortMaterials();
         good = sub_0815B4B4();
-        sub_081596F0();
+        Fusion_CalcThree();
         sub_0815B260();
     }
     else if (f->mode == 1)
@@ -308,7 +308,7 @@ u8 Fusion_GetPairIcon(u16 id, u16 slot)
         "    strh r0, [r1]\n"
         "    bl sub_0815B4B4\n"
         "    mov r8, r0\n"
-        "    bl sub_08158970\n"
+        "    bl Fusion_CalcTwo\n"
         "    bl sub_0815B260\n"
         "    b .L0815421C\n"
         "    .byte 0x00, 0x00\n"
@@ -332,7 +332,7 @@ u8 Fusion_GetPairIcon(u16 id, u16 slot)
         "    bl Fusion_SortMaterials\n"
         "    bl sub_0815B4B4\n"
         "    mov r8, r0\n"
-        "    bl sub_081596F0\n"
+        "    bl Fusion_CalcThree\n"
         "    bl sub_0815B260\n"
         "    b .L0815421C\n"
         "    .byte 0x00, 0x00\n"
@@ -1544,7 +1544,7 @@ void Fusion_DrawListRow(struct FusionMenu *f, u16 row, u16 y)
         gUnk_0203B868.ids[1] = m->demonId;
         gUnk_0203B868.ids[2] = 0xFFFF;
         sub_0815B4B4();
-        sub_08158970();
+        Fusion_CalcTwo();
         gUnk_0203B854[3] = gUnk_0203B868.result;
         sub_0815438C(f->picks[0]->demonId, Fusion_FindListSlot(m->demonId), 0x82, y + 4);
         if ((Fusion_GetPairIcon(f->picks[0]->demonId, Fusion_FindListSlot(m->demonId)) & 0xF) != 5)
@@ -1566,7 +1566,7 @@ void Fusion_DrawListRow(struct FusionMenu *f, u16 row, u16 y)
         gUnk_0203B868.ids[2] = m->demonId;
         Fusion_SortMaterials();
         sub_0815B4B4();
-        sub_081596F0();
+        Fusion_CalcThree();
         gUnk_0203B854[3] = gUnk_0203B868.result;
         if (gUnk_0203B868.result > 0xFE)
             gUnk_0203B854[3] = 0xFB;
@@ -1975,7 +1975,7 @@ void Fusion_DrawListRow(struct FusionMenu *f, u16 row, u16 y)
         "    ldr r0, .L08154DD0\n"
         "    strh r0, [r1]\n"
         "    bl sub_0815B4B4\n"
-        "    bl sub_08158970\n"
+        "    bl Fusion_CalcTwo\n"
         "    ldr r1, .L08154DD4\n"
         "    adds r6, r4, #0\n"
         "    adds r6, #0xa0\n"
@@ -2077,7 +2077,7 @@ void Fusion_DrawListRow(struct FusionMenu *f, u16 row, u16 y)
         "    strh r1, [r0]\n"
         "    bl Fusion_SortMaterials\n"
         "    bl sub_0815B4B4\n"
-        "    bl sub_081596F0\n"
+        "    bl Fusion_CalcThree\n"
         "    ldr r1, .L08154E80\n"
         "    adds r4, #0xa0\n"
         "    ldrh r0, [r4]\n"

@@ -57,7 +57,7 @@ ScriptOp_447: @ 0x0813BF98
 	bne .L0813C054
 	ldr r4, .L0813C03C
 	ldrh r0, [r4]
-	bl sub_0815B9DC
+	bl Demon_GetRace
 	lsls r0, r0, #0x10
 	lsrs r6, r0, #0x10
 	cmp r6, #0x1a

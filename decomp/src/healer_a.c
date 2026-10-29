@@ -326,17 +326,17 @@ void ScriptOp_35F(void)
     Font_ResetGlyphSpriteCache(0x180);
     gScriptPc++;
     if (gUnk_030068A8 == 2)
-        gUnk_030068E0 = sub_08155F94(2);
+        gUnk_030068E0 = Fusion_StartScreen(2);
     else if (gUnk_030068A8 == 3)
-        gUnk_030068E0 = sub_08155F94(3);
+        gUnk_030068E0 = Fusion_StartScreen(3);
     else if (gUnk_030068A8 == 1)
-        gUnk_030068E0 = sub_08155F94(4);
+        gUnk_030068E0 = Fusion_StartScreen(4);
     else if (gUnk_030068A8 == 4)
-        gUnk_030068E0 = sub_08155F94(1);
+        gUnk_030068E0 = Fusion_StartScreen(1);
     else if (gUnk_030068A8 == 5)
-        gUnk_030068E0 = sub_08155F94(5);
+        gUnk_030068E0 = Fusion_StartScreen(5);
     else if (gUnk_030068A8 == 6)
-        gUnk_030068E0 = sub_08155F94(6);
+        gUnk_030068E0 = Fusion_StartScreen(6);
     gScriptWaitState = 0x2C;
     gScriptYield = 1;
 }

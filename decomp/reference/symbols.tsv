@@ -1253,10 +1253,36 @@ address	name	kind	confidence	note
 08154A38	Fusion_DrawListRow	func	probable	one row of the fusion list: race (Race_GetName, 3 glyphs), name, level and the result preview of the current step
 08154F4C	Fusion_DrawListHeader	func	probable	column labels RACE / NAME / RESULT / LV (ASCII at 0x087E1C2C..0x087E1C44) and list numbers
 081551A8	Fusion_DrawList	func	probable	sub_08154A38 for the six visible rows from top, then queues sub_08154EEC
+08155554	Fusion_BuildMaterialList	func	probable	refills sFusion.members with stock demons (modes 2/3) or result records (4/5) whose demonId is not one of picks[0..2]
 08155998	Fusion_DrawMaterialHeader	func	tentative	from translation patches (lost Ghidra session); verify
+08155F94	Fusion_StartScreen	func	probable	(mode) creates the list task (script by mode 1/4/5, 6 or other), clears gMenuState, stores mode in sFusion.mode and gUnk_0203B854[4]
+08156000	Fusion_ResumeScreen	func	probable	recreates the list task by gUnk_0203B854[4] and restores gMenuState from the copy at 0x0203AC54 (saved by sub_08155C80)
+08156B74	List_HandleScrollInput	func	probable	(task, count, rows, *cursor, *top, mode): A/B/up/down/L/R paging of a list; mode 1 refuses unaffordable compendium entries and redraws the info panel
+08156ECC	Compendium_BuildList	func	probable	fills gStatusList (0x017B ids max) for page 0 all / 1 race / 2 alignment table 0x08585C34 / 3 level range; non-matching entries get bit 15; sets cursor/top
+081571AC	Compendium_CountList	func	probable	counts gStatusList entries != 0xFFFF over 0x17C slots
+081571DC	Compendium_GetPrice	func	probable	sub_080C10A8(id) * 5; drawn as the cost and subtracted with Money_Add(-x) when summoning (sub_08157C90)
+081571F0	Compendium_CanSummon	func	probable	hero level >= demon level, sub_0815BA28(id) and Money_Get() >= Compendium_GetPrice(id)
 08157490	Fusion_LoadRoomTiles	func	probable	k < 6: LZ77 0x087E5D3C[k] to 0x02001000 + k*0x1000; else the current room animation frame to 0x02003920
+08157888	FusionRoom_DissolveSprite	func	probable	ANDs the slot's 0x78 OBJ tiles at 0x02001000 + slot*0x1000 with one of four 8-word masks (0x087F02B8) per step, queues the upload; ends the sprite after step 3
+081579D4	FusionRoom_DrawResultMessage	func	probable	draws the result message with FontSprite glyphs, expanding 0x31F (race name) and 0x31E (demon name), 0x300 new line, 0x301 end
+08157C90	Fusion_Commit	func	probable	removes the materials (Party_Remove / Inventory_RemoveItem by mode), adds the result with the chosen skills, Music_Play(0xF); unk0 3 = compendium summon with Money_Add(-price)
 081580CC	Fusion_LoadEffectPart	func	probable	HuffUnComp+LZ77 part k of effect set 0x087F0954[set] to 0x02001000 + k*0x1000, palette on part 2
 081582E0	Fusion_LoadMistFrame	func	probable	HuffUnComp+LZ77 0x087F020C[n] to 0x02008000 and queue its DMA to OBJ 0x06013800
+08158970	Fusion_CalcTwo	func	probable	sorts the two materials of gUnk_0203B868, runs Fusion_CalcPair, restores the order and sets result flags 0x10/0x20
+08158A40	Fusion_CalcPair	func	probable	two-material rule dispatch: special table, demon 0xFB, same race, same alignment, alignment 0xB, race 8, element races > 0x1A, race table
+08158B9C	Fusion_FindSpecialPair	func	probable	scans the (a, b, result) table 0x087F1AD3 for the two materials
+08158BF8	Fusion_FindSpecialTriple	func	probable	scans the (a, b, c, result) table 0x087F1AF2 for the three materials; flag 0x40 when none
+08158E54	Fusion_SetNoResult	func	probable	result 0xFF, resRace 0xFF, unkA3 -1, flags 0x40, returns 0
+08159438	Fusion_FindRaceDemonByLevel	func	probable	(level) demon of gUnk_0203B868.resRace via the race start table 0x087F1514: the first if below level, else the one of exactly that level; -1 if none
+08159634	Fusion_RankDown	func	probable	(id, n) result = id moved down n places within its race, not past the race's first demon
+08159690	Fusion_RankUp	func	probable	(id, n) result = id moved up n places within its race, not past the last
+081596F0	Fusion_CalcThree	func	probable	three-material version of Fusion_CalcTwo: sorts all three, special triple table, race-8, element, alignment 0xB and race 0x16 rules
+0815B9A0	Demon_GetLevel	func	probable	Demon_GetRecord(id & 0xFF)->level
+0815B9B8	Demon_GetRaceAndAlign	func	probable	(id, *align, *race): race from Demon_GetRace, alignment from table 0x087F153D by race
+0815B9DC	Demon_GetRace	func	probable	ids >= 0x100 via table 0x087F1569, 0xFF -> 0xFF, else the index of the first race start in 0x087F1514 above id
+0815BAC8	ItemStock_Add	func	probable	(item, n) adds n to the byte count at gGameState+0x1074 + (item - 0x54), capped at 255; 0 when item is outside 0x54-0xB1
+0815BB18	ItemStock_Remove	func	probable	(item, n) subtracts n from the same count, not below 0
+0815BB70	ItemStock_GetIndex	func	probable	item - 0x54 for items 0x54-0xB1, else 0xFFFF
 0815CAF4	CpuFastSet	func	proven	svc 0x0C; bx lr
 0815CAF8	CpuSet	func	proven	svc 0x0B; bx lr
 0815CAFC	HuffUnComp	func	proven	svc 0x13; bx lr

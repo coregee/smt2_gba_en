@@ -109,7 +109,7 @@ u32 Moon_GetPhase(void);
 u16 Demon_GetField(u16, u16);
 u32 sub_0815B958(u16);
 u32 sub_0815B970(u16);
-void sub_0815BAC8(u16, u32);
+void ItemStock_Add(u16, u32);
 u32 Random_Byte(void);
 s16 Combatant_GetLevel(s32 who);
 u32 Combatant_GetStat(s32 who, s32 x);
@@ -139,7 +139,7 @@ void Script_JumpToStatusMessage(u32);
 s32 sub_0813B268(void);
 void Magnetite_Add(s32 a);
 u32 Inventory_IsMaxed(u16 a);
-void sub_0815B9B8(u16, u8 *, u8 *);
+void Demon_GetRaceAndAlign(u16, u8 *, u8 *);
 extern const u8 gUnknown_08790458[];
 
 extern u32 gUnk_03006840;

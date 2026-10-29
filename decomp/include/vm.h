@@ -264,7 +264,7 @@ u32 sub_080C0794(u32);
 void sub_080EF930(u8);
 u16 Combatant_GetLevel(u32);
 void sub_080EF978(u8);
-void sub_0815BAC8(u16, u32);
+void ItemStock_Add(u16, u32);
 void ScriptVM_Init(u16 *, u16);
 u32 sub_080EDA24(u32);
 

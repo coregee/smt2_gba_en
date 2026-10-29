@@ -774,7 +774,7 @@ void sub_0813E914(void)
     Combatant_GetStatus(0);
     if (sub_0813E804(gUnk_0203DB7C) != 0)
     {
-        sub_0815BAC8(gUnk_0203DB7C, 3);
+        ItemStock_Add(gUnk_0203DB7C, 3);
         script = gUnknown_08084020;
     }
     else
@@ -968,7 +968,7 @@ void sub_0813E914(void)
         "    beq .L0813EA50\n"
         "    ldrh r0, [r5]\n"
         "    movs r1, #3\n"
-        "    bl sub_0815BAC8\n"
+        "    bl ItemStock_Add\n"
         "    b .L0813EB30\n"
         ".L0813EA44: .4byte 0x030069E8 @ IWRAM+0x69E8\n"
         ".L0813EA48: .4byte 0x0203DB7C @ EWRAM+0x3DB7C\n"
