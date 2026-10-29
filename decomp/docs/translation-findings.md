@@ -533,3 +533,43 @@ No text is drawn here, so nothing limits the translation. Oddities in the origin
   reads demon record 0xFFFF.
 - `0x080E8E00`: a slot-2 sprite would put its VBlank task over battle flags at +0x1120.
 - Credits (`0x0815C1A8`): the first walker's scale comes from `path[9]`, past the table.
+
+## Found in the ninth conversion round: the casino (`0x0813EE90`-`0x0814E844`)
+
+Game ids from the init/update tables at `0x0879241C`/`0x0879243C`: 3 Russian Roulette,
+4 Code Breaker, 5 Super 27, 6 Lucky Symbol, 7 Joker and Stars; Baccarat, Keno and Big & Small
+are identified from their code (probable).
+
+- **On-screen text is sprites**, not text-bank strings: labels and messages come from sprite
+  tables (`0x0814EC10`-`0x0814F508`, `0x08794xxx`-`0x0879Fxxx`), so translating these screens
+  means editing graphics.
+- **Prize texts** are fixed 9-halfword slots, at most 8 glyphs (Code Breaker
+  `0x0879EC14[level][10][9]`, entry 9 = "already have 99"; Big & Small `0x0879DF8C[set][11][9]`),
+  hand-centred by x values in `0x0879EEE4`/`0x0879E2A4`. Unchanged in the patched build, which
+  adds one more reference to each table (its own drawer).
+- **Russian Roulette** uses its own 8x8 sprite font (tile 0x320 + byte, at most 8 characters,
+  8 px apart, `0x0814DAAC`) for its menus (`0x0879F39C`-`0x0879F3BC`), opponent names
+  (`0x0879F37C`), the hero's and demons' 8-byte names. These bytes are unchanged in the patched
+  build; whether they read as English depends on that font's tiles. Check on screen.
+- Coin displays are fixed digit counts (Super 27/Lucky Symbol/Joker 6, Baccarat 8 with a
+  separator up to 99,999,900, Keno 6, Big & Small 6).
+
+### Odds quirks and possible original bugs
+
+- Super 27 (`0x08141F24`): symbol 8's random bonus uses `Random_Byte() & 4`, so only 5 or 100
+  coins, never 10/20/50 (`% 5` was probably meant). Bonus card 8 comes up 1 time in 256
+  (`(rand & 0xFF) * 8 / 255`). Re-spinning with a pending win subtracts 5 without checking it
+  is at least 5, so the win can go negative (`0x0813F22C`).
+- Joker and Stars: a reel position past 479 wraps to `480 - pos` instead of `pos - 480` and
+  then reads past the 24-entry strip (`0x081450D8`); three jokers on a line index the payout
+  table with an unset symbol (`0x08145820`); the payout switch has no default (`0x081459B4`).
+- Baccarat (`0x0814789C`): suit = byte / 85 and rank = byte * 12 / 255, so suit 3 and rank 12
+  each appear 1 time in 256.
+- Keno (`0x08149410`) clamps coins to 999,999 on every payout, so a player who enters with more
+  loses the excess on the first win.
+- Big & Small (`0x0814A4AC`): the next number steps by `Random_Byte() & 5` (0, 1, 4 or 5, never
+  2 or 3).
+- Code Breaker (`0x0814BCF4`) over-counts blows: hit positions are not excluded, so code ABC
+  against guess AA? scores 1 hit + 1 blow.
+- Russian Roulette (`0x0814E044`): chamber = `((rand & 7) * 3) >> 2`, so chambers 0 and 3 come
+  up a quarter of the time each; a loss permanently removes the staked demon.

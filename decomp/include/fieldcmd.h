@@ -326,7 +326,7 @@ void *PalFade_FadeInFromBlack(u16 delay);
 void PalFade_Init(u32 keepPalettes);
 void Music_FadeOut(u32 a);
 void sub_080C3818(u32 a);
-void sub_0813EE90(u32 a, u32 b);
+void Casino_Start(u32 a, u32 b);
 void sub_080C1450(void);
 void sub_080ADF64(void);
 void Font_ResetGlyphSpriteCache(u32 baseTile);

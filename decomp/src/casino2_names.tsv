@@ -1,0 +1,32 @@
+08145E44	Baccarat_Init	func	clears gMenuState (0x200 words), coins = sub_080C31F0()*100, six card slots from gUnknown_0879C8EC; the state block whose cards Baccarat_LoadCards decodes
+08146FC8	Baccarat_DrawNumber8	func	NumberToDigits + 8 digit sprites (gUnknown_0879C7F4) with a separator glyph [10] between digits 2 and 3
+08147128	Baccarat_DrawNumber3	func	3 digit sprites from gUnknown_0879C7F4, right-aligned at x
+081471CC	Baccarat_CountUpCoins	func	every 4th frame adds 55 (500 when state+0x2F != 0) to coins until coinsTarget; caps at 99999900
+08147240	Baccarat_ChangeBet	func	cursor x 0x1E/0x37/0x50 selects bet[0..2] (+0x10/+0x14/+0x18); adds/removes amount*100 coins, limit 100 units; bets 0 and 2 exclude each other
+0814789C	Baccarat_DealCard	func	suit = Random_Byte/85, rank = Random_Byte*12/255, redraws duplicates of the six table cards, sub_08148510(slot, suit, rank)
+08147A90	Baccarat_ShowResult	func	result banner and payout: side 0 bet*195, side 2 bet*200, tie bet*900 + both side bets *100 (coins in units of 100)
+08148030	Baccarat_RecordRoad	func	appends the hand to the score road at state+0x48 (8-byte records, 4 rows per column): side-0 score, side-2 score+11, or 0x16 for a tie
+0814837C	Baccarat_ScrollRoad	func	shifts the 64 road records left by one column (4 records)
+081483B4	Baccarat_DrawRoad	func	draws the 60 road records with gUnknown_0879C878[value] at gUnknown_0879C92C positions
+0814846C	Baccarat_UploadCardFace	func	DMA 0x280 bytes of card face suit*0x2400+rank*0x280 from 0x0200F874 to OBJ VRAM 0x06014C00+slot*0x400
+08148510	Baccarat_SetCardFace	func	stores suit/rank of a slot and queues the slot's Baccarat_UploadCardFace wrapper for VBlank
+081485A0	Keno_DrawDigits	func	NumberToDigits, draws the low n digits (gUnknown_0879CE24) left to right, 8 px apart
+081487D8	Keno_Init	func	clears the state, 16 warm-up draws of 16 of 64 numbers recorded by sub_08149B38, coins = sub_080C31F0(); 8x8 board of 64 numbers
+08148928	Keno_CanStart	func	TRUE in states 2/3 when bet (+0x190) and marked count (+0x184) are both non-zero
+08148964	Keno_Update	func	main loop: bet menu (A/B change bet up to 100), board cursor marks up to 16 numbers (bit 15 of +0x04[64]), draws board and counters
+081491BC	Keno_DrawNumber	func	random undrawn number of 64 (+0x102 flags); a marked one counts a hit (+0x18C) and plays SE 0x15D
+08149280	Keno_ComputePayout	func	payout = bet * gUnknown_0879D338[marked][hits] (u32[13] rows); task result = payout != 0
+081493D4	Casino_GetCountStep	func	largest power of ten <= n (from 10^7), coins moved per frame while A is held (used by the 3x3 symbol game and Keno)
+08149410	Keno_PayOut	func	moves the payout (+0x224) into coins (+0x194), capped at 999999
+08149510	Keno_StartRound	func	Task_Create(gUnknown_0879D6AC), clears drawn flags and hit levels (keeps marks), drawn/hit counters = 0
+0814971C	Keno_DrawPayTable	func	rows of gUnknown_0879DA14[marked] (hits) and gUnknown_0879DB48[marked] (payout nibbles, 0xB = separator)
+08149A4C	Keno_ShowHotNumbers	func	counts each number in the 16-round history (+0x1A0) and stores a level 1-8 in the low bits of its mark word
+08149B38	Keno_RecordHistory	func	writes this round's drawn numbers as bits into history row +0x220 (16-row ring)
+08149BBC	BigSmall_Init	func	clears the state, coins = sub_080C31F0(), picks variant +0x262 from gUnk_03004614 (3/0x26/0x30/0x40)
+08149C7C	BigSmall_Update	func	main loop: R pays 10 coins (stake 10), Up/Down pick big/small; card > 4 is big, a right guess doubles the stake (+0x30)
+0814A26C	BigSmall_DrawNumber6	func	6 digit sprites from gUnknown_0879DDD4, right-aligned at x
+0814A36C	BigSmall_GetCountStep	func	largest power of ten <= n from 10000 (count-up step while A is held)
+0814A3A8	BigSmall_CountUpCoins	func	adds 5 (or the step) per 4 frames up to the won amount; a stake of 0x2800 (10240) ends with phase 9
+08145CC8	JokerStars_CheckLine	func	JokerStars_GetReelSymbol on three reels (1-based); a star (6) never pays, joker (5) is wild; marks winning reels at state+0xC8; returns the symbol or -1
+08145794	JokerStars_PayOutCoins	func	moves coins from the play counter (state+0xA0) to the purse via sub_080C31B4, Casino_GetCountStep per frame while A is held
+08145C98	JokerStars_CheckAllStars	func	JokerStars_CountStars() == 9 starts the star bonus task 0x0879B8D4 (symbol 6, count 9)

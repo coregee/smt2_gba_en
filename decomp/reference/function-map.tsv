@@ -3831,294 +3831,294 @@ address	mode	size	name	confidence	state	file
 0813EB6C	thumb	12			c	src/vm_run.c
 0813EB78	thumb	12			c	src/vm_run.c
 0813EB84	thumb	48			c	src/vm_run.c
-0813EE90	thumb	64			asm	asm/code_0813EE90.s
-0813EED0	thumb	112			asm	asm/code_0813EE90.s
-0813EF40	thumb	36			asm	asm/code_0813EE90.s
-0813EF64	thumb	44	CasinoScene_LoadTiles	probable	named	asm/code_0813EE90.s
-0813EF90	thumb	36			asm	asm/code_0813EE90.s
-0813EFB4	thumb	20	CasinoScene_QueueBgTiles	probable	named	asm/code_0813EE90.s
-0813EFC8	thumb	36			asm	asm/code_0813EE90.s
-0813EFEC	thumb	20	CasinoScene_QueueObjTiles	probable	named	asm/code_0813EE90.s
-0813F000	thumb	48	CasinoScene_LoadBgPalette	probable	named	asm/code_0813EE90.s
-0813F030	thumb	48	CasinoScene_LoadObjPalette	probable	named	asm/code_0813EE90.s
-0813F060	thumb	32			asm	asm/code_0813EE90.s
-0813F080	thumb	36			asm	asm/code_0813EE90.s
-0813F0A4	thumb	36			asm	asm/code_0813EE90.s
-0813F0C8	thumb	36			asm	asm/code_0813EE90.s
-0813F0EC	thumb	88	CasinoScene_LoadBgMap	probable	named	asm/code_0813EE90.s
-0813F144	thumb	12			asm	asm/code_0813EE90.s
-0813F150	thumb	12			asm	asm/code_0813EE90.s
-0813F15C	thumb	10			asm	asm/code_0813EE90.s
-0813F168	thumb	196			asm	asm/code_0813EE90.s
-0813F22C	thumb	3798			asm	asm/code_0813EE90.s
-08140104	thumb	700			asm	asm/code_0813EE90.s
-081403C0	thumb	1104			asm	asm/code_0813EE90.s
-08140810	thumb	260			asm	asm/code_0813EE90.s
-08140914	thumb	272			asm	asm/code_0813EE90.s
-08140A24	thumb	180			asm	asm/code_0813EE90.s
-08140AD8	thumb	4144			asm	asm/code_0813EE90.s
-08141B08	thumb	256			asm	asm/code_0813EE90.s
-08141C08	thumb	392			asm	asm/code_0813EE90.s
-08141D90	thumb	372			asm	asm/code_0813EE90.s
-08141F04	thumb	32			asm	asm/code_0813EE90.s
-08141F24	thumb	188			asm	asm/code_0813EE90.s
-08141FE0	thumb	256			asm	asm/code_0813EE90.s
-081420E0	thumb	82			asm	asm/code_0813EE90.s
-08142134	thumb	12			asm	asm/code_0813EE90.s
-08142140	thumb	192			asm	asm/code_0813EE90.s
-08142200	thumb	1048			asm	asm/code_0813EE90.s
-08142618	thumb	924			asm	asm/code_0813EE90.s
-081429B4	thumb	1364			asm	asm/code_0813EE90.s
-08142F08	thumb	256			asm	asm/code_0813EE90.s
-08143008	thumb	60			asm	asm/code_0813EE90.s
-08143044	thumb	434			asm	asm/code_0813EE90.s
-081431F8	thumb	146			asm	asm/code_0813EE90.s
-0814328C	thumb	900			asm	asm/code_0813EE90.s
-08143610	thumb	86			asm	asm/code_0813EE90.s
-08143668	thumb	378			asm	asm/code_0813EE90.s
-081437E4	thumb	644			asm	asm/code_0813EE90.s
-08143A68	thumb	398			asm	asm/code_0813EE90.s
-08143BF8	thumb	192			asm	asm/code_0813EE90.s
-08143CB8	thumb	486			asm	asm/code_0813EE90.s
-08143EA0	thumb	48			asm	asm/code_0813EE90.s
-08143ED0	thumb	328			asm	asm/code_0813EE90.s
-08144018	thumb	600			asm	asm/code_0813EE90.s
-08144270	thumb	384			asm	asm/code_0813EE90.s
-081443F0	thumb	468			asm	asm/code_0813EE90.s
-081445C4	thumb	530			asm	asm/code_0813EE90.s
-081447D8	thumb	12			asm	asm/code_0813EE90.s
-081447E4	thumb	132			asm	asm/code_0813EE90.s
-08144868	thumb	64			asm	asm/code_0813EE90.s
-081448A8	thumb	48			asm	asm/code_0813EE90.s
-081448D8	thumb	34			asm	asm/code_0813EE90.s
-081448FC	thumb	34			asm	asm/code_0813EE90.s
-08144920	thumb	120			asm	asm/code_0813EE90.s
-08144998	thumb	112			asm	asm/code_0813EE90.s
-08144A08	thumb	80			asm	asm/code_0813EE90.s
-08144A58	thumb	280			asm	asm/code_0813EE90.s
-08144B70	thumb	144			asm	asm/code_0813EE90.s
-08144C00	thumb	10			asm	asm/code_0813EE90.s
-08144C0C	thumb	924			asm	asm/code_0813EE90.s
-08144FA8	thumb	12			asm	asm/code_0813EE90.s
-08144FB4	thumb	36			asm	asm/code_0813EE90.s
-08144FD8	thumb	24			asm	asm/code_0813EE90.s
-08144FF0	thumb	232			asm	asm/code_0813EE90.s
-081450D8	thumb	76			asm	asm/code_0813EE90.s
-08145124	thumb	112			asm	asm/code_0813EE90.s
-08145194	thumb	104			asm	asm/code_0813EE90.s
-081451FC	thumb	100			asm	asm/code_0813EE90.s
-08145260	thumb	36			asm	asm/code_0813EE90.s
-08145284	thumb	12			asm	asm/code_0813EE90.s
-08145290	thumb	44			asm	asm/code_0813EE90.s
-081452BC	thumb	120			asm	asm/code_0813EE90.s
-08145334	thumb	20			asm	asm/code_0813EE90.s
-08145348	thumb	48			asm	asm/code_0813EE90.s
-08145378	thumb	56			asm	asm/code_0813EE90.s
-081453B0	thumb	52			asm	asm/code_0813EE90.s
-081453E4	thumb	52			asm	asm/code_0813EE90.s
-08145418	thumb	40			asm	asm/code_0813EE90.s
-08145440	thumb	72			asm	asm/code_0813EE90.s
-08145488	thumb	68			asm	asm/code_0813EE90.s
-081454CC	thumb	38			asm	asm/code_0813EE90.s
-081454F4	thumb	56			asm	asm/code_0813EE90.s
-0814552C	thumb	26			asm	asm/code_0813EE90.s
-08145548	thumb	48			asm	asm/code_0813EE90.s
-08145578	thumb	28			asm	asm/code_0813EE90.s
-08145594	thumb	44			asm	asm/code_0813EE90.s
-081455C0	thumb	56			asm	asm/code_0813EE90.s
-081455F8	thumb	394			asm	asm/code_0813EE90.s
-08145784	thumb	16			asm	asm/code_08145784.s
-08145794	thumb	104			asm	asm/code_08145784.s
-081457FC	thumb	36			asm	asm/code_08145784.s
-08145820	thumb	160			asm	asm/code_08145784.s
-081458C0	thumb	76			asm	asm/code_08145784.s
-0814590C	thumb	38			asm	asm/code_08145784.s
-08145934	thumb	98			asm	asm/code_08145784.s
-08145998	thumb	28			asm	asm/code_08145784.s
-081459B4	thumb	172			asm	asm/code_08145784.s
-08145A60	thumb	76			asm	asm/code_08145784.s
-08145AAC	thumb	132			asm	asm/code_08145784.s
-08145B30	thumb	48			asm	asm/code_08145784.s
-08145B60	thumb	120			asm	asm/code_08145784.s
-08145BD8	thumb	6			asm	asm/code_08145784.s
-08145BE0	thumb	76			asm	asm/code_08145784.s
-08145C2C	thumb	78			asm	asm/code_08145784.s
-08145C7C	thumb	28			asm	asm/code_08145784.s
-08145C98	thumb	48			asm	asm/code_08145784.s
-08145CC8	thumb	380			asm	asm/code_08145784.s
-08145E44	thumb	256			asm	asm/code_08145784.s
-08145F44	thumb	4024			asm	asm/code_08145784.s
-08146EFC	thumb	72			asm	asm/code_08145784.s
-08146F44	thumb	132			asm	asm/code_08145784.s
-08146FC8	thumb	352			asm	asm/code_08145784.s
-08147128	thumb	164			asm	asm/code_08145784.s
-081471CC	thumb	114			asm	asm/code_08145784.s
-08147240	thumb	410			asm	asm/code_08145784.s
-081473DC	thumb	142			asm	asm/code_08145784.s
-0814746C	thumb	156			asm	asm/code_08145784.s
-08147508	thumb	260			asm	asm/code_08145784.s
-0814760C	thumb	532			asm	asm/code_08145784.s
-08147820	thumb	124			asm	asm/code_08145784.s
-0814789C	thumb	212			asm	asm/code_08145784.s
-08147970	thumb	288			asm	asm/code_08145784.s
-08147A90	thumb	808			asm	asm/code_08145784.s
-08147DB8	thumb	216			asm	asm/code_08145784.s
-08147E90	thumb	216			asm	asm/code_08145784.s
-08147F68	thumb	200			asm	asm/code_08145784.s
-08148030	thumb	844			asm	asm/code_08145784.s
-0814837C	thumb	56			asm	asm/code_08145784.s
-081483B4	thumb	108			asm	asm/code_08145784.s
-08148420	thumb	12			asm	asm/code_08145784.s
-0814842C	thumb	64	Baccarat_LoadCards	probable	named	asm/code_08145784.s
-0814846C	thumb	92			asm	asm/code_08145784.s
-081484C8	thumb	12			asm	asm/code_08145784.s
-081484D4	thumb	12			asm	asm/code_08145784.s
-081484E0	thumb	12			asm	asm/code_08145784.s
-081484EC	thumb	12			asm	asm/code_08145784.s
-081484F8	thumb	12			asm	asm/code_08145784.s
-08148504	thumb	12			asm	asm/code_08145784.s
-08148510	thumb	144			asm	asm/code_08145784.s
-081485A0	thumb	120			asm	asm/code_08145784.s
-08148618	thumb	132			asm	asm/code_08145784.s
-0814869C	thumb	124			asm	asm/code_08145784.s
-08148718	thumb	60			asm	asm/code_08145784.s
-08148754	thumb	44			asm	asm/code_08145784.s
-08148780	thumb	34			asm	asm/code_08145784.s
-081487A4	thumb	34			asm	asm/code_08145784.s
-081487C8	thumb	16			asm	asm/code_08145784.s
-081487D8	thumb	336			asm	asm/code_08145784.s
-08148928	thumb	58			asm	asm/code_08145784.s
-08148964	thumb	1920			asm	asm/code_08145784.s
-081490E4	thumb	58			asm	asm/code_08145784.s
-08149120	thumb	20			asm	asm/code_08145784.s
-08149134	thumb	56			asm	asm/code_08145784.s
-0814916C	thumb	32			asm	asm/code_08145784.s
-0814918C	thumb	48			asm	asm/code_08145784.s
-081491BC	thumb	116			asm	asm/code_08145784.s
-08149230	thumb	80			asm	asm/code_08145784.s
-08149280	thumb	92			asm	asm/code_08145784.s
-081492DC	thumb	40			asm	asm/code_08145784.s
-08149304	thumb	40			asm	asm/code_08145784.s
-0814932C	thumb	8			asm	asm/code_08145784.s
-08149334	thumb	160			asm	asm/code_08145784.s
-081493D4	thumb	60			asm	asm/code_08145784.s
-08149410	thumb	132			asm	asm/code_08145784.s
-08149494	thumb	36			asm	asm/code_08145784.s
-081494B8	thumb	20			asm	asm/code_08145784.s
-081494CC	thumb	68			asm	asm/code_08145784.s
-08149510	thumb	112			asm	asm/code_08145784.s
-08149580	thumb	44			asm	asm/code_08145784.s
-081495AC	thumb	92			asm	asm/code_08145784.s
-08149608	thumb	42			asm	asm/code_08145784.s
-08149634	thumb	12			asm	asm/code_08145784.s
-08149640	thumb	44			asm	asm/code_08145784.s
-0814966C	thumb	176			asm	asm/code_08145784.s
-0814971C	thumb	756			asm	asm/code_08145784.s
-08149A10	thumb	60			asm	asm/code_08145784.s
-08149A4C	thumb	234			asm	asm/code_08145784.s
-08149B38	thumb	132			asm	asm/code_08145784.s
-08149BBC	thumb	192			asm	asm/code_08145784.s
-08149C7C	thumb	1406			asm	asm/code_08145784.s
-0814A1FC	thumb	112			asm	asm/code_08145784.s
-0814A26C	thumb	256			asm	asm/code_08145784.s
-0814A36C	thumb	60			asm	asm/code_08145784.s
-0814A3A8	thumb	106			asm	asm/code_08145784.s
-0814A414	thumb	152			asm	asm/code_0814A414.s
-0814A4AC	thumb	48			asm	asm/code_0814A414.s
-0814A4DC	thumb	140			asm	asm/code_0814A414.s
-0814A568	thumb	134			asm	asm/code_0814A414.s
-0814A5F0	thumb	148			asm	asm/code_0814A414.s
-0814A684	thumb	148			asm	asm/code_0814A414.s
-0814A718	thumb	406			asm	asm/code_0814A414.s
-0814A8B0	thumb	244			asm	asm/code_0814A414.s
-0814A9A4	thumb	96			asm	asm/code_0814A414.s
-0814AA04	thumb	108			asm	asm/code_0814A414.s
-0814AA70	thumb	236			asm	asm/code_0814A414.s
-0814AB5C	thumb	236			asm	asm/code_0814A414.s
-0814AC48	thumb	298			asm	asm/code_0814A414.s
-0814AD74	thumb	56			asm	asm/code_0814A414.s
-0814ADAC	thumb	112			asm	asm/code_0814A414.s
-0814AE1C	thumb	12			asm	asm/code_0814A414.s
-0814AE28	thumb	236			asm	asm/code_0814A414.s
-0814AF14	thumb	1550			asm	asm/code_0814A414.s
-0814B524	thumb	416			asm	asm/code_0814A414.s
-0814B6C4	thumb	232			asm	asm/code_0814A414.s
-0814B7AC	thumb	140			asm	asm/code_0814A414.s
-0814B838	thumb	92			asm	asm/code_0814A414.s
-0814B894	thumb	96			asm	asm/code_0814A414.s
-0814B8F4	thumb	552			asm	asm/code_0814A414.s
-0814BB1C	thumb	238			asm	asm/code_0814A414.s
-0814BC0C	thumb	232			asm	asm/code_0814A414.s
-0814BCF4	thumb	406			asm	asm/code_0814A414.s
-0814BE8C	thumb	240			asm	asm/code_0814A414.s
-0814BF7C	thumb	284			asm	asm/code_0814A414.s
-0814C098	thumb	152			asm	asm/code_0814A414.s
-0814C130	thumb	256			asm	asm/code_0814A414.s
-0814C230	thumb	232			asm	asm/code_0814A414.s
-0814C318	thumb	228			asm	asm/code_0814A414.s
-0814C3FC	thumb	128			asm	asm/code_0814A414.s
-0814C47C	thumb	176			asm	asm/code_0814A414.s
-0814C52C	thumb	82			asm	asm/code_0814A414.s
-0814C580	thumb	162			asm	asm/code_0814A414.s
-0814C624	thumb	158			asm	asm/code_0814A414.s
-0814C6C4	thumb	48			asm	asm/code_0814A414.s
-0814C6F4	thumb	180			asm	asm/code_0814A414.s
-0814C7A8	thumb	208			asm	asm/code_0814A414.s
-0814C878	thumb	208			asm	asm/code_0814A414.s
-0814C948	thumb	208			asm	asm/code_0814A414.s
-0814CA18	thumb	28			asm	asm/code_0814A414.s
-0814CA34	thumb	158			asm	asm/code_0814A414.s
-0814CAD4	thumb	188			asm	asm/code_0814A414.s
-0814CB90	thumb	166			asm	asm/code_0814A414.s
-0814CC38	thumb	216			asm	asm/code_0814A414.s
-0814CD10	thumb	96			asm	asm/code_0814A414.s
-0814CD70	thumb	288			asm	asm/code_0814A414.s
-0814CE90	thumb	18			asm	asm/code_0814A414.s
-0814CEA4	thumb	18			asm	asm/code_0814A414.s
-0814CEB8	thumb	18			asm	asm/code_0814A414.s
-0814CECC	thumb	272			asm	asm/code_0814A414.s
-0814CFDC	thumb	124			asm	asm/code_0814A414.s
-0814D058	thumb	108			asm	asm/code_0814A414.s
-0814D0C4	thumb	138			asm	asm/code_0814A414.s
-0814D150	thumb	1336			asm	asm/code_0814A414.s
-0814D688	thumb	12			asm	asm/code_0814A414.s
-0814D694	thumb	120			asm	asm/code_0814A414.s
-0814D70C	thumb	60			asm	asm/code_0814A414.s
-0814D748	thumb	44			asm	asm/code_0814A414.s
-0814D774	thumb	34			asm	asm/code_0814A414.s
-0814D798	thumb	34			asm	asm/code_0814A414.s
-0814D7BC	thumb	412			asm	asm/code_0814A414.s
-0814D958	thumb	280			asm	asm/code_0814A414.s
-0814DA70	thumb	60			asm	asm/code_0814A414.s
-0814DAAC	thumb	88			asm	asm/code_0814A414.s
-0814DB04	thumb	12			asm	asm/code_0814A414.s
-0814DB10	thumb	44			asm	asm/code_0814A414.s
-0814DB3C	thumb	64			asm	asm/code_0814A414.s
-0814DB7C	thumb	164			asm	asm/code_0814A414.s
-0814DC20	thumb	216			asm	asm/code_0814A414.s
-0814DCF8	thumb	52			asm	asm/code_0814A414.s
-0814DD2C	thumb	154			asm	asm/code_0814A414.s
-0814DDC8	thumb	156			asm	asm/code_0814A414.s
-0814DE64	thumb	88			asm	asm/code_0814A414.s
-0814DEBC	thumb	56			asm	asm/code_0814A414.s
-0814DEF4	thumb	42			asm	asm/code_0814A414.s
-0814DF20	thumb	52			asm	asm/code_0814A414.s
-0814DF54	thumb	240			asm	asm/code_0814A414.s
-0814E044	thumb	32			asm	asm/code_0814A414.s
-0814E064	thumb	104			asm	asm/code_0814A414.s
-0814E0CC	thumb	166			asm	asm/code_0814A414.s
-0814E174	thumb	136			asm	asm/code_0814A414.s
-0814E1FC	thumb	80			asm	asm/code_0814A414.s
-0814E24C	thumb	54			asm	asm/code_0814A414.s
-0814E284	thumb	88			asm	asm/code_0814A414.s
-0814E2DC	thumb	202			asm	asm/code_0814A414.s
-0814E3A8	thumb	144			asm	asm/code_0814A414.s
-0814E438	thumb	116			asm	asm/code_0814A414.s
-0814E4AC	thumb	140			asm	asm/code_0814A414.s
-0814E538	thumb	48			asm	asm/code_0814A414.s
-0814E568	thumb	388			asm	asm/code_0814A414.s
-0814E6EC	thumb	170			asm	asm/code_0814A414.s
-0814E798	thumb	172			asm	asm/code_0814A414.s
+0813EE90	thumb	64	Casino_Start	probable	c	src/casino_scene.c
+0813EED0	thumb	112	Casino_InitCallback	probable	c	src/casino_scene.c
+0813EF40	thumb	36	Casino_MainCallback	probable	c	src/casino_scene.c
+0813EF64	thumb	44	CasinoScene_LoadTiles	probable	c	src/casino_scene.c
+0813EF90	thumb	36	CasinoScene_DmaBgTiles	probable	c	src/casino_scene.c
+0813EFB4	thumb	20	CasinoScene_QueueBgTiles	probable	c	src/casino_scene.c
+0813EFC8	thumb	36	CasinoScene_DmaObjTiles	probable	c	src/casino_scene.c
+0813EFEC	thumb	20	CasinoScene_QueueObjTiles	probable	c	src/casino_scene.c
+0813F000	thumb	48	CasinoScene_LoadBgPalette	probable	c	src/casino_scene.c
+0813F030	thumb	48	CasinoScene_LoadObjPalette	probable	c	src/casino_scene.c
+0813F060	thumb	32	CasinoScene_DmaBgMap0	probable	c	src/casino_scene.c
+0813F080	thumb	36	CasinoScene_DmaBgMap1	probable	c	src/casino_scene.c
+0813F0A4	thumb	36	CasinoScene_DmaBgMap2	probable	c	src/casino_scene.c
+0813F0C8	thumb	36	CasinoScene_DmaBgMap3	probable	c	src/casino_scene.c
+0813F0EC	thumb	88	CasinoScene_LoadBgMap	probable	c	src/casino_scene.c
+0813F144	thumb	12	CasinoScene_FadeIn	probable	c	src/casino_scene.c
+0813F150	thumb	12	CasinoScene_FadeOut	probable	c	src/casino_scene.c
+0813F15C	thumb	10			c	src/casino_scene.c
+0813F168	thumb	196	Super27_Init	probable	c	src/casino_super27_a.c
+0813F22C	thumb	3798	Super27_Update	probable	c	src/casino_super27_a.c
+08140104	thumb	700	Super27_UpdateReelStrips	probable	c	src/casino_super27_a.c
+081403C0	thumb	1104	Super27_DrawReels	probable	c	src/casino_super27_a.c
+08140810	thumb	260	Super27_DrawHoldMarkers	probable	c	src/casino_super27_a.c
+08140914	thumb	272	Super27_DrawCards	probable	c	src/casino_super27_a.c
+08140A24	thumb	180	Super27_CheckMiddleLine	probable	c	src/casino_super27_a.c
+08140AD8	thumb	4144	Super27_ScanBonusLine	probable	c	src/casino_super27_b.c
+08141B08	thumb	256	Super27_DrawWinHighlight	probable	c	src/casino_super27_b.c
+08141C08	thumb	392	Super27_MarkCard	probable	c	src/casino_super27_b.c
+08141D90	thumb	372	Super27_DrawMarkedCards	probable	c	src/casino_super27_b.c
+08141F04	thumb	32	Super27_ClearHolds	probable	c	src/casino_super27_b.c
+08141F24	thumb	188	Super27_SetPayout	probable	c	src/casino_super27_b.c
+08141FE0	thumb	256	Super27_DrawNumber	probable	c	src/casino_super27_b.c
+081420E0	thumb	82	Super27_CountPayout	probable	c	src/casino_super27_b.c
+08142134	thumb	12	Super27_SetInit	probable	c	src/casino_super27_b.c
+08142140	thumb	192	LuckySymbol_Init	probable	c	src/casino_lucky_a.c
+08142200	thumb	1048	LuckySymbol_Update	probable	c	src/casino_lucky_a.c
+08142618	thumb	924	LuckySymbol_UpdateReelStrips	probable	c	src/casino_lucky_a.c
+081429B4	thumb	1364	LuckySymbol_DrawReels	probable	c	src/casino_lucky_a.c
+08142F08	thumb	256	LuckySymbol_DrawNumber	probable	c	src/casino_lucky_a.c
+08143008	thumb	60	Number_LeadingPowerOf10	probable	c	src/casino_lucky_a.c
+08143044	thumb	434	LuckySymbol_CountWin	probable	c	src/casino_lucky_b.c
+081431F8	thumb	146	LuckySymbol_PayWin	probable	c	src/casino_lucky_b.c
+0814328C	thumb	900	LuckySymbol_SpinReels	probable	c	src/casino_lucky_b.c
+08143610	thumb	86	LuckySymbol_BlinkWinLine	probable	c	src/casino_lucky_b.c
+08143668	thumb	378	LuckySymbol_DrawWinLine	probable	c	src/casino_lucky_b.c
+081437E4	thumb	644	LuckySymbol_CheckLine	probable	nonmatching	src/casino_lucky_c.c
+08143A68	thumb	398	LuckySymbol_CountBonusSymbols	probable	c	src/casino_lucky_c.c
+08143BF8	thumb	192	LuckySymbol_DrawBonusMeter	probable	c	src/casino_lucky_c.c
+08143CB8	thumb	486	LuckySymbol_ApplyBonus	probable	c	src/casino_lucky_c.c
+08143EA0	thumb	48	LuckySymbol_SetPayout	probable	c	src/casino_lucky_c.c
+08143ED0	thumb	328	LuckySymbol_DrawHoldMarkers	probable	c	src/casino_lucky_c.c
+08144018	thumb	600	LuckySymbol_LightLamps	probable	c	src/casino_lucky_d.c
+08144270	thumb	384	LuckySymbol_DrawLamps	probable	c	src/casino_lucky_d.c
+081443F0	thumb	468	LuckySymbol_BlinkNewLamps	probable	c	src/casino_lucky_d.c
+081445C4	thumb	530	LuckySymbol_ApplyMultipliers	probable	c	src/casino_lucky_d.c
+081447D8	thumb	12	LuckySymbol_SetInit	probable	c	src/casino_lucky_d.c
+081447E4	thumb	132	JokerStars_DrawSlot	probable	c	src/casino_joker_a.c
+08144868	thumb	64	JokerStars_SetSlot	probable	c	src/casino_joker_a.c
+081448A8	thumb	48	JokerStars_SetSlotPos	probable	c	src/casino_joker_a.c
+081448D8	thumb	34			c	src/casino_joker_a.c
+081448FC	thumb	34			c	src/casino_joker_a.c
+08144920	thumb	120	JokerStars_DrawNumber	probable	c	src/casino_joker_a.c
+08144998	thumb	112	JokerStars_DrawPaylines	probable	c	src/casino_joker_a.c
+08144A08	thumb	80	JokerStars_RandomizeReel	probable	c	src/casino_joker_a.c
+08144A58	thumb	280	JokerStars_Init	probable	c	src/casino_joker_a.c
+08144B70	thumb	144	JokerStars_RenderReels	probable	c	src/casino_joker_a.c
+08144C00	thumb	10			c	src/casino_joker_a.c
+08144C0C	thumb	924	JokerStars_Update	probable	c	src/casino_joker_b.c
+08144FA8	thumb	12	JokerStars_SetState	probable	c	src/casino_joker_b.c
+08144FB4	thumb	36	JokerStars_DmaReelTiles	probable	c	src/casino_joker_b.c
+08144FD8	thumb	24	JokerStars_CopyPixelRow	probable	c	src/casino_joker_b.c
+08144FF0	thumb	232	JokerStars_RenderReel	probable	nonmatching	src/casino_joker_b.c
+081450D8	thumb	76	JokerStars_MoveReel	probable	nonmatching	src/casino_joker_b.c
+08145124	thumb	112			c	src/casino_joker_b.c
+08145194	thumb	104	JokerStars_DrawPayTable	probable	c	src/casino_joker_b.c
+081451FC	thumb	100			c	src/casino_joker_b.c
+08145260	thumb	36	JokerStars_Quit	probable	c	src/casino_joker_b.c
+08145284	thumb	12			c	src/casino_joker_b.c
+08145290	thumb	44	JokerStars_GetReelSymbol	probable	nonmatching	src/casino_joker_b.c
+081452BC	thumb	120			c	src/casino_joker_b.c
+08145334	thumb	20			c	src/casino_joker_b.c
+08145348	thumb	48			c	src/casino_joker_b.c
+08145378	thumb	56			c	src/casino_joker_b.c
+081453B0	thumb	52			c	src/casino_joker_b.c
+081453E4	thumb	52			c	src/casino_joker_b.c
+08145418	thumb	40			c	src/casino_joker_b.c
+08145440	thumb	72			c	src/casino_joker_b.c
+08145488	thumb	68			c	src/casino_joker_b.c
+081454CC	thumb	38	JokerStars_CountStars	probable	c	src/casino_joker_b.c
+081454F4	thumb	56			nonmatching	src/casino_joker_b.c
+0814552C	thumb	26			c	src/casino_joker_b.c
+08145548	thumb	48			c	src/casino_joker_b.c
+08145578	thumb	28			c	src/casino_joker_b.c
+08145594	thumb	44			c	src/casino_joker_b.c
+081455C0	thumb	56			c	src/casino_joker_b.c
+081455F8	thumb	394			c	src/casino_joker_b.c
+08145784	thumb	16			c	src/casino_joker_c.c
+08145794	thumb	104	JokerStars_PayOutCoins	probable	c	src/casino_joker_c.c
+081457FC	thumb	36			c	src/casino_joker_c.c
+08145820	thumb	160			c	src/casino_joker_c.c
+081458C0	thumb	76			c	src/casino_joker_c.c
+0814590C	thumb	38			c	src/casino_joker_c.c
+08145934	thumb	98			c	src/casino_joker_c.c
+08145998	thumb	28			c	src/casino_joker_c.c
+081459B4	thumb	172			nonmatching	src/casino_joker_c.c
+08145A60	thumb	76			c	src/casino_joker_c.c
+08145AAC	thumb	132			c	src/casino_joker_c.c
+08145B30	thumb	48			c	src/casino_joker_c.c
+08145B60	thumb	120			c	src/casino_joker_c.c
+08145BD8	thumb	6			c	src/casino_joker_c.c
+08145BE0	thumb	76			c	src/casino_joker_c.c
+08145C2C	thumb	78			c	src/casino_joker_c.c
+08145C7C	thumb	28			c	src/casino_joker_c.c
+08145C98	thumb	48	JokerStars_CheckAllStars	probable	c	src/casino_joker_c.c
+08145CC8	thumb	380	JokerStars_CheckLine	probable	c	src/casino_joker_c.c
+08145E44	thumb	256	Baccarat_Init	probable	c	src/casino_baccarat_a.c
+08145F44	thumb	4024			asm	asm/code_08145F44.s
+08146EFC	thumb	72			c	src/casino_baccarat_b.c
+08146F44	thumb	132			c	src/casino_baccarat_b.c
+08146FC8	thumb	352	Baccarat_DrawNumber8	probable	c	src/casino_baccarat_b.c
+08147128	thumb	164	Baccarat_DrawNumber3	probable	c	src/casino_baccarat_b.c
+081471CC	thumb	114	Baccarat_CountUpCoins	probable	c	src/casino_baccarat_b.c
+08147240	thumb	410	Baccarat_ChangeBet	probable	c	src/casino_baccarat_b.c
+081473DC	thumb	142			c	src/casino_baccarat_b.c
+0814746C	thumb	156			c	src/casino_baccarat_b.c
+08147508	thumb	260			c	src/casino_baccarat_b.c
+0814760C	thumb	532			c	src/casino_baccarat_b.c
+08147820	thumb	124			c	src/casino_baccarat_b.c
+0814789C	thumb	212	Baccarat_DealCard	probable	c	src/casino_baccarat_b.c
+08147970	thumb	288			c	src/casino_baccarat_b.c
+08147A90	thumb	808	Baccarat_ShowResult	probable	c	src/casino_baccarat_b.c
+08147DB8	thumb	216			c	src/casino_baccarat_b.c
+08147E90	thumb	216			c	src/casino_baccarat_b.c
+08147F68	thumb	200			c	src/casino_baccarat_b.c
+08148030	thumb	844	Baccarat_RecordRoad	probable	c	src/casino_baccarat_b.c
+0814837C	thumb	56	Baccarat_ScrollRoad	probable	c	src/casino_baccarat_b.c
+081483B4	thumb	108	Baccarat_DrawRoad	probable	c	src/casino_baccarat_b.c
+08148420	thumb	12			c	src/casino_baccarat_b.c
+0814842C	thumb	64	Baccarat_LoadCards	probable	nonmatching	src/casino_baccarat_b.c
+0814846C	thumb	92	Baccarat_UploadCardFace	probable	nonmatching	src/casino_baccarat_b.c
+081484C8	thumb	12			c	src/casino_baccarat_b.c
+081484D4	thumb	12			c	src/casino_baccarat_b.c
+081484E0	thumb	12			c	src/casino_baccarat_b.c
+081484EC	thumb	12			c	src/casino_baccarat_b.c
+081484F8	thumb	12			c	src/casino_baccarat_b.c
+08148504	thumb	12			c	src/casino_baccarat_b.c
+08148510	thumb	144	Baccarat_SetCardFace	probable	c	src/casino_baccarat_b.c
+081485A0	thumb	120	Keno_DrawDigits	probable	c	src/casino_keno_a.c
+08148618	thumb	132			c	src/casino_keno_a.c
+0814869C	thumb	124			c	src/casino_keno_a.c
+08148718	thumb	60			c	src/casino_keno_a.c
+08148754	thumb	44			c	src/casino_keno_a.c
+08148780	thumb	34			c	src/casino_keno_a.c
+081487A4	thumb	34			c	src/casino_keno_a.c
+081487C8	thumb	16			c	src/casino_keno_a.c
+081487D8	thumb	336	Keno_Init	probable	nonmatching	src/casino_keno_a.c
+08148928	thumb	58	Keno_CanStart	probable	c	src/casino_keno_a.c
+08148964	thumb	1920	Keno_Update	probable	nonmatching	src/casino_keno_b.c
+081490E4	thumb	58			c	src/casino_keno_c.c
+08149120	thumb	20			c	src/casino_keno_c.c
+08149134	thumb	56			nonmatching	src/casino_keno_c.c
+0814916C	thumb	32			c	src/casino_keno_c.c
+0814918C	thumb	48			c	src/casino_keno_c.c
+081491BC	thumb	116	Keno_DrawNumber	probable	nonmatching	src/casino_keno_c.c
+08149230	thumb	80			nonmatching	src/casino_keno_c.c
+08149280	thumb	92	Keno_ComputePayout	probable	nonmatching	src/casino_keno_c.c
+081492DC	thumb	40			c	src/casino_keno_c.c
+08149304	thumb	40			c	src/casino_keno_c.c
+0814932C	thumb	8			c	src/casino_keno_c.c
+08149334	thumb	160			nonmatching	src/casino_keno_c.c
+081493D4	thumb	60	Casino_GetCountStep	probable	c	src/casino_keno_c.c
+08149410	thumb	132	Keno_PayOut	probable	c	src/casino_keno_c.c
+08149494	thumb	36			c	src/casino_keno_c.c
+081494B8	thumb	20			c	src/casino_keno_c.c
+081494CC	thumb	68			c	src/casino_keno_c.c
+08149510	thumb	112	Keno_StartRound	probable	c	src/casino_keno_c.c
+08149580	thumb	44			c	src/casino_keno_c.c
+081495AC	thumb	92			c	src/casino_keno_c.c
+08149608	thumb	42			c	src/casino_keno_c.c
+08149634	thumb	12			c	src/casino_keno_c.c
+08149640	thumb	44			c	src/casino_keno_c.c
+0814966C	thumb	176			c	src/casino_keno_c.c
+0814971C	thumb	756	Keno_DrawPayTable	probable	nonmatching	src/casino_keno_d.c
+08149A10	thumb	60			c	src/casino_keno_d.c
+08149A4C	thumb	234	Keno_ShowHotNumbers	probable	c	src/casino_keno_d.c
+08149B38	thumb	132	Keno_RecordHistory	probable	c	src/casino_keno_d.c
+08149BBC	thumb	192	BigSmall_Init	probable	c	src/casino_bigsmall_a.c
+08149C7C	thumb	1406	BigSmall_Update	probable	c	src/casino_bigsmall_b.c
+0814A1FC	thumb	112			c	src/casino_bigsmall_c.c
+0814A26C	thumb	256	BigSmall_DrawNumber6	probable	c	src/casino_bigsmall_c.c
+0814A36C	thumb	60	BigSmall_GetCountStep	probable	c	src/casino_bigsmall_c.c
+0814A3A8	thumb	106	BigSmall_CountUpCoins	probable	c	src/casino_bigsmall_c.c
+0814A414	thumb	152			c	src/casino_bigsmall_d.c
+0814A4AC	thumb	48	BigSmall_NextNumber	probable	c	src/casino_bigsmall_d.c
+0814A4DC	thumb	140			c	src/casino_bigsmall_d.c
+0814A568	thumb	134			c	src/casino_bigsmall_d.c
+0814A5F0	thumb	148			c	src/casino_bigsmall_d.c
+0814A684	thumb	148			c	src/casino_bigsmall_d.c
+0814A718	thumb	406			c	src/casino_bigsmall_d.c
+0814A8B0	thumb	244			c	src/casino_bigsmall_d.c
+0814A9A4	thumb	96			c	src/casino_bigsmall_d.c
+0814AA04	thumb	108			c	src/casino_bigsmall_d.c
+0814AA70	thumb	236			c	src/casino_bigsmall_d.c
+0814AB5C	thumb	236			c	src/casino_bigsmall_d.c
+0814AC48	thumb	298	BigSmall_AddResult	probable	c	src/casino_bigsmall_d.c
+0814AD74	thumb	56			c	src/casino_bigsmall_d.c
+0814ADAC	thumb	112	CasinoText_DrawString	probable	c	src/casino_bigsmall_d.c
+0814AE1C	thumb	12			c	src/casino_codebreaker_a.c
+0814AE28	thumb	236	CodeBreaker_Init	probable	c	src/casino_codebreaker_a.c
+0814AF14	thumb	1550	CodeBreaker_Update	probable	c	src/casino_codebreaker_a.c
+0814B524	thumb	416			c	src/casino_codebreaker_a.c
+0814B6C4	thumb	232			c	src/casino_codebreaker_a.c
+0814B7AC	thumb	140			c	src/casino_codebreaker_a.c
+0814B838	thumb	92			c	src/casino_codebreaker_a.c
+0814B894	thumb	96			c	src/casino_codebreaker_a.c
+0814B8F4	thumb	552			c	src/casino_codebreaker_a.c
+0814BB1C	thumb	238			c	src/casino_codebreaker_a.c
+0814BC0C	thumb	232			c	src/casino_codebreaker_a.c
+0814BCF4	thumb	406	CodeBreaker_ScoreRow	probable	c	src/casino_codebreaker_a.c
+0814BE8C	thumb	240			nonmatching	src/casino_codebreaker_a.c
+0814BF7C	thumb	284			c	src/casino_codebreaker_a.c
+0814C098	thumb	152	CodeBreaker_PickCode	probable	nonmatching	src/casino_codebreaker_a.c
+0814C130	thumb	256			c	src/casino_codebreaker_a.c
+0814C230	thumb	232			c	src/casino_codebreaker_a.c
+0814C318	thumb	228			c	src/casino_codebreaker_a.c
+0814C3FC	thumb	128			c	src/casino_codebreaker_a.c
+0814C47C	thumb	176	CodeBreaker_DrawNotes	probable	c	src/casino_codebreaker_a.c
+0814C52C	thumb	82			c	src/casino_codebreaker_b.c
+0814C580	thumb	162			nonmatching	src/casino_codebreaker_b.c
+0814C624	thumb	158			c	src/casino_codebreaker_b.c
+0814C6C4	thumb	48			c	src/casino_codebreaker_b.c
+0814C6F4	thumb	180			c	src/casino_codebreaker_b.c
+0814C7A8	thumb	208			c	src/casino_codebreaker_b.c
+0814C878	thumb	208			c	src/casino_codebreaker_b.c
+0814C948	thumb	208			c	src/casino_codebreaker_b.c
+0814CA18	thumb	28			c	src/casino_codebreaker_b.c
+0814CA34	thumb	158			c	src/casino_codebreaker_b.c
+0814CAD4	thumb	188			c	src/casino_codebreaker_b.c
+0814CB90	thumb	166			c	src/casino_codebreaker_b.c
+0814CC38	thumb	216			nonmatching	src/casino_codebreaker_b.c
+0814CD10	thumb	96			nonmatching	src/casino_codebreaker_b.c
+0814CD70	thumb	288			nonmatching	src/casino_codebreaker_b.c
+0814CE90	thumb	18			c	src/casino_codebreaker_b.c
+0814CEA4	thumb	18			c	src/casino_codebreaker_b.c
+0814CEB8	thumb	18			c	src/casino_codebreaker_b.c
+0814CECC	thumb	272			c	src/casino_codebreaker_b.c
+0814CFDC	thumb	124			nonmatching	src/casino_codebreaker_b.c
+0814D058	thumb	108			c	src/casino_codebreaker_b.c
+0814D0C4	thumb	138			c	src/casino_codebreaker_b.c
+0814D150	thumb	1336	CodeBreaker_UpdateNotes	probable	nonmatching	src/casino_codebreaker_b.c
+0814D688	thumb	12			c	src/casino_roulette_a.c
+0814D694	thumb	120	RussianRoulette_DrawSlot	probable	c	src/casino_roulette_a.c
+0814D70C	thumb	60	RussianRoulette_SetSlot	probable	c	src/casino_roulette_a.c
+0814D748	thumb	44			c	src/casino_roulette_a.c
+0814D774	thumb	34			c	src/casino_roulette_a.c
+0814D798	thumb	34			c	src/casino_roulette_a.c
+0814D7BC	thumb	412	RussianRoulette_Init	probable	c	src/casino_roulette_a.c
+0814D958	thumb	280	RussianRoulette_Update	probable	c	src/casino_roulette_a.c
+0814DA70	thumb	60			c	src/casino_roulette_a.c
+0814DAAC	thumb	88	RussianRoulette_DrawText	probable	c	src/casino_roulette_a.c
+0814DB04	thumb	12			c	src/casino_roulette_a.c
+0814DB10	thumb	44			c	src/casino_roulette_a.c
+0814DB3C	thumb	64			c	src/casino_roulette_a.c
+0814DB7C	thumb	164			c	src/casino_roulette_a.c
+0814DC20	thumb	216			c	src/casino_roulette_a.c
+0814DCF8	thumb	52			c	src/casino_roulette_a.c
+0814DD2C	thumb	154			c	src/casino_roulette_a.c
+0814DDC8	thumb	156			c	src/casino_roulette_a.c
+0814DE64	thumb	88			c	src/casino_roulette_a.c
+0814DEBC	thumb	56			c	src/casino_roulette_a.c
+0814DEF4	thumb	42			c	src/casino_roulette_a.c
+0814DF20	thumb	52			c	src/casino_roulette_a.c
+0814DF54	thumb	240			nonmatching	src/casino_roulette_a.c
+0814E044	thumb	32	RussianRoulette_LoadGun	probable	c	src/casino_roulette_a.c
+0814E064	thumb	104	RussianRoulette_Fire	probable	c	src/casino_roulette_a.c
+0814E0CC	thumb	166			c	src/casino_roulette_a.c
+0814E174	thumb	136			c	src/casino_roulette_a.c
+0814E1FC	thumb	80			c	src/casino_roulette_a.c
+0814E24C	thumb	54			c	src/casino_roulette_a.c
+0814E284	thumb	88			c	src/casino_roulette_a.c
+0814E2DC	thumb	202			c	src/casino_roulette_a.c
+0814E3A8	thumb	144			c	src/casino_roulette_a.c
+0814E438	thumb	116	RussianRoulette_SettleBet	probable	c	src/casino_roulette_a.c
+0814E4AC	thumb	140			c	src/casino_roulette_a.c
+0814E538	thumb	48			c	src/casino_roulette_a.c
+0814E568	thumb	388			nonmatching	src/casino_roulette_a.c
+0814E6EC	thumb	170			c	src/casino_roulette_a.c
+0814E798	thumb	172	RussianRoulette_MakeOpponentDemons	probable	c	src/casino_roulette_a.c
 0814E844	thumb	108			asm	asm/code_0814E844.s
 0814E8B0	thumb	56			asm	asm/code_0814E844.s
 08151EB4	thumb	56	FieldMap_GetArea	probable	c	src/c151_08151EB4.c

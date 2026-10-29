@@ -313,7 +313,7 @@ void sub_080BE4D4(void)
 // sub_080BE4EC @ 0x080BE4EC
 void sub_080BE4EC(struct Task *task)
 {
-    sub_0813EE90((task->data.h[0] & 0xF0) >> 4, task->data.h[0] & 0xF);
+    Casino_Start((task->data.h[0] & 0xF0) >> 4, task->data.h[0] & 0xF);
 }
 
 // sub_080BE504 @ 0x080BE504

@@ -1235,13 +1235,130 @@ address	name	kind	confidence	note
 0813E544	ScriptVM_SaveFlags	func	probable	copies the 0x168-byte flag array 0x03005CA8 to 0x030066B0; called by ScriptVM_RunAlt before the pre-scan
 0813E574	ScriptVM_RestoreState	func	probable	copies 0x030066B0 back to the flag array 0x03005CA8 and restores gScriptBase/gScriptPc/0x0203DB72/0x0203DB74 saved by ScriptVM_RunAlt; clears 0x030065F0
 0813E60C	Demon_GetField	func	probable	(id, field 0-31) switch reading byte/halfword fields 1..0x21 of the record sub_080BF648(id) (fields 5-10 and 13-15 signed bytes); field 0x1F (byte 0x21) is used as alignment nibble by sub_0813E914
+0813EE90	Casino_Start	func	probable	clears the 0x300-byte casino scene header at 0x0203B554, stores game id and arg, SetMainCallback(0x0813EED0); called by the field event effect with (h0>>4, h0&15)
+0813EED0	Casino_InitCallback	func	probable	clears EWRAM 0x02000000 (4 KB) and BG VRAM, calls the game's init from table 0x0879241C[game], switches to 0x0813EF40
+0813EF40	Casino_MainCallback	func	probable	Task_RunAll then the game's per-frame function from table 0x0879243C[game]
 0813EF64	CasinoScene_LoadTiles	func	probable	scene command 0x0C handler: HuffUnComp+LZ77 a 4 KB tile set to 0x02001000 + slot*0x1000
+0813EF90	CasinoScene_DmaBgTiles	func	probable	VBlank task of CasinoScene_QueueBgTiles: DMA 0x02001000 -> 0x06008000 (32 KB)
 0813EFB4	CasinoScene_QueueBgTiles	func	probable	queues the DMA of 0x02001000 (32 KB) to BG VRAM 0x06008000
+0813EFC8	CasinoScene_DmaObjTiles	func	probable	VBlank task of CasinoScene_QueueObjTiles: DMA 0x02001000 -> 0x06010000 (32 KB)
 0813EFEC	CasinoScene_QueueObjTiles	func	probable	queues the DMA of 0x02001000 (32 KB) to OBJ VRAM 0x06010000
 0813F000	CasinoScene_LoadBgPalette	func	probable	LZ77 a 512-byte palette and copy it to gPaletteTarget (BG)
 0813F030	CasinoScene_LoadObjPalette	func	probable	LZ77 a 512-byte palette and copy it to the OBJ half of gPaletteTarget
+0813F060	CasinoScene_DmaBgMap0	func	probable	VBlank task of CasinoScene_LoadBgMap layer 0: DMA 0x02000000 -> 0x06000000 (0x500 bytes)
+0813F080	CasinoScene_DmaBgMap1	func	probable	VBlank task of CasinoScene_LoadBgMap layer 1: DMA 0x02000000 -> 0x06001000
+0813F0A4	CasinoScene_DmaBgMap2	func	probable	VBlank task of CasinoScene_LoadBgMap layer 2: DMA 0x02000000 -> 0x06002000
+0813F0C8	CasinoScene_DmaBgMap3	func	probable	VBlank task of CasinoScene_LoadBgMap layer 3: DMA 0x02000000 -> 0x06003000
 0813F0EC	CasinoScene_LoadBgMap	func	probable	LZ77 a 32x20 tilemap to 0x02000000 and queue its DMA to screen block 0x06000000 + layer*0x1000
+0813F144	CasinoScene_FadeIn	func	probable	scene command: PalFade_FadeInFromBlack(1)
+0813F150	CasinoScene_FadeOut	func	probable	scene command: PalFade_FadeToBlack(1)
+0813F168	Super27_Init	func	probable	init table entry 5 (0x0879241C); clears the 0x800-byte state at 0x0203A454, sets up 3 reels of 6 visible symbols at x 0x44/0x69/0x8E; its update creates script 0x08794E24 (assets: casino/super27)
+0813F22C	Super27_Update	func	probable	update table entry 5 (0x0879243C); creates scene script 0x08794E24 (casino/super27), runs the 3-reel slot machine modes 0-9
+08140104	Super27_UpdateReelStrips	func	probable	sym[r][0..5] = reelPos[r]/20 + k for unheld reels while spinning, wraps indices at 24
+081403C0	Super27_DrawReels	func	probable	draws 6 symbols of each of the 3 reels from the tables 0x0879245C/0x087931DC/0x08793F5C[arg][sym]
+08140810	Super27_DrawHoldMarkers	func	probable	hold markers 0x0814ECA0/B0/C0 at y 0x5B under held reels, blinking for free reels while heldCount < 2
+08140914	Super27_DrawCards	func	probable	draws the six bonus cards (0x08794D90[value].sprite) at x scroll+0x39..0xA2, y 0x5A
+08140A24	Super27_CheckMiddleLine	func	probable	three equal symbols on row 1 of the three reels: records the line, line = 2, calls Super27_SetPayout
+08140AD8	Super27_ScanBonusLine	func	probable	one of 27 three-reel row combinations per call, selected by unk2E (row of symbol 8 on reel 1); records a win and calls Super27_SetPayout
+08141B08	Super27_DrawWinHighlight	func	probable	draws the lit sprites of the three winning symbols and the pay-board row of winSym (0x08794CDC)
+08141C08	Super27_MarkCard	func	probable	marks the first unmarked bonus card whose symbol equals winSym and counts it (cardCount)
+08141D90	Super27_DrawMarkedCards	func	probable	lit sprites of the marked bonus cards
+08141F04	Super27_ClearHolds	func	probable	clears unk18, heldCount, held[0..2] and the spin phase
+08141F24	Super27_SetPayout	func	probable	target = win + pay table 0x08794CDC[sym].pay[0] (symbol 8: random bonus row), capped at 1000
+08141FE0	Super27_DrawNumber	func	probable	NumberToDigits then six digit sprites 0x08794DFC right-aligned at x, 8 px apart
+081420E0	Super27_CountPayout	func	probable	every 4th frame win++ towards target with sound 0x159; 1000 is paid into coins at once
+08142134	Super27_SetInit	func	probable	scene command: state+0 = arg (u16)
+08142140	LuckySymbol_Init	func	probable	init table entry 6; clears the state, bet multiplier 2, four reels; its update creates script 0x0879874C (assets: casino/lucky_symbol)
+08142200	LuckySymbol_Update	func	probable	update table entry 6; creates scene script 0x0879874C (casino/lucky_symbol), modes 0-3 and 10, holds on Left/Up/Right/Down (max 3)
+08142618	LuckySymbol_UpdateReelStrips	func	probable	same as Super27_UpdateReelStrips for the four reels at state+0x68
+081429B4	LuckySymbol_DrawReels	func	probable	draws 6 symbols of each of the 4 reels (x 0x3B/0x5A/0x79/0x98) from tables 0x0879505C/0x08795DDC/0x08796B5C/0x087978DC
+08142F08	LuckySymbol_DrawNumber	func	probable	six digit sprites 0x087986BC right-aligned at x
+08143008	Number_LeadingPowerOf10	func	probable	returns the largest power of ten <= n (max 10000), 0 for 0; used as the fast count step
+08143044	LuckySymbol_CountWin	func	probable	every 4th frame win += step (leading power of ten while A repeats) up to payout; then checks the pattern lamp for a bonus
+081431F8	LuckySymbol_PayWin	func	probable	moves win into coins step by step after a 100-frame pause, ends the round (mode 0)
+0814328C	LuckySymbol_SpinReels	func	probable	spin phases 0-5 of the four reels (wind-up, random speed 9 + rand*59/255, stop one by one with sound 0x15B)
+08143610	LuckySymbol_BlinkWinLine	func	probable	blinks the winning line three times (LuckySymbol_DrawWinLine), then mode 3
+08143668	LuckySymbol_DrawWinLine	func	probable	lit sprites of the four line symbols and the pattern row 0x0879865C[pattern], sound 0x15D/0x15E
+081437E4	LuckySymbol_CheckLine	func	probable	middle row: four of a kind or three of a kind (reels 012/013/023/123), bonus symbols 8-10 excluded; sets pattern and payout
+08143A68	LuckySymbol_CountBonusSymbols	func	probable	bonus score over the 3 visible rows of the 4 reels: symbol 8 = 1, 9 = 2, 10 = 3
+08143BF8	LuckySymbol_DrawBonusMeter	func	probable	lights one of 13 meter marks (0x087986E4) every 8 frames up to the bonus score, sound 0x16B
+08143CB8	LuckySymbol_ApplyBonus	func	probable	bonus score effect: 3 multiplier steps, 4-5 holds, 6 doubling lamp, 7-8 lamp game, 9-12 pay 5/10/20/100
+08143EA0	LuckySymbol_SetPayout	func	probable	payout = 0x0879865C[pattern].pay[four]
+08143ED0	LuckySymbol_DrawHoldMarkers	func	probable	hold markers 0x0814F1F4..0x0814F224 at y 0x5B under the four reels
+08144018	LuckySymbol_LightLamps	func	probable	symbol k (0-7) on each reel's middle row lights pattern lamp 7-k (state+0x60) and its new-lamp flag (+0x58)
+08144270	LuckySymbol_DrawLamps	func	probable	draws lit pattern lamps 0x0814F10C + 0x18*i that are not newly lit
+081443F0	LuckySymbol_BlinkNewLamps	func	probable	blinks newly lit lamps four times, then clears the new flags
+081445C4	LuckySymbol_ApplyMultipliers	func	probable	lamp of the winning pattern: payout *= bet multiplier (reset to 2); doubling lamp: payout <<= 1
+081447D8	LuckySymbol_SetInit	func	probable	scene command: state+0 = arg (u16)
+081447E4	JokerStars_DrawSlot	func	probable	draws sprite slot n with frame state+0xEC[n] from table 0x0879A264[n] at its stored or given position
+08144868	JokerStars_SetSlot	func	probable	sets slot frame, and x/y when nonzero (state+0xEC/+0x114/+0x13C)
+081448A8	JokerStars_SetSlotPos	func	probable	sets slot frame, x and y
+08144920	JokerStars_DrawNumber	func	probable	draws the low `digits` digits of a number with sprites 0x0879A29C, 5 px apart
+08144998	JokerStars_DrawPaylines	func	probable	payline markers 0x0879A2E4 at 0x0879A2C4 for the current bet (1-8)
+08144A08	JokerStars_RandomizeReel	func	probable	strip pointer from 0x0879C6A4[arg][reel], random start symbol (rand*24>>8)*20 px
+08144A58	JokerStars_Init	func	probable	init table entry 7; its update creates script 0x0879A304 (assets: casino/joker_and_stars); nine reels
+08144B70	JokerStars_RenderReels	func	probable	JokerStars_RenderReel for the nine reels
+08144C0C	JokerStars_Update	func	probable	update table entry 7; creates scene script 0x0879A304 (casino/joker_and_stars); bet with A/B (SELECT max), R spin, L quit
+08144FA8	JokerStars_SetState	func	probable	scene command: state+0 = arg (u16)
+08144FB4	JokerStars_DmaReelTiles	func	probable	VBlank task: DMA 0x02005004 -> OBJ VRAM 0x06016000 (8 KB)
+08144FD8	JokerStars_CopyPixelRow	func	probable	copies 4 words 0x20 bytes apart (one pixel row of a 4-tile-wide sprite)
+08144FF0	JokerStars_RenderReel	func	probable	renders 25 pixel rows of a reel from its strip into the OBJ buffer 0x02005004, queues JokerStars_DmaReelTiles
+081450D8	JokerStars_MoveReel	func	probable	adds a 16.16 speed to the reel position and wraps it into 0-479
+08145194	JokerStars_DrawPayTable	func	probable	six pay-table rows for the current bet (0x08145124 with tables 0x0879A5EC..0x0879A898)
+08145260	JokerStars_Quit	func	probable	creates script 0x0879AA3C and sets state 3
+08145290	JokerStars_GetReelSymbol	func	probable	strip[reel][pos/20]: the symbol in the reel's window
+081454CC	JokerStars_CountStars	func	probable	number of reels showing symbol 6 (star)
+08145794	JokerStars_PayOutCoins	func	probable	moves coins from the play counter (state+0xA0) to the purse via sub_080C31B4, Casino_GetCountStep per frame while A is held
+08145C98	JokerStars_CheckAllStars	func	probable	JokerStars_CountStars() == 9 starts the star bonus task 0x0879B8D4 (symbol 6, count 9)
+08145CC8	JokerStars_CheckLine	func	probable	JokerStars_GetReelSymbol on three reels (1-based); a star (6) never pays, joker (5) is wild; marks winning reels at state+0xC8; returns the symbol or -1
+08145E44	Baccarat_Init	func	probable	clears gMenuState (0x200 words), coins = sub_080C31F0()*100, six card slots from gUnknown_0879C8EC; the state block whose cards Baccarat_LoadCards decodes
+08146FC8	Baccarat_DrawNumber8	func	probable	NumberToDigits + 8 digit sprites (gUnknown_0879C7F4) with a separator glyph [10] between digits 2 and 3
+08147128	Baccarat_DrawNumber3	func	probable	3 digit sprites from gUnknown_0879C7F4, right-aligned at x
+081471CC	Baccarat_CountUpCoins	func	probable	every 4th frame adds 55 (500 when state+0x2F != 0) to coins until coinsTarget; caps at 99999900
+08147240	Baccarat_ChangeBet	func	probable	cursor x 0x1E/0x37/0x50 selects bet[0..2] (+0x10/+0x14/+0x18); adds/removes amount*100 coins, limit 100 units; bets 0 and 2 exclude each other
+0814789C	Baccarat_DealCard	func	probable	suit = Random_Byte/85, rank = Random_Byte*12/255, redraws duplicates of the six table cards, sub_08148510(slot, suit, rank)
+08147A90	Baccarat_ShowResult	func	probable	result banner and payout: side 0 bet*195, side 2 bet*200, tie bet*900 + both side bets *100 (coins in units of 100)
+08148030	Baccarat_RecordRoad	func	probable	appends the hand to the score road at state+0x48 (8-byte records, 4 rows per column): side-0 score, side-2 score+11, or 0x16 for a tie
+0814837C	Baccarat_ScrollRoad	func	probable	shifts the 64 road records left by one column (4 records)
+081483B4	Baccarat_DrawRoad	func	probable	draws the 60 road records with gUnknown_0879C878[value] at gUnknown_0879C92C positions
 0814842C	Baccarat_LoadCards	func	probable	HuffUnComp+LZ77 card block k of 0x0879CCF4 to 0x0200F874 + k*0x1200
+0814846C	Baccarat_UploadCardFace	func	probable	DMA 0x280 bytes of card face suit*0x2400+rank*0x280 from 0x0200F874 to OBJ VRAM 0x06014C00+slot*0x400
+08148510	Baccarat_SetCardFace	func	probable	stores suit/rank of a slot and queues the slot's Baccarat_UploadCardFace wrapper for VBlank
+081485A0	Keno_DrawDigits	func	probable	NumberToDigits, draws the low n digits (gUnknown_0879CE24) left to right, 8 px apart
+081487D8	Keno_Init	func	probable	clears the state, 16 warm-up draws of 16 of 64 numbers recorded by sub_08149B38, coins = sub_080C31F0(); 8x8 board of 64 numbers
+08148928	Keno_CanStart	func	probable	TRUE in states 2/3 when bet (+0x190) and marked count (+0x184) are both non-zero
+08148964	Keno_Update	func	probable	main loop: bet menu (A/B change bet up to 100), board cursor marks up to 16 numbers (bit 15 of +0x04[64]), draws board and counters
+081491BC	Keno_DrawNumber	func	probable	random undrawn number of 64 (+0x102 flags); a marked one counts a hit (+0x18C) and plays SE 0x15D
+08149280	Keno_ComputePayout	func	probable	payout = bet * gUnknown_0879D338[marked][hits] (u32[13] rows); task result = payout != 0
+081493D4	Casino_GetCountStep	func	probable	largest power of ten <= n (from 10^7), coins moved per frame while A is held (used by the 3x3 symbol game and Keno)
+08149410	Keno_PayOut	func	probable	moves the payout (+0x224) into coins (+0x194), capped at 999999
+08149510	Keno_StartRound	func	probable	Task_Create(gUnknown_0879D6AC), clears drawn flags and hit levels (keeps marks), drawn/hit counters = 0
+0814971C	Keno_DrawPayTable	func	probable	rows of gUnknown_0879DA14[marked] (hits) and gUnknown_0879DB48[marked] (payout nibbles, 0xB = separator)
+08149A4C	Keno_ShowHotNumbers	func	probable	counts each number in the 16-round history (+0x1A0) and stores a level 1-8 in the low bits of its mark word
+08149B38	Keno_RecordHistory	func	probable	writes this round's drawn numbers as bits into history row +0x220 (16-row ring)
+08149BBC	BigSmall_Init	func	probable	clears the state, coins = sub_080C31F0(), picks variant +0x262 from gUnk_03004614 (3/0x26/0x30/0x40)
+08149C7C	BigSmall_Update	func	probable	main loop: R pays 10 coins (stake 10), Up/Down pick big/small; card > 4 is big, a right guess doubles the stake (+0x30)
+0814A26C	BigSmall_DrawNumber6	func	probable	6 digit sprites from gUnknown_0879DDD4, right-aligned at x
+0814A36C	BigSmall_GetCountStep	func	probable	largest power of ten <= n from 10000 (count-up step while A is held)
+0814A3A8	BigSmall_CountUpCoins	func	probable	adds 5 (or the step) per 4 frames up to the won amount; a stake of 0x2800 (10240) ends with phase 9
+0814A4AC	BigSmall_NextNumber	func	probable	number = (number + (Random_Byte() & 5)) mod 10; main loop 0x08149C7C (gUnknown_0879243C[0]) runs script 0x0879E354 next to the big_and_small map script 0x0879E460
+0814AC48	BigSmall_AddResult	func	probable	appends the number to the 60-slot result board, new column of 4 when it changes between 0-4 and 5-9
+0814ADAC	CasinoText_DrawString	func	probable	draws a 0-terminated glyph string with FontSprite_DrawGlyphTinted, 0x300 = new line; Big & Small and Code Breaker prize texts
+0814AE28	CodeBreaker_Init	func	probable	gUnknown_0879241C[4]; clears gMenuState, level from 0x0203B554+2 sets code length 3/4/5 and symbol count 5/7/8
+0814AF14	CodeBreaker_Update	func	probable	gUnknown_0879243C[4]; runs script 0x0879F064 (code_breaker map script 0x0879F170), R starts a game for item 0xFE, state machine
+0814BCF4	CodeBreaker_ScoreRow	func	probable	counts hits (symbol in place) and blows against the secret code for the current row; win when hits == length, lose after row 8
+0814C098	CodeBreaker_PickCode	func	probable	fills the secret code with distinct symbols (Random_Byte() * symbols) >> 8
+0814C47C	CodeBreaker_DrawNotes	func	probable	draws the deduction marks table[symbol][position] (gUnknown_0879EFAC)
+0814D150	CodeBreaker_UpdateNotes	func	probable	called by CodeBreaker_ScoreRow; derives the deduction marks from the scored rows with sub_0814C580-sub_0814D0C4
+0814D694	RussianRoulette_DrawSlot	func	probable	draws sprite slot n with frame table gUnknown_0879F334[n] at its stored or default position
+0814D70C	RussianRoulette_SetSlot	func	probable	sets a sprite slot's frame and, when non-zero, its x/y
+0814D7BC	RussianRoulette_Init	func	probable	gUnknown_0879241C[3]; clears gMenuState, lists the party demons (records 4-15) to bet
+0814D958	RussianRoulette_Update	func	probable	gUnknown_0879243C[3]; runs script 0x0879F3C4 (russian_roulette map script 0x0879F4B8) and draws the 18 sprite slots
+0814DAAC	RussianRoulette_DrawText	func	probable	draws up to n bytes of a 0/0xFF-terminated string in the game's 8x8 sprite font (sub_0814DA70, tile 0x320 + c)
+0814E044	RussianRoulette_LoadGun	func	probable	chamber = ((Random_Byte() & 7) * 3) >> 2 (0-5)
+0814E064	RussianRoulette_Fire	func	probable	script callback: shot n hits when n == chamber; shooter by n & 1, result2 says whose demon is lost
+0814E438	RussianRoulette_SettleBet	func	probable	mode 0 releases the bet demon (Party_Remove(.., 1)); else Stock_AddDemon(opponent's demon) in its place
+0814E798	RussianRoulette_MakeOpponentDemons	func	probable	builds the opponent's list from the player's via the id tables 0x087A045C/0x087A055B/0x087A065A
 08151EB4	FieldMap_GetArea	func	probable	returns 0x087DE924 + area*0xD8 (area 2 -> 10 and 5 -> 11 until flags 0x11/0xEC are set)
 08152384	WorldMap_StartWindowRaster	func	probable	sets V-count IRQ (DISPSTAT 0x24 | line << 8) and resets the raster line counter unk1A; queued by sub_08152420
 081523C8	WorldMap_WindowRasterIrq	func	probable	installed in gIntrTable[2]; per line writes WIN0H from table 0x087DFA58 and advances the V-count line, 32 lines

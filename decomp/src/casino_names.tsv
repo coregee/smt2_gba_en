@@ -1,0 +1,67 @@
+0813EE90	Casino_Start	func	clears the 0x300-byte casino scene header at 0x0203B554, stores game id and arg, SetMainCallback(0x0813EED0); called by the field event effect with (h0>>4, h0&15)
+0813EED0	Casino_InitCallback	func	clears EWRAM 0x02000000 (4 KB) and BG VRAM, calls the game's init from table 0x0879241C[game], switches to 0x0813EF40
+0813EF40	Casino_MainCallback	func	Task_RunAll then the game's per-frame function from table 0x0879243C[game]
+0813EF90	CasinoScene_DmaBgTiles	func	VBlank task of CasinoScene_QueueBgTiles: DMA 0x02001000 -> 0x06008000 (32 KB)
+0813EFC8	CasinoScene_DmaObjTiles	func	VBlank task of CasinoScene_QueueObjTiles: DMA 0x02001000 -> 0x06010000 (32 KB)
+0813F060	CasinoScene_DmaBgMap0	func	VBlank task of CasinoScene_LoadBgMap layer 0: DMA 0x02000000 -> 0x06000000 (0x500 bytes)
+0813F080	CasinoScene_DmaBgMap1	func	VBlank task of CasinoScene_LoadBgMap layer 1: DMA 0x02000000 -> 0x06001000
+0813F0A4	CasinoScene_DmaBgMap2	func	VBlank task of CasinoScene_LoadBgMap layer 2: DMA 0x02000000 -> 0x06002000
+0813F0C8	CasinoScene_DmaBgMap3	func	VBlank task of CasinoScene_LoadBgMap layer 3: DMA 0x02000000 -> 0x06003000
+0813F144	CasinoScene_FadeIn	func	scene command: PalFade_FadeInFromBlack(1)
+0813F150	CasinoScene_FadeOut	func	scene command: PalFade_FadeToBlack(1)
+0813F168	Super27_Init	func	init table entry 5 (0x0879241C); clears the 0x800-byte state at 0x0203A454, sets up 3 reels of 6 visible symbols at x 0x44/0x69/0x8E; its update creates script 0x08794E24 (assets: casino/super27)
+0813F22C	Super27_Update	func	update table entry 5 (0x0879243C); creates scene script 0x08794E24 (casino/super27), runs the 3-reel slot machine modes 0-9
+08140104	Super27_UpdateReelStrips	func	sym[r][0..5] = reelPos[r]/20 + k for unheld reels while spinning, wraps indices at 24
+081403C0	Super27_DrawReels	func	draws 6 symbols of each of the 3 reels from the tables 0x0879245C/0x087931DC/0x08793F5C[arg][sym]
+08140810	Super27_DrawHoldMarkers	func	hold markers 0x0814ECA0/B0/C0 at y 0x5B under held reels, blinking for free reels while heldCount < 2
+08140914	Super27_DrawCards	func	draws the six bonus cards (0x08794D90[value].sprite) at x scroll+0x39..0xA2, y 0x5A
+08140A24	Super27_CheckMiddleLine	func	three equal symbols on row 1 of the three reels: records the line, line = 2, calls Super27_SetPayout
+08140AD8	Super27_ScanBonusLine	func	one of 27 three-reel row combinations per call, selected by unk2E (row of symbol 8 on reel 1); records a win and calls Super27_SetPayout
+08141B08	Super27_DrawWinHighlight	func	draws the lit sprites of the three winning symbols and the pay-board row of winSym (0x08794CDC)
+08141C08	Super27_MarkCard	func	marks the first unmarked bonus card whose symbol equals winSym and counts it (cardCount)
+08141D90	Super27_DrawMarkedCards	func	lit sprites of the marked bonus cards
+08141F04	Super27_ClearHolds	func	clears unk18, heldCount, held[0..2] and the spin phase
+08141F24	Super27_SetPayout	func	target = win + pay table 0x08794CDC[sym].pay[0] (symbol 8: random bonus row), capped at 1000
+08141FE0	Super27_DrawNumber	func	NumberToDigits then six digit sprites 0x08794DFC right-aligned at x, 8 px apart
+081420E0	Super27_CountPayout	func	every 4th frame win++ towards target with sound 0x159; 1000 is paid into coins at once
+08142134	Super27_SetInit	func	scene command: state+0 = arg (u16)
+08142140	LuckySymbol_Init	func	init table entry 6; clears the state, bet multiplier 2, four reels; its update creates script 0x0879874C (assets: casino/lucky_symbol)
+08142200	LuckySymbol_Update	func	update table entry 6; creates scene script 0x0879874C (casino/lucky_symbol), modes 0-3 and 10, holds on Left/Up/Right/Down (max 3)
+08142618	LuckySymbol_UpdateReelStrips	func	same as Super27_UpdateReelStrips for the four reels at state+0x68
+081429B4	LuckySymbol_DrawReels	func	draws 6 symbols of each of the 4 reels (x 0x3B/0x5A/0x79/0x98) from tables 0x0879505C/0x08795DDC/0x08796B5C/0x087978DC
+08142F08	LuckySymbol_DrawNumber	func	six digit sprites 0x087986BC right-aligned at x
+08143008	Number_LeadingPowerOf10	func	returns the largest power of ten <= n (max 10000), 0 for 0; used as the fast count step
+08143044	LuckySymbol_CountWin	func	every 4th frame win += step (leading power of ten while A repeats) up to payout; then checks the pattern lamp for a bonus
+081431F8	LuckySymbol_PayWin	func	moves win into coins step by step after a 100-frame pause, ends the round (mode 0)
+0814328C	LuckySymbol_SpinReels	func	spin phases 0-5 of the four reels (wind-up, random speed 9 + rand*59/255, stop one by one with sound 0x15B)
+08143610	LuckySymbol_BlinkWinLine	func	blinks the winning line three times (LuckySymbol_DrawWinLine), then mode 3
+08143668	LuckySymbol_DrawWinLine	func	lit sprites of the four line symbols and the pattern row 0x0879865C[pattern], sound 0x15D/0x15E
+081437E4	LuckySymbol_CheckLine	func	middle row: four of a kind or three of a kind (reels 012/013/023/123), bonus symbols 8-10 excluded; sets pattern and payout
+08143A68	LuckySymbol_CountBonusSymbols	func	bonus score over the 3 visible rows of the 4 reels: symbol 8 = 1, 9 = 2, 10 = 3
+08143BF8	LuckySymbol_DrawBonusMeter	func	lights one of 13 meter marks (0x087986E4) every 8 frames up to the bonus score, sound 0x16B
+08143CB8	LuckySymbol_ApplyBonus	func	bonus score effect: 3 multiplier steps, 4-5 holds, 6 doubling lamp, 7-8 lamp game, 9-12 pay 5/10/20/100
+08143EA0	LuckySymbol_SetPayout	func	payout = 0x0879865C[pattern].pay[four]
+08143ED0	LuckySymbol_DrawHoldMarkers	func	hold markers 0x0814F1F4..0x0814F224 at y 0x5B under the four reels
+08144018	LuckySymbol_LightLamps	func	symbol k (0-7) on each reel's middle row lights pattern lamp 7-k (state+0x60) and its new-lamp flag (+0x58)
+08144270	LuckySymbol_DrawLamps	func	draws lit pattern lamps 0x0814F10C + 0x18*i that are not newly lit
+081443F0	LuckySymbol_BlinkNewLamps	func	blinks newly lit lamps four times, then clears the new flags
+081445C4	LuckySymbol_ApplyMultipliers	func	lamp of the winning pattern: payout *= bet multiplier (reset to 2); doubling lamp: payout <<= 1
+081447D8	LuckySymbol_SetInit	func	scene command: state+0 = arg (u16)
+081447E4	JokerStars_DrawSlot	func	draws sprite slot n with frame state+0xEC[n] from table 0x0879A264[n] at its stored or given position
+08144868	JokerStars_SetSlot	func	sets slot frame, and x/y when nonzero (state+0xEC/+0x114/+0x13C)
+081448A8	JokerStars_SetSlotPos	func	sets slot frame, x and y
+08144920	JokerStars_DrawNumber	func	draws the low `digits` digits of a number with sprites 0x0879A29C, 5 px apart
+08144998	JokerStars_DrawPaylines	func	payline markers 0x0879A2E4 at 0x0879A2C4 for the current bet (1-8)
+08144A08	JokerStars_RandomizeReel	func	strip pointer from 0x0879C6A4[arg][reel], random start symbol (rand*24>>8)*20 px
+08144A58	JokerStars_Init	func	init table entry 7; its update creates script 0x0879A304 (assets: casino/joker_and_stars); nine reels
+08144B70	JokerStars_RenderReels	func	JokerStars_RenderReel for the nine reels
+08144C0C	JokerStars_Update	func	update table entry 7; creates scene script 0x0879A304 (casino/joker_and_stars); bet with A/B (SELECT max), R spin, L quit
+08144FA8	JokerStars_SetState	func	scene command: state+0 = arg (u16)
+08144FB4	JokerStars_DmaReelTiles	func	VBlank task: DMA 0x02005004 -> OBJ VRAM 0x06016000 (8 KB)
+08144FD8	JokerStars_CopyPixelRow	func	copies 4 words 0x20 bytes apart (one pixel row of a 4-tile-wide sprite)
+08144FF0	JokerStars_RenderReel	func	renders 25 pixel rows of a reel from its strip into the OBJ buffer 0x02005004, queues JokerStars_DmaReelTiles
+081450D8	JokerStars_MoveReel	func	adds a 16.16 speed to the reel position and wraps it into 0-479
+08145194	JokerStars_DrawPayTable	func	six pay-table rows for the current bet (0x08145124 with tables 0x0879A5EC..0x0879A898)
+08145260	JokerStars_Quit	func	creates script 0x0879AA3C and sets state 3
+08145290	JokerStars_GetReelSymbol	func	strip[reel][pos/20]: the symbol in the reel's window
+081454CC	JokerStars_CountStars	func	number of reels showing symbol 6 (star)

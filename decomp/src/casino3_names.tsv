@@ -1,0 +1,18 @@
+0814A4AC	BigSmall_NextNumber	func	number = (number + (Random_Byte() & 5)) mod 10; main loop 0x08149C7C (gUnknown_0879243C[0]) runs script 0x0879E354 next to the big_and_small map script 0x0879E460
+0814AC48	BigSmall_AddResult	func	appends the number to the 60-slot result board, new column of 4 when it changes between 0-4 and 5-9
+0814ADAC	CasinoText_DrawString	func	draws a 0-terminated glyph string with FontSprite_DrawGlyphTinted, 0x300 = new line; Big & Small and Code Breaker prize texts
+0814AE28	CodeBreaker_Init	func	gUnknown_0879241C[4]; clears gMenuState, level from 0x0203B554+2 sets code length 3/4/5 and symbol count 5/7/8
+0814AF14	CodeBreaker_Update	func	gUnknown_0879243C[4]; runs script 0x0879F064 (code_breaker map script 0x0879F170), R starts a game for item 0xFE, state machine
+0814BCF4	CodeBreaker_ScoreRow	func	counts hits (symbol in place) and blows against the secret code for the current row; win when hits == length, lose after row 8
+0814C098	CodeBreaker_PickCode	func	fills the secret code with distinct symbols (Random_Byte() * symbols) >> 8
+0814C47C	CodeBreaker_DrawNotes	func	draws the deduction marks table[symbol][position] (gUnknown_0879EFAC)
+0814D150	CodeBreaker_UpdateNotes	func	called by CodeBreaker_ScoreRow; derives the deduction marks from the scored rows with sub_0814C580-sub_0814D0C4
+0814D7BC	RussianRoulette_Init	func	gUnknown_0879241C[3]; clears gMenuState, lists the party demons (records 4-15) to bet
+0814D958	RussianRoulette_Update	func	gUnknown_0879243C[3]; runs script 0x0879F3C4 (russian_roulette map script 0x0879F4B8) and draws the 18 sprite slots
+0814D694	RussianRoulette_DrawSlot	func	draws sprite slot n with frame table gUnknown_0879F334[n] at its stored or default position
+0814D70C	RussianRoulette_SetSlot	func	sets a sprite slot's frame and, when non-zero, its x/y
+0814DAAC	RussianRoulette_DrawText	func	draws up to n bytes of a 0/0xFF-terminated string in the game's 8x8 sprite font (sub_0814DA70, tile 0x320 + c)
+0814E044	RussianRoulette_LoadGun	func	chamber = ((Random_Byte() & 7) * 3) >> 2 (0-5)
+0814E064	RussianRoulette_Fire	func	script callback: shot n hits when n == chamber; shooter by n & 1, result2 says whose demon is lost
+0814E438	RussianRoulette_SettleBet	func	mode 0 releases the bet demon (Party_Remove(.., 1)); else Stock_AddDemon(opponent's demon) in its place
+0814E798	RussianRoulette_MakeOpponentDemons	func	builds the opponent's list from the player's via the id tables 0x087A045C/0x087A055B/0x087A065A
