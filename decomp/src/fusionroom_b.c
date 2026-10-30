@@ -150,7 +150,6 @@ void sub_08157F94(u32 a0, u32 frame)
 
 /* Alignment of the result: 0 law, 1 neutral, 2 chaos, 3 other (items by their flags). */
 // sub_08158030 @ 0x08158030
-#ifdef NONMATCHING
 u32 sub_08158030(void)
 {
     if (gUnk_0203B854[4] == 2 || gUnk_0203B854[4] == 3)
@@ -167,6 +166,8 @@ u32 sub_08158030(void)
             return 1;
         case 2:
             return 2;
+        default:
+            return 3;
         }
     }
     else
@@ -177,85 +178,15 @@ u32 sub_08158030(void)
             return 0;
         if (flags & 1)
             return 0;
-        if (flags & 2)
-            return 1;
+        {
+            u32 m = 2;
+            m &= flags;
+            if (m)
+                return 1;
+        }
         return 2;
     }
-    return 3;
 }
-#else
-NAKED
-u32 sub_08158030(void)
-{
-    asm_unified(
-        ".L08158030:\n"
-        "    push {lr}\n"
-        "    ldr r1, .L08158064\n"
-        "    ldrh r0, [r1, #8]\n"
-        "    subs r0, #2\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    cmp r0, #1\n"
-        "    bhi .L08158070\n"
-        "    ldrh r1, [r1, #6]\n"
-        "    movs r0, #0x9f\n"
-        "    lsls r0, r0, #1\n"
-        "    cmp r1, r0\n"
-        "    beq .L081580A0\n"
-        "    adds r0, r1, #0\n"
-        "    bl sub_0815B958\n"
-        "    movs r1, #0xff\n"
-        "    ands r1, r0\n"
-        "    cmp r1, #1\n"
-        "    beq .L081580A0\n"
-        "    cmp r1, #1\n"
-        "    bgt .L08158068\n"
-        "    cmp r1, #0\n"
-        "    beq .L08158090\n"
-        "    b .L0815806C\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08158064: .4byte 0x0203B854 @ EWRAM+0x3B854\n"
-        ".L08158068:\n"
-        "    cmp r1, #2\n"
-        "    beq .L0815809C\n"
-        ".L0815806C:\n"
-        "    movs r0, #3\n"
-        "    b .L081580A2\n"
-        ".L08158070:\n"
-        "    ldrh r0, [r1, #6]\n"
-        "    bl Fusion_GetDemonByIndex\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    bl Item_GetRecord\n"
-        "    ldrb r1, [r0]\n"
-        "    movs r0, #7\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #7\n"
-        "    beq .L08158090\n"
-        "    movs r0, #1\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    beq .L08158094\n"
-        ".L08158090:\n"
-        "    movs r0, #0\n"
-        "    b .L081580A2\n"
-        ".L08158094:\n"
-        "    movs r0, #2\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    bne .L081580A0\n"
-        ".L0815809C:\n"
-        "    movs r0, #2\n"
-        "    b .L081580A2\n"
-        ".L081580A0:\n"
-        "    movs r0, #1\n"
-        ".L081580A2:\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // sub_081580A8 @ 0x081580A8
 void sub_081580A8(void)

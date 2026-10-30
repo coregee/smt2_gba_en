@@ -893,7 +893,6 @@ s16 sub_081594B4(u16 level)
 
 /* Sorts the candidates by level and takes the first at or above level. */
 // sub_08159568 @ 0x08159568
-#ifdef NONMATCHING
 s16 sub_08159568(u16 level)
 {
     struct FusionCalc *c = &gUnk_0203B868;
@@ -925,94 +924,13 @@ s16 sub_08159568(u16 level)
                 return -1;
         }
     }
-    gUnk_0203B868.result = gUnk_0203B868.cand[i];
-    return gUnk_0203B868.result;
+    {
+        u8 *p = &gUnk_0203B868.cand[i];
+        u16 *r = &gUnk_0203B868.result;
+        *r = *p;
+        return *(s16 *)r;
+    }
 }
-#else
-NAKED
-s16 sub_08159568(u16 level)
-{
-    asm_unified(
-        ".L08159568:\n"
-        "    push {r4, r5, lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r5, r0, #0x10\n"
-        "    ldr r4, .L081595E8\n"
-        "    ldrb r0, [r4]\n"
-        "    bl Demon_GetLevel\n"
-        "    strb r0, [r4, #0x10]\n"
-        "    ldrb r0, [r4, #1]\n"
-        "    cmp r0, #0xff\n"
-        "    beq .L08159590\n"
-        "    bl Demon_GetLevel\n"
-        "    strb r0, [r4, #0x11]\n"
-        "    ldrb r0, [r4, #2]\n"
-        "    cmp r0, #0xff\n"
-        "    beq .L08159590\n"
-        "    bl Demon_GetLevel\n"
-        "    strb r0, [r4, #0x12]\n"
-        ".L08159590:\n"
-        "    ldr r4, .L081595E8\n"
-        "    ldrb r0, [r4, #0x11]\n"
-        "    ldrb r1, [r4, #0x10]\n"
-        "    cmp r0, r1\n"
-        "    bhs .L081595A2\n"
-        "    movs r0, #1\n"
-        "    movs r1, #0\n"
-        "    bl sub_08159604\n"
-        ".L081595A2:\n"
-        "    ldrb r0, [r4, #0x12]\n"
-        "    ldrb r1, [r4, #0x11]\n"
-        "    cmp r0, r1\n"
-        "    bhs .L081595B2\n"
-        "    movs r0, #2\n"
-        "    movs r1, #1\n"
-        "    bl sub_08159604\n"
-        ".L081595B2:\n"
-        "    ldrb r0, [r4, #0x11]\n"
-        "    ldrb r1, [r4, #0x10]\n"
-        "    cmp r0, r1\n"
-        "    bhs .L081595C2\n"
-        "    movs r0, #1\n"
-        "    movs r1, #0\n"
-        "    bl sub_08159604\n"
-        ".L081595C2:\n"
-        "    movs r1, #0\n"
-        "    ldrb r0, [r4, #0x10]\n"
-        "    cmp r0, r5\n"
-        "    bhs .L081595EC\n"
-        "    ldrb r0, [r4, #0x11]\n"
-        "    cmp r0, #0xff\n"
-        "    beq .L081595EC\n"
-        "    movs r1, #1\n"
-        "    cmp r0, r5\n"
-        "    bhs .L081595EC\n"
-        "    ldrb r0, [r4, #0x12]\n"
-        "    cmp r0, #0xff\n"
-        "    beq .L081595EC\n"
-        "    movs r1, #2\n"
-        "    cmp r0, r5\n"
-        "    bhs .L081595EC\n"
-        "    movs r0, #1\n"
-        "    rsbs r0, r0, #0\n"
-        "    b .L081595FA\n"
-        ".L081595E8: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L081595EC:\n"
-        "    ldr r0, .L08159600\n"
-        "    adds r1, r1, r0\n"
-        "    adds r0, #0xa0\n"
-        "    ldrb r1, [r1]\n"
-        "    strh r1, [r0]\n"
-        "    movs r1, #0\n"
-        "    ldrsh r0, [r0, r1]\n"
-        ".L081595FA:\n"
-        "    pop {r4, r5}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        ".L08159600: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-    );
-}
-#endif
 
 // sub_08159604 @ 0x08159604
 void sub_08159604(u32 a, u32 b)

@@ -1429,6 +1429,9 @@ void System_CheckSoftReset(void)
    desat% of half the spread, i.e. toward gray.  Color 0 is never changed. */
 // Color_ApplyEffect @ 0x080ACC54
 #ifdef NONMATCHING
+/* Applies the global colour effect to a BGR555 colour: mode 1 brightens/darkens each channel
+   by gColorEffect.r/g/b 256ths of the distance to white/black, other modes desaturate (move the
+   brightest and darkest channel toward each other). */
 u16 Color_ApplyEffect(u16 color)
 {
     u16 dr = 0, dg = 0, db = 0;
@@ -1442,17 +1445,20 @@ u16 Color_ApplyEffect(u16 color)
     if (sub_080C2C70() == 1)
     {
         u16 pr, pg, pb;
+        u16 m;
+        u32 x;
 
         pg = gColorEffect.g;
         pb = gColorEffect.b;
-        r = color & 0x1F;
+        r = 0x1F;
+        r &= color;
         g = (color & 0x3E0) >> 5;
         b = (color & 0x7C00) >> 10;
         pr = gColorEffect.r;
         if (gColorEffect.r > 0)
         {
-            dr = ((31 - r) << 16) * pr / 0x1F00;
-            dr = (dr + 0x80) >> 8;
+            u16 q = ((31 - r) << 16) * pr / 0x1F00;
+            dr = (q + 0x80) >> 8;
         }
         else if (gColorEffect.r < 0)
         {
@@ -1461,41 +1467,49 @@ u16 Color_ApplyEffect(u16 color)
         }
         if ((s16)pg > 0)
         {
+            x = 31 - g;
             dg = gColorEffect.g;
-            dg = ((31 - g) << 16) * dg / 0x1F00;
-            dg = ((dg + 0x80) >> 8) << 5;
+            x = (s32)(x << 16) * dg / 0x1F00;
+            x = ((u16)x << 8) + 0x8000;
+            dg = (x >> 16) << 5;
         }
         else if ((s16)pg < 0)
         {
             dg = -gColorEffect.g;
-            dg = (g << 16) * dg / 0x1F00;
-            dg = ((dg + 0x80) >> 8) << 5;
+            x = (g << 16) * dg / 0x1F00;
+            x = ((u16)x << 8) + 0x8000;
+            dg = (x >> 16) << 5;
         }
         if ((s16)pb > 0)
         {
+            x = 31 - b;
             db = gColorEffect.b;
-            db = ((31 - b) << 16) * db / 0x1F00;
-            db = ((db + 0x80) >> 8) << 10;
+            x = (s32)(x << 16) * db / 0x1F00;
+            x = ((u16)x << 8) + 0x8000;
+            db = (x >> 16) << 10;
         }
         else if ((s16)pb < 0)
         {
             db = -gColorEffect.b;
-            db = (b << 16) * db / 0x1F00;
-            db = ((db + 0x80) >> 8) << 10;
+            x = (b << 16) * db / 0x1F00;
+            x = ((u16)x << 8) + 0x8000;
+            db = (x >> 16) << 10;
         }
 
-        if (color & 0x1F)
+        m = 0x1F;
+        m &= color;
+        if (m)
         {
             if ((s16)pr > 0)
             {
-                if ((color & 0x1F) + dr > 30)
-                    color |= 0x1F;
-                else
+                if (m + dr <= 30)
                     color += dr;
+                else
+                    color |= 0x1F;
             }
             else if ((s16)pr < 0)
             {
-                if (dr < (color & 0x1F))
+                if (dr < m)
                     color -= dr;
                 else
                     color &= ~0x1F;
@@ -1505,10 +1519,10 @@ u16 Color_ApplyEffect(u16 color)
         {
             if ((s16)pg > 0)
             {
-                if ((color & 0x3E0) + dg > 0x3DF)
-                    color |= 0x3E0;
-                else
+                if ((color & 0x3E0) + dg <= 0x3DF)
                     color += dg;
+                else
+                    color |= 0x3E0;
             }
             else if ((s16)pg < 0)
             {
@@ -1522,10 +1536,10 @@ u16 Color_ApplyEffect(u16 color)
         {
             if ((s16)pb > 0)
             {
-                if ((color & 0x7C00) + db > 0x7BFF)
-                    color |= 0x7C00;
-                else
+                if ((color & 0x7C00) + db <= 0x7BFF)
                     color += db;
+                else
+                    color |= 0x7C00;
             }
             else if ((s16)pb < 0)
             {
@@ -1535,43 +1549,103 @@ u16 Color_ApplyEffect(u16 color)
                     color &= ~0x7C00;
             }
         }
-        return color;
     }
     else
     {
+        s16 desat;
         u16 max, min, amount;
 
-        if (gColorEffect.desat == 0)
+        desat = gColorEffect.desat;
+        if (desat == 0)
             return color;
-        r = color & 0x1F;
+        min = 0xFFFF;
+        r = 0x1F;
+        r &= color;
         g = (color & 0x3E0) >> 5;
         b = (color & 0x7C00) >> 10;
 
         max = r;
-        if (g >= max) max = g;
-        if (b >= max) max = b;
-        min = 0xFFFF;
-        if (r <= min) min = r;
-        if (g <= min) min = g;
-        if (b <= min) min = b;
+        if (g >= max)
+            max = g;
+        if (b >= max)
+            max = b;
+        if (r <= min)
+            min = r;
+        if (g <= min)
+            min = g;
+        if (b <= min)
+            min = b;
 
-        amount = ((s32)(max - min) / 2) * gColorEffect.desat / 100;
+        amount = ((s32)(max - min) / 2) * desat / 100;
         if (amount == 0)
             return color;
 
-#define DESAT_CHANNEL(c)                                    \
-        if ((c) != max && (c) == min)                       \
-            (c) = ((c) + amount > 31) ? 31 : (c) + amount;  \
-        else                                                \
-            (c) = ((c) >= amount) ? (c) - amount : 0;
-
-        DESAT_CHANNEL(r)
-        DESAT_CHANNEL(g)
-        DESAT_CHANNEL(b)
-#undef DESAT_CHANNEL
-
+        if (r == max)
+        {
+            if (r >= amount)
+                r -= amount;
+            else
+                r = 0;
+        }
+        else if (r == min)
+        {
+            if (r + amount > 31)
+                r = 31;
+            else
+                r += amount;
+        }
+        else
+        {
+            if (r >= amount)
+                r -= amount;
+            else
+                r = 0;
+        }
+        if (g == max)
+        {
+            if (g >= amount)
+                g -= amount;
+            else
+                g = 0;
+        }
+        else if (g == min)
+        {
+            if (g + amount > 31)
+                g = 31;
+            else
+                g += amount;
+        }
+        else
+        {
+            if (g >= amount)
+                g -= amount;
+            else
+                g = 0;
+        }
+        if (b == max)
+        {
+            if (b >= amount)
+                b -= amount;
+            else
+                b = 0;
+        }
+        else if (b == min)
+        {
+            if (b + amount > 31)
+                b = 31;
+            else
+                b += amount;
+        }
+        else
+        {
+            if (b >= amount)
+                b -= amount;
+            else
+                b = 0;
+        }
         return r + (g << 5) + (b << 10);
     }
+    return color;
 }
 #else
 NAKED

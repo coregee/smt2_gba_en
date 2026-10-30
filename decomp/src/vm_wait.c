@@ -615,84 +615,35 @@ void sub_0813DA04(void)
 }
 
 // sub_0813DA14 @ 0x0813DA14
-#ifdef NONMATCHING
 bool32 sub_0813DA14(u32 idx)
 {
     s16 t = Combatant_GetDemonId(idx);
     u32 f;
     u16 g;
     u32 mask;
-    u32 m;
+    u32 c;
 
     if (t == 0x75 || t == 0x20 || t == 0x21 || t == 0x22)
         return TRUE;
     f = Combatant_GetStatus(idx);
     g = f;
-    m = 0x8000;
-    m &= f;
-    if (m)
-        mask = 0x7F;
-    else if (g & 0x8000)
-        mask = 0x3F;
-    else
-        return TRUE;
+    c = 0x8000;
+    {
+        /* pinned: without it combine folds the copy and the and lands in f's r0 */
+        register u32 m asm("r1") = c;
+
+        m &= f;
+        if (m)
+            mask = 0x7F;
+        else if (g & c)
+            mask = 0x3F;
+        else
+            return TRUE;
+    }
     if (Random_Byte() & mask)
         return TRUE;
     return FALSE;
 }
-#else
-NAKED
-bool32 sub_0813DA14(u32 idx)
-{
-    asm_unified(
-        "    push {r4, lr}\n"
-        "    adds r4, r0, #0\n"
-        "    bl Combatant_GetDemonId\n"
-        "    lsls r0, r0, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    cmp r0, #0x75\n"
-        "    beq .L0813DA62\n"
-        "    cmp r0, #0x20\n"
-        "    beq .L0813DA62\n"
-        "    cmp r0, #0x21\n"
-        "    beq .L0813DA62\n"
-        "    cmp r0, #0x22\n"
-        "    beq .L0813DA62\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_GetStatus\n"
-        "    lsls r1, r0, #0x10\n"
-        "    lsrs r2, r1, #0x10\n"
-        "    movs r3, #0x80\n"
-        "    lsls r3, r3, #8\n"
-        "    adds r1, r3, #0\n"
-        "    ands r1, r0\n"
-        "    cmp r1, #0\n"
-        "    beq .L0813DA4A\n"
-        "    movs r4, #0x7f\n"
-        "    b .L0813DA54\n"
-        ".L0813DA4A:\n"
-        "    adds r0, r2, #0\n"
-        "    ands r0, r3\n"
-        "    cmp r0, #0\n"
-        "    beq .L0813DA62\n"
-        "    movs r4, #0x3f\n"
-        ".L0813DA54:\n"
-        "    bl Random_Byte\n"
-        "    ands r4, r0\n"
-        "    cmp r4, #0\n"
-        "    bne .L0813DA62\n"
-        "    movs r0, #0\n"
-        "    b .L0813DA64\n"
-        ".L0813DA62:\n"
-        "    movs r0, #1\n"
-        ".L0813DA64:\n"
-        "    pop {r4}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // sub_0813DA6C @ 0x0813DA6C
 bool32 sub_0813DA6C(void)

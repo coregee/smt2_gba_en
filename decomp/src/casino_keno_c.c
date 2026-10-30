@@ -154,12 +154,11 @@ void Keno_DrawNumber(struct Task *task)
 #endif
 
 // sub_08149230 @ 0x08149230
-#ifdef NONMATCHING
 void sub_08149230(void)
 {
     u8 c = gGrid->lastHit;
     u16 x;
-    u32 y;
+    u16 y;
 
     x = (c & 7) * 15 + 8;
     y = (c / 8) * 11 + 0x27;
@@ -167,51 +166,6 @@ void sub_08149230(void)
         y += 0x1B;
     Sprite_Draw(gUnknown_081513A4, 0, 0, 0, 0, x, y);
 }
-#else
-NAKED
-void sub_08149230(void)
-{
-    asm_unified(
-        "    push {r4, lr}\n"
-        "    sub sp, #0xc\n"
-        "    ldr r0, .L08149274\n"
-        "    ldr r1, .L08149278\n"
-        "    adds r0, r0, r1\n"
-        "    ldrb r2, [r0]\n"
-        "    movs r1, #7\n"
-        "    ands r1, r2\n"
-        "    lsls r0, r1, #4\n"
-        "    subs r0, r0, r1\n"
-        "    adds r0, #8\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    lsrs r1, r2, #3\n"
-        "    movs r0, #0xb\n"
-        "    muls r0, r1, r0\n"
-        "    adds r3, r0, #0\n"
-        "    adds r3, #0x27\n"
-        "    cmp r2, #0x1f\n"
-        "    bls .L0814925A\n"
-        "    adds r3, #0x1b\n"
-        ".L0814925A:\n"
-        "    ldr r0, .L0814927C\n"
-        "    movs r1, #0\n"
-        "    str r1, [sp]\n"
-        "    str r4, [sp, #4]\n"
-        "    str r3, [sp, #8]\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0\n"
-        "    bl Sprite_Draw\n"
-        "    add sp, #0xc\n"
-        "    pop {r4}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L08149274: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
-        ".L08149278: .4byte 0x00000221\n"
-        ".L0814927C: .4byte gUnknown_081513A4\n"
-    );
-}
-#endif
 
 /* Payout = bet x gUnknown_0879D338[numbers marked][hits]. */
 // Keno_ComputePayout @ 0x08149280

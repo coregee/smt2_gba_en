@@ -9,15 +9,14 @@ void ScriptOp_38A(void)
 }
 
 // ScriptOp_38B @ 0x08136D5C
-#ifdef NONMATCHING
 void ScriptOp_38B(void)
 {
     u16 a = SCRIPT_READ();
     u16 b = SCRIPT_READ();
 
     {
-        u32 k = b * 2;
-        u16 y = gUnknown_0879041E[k];
+        s32 k;
+        u16 y = gUnknown_0879041E[k = b * 2];
 
         gUnk_03006964 = sub_080B4420(gUnknown_0879041E[k + 1], y);
     }
@@ -26,65 +25,6 @@ void ScriptOp_38B(void)
     gScriptYield = 1;
     gScriptWaitState = 0x34;
 }
-#else
-NAKED
-void ScriptOp_38B(void)
-{
-    asm_unified(
-        "    push {r4, lr}\n"
-        "    ldr r3, .L08136DB8\n"
-        "    ldrh r0, [r3]\n"
-        "    adds r1, r0, #1\n"
-        "    strh r1, [r3]\n"
-        "    lsls r0, r0, #0x10\n"
-        "    ldr r2, .L08136DBC\n"
-        "    ldr r2, [r2]\n"
-        "    lsrs r0, r0, #0xf\n"
-        "    adds r0, r0, r2\n"
-        "    ldrh r4, [r0]\n"
-        "    adds r0, r1, #1\n"
-        "    strh r0, [r3]\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0xf\n"
-        "    adds r1, r1, r2\n"
-        "    ldrh r1, [r1]\n"
-        "    ldr r2, .L08136DC0\n"
-        "    lsls r0, r1, #1\n"
-        "    lsls r1, r1, #2\n"
-        "    adds r1, r1, r2\n"
-        "    ldrh r1, [r1]\n"
-        "    adds r0, #1\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r0, r0, r2\n"
-        "    ldrh r0, [r0]\n"
-        "    bl sub_080B4420\n"
-        "    ldr r1, .L08136DC4\n"
-        "    str r0, [r1]\n"
-        "    movs r0, #0xf0\n"
-        "    ands r4, r0\n"
-        "    cmp r4, #0\n"
-        "    beq .L08136DA4\n"
-        "    bl sub_080ECF80\n"
-        ".L08136DA4:\n"
-        "    ldr r1, .L08136DC8\n"
-        "    movs r0, #1\n"
-        "    strh r0, [r1]\n"
-        "    ldr r1, .L08136DCC\n"
-        "    movs r0, #0x34\n"
-        "    strh r0, [r1]\n"
-        "    pop {r4}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08136DB8: .4byte 0x0203DB40 @ EWRAM+0x3DB40\n"
-        ".L08136DBC: .4byte 0x03006950 @ IWRAM+0x6950\n"
-        ".L08136DC0: .4byte gUnknown_0879041E\n"
-        ".L08136DC4: .4byte 0x03006964 @ IWRAM+0x6964\n"
-        ".L08136DC8: .4byte 0x0203DB6E @ EWRAM+0x3DB6E\n"
-        ".L08136DCC: .4byte 0x0203DB5A @ EWRAM+0x3DB5A\n"
-    );
-}
-#endif
 
 // ScriptOp_38C @ 0x08136DD0
 void ScriptOp_38C(void)

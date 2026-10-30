@@ -290,13 +290,12 @@ u32 FieldMap_HasRecordRel(u16 fwd, u16 side, u16 type)
 
 /* NONMATCHING: the original reuses the gGameState base for both saved-position bytes; register allocation then differs. */
 // sub_080B30A0 @ 0x080B30A0
-#ifdef NONMATCHING
 /* Finds the sub-map containing the saved position and places the player there. */
 void sub_080B30A0(void)
 {
     u16 count = sub_080C8B3C(gUnk_03004614);
-    u32 x = gGameState.unk18C2;
-    u32 y = gGameState.unk18C3 & 0x3F;
+    u16 x = gGameState.unk18C2;
+    u16 y = gGameState.unk18C3 & 0x3F;
     struct MapHeader *map = DungeonMap_GetFloor(gUnk_03004614, 0);
     u16 i;
 
@@ -304,8 +303,14 @@ void sub_080B30A0(void)
     {
         if (map->x0 <= x && map->y0 <= y && map->x1 >= x && map->y1 >= y && SubMap_IsOutsideExclusions(map, x, y) == 1)
         {
-            gFieldState.unk12 = x - map->x0;
-            gFieldState.unk14 = y - map->y0;
+            {
+                u16 t = x;
+                t -= map->x0;
+                gFieldState.unk12 = t;
+                t = y;
+                t -= map->y0;
+                gFieldState.unk14 = t;
+            }
             gFieldState.unk02 = gFieldState.unk04 = gGameState.unk18C3 >> 6;
             Field_SavePrevPosition();
             gPaletteTarget[0] = *gUnk_03004630;
@@ -320,147 +325,6 @@ void sub_080B30A0(void)
         sub_080AE234();
     }
 }
-#else
-NAKED
-void sub_080B30A0(void)
-{
-    asm_unified(
-        ".L080B30A0:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sl\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6, r7}\n"
-        "    sub sp, #4\n"
-        "    ldr r4, .L080B3160\n"
-        "    ldrh r0, [r4]\n"
-        "    bl sub_080C8B3C\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    mov sb, r0\n"
-        "    ldr r0, .L080B3164\n"
-        "    ldr r2, .L080B3168\n"
-        "    adds r1, r0, r2\n"
-        "    ldrb r5, [r1]\n"
-        "    ldr r1, .L080B316C\n"
-        "    adds r0, r0, r1\n"
-        "    ldrb r0, [r0]\n"
-        "    movs r6, #0x3f\n"
-        "    ands r6, r0\n"
-        "    ldrh r0, [r4]\n"
-        "    movs r1, #0\n"
-        "    bl DungeonMap_GetFloor\n"
-        "    adds r4, r0, #0\n"
-        "    movs r7, #0\n"
-        "    cmp r7, sb\n"
-        "    bhs .L080B31AC\n"
-        "    ldr r2, .L080B3170\n"
-        "    mov r8, r2\n"
-        "    ldr r0, .L080B3174\n"
-        "    mov sl, r0\n"
-        ".L080B30E4:\n"
-        "    ldrh r0, [r4, #8]\n"
-        "    cmp r0, r5\n"
-        "    bhi .L080B3180\n"
-        "    ldrh r0, [r4, #0xa]\n"
-        "    cmp r0, r6\n"
-        "    bhi .L080B3180\n"
-        "    ldrh r0, [r4, #0xc]\n"
-        "    cmp r0, r5\n"
-        "    blo .L080B3180\n"
-        "    ldrh r0, [r4, #0xe]\n"
-        "    cmp r0, r6\n"
-        "    blo .L080B3180\n"
-        "    adds r0, r4, #0\n"
-        "    adds r1, r5, #0\n"
-        "    adds r2, r6, #0\n"
-        "    bl SubMap_IsOutsideExclusions\n"
-        "    cmp r0, #1\n"
-        "    bne .L080B3180\n"
-        "    ldrh r0, [r4, #8]\n"
-        "    subs r0, r5, r0\n"
-        "    mov r1, r8\n"
-        "    strh r0, [r1, #0x12]\n"
-        "    ldrh r0, [r4, #0xa]\n"
-        "    subs r0, r6, r0\n"
-        "    strh r0, [r1, #0x14]\n"
-        "    ldr r0, .L080B3164\n"
-        "    ldr r2, .L080B316C\n"
-        "    adds r0, r0, r2\n"
-        "    ldrb r0, [r0]\n"
-        "    lsrs r0, r0, #6\n"
-        "    strh r0, [r1, #4]\n"
-        "    strh r0, [r1, #2]\n"
-        "    bl Field_SavePrevPosition\n"
-        "    ldr r0, .L080B3178\n"
-        "    ldr r1, [r0]\n"
-        "    ldrh r0, [r1]\n"
-        "    mov r2, sl\n"
-        "    strh r0, [r2]\n"
-        "    movs r0, #0x20\n"
-        "    str r0, [sp]\n"
-        "    movs r0, #3\n"
-        "    movs r2, #0xe0\n"
-        "    lsls r2, r2, #1\n"
-        "    add r2, sl\n"
-        "    movs r3, #0x40\n"
-        "    bl Palette_CopyWithEffect\n"
-        "    ldr r0, .L080B317C\n"
-        "    ldr r1, [r0]\n"
-        "    movs r2, #0x20\n"
-        "    str r2, [sp]\n"
-        "    movs r0, #3\n"
-        "    movs r2, #0xd0\n"
-        "    lsls r2, r2, #1\n"
-        "    add r2, sl\n"
-        "    movs r3, #0x20\n"
-        "    bl Palette_CopyWithEffect\n"
-        "    b .L080B31AC\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080B3160: .4byte 0x03004614 @ IWRAM+0x4614\n"
-        ".L080B3164: .4byte 0x030046C0 @ IWRAM+0x46C0\n"
-        ".L080B3168: .4byte 0x000018C2\n"
-        ".L080B316C: .4byte 0x000018C3\n"
-        ".L080B3170: .4byte 0x03004550 @ IWRAM+0x4550\n"
-        ".L080B3174: .4byte 0x030029B0 @ IWRAM+0x29B0\n"
-        ".L080B3178: .4byte 0x03004630 @ IWRAM+0x4630\n"
-        ".L080B317C: .4byte 0x03004510 @ IWRAM+0x4510\n"
-        ".L080B3180:\n"
-        "    mov r0, sb\n"
-        "    subs r0, #1\n"
-        "    ldr r2, .L080B31BC\n"
-        "    ldr r1, [r2]\n"
-        "    cmp r0, r1\n"
-        "    beq .L080B31AC\n"
-        "    adds r0, r1, #1\n"
-        "    str r0, [r2]\n"
-        "    ldr r0, .L080B31C0\n"
-        "    ldrh r0, [r0]\n"
-        "    bl sub_080ADFEC\n"
-        "    bl sub_080AE234\n"
-        "    adds r0, r7, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r7, r0, #0x10\n"
-        "    movs r0, #0x9a\n"
-        "    lsls r0, r0, #2\n"
-        "    adds r4, r4, r0\n"
-        "    cmp r7, sb\n"
-        "    blo .L080B30E4\n"
-        ".L080B31AC:\n"
-        "    add sp, #4\n"
-        "    pop {r3, r4, r5}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    mov sl, r5\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L080B31BC: .4byte 0x03004514 @ IWRAM+0x4514\n"
-        ".L080B31C0: .4byte 0x03004544 @ IWRAM+0x4544\n"
-    );
-}
-
-#endif
 
 
 /* NONMATCHING: the zero constant and the wrapped flag swap between sl and a stack slot, and the y loop is entered through its bottom test. */

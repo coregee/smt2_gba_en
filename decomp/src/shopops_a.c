@@ -271,7 +271,7 @@ void ScriptOp_33B(void)
     gScriptWaitState = 0x22;
     for (i = 0; i < 15; i++)
         gUnk_03006820[i] = gMsgGlyphQueue[i * 4];
-    gUnk_03006940 = gUnk_030065E4 = gUnk_0300696C = 0;
+    gUnk_03006940 = gUnk_0300696C = gUnk_030065E4 = 0;
     Shop_InitItemList(0, 0);
     gUnk_030068A4 = sub_080D3400(1, (u16)gUnk_03006898, gShopItemIds[0]);
     Task_Create(gUnknown_0878FD58, 0xFFFF);

@@ -517,8 +517,6 @@ void FieldView_BlitTiles(const struct ViewBlit *b)
     const u32 *s;
     u32 *d;
     u32 v;
-    const u8 *srow;
-    u8 *drow;
 
     w = b->w;
     cols = w >> 3;
@@ -539,8 +537,9 @@ void FieldView_BlitTiles(const struct ViewBlit *b)
         {
             t = (s16)(8 - dstX);
             cut = t / 8;
-            dstOff += cut * 0x20;
-            srcOff += cut * 0x20;
+            v = cut * 0x20;
+            dstOff += v;
+            srcOff += v;
             cols = (u16)(cols - cut);
         }
         else if ((s32)(dstX + w) > 0xE8)
@@ -570,10 +569,10 @@ void FieldView_BlitTiles(const struct ViewBlit *b)
     {
         for (r = 0; r < rows; r++)
         {
-            srow = src + ((b->srcY + r * 8) >> 3) * 0x400;
-            drow = dst + ((b->dstY + r * 8) >> 3) * 0x400;
-            s = (const u32 *)(srow + srcOff);
-            d = (u32 *)(drow + dstOff);
+            s = (const u32 *)(src + ((b->srcY + r * 8) >> 3) * 0x400);
+            d = (u32 *)(dst + ((b->dstY + r * 8) >> 3) * 0x400);
+            s = (const u32 *)((u8 *)s + srcOff);
+            d = (u32 *)((u8 *)d + dstOff);
             for (c = 0; c < cols; c++)
             {
                 *d++ = *s++;
@@ -591,10 +590,10 @@ void FieldView_BlitTiles(const struct ViewBlit *b)
     {
         for (r = 0; r < rows; r++)
         {
-            srow = src + ((b->srcY + r * 8) >> 3) * 0x400;
-            drow = dst + ((b->dstY + r * 8) >> 3) * 0x400;
-            s = (const u32 *)(srow + srcOff);
-            d = (u32 *)(drow + dstOff);
+            s = (const u32 *)(src + ((b->srcY + r * 8) >> 3) * 0x400);
+            d = (u32 *)(dst + ((b->dstY + r * 8) >> 3) * 0x400);
+            s = (const u32 *)((u8 *)s + srcOff);
+            d = (u32 *)((u8 *)d + dstOff);
             for (c = 0; c < cols; c++)
             {
                 v = *s++; *d++ = MIRROR_ROW(v);

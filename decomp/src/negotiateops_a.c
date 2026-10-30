@@ -624,7 +624,6 @@ void Script_JumpToStatusMessage(u32 msg)
 /* Inflicts the status bits `bits` on `who`, bit by bit from bit 0, and shows a message
    for each. */
 // Combatant_InflictStatus @ 0x0813B350
-#ifdef NONMATCHING
 void Combatant_InflictStatus(u16 bits, u16 who)
 {
     u16 b = bits;
@@ -637,7 +636,7 @@ void Combatant_InflictStatus(u16 bits, u16 who)
         {
             b >>= 1;
             status = Combatant_GetStatus(who);
-            if (bits & status)
+            if (status & bits)
             {
                 msg = 0;
             }
@@ -647,7 +646,8 @@ void Combatant_InflictStatus(u16 bits, u16 who)
             }
             else
             {
-                Combatant_SetStatus(who, (status & gUnknown_08790DA0[i]) | bits);
+                status &= gUnknown_08790DA0[i];
+                Combatant_SetStatus(who, status | bits);
                 if (i == 0)
                 {
                     *(u16 *)(Battle_GetCombatant(who + 0x8000) + 0x18) = i;
@@ -666,103 +666,6 @@ void Combatant_InflictStatus(u16 bits, u16 who)
         }
     }
 }
-#else
-NAKED
-void Combatant_InflictStatus(u16 bits, u16 who)
-{
-    asm_unified(
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, r8\n"
-        "    push {r7}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    mov r8, r0\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r7, r1, #0x10\n"
-        "    mov r5, r8\n"
-        "    movs r6, #0xf\n"
-        ".L0813B364:\n"
-        "    movs r0, #1\n"
-        "    ands r0, r5\n"
-        "    cmp r0, #0\n"
-        "    beq .L0813B3EC\n"
-        "    lsrs r5, r5, #1\n"
-        "    adds r0, r7, #0\n"
-        "    bl Combatant_GetStatus\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r1, r0, #0x10\n"
-        "    adds r0, r1, #0\n"
-        "    mov r2, r8\n"
-        "    ands r0, r2\n"
-        "    cmp r0, #0\n"
-        "    beq .L0813B386\n"
-        "    movs r0, #0\n"
-        "    b .L0813B3DE\n"
-        ".L0813B386:\n"
-        "    ldr r0, .L0813B398\n"
-        "    lsls r4, r6, #1\n"
-        "    adds r0, r4, r0\n"
-        "    ldrh r0, [r0]\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    beq .L0813B39C\n"
-        "    movs r0, #1\n"
-        "    b .L0813B3DE\n"
-        ".L0813B398: .4byte gUnknown_08790D80\n"
-        ".L0813B39C:\n"
-        "    ldr r0, .L0813B3C4\n"
-        "    adds r0, r4, r0\n"
-        "    ldrh r0, [r0]\n"
-        "    ands r1, r0\n"
-        "    mov r0, r8\n"
-        "    orrs r1, r0\n"
-        "    adds r0, r7, #0\n"
-        "    bl Combatant_SetStatus\n"
-        "    cmp r6, #0\n"
-        "    bne .L0813B3C8\n"
-        "    movs r1, #0x80\n"
-        "    lsls r1, r1, #8\n"
-        "    adds r0, r7, r1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    bl Battle_GetCombatant\n"
-        "    strh r6, [r0, #0x18]\n"
-        "    b .L0813B3EE\n"
-        ".L0813B3C4: .4byte gUnknown_08790DA0\n"
-        ".L0813B3C8:\n"
-        "    cmp r6, #0xe\n"
-        "    bgt .L0813B3EE\n"
-        "    cmp r7, #0xf\n"
-        "    bls .L0813B3D8\n"
-        "    ldr r0, .L0813B3D4\n"
-        "    b .L0813B3DA\n"
-        ".L0813B3D4: .4byte gUnknown_08790DC0\n"
-        ".L0813B3D8:\n"
-        "    ldr r0, .L0813B3E8\n"
-        ".L0813B3DA:\n"
-        "    adds r0, r4, r0\n"
-        "    ldrh r0, [r0]\n"
-        ".L0813B3DE:\n"
-        "    cmp r6, #1\n"
-        "    beq .L0813B3EE\n"
-        "    bl Script_JumpToStatusMessage\n"
-        "    b .L0813B3EE\n"
-        ".L0813B3E8: .4byte gUnknown_08790DDE\n"
-        ".L0813B3EC:\n"
-        "    lsrs r5, r5, #1\n"
-        ".L0813B3EE:\n"
-        "    subs r6, #1\n"
-        "    cmp r6, #0\n"
-        "    bge .L0813B364\n"
-        "    pop {r3}\n"
-        "    mov r8, r3\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 /* Takes one from counter gScriptItemCheckId - 0x120. */
 // sub_0813B400 @ 0x0813B400

@@ -69,14 +69,16 @@ void sub_0813DD2C(struct ScriptTask *task)
 }
 
 // sub_0813DD64 @ 0x0813DD64
-#ifdef NONMATCHING
 void sub_0813DD64(struct ScriptTask *task)
 {
-    if (gUnk_03006670 == 0 && gMsgWindowOpen != 0)
+    /* pinned: plain C gives v r4 and task r5 (pure callee-saved swap) */
+    register u16 v asm("r5") = gUnk_03006670;
+
+    if (v == 0 && gMsgWindowOpen != 0)
     {
         if (Window_IsIdle(gMsgWindow) == 1)
         {
-            gMsgWindowOpen = gUnk_03006670;
+            gMsgWindowOpen = v;
             task->unk1C = 1;
         }
     }
@@ -85,45 +87,6 @@ void sub_0813DD64(struct ScriptTask *task)
         task->unk1C = 1;
     }
 }
-#else
-NAKED
-void sub_0813DD64(struct ScriptTask *task)
-{
-    asm_unified(
-        "    push {r4, r5, r6, lr}\n"
-        "    adds r4, r0, #0\n"
-        "    ldr r0, .L0813DD8C\n"
-        "    ldrh r5, [r0]\n"
-        "    cmp r5, #0\n"
-        "    bne .L0813DD98\n"
-        "    ldr r6, .L0813DD90\n"
-        "    movs r1, #0\n"
-        "    ldrsh r0, [r6, r1]\n"
-        "    cmp r0, #0\n"
-        "    beq .L0813DD98\n"
-        "    ldr r0, .L0813DD94\n"
-        "    ldr r0, [r0]\n"
-        "    bl Window_IsIdle\n"
-        "    cmp r0, #1\n"
-        "    bne .L0813DD9C\n"
-        "    strh r5, [r6]\n"
-        "    b .L0813DD9A\n"
-        "    .byte 0x00, 0x00\n"
-        ".L0813DD8C: .4byte 0x03006670 @ IWRAM+0x6670\n"
-        ".L0813DD90: .4byte 0x0203DB6C @ EWRAM+0x3DB6C\n"
-        ".L0813DD94: .4byte 0x03006968 @ IWRAM+0x6968\n"
-        ".L0813DD98:\n"
-        "    movs r0, #1\n"
-        ".L0813DD9A:\n"
-        "    strh r0, [r4, #0x1c]\n"
-        ".L0813DD9C:\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // sub_0813DDA4 @ 0x0813DDA4
 void sub_0813DDA4(void)

@@ -322,11 +322,10 @@ void Map_LoadGraphicsStep(u16 map, u16 sub, s32 *step)
 /* Points the field's graphics pointers at the buffers Map_LoadGraphicsStep fills and at the map's
    palettes; map 0x1A uses other palette rows until flag 0x11 is set. */
 // Map_SetGraphicsPointers @ 0x080ADCCC
-#ifdef NONMATCHING
 void Map_SetGraphicsPointers(u32 map, u32 sub)
 {
-    struct MapVariant *v = &DungeonMap_GetFloor(map, sub)->variants[gGameState.unkA38];
     const u16 *pal;
+    struct MapVariant *v = &DungeonMap_GetFloor(map, sub)->variants[gGameState.unkA38];
 
     gUnk_03003FC0 = (void *)0x0201D874;
     gUnk_03003BB0 = (void *)0x02024074;
@@ -335,203 +334,38 @@ void Map_SetGraphicsPointers(u32 map, u32 sub)
     gUnk_03003B90 = (void *)0x0200F874;
     gUnk_03004620 = (void *)0x02017874;
     if (map == 0x1A && Flag_Test(0x11) == 0)
-        pal = (const u16 *)v->data[0x30] + 0x40;
-    else
+    {
         pal = v->data[0x30];
-    gUnk_03004510 = pal;
+        pal += 0x40;
+        gUnk_03004510 = pal;
+    }
+    else
+        gUnk_03004510 = v->data[0x30];
     gUnk_03003B94 = (void *)0x02028074;
     gUnk_0300462C = v->data[0x28];
     if (map == 0x1A && Flag_Test(0x11) == 0)
-        pal = (const u16 *)v->data[0x31] + 0x80;
-    else
+    {
         pal = v->data[0x31];
-    gUnk_03004630 = pal;
+        pal += 0x80;
+        gUnk_03004630 = pal;
+    }
+    else
+        gUnk_03004630 = v->data[0x31];
     gUnk_0300461C = v->data[0x33];
     gUnk_03003FE4 = v->data[0x35];
     gUnk_03003FE8 = v->data[0x37];
     if (map == 0x1A && Flag_Test(0x11) == 0)
-        pal = (const u16 *)v->data[0x32] + 0x40;
-    else
+    {
         pal = v->data[0x32];
-    gUnk_03003FC8 = pal;
+        pal += 0x40;
+        gUnk_03003FC8 = pal;
+    }
+    else
+        gUnk_03003FC8 = v->data[0x32];
     Palette_CopyDarkened(gUnk_03004510, gUnk_0200F7F4, 0x10);
     Palette_CopyDarkened(gUnk_03004630, gUnk_0200F814, 0x20);
     Palette_CopyDarkened(gUnk_03003FC8, gUnk_0200F854, 0x10);
 }
-#else
-NAKED
-void Map_SetGraphicsPointers(u32 map, u32 sub)
-{
-    asm_unified(
-        ".L080ADCCC:\n"
-        "    push {r4, r5, lr}\n"
-        "    adds r5, r0, #0\n"
-        "    lsls r0, r5, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    bl DungeonMap_GetFloor\n"
-        "    ldr r1, .L080ADD2C\n"
-        "    ldr r2, .L080ADD30\n"
-        "    adds r1, r1, r2\n"
-        "    ldrh r2, [r1]\n"
-        "    movs r1, #0xe8\n"
-        "    muls r1, r2, r1\n"
-        "    adds r1, #0x98\n"
-        "    adds r4, r0, r1\n"
-        "    ldr r1, .L080ADD34\n"
-        "    ldr r0, .L080ADD38\n"
-        "    str r0, [r1]\n"
-        "    ldr r1, .L080ADD3C\n"
-        "    ldr r0, .L080ADD40\n"
-        "    str r0, [r1]\n"
-        "    ldr r1, .L080ADD44\n"
-        "    ldr r0, .L080ADD48\n"
-        "    str r0, [r1]\n"
-        "    ldr r1, .L080ADD4C\n"
-        "    ldr r0, [r4, #0x40]\n"
-        "    str r0, [r1]\n"
-        "    ldr r1, .L080ADD50\n"
-        "    ldr r0, .L080ADD54\n"
-        "    str r0, [r1]\n"
-        "    ldr r1, .L080ADD58\n"
-        "    ldr r0, .L080ADD5C\n"
-        "    str r0, [r1]\n"
-        "    cmp r5, #0x1a\n"
-        "    bne .L080ADD64\n"
-        "    movs r0, #0x11\n"
-        "    bl Flag_Test\n"
-        "    cmp r0, #0\n"
-        "    bne .L080ADD64\n"
-        "    adds r0, r4, #0\n"
-        "    adds r0, #0xc0\n"
-        "    ldr r1, [r0]\n"
-        "    adds r1, #0x80\n"
-        "    ldr r0, .L080ADD60\n"
-        "    b .L080ADD6C\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080ADD2C: .4byte 0x030046C0 @ IWRAM+0x46C0\n"
-        ".L080ADD30: .4byte 0x00000A38\n"
-        ".L080ADD34: .4byte 0x03003FC0 @ IWRAM+0x3FC0\n"
-        ".L080ADD38: .4byte 0x0201D874 @ EWRAM+0x1D874\n"
-        ".L080ADD3C: .4byte 0x03003BB0 @ IWRAM+0x3BB0\n"
-        ".L080ADD40: .4byte 0x02024074 @ EWRAM+0x24074\n"
-        ".L080ADD44: .4byte 0x03004604 @ IWRAM+0x4604\n"
-        ".L080ADD48: .4byte 0x0202D874 @ EWRAM+0x2D874\n"
-        ".L080ADD4C: .4byte 0x03003BB4 @ IWRAM+0x3BB4\n"
-        ".L080ADD50: .4byte 0x03003B90 @ IWRAM+0x3B90\n"
-        ".L080ADD54: .4byte 0x0200F874 @ EWRAM+0xF874\n"
-        ".L080ADD58: .4byte 0x03004620 @ IWRAM+0x4620\n"
-        ".L080ADD5C: .4byte 0x02017874 @ EWRAM+0x17874\n"
-        ".L080ADD60: .4byte 0x03004510 @ IWRAM+0x4510\n"
-        ".L080ADD64:\n"
-        "    ldr r0, .L080ADD9C\n"
-        "    adds r1, r4, #0\n"
-        "    adds r1, #0xc0\n"
-        "    ldr r1, [r1]\n"
-        ".L080ADD6C:\n"
-        "    str r1, [r0]\n"
-        "    ldr r1, .L080ADDA0\n"
-        "    ldr r0, .L080ADDA4\n"
-        "    str r0, [r1]\n"
-        "    ldr r1, .L080ADDA8\n"
-        "    adds r0, r4, #0\n"
-        "    adds r0, #0xa0\n"
-        "    ldr r0, [r0]\n"
-        "    str r0, [r1]\n"
-        "    cmp r5, #0x1a\n"
-        "    bne .L080ADDB0\n"
-        "    movs r0, #0x11\n"
-        "    bl Flag_Test\n"
-        "    cmp r0, #0\n"
-        "    bne .L080ADDB0\n"
-        "    adds r0, r4, #0\n"
-        "    adds r0, #0xc4\n"
-        "    ldr r1, [r0]\n"
-        "    movs r0, #0x80\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r1, r1, r0\n"
-        "    ldr r0, .L080ADDAC\n"
-        "    b .L080ADDB8\n"
-        ".L080ADD9C: .4byte 0x03004510 @ IWRAM+0x4510\n"
-        ".L080ADDA0: .4byte 0x03003B94 @ IWRAM+0x3B94\n"
-        ".L080ADDA4: .4byte 0x02028074 @ EWRAM+0x28074\n"
-        ".L080ADDA8: .4byte 0x0300462C @ IWRAM+0x462C\n"
-        ".L080ADDAC: .4byte 0x03004630 @ IWRAM+0x4630\n"
-        ".L080ADDB0:\n"
-        "    ldr r0, .L080ADDF4\n"
-        "    adds r1, r4, #0\n"
-        "    adds r1, #0xc4\n"
-        "    ldr r1, [r1]\n"
-        ".L080ADDB8:\n"
-        "    str r1, [r0]\n"
-        "    ldr r1, .L080ADDF8\n"
-        "    adds r0, r4, #0\n"
-        "    adds r0, #0xcc\n"
-        "    ldr r0, [r0]\n"
-        "    str r0, [r1]\n"
-        "    ldr r1, .L080ADDFC\n"
-        "    adds r0, r4, #0\n"
-        "    adds r0, #0xd4\n"
-        "    ldr r0, [r0]\n"
-        "    str r0, [r1]\n"
-        "    ldr r1, .L080ADE00\n"
-        "    adds r0, r4, #0\n"
-        "    adds r0, #0xdc\n"
-        "    ldr r0, [r0]\n"
-        "    str r0, [r1]\n"
-        "    cmp r5, #0x1a\n"
-        "    bne .L080ADE08\n"
-        "    movs r0, #0x11\n"
-        "    bl Flag_Test\n"
-        "    cmp r0, #0\n"
-        "    bne .L080ADE08\n"
-        "    adds r0, r4, #0\n"
-        "    adds r0, #0xc8\n"
-        "    ldr r1, [r0]\n"
-        "    adds r1, #0x80\n"
-        "    ldr r0, .L080ADE04\n"
-        "    b .L080ADE10\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080ADDF4: .4byte 0x03004630 @ IWRAM+0x4630\n"
-        ".L080ADDF8: .4byte 0x0300461C @ IWRAM+0x461C\n"
-        ".L080ADDFC: .4byte 0x03003FE4 @ IWRAM+0x3FE4\n"
-        ".L080ADE00: .4byte 0x03003FE8 @ IWRAM+0x3FE8\n"
-        ".L080ADE04: .4byte 0x03003FC8 @ IWRAM+0x3FC8\n"
-        ".L080ADE08:\n"
-        "    ldr r0, .L080ADE3C\n"
-        "    adds r1, r4, #0\n"
-        "    adds r1, #0xc8\n"
-        "    ldr r1, [r1]\n"
-        ".L080ADE10:\n"
-        "    str r1, [r0]\n"
-        "    ldr r0, .L080ADE40\n"
-        "    ldr r0, [r0]\n"
-        "    ldr r1, .L080ADE44\n"
-        "    movs r2, #0x10\n"
-        "    bl Palette_CopyDarkened\n"
-        "    ldr r0, .L080ADE48\n"
-        "    ldr r0, [r0]\n"
-        "    ldr r1, .L080ADE4C\n"
-        "    movs r2, #0x20\n"
-        "    bl Palette_CopyDarkened\n"
-        "    ldr r0, .L080ADE3C\n"
-        "    ldr r0, [r0]\n"
-        "    ldr r1, .L080ADE50\n"
-        "    movs r2, #0x10\n"
-        "    bl Palette_CopyDarkened\n"
-        "    pop {r4, r5}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L080ADE3C: .4byte 0x03003FC8 @ IWRAM+0x3FC8\n"
-        ".L080ADE40: .4byte 0x03004510 @ IWRAM+0x4510\n"
-        ".L080ADE44: .4byte 0x0200F7F4 @ EWRAM+0xF7F4\n"
-        ".L080ADE48: .4byte 0x03004630 @ IWRAM+0x4630\n"
-        ".L080ADE4C: .4byte 0x0200F814 @ EWRAM+0xF814\n"
-        ".L080ADE50: .4byte 0x0200F854 @ EWRAM+0xF854\n"
-    );
-}
-#endif
 
 /* Copies count palette colors to dst (DMA) and darkens each channel of dst by 18
    (23 on map 0x4D), clamping at 0. */

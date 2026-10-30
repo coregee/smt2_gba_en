@@ -200,7 +200,7 @@ void JokerStars_RenderReel(u16 reel, s16 px, const u16 *strip)
         y = top + i;
         if (y > 479)
             y -= 480;
-        { u16 sym = strip[y / 20];
+        { u16 sym = *(u16 *)((u32)strip + ((y / 20) << 1));
         JokerStars_CopyPixelRow((const u32 *)(gUnknown_0879A52C[sym] + gUnknown_0879A56C[y % 20] + shade + (u32)gUnknown_0879896C),
                      (u32 *)(gUnknown_0879A548[reel] + gUnknown_0879A56C[i] + 0x02005004)); }
     }

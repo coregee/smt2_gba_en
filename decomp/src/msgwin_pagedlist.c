@@ -9,11 +9,28 @@ extern u16 gScriptItemCheckId;
 
 void sub_08133F14(u16 top);
 void sub_080D347C(u16 a, u16 b, u16 c, u16 d, u16 e);
-void sub_080D34A4(struct Task *task, u32 a, s16 b, u16 item);
+void sub_080D34A4(struct Task *task, u16 a, u16 b, u16 item);
 void sub_08130C6C(void);
 
 #define ROW (*(s16 *)&gUnk_0300696C)
 #define TOP (*(s16 *)&gUnk_03006940)
+
+/* Redescribe the entry under the cursor (or the 0x03006980 preview). */
+#define DESCRIBE()                                                                          \
+{                                                                                           \
+    if (!(gUnk_03006844 & 0xF0))                                                            \
+    {                                                                                       \
+        sub_080D347C(gUnknown_0878FDB4[ROW + TOP], 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF);         \
+        sub_080D34A4(gUnk_030068A4, 3, 0, gUnknown_0878FDB4[ROW + TOP]);                    \
+    }                                                                                       \
+    else                                                                                    \
+    {                                                                                       \
+        sub_08130C6C();                                                                     \
+        sub_080D347C(gUnk_03006980[0], gUnk_03006980[1], gUnk_03006980[2],                  \
+            gUnk_03006980[3], gUnk_03006980[4]);                                            \
+        sub_080D34A4(gUnk_030068A4, 4, 0, 0);                                               \
+    }                                                                                       \
+}
 
 /* Wait handler of the 11-entry list (layout 0x03006844 & 0xF: 0 = 4 rows, 1 = 3 rows; row
    0x0300696C, first entry 0x03006940). Up/down move and scroll, L/R move a page; scrolling
@@ -23,8 +40,10 @@ void sub_08130C6C(void);
    0x0203DB88[row + top]): wait state 0x30 with gScriptItemCheckId set; with none owned the
    4-row layout takes the script's 2nd target, the 3-row one only buzzes (SE 0x68).
    B: wait state 0x2F. */
-/* NONMATCHING: the original repeats the redescribe/sound tails in each branch (0x640 bytes
-   against 0x41C here); the logic is the same. */
+/* NONMATCHING: same instructions and layout (0x640 bytes); 27 lines still differ, all register
+   choices: the zero stored by ROW = 0 (r2 in the original), the scratch registers of a few
+   ldrsh reloads, and the low register that the copies in r8/sl are moved into. The
+   `register ... asm("r0")` zero stops CSE from storing the ROW value known to be 0. */
 // MsgWindow_DescListInput @ 0x08130D24
 #ifdef NONMATCHING
 void MsgWindow_DescListInput(struct Task *task)
@@ -44,39 +63,36 @@ void MsgWindow_DescListInput(struct Task *task)
         {
             ROW = 0;
             if (mode != 0)
-                goto sound;
-            goto describe;
-        }
-        if (TOP == 0)
-            return;
-        gUnk_030068AC = 3;
-        if (mode == 1)
-        {
-            if (TOP - 3 >= 0)
-                TOP -= 3;
+                Sound_Play(100);
             else
-                TOP = 0;
+            {
+                DESCRIBE();
+                Sound_Play(100);
+            }
+        }
+        else
+        {
+            if (TOP == 0)
+                return;
+            gUnk_030068AC = 3;
+            if (mode == 1)
+            {
+                if (TOP - 3 >= 0)
+                    TOP -= 3;
+                else
+                    { register u32 zero asm("r0") = 0; TOP = zero; }   /* TOP = 0 */
+            }
+            else
+            {
+                if (TOP - 4 >= 0)
+                    TOP -= 4;
+                else
+                    { register u32 zero asm("r0") = 0; TOP = zero; }   /* TOP = 0 */
+                DESCRIBE();
+            }
             sub_08133F14(TOP);
-            goto sound;
+            Sound_Play(100);
         }
-        if (TOP - 4 >= 0)
-            TOP -= 4;
-        else
-            TOP = 0;
-        if (gUnk_03006844 & 0xF0)
-        {
-            sub_08130C6C();
-            sub_080D347C(gUnk_03006980[0], gUnk_03006980[1], gUnk_03006980[2], gUnk_03006980[3],
-                gUnk_03006980[4]);
-            sub_080D34A4(gUnk_030068A4, 4, 0, 0);
-        }
-        else
-        {
-            sub_080D347C(gUnknown_0878FDB4[TOP], 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF);
-            sub_080D34A4(gUnk_030068A4, 3, 0, gUnknown_0878FDB4[ROW + TOP]);
-        }
-        sub_08133F14(TOP);
-        goto sound;
     }
     else if (gRepeatedKeys & 0x100)
     {
@@ -84,74 +100,116 @@ void MsgWindow_DescListInput(struct Task *task)
         {
             if (ROW == 2)
             {
-                if (TOP + 5 < 11)
+                if (ROW + TOP + 3 <= 10)
+                {
+                    gUnk_030068AC = 3;
                     TOP += 3;
+                    sub_08133F14(TOP);
+                    Sound_Play(100);
+                }
                 else
                 {
-                    d = 11 - (TOP + 2);
+                    d = 11 - (ROW + TOP);
                     if (d == 0)
                         return;
+                    gUnk_030068AC = 3;
                     TOP += d;
+                    sub_08133F14(TOP);
+                    Sound_Play(100);
                 }
-                gUnk_030068AC = 3;
-                sub_08133F14(TOP);
             }
             else
+            {
                 ROW = 2;
-            goto sound;
+                Sound_Play(100);
+            }
         }
-        if (ROW == 3)
+        else if (ROW == 3)
         {
-            if (TOP + 7 < 11)
+            if (ROW + TOP + 4 <= 10)
             {
-                gUnk_030068AC = ROW;
+                gUnk_030068AC = 3;
                 TOP += 4;
+                sub_08133F14(TOP);
+                DESCRIBE();
+                Sound_Play(100);
             }
             else
             {
-                d = 11 - (TOP + 3);
+                d = 11 - (ROW + TOP);
                 if (d == 0)
                     return;
-                gUnk_030068AC = ROW;
+                gUnk_030068AC = 3;
                 TOP += d;
+                sub_08133F14(TOP);
+                DESCRIBE();
+                Sound_Play(100);
             }
-            sub_08133F14(TOP);
         }
         else
+        {
             ROW = 3;
-        goto describe;
+            DESCRIBE();
+            Sound_Play(100);
+        }
     }
     else if (gRepeatedKeys & 0x40)
     {
-        if (ROW == 0)
+        if (ROW != 0)
+        {
+            ROW--;
+            if (mode != 0)
+                Sound_Play(100);
+            else
+            {
+                DESCRIBE();
+                Sound_Play(100);
+            }
+        }
+        else
         {
             if (TOP == 0)
                 return;
             gUnk_030068AC = 3;
             TOP--;
             sub_08133F14(TOP);
+            if (mode != 0)
+                Sound_Play(100);
+            else
+            {
+                DESCRIBE();
+                Sound_Play(100);
+            }
         }
-        else
-            ROW--;
-        if (mode == 0)
-            goto describe;
-        goto sound;
     }
     else if (gRepeatedKeys & 0x80)
     {
-        if ((mode == 1 && ROW == 2) || ((gUnk_03006844 & 0xF) == 0 && ROW == 3))
+        if ((mode == 1 && ROW == 2) || (mode == 0 && ROW == 3))
         {
             if (ROW + TOP > 10)
                 return;
             gUnk_030068AC = 3;
             TOP++;
             sub_08133F14(TOP);
+            if (mode != 0)
+                Sound_Play(100);
+            else
+            {
+                DESCRIBE();
+                Sound_Play(100);
+            }
         }
         else
+        {
             ROW++;
-        if (mode == 0)
-            goto describe;
-        goto sound;
+            if (mode != 0)
+                Sound_Play(100);
+            else
+            {
+                DESCRIBE();
+                Sound_Play(100);
+            }
+        }
     }
     else if (gNewKeys & 1)
     {
@@ -176,32 +234,13 @@ void MsgWindow_DescListInput(struct Task *task)
             gScriptItemCheckId = gUnk_0203DB88[ROW + TOP];
             Sound_Play(0x65);
         }
-        return;
     }
     else if (gNewKeys & 2)
     {
         task->result = 1;
         gScriptWaitState = 0x2F;
         Sound_Play(0x66);
-        return;
     }
-    else
-        return;
-describe:
-    if (gUnk_03006844 & 0xF0)
-    {
-        sub_08130C6C();
-        sub_080D347C(gUnk_03006980[0], gUnk_03006980[1], gUnk_03006980[2], gUnk_03006980[3],
-                gUnk_03006980[4]);
-        sub_080D34A4(gUnk_030068A4, 4, 0, 0);
-    }
-    else
-    {
-        sub_080D347C(gUnknown_0878FDB4[ROW + TOP], 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF);
-        sub_080D34A4(gUnk_030068A4, 3, 0, gUnknown_0878FDB4[ROW + TOP]);
-    }
-sound:
-    Sound_Play(100);
 }
 #else
 NAKED

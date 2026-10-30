@@ -97,11 +97,11 @@ void sub_081562D0(struct Task *task)
 }
 
 // sub_081562EC @ 0x081562EC
-#ifdef NONMATCHING
 void sub_081562EC(u16 slot, u16 id, struct Task *parent)
 {
     struct FusionState *f;
-    struct Task *task;
+    /* pinned: plain C leaves task in r0 and puts the 0 in r1 */
+    register struct Task *task asm("r2");
 
     task = Task_Create(gUnknown_087E2E3C, parent->id);
     f = &sFusion;
@@ -109,36 +109,6 @@ void sub_081562EC(u16 slot, u16 id, struct Task *parent)
     task->data.h[1] = slot;
     f->unkA = 0;
 }
-#else
-NAKED
-void sub_081562EC(u16 slot, u16 id, struct Task *parent)
-{
-    asm_unified(
-        ".L081562EC:\n"
-        "    push {r4, r5, lr}\n"
-        "    adds r5, r0, #0\n"
-        "    adds r4, r1, #0\n"
-        "    lsls r5, r5, #0x10\n"
-        "    lsrs r5, r5, #0x10\n"
-        "    lsls r4, r4, #0x10\n"
-        "    lsrs r4, r4, #0x10\n"
-        "    ldr r0, .L08156314\n"
-        "    ldrh r1, [r2, #2]\n"
-        "    bl Task_Create\n"
-        "    adds r2, r0, #0\n"
-        "    ldr r1, .L08156318\n"
-        "    movs r0, #0\n"
-        "    strh r4, [r2, #0x24]\n"
-        "    strh r5, [r2, #0x26]\n"
-        "    strh r0, [r1, #0xa]\n"
-        "    pop {r4, r5}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L08156314: .4byte gUnknown_087E2E3C\n"
-        ".L08156318: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
-    );
-}
-#endif
 
 /* Opens the status screen of the demon under the cursor (saves the fusion state first). */
 // sub_0815631C @ 0x0815631C
