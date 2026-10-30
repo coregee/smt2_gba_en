@@ -358,7 +358,6 @@ u32 Healer_GetCost(u16 who, u16 kind)
 }
 
 // Healer_Apply @ 0x081350CC
-#ifdef NONMATCHING
 void Healer_Apply(u16 who, u16 kind)
 {
     u16 status, mask;
@@ -366,7 +365,8 @@ void Healer_Apply(u16 who, u16 kind)
     switch (kind)
     {
     case 2:
-        Combatant_ClearStatus(who, 0x8C01);
+        status = 0x8C01; /* through a variable: matches the argument order */
+        Combatant_ClearStatus(who, status);
         break;
     case 3:
         Combatant_ClearStatus(who, 0x7FFF);
@@ -392,92 +392,6 @@ void Healer_Apply(u16 who, u16 kind)
         break;
     }
 }
-#else
-NAKED
-void Healer_Apply(u16 who, u16 kind)
-{
-    asm_unified(
-        ".L081350CC:\n"
-        "    push {r4, lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r0, r1, #0x10\n"
-        "    cmp r0, #4\n"
-        "    bhi .L08135170\n"
-        "    lsls r0, r0, #2\n"
-        "    ldr r1, .L081350E4\n"
-        "    adds r0, r0, r1\n"
-        "    ldr r0, [r0]\n"
-        "    mov pc, r0\n"
-        ".L081350E4: .4byte gUnknown_081350E8\n"
-        "    .global gUnknown_081350E8\n"
-        "gUnknown_081350E8:\n"
-        ".L081350E8: @ jump table\n"
-        "    .4byte .L0813513C\n"
-        "    .4byte .L08135114\n"
-        "    .4byte .L081350FC\n"
-        "    .4byte .L0813510C\n"
-        "    .4byte .L08135128\n"
-        ".L081350FC:\n"
-        "    adds r0, r4, #0\n"
-        "    ldr r1, .L08135108\n"
-        "    bl Combatant_ClearStatus\n"
-        "    b .L08135170\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08135108: .4byte 0x00008C01\n"
-        ".L0813510C:\n"
-        "    ldr r1, .L08135124\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_ClearStatus\n"
-        ".L08135114:\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_RestoreHp\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_RestoreMp\n"
-        "    b .L08135170\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08135124: .4byte 0x00007FFF\n"
-        ".L08135128:\n"
-        "    ldr r1, .L08135138\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_ClearStatus\n"
-        "    adds r0, r4, #0\n"
-        "    bl sub_081360D4\n"
-        "    b .L08135170\n"
-        ".L08135138: .4byte 0x0000F3FE\n"
-        ".L0813513C:\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_GetStatus\n"
-        "    ldr r2, .L08135178\n"
-        "    adds r1, r2, #0\n"
-        "    ands r1, r0\n"
-        "    cmp r1, #0\n"
-        "    beq .L0813515C\n"
-        "    ldr r1, .L0813517C\n"
-        "    eors r1, r2\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_ClearStatus\n"
-        "    adds r0, r4, #0\n"
-        "    bl sub_081360D4\n"
-        ".L0813515C:\n"
-        "    adds r0, r4, #0\n"
-        "    movs r1, #0\n"
-        "    bl Combatant_ClearStatus\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_RestoreHp\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_RestoreMp\n"
-        ".L08135170:\n"
-        "    pop {r4}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08135178: .4byte 0x00000C01\n"
-        ".L0813517C: .4byte 0x0000FFFF\n"
-    );
-}
-#endif
 
 // sub_08135180 @ 0x08135180
 void sub_08135180(u16 mode)

@@ -591,7 +591,6 @@ void ScriptOp_340(void)
 }
 
 // ScriptOp_Choice @ 0x08134900
-#ifdef NONMATCHING
 void ScriptOp_Choice(void)
 {
     u16 op, n;
@@ -602,7 +601,8 @@ void ScriptOp_Choice(void)
     gUnk_030065E0 = 0xFFFF;
     op = SCRIPT_READ();
     n = op >> 8;
-    gUnk_03006844 = op & 0xFF;
+    op &= 0xFF;
+    gUnk_03006844 = op;
     if (gUnk_03006844 > 3)
         gUnk_03006844 = 0;
     if (gUnk_03006844 == 1 || gUnk_03006844 == 3)
@@ -625,168 +625,6 @@ void ScriptOp_Choice(void)
     Task_Create(gUnknown_0878FC80, 0xFFFF);
     gScriptWaitState = 0xD;
 }
-#else
-NAKED
-void ScriptOp_Choice(void)
-{
-    asm_unified(
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sl\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6, r7}\n"
-        "    ldr r1, .L08134A14\n"
-        "    ldr r2, .L08134A18\n"
-        "    adds r0, r2, #0\n"
-        "    strh r0, [r1]\n"
-        "    ldr r2, .L08134A1C\n"
-        "    ldrh r0, [r2]\n"
-        "    adds r1, r0, #1\n"
-        "    strh r1, [r2]\n"
-        "    lsls r0, r0, #0x10\n"
-        "    ldr r1, .L08134A20\n"
-        "    ldr r1, [r1]\n"
-        "    lsrs r0, r0, #0xf\n"
-        "    adds r0, r0, r1\n"
-        "    ldrh r1, [r0]\n"
-        "    lsrs r5, r1, #8\n"
-        "    movs r0, #0xff\n"
-        "    ands r0, r1\n"
-        "    ldr r1, .L08134A24\n"
-        "    strh r0, [r1]\n"
-        "    cmp r0, #3\n"
-        "    ble .L08134938\n"
-        "    movs r0, #0\n"
-        "    strh r0, [r1]\n"
-        ".L08134938:\n"
-        "    movs r7, #0\n"
-        "    ldrsh r0, [r1, r7]\n"
-        "    cmp r0, #1\n"
-        "    beq .L08134944\n"
-        "    cmp r0, #3\n"
-        "    bne .L08134948\n"
-        ".L08134944:\n"
-        "    bl MsgWindow_SaveGlyphs\n"
-        ".L08134948:\n"
-        "    movs r1, #0\n"
-        "    ldr r6, .L08134A28\n"
-        "    ldr r0, .L08134A2C\n"
-        "    mov sb, r0\n"
-        "    ldr r2, .L08134A30\n"
-        "    mov sl, r2\n"
-        "    ldr r4, .L08134A34\n"
-        "    ldr r7, .L08134A18\n"
-        "    adds r3, r7, #0\n"
-        ".L0813495A:\n"
-        "    lsls r0, r1, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    lsls r2, r0, #1\n"
-        "    adds r2, r2, r4\n"
-        "    ldrh r1, [r2]\n"
-        "    orrs r1, r3\n"
-        "    strh r1, [r2]\n"
-        "    adds r0, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r1, r0, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    cmp r0, #0x13\n"
-        "    ble .L0813495A\n"
-        "    strh r5, [r6]\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    ldrsh r0, [r6, r2]\n"
-        "    adds r0, #1\n"
-        "    cmp r1, r0\n"
-        "    bge .L081349DE\n"
-        "    ldr r7, .L08134A34\n"
-        "    mov r8, r7\n"
-        "    ldr r5, .L08134A1C\n"
-        "    ldr r0, .L08134A20\n"
-        "    mov ip, r0\n"
-        ".L0813498C:\n"
-        "    lsls r3, r1, #0x10\n"
-        "    asrs r3, r3, #0x10\n"
-        "    lsls r1, r3, #1\n"
-        "    add r1, r8\n"
-        "    ldrh r0, [r5]\n"
-        "    adds r2, r0, #1\n"
-        "    strh r2, [r5]\n"
-        "    lsls r0, r0, #0x10\n"
-        "    mov r7, ip\n"
-        "    ldr r4, [r7]\n"
-        "    lsrs r0, r0, #0xf\n"
-        "    adds r0, r0, r4\n"
-        "    ldrh r0, [r0]\n"
-        "    strh r0, [r1]\n"
-        "    adds r1, r2, #1\n"
-        "    strh r1, [r5]\n"
-        "    lsls r2, r2, #0x10\n"
-        "    lsrs r2, r2, #0xf\n"
-        "    adds r2, r2, r4\n"
-        "    ldrh r2, [r2]\n"
-        "    adds r0, r1, #1\n"
-        "    strh r0, [r5]\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0xf\n"
-        "    adds r1, r1, r4\n"
-        "    ldrh r1, [r1]\n"
-        "    lsls r1, r1, #0x10\n"
-        "    orrs r1, r2\n"
-        "    lsls r0, r3, #2\n"
-        "    ldr r2, .L08134A38\n"
-        "    adds r0, r0, r2\n"
-        "    str r1, [r0]\n"
-        "    adds r3, #1\n"
-        "    lsls r3, r3, #0x10\n"
-        "    lsrs r1, r3, #0x10\n"
-        "    asrs r3, r3, #0x10\n"
-        "    movs r7, #0\n"
-        "    ldrsh r0, [r6, r7]\n"
-        "    adds r0, #1\n"
-        "    cmp r3, r0\n"
-        "    blt .L0813498C\n"
-        ".L081349DE:\n"
-        "    movs r0, #0\n"
-        "    mov r1, sb\n"
-        "    strh r0, [r1]\n"
-        "    mov r2, sl\n"
-        "    strh r0, [r2]\n"
-        "    ldr r7, .L08134A24\n"
-        "    ldrh r0, [r7]\n"
-        "    bl MsgWindow_DrawItemList\n"
-        "    ldr r1, .L08134A3C\n"
-        "    movs r0, #1\n"
-        "    strh r0, [r1]\n"
-        "    ldr r0, .L08134A40\n"
-        "    ldr r1, .L08134A18\n"
-        "    bl Task_Create\n"
-        "    ldr r1, .L08134A44\n"
-        "    movs r0, #0xd\n"
-        "    strh r0, [r1]\n"
-        "    pop {r3, r4, r5}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    mov sl, r5\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08134A14: .4byte 0x030065E0 @ IWRAM+0x65E0\n"
-        ".L08134A18: .4byte 0x0000FFFF\n"
-        ".L08134A1C: .4byte 0x0203DB40 @ EWRAM+0x3DB40\n"
-        ".L08134A20: .4byte 0x03006950 @ IWRAM+0x6950\n"
-        ".L08134A24: .4byte 0x03006844 @ IWRAM+0x6844\n"
-        ".L08134A28: .4byte 0x03006604 @ IWRAM+0x6604\n"
-        ".L08134A2C: .4byte 0x03006940 @ IWRAM+0x6940\n"
-        ".L08134A30: .4byte 0x0300696C @ IWRAM+0x696C\n"
-        ".L08134A34: .4byte 0x0203DB88 @ EWRAM+0x3DB88\n"
-        ".L08134A38: .4byte 0x0203DAC8 @ EWRAM+0x3DAC8\n"
-        ".L08134A3C: .4byte 0x0203DB6E @ EWRAM+0x3DB6E\n"
-        ".L08134A40: .4byte gUnknown_0878FC80\n"
-        ".L08134A44: .4byte 0x0203DB5A @ EWRAM+0x3DB5A\n"
-    );
-}
-#endif
 
 // ScriptOp_352 @ 0x08134A48
 void ScriptOp_352(void)
@@ -844,10 +682,11 @@ void ScriptOp_355(void)
 }
 
 // ScriptOp_356 @ 0x08134B34
-#ifdef NONMATCHING
 void ScriptOp_356(void)
 {
-    u16 range; u16 min, max; u32 v;
+    u32 range;
+    u16 min, max;
+    u32 v;
     u16 lo;
     u32 target;
 
@@ -860,69 +699,6 @@ void ScriptOp_356(void)
     if (v >= min && v < max)
         gScriptJumpTarget = (u16 *)target;
 }
-#else
-NAKED
-void ScriptOp_356(void)
-{
-    asm_unified(
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, r8\n"
-        "    push {r7}\n"
-        "    ldr r5, .L08134B9C\n"
-        "    ldrh r0, [r5]\n"
-        "    adds r1, r0, #1\n"
-        "    strh r1, [r5]\n"
-        "    lsls r0, r0, #0x10\n"
-        "    ldr r1, .L08134BA0\n"
-        "    mov r8, r1\n"
-        "    ldr r1, [r1]\n"
-        "    lsrs r0, r0, #0xf\n"
-        "    adds r0, r0, r1\n"
-        "    ldrh r4, [r0]\n"
-        "    movs r1, #0xff\n"
-        "    adds r0, r4, #0\n"
-        "    ands r0, r1\n"
-        "    adds r6, r0, #1\n"
-        "    lsrs r4, r4, #8\n"
-        "    ands r4, r1\n"
-        "    movs r0, #0\n"
-        "    bl sub_080C0794\n"
-        "    lsrs r7, r0, #8\n"
-        "    ldrh r0, [r5]\n"
-        "    adds r1, r0, #1\n"
-        "    strh r1, [r5]\n"
-        "    lsls r0, r0, #0x10\n"
-        "    mov r3, r8\n"
-        "    ldr r2, [r3]\n"
-        "    lsrs r0, r0, #0xf\n"
-        "    adds r0, r0, r2\n"
-        "    ldrh r3, [r0]\n"
-        "    adds r0, r1, #1\n"
-        "    strh r0, [r5]\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0xf\n"
-        "    adds r1, r1, r2\n"
-        "    ldrh r0, [r1]\n"
-        "    lsls r1, r0, #0x10\n"
-        "    orrs r1, r3\n"
-        "    cmp r7, r4\n"
-        "    blo .L08134B92\n"
-        "    cmp r7, r6\n"
-        "    bhs .L08134B92\n"
-        "    ldr r0, .L08134BA4\n"
-        "    str r1, [r0]\n"
-        ".L08134B92:\n"
-        "    pop {r3}\n"
-        "    mov r8, r3\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L08134B9C: .4byte 0x0203DB40 @ EWRAM+0x3DB40\n"
-        ".L08134BA0: .4byte 0x03006950 @ IWRAM+0x6950\n"
-        ".L08134BA4: .4byte 0x030068E4 @ IWRAM+0x68E4\n"
-    );
-}
-#endif
 
 // ScriptOp_357 @ 0x08134BA8
 void ScriptOp_357(void)

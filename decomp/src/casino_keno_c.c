@@ -37,47 +37,15 @@ void sub_08149120(struct Task *task, u32 step, u32 target)
 }
 
 // sub_08149134 @ 0x08149134
-#ifdef NONMATCHING
 void sub_08149134(struct Task *task, u32 step)
 {
     struct C145Grid *s = gGrid;
-    u32 row = s->marked * 17;
+    /* gUnknown_0879CEBC[marked][hits], as byte-offset arithmetic (what matches) */
+    u32 row = s->marked * sizeof(gUnknown_0879CEBC[0]);
+    u32 col = (u32)&gUnknown_0879CEBC[0][s->hits];
 
-    sub_08149120(task, step, (gUnknown_0879CEBC[0] + s->hits)[row]);
+    sub_08149120(task, step, *(const u16 *)(row + col));
 }
-#else
-NAKED
-void sub_08149134(struct Task *task, u32 step)
-{
-    asm_unified(
-        "    push {r4, r5, lr}\n"
-        "    ldr r4, .L08149164\n"
-        "    movs r3, #0xc2\n"
-        "    lsls r3, r3, #1\n"
-        "    adds r2, r4, r3\n"
-        "    ldr r2, [r2]\n"
-        "    lsls r3, r2, #4\n"
-        "    adds r3, r3, r2\n"
-        "    lsls r3, r3, #1\n"
-        "    movs r5, #0xc6\n"
-        "    lsls r5, r5, #1\n"
-        "    adds r2, r4, r5\n"
-        "    ldr r2, [r2]\n"
-        "    lsls r2, r2, #1\n"
-        "    ldr r4, .L08149168\n"
-        "    adds r2, r2, r4\n"
-        "    adds r3, r3, r2\n"
-        "    ldrh r2, [r3]\n"
-        "    bl sub_08149120\n"
-        "    pop {r4, r5}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08149164: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
-        ".L08149168: .4byte gUnknown_0879CEBC\n"
-    );
-}
-#endif
 
 // sub_0814916C @ 0x0814916C
 void sub_0814916C(u32 unused, u32 state)
@@ -247,73 +215,22 @@ void sub_08149230(void)
 
 /* Payout = bet x gUnknown_0879D338[numbers marked][hits]. */
 // Keno_ComputePayout @ 0x08149280
-#ifdef NONMATCHING
 void Keno_ComputePayout(struct Task *task)
 {
     struct C145Grid *s = gGrid;
     struct C145TaskData *d = (struct C145TaskData *)&task->data;
     const u32 *row = gUnknown_0879D338[s->marked];
-    const u32 *p;
+    u32 r;
 
-    p = &row[s->hits];
-    s->payout = s->bet * *p;
-    task->result = *p > 0;
+    s->payout = s->bet * row[s->hits];
+    r = row[s->hits];
+    if (r != 0)
+        task->result = 1;
+    else
+        task->result = 0;
     d->h0 = 0xF0;
     d->h2 = 0x5A;
 }
-#else
-NAKED
-void Keno_ComputePayout(struct Task *task)
-{
-    asm_unified(
-        "    push {r4, r5, lr}\n"
-        "    adds r4, r0, #0\n"
-        "    ldr r0, .L081492D4\n"
-        "    mov ip, r0\n"
-        "    adds r5, r4, #0\n"
-        "    adds r5, #0x24\n"
-        "    movs r0, #0xc2\n"
-        "    lsls r0, r0, #1\n"
-        "    add r0, ip\n"
-        "    ldr r1, [r0]\n"
-        "    movs r0, #0x34\n"
-        "    muls r1, r0, r1\n"
-        "    ldr r0, .L081492D8\n"
-        "    adds r1, r1, r0\n"
-        "    movs r3, #0x89\n"
-        "    lsls r3, r3, #2\n"
-        "    add r3, ip\n"
-        "    movs r2, #0xc8\n"
-        "    lsls r2, r2, #1\n"
-        "    add r2, ip\n"
-        "    movs r0, #0xc6\n"
-        "    lsls r0, r0, #1\n"
-        "    add r0, ip\n"
-        "    ldr r0, [r0]\n"
-        "    lsls r0, r0, #2\n"
-        "    adds r0, r0, r1\n"
-        "    ldr r2, [r2]\n"
-        "    ldr r1, [r0]\n"
-        "    muls r1, r2, r1\n"
-        "    str r1, [r3]\n"
-        "    ldr r0, [r0]\n"
-        "    cmp r0, #0\n"
-        "    beq .L081492C4\n"
-        "    movs r0, #1\n"
-        ".L081492C4:\n"
-        "    strh r0, [r4, #0x1c]\n"
-        "    movs r0, #0xf0\n"
-        "    strh r0, [r5]\n"
-        "    movs r0, #0x5a\n"
-        "    strh r0, [r5, #2]\n"
-        "    pop {r4, r5}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L081492D4: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
-        ".L081492D8: .4byte gUnknown_0879D338\n"
-    );
-}
-#endif
 
 // sub_081492DC @ 0x081492DC
 void sub_081492DC(struct Task *task)

@@ -46,7 +46,7 @@ void sub_08157F5C(void)
 #ifdef NONMATCHING
 void sub_08157F94(u32 a0, u32 frame)
 {
-    const u32 *entry = (const u32 *)sRoom.anim + frame * 2;
+    const u32 *entry = (const u32 *)(frame * 8 + (u32)sRoom.anim);
     const u8 *patch;
     u16 row;
     u16 col;
@@ -58,9 +58,11 @@ void sub_08157F94(u32 a0, u32 frame)
     {
         for (col = 0; col < 12; col++)
         {
-            u16 *p = &((u16 (*)[32])gUnk_02000000)[row][col + 0x189];
+            u32 x = col + 0x189;
+            u16 *p = &((u16 *)gUnk_02000000)[row * 32 + x];
+            u32 v = (*patch++ & 0xF) + 6;
 
-            *p = (*p & 0xFFF) | (((*patch++ & 0xF) + 6) << 12);
+            *p = (*p & 0xFFF) | (v << 12);
         }
     }
     VBlankTask_AddCounted(sub_08157F5C, 1);

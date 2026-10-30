@@ -162,7 +162,6 @@ void ScriptOp_39A(void)
 }
 
 // ScriptOp_39B @ 0x08136F14
-#ifdef NONMATCHING
 void ScriptOp_39B(void)
 {
     u16 i, j;
@@ -182,8 +181,8 @@ void ScriptOp_39B(void)
     k = gUnk_03006914;
     if (k != 1)
         k = 0;
-    j = 1;
-    gUnk_03006604 = gUnknown_0878EEDC[k][0];
+    j = 0;
+    gUnk_03006604 = gUnknown_0878EEDC[k][j++];
     for (i = 0; i < gUnk_03006604 + 1; i++)
         gUnk_0203DB88[i] = gUnknown_0878EEDC[k][j++];
     gUnk_03006940 = 0;
@@ -194,163 +193,6 @@ void ScriptOp_39B(void)
     gScriptYield = 1;
     gScriptWaitState = 0xD;
 }
-#else
-NAKED
-void ScriptOp_39B(void)
-{
-    asm_unified(
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sl\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6, r7}\n"
-        "    bl MsgWindow_SaveGlyphs\n"
-        "    ldr r3, .L08137020\n"
-        "    ldrh r0, [r3]\n"
-        "    adds r1, r0, #1\n"
-        "    strh r1, [r3]\n"
-        "    lsls r0, r0, #0x10\n"
-        "    ldr r2, .L08137024\n"
-        "    ldr r4, [r2]\n"
-        "    lsrs r0, r0, #0xf\n"
-        "    adds r0, r0, r4\n"
-        "    ldrh r5, [r0]\n"
-        "    adds r2, r1, #1\n"
-        "    strh r2, [r3]\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0xf\n"
-        "    adds r1, r1, r4\n"
-        "    ldrh r0, [r1]\n"
-        "    lsls r0, r0, #0x10\n"
-        "    orrs r0, r5\n"
-        "    ldr r5, .L08137028\n"
-        "    str r0, [r5]\n"
-        "    adds r0, r2, #1\n"
-        "    strh r0, [r3]\n"
-        "    lsls r2, r2, #0x10\n"
-        "    lsrs r2, r2, #0xf\n"
-        "    adds r2, r2, r4\n"
-        "    ldrh r2, [r2]\n"
-        "    adds r1, r0, #1\n"
-        "    strh r1, [r3]\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0xf\n"
-        "    adds r0, r0, r4\n"
-        "    ldrh r0, [r0]\n"
-        "    lsls r0, r0, #0x10\n"
-        "    orrs r0, r2\n"
-        "    str r0, [r5, #4]\n"
-        "    movs r3, #0\n"
-        "    ldr r4, .L0813702C\n"
-        "    ldr r0, .L08137030\n"
-        "    adds r2, r0, #0\n"
-        ".L08136F70:\n"
-        "    lsls r0, r3, #1\n"
-        "    adds r0, r0, r4\n"
-        "    ldrh r1, [r0]\n"
-        "    orrs r1, r2\n"
-        "    strh r1, [r0]\n"
-        "    adds r0, r3, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r3, r0, #0x10\n"
-        "    cmp r3, #0x13\n"
-        "    bls .L08136F70\n"
-        "    ldr r0, .L08137034\n"
-        "    ldrb r1, [r0]\n"
-        "    cmp r1, #1\n"
-        "    beq .L08136F8E\n"
-        "    movs r1, #0\n"
-        ".L08136F8E:\n"
-        "    ldr r2, .L08137038\n"
-        "    ldr r5, .L0813703C\n"
-        "    movs r4, #1\n"
-        "    lsls r0, r1, #2\n"
-        "    adds r0, r0, r1\n"
-        "    lsls r1, r0, #2\n"
-        "    adds r0, r1, r5\n"
-        "    ldrh r0, [r0]\n"
-        "    strh r0, [r2]\n"
-        "    movs r3, #0\n"
-        "    movs r6, #0\n"
-        "    ldrsh r0, [r2, r6]\n"
-        "    adds r0, #1\n"
-        "    ldr r6, .L08137040\n"
-        "    mov r8, r6\n"
-        "    ldr r6, .L08137044\n"
-        "    mov sb, r6\n"
-        "    ldr r6, .L08137048\n"
-        "    mov sl, r6\n"
-        "    cmp r3, r0\n"
-        "    bge .L08136FE8\n"
-        "    ldr r0, .L0813702C\n"
-        "    mov ip, r0\n"
-        "    adds r7, r5, #0\n"
-        "    adds r5, r1, #0\n"
-        "    adds r6, r2, #0\n"
-        ".L08136FC2:\n"
-        "    lsls r2, r3, #1\n"
-        "    add r2, ip\n"
-        "    adds r1, r4, #0\n"
-        "    adds r0, r1, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    lsls r1, r1, #1\n"
-        "    adds r1, r1, r5\n"
-        "    adds r1, r1, r7\n"
-        "    ldrh r0, [r1]\n"
-        "    strh r0, [r2]\n"
-        "    adds r0, r3, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r3, r0, #0x10\n"
-        "    movs r1, #0\n"
-        "    ldrsh r0, [r6, r1]\n"
-        "    adds r0, #1\n"
-        "    cmp r3, r0\n"
-        "    blt .L08136FC2\n"
-        ".L08136FE8:\n"
-        "    movs r0, #0\n"
-        "    mov r6, r8\n"
-        "    strh r0, [r6]\n"
-        "    mov r1, sb\n"
-        "    strh r0, [r1]\n"
-        "    movs r0, #4\n"
-        "    mov r6, sl\n"
-        "    strh r0, [r6]\n"
-        "    movs r0, #4\n"
-        "    bl MsgWindow_DrawItemList\n"
-        "    ldr r0, .L0813704C\n"
-        "    ldr r1, .L08137030\n"
-        "    bl Task_Create\n"
-        "    ldr r1, .L08137050\n"
-        "    movs r0, #1\n"
-        "    strh r0, [r1]\n"
-        "    ldr r1, .L08137054\n"
-        "    movs r0, #0xd\n"
-        "    strh r0, [r1]\n"
-        "    pop {r3, r4, r5}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    mov sl, r5\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L08137020: .4byte 0x0203DB40 @ EWRAM+0x3DB40\n"
-        ".L08137024: .4byte 0x03006950 @ IWRAM+0x6950\n"
-        ".L08137028: .4byte 0x0203DAC8 @ EWRAM+0x3DAC8\n"
-        ".L0813702C: .4byte 0x0203DB88 @ EWRAM+0x3DB88\n"
-        ".L08137030: .4byte 0x0000FFFF\n"
-        ".L08137034: .4byte 0x03006914 @ IWRAM+0x6914\n"
-        ".L08137038: .4byte 0x03006604 @ IWRAM+0x6604\n"
-        ".L0813703C: .4byte gUnknown_0878EEDC\n"
-        ".L08137040: .4byte 0x03006940 @ IWRAM+0x6940\n"
-        ".L08137044: .4byte 0x0300696C @ IWRAM+0x696C\n"
-        ".L08137048: .4byte 0x03006844 @ IWRAM+0x6844\n"
-        ".L0813704C: .4byte gUnknown_0878FC80\n"
-        ".L08137050: .4byte 0x0203DB6E @ EWRAM+0x3DB6E\n"
-        ".L08137054: .4byte 0x0203DB5A @ EWRAM+0x3DB5A\n"
-    );
-}
-#endif
 
 // ScriptOp_39C @ 0x08137058
 void ScriptOp_39C(void)
@@ -946,85 +788,34 @@ void ScriptOp_3D4(void)
 }
 
 // sub_081379CC @ 0x081379CC
-#ifdef NONMATCHING
 u16 sub_081379CC(u16 mode)
 {
-    u16 m = mode;
     s32 x = sub_080EF90C();
     s32 v;
 
     if (mode == 1)
-        v = (Random_Byte() & 3) + 6;
-    else if (mode == 2)
-        v = (Random_Byte() & 7) + 5;
-    else
     {
-        if (m == 3)
-        {
-            v = (Random_Byte() & 7) + 10;
-            if (v >= x)
-                return 1;
+        v = (Random_Byte() & 3) + 6;
+        if (v < x)
             return 0;
-        }
-        return; /* returns nothing: r0 still holds x */
+        return 1;
     }
-    if (v < x)
-        return 0;
-    return 1;
+    else if (mode == 2)
+    {
+        v = (Random_Byte() & 7) + 5;
+        if (v < x)
+            return 0;
+        return 1;
+    }
+    else if (mode == 3)
+    {
+        v = (Random_Byte() & 7) + 10;
+        if (v < x)
+            return 0;
+        return 1;
+    }
+    /* other modes fall off the end: the caller gets whatever is in r0 */
 }
-#else
-NAKED
-u16 sub_081379CC(u16 mode)
-{
-    asm_unified(
-        ".L081379CC:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    adds r6, r4, #0\n"
-        "    bl sub_080EF90C\n"
-        "    adds r5, r0, #0\n"
-        "    cmp r4, #1\n"
-        "    bne .L081379EA\n"
-        "    bl Random_Byte\n"
-        "    movs r1, #3\n"
-        "    ands r1, r0\n"
-        "    adds r1, #6\n"
-        "    b .L081379F8\n"
-        ".L081379EA:\n"
-        "    cmp r4, #2\n"
-        "    bne .L08137A00\n"
-        "    bl Random_Byte\n"
-        "    movs r1, #7\n"
-        "    ands r1, r0\n"
-        "    adds r1, #5\n"
-        ".L081379F8:\n"
-        "    cmp r1, r5\n"
-        "    blt .L08137A12\n"
-        "    movs r0, #1\n"
-        "    b .L08137A18\n"
-        ".L08137A00:\n"
-        "    cmp r6, #3\n"
-        "    bne .L08137A18\n"
-        "    bl Random_Byte\n"
-        "    movs r1, #7\n"
-        "    ands r1, r0\n"
-        "    adds r1, #0xa\n"
-        "    cmp r1, r5\n"
-        "    bge .L08137A16\n"
-        ".L08137A12:\n"
-        "    movs r0, #0\n"
-        "    b .L08137A18\n"
-        ".L08137A16:\n"
-        "    movs r0, #1\n"
-        ".L08137A18:\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // ScriptOp_3D5 @ 0x08137A20
 void ScriptOp_3D5(void)

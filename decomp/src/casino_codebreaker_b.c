@@ -36,13 +36,13 @@ u16 sub_0814C52C(u16 cursor)
 
 /* Stores the symbol set of the current row and how many different symbols it has. */
 // sub_0814C580 @ 0x0814C580
-#ifdef NONMATCHING
 void sub_0814C580(void)
 {
     struct C14aCodeBreaker *s = GY;
     u8 mask = 0;
     u8 i;
     u8 count;
+    u8 j;
 
     for (i = 0; i < s->digits; i++)
     {
@@ -51,7 +51,7 @@ void sub_0814C580(void)
     }
     s->rowMask[(u8)(s->row / 5)] = mask;
     count = 0;
-    for (i = 0; i < s->symbols; i++)
+    for (j = 0; j < s->symbols; j++)
     {
         if (mask & 1)
         {
@@ -64,99 +64,6 @@ void sub_0814C580(void)
     }
     s->rowCount[(u8)(s->row / 5)] = count;
 }
-#else
-NAKED
-void sub_0814C580(void)
-{
-    asm_unified(
-        ".L0814C580:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    ldr r7, .L0814C5F8\n"
-        "    movs r6, #0\n"
-        "    movs r1, #0\n"
-        "    adds r0, r7, #0\n"
-        "    adds r0, #0x2f\n"
-        "    ldrb r2, [r0]\n"
-        "    cmp r6, r2\n"
-        "    bhs .L0814C5B2\n"
-        "    subs r0, #4\n"
-        "    ldrb r3, [r0]\n"
-        "    ldr r4, .L0814C5FC\n"
-        ".L0814C598:\n"
-        "    adds r0, r3, r1\n"
-        "    lsls r0, r0, #2\n"
-        "    adds r0, r7, r0\n"
-        "    adds r0, #0x78\n"
-        "    ldrb r5, [r0]\n"
-        "    adds r0, r5, r4\n"
-        "    ldrb r0, [r0]\n"
-        "    orrs r6, r0\n"
-        "    adds r0, r1, #1\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r1, r0, #0x18\n"
-        "    cmp r1, r2\n"
-        "    blo .L0814C598\n"
-        ".L0814C5B2:\n"
-        "    adds r4, r7, #0\n"
-        "    adds r4, #0x2b\n"
-        "    ldrb r0, [r4]\n"
-        "    movs r1, #5\n"
-        "    bl __udivsi3\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r0, r0, #0x18\n"
-        "    adds r1, r7, #0\n"
-        "    adds r1, #0x58\n"
-        "    adds r1, r1, r0\n"
-        "    strb r6, [r1]\n"
-        "    movs r5, #0\n"
-        "    movs r1, #0\n"
-        "    adds r0, r7, #0\n"
-        "    adds r0, #0x2e\n"
-        "    ldrb r0, [r0]\n"
-        "    adds r7, #0x50\n"
-        "    cmp r5, r0\n"
-        "    bhs .L0814C60C\n"
-        "    adds r2, r0, #0\n"
-        "    movs r3, #1\n"
-        ".L0814C5DE:\n"
-        "    adds r0, r6, #0\n"
-        "    ands r0, r3\n"
-        "    cmp r0, #0\n"
-        "    beq .L0814C600\n"
-        "    lsrs r6, r6, #1\n"
-        "    movs r0, #0x80\n"
-        "    orrs r6, r0\n"
-        "    lsls r0, r6, #0x18\n"
-        "    lsrs r6, r0, #0x18\n"
-        "    adds r0, r5, #1\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r5, r0, #0x18\n"
-        "    b .L0814C602\n"
-        ".L0814C5F8: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
-        ".L0814C5FC: .4byte gUnknown_0879F05C\n"
-        ".L0814C600:\n"
-        "    lsrs r6, r6, #1\n"
-        ".L0814C602:\n"
-        "    adds r0, r1, #1\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r1, r0, #0x18\n"
-        "    cmp r1, r2\n"
-        "    blo .L0814C5DE\n"
-        ".L0814C60C:\n"
-        "    ldrb r0, [r4]\n"
-        "    movs r1, #5\n"
-        "    bl __udivsi3\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r0, r0, #0x18\n"
-        "    adds r0, r7, r0\n"
-        "    strb r5, [r0]\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 /* Sets unk1 = value for every symbol in mask, at every position not yet excluded/certain. */
 // sub_0814C624 @ 0x0814C624

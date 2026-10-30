@@ -166,7 +166,6 @@ void ScriptOp_373(void)
 }
 
 // ScriptOp_374 @ 0x08135E14
-#ifdef NONMATCHING
 void ScriptOp_374(void)
 {
     s32 cap = Stock_GetCapacity();
@@ -179,12 +178,12 @@ void ScriptOp_374(void)
     }
     else if (op == 1)
     {
-        goto members12;
+        RESTORE_HP(1)
+        RESTORE_HP(2)
     }
     else if (op == 2)
     {
         RESTORE_HP(0)
-    members12:
         RESTORE_HP(1)
         RESTORE_HP(2)
     }
@@ -197,113 +196,8 @@ void ScriptOp_374(void)
     }
     sub_080C84A0();
 }
-#else
-NAKED
-void ScriptOp_374(void)
-{
-    asm_unified(
-        "    push {r4, r5, lr}\n"
-        "    bl Stock_GetCapacity\n"
-        "    adds r3, r0, #0\n"
-        "    ldr r2, .L08135E54\n"
-        "    ldrh r0, [r2]\n"
-        "    adds r1, r0, #1\n"
-        "    strh r1, [r2]\n"
-        "    lsls r0, r0, #0x10\n"
-        "    ldr r1, .L08135E58\n"
-        "    ldr r1, [r1]\n"
-        "    lsrs r0, r0, #0xf\n"
-        "    adds r0, r0, r1\n"
-        "    ldrh r0, [r0]\n"
-        "    adds r1, r0, #0\n"
-        "    cmp r0, #0\n"
-        "    bne .L08135E5C\n"
-        "    movs r0, #0\n"
-        "    bl Combatant_IsUsed\n"
-        "    cmp r0, #0\n"
-        "    beq .L08135EE0\n"
-        "    movs r0, #0\n"
-        "    bl Combatant_IsDead\n"
-        "    cmp r0, #0\n"
-        "    bne .L08135EE0\n"
-        "    movs r0, #0\n"
-        "    bl Combatant_RestoreHp\n"
-        "    b .L08135EE0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08135E54: .4byte 0x0203DB40 @ EWRAM+0x3DB40\n"
-        ".L08135E58: .4byte 0x03006950 @ IWRAM+0x6950\n"
-        ".L08135E5C:\n"
-        "    cmp r0, #1\n"
-        "    beq .L08135E7E\n"
-        "    cmp r1, #2\n"
-        "    bne .L08135EB4\n"
-        "    movs r0, #0\n"
-        "    bl Combatant_IsUsed\n"
-        "    cmp r0, #0\n"
-        "    beq .L08135E7E\n"
-        "    movs r0, #0\n"
-        "    bl Combatant_IsDead\n"
-        "    cmp r0, #0\n"
-        "    bne .L08135E7E\n"
-        "    movs r0, #0\n"
-        "    bl Combatant_RestoreHp\n"
-        ".L08135E7E:\n"
-        "    movs r0, #1\n"
-        "    bl Combatant_IsUsed\n"
-        "    cmp r0, #0\n"
-        "    beq .L08135E98\n"
-        "    movs r0, #1\n"
-        "    bl Combatant_IsDead\n"
-        "    cmp r0, #0\n"
-        "    bne .L08135E98\n"
-        "    movs r0, #1\n"
-        "    bl Combatant_RestoreHp\n"
-        ".L08135E98:\n"
-        "    movs r0, #2\n"
-        "    bl Combatant_IsUsed\n"
-        "    cmp r0, #0\n"
-        "    beq .L08135EE0\n"
-        "    movs r0, #2\n"
-        "    bl Combatant_IsDead\n"
-        "    cmp r0, #0\n"
-        "    bne .L08135EE0\n"
-        "    movs r0, #2\n"
-        "    bl Combatant_RestoreHp\n"
-        "    b .L08135EE0\n"
-        ".L08135EB4:\n"
-        "    movs r4, #0\n"
-        "    adds r5, r3, #4\n"
-        "    cmp r4, r5\n"
-        "    bge .L08135EE0\n"
-        ".L08135EBC:\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_IsUsed\n"
-        "    cmp r0, #0\n"
-        "    beq .L08135ED6\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_IsDead\n"
-        "    cmp r0, #0\n"
-        "    bne .L08135ED6\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_RestoreHp\n"
-        ".L08135ED6:\n"
-        "    adds r0, r4, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    cmp r4, r5\n"
-        "    blt .L08135EBC\n"
-        ".L08135EE0:\n"
-        "    bl sub_080C84A0\n"
-        "    pop {r4, r5}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // ScriptOp_375 @ 0x08135EEC
-#ifdef NONMATCHING
 void ScriptOp_375(void)
 {
     s32 cap = Stock_GetCapacity();
@@ -316,12 +210,12 @@ void ScriptOp_375(void)
     }
     else if (op == 1)
     {
-        goto members12;
+        RESTORE_MP(1)
+        RESTORE_MP(2)
     }
     else if (op == 2)
     {
         RESTORE_MP(0)
-    members12:
         RESTORE_MP(1)
         RESTORE_MP(2)
     }
@@ -334,110 +228,6 @@ void ScriptOp_375(void)
     }
     sub_080C84A0();
 }
-#else
-NAKED
-void ScriptOp_375(void)
-{
-    asm_unified(
-        "    push {r4, r5, lr}\n"
-        "    bl Stock_GetCapacity\n"
-        "    adds r3, r0, #0\n"
-        "    ldr r2, .L08135F2C\n"
-        "    ldrh r0, [r2]\n"
-        "    adds r1, r0, #1\n"
-        "    strh r1, [r2]\n"
-        "    lsls r0, r0, #0x10\n"
-        "    ldr r1, .L08135F30\n"
-        "    ldr r1, [r1]\n"
-        "    lsrs r0, r0, #0xf\n"
-        "    adds r0, r0, r1\n"
-        "    ldrh r0, [r0]\n"
-        "    adds r1, r0, #0\n"
-        "    cmp r0, #0\n"
-        "    bne .L08135F34\n"
-        "    movs r0, #0\n"
-        "    bl Combatant_IsUsed\n"
-        "    cmp r0, #0\n"
-        "    beq .L08135FB8\n"
-        "    movs r0, #0\n"
-        "    bl Combatant_IsDead\n"
-        "    cmp r0, #0\n"
-        "    bne .L08135FB8\n"
-        "    movs r0, #0\n"
-        "    bl Combatant_RestoreMp\n"
-        "    b .L08135FB8\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08135F2C: .4byte 0x0203DB40 @ EWRAM+0x3DB40\n"
-        ".L08135F30: .4byte 0x03006950 @ IWRAM+0x6950\n"
-        ".L08135F34:\n"
-        "    cmp r0, #1\n"
-        "    beq .L08135F56\n"
-        "    cmp r1, #2\n"
-        "    bne .L08135F8C\n"
-        "    movs r0, #0\n"
-        "    bl Combatant_IsUsed\n"
-        "    cmp r0, #0\n"
-        "    beq .L08135F56\n"
-        "    movs r0, #0\n"
-        "    bl Combatant_IsDead\n"
-        "    cmp r0, #0\n"
-        "    bne .L08135F56\n"
-        "    movs r0, #0\n"
-        "    bl Combatant_RestoreMp\n"
-        ".L08135F56:\n"
-        "    movs r0, #1\n"
-        "    bl Combatant_IsUsed\n"
-        "    cmp r0, #0\n"
-        "    beq .L08135F70\n"
-        "    movs r0, #1\n"
-        "    bl Combatant_IsDead\n"
-        "    cmp r0, #0\n"
-        "    bne .L08135F70\n"
-        "    movs r0, #1\n"
-        "    bl Combatant_RestoreMp\n"
-        ".L08135F70:\n"
-        "    movs r0, #2\n"
-        "    bl Combatant_IsUsed\n"
-        "    cmp r0, #0\n"
-        "    beq .L08135FB8\n"
-        "    movs r0, #2\n"
-        "    bl Combatant_IsDead\n"
-        "    cmp r0, #0\n"
-        "    bne .L08135FB8\n"
-        "    movs r0, #2\n"
-        "    bl Combatant_RestoreMp\n"
-        "    b .L08135FB8\n"
-        ".L08135F8C:\n"
-        "    movs r4, #0\n"
-        "    adds r5, r3, #4\n"
-        "    cmp r4, r5\n"
-        "    bge .L08135FB8\n"
-        ".L08135F94:\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_IsUsed\n"
-        "    cmp r0, #0\n"
-        "    beq .L08135FAE\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_IsDead\n"
-        "    cmp r0, #0\n"
-        "    bne .L08135FAE\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_RestoreMp\n"
-        ".L08135FAE:\n"
-        "    adds r0, r4, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    cmp r4, r5\n"
-        "    blt .L08135F94\n"
-        ".L08135FB8:\n"
-        "    bl sub_080C84A0\n"
-        "    pop {r4, r5}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 /* TRUE when any of the six equipment slots holds an item with attribute bit 0 set
    (cursed?). */
@@ -477,7 +267,6 @@ void sub_08136114(void)
 }
 
 // ScriptOp_376 @ 0x0813615C
-#ifdef NONMATCHING
 void ScriptOp_376(void)
 {
     s32 cap = Stock_GetCapacity();
@@ -491,13 +280,15 @@ void ScriptOp_376(void)
     }
     else if (op == 1)
     {
-        goto members12;
+        if (Combatant_IsUsed(1))
+            Combatant_ClearStatus(1, 1);
+        if (Combatant_IsUsed(2))
+            Combatant_ClearStatus(2, 1);
     }
     else if (op == 2)
     {
         if (Combatant_IsUsed(0))
             Combatant_ClearStatus(0, 1);
-    members12:
         if (Combatant_IsUsed(1))
             Combatant_ClearStatus(1, 1);
         if (Combatant_IsUsed(2))
@@ -513,93 +304,6 @@ void ScriptOp_376(void)
     }
     sub_080C84A0();
 }
-#else
-NAKED
-void ScriptOp_376(void)
-{
-    asm_unified(
-        "    push {r4, r5, lr}\n"
-        "    bl Stock_GetCapacity\n"
-        "    adds r3, r0, #0\n"
-        "    ldr r2, .L0813618C\n"
-        "    ldrh r0, [r2]\n"
-        "    adds r1, r0, #1\n"
-        "    strh r1, [r2]\n"
-        "    lsls r0, r0, #0x10\n"
-        "    ldr r1, .L08136190\n"
-        "    ldr r1, [r1]\n"
-        "    lsrs r0, r0, #0xf\n"
-        "    adds r0, r0, r1\n"
-        "    ldrh r0, [r0]\n"
-        "    adds r1, r0, #0\n"
-        "    cmp r0, #0\n"
-        "    bne .L08136194\n"
-        "    movs r0, #0\n"
-        "    bl Combatant_IsUsed\n"
-        "    cmp r0, #0\n"
-        "    beq .L081361F8\n"
-        "    movs r0, #0\n"
-        "    b .L081361CC\n"
-        ".L0813618C: .4byte 0x0203DB40 @ EWRAM+0x3DB40\n"
-        ".L08136190: .4byte 0x03006950 @ IWRAM+0x6950\n"
-        ".L08136194:\n"
-        "    cmp r0, #1\n"
-        "    beq .L081361AE\n"
-        "    cmp r1, #2\n"
-        "    bne .L081361D4\n"
-        "    movs r0, #0\n"
-        "    bl Combatant_IsUsed\n"
-        "    cmp r0, #0\n"
-        "    beq .L081361AE\n"
-        "    movs r0, #0\n"
-        "    movs r1, #1\n"
-        "    bl Combatant_ClearStatus\n"
-        ".L081361AE:\n"
-        "    movs r0, #1\n"
-        "    bl Combatant_IsUsed\n"
-        "    cmp r0, #0\n"
-        "    beq .L081361C0\n"
-        "    movs r0, #1\n"
-        "    movs r1, #1\n"
-        "    bl Combatant_ClearStatus\n"
-        ".L081361C0:\n"
-        "    movs r0, #2\n"
-        "    bl Combatant_IsUsed\n"
-        "    cmp r0, #0\n"
-        "    beq .L081361F8\n"
-        "    movs r0, #2\n"
-        ".L081361CC:\n"
-        "    movs r1, #1\n"
-        "    bl Combatant_ClearStatus\n"
-        "    b .L081361F8\n"
-        ".L081361D4:\n"
-        "    movs r4, #0\n"
-        "    adds r5, r3, #4\n"
-        "    cmp r4, r5\n"
-        "    bge .L081361F8\n"
-        ".L081361DC:\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_IsUsed\n"
-        "    cmp r0, #0\n"
-        "    beq .L081361EE\n"
-        "    adds r0, r4, #0\n"
-        "    movs r1, #1\n"
-        "    bl Combatant_ClearStatus\n"
-        ".L081361EE:\n"
-        "    adds r0, r4, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    cmp r4, r5\n"
-        "    blt .L081361DC\n"
-        ".L081361F8:\n"
-        "    bl sub_080C84A0\n"
-        "    pop {r4, r5}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // sub_08136204 @ 0x08136204
 s32 sub_08136204(s32 who, u32 slot, s32 val)
@@ -1070,11 +774,9 @@ void ScriptOp_381(void)
 }
 
 // ScriptOp_382 @ 0x08136BD4
-#ifdef NONMATCHING
 void ScriptOp_382(void)
 {
     u16 idx;
-    u16 *p;
     u16 lo;
     u32 hi;
 
@@ -1095,104 +797,12 @@ void ScriptOp_382(void)
         gScriptBase = (u16 *)gUnknown_0803534C;
         idx += gUnk_03006914 * 28;
     }
-    p = &gScriptBase[idx];
-    lo = p[0];
-    hi = p[1];
+    lo = gScriptBase[idx];
+    hi = gScriptBase[idx + 1];
     hi <<= 16;
     hi |= lo;
     gScriptJumpTarget = (u16 *)hi;
 }
-#else
-NAKED
-void ScriptOp_382(void)
-{
-    asm_unified(
-        "    push {r4, lr}\n"
-        "    ldr r4, .L08136C30\n"
-        "    ldr r3, .L08136C34\n"
-        "    ldr r2, .L08136C38\n"
-        "    ldr r1, .L08136C3C\n"
-        "    movs r0, #0\n"
-        "    strh r0, [r1]\n"
-        "    strh r0, [r2]\n"
-        "    strh r0, [r3]\n"
-        "    strh r0, [r4]\n"
-        "    movs r0, #0xc0\n"
-        "    lsls r0, r0, #1\n"
-        "    bl Font_ResetGlyphSpriteCache\n"
-        "    ldr r1, .L08136C40\n"
-        "    ldrh r0, [r1]\n"
-        "    adds r2, r0, #1\n"
-        "    strh r2, [r1]\n"
-        "    lsls r0, r0, #0x10\n"
-        "    ldr r4, .L08136C44\n"
-        "    ldr r1, [r4]\n"
-        "    lsrs r0, r0, #0xf\n"
-        "    adds r0, r0, r1\n"
-        "    ldrh r3, [r0]\n"
-        "    lsls r0, r3, #0x11\n"
-        "    lsrs r3, r0, #0x10\n"
-        "    ldr r0, .L08136C48\n"
-        "    str r1, [r0]\n"
-        "    ldr r0, .L08136C4C\n"
-        "    strh r2, [r0]\n"
-        "    ldr r1, .L08136C50\n"
-        "    movs r0, #1\n"
-        "    strh r0, [r1]\n"
-        "    ldr r1, .L08136C54\n"
-        "    ldrh r2, [r1]\n"
-        "    cmp r2, #0xff\n"
-        "    bls .L08136C5C\n"
-        "    ldr r0, .L08136C58\n"
-        "    str r0, [r4]\n"
-        "    movs r1, #0xff\n"
-        "    ands r1, r2\n"
-        "    lsls r0, r1, #3\n"
-        "    subs r0, r0, r1\n"
-        "    lsls r0, r0, #1\n"
-        "    b .L08136C68\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08136C30: .4byte 0x0203DB3E @ EWRAM+0x3DB3E\n"
-        ".L08136C34: .4byte 0x0203DB38 @ EWRAM+0x3DB38\n"
-        ".L08136C38: .4byte 0x0203DB3A @ EWRAM+0x3DB3A\n"
-        ".L08136C3C: .4byte 0x0203DB4A @ EWRAM+0x3DB4A\n"
-        ".L08136C40: .4byte 0x0203DB40 @ EWRAM+0x3DB40\n"
-        ".L08136C44: .4byte 0x03006950 @ IWRAM+0x6950\n"
-        ".L08136C48: .4byte 0x030068D0 @ IWRAM+0x68D0\n"
-        ".L08136C4C: .4byte 0x03006610 @ IWRAM+0x6610\n"
-        ".L08136C50: .4byte 0x03006910 @ IWRAM+0x6910\n"
-        ".L08136C54: .4byte 0x03006914 @ IWRAM+0x6914\n"
-        ".L08136C58: .4byte gUnknown_08035ABC\n"
-        ".L08136C5C:\n"
-        "    ldr r0, .L08136C88\n"
-        "    str r0, [r4]\n"
-        "    ldrh r1, [r1]\n"
-        "    lsls r0, r1, #3\n"
-        "    subs r0, r0, r1\n"
-        "    lsls r0, r0, #2\n"
-        ".L08136C68:\n"
-        "    adds r0, r3, r0\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r3, r0, #0x10\n"
-        "    ldr r0, .L08136C8C\n"
-        "    ldr r1, [r0]\n"
-        "    lsls r0, r3, #1\n"
-        "    adds r0, r0, r1\n"
-        "    ldrh r1, [r0]\n"
-        "    ldrh r0, [r0, #2]\n"
-        "    lsls r0, r0, #0x10\n"
-        "    orrs r0, r1\n"
-        "    ldr r1, .L08136C90\n"
-        "    str r0, [r1]\n"
-        "    pop {r4}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L08136C88: .4byte gUnknown_0803534C\n"
-        ".L08136C8C: .4byte 0x03006950 @ IWRAM+0x6950\n"
-        ".L08136C90: .4byte 0x030068E4 @ IWRAM+0x68E4\n"
-    );
-}
-#endif
 
 // ScriptOp_388 @ 0x08136C94
 void ScriptOp_388(void)

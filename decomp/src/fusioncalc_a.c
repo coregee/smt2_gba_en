@@ -489,16 +489,14 @@ u32 sub_08158D20(void)
 #endif
 
 // sub_08158E00 @ 0x08158E00
-#ifdef NONMATCHING
 u32 sub_08158E00(void)
 {
-    u8 f = gUnk_0203B868.unkA4;
     u32 r;
 
-    if (f & 8)
+    if (gUnk_0203B868.unkA4 & 8)
     {
         gUnk_0203B868.result = 0xFB;
-        gUnk_0203B868.unkA4 = f & 0x7F;
+        gUnk_0203B868.unkA4 &= 0x7F;
         gUnk_0203B868.unkA8 = 1;
         r = sub_08158D20();
     }
@@ -512,57 +510,6 @@ u32 sub_08158E00(void)
     }
     return r;
 }
-#else
-NAKED
-u32 sub_08158E00(void)
-{
-    asm_unified(
-        ".L08158E00:\n"
-        "    push {r4, lr}\n"
-        "    ldr r2, .L08158E2C\n"
-        "    adds r4, r2, #0\n"
-        "    adds r4, #0xa4\n"
-        "    ldrb r3, [r4]\n"
-        "    movs r0, #8\n"
-        "    ands r0, r3\n"
-        "    cmp r0, #0\n"
-        "    beq .L08158E30\n"
-        "    adds r1, r2, #0\n"
-        "    adds r1, #0xa0\n"
-        "    movs r0, #0xfb\n"
-        "    strh r0, [r1]\n"
-        "    movs r0, #0x7f\n"
-        "    ands r0, r3\n"
-        "    strb r0, [r4]\n"
-        "    adds r1, #8\n"
-        "    movs r0, #1\n"
-        "    strh r0, [r1]\n"
-        "    bl sub_08158D20\n"
-        "    b .L08158E4C\n"
-        ".L08158E2C: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L08158E30:\n"
-        "    adds r1, r2, #0\n"
-        "    adds r1, #0xa0\n"
-        "    movs r0, #0xff\n"
-        "    strh r0, [r1]\n"
-        "    adds r1, #2\n"
-        "    strb r0, [r1]\n"
-        "    adds r1, #1\n"
-        "    movs r0, #1\n"
-        "    rsbs r0, r0, #0\n"
-        "    strb r0, [r1]\n"
-        "    adds r1, #3\n"
-        "    movs r0, #0x40\n"
-        "    strb r0, [r1]\n"
-        "    movs r0, #0\n"
-        ".L08158E4C:\n"
-        "    pop {r4}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 /* No result. */
 // Fusion_SetNoResult @ 0x08158E54
@@ -655,20 +602,22 @@ u32 sub_08158E78(void)
 /* Element fusion table (ids 0x32-0x39 pairs) -> race, then the highest demon of that race
    not above the hero's level. */
 // sub_08158ED0 @ 0x08158ED0
-#ifdef NONMATCHING
 u32 sub_08158ED0(void)
 {
     struct FusionCalc *c = &gUnk_0203B868;
-    u8 race = gUnknown_087F15A0[(u16)(c->ids[0] - 0x32) * 8 + (u16)(c->ids[1] - 0x32)];
+    u16 a = c->ids[0] - 0x32;
+    u16 b = c->ids[1] - 0x32;
+    u32 idx = a * 8 + b;
+    const u8 *p = &gUnknown_087F15A0[idx];
     s32 lv;
 
-    if (race == 0xFF)
+    if (*p == 0xFF)
     {
         Fusion_SetNoResult();
         c->unkA6 = 0x40;
         return 0;
     }
-    c->resRace = race;
+    c->resRace = *p;
     for (lv = gGameState.members[0].level; lv > 0; lv--)
     {
         if (Fusion_FindRaceDemonByLevel(lv) >= 0)
@@ -678,74 +627,6 @@ u32 sub_08158ED0(void)
         return sub_08158CA4();
     return sub_08158D08();
 }
-#else
-NAKED
-u32 sub_08158ED0(void)
-{
-    asm_unified(
-        ".L08158ED0:\n"
-        "    push {r4, lr}\n"
-        "    ldr r4, .L08158F08\n"
-        "    adds r0, r4, #0\n"
-        "    adds r0, #0x90\n"
-        "    ldrh r1, [r0]\n"
-        "    subs r1, #0x32\n"
-        "    lsls r1, r1, #0x10\n"
-        "    adds r0, #2\n"
-        "    ldrh r0, [r0]\n"
-        "    subs r0, #0x32\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    lsrs r1, r1, #0xd\n"
-        "    adds r1, r1, r0\n"
-        "    ldr r0, .L08158F0C\n"
-        "    adds r1, r1, r0\n"
-        "    ldrb r1, [r1]\n"
-        "    adds r0, r1, #0\n"
-        "    cmp r0, #0xff\n"
-        "    bne .L08158F10\n"
-        "    bl Fusion_SetNoResult\n"
-        "    adds r1, r4, #0\n"
-        "    adds r1, #0xa6\n"
-        "    movs r0, #0x40\n"
-        "    strb r0, [r1]\n"
-        "    movs r0, #0\n"
-        "    b .L08158F42\n"
-        ".L08158F08: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L08158F0C: .4byte gUnknown_087F15A0\n"
-        ".L08158F10:\n"
-        "    adds r0, r4, #0\n"
-        "    adds r0, #0xa2\n"
-        "    strb r1, [r0]\n"
-        "    ldr r0, .L08158F1C\n"
-        "    ldrb r4, [r0, #0xd]\n"
-        "    b .L08158F22\n"
-        ".L08158F1C: .4byte 0x030046C0 @ IWRAM+0x46C0\n"
-        ".L08158F20:\n"
-        "    subs r4, #1\n"
-        ".L08158F22:\n"
-        "    cmp r4, #0\n"
-        "    ble .L08158F34\n"
-        "    lsls r0, r4, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    bl Fusion_FindRaceDemonByLevel\n"
-        "    lsls r0, r0, #0x10\n"
-        "    cmp r0, #0\n"
-        "    blt .L08158F20\n"
-        ".L08158F34:\n"
-        "    cmp r4, #0\n"
-        "    beq .L08158F3E\n"
-        "    bl sub_08158D08\n"
-        "    b .L08158F42\n"
-        ".L08158F3E:\n"
-        "    bl sub_08158CA4\n"
-        ".L08158F42:\n"
-        "    pop {r4}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-    );
-}
-#endif
 
 /* Two elementals/special races of the same kind: next demon of the race above their mean level. */
 // sub_08158F48 @ 0x08158F48
@@ -1392,12 +1273,12 @@ u32 sub_081592AC(void)
 /* Two demons of different races and alignments: race table, then the first demon of that
    race at or above the mean level + 3. */
 // sub_0815937C @ 0x0815937C
-#ifdef NONMATCHING
 u32 sub_0815937C(void)
 {
     const u8 *tbl = gUnknown_087F16BD;
     struct FusionCalc *c = &gUnk_0203B868;
-    u8 race = tbl[0x1A * c->race[0] + c->race[1]];
+    u32 row = c->race[0] * 0x1A;
+    u8 race = tbl[row + c->race[1]];
 
     if (race == 0xFF)
     {
@@ -1411,70 +1292,6 @@ u32 sub_0815937C(void)
         c->level[0]++;
     return sub_08158D08();
 }
-#else
-NAKED
-u32 sub_0815937C(void)
-{
-    asm_unified(
-        ".L0815937C:\n"
-        "    push {r4, lr}\n"
-        "    ldr r2, .L081593AC\n"
-        "    ldr r4, .L081593B0\n"
-        "    adds r0, r4, #0\n"
-        "    adds r0, #0x96\n"
-        "    ldrb r1, [r0]\n"
-        "    movs r0, #0x1a\n"
-        "    adds r3, r4, #0\n"
-        "    adds r3, #0x97\n"
-        "    muls r0, r1, r0\n"
-        "    ldrb r3, [r3]\n"
-        "    adds r0, r0, r3\n"
-        "    adds r0, r0, r2\n"
-        "    ldrb r0, [r0]\n"
-        "    cmp r0, #0xff\n"
-        "    bne .L081593B4\n"
-        "    bl Fusion_SetNoResult\n"
-        "    adds r1, r4, #0\n"
-        "    adds r1, #0xa6\n"
-        "    movs r0, #0x40\n"
-        "    strb r0, [r1]\n"
-        "    movs r0, #0\n"
-        "    b .L081593E6\n"
-        ".L081593AC: .4byte gUnknown_087F16BD\n"
-        ".L081593B0: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L081593B4:\n"
-        "    adds r1, r4, #0\n"
-        "    adds r1, #0xa2\n"
-        "    strb r0, [r1]\n"
-        "    adds r2, r4, #0\n"
-        "    adds r2, #0x9c\n"
-        "    ldrb r0, [r2]\n"
-        "    subs r1, #5\n"
-        "    ldrb r1, [r1]\n"
-        "    adds r0, r0, r1\n"
-        "    asrs r0, r0, #1\n"
-        "    adds r0, #3\n"
-        "    strb r0, [r2]\n"
-        "    adds r4, r2, #0\n"
-        "    b .L081593D6\n"
-        ".L081593D0:\n"
-        "    ldrb r0, [r4]\n"
-        "    adds r0, #1\n"
-        "    strb r0, [r4]\n"
-        ".L081593D6:\n"
-        "    ldrb r0, [r4]\n"
-        "    bl Fusion_FindRaceDemonByLevel\n"
-        "    lsls r0, r0, #0x10\n"
-        "    cmp r0, #0\n"
-        "    blt .L081593D0\n"
-        "    bl sub_08158D08\n"
-        ".L081593E6:\n"
-        "    pop {r4}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-    );
-}
-#endif
 
 /* Fusion with demon 0xFB: the result is the other material, keeping its skills. */
 // sub_081593EC @ 0x081593EC
@@ -1492,22 +1309,23 @@ u32 sub_081593EC(void)
 /* Demon of race gUnk_0203B868.resRace for level: the race's first demon if it is below level,
    else the one of exactly that level; -1 if none. */
 // Fusion_FindRaceDemonByLevel @ 0x08159438
-#ifdef NONMATCHING
 s16 Fusion_FindRaceDemonByLevel(u16 level)
 {
-    u8 race = gUnk_0203B868.resRace;
-    u8 end = gUnknown_087F1514[race];
-    u16 id = gUnknown_087F1514[race - 1];
+    u32 n = gUnk_0203B868.resRace; /* the race, then the low byte of id */
+    u16 end = gUnknown_087F1514[n];
+    u16 id = gUnknown_087F1514[n - 1];
 
-    if (race == 1 || race == 0x23)
+    if (n == 1 || n == 0x23)
         id++;
-    if (Demon_GetRecord(id & 0xFF)->level >= level)
+    n = id & 0xFF;
+    if (Demon_GetRecord(n)->level >= level)
     {
         do
         {
-            if (Demon_GetRecord(id & 0xFF)->level == level)
+            if (Demon_GetRecord(n)->level == level)
                 break;
             id++;
+            n = id & 0xFF;
         } while (id != end);
         if (id == end)
             return -1;
@@ -1515,78 +1333,6 @@ s16 Fusion_FindRaceDemonByLevel(u16 level)
     gUnk_0203B868.result = id & 0xFF;
     return gUnk_0203B868.result;
 }
-#else
-NAKED
-s16 Fusion_FindRaceDemonByLevel(u16 level)
-{
-    asm_unified(
-        ".L08159438:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r7, r0, #0x10\n"
-        "    ldr r0, .L08159494\n"
-        "    adds r0, #0xa2\n"
-        "    ldrb r4, [r0]\n"
-        "    ldr r1, .L08159498\n"
-        "    adds r0, r4, r1\n"
-        "    ldrb r6, [r0]\n"
-        "    subs r0, r4, #1\n"
-        "    adds r0, r0, r1\n"
-        "    ldrb r5, [r0]\n"
-        "    cmp r4, #1\n"
-        "    beq .L08159458\n"
-        "    cmp r4, #0x23\n"
-        "    bne .L0815945E\n"
-        ".L08159458:\n"
-        "    adds r0, r5, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r5, r0, #0x10\n"
-        ".L0815945E:\n"
-        "    movs r4, #0xff\n"
-        "    ands r4, r5\n"
-        "    adds r0, r4, #0\n"
-        "    bl Demon_GetRecord\n"
-        "    ldrb r0, [r0, #1]\n"
-        "    cmp r0, r7\n"
-        "    blo .L0815949C\n"
-        ".L0815946E:\n"
-        "    adds r0, r4, #0\n"
-        "    bl Demon_GetRecord\n"
-        "    ldrb r0, [r0, #1]\n"
-        "    cmp r0, r7\n"
-        "    beq .L08159488\n"
-        "    adds r0, r5, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r5, r0, #0x10\n"
-        "    movs r4, #0xff\n"
-        "    ands r4, r5\n"
-        "    cmp r5, r6\n"
-        "    bne .L0815946E\n"
-        ".L08159488:\n"
-        "    cmp r5, r6\n"
-        "    bne .L0815949C\n"
-        "    movs r0, #1\n"
-        "    rsbs r0, r0, #0\n"
-        "    b .L081594AA\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08159494: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L08159498: .4byte gUnknown_087F1514\n"
-        ".L0815949C:\n"
-        "    ldr r0, .L081594B0\n"
-        "    movs r1, #0xff\n"
-        "    ands r5, r1\n"
-        "    adds r0, #0xa0\n"
-        "    strh r5, [r0]\n"
-        "    movs r1, #0\n"
-        "    ldrsh r0, [r0, r1]\n"
-        ".L081594AA:\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        ".L081594B0: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-    );
-}
-#endif
 
 /* Same-alignment fusion: up to three candidate races (table 0x087F1961 by alignment). */
 // sub_081594B4 @ 0x081594B4
@@ -1854,55 +1600,22 @@ s16 sub_08159568(u16 level)
 #endif
 
 // sub_08159604 @ 0x08159604
-#ifdef NONMATCHING
 void sub_08159604(u32 a, u32 b)
 {
     struct FusionCalc *c = &gUnk_0203B868;
     u8 t;
 
-    t = c->candLv[b];
-    c->candLv[b] = c->candLv[a];
-    c->candLv[a] = t;
+    /* candLv[i] is addressed as cand[0x10 + i]: that is what matches */
+    t = c->cand[b + 0x10];
+    c->cand[b + 0x10] = c->cand[a + 0x10];
+    c->cand[a + 0x10] = t;
     t = c->cand[b];
     c->cand[b] = c->cand[a];
     c->cand[a] = t;
 }
-#else
-NAKED
-void sub_08159604(u32 a, u32 b)
-{
-    asm_unified(
-        ".L08159604:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    ldr r5, .L08159630\n"
-        "    adds r4, r1, #0\n"
-        "    adds r4, #0x10\n"
-        "    adds r4, r4, r5\n"
-        "    ldrb r6, [r4]\n"
-        "    adds r2, r0, #0\n"
-        "    adds r2, #0x10\n"
-        "    adds r2, r2, r5\n"
-        "    ldrb r3, [r2]\n"
-        "    strb r3, [r4]\n"
-        "    strb r6, [r2]\n"
-        "    adds r1, r1, r5\n"
-        "    ldrb r3, [r1]\n"
-        "    adds r0, r0, r5\n"
-        "    ldrb r2, [r0]\n"
-        "    strb r2, [r1]\n"
-        "    strb r3, [r0]\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08159630: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-    );
-}
-#endif
 
 /* Result = id moved down n ranks within its race (not past the race's first demon). */
 // Fusion_RankDown @ 0x08159634
-#ifdef NONMATCHING
 void Fusion_RankDown(u16 id, u16 n)
 {
     struct FusionCalc *c = &gUnk_0203B868;
@@ -1910,73 +1623,15 @@ void Fusion_RankDown(u16 id, u16 n)
 
     c->result = id & 0xFF;
     first = gUnknown_087F1514[Demon_GetRace(c->result) - 1];
-    if (n != 0 && c->result != first)
+    while (n != 0 && c->result != first)
     {
-        do
-        {
-            c->result--;
-            n--;
-        } while (n != 0 && c->result != first);
+        c->result--;
+        n--;
     }
 }
-#else
-NAKED
-void Fusion_RankDown(u16 id, u16 n)
-{
-    asm_unified(
-        ".L08159634:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r5, r1, #0x10\n"
-        "    ldr r2, .L08159688\n"
-        "    movs r1, #0xff\n"
-        "    ands r0, r1\n"
-        "    adds r6, r2, #0\n"
-        "    adds r6, #0xa0\n"
-        "    strh r0, [r6]\n"
-        "    ldr r4, .L0815968C\n"
-        "    ldrh r0, [r6]\n"
-        "    bl Demon_GetRace\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    subs r0, #1\n"
-        "    adds r0, r0, r4\n"
-        "    ldrb r1, [r0]\n"
-        "    cmp r5, #0\n"
-        "    beq .L08159682\n"
-        "    ldrh r0, [r6]\n"
-        "    cmp r0, r1\n"
-        "    beq .L08159682\n"
-        "    adds r2, r6, #0\n"
-        "    adds r3, r1, #0\n"
-        ".L0815966A:\n"
-        "    ldrh r0, [r2]\n"
-        "    subs r1, r0, #1\n"
-        "    strh r1, [r2]\n"
-        "    subs r0, r5, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r5, r0, #0x10\n"
-        "    cmp r5, #0\n"
-        "    beq .L08159682\n"
-        "    lsls r0, r1, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    cmp r0, r3\n"
-        "    bne .L0815966A\n"
-        ".L08159682:\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L08159688: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L0815968C: .4byte gUnknown_087F1514\n"
-    );
-}
-#endif
 
 /* Result = id moved up n ranks within its race. */
 // Fusion_RankUp @ 0x08159690
-#ifdef NONMATCHING
 void Fusion_RankUp(u16 id, u16 n)
 {
     struct FusionCalc *c = &gUnk_0203B868;
@@ -1984,68 +1639,9 @@ void Fusion_RankUp(u16 id, u16 n)
 
     c->result = id & 0xFF;
     last = gUnknown_087F1514[Demon_GetRace(c->result)] - 1;
-    if (n != 0 && c->result != last)
+    while (n != 0 && c->result != last)
     {
-        do
-        {
-            c->result++;
-            n--;
-        } while (n != 0 && c->result != last);
+        c->result++;
+        n--;
     }
 }
-#else
-NAKED
-void Fusion_RankUp(u16 id, u16 n)
-{
-    asm_unified(
-        ".L08159690:\n"
-        "    push {r4, r5, lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r4, r1, #0x10\n"
-        "    ldr r2, .L081596E8\n"
-        "    movs r1, #0xff\n"
-        "    ands r0, r1\n"
-        "    adds r5, r2, #0\n"
-        "    adds r5, #0xa0\n"
-        "    strh r0, [r5]\n"
-        "    ldrh r0, [r5]\n"
-        "    bl Demon_GetRace\n"
-        "    ldr r1, .L081596EC\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    adds r0, r0, r1\n"
-        "    ldrb r0, [r0]\n"
-        "    subs r0, #1\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r1, r0, #0x18\n"
-        "    cmp r4, #0\n"
-        "    beq .L081596E2\n"
-        "    ldrh r0, [r5]\n"
-        "    cmp r0, r1\n"
-        "    beq .L081596E2\n"
-        "    adds r2, r5, #0\n"
-        "    adds r3, r1, #0\n"
-        ".L081596CA:\n"
-        "    ldrh r0, [r2]\n"
-        "    adds r1, r0, #1\n"
-        "    strh r1, [r2]\n"
-        "    subs r0, r4, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    cmp r4, #0\n"
-        "    beq .L081596E2\n"
-        "    lsls r0, r1, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    cmp r0, r3\n"
-        "    bne .L081596CA\n"
-        ".L081596E2:\n"
-        "    pop {r4, r5}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L081596E8: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L081596EC: .4byte gUnknown_087F1514\n"
-    );
-}
-#endif

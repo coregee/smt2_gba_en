@@ -585,73 +585,29 @@ u16 Fusion_FindListSlot(u16 id)
 }
 
 // Stock_FindSlotByDemonId @ 0x08154344
-#ifdef NONMATCHING
 u16 Stock_FindSlotByDemonId(u16 id)
 {
     u32 i;
 
+    /* gUnk_030048C0[i] is addressed through an integer: that keeps the loop from
+       strength-reducing it, as in the original */
     for (i = 0; i < 12; i++)
     {
-        if (Combatant_IsUsed(i + 4) && !Combatant_IsDead(i + 4) && gUnk_030048C0[i].demonId == id)
+        if (Combatant_IsUsed(i + 4) && !Combatant_IsDead(i + 4)
+            && ((struct Combatant *)((u32)gUnk_030048C0 + i * sizeof(struct Combatant)))->demonId == id)
             return i;
     }
     return 0;
 }
-#else
-NAKED
-u16 Stock_FindSlotByDemonId(u16 id)
-{
-    asm_unified(
-        ".L08154344:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r6, r0, #0x10\n"
-        "    movs r5, #0\n"
-        ".L0815434C:\n"
-        "    adds r4, r5, #4\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_IsUsed\n"
-        "    cmp r0, #0\n"
-        "    beq .L0815437C\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_IsDead\n"
-        "    cmp r0, #0\n"
-        "    bne .L0815437C\n"
-        "    lsls r0, r5, #7\n"
-        "    ldr r1, .L08154378\n"
-        "    adds r0, r0, r1\n"
-        "    movs r1, #0x12\n"
-        "    ldrsh r0, [r0, r1]\n"
-        "    cmp r0, r6\n"
-        "    bne .L0815437C\n"
-        "    lsls r0, r5, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    b .L08154384\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08154378: .4byte 0x030048C0 @ IWRAM+0x48C0\n"
-        ".L0815437C:\n"
-        "    adds r5, #1\n"
-        "    cmp r5, #0xb\n"
-        "    bls .L0815434C\n"
-        "    movs r0, #0\n"
-        ".L08154384:\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // sub_0815438C @ 0x0815438C
-#ifdef NONMATCHING
 void sub_0815438C(u16 id, u16 slot, u16 x, u16 y)
 {
-    u8 v = Fusion_GetPairIcon(id, slot);
+    s32 v = Fusion_GetPairIcon(id, slot);
     u32 icon = v & 0xF;
     u32 tint = 0;
 
-    switch (v >> 4)
+    switch ((u8)v >> 4)
     {
     case 0:
         tint = 8;
@@ -666,65 +622,6 @@ void sub_0815438C(u16 id, u16 slot, u16 x, u16 y)
         tint = 0;
     sub_08154038(icon, x, y, tint);
 }
-#else
-NAKED
-void sub_0815438C(u16 id, u16 slot, u16 x, u16 y)
-{
-    asm_unified(
-        ".L0815438C:\n"
-        "    push {r4, r5, lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    lsls r2, r2, #0x10\n"
-        "    lsrs r5, r2, #0x10\n"
-        "    lsls r3, r3, #0x10\n"
-        "    lsrs r4, r3, #0x10\n"
-        "    bl Fusion_GetPairIcon\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r0, r0, #0x18\n"
-        "    movs r1, #0xf\n"
-        "    ands r1, r0\n"
-        "    movs r3, #0\n"
-        "    lsrs r0, r0, #4\n"
-        "    cmp r0, #1\n"
-        "    beq .L081543C8\n"
-        "    cmp r0, #1\n"
-        "    bgt .L081543BC\n"
-        "    cmp r0, #0\n"
-        "    beq .L081543C2\n"
-        "    b .L081543C8\n"
-        ".L081543BC:\n"
-        "    cmp r0, #2\n"
-        "    beq .L081543C6\n"
-        "    b .L081543C8\n"
-        ".L081543C2:\n"
-        "    movs r3, #8\n"
-        "    b .L081543C8\n"
-        ".L081543C6:\n"
-        "    movs r3, #0xa\n"
-        ".L081543C8:\n"
-        "    cmp r1, #6\n"
-        "    beq .L081543D4\n"
-        "    cmp r1, #8\n"
-        "    beq .L081543D4\n"
-        "    cmp r1, #5\n"
-        "    bne .L081543D6\n"
-        ".L081543D4:\n"
-        "    movs r3, #0\n"
-        ".L081543D6:\n"
-        "    adds r0, r1, #0\n"
-        "    adds r1, r5, #0\n"
-        "    adds r2, r4, #0\n"
-        "    bl sub_08154038\n"
-        "    pop {r4, r5}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // sub_081543E8 @ 0x081543E8
 void sub_081543E8(struct FusionMenu *f, u16 sel, u16 y)
@@ -1109,110 +1006,25 @@ u32 Fusion_AllHighRace(u16 a, u16 b, u16 c)
 /* 1 when the hero's level allows fusing demon id (level + 9 for three-way fusions of
    race >= 27); also when the result is already in the stock or one of the materials. */
 // Fusion_CanCreate @ 0x0815473C
-#ifdef NONMATCHING
 u32 Fusion_CanCreate(u16 a, u16 b, u16 c, u16 id)
 {
     struct Combatant *hero = Party_GetMember(0x8000);
     struct FusionMenu *f = &sFusion;
 
-    if ((Stock_FindByDemonId(id) == NULL || a == id || b == id || c == id) && sub_08134C3C(id) != 1)
+    if ((Stock_FindByDemonId(id) != NULL && a != id && b != id && c != id) || sub_08134C3C(id) == 1)
+        goto fail;
+    if (f->mode == 3 && Fusion_AllHighRace(a, b, c) == 1)
     {
-        if (f->mode == 3 && Fusion_AllHighRace(a, b, c) == 1)
-        {
-            if (hero->level + 9 < (u8)Demon_GetRecord(id)[1])
-                return 0;
-        }
-        else if (hero->level < (u8)Demon_GetRecord(id)[1])
-            return 0;
-        return 1;
+        if (hero->level + 9 >= (u8)Demon_GetRecord(id)[1])
+            goto ok;
+    fail:
+        return 0;
     }
-    return 0;
+    if (hero->level < (u8)Demon_GetRecord(id)[1])
+        goto fail;
+ok:
+    return 1;
 }
-#else
-NAKED
-u32 Fusion_CanCreate(u16 a, u16 b, u16 c, u16 id)
-{
-    asm_unified(
-        ".L0815473C:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sb\n"
-        "    mov r6, r8\n"
-        "    push {r6, r7}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r7, r0, #0x10\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r6, r1, #0x10\n"
-        "    lsls r2, r2, #0x10\n"
-        "    lsrs r4, r2, #0x10\n"
-        "    lsls r3, r3, #0x10\n"
-        "    lsrs r5, r3, #0x10\n"
-        "    movs r0, #0x80\n"
-        "    lsls r0, r0, #8\n"
-        "    bl Party_GetMember\n"
-        "    mov r8, r0\n"
-        "    ldr r0, .L081547B4\n"
-        "    mov sb, r0\n"
-        "    adds r0, r5, #0\n"
-        "    bl Stock_FindByDemonId\n"
-        "    cmp r0, #0\n"
-        "    beq .L08154778\n"
-        "    cmp r7, r5\n"
-        "    beq .L08154778\n"
-        "    cmp r6, r5\n"
-        "    beq .L08154778\n"
-        "    cmp r4, r5\n"
-        "    bne .L081547AE\n"
-        ".L08154778:\n"
-        "    adds r0, r5, #0\n"
-        "    bl sub_08134C3C\n"
-        "    lsls r0, r0, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    cmp r0, #1\n"
-        "    beq .L081547AE\n"
-        "    mov r1, sb\n"
-        "    ldrh r0, [r1]\n"
-        "    cmp r0, #3\n"
-        "    bne .L081547B8\n"
-        "    adds r0, r7, #0\n"
-        "    adds r1, r6, #0\n"
-        "    adds r2, r4, #0\n"
-        "    bl Fusion_AllHighRace\n"
-        "    cmp r0, #1\n"
-        "    bne .L081547B8\n"
-        "    mov r2, r8\n"
-        "    ldrb r4, [r2, #0xd]\n"
-        "    adds r4, #9\n"
-        "    adds r0, r5, #0\n"
-        "    bl Demon_GetRecord\n"
-        "    ldrb r0, [r0, #1]\n"
-        "    cmp r4, r0\n"
-        "    bge .L081547C8\n"
-        ".L081547AE:\n"
-        "    movs r0, #0\n"
-        "    b .L081547CA\n"
-        "    .byte 0x00, 0x00\n"
-        ".L081547B4: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
-        ".L081547B8:\n"
-        "    adds r0, r5, #0\n"
-        "    bl Demon_GetRecord\n"
-        "    mov r2, r8\n"
-        "    ldrb r1, [r2, #0xd]\n"
-        "    ldrb r0, [r0, #1]\n"
-        "    cmp r1, r0\n"
-        "    blo .L081547AE\n"
-        ".L081547C8:\n"
-        "    movs r0, #1\n"
-        ".L081547CA:\n"
-        "    pop {r3, r4}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 /* Draws the demon's name (8 glyphs) and, after the first glyph, its level. */
 /* Draws the demon's name (up to 8 glyphs, 10 px apart) and, after the first glyph, its level. */

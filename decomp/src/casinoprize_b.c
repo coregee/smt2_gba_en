@@ -310,7 +310,6 @@ u16 sub_081398C8(void)
 #endif
 
 // sub_0813999C @ 0x0813999C
-#ifdef NONMATCHING
 void sub_0813999C(u16 k)
 {
     u16 diff = gShopItemIds[1];
@@ -333,50 +332,3 @@ void sub_0813999C(u16 k)
         gUnk_0203DB66 = 1;
     }
 }
-#else
-NAKED
-void sub_0813999C(u16 k)
-{
-    asm_unified(
-        ".L0813999C:\n"
-        "    push {lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    ldr r1, .L081399D8\n"
-        "    ldrh r3, [r1, #2]\n"
-        "    cmp r0, #3\n"
-        "    bne .L081399D2\n"
-        "    ldrh r0, [r1, #4]\n"
-        "    ldr r1, .L081399DC\n"
-        "    adds r0, r0, r1\n"
-        "    ldrb r1, [r0]\n"
-        "    ldr r0, .L081399E0\n"
-        "    strh r1, [r0]\n"
-        "    movs r2, #8\n"
-        "    cmp r3, #0\n"
-        "    beq .L081399C4\n"
-        "    movs r2, #2\n"
-        "    cmp r3, #1\n"
-        "    bne .L081399C4\n"
-        "    movs r2, #4\n"
-        ".L081399C4:\n"
-        "    ldr r1, .L081399E4\n"
-        "    ldr r0, .L081399E8\n"
-        "    strh r2, [r0]\n"
-        "    str r2, [r1]\n"
-        "    ldr r1, .L081399EC\n"
-        "    movs r0, #1\n"
-        "    strh r0, [r1]\n"
-        ".L081399D2:\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L081399D8: .4byte 0x0203BB74 @ EWRAM+0x3BB74\n"
-        ".L081399DC: .4byte gUnknown_08790B26\n"
-        ".L081399E0: .4byte 0x0203DB28 @ EWRAM+0x3DB28\n"
-        ".L081399E4: .4byte 0x0203DB2C @ EWRAM+0x3DB2C\n"
-        ".L081399E8: .4byte 0x03006970 @ IWRAM+0x6970\n"
-        ".L081399EC: .4byte 0x0203DB66 @ EWRAM+0x3DB66\n"
-    );
-}
-#endif

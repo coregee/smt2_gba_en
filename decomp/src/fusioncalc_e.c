@@ -713,16 +713,7 @@ void SkillList_SortDescending(u8 *list)
             b = list[j + 1];
             a = list[i];
             if (a == b)
-            {
-                k = j;
-                do
-                {
-                    a = list[k + 2];
-                    list[k + 1] = a;
-                    k++;
-                } while (a != 0xFF);
-                goto again;
-            }
+                goto dup;
             if (a < b)
             {
                 list[i] = b;
@@ -733,6 +724,16 @@ void SkillList_SortDescending(u8 *list)
         i++;
         j = i;
     } while (list[i + 1] != 0xFF);
+    return;
+dup:
+    k = j;
+    do
+    {
+        a = list[k + 2];
+        list[k + 1] = a;
+        k++;
+    } while (a != 0xFF);
+    goto again;
 }
 #else
 NAKED
@@ -811,18 +812,19 @@ void SkillList_SortDescending(u8 *list)
    inherit[], the others in 0x24-0x39 into x290.list[], without duplicates. */
 /* NONMATCHING: two comparisons load their operands in the other order. */
 // Fusion_CollectMaterialSkills @ 0x0815ABA8
-#ifdef NONMATCHING
 void Fusion_CollectMaterialSkills(u16 id)
 {
     struct Combatant *m;
     u16 i;
+    u32 kind;
 
     if (id == 0xFFFF)
         return;
     m = Stock_FindByDemonId(id);
     if (m == NULL)
         return;
-    if (((u8 *)Demon_GetRecord(id & 0xFF))[0x1E] == sCalc.skillKind)
+    kind = ((u8 *)Demon_GetRecord(id & 0xFF))[0x1E];
+    if (kind == sCalc.skillKind)
     {
         for (i = 0; i < 6; i++)
         {
@@ -847,7 +849,7 @@ void Fusion_CollectMaterialSkills(u16 id)
                 sCalc.skill = m->skills[5];
                 break;
             }
-            if (sCalc.skill < 0x40 && Skill_GetClass(sCalc.skill) == sCalc.skillKind && !Fusion_IsSkillInherited())
+            if (sCalc.skill < 0x40 && (kind = Skill_GetClass(sCalc.skill)) == sCalc.skillKind && !Fusion_IsSkillInherited())
             {
                 sCalc.inherit[sCalc.nA] = sCalc.skill;
                 sCalc.inherit[sCalc.nA + 1] = 0xFF;
@@ -886,252 +888,6 @@ void Fusion_CollectMaterialSkills(u16 id)
         }
     }
 }
-#else
-NAKED
-void Fusion_CollectMaterialSkills(u16 id)
-{
-    asm_unified(
-        ".L0815ABA8:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    ldr r0, .L0815ABE4\n"
-        "    cmp r4, r0\n"
-        "    bne .L0815ABB6\n"
-        "    b .L0815AD80\n"
-        ".L0815ABB6:\n"
-        "    adds r0, r4, #0\n"
-        "    bl Stock_FindByDemonId\n"
-        "    adds r5, r0, #0\n"
-        "    cmp r5, #0\n"
-        "    bne .L0815ABC4\n"
-        "    b .L0815AD80\n"
-        ".L0815ABC4:\n"
-        "    movs r0, #0xff\n"
-        "    ands r0, r4\n"
-        "    bl Demon_GetRecord\n"
-        "    ldrb r1, [r0, #0x1e]\n"
-        "    ldr r0, .L0815ABE8\n"
-        "    adds r0, #0x80\n"
-        "    ldrb r0, [r0]\n"
-        "    cmp r1, r0\n"
-        "    bne .L0815ACA6\n"
-        "    movs r7, #0\n"
-        ".L0815ABDA:\n"
-        "    lsls r0, r7, #2\n"
-        "    ldr r1, .L0815ABEC\n"
-        "    adds r0, r0, r1\n"
-        "    ldr r0, [r0]\n"
-        "    mov pc, r0\n"
-        ".L0815ABE4: .4byte 0x0000FFFF\n"
-        ".L0815ABE8: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L0815ABEC: .4byte gUnknown_0815ABF0\n"
-        "    .global gUnknown_0815ABF0\n"
-        "gUnknown_0815ABF0:\n"
-        ".L0815ABF0: @ jump table\n"
-        "    .4byte .L0815AC08\n"
-        "    .4byte .L0815AC14\n"
-        "    .4byte .L0815AC20\n"
-        "    .4byte .L0815AC2C\n"
-        "    .4byte .L0815AC38\n"
-        "    .4byte .L0815AC44\n"
-        ".L0815AC08:\n"
-        "    ldr r0, .L0815AC10\n"
-        "    adds r1, r5, #0\n"
-        "    adds r1, #0x5d\n"
-        "    b .L0815AC4A\n"
-        ".L0815AC10: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L0815AC14:\n"
-        "    ldr r0, .L0815AC1C\n"
-        "    adds r1, r5, #0\n"
-        "    adds r1, #0x5e\n"
-        "    b .L0815AC4A\n"
-        ".L0815AC1C: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L0815AC20:\n"
-        "    ldr r0, .L0815AC28\n"
-        "    adds r1, r5, #0\n"
-        "    adds r1, #0x5f\n"
-        "    b .L0815AC4A\n"
-        ".L0815AC28: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L0815AC2C:\n"
-        "    ldr r0, .L0815AC34\n"
-        "    adds r1, r5, #0\n"
-        "    adds r1, #0x60\n"
-        "    b .L0815AC4A\n"
-        ".L0815AC34: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L0815AC38:\n"
-        "    ldr r0, .L0815AC40\n"
-        "    adds r1, r5, #0\n"
-        "    adds r1, #0x61\n"
-        "    b .L0815AC4A\n"
-        ".L0815AC40: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L0815AC44:\n"
-        "    ldr r0, .L0815ACB4\n"
-        "    adds r1, r5, #0\n"
-        "    adds r1, #0x62\n"
-        ".L0815AC4A:\n"
-        "    ldrb r1, [r1]\n"
-        "    adds r0, #0x83\n"
-        "    strb r1, [r0]\n"
-        "    ldr r4, .L0815ACB4\n"
-        "    adds r6, r4, #0\n"
-        "    adds r6, #0x83\n"
-        "    ldrb r0, [r6]\n"
-        "    cmp r0, #0x3f\n"
-        "    bhi .L0815AC9C\n"
-        "    bl Skill_GetClass\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r1, r0, #0x10\n"
-        "    adds r0, r4, #0\n"
-        "    adds r0, #0x80\n"
-        "    ldrb r0, [r0]\n"
-        "    cmp r1, r0\n"
-        "    bne .L0815AC9C\n"
-        "    bl Fusion_IsSkillInherited\n"
-        "    cmp r0, #0\n"
-        "    bne .L0815AC9C\n"
-        "    adds r3, r4, #0\n"
-        "    adds r3, #0x81\n"
-        "    movs r1, #0\n"
-        "    ldrsb r1, [r3, r1]\n"
-        "    movs r0, #0xc0\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r2, r4, r0\n"
-        "    adds r1, r1, r2\n"
-        "    ldrb r0, [r6]\n"
-        "    strb r0, [r1]\n"
-        "    movs r0, #0\n"
-        "    ldrsb r0, [r3, r0]\n"
-        "    adds r0, #1\n"
-        "    adds r0, r0, r2\n"
-        "    movs r1, #0xff\n"
-        "    strb r1, [r0]\n"
-        "    ldrb r0, [r3]\n"
-        "    adds r0, #1\n"
-        "    strb r0, [r3]\n"
-        ".L0815AC9C:\n"
-        "    adds r0, r7, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r7, r0, #0x10\n"
-        "    cmp r7, #5\n"
-        "    bls .L0815ABDA\n"
-        ".L0815ACA6:\n"
-        "    movs r7, #0\n"
-        ".L0815ACA8:\n"
-        "    lsls r0, r7, #2\n"
-        "    ldr r1, .L0815ACB8\n"
-        "    adds r0, r0, r1\n"
-        "    ldr r0, [r0]\n"
-        "    mov pc, r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L0815ACB4: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L0815ACB8: .4byte gUnknown_0815ACBC\n"
-        "    .global gUnknown_0815ACBC\n"
-        "gUnknown_0815ACBC:\n"
-        ".L0815ACBC: @ jump table\n"
-        "    .4byte .L0815ACD4\n"
-        "    .4byte .L0815ACE0\n"
-        "    .4byte .L0815ACEC\n"
-        "    .4byte .L0815ACF8\n"
-        "    .4byte .L0815AD10\n"
-        "    .4byte .L0815AD1C\n"
-        ".L0815ACD4:\n"
-        "    ldr r1, .L0815ACDC\n"
-        "    adds r0, r5, #0\n"
-        "    adds r0, #0x5d\n"
-        "    b .L0815AD22\n"
-        ".L0815ACDC: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L0815ACE0:\n"
-        "    ldr r1, .L0815ACE8\n"
-        "    adds r0, r5, #0\n"
-        "    adds r0, #0x5e\n"
-        "    b .L0815AD22\n"
-        ".L0815ACE8: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L0815ACEC:\n"
-        "    ldr r1, .L0815ACF4\n"
-        "    adds r0, r5, #0\n"
-        "    adds r0, #0x5f\n"
-        "    b .L0815AD22\n"
-        ".L0815ACF4: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L0815ACF8:\n"
-        "    ldr r0, .L0815AD0C\n"
-        "    adds r1, r5, #0\n"
-        "    adds r1, #0x60\n"
-        "    ldrb r1, [r1]\n"
-        "    adds r3, r0, #0\n"
-        "    adds r3, #0x83\n"
-        "    strb r1, [r3]\n"
-        "    adds r6, r0, #0\n"
-        "    b .L0815AD2C\n"
-        "    .byte 0x00, 0x00\n"
-        ".L0815AD0C: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L0815AD10:\n"
-        "    ldr r1, .L0815AD18\n"
-        "    adds r0, r5, #0\n"
-        "    adds r0, #0x61\n"
-        "    b .L0815AD22\n"
-        ".L0815AD18: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L0815AD1C:\n"
-        "    ldr r1, .L0815AD88\n"
-        "    adds r0, r5, #0\n"
-        "    adds r0, #0x62\n"
-        ".L0815AD22:\n"
-        "    ldrb r0, [r0]\n"
-        "    adds r3, r1, #0\n"
-        "    adds r3, #0x83\n"
-        "    strb r0, [r3]\n"
-        "    adds r6, r1, #0\n"
-        ".L0815AD2C:\n"
-        "    adds r4, r6, #0\n"
-        "    adds r4, #0x83\n"
-        "    ldrb r0, [r4]\n"
-        "    subs r0, #0x24\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r0, r0, #0x18\n"
-        "    cmp r0, #0x15\n"
-        "    bhi .L0815AD76\n"
-        "    ldrb r0, [r4]\n"
-        "    bl Fusion_HasOwnOtherSkill\n"
-        "    cmp r0, #0\n"
-        "    bne .L0815AD76\n"
-        "    bl Fusion_IsSkillCollected\n"
-        "    cmp r0, #0\n"
-        "    bne .L0815AD76\n"
-        "    adds r3, r6, #0\n"
-        "    adds r3, #0x82\n"
-        "    movs r1, #0\n"
-        "    ldrsb r1, [r3, r1]\n"
-        "    adds r1, #0x20\n"
-        "    movs r0, #0x9c\n"
-        "    lsls r0, r0, #2\n"
-        "    adds r2, r6, r0\n"
-        "    adds r1, r1, r2\n"
-        "    ldrb r0, [r4]\n"
-        "    strb r0, [r1]\n"
-        "    movs r0, #0\n"
-        "    ldrsb r0, [r3, r0]\n"
-        "    adds r0, #0x21\n"
-        "    adds r0, r0, r2\n"
-        "    movs r1, #0xff\n"
-        "    strb r1, [r0]\n"
-        "    ldrb r0, [r3]\n"
-        "    adds r0, #1\n"
-        "    strb r0, [r3]\n"
-        ".L0815AD76:\n"
-        "    adds r0, r7, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r7, r0, #0x10\n"
-        "    cmp r7, #5\n"
-        "    bls .L0815ACA8\n"
-        ".L0815AD80:\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L0815AD88: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-    );
-}
-#endif
 
 /* Whether skill is among the result's other skills (others[], max 6). */
 // Fusion_HasOwnOtherSkill @ 0x0815AD8C

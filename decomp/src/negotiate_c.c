@@ -43,7 +43,6 @@ u16 sub_08138670(void)
 
 /* TRUE when a living stock demon has id 0x16A-0x17B. */
 // sub_08138690 @ 0x08138690
-#ifdef NONMATCHING
 u16 sub_08138690(void)
 {
     s32 n = Stock_GetCapacity();
@@ -53,59 +52,14 @@ u16 sub_08138690(void)
     {
         if (Combatant_IsAlive(i))
         {
-            if ((u16)(Combatant_GetDemonId(i) - 0x16A) <= 0x11)
+            s16 id = Combatant_GetDemonId(i);
+
+            if (id >= 0x16A && id <= 0x17B)
                 return 1;
         }
     }
     return 0;
 }
-#else
-NAKED
-u16 sub_08138690(void)
-{
-    asm_unified(
-        ".L08138690:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    bl Stock_GetCapacity\n"
-        "    adds r5, r0, #0\n"
-        "    movs r4, #4\n"
-        "    adds r0, r5, #4\n"
-        "    cmp r4, r0\n"
-        "    bge .L081386D4\n"
-        "    ldr r0, .L081386C8\n"
-        "    adds r6, r0, #0\n"
-        ".L081386A4:\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_IsAlive\n"
-        "    cmp r0, #0\n"
-        "    beq .L081386CC\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_GetDemonId\n"
-        "    lsls r0, r0, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    adds r0, r0, r6\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    cmp r0, #0x11\n"
-        "    bhi .L081386CC\n"
-        "    movs r0, #1\n"
-        "    b .L081386D6\n"
-        "    .byte 0x00, 0x00\n"
-        ".L081386C8: .4byte 0xFFFFFE96\n"
-        ".L081386CC:\n"
-        "    adds r4, #1\n"
-        "    adds r0, r5, #4\n"
-        "    cmp r4, r0\n"
-        "    blt .L081386A4\n"
-        ".L081386D4:\n"
-        "    movs r0, #0\n"
-        ".L081386D6:\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-    );
-}
-#endif
 
 /* Operand: low byte = mode, high byte = count - 1 of the jump targets that follow.
    Picks one target from the demon's reaction checks for the given mode. */

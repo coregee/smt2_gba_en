@@ -821,109 +821,28 @@ void sub_08148420(u32 unused, u32 state)
 
 /* Unpacks the card faces of one suit (0x1200 bytes) to 0x0200F874 + suit * 0x1200. */
 // Baccarat_LoadCards @ 0x0814842C
-#ifdef NONMATCHING
 void Baccarat_LoadCards(u32 unused, u32 suit)
 {
-    u8 *dest = (u8 *)0x0200F874 + suit * 0x1200;
+    extern u8 gUnk_0200F874[];
+    u32 dest = (u32)gUnk_0200F874;
 
+    dest += suit * 0x1200;
     HuffUnComp(gBaccaratCardGfx[suit], (void *)0x0200AFC8);
-    LZ77UnCompWram((void *)0x0200AFC8, dest);
+    LZ77UnCompWram((void *)0x0200AFC8, (void *)dest);
     gUnk_03003BB4 = 0;
 }
-#else
-NAKED
-void Baccarat_LoadCards(u32 unused, u32 suit)
-{
-    asm_unified(
-        "    push {r4, r5, lr}\n"
-        "    ldr r5, .L0814845C\n"
-        "    lsls r0, r1, #3\n"
-        "    adds r0, r0, r1\n"
-        "    lsls r0, r0, #9\n"
-        "    adds r5, r0, r5\n"
-        "    ldr r0, .L08148460\n"
-        "    lsls r1, r1, #2\n"
-        "    adds r1, r1, r0\n"
-        "    ldr r0, [r1]\n"
-        "    ldr r4, .L08148464\n"
-        "    adds r1, r4, #0\n"
-        "    bl HuffUnComp\n"
-        "    adds r0, r4, #0\n"
-        "    adds r1, r5, #0\n"
-        "    bl LZ77UnCompWram\n"
-        "    ldr r1, .L08148468\n"
-        "    movs r0, #0\n"
-        "    str r0, [r1]\n"
-        "    pop {r4, r5}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L0814845C: .4byte 0x0200F874 @ EWRAM+0xF874\n"
-        ".L08148460: .4byte gBaccaratCardGfx\n"
-        ".L08148464: .4byte 0x0200AFC8 @ EWRAM+0xAFC8\n"
-        ".L08148468: .4byte 0x03003BB4 @ IWRAM+0x3BB4\n"
-    );
-}
-#endif
 
 /* Copies the face of card `slot` (32x40, 20 tiles) to OBJ VRAM. */
 // Baccarat_UploadCardFace @ 0x0814846C
-#ifdef NONMATCHING
 void Baccarat_UploadCardFace(u16 slot)
 {
+    extern u8 gUnk_0200F874[];
     struct Baccarat *s = gBaccarat;
+    u32 src = (u32)gUnk_0200F874;
 
-    DmaSet3((u8 *)0x0200F874 + s->gfxSuit[slot] * 0x2400 + s->gfxRank[slot] * 0x280,
-            slot * 0x400 + 0x06014C00, 0x840000A0);
+    src += s->gfxSuit[slot] * 0x2400 + s->gfxRank[slot] * 0x280;
+    DmaSet3(src, slot * 0x400 + 0x06014C00, 0x840000A0);
 }
-#else
-NAKED
-void Baccarat_UploadCardFace(u16 slot)
-{
-    asm_unified(
-        ".L0814846C:\n"
-        "    push {r4, lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    ldr r3, .L081484B0\n"
-        "    ldr r4, .L081484B4\n"
-        "    movs r2, #0xab\n"
-        "    lsls r2, r2, #2\n"
-        "    adds r1, r3, r2\n"
-        "    adds r1, r0, r1\n"
-        "    ldrb r1, [r1]\n"
-        "    lsls r2, r1, #3\n"
-        "    adds r2, r2, r1\n"
-        "    lsls r2, r2, #0xa\n"
-        "    ldr r1, .L081484B8\n"
-        "    adds r3, r3, r1\n"
-        "    adds r3, r0, r3\n"
-        "    ldrb r3, [r3]\n"
-        "    lsls r1, r3, #2\n"
-        "    adds r1, r1, r3\n"
-        "    lsls r1, r1, #7\n"
-        "    adds r2, r2, r1\n"
-        "    adds r4, r2, r4\n"
-        "    ldr r1, .L081484BC\n"
-        "    str r4, [r1]\n"
-        "    lsls r0, r0, #0xa\n"
-        "    ldr r2, .L081484C0\n"
-        "    adds r0, r0, r2\n"
-        "    str r0, [r1, #4]\n"
-        "    ldr r0, .L081484C4\n"
-        "    str r0, [r1, #8]\n"
-        "    ldr r0, [r1, #8]\n"
-        "    pop {r4}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L081484B0: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
-        ".L081484B4: .4byte 0x0200F874 @ EWRAM+0xF874\n"
-        ".L081484B8: .4byte 0x000002B2\n"
-        ".L081484BC: .4byte 0x040000D4 @ REG_DMA3SAD\n"
-        ".L081484C0: .4byte 0x06014C00 @ VRAM+0x14C00\n"
-        ".L081484C4: .4byte 0x840000A0\n"
-    );
-}
-#endif
 
 // sub_081484C8 @ 0x081484C8
 void sub_081484C8(void)

@@ -3392,12 +3392,12 @@ address	mode	size	name	confidence	state	file
 08134854	thumb	100	ScriptOp_33E	probable	c	src/shopops_a.c
 081348B8	thumb	68	ScriptOp_33F	probable	c	src/shopops_a.c
 081348FC	thumb	2	ScriptOp_340	probable	c	src/shopops_a.c
-08134900	thumb	328	ScriptOp_Choice	tentative	nonmatching	src/shopops_a.c
+08134900	thumb	328	ScriptOp_Choice	tentative	c	src/shopops_a.c
 08134A48	thumb	48	ScriptOp_352	probable	c	src/shopops_a.c
 08134A78	thumb	72	ScriptOp_353	probable	c	src/shopops_a.c
 08134AC0	thumb	2	ScriptOp_354	probable	c	src/shopops_a.c
 08134AC4	thumb	112	ScriptOp_355	probable	c	src/shopops_a.c
-08134B34	thumb	116	ScriptOp_356	probable	nonmatching	src/shopops_a.c
+08134B34	thumb	116	ScriptOp_356	probable	c	src/shopops_a.c
 08134BA8	thumb	88	ScriptOp_357	probable	c	src/shopops_a.c
 08134C00	thumb	60	ScriptOp_358	probable	c	src/shopops_a.c
 08134C3C	thumb	4			c	src/shopops_a.c
@@ -3413,7 +3413,7 @@ address	mode	size	name	confidence	state	file
 08134E28	thumb	400	ScriptOp_35E	probable	nonmatching	src/healer_a.c
 08134FB8	thumb	172	ScriptOp_35F	probable	c	src/healer_a.c
 08135064	thumb	104	Healer_GetCost	probable	c	src/healer_a.c
-081350CC	thumb	180	Healer_Apply	probable	nonmatching	src/healer_a.c
+081350CC	thumb	180	Healer_Apply	probable	c	src/healer_a.c
 08135180	thumb	128			c	src/healer_a.c
 08135200	thumb	144	Healer_HpMpCost	probable	c	src/healer_a.c
 08135290	thumb	104	Healer_StatusCost	probable	c	src/healer_a.c
@@ -3444,12 +3444,12 @@ address	mode	size	name	confidence	state	file
 08135AA8	thumb	248	ScriptOp_36F	probable	c	src/partyops_a.c
 08135BA0	thumb	624	ScriptOp_372	probable	c	src/partyops_a.c
 08135E10	thumb	2	ScriptOp_373	probable	c	src/partyops_a.c
-08135E14	thumb	214	ScriptOp_374	probable	nonmatching	src/partyops_a.c
-08135EEC	thumb	214	ScriptOp_375	probable	nonmatching	src/partyops_a.c
+08135E14	thumb	214	ScriptOp_374	probable	c	src/partyops_a.c
+08135EEC	thumb	214	ScriptOp_375	probable	c	src/partyops_a.c
 08135FC4	thumb	270			c	src/partyops_a.c
 081360D4	thumb	64			c	src/partyops_a.c
 08136114	thumb	70			c	src/partyops_a.c
-0813615C	thumb	166	ScriptOp_376	probable	nonmatching	src/partyops_a.c
+0813615C	thumb	166	ScriptOp_376	probable	c	src/partyops_a.c
 08136204	thumb	106			c	src/partyops_a.c
 08136270	thumb	106			c	src/partyops_a.c
 081362DC	thumb	756	Party_SetupGuest	probable	c	src/partyops_a.c
@@ -3462,7 +3462,7 @@ address	mode	size	name	confidence	state	file
 0813695C	thumb	96	ScriptOp_37F	probable	c	src/partyops_a.c
 081369BC	thumb	16	ScriptOp_380	probable	c	src/partyops_a.c
 081369CC	thumb	520	ScriptOp_381	probable	c	src/partyops_a.c
-08136BD4	thumb	192	ScriptOp_382	probable	nonmatching	src/partyops_a.c
+08136BD4	thumb	192	ScriptOp_382	probable	c	src/partyops_a.c
 08136C94	thumb	40	ScriptOp_388	probable	c	src/partyops_a.c
 08136CBC	thumb	156	ScriptOp_389	probable	c	src/partyops_a.c
 08136D58	thumb	2	ScriptOp_38A	probable	c	src/scriptops_38a.c
@@ -3478,7 +3478,7 @@ address	mode	size	name	confidence	state	file
 08136F08	thumb	2	ScriptOp_398	probable	c	src/scriptops_38a.c
 08136F0C	thumb	2	ScriptOp_399	probable	c	src/scriptops_38a.c
 08136F10	thumb	2	ScriptOp_39A	probable	c	src/scriptops_38a.c
-08136F14	thumb	324	ScriptOp_39B	probable	nonmatching	src/scriptops_38a.c
+08136F14	thumb	324	ScriptOp_39B	probable	c	src/scriptops_38a.c
 08137058	thumb	2	ScriptOp_39C	probable	c	src/scriptops_38a.c
 0813705C	thumb	100	ScriptOp_39F	probable	c	src/scriptops_38a.c
 081370C0	thumb	20	ScriptOp_3A3	probable	c	src/scriptops_38a.c
@@ -3522,7 +3522,7 @@ address	mode	size	name	confidence	state	file
 08137908	thumb	84	ScriptOp_3D2	probable	c	src/scriptops_38a.c
 0813795C	thumb	108	ScriptOp_3D3	probable	c	src/scriptops_38a.c
 081379C8	thumb	2	ScriptOp_3D4	probable	c	src/scriptops_38a.c
-081379CC	thumb	82			nonmatching	src/scriptops_38a.c
+081379CC	thumb	82			c	src/scriptops_38a.c
 08137A20	thumb	84	ScriptOp_3D5	probable	c	src/scriptops_38a.c
 08137A74	thumb	132	ScriptOp_3D6	probable	c	src/scriptops_38a.c
 08137AF8	thumb	34			c	src/negotiate_a.c
@@ -3540,7 +3540,7 @@ address	mode	size	name	confidence	state	file
 08137D20	thumb	12			c	src/negotiate_a.c
 08137D2C	thumb	154			nonmatching	src/negotiate_a.c
 08137DC8	thumb	76			c	src/negotiate_a.c
-08137E14	thumb	104			nonmatching	src/negotiate_a.c
+08137E14	thumb	104			c	src/negotiate_a.c
 08137E7C	thumb	334	Negotiate_ReactHeal	probable	c	src/negotiate_a.c
 08137FCC	thumb	168	Negotiate_DoReaction	probable	c	src/negotiate_a.c
 08138074	thumb	88	Negotiate_PickReaction	probable	c	src/negotiate_a.c
@@ -3558,14 +3558,14 @@ address	mode	size	name	confidence	state	file
 08138310	thumb	40	ScriptOp_3E0	probable	c	src/negotiate_b.c
 08138338	thumb	22			c	src/negotiate_b.c
 08138350	thumb	64	ScriptOp_3E1	probable	c	src/negotiate_b.c
-08138390	thumb	252	Negotiate_CallReply	probable	nonmatching	src/negotiate_b.c
+08138390	thumb	252	Negotiate_CallReply	probable	c	src/negotiate_b.c
 0813848C	thumb	252			nonmatching	src/negotiate_b.c
 08138588	thumb	72	ScriptOp_3E2_40F	probable	c	src/negotiate_b.c
 081385D0	thumb	40	ScriptOp_44C	probable	c	src/negotiate_c.c
 081385F8	thumb	72	ScriptOp_412	probable	c	src/negotiate_c.c
 08138640	thumb	46			c	src/negotiate_c.c
 08138670	thumb	30			c	src/negotiate_c.c
-08138690	thumb	76			nonmatching	src/negotiate_c.c
+08138690	thumb	76			c	src/negotiate_c.c
 081386DC	thumb	1216	Negotiate_SelectResponse	tentative	c	src/negotiate_c.c
 08138B9C	thumb	172	ScriptOp_3E3	probable	c	src/negotiate_d.c
 08138C48	thumb	2	ScriptOp_3E4	probable	c	src/negotiate_d.c
@@ -3606,7 +3606,7 @@ address	mode	size	name	confidence	state	file
 081397C8	thumb	16	ScriptOpAlt_40F	probable	c	src/casinoprize_a.c
 081397D8	thumb	240			nonmatching	src/casinoprize_b.c
 081398C8	thumb	212			nonmatching	src/casinoprize_b.c
-0813999C	thumb	84			nonmatching	src/casinoprize_b.c
+0813999C	thumb	84			c	src/casinoprize_b.c
 081399F0	thumb	1004	ScriptOp_410	probable	c	src/scriptops_410.c
 08139DDC	thumb	16	ScriptOpAlt_410	probable	c	src/scriptops_411.c
 08139DEC	thumb	32	ScriptOp_411	probable	c	src/scriptops_411.c
@@ -3659,7 +3659,7 @@ address	mode	size	name	confidence	state	file
 0813A58C	thumb	2	ScriptOpAlt_437	probable	c	src/scriptops_427.c
 0813A590	thumb	680	ScriptOp_438	probable	c	src/negotiateops_a.c
 0813A838	thumb	16	ScriptOpAlt_438	probable	c	src/negotiateops_a.c
-0813A848	thumb	64	ScriptOp_439	probable	nonmatching	src/negotiateops_a.c
+0813A848	thumb	64	ScriptOp_439	probable	c	src/negotiateops_a.c
 0813A888	thumb	16	ScriptOpAlt_439	probable	c	src/negotiateops_a.c
 0813A898	thumb	16	ScriptOp_43A	probable	c	src/negotiateops_a.c
 0813A8A8	thumb	16	ScriptOpAlt_43A	probable	c	src/negotiateops_a.c
@@ -3675,10 +3675,10 @@ address	mode	size	name	confidence	state	file
 0813AB18	thumb	16	ScriptOpAlt_43F	probable	c	src/negotiateops_a.c
 0813AB28	thumb	72	ScriptOp_440	probable	c	src/negotiateops_a.c
 0813AB70	thumb	16	ScriptOpAlt_440	probable	c	src/negotiateops_a.c
-0813AB80	thumb	264	ScriptOp_441	probable	nonmatching	src/negotiateops_a.c
+0813AB80	thumb	264	ScriptOp_441	probable	c	src/negotiateops_a.c
 0813AC88	thumb	16	ScriptOpAlt_441	probable	c	src/negotiateops_a.c
 0813AC98	thumb	68			c	src/negotiateops_a.c
-0813ACDC	thumb	1100	ScriptOp_442	probable	nonmatching	src/negotiateops_a.c
+0813ACDC	thumb	1100	ScriptOp_442	probable	c	src/negotiateops_a.c
 0813B128	thumb	16	ScriptOpAlt_442	probable	c	src/negotiateops_a.c
 0813B138	thumb	284	ScriptOp_443	probable	c	src/negotiateops_a.c
 0813B254	thumb	16	ScriptOpAlt_443	probable	c	src/negotiateops_a.c
@@ -3692,7 +3692,7 @@ address	mode	size	name	confidence	state	file
 0813B438	thumb	234			c	src/negotiateops_a.c
 0813B524	thumb	1800	ScriptOp_445	probable	nonmatching	src/negotiateops_445.c
 0813BC2C	thumb	16	ScriptOpAlt_445	probable	c	src/negotiateops_b.c
-0813BC3C	thumb	268	ScriptOp_446	probable	nonmatching	src/negotiateops_b.c
+0813BC3C	thumb	268	ScriptOp_446	probable	c	src/negotiateops_b.c
 0813BD48	thumb	16	ScriptOpAlt_446	probable	c	src/negotiateops_b.c
 0813BD58	thumb	74			c	src/negotiateops_b.c
 0813BDA4	thumb	40			c	src/negotiateops_b.c
@@ -3909,7 +3909,7 @@ address	mode	size	name	confidence	state	file
 081451FC	thumb	100			c	src/casino_joker_b.c
 08145260	thumb	36	JokerStars_Quit	probable	c	src/casino_joker_b.c
 08145284	thumb	12			c	src/casino_joker_b.c
-08145290	thumb	44	JokerStars_GetReelSymbol	probable	nonmatching	src/casino_joker_b.c
+08145290	thumb	44	JokerStars_GetReelSymbol	probable	c	src/casino_joker_b.c
 081452BC	thumb	120			c	src/casino_joker_b.c
 08145334	thumb	20			c	src/casino_joker_b.c
 08145348	thumb	48			c	src/casino_joker_b.c
@@ -3969,8 +3969,8 @@ address	mode	size	name	confidence	state	file
 0814837C	thumb	56	Baccarat_ScrollRoad	probable	c	src/casino_baccarat_b.c
 081483B4	thumb	108	Baccarat_DrawRoad	probable	c	src/casino_baccarat_b.c
 08148420	thumb	12			c	src/casino_baccarat_b.c
-0814842C	thumb	64	Baccarat_LoadCards	probable	nonmatching	src/casino_baccarat_b.c
-0814846C	thumb	92	Baccarat_UploadCardFace	probable	nonmatching	src/casino_baccarat_b.c
+0814842C	thumb	64	Baccarat_LoadCards	probable	c	src/casino_baccarat_b.c
+0814846C	thumb	92	Baccarat_UploadCardFace	probable	c	src/casino_baccarat_b.c
 081484C8	thumb	12			c	src/casino_baccarat_b.c
 081484D4	thumb	12			c	src/casino_baccarat_b.c
 081484E0	thumb	12			c	src/casino_baccarat_b.c
@@ -3991,12 +3991,12 @@ address	mode	size	name	confidence	state	file
 08148964	thumb	1920	Keno_Update	probable	nonmatching	src/casino_keno_b.c
 081490E4	thumb	58			c	src/casino_keno_c.c
 08149120	thumb	20			c	src/casino_keno_c.c
-08149134	thumb	56			nonmatching	src/casino_keno_c.c
+08149134	thumb	56			c	src/casino_keno_c.c
 0814916C	thumb	32			c	src/casino_keno_c.c
 0814918C	thumb	48			c	src/casino_keno_c.c
 081491BC	thumb	116	Keno_DrawNumber	probable	nonmatching	src/casino_keno_c.c
 08149230	thumb	80			nonmatching	src/casino_keno_c.c
-08149280	thumb	92	Keno_ComputePayout	probable	nonmatching	src/casino_keno_c.c
+08149280	thumb	92	Keno_ComputePayout	probable	c	src/casino_keno_c.c
 081492DC	thumb	40			c	src/casino_keno_c.c
 08149304	thumb	40			c	src/casino_keno_c.c
 0814932C	thumb	8			c	src/casino_keno_c.c
@@ -4059,7 +4059,7 @@ address	mode	size	name	confidence	state	file
 0814C3FC	thumb	128			c	src/casino_codebreaker_a.c
 0814C47C	thumb	176	CodeBreaker_DrawNotes	probable	c	src/casino_codebreaker_a.c
 0814C52C	thumb	82			c	src/casino_codebreaker_b.c
-0814C580	thumb	162			nonmatching	src/casino_codebreaker_b.c
+0814C580	thumb	162			c	src/casino_codebreaker_b.c
 0814C624	thumb	158			c	src/casino_codebreaker_b.c
 0814C6C4	thumb	48			c	src/casino_codebreaker_b.c
 0814C6F4	thumb	180			c	src/casino_codebreaker_b.c
@@ -4163,7 +4163,7 @@ address	mode	size	name	confidence	state	file
 08153458	thumb	230	WorldMap_FindEvent	probable	c	src/worldmap_a.c
 08153540	thumb	100	WorldMap_GetStepDirection	probable	c	src/worldmap_b.c
 081535A4	thumb	196	WorldMap_GetNeighbourTerrain	probable	c	src/worldmap_b.c
-08153668	thumb	228	WorldMap_GetEncounterTerrain	probable	nonmatching	src/worldmap_b.c
+08153668	thumb	228	WorldMap_GetEncounterTerrain	probable	c	src/worldmap_b.c
 0815374C	thumb	120	WorldMap_CheckSpecialEncounter	probable	c	src/worldmap_b.c
 081537C4	thumb	74			c	src/worldmap_b.c
 08153810	thumb	36			c	src/worldmap_b.c
@@ -4197,8 +4197,8 @@ address	mode	size	name	confidence	state	file
 08154074	thumb	68	Fusion_SortMaterials	probable	c	src/fusionlist_a.c
 081540B8	thumb	596	Fusion_GetPairIcon	probable	nonmatching	src/fusionlist_a.c
 0815430C	thumb	56	Fusion_FindListSlot	probable	c	src/fusionlist_a.c
-08154344	thumb	70	Stock_FindSlotByDemonId	probable	nonmatching	src/fusionlist_a.c
-0815438C	thumb	90			nonmatching	src/fusionlist_a.c
+08154344	thumb	70	Stock_FindSlotByDemonId	probable	c	src/fusionlist_a.c
+0815438C	thumb	90			c	src/fusionlist_a.c
 081543E8	thumb	194			c	src/fusionlist_a.c
 081544AC	thumb	480			nonmatching	src/fusionlist_a.c
 0815468C	thumb	12			c	src/fusionlist_a.c
@@ -4206,7 +4206,7 @@ address	mode	size	name	confidence	state	file
 081546B4	thumb	36			c	src/fusionlist_a.c
 081546D8	thumb	16			c	src/fusionlist_a.c
 081546E8	thumb	84	Fusion_AllHighRace	probable	c	src/fusionlist_a.c
-0815473C	thumb	154	Fusion_CanCreate	probable	nonmatching	src/fusionlist_a.c
+0815473C	thumb	154	Fusion_CanCreate	probable	c	src/fusionlist_a.c
 081547D8	thumb	296	Fusion_DrawDemonName	probable	nonmatching	src/fusionlist_a.c
 08154900	thumb	104			c	src/fusionlist_a.c
 08154968	thumb	24	Fusion_GetDemonByIndex	probable	c	src/fusionlist_a.c
@@ -4219,7 +4219,7 @@ address	mode	size	name	confidence	state	file
 081551A8	thumb	80	Fusion_DrawList	probable	c	src/fusionlist_a.c
 081551F8	thumb	240			c	src/fusionlist_b.c
 081552E8	thumb	140			c	src/fusionlist_b.c
-08155374	thumb	408			nonmatching	src/fusionlist_b.c
+08155374	thumb	408			c	src/fusionlist_b.c
 0815550C	thumb	12			c	src/fusionlist_b.c
 08155518	thumb	60			c	src/fusionlist_b.c
 08155554	thumb	264	Fusion_BuildMaterialList	probable	c	src/fusionlist_b.c
@@ -4326,10 +4326,10 @@ address	mode	size	name	confidence	state	file
 08158CBC	thumb	76			c	src/fusioncalc_a.c
 08158D08	thumb	24			c	src/fusioncalc_a.c
 08158D20	thumb	224			nonmatching	src/fusioncalc_a.c
-08158E00	thumb	82			nonmatching	src/fusioncalc_a.c
+08158E00	thumb	82			c	src/fusioncalc_a.c
 08158E54	thumb	36	Fusion_SetNoResult	probable	c	src/fusioncalc_a.c
 08158E78	thumb	86			nonmatching	src/fusioncalc_a.c
-08158ED0	thumb	120			nonmatching	src/fusioncalc_a.c
+08158ED0	thumb	120			c	src/fusioncalc_a.c
 08158F48	thumb	92			c	src/fusioncalc_a.c
 08158FA4	thumb	242			nonmatching	src/fusioncalc_a.c
 08159098	thumb	52			c	src/fusioncalc_a.c
@@ -4337,14 +4337,14 @@ address	mode	size	name	confidence	state	file
 08159144	thumb	24			c	src/fusioncalc_a.c
 0815915C	thumb	336			nonmatching	src/fusioncalc_a.c
 081592AC	thumb	208			nonmatching	src/fusioncalc_a.c
-0815937C	thumb	112			nonmatching	src/fusioncalc_a.c
+0815937C	thumb	112			c	src/fusioncalc_a.c
 081593EC	thumb	76			c	src/fusioncalc_a.c
-08159438	thumb	124	Fusion_FindRaceDemonByLevel	probable	nonmatching	src/fusioncalc_a.c
+08159438	thumb	124	Fusion_FindRaceDemonByLevel	probable	c	src/fusioncalc_a.c
 081594B4	thumb	178			nonmatching	src/fusioncalc_a.c
 08159568	thumb	156			nonmatching	src/fusioncalc_a.c
-08159604	thumb	48			nonmatching	src/fusioncalc_a.c
-08159634	thumb	92	Fusion_RankDown	probable	nonmatching	src/fusioncalc_a.c
-08159690	thumb	96	Fusion_RankUp	probable	nonmatching	src/fusioncalc_a.c
+08159604	thumb	48			c	src/fusioncalc_a.c
+08159634	thumb	92	Fusion_RankDown	probable	c	src/fusioncalc_a.c
+08159690	thumb	96	Fusion_RankUp	probable	c	src/fusioncalc_a.c
 081596F0	thumb	588	Fusion_CalcThree	probable	c	src/fusioncalc_b.c
 0815993C	thumb	94			c	src/fusioncalc_b.c
 0815999C	thumb	196			nonmatching	src/fusioncalc_b.c
@@ -4366,7 +4366,7 @@ address	mode	size	name	confidence	state	file
 0815AAC4	thumb	2			c	src/fusioncalc_e.c
 0815AAC8	thumb	112	SkillList_SortAscending	probable	nonmatching	src/fusioncalc_e.c
 0815AB38	thumb	112	SkillList_SortDescending	probable	nonmatching	src/fusioncalc_e.c
-0815ABA8	thumb	484	Fusion_CollectMaterialSkills	probable	nonmatching	src/fusioncalc_e.c
+0815ABA8	thumb	484	Fusion_CollectMaterialSkills	probable	c	src/fusioncalc_e.c
 0815AD8C	thumb	62	Fusion_HasOwnOtherSkill	probable	c	src/fusioncalc_e.c
 0815ADCC	thumb	76	Fusion_IsSkillInherited	probable	c	src/fusioncalc_e.c
 0815AE18	thumb	80	Fusion_IsSkillCollected	probable	c	src/fusioncalc_e.c
@@ -4381,18 +4381,18 @@ address	mode	size	name	confidence	state	file
 0815B260	thumb	404	Fusion_CheckResult	probable	nonmatching	src/fusioncalc_f.c
 0815B3F4	thumb	190	Fusion_ApplyResult	probable	c	src/fusioncalc_f.c
 0815B4B4	thumb	880	Fusion_IsRandomResult	probable	nonmatching	src/fusioncalc_f.c
-0815B824	thumb	64			nonmatching	src/fusioncalc_c.c
+0815B824	thumb	64			c	src/fusioncalc_c.c
 0815B864	thumb	28			c	src/fusioncalc_c.c
 0815B880	thumb	2			c	src/fusioncalc_c.c
-0815B884	thumb	116			nonmatching	src/fusioncalc_c.c
+0815B884	thumb	116			c	src/fusioncalc_c.c
 0815B8F8	thumb	96			nonmatching	src/fusioncalc_c.c
 0815B958	thumb	24			c	src/fusioncalc_c.c
-0815B970	thumb	46			nonmatching	src/fusioncalc_c.c
+0815B970	thumb	46			c	src/fusioncalc_c.c
 0815B9A0	thumb	24	Demon_GetLevel	probable	c	src/fusioncalc_c.c
 0815B9B8	thumb	36	Demon_GetRaceAndAlign	probable	c	src/fusioncalc_c.c
 0815B9DC	thumb	76	Demon_GetRace	probable	c	src/fusioncalc_c.c
 0815BA28	thumb	82			nonmatching	src/fusioncalc_c.c
-0815BA7C	thumb	72			nonmatching	src/fusioncalc_c.c
+0815BA7C	thumb	72			c	src/fusioncalc_c.c
 0815BAC4	thumb	4			c	src/fusioncalc_c.c
 0815BAC8	thumb	80	ItemStock_Add	probable	c	src/fusioncalc_c.c
 0815BB18	thumb	88	ItemStock_Remove	probable	c	src/fusioncalc_c.c

@@ -453,43 +453,14 @@ void sub_08145284(struct Task *task, s32 speed)
 
 /* Symbol under reel `reel`'s window. */
 // JokerStars_GetReelSymbol @ 0x08145290
-#ifdef NONMATCHING
 u16 JokerStars_GetReelSymbol(u16 reel)
 {
     struct JokerStars *s = (struct JokerStars *)gMenuState;
     const u16 *strip = s->strip[reel];
+    u32 p = (u32)s->pos[reel].v >> 16;
 
-    return strip[(u32)s->pos[reel].h[1] / 20];
+    return strip[p / 20];
 }
-#else
-NAKED
-u16 JokerStars_GetReelSymbol(u16 reel)
-{
-    asm_unified(
-        ".L08145290:\n"
-        "    push {r4, lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    ldr r2, .L081452B8\n"
-        "    lsrs r0, r0, #0xe\n"
-        "    adds r1, r2, #0\n"
-        "    adds r1, #0x70\n"
-        "    adds r1, r0, r1\n"
-        "    ldr r4, [r1]\n"
-        "    adds r2, r2, r0\n"
-        "    ldrh r0, [r2, #6]\n"
-        "    movs r1, #0x14\n"
-        "    bl __udivsi3\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r0, r0, r4\n"
-        "    ldrh r0, [r0]\n"
-        "    pop {r4}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-        ".L081452B8: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
-    );
-}
-#endif
 
 /* Stops the task's reel on a random symbol different from the current one. The check
    uses the strip pointer read before a forced strip (0x0879C7C4) is replaced, so after a

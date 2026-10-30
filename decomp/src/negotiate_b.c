@@ -193,19 +193,19 @@ void ScriptOp_3E1(void)
 /* Calls reply n of the demon's personality (gUnk_0300685C >> 4): saves the script position
    and jumps into that personality's reply table. */
 // Negotiate_CallReply @ 0x08138390
-#ifdef NONMATCHING
 void Negotiate_CallReply(u16 n)
 {
-    u8 b;
     u32 p;
     u16 idx;
+    u32 lo, hi;
+    u32 m;
 
     gUnk_030068C4 = gScriptBase;
     gUnk_03006818 = gScriptPc;
     gUnk_0203DB64 = 1;
-    b = gUnk_0300685C;
-    p = b >> 4;
-    idx = ((b & 0xF) + n * gUnknown_087904F2[p]) * 2;
+    p = gUnk_0300685C >> 4;
+    m = gUnknown_087904F2[p];
+    idx = ((gUnk_0300685C & 0xF) + n * m) * 2;
     if (p == 0)
         gScriptBase = gUnknown_0803473C;
     else if (p == 1)
@@ -230,135 +230,12 @@ void Negotiate_CallReply(u16 n)
         gScriptBase = gUnknown_080340B8;
     else
         gScriptBase = gUnknown_08034138;
-    gScriptJumpTarget = (u16 *)(gScriptBase[idx + 1] << 16 | gScriptBase[idx]);
+    lo = gScriptBase[idx];
+    hi = gScriptBase[idx + 1];
+    hi <<= 16;
+    hi |= lo;
+    gScriptJumpTarget = (u16 *)hi;
 }
-#else
-NAKED
-void Negotiate_CallReply(u16 n)
-{
-    asm_unified(
-        ".L08138390:\n"
-        "    push {r4, r5, lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    ldr r2, .L081383D0\n"
-        "    ldr r4, .L081383D4\n"
-        "    ldr r1, [r4]\n"
-        "    str r1, [r2]\n"
-        "    ldr r2, .L081383D8\n"
-        "    ldr r1, .L081383DC\n"
-        "    ldrh r1, [r1]\n"
-        "    strh r1, [r2]\n"
-        "    ldr r2, .L081383E0\n"
-        "    movs r1, #1\n"
-        "    strh r1, [r2]\n"
-        "    ldr r1, .L081383E4\n"
-        "    ldrb r3, [r1]\n"
-        "    lsrs r5, r3, #4\n"
-        "    ldr r2, .L081383E8\n"
-        "    lsls r1, r5, #1\n"
-        "    adds r1, r1, r2\n"
-        "    ldrh r2, [r1]\n"
-        "    movs r1, #0xf\n"
-        "    ands r1, r3\n"
-        "    muls r0, r2, r0\n"
-        "    adds r1, r1, r0\n"
-        "    lsls r1, r1, #0x11\n"
-        "    lsrs r2, r1, #0x10\n"
-        "    cmp r5, #0\n"
-        "    bne .L081383F0\n"
-        "    ldr r0, .L081383EC\n"
-        "    b .L0813846A\n"
-        "    .byte 0x00, 0x00\n"
-        ".L081383D0: .4byte 0x030068C4 @ IWRAM+0x68C4\n"
-        ".L081383D4: .4byte 0x03006950 @ IWRAM+0x6950\n"
-        ".L081383D8: .4byte 0x03006818 @ IWRAM+0x6818\n"
-        ".L081383DC: .4byte 0x0203DB40 @ EWRAM+0x3DB40\n"
-        ".L081383E0: .4byte 0x0203DB64 @ EWRAM+0x3DB64\n"
-        ".L081383E4: .4byte 0x0300685C @ IWRAM+0x685C\n"
-        ".L081383E8: .4byte gUnknown_087904F2\n"
-        ".L081383EC: .4byte gUnknown_0803473C\n"
-        ".L081383F0:\n"
-        "    cmp r5, #1\n"
-        "    bne .L081383FC\n"
-        "    ldr r0, .L081383F8\n"
-        "    b .L0813846A\n"
-        ".L081383F8: .4byte gUnknown_08033560\n"
-        ".L081383FC:\n"
-        "    cmp r5, #2\n"
-        "    bne .L08138408\n"
-        "    ldr r0, .L08138404\n"
-        "    b .L0813846A\n"
-        ".L08138404: .4byte gUnknown_08032DE0\n"
-        ".L08138408:\n"
-        "    cmp r5, #3\n"
-        "    bne .L08138414\n"
-        "    ldr r0, .L08138410\n"
-        "    b .L0813846A\n"
-        ".L08138410: .4byte gUnknown_080341EC\n"
-        ".L08138414:\n"
-        "    cmp r5, #4\n"
-        "    bne .L08138420\n"
-        "    ldr r0, .L0813841C\n"
-        "    b .L0813846A\n"
-        ".L0813841C: .4byte gUnknown_0803473C\n"
-        ".L08138420:\n"
-        "    cmp r5, #5\n"
-        "    bne .L0813842C\n"
-        "    ldr r0, .L08138428\n"
-        "    b .L0813846A\n"
-        ".L08138428: .4byte gUnknown_08033560\n"
-        ".L0813842C:\n"
-        "    cmp r5, #6\n"
-        "    bne .L08138438\n"
-        "    ldr r0, .L08138434\n"
-        "    b .L0813846A\n"
-        ".L08138434: .4byte gUnknown_08032DE0\n"
-        ".L08138438:\n"
-        "    cmp r5, #7\n"
-        "    bne .L08138444\n"
-        "    ldr r0, .L08138440\n"
-        "    b .L0813846A\n"
-        ".L08138440: .4byte gUnknown_080341EC\n"
-        ".L08138444:\n"
-        "    cmp r5, #8\n"
-        "    bne .L08138450\n"
-        "    ldr r0, .L0813844C\n"
-        "    b .L0813846A\n"
-        ".L0813844C: .4byte gUnknown_08034094\n"
-        ".L08138450:\n"
-        "    cmp r5, #9\n"
-        "    bne .L0813845C\n"
-        "    ldr r0, .L08138458\n"
-        "    b .L0813846A\n"
-        ".L08138458: .4byte gUnknown_0803526C\n"
-        ".L0813845C:\n"
-        "    cmp r5, #0xa\n"
-        "    bne .L08138468\n"
-        "    ldr r0, .L08138464\n"
-        "    b .L0813846A\n"
-        ".L08138464: .4byte gUnknown_080340B8\n"
-        ".L08138468:\n"
-        "    ldr r0, .L08138484\n"
-        ".L0813846A:\n"
-        "    str r0, [r4]\n"
-        "    ldr r1, [r4]\n"
-        "    lsls r0, r2, #1\n"
-        "    adds r0, r0, r1\n"
-        "    ldrh r1, [r0]\n"
-        "    ldrh r0, [r0, #2]\n"
-        "    lsls r0, r0, #0x10\n"
-        "    orrs r0, r1\n"
-        "    ldr r1, .L08138488\n"
-        "    str r0, [r1]\n"
-        "    pop {r4, r5}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L08138484: .4byte gUnknown_08034138\n"
-        ".L08138488: .4byte 0x030068E4 @ IWRAM+0x68E4\n"
-    );
-}
-#endif
 
 // sub_0813848C @ 0x0813848C
 #ifdef NONMATCHING

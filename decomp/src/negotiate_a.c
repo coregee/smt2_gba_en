@@ -289,22 +289,24 @@ void sub_08137DC8(void)
 }
 
 // sub_08137E14 @ 0x08137E14
-#ifdef NONMATCHING
 void sub_08137E14(void)
 {
     u32 kind = Demon_GetField(gUnk_0203DB7C, 0x1F) & 0xF0;
-    s32 who;
 
     if (kind == 0x20 || kind == 0x60)
         goto refuse;
     if (Combatant_IsUsed(1) || Combatant_IsUsed(2))
     {
         if (Combatant_IsUsed(1))
-            who = 1;
+        {
+            if (!(Combatant_GetStatus(1) & 0xB000))
+                goto no;
+        }
         else
-            who = 2;
-        if (!(Combatant_GetStatus(who) & 0xB000))
-            goto no;
+        {
+            if (!(Combatant_GetStatus(2) & 0xB000))
+                goto no;
+        }
     }
     sub_08137DC8();
     return;
@@ -314,65 +316,6 @@ no:
 refuse:
     Script_JumpToStatusMessage(0x2A);
 }
-#else
-NAKED
-void sub_08137E14(void)
-{
-    asm_unified(
-        ".L08137E14:\n"
-        "    push {lr}\n"
-        "    ldr r0, .L08137E50\n"
-        "    ldrh r0, [r0]\n"
-        "    movs r1, #0x1f\n"
-        "    bl Demon_GetField\n"
-        "    movs r1, #0xf0\n"
-        "    ands r1, r0\n"
-        "    cmp r1, #0x20\n"
-        "    beq .L08137E72\n"
-        "    cmp r1, #0x60\n"
-        "    beq .L08137E72\n"
-        "    movs r0, #1\n"
-        "    bl Combatant_IsUsed\n"
-        "    cmp r0, #0\n"
-        "    bne .L08137E40\n"
-        "    movs r0, #2\n"
-        "    bl Combatant_IsUsed\n"
-        "    cmp r0, #0\n"
-        "    beq .L08137E64\n"
-        ".L08137E40:\n"
-        "    movs r0, #1\n"
-        "    bl Combatant_IsUsed\n"
-        "    cmp r0, #0\n"
-        "    beq .L08137E54\n"
-        "    movs r0, #1\n"
-        "    b .L08137E56\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08137E50: .4byte 0x0203DB7C @ EWRAM+0x3DB7C\n"
-        ".L08137E54:\n"
-        "    movs r0, #2\n"
-        ".L08137E56:\n"
-        "    bl Combatant_GetStatus\n"
-        "    movs r1, #0xb0\n"
-        "    lsls r1, r1, #8\n"
-        "    ands r1, r0\n"
-        "    cmp r1, #0\n"
-        "    beq .L08137E6A\n"
-        ".L08137E64:\n"
-        "    bl sub_08137DC8\n"
-        "    b .L08137E78\n"
-        ".L08137E6A:\n"
-        "    movs r0, #0x29\n"
-        "    bl Script_JumpToStatusMessage\n"
-        "    b .L08137E78\n"
-        ".L08137E72:\n"
-        "    movs r0, #0x2a\n"
-        "    bl Script_JumpToStatusMessage\n"
-        ".L08137E78:\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-    );
-}
-#endif
 
 /* Reaction: heals the first member at half HP or less, else cures the first ailment,
    else restores the first member at half MP or less; gives money when nobody needs it. */

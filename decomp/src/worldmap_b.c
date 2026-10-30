@@ -58,14 +58,13 @@ u32 WorldMap_GetNeighbourTerrain(void)
 /* Battle background for an encounter here: looks up the terrain behind and ahead of the
    last step in the pair table. */
 // WorldMap_GetEncounterTerrain @ 0x08153668
-#ifdef NONMATCHING
 u32 WorldMap_GetEncounterTerrain(void)
 {
     struct MapRecord *rec = FieldMap_GetArea(gWorldMap.map);
     u32 terrain = WorldMap_GetNeighbourTerrain();
     u8 *ids = rec->padD0;
     u32 s, t;
-    u32 a, b;
+    u8 a, b;
     u32 i;
 
     switch (WorldMap_GetStepDirection())
@@ -120,135 +119,6 @@ u32 WorldMap_GetEncounterTerrain(void)
     }
     return 0;
 }
-#else
-NAKED
-u32 WorldMap_GetEncounterTerrain(void)
-{
-    asm_unified(
-        ".L08153668:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, r8\n"
-        "    push {r7}\n"
-        "    ldr r0, .L08153698\n"
-        "    ldrh r0, [r0, #8]\n"
-        "    bl FieldMap_GetArea\n"
-        "    adds r4, r0, #0\n"
-        "    bl WorldMap_GetNeighbourTerrain\n"
-        "    mov r8, r0\n"
-        "    adds r7, r4, #0\n"
-        "    adds r7, #0xd0\n"
-        "    bl WorldMap_GetStepDirection\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    cmp r0, #7\n"
-        "    bhi .L081536EE\n"
-        "    lsls r0, r0, #2\n"
-        "    ldr r1, .L0815369C\n"
-        "    adds r0, r0, r1\n"
-        "    ldr r0, [r0]\n"
-        "    mov pc, r0\n"
-        ".L08153698: .4byte 0x030069F0 @ IWRAM+0x69F0\n"
-        ".L0815369C: .4byte gUnknown_081536A0\n"
-        "    .global gUnknown_081536A0\n"
-        "gUnknown_081536A0:\n"
-        ".L081536A0: @ jump table\n"
-        "    .4byte .L081536C0\n"
-        "    .4byte .L081536C6\n"
-        "    .4byte .L081536CC\n"
-        "    .4byte .L081536D2\n"
-        "    .4byte .L081536D8\n"
-        "    .4byte .L081536DE\n"
-        "    .4byte .L081536E4\n"
-        "    .4byte .L081536EA\n"
-        ".L081536C0:\n"
-        "    movs r6, #0\n"
-        "    movs r5, #8\n"
-        "    b .L081536EE\n"
-        ".L081536C6:\n"
-        "    movs r6, #4\n"
-        "    movs r5, #0xc\n"
-        "    b .L081536EE\n"
-        ".L081536CC:\n"
-        "    movs r6, #8\n"
-        "    movs r5, #0x10\n"
-        "    b .L081536EE\n"
-        ".L081536D2:\n"
-        "    movs r6, #0xc\n"
-        "    movs r5, #0x14\n"
-        "    b .L081536EE\n"
-        ".L081536D8:\n"
-        "    movs r6, #0x10\n"
-        "    movs r5, #0x18\n"
-        "    b .L081536EE\n"
-        ".L081536DE:\n"
-        "    movs r6, #0x14\n"
-        "    movs r5, #0x1c\n"
-        "    b .L081536EE\n"
-        ".L081536E4:\n"
-        "    movs r6, #0x18\n"
-        "    movs r5, #0\n"
-        "    b .L081536EE\n"
-        ".L081536EA:\n"
-        "    movs r6, #0x1c\n"
-        "    movs r5, #4\n"
-        ".L081536EE:\n"
-        "    mov r1, r8\n"
-        "    lsrs r1, r6\n"
-        "    movs r0, #0xf\n"
-        "    ands r1, r0\n"
-        "    mov r4, r8\n"
-        "    lsrs r4, r5\n"
-        "    ands r4, r0\n"
-        "    cmp r1, #0\n"
-        "    bne .L08153704\n"
-        "    ldrb r1, [r7]\n"
-        "    b .L0815370A\n"
-        ".L08153704:\n"
-        "    adds r0, r1, r7\n"
-        "    subs r0, #1\n"
-        "    ldrb r1, [r0]\n"
-        ".L0815370A:\n"
-        "    cmp r4, #0\n"
-        "    bne .L08153718\n"
-        "    ldrb r4, [r7]\n"
-        "    b .L0815371E\n"
-        ".L08153712:\n"
-        "    ldrb r0, [r5, #2]\n"
-        "    adds r0, #0xe0\n"
-        "    b .L0815373C\n"
-        ".L08153718:\n"
-        "    adds r0, r4, r7\n"
-        "    subs r0, #1\n"
-        "    ldrb r4, [r0]\n"
-        ".L0815371E:\n"
-        "    movs r3, #0\n"
-        "    ldr r2, .L08153748\n"
-        "    adds r5, r2, #0\n"
-        ".L08153724:\n"
-        "    ldrb r0, [r2]\n"
-        "    cmp r0, r1\n"
-        "    bne .L08153730\n"
-        "    ldrb r0, [r2, #1]\n"
-        "    cmp r0, r4\n"
-        "    beq .L08153712\n"
-        ".L08153730:\n"
-        "    adds r2, #4\n"
-        "    adds r5, #4\n"
-        "    adds r3, #1\n"
-        "    cmp r3, #0xab\n"
-        "    bls .L08153724\n"
-        "    movs r0, #0\n"
-        ".L0815373C:\n"
-        "    pop {r3}\n"
-        "    mov r8, r3\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08153748: .4byte gUnknown_087E0188\n"
-    );
-}
-#endif
 
 // WorldMap_CheckSpecialEncounter @ 0x0815374C
 u32 WorldMap_CheckSpecialEncounter(void)
