@@ -306,7 +306,6 @@ void Font_ResetGlyphSpriteCache(u16 baseTile)
 /* Adds a glyph to the OBJ cache (no lookup: callers use Font_FindGlyphSprite first).  Returns the
    slot, or -1 when the cache is full. */
 // Font_CacheGlyphSprite @ 0x080AC124
-#ifdef NONMATCHING
 s16 Font_CacheGlyphSprite(u16 code)
 {
     struct GlyphSpriteCache *cache = &gGlyphSpriteCache;
@@ -317,8 +316,18 @@ s16 Font_CacheGlyphSprite(u16 code)
         return -1;
 
     bitmap = Font_GetGlyphBitmap(code);
-    slot = cache->count;
-    Font_CopyGlyphCell(bitmap, gGlyphSpriteStaging + (slot >> 4) * 0x800 + (slot & 0xF) * 0x40);
+    {
+        /* 16 cells of 0x40 bytes per 0x800-byte row */
+        u8 *dst = gGlyphSpriteStaging;
+        u32 row, col;
+
+        slot = cache->count;
+        row = (slot >> 4) * 0x800;
+        col = 0xF;
+        col &= slot;
+        dst += row + col * 0x40;
+        Font_CopyGlyphCell(bitmap, dst);
+    }
     cache->codes[cache->count] = code;
     cache->count++;
     if (cache->uploadPending == 0)
@@ -328,70 +337,6 @@ s16 Font_CacheGlyphSprite(u16 code)
     }
     return cache->count - 1;
 }
-#else
-NAKED
-s16 Font_CacheGlyphSprite(u16 code)
-{
-    asm_unified(
-        ".L080AC124:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r6, r0, #0x10\n"
-        "    ldr r5, .L080AC13C\n"
-        "    ldrh r0, [r5, #2]\n"
-        "    ldrh r1, [r5, #4]\n"
-        "    cmp r0, r1\n"
-        "    bne .L080AC140\n"
-        "    movs r0, #1\n"
-        "    rsbs r0, r0, #0\n"
-        "    b .L080AC188\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080AC13C: .4byte 0x020360DC @ EWRAM+0x360DC\n"
-        ".L080AC140:\n"
-        "    adds r0, r6, #0\n"
-        "    bl Font_GetGlyphBitmap\n"
-        "    ldr r1, .L080AC190\n"
-        "    ldrh r4, [r5, #2]\n"
-        "    lsrs r3, r4, #4\n"
-        "    lsls r3, r3, #0xb\n"
-        "    movs r2, #0xf\n"
-        "    ands r2, r4\n"
-        "    lsls r2, r2, #6\n"
-        "    adds r3, r3, r2\n"
-        "    adds r1, r3, r1\n"
-        "    bl Font_CopyGlyphCell\n"
-        "    ldrh r0, [r5, #2]\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r1, r5, #0\n"
-        "    adds r1, #8\n"
-        "    adds r0, r0, r1\n"
-        "    strh r6, [r0]\n"
-        "    ldrh r0, [r5, #2]\n"
-        "    adds r0, #1\n"
-        "    strh r0, [r5, #2]\n"
-        "    ldrh r0, [r5, #6]\n"
-        "    cmp r0, #0\n"
-        "    bne .L080AC180\n"
-        "    ldr r0, .L080AC194\n"
-        "    movs r1, #1\n"
-        "    bl VBlankTask_AddCounted\n"
-        "    movs r0, #1\n"
-        "    strh r0, [r5, #6]\n"
-        ".L080AC180:\n"
-        "    ldrh r0, [r5, #2]\n"
-        "    subs r0, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        ".L080AC188:\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080AC190: .4byte 0x020361DC @ EWRAM+0x361DC\n"
-        ".L080AC194: .4byte Font_UploadGlyphSpriteTiles\n"
-    );
-}
-#endif
 
 // Font_UploadGlyphSpriteTiles @ 0x080AC198
 void Font_UploadGlyphSpriteTiles(void)

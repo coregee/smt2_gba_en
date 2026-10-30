@@ -124,7 +124,7 @@ address	mode	size	name	confidence	state	file
 080ABF24	thumb	448	Font_GetGlyphBitmap	probable	nonmatching	src/text_font.c
 080AC0E4	thumb	12	Font_SetGlyphSpriteCacheCapacity	probable	c	src/text_font.c
 080AC0F0	thumb	52	Font_ResetGlyphSpriteCache	tentative	c	src/text_font.c
-080AC124	thumb	116	Font_CacheGlyphSprite	tentative	nonmatching	src/text_font.c
+080AC124	thumb	116	Font_CacheGlyphSprite	tentative	c	src/text_font.c
 080AC198	thumb	68	Font_UploadGlyphSpriteTiles	tentative	c	src/text_font.c
 080AC1DC	thumb	58	Font_FindGlyphSprite	probable	c	src/text_font.c
 080AC218	thumb	136	FontSprite_DrawGlyph	tentative	c	src/text_font.c
@@ -3324,7 +3324,7 @@ address	mode	size	name	confidence	state	file
 081316FC	thumb	904	Shop_UpdateQuantityArrows	probable	nonmatching	src/msgwin_qty.c
 08131A84	thumb	44			c	src/msgwin_f.c
 08131AB0	thumb	108	Party_CountEquipped	probable	c	src/msgwin_f.c
-08131B1C	thumb	1668	Shop_QuantityInput	probable	nonmatching	src/msgwin_qtyinput.c
+08131B1C	thumb	1668	Shop_QuantityInput	probable	c	src/msgwin_qtyinput.c
 081321A0	thumb	20			c	src/msgwin_g.c
 081321B4	thumb	2	ScriptOp_Nop	probable	c	src/script_ops_300.c
 081321B8	thumb	12	ScriptOpAlt_Shared_081321B8	probable	c	src/script_ops_300.c

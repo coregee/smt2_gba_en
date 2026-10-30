@@ -594,7 +594,13 @@ u16 Automap_IsVisited(u16 x, u16 y)
     y += h->originY;
     if (SubMap_IsOutsideExclusions(h, x, y) == 0)
         return 0;
-    return gGameState.visited[y][x >> 3] & (1 << (x & 7));
+    {
+        u32 bit = 7;
+        u32 col = x >> 3;
+        u32 v = gGameState.visited[y][col];
+        bit &= x;
+        return v & (1 << bit);
+    }
 }
 #else
 NAKED

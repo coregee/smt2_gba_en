@@ -514,8 +514,6 @@ void FieldView_BlitTiles(const struct ViewBlit *b)
     u16 dir;
     s32 cut;
     s32 t;
-    const u32 *s;
-    u32 *d;
     u32 v;
 
     w = b->w;
@@ -536,11 +534,11 @@ void FieldView_BlitTiles(const struct ViewBlit *b)
         if ((s16)dstX < 8)
         {
             t = (s16)(8 - dstX);
-            cut = t / 8;
-            v = cut * 0x20;
-            dstOff += v;
-            srcOff += v;
-            cols = (u16)(cols - cut);
+            v = t / 8;
+            cut = v * 0x20;
+            dstOff += cut;
+            srcOff += cut;
+            cols = (u16)(cols - v);
         }
         else if ((s32)(dstX + w) > 0xE8)
         {
@@ -556,23 +554,29 @@ void FieldView_BlitTiles(const struct ViewBlit *b)
         }
         else if (dstX > 0xE8)
         {
-            t = (s16)(dstX - 0xE8);
-            cut = t / 8;
-            dstOff -= cut * 0x20;
-            srcOff += cut * 0x20;
-            cols = (u16)(cols - cut);
+            v = (s16)(dstX - 0xE8);
+            t = (s32)v / 8;
+            cut = t * 0x20;
+            dstOff -= cut;
+            srcOff += cut;
+            cols = (u16)(cols - t);
         }
     }
     if ((s16)cols <= 0)
         return;
     if (b->dir == 1)
     {
+        const u32 *s;
+        u32 *d;
+        const u8 *sp;
+        u8 *dp;
+
         for (r = 0; r < rows; r++)
         {
-            s = (const u32 *)(src + ((b->srcY + r * 8) >> 3) * 0x400);
-            d = (u32 *)(dst + ((b->dstY + r * 8) >> 3) * 0x400);
-            s = (const u32 *)((u8 *)s + srcOff);
-            d = (u32 *)((u8 *)d + dstOff);
+            sp = src + ((b->srcY + r * 8) >> 3) * 0x400;
+            dp = dst + ((b->dstY + r * 8) >> 3) * 0x400;
+            s = (const u32 *)(sp + srcOff);
+            d = (u32 *)(dp + dstOff);
             for (c = 0; c < cols; c++)
             {
                 *d++ = *s++;
@@ -588,12 +592,17 @@ void FieldView_BlitTiles(const struct ViewBlit *b)
     }
     else
     {
+        const u32 *s;
+        u32 *d;
+        const u8 *sp;
+        u8 *dp;
+
         for (r = 0; r < rows; r++)
         {
-            s = (const u32 *)(src + ((b->srcY + r * 8) >> 3) * 0x400);
-            d = (u32 *)(dst + ((b->dstY + r * 8) >> 3) * 0x400);
-            s = (const u32 *)((u8 *)s + srcOff);
-            d = (u32 *)((u8 *)d + dstOff);
+            sp = src + ((b->srcY + r * 8) >> 3) * 0x400;
+            dp = dst + ((b->dstY + r * 8) >> 3) * 0x400;
+            s = (const u32 *)(sp + srcOff);
+            d = (u32 *)(dp + dstOff);
             for (c = 0; c < cols; c++)
             {
                 v = *s++; *d++ = MIRROR_ROW(v);

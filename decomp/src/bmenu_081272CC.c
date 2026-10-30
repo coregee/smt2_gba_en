@@ -427,7 +427,7 @@ void BattleMenu_DrawListPage(u8 mode, u16 start)
     {
     case 0:
         i = 0;
-        while ((v = blk->list[start + i]) != 0xFFFF)
+        while ((v = blk->list[i + start]) != 0xFFFF)
         {
             c = Party_GetMember(v + 0x8000);
             if (c->race < 4)
@@ -447,7 +447,7 @@ void BattleMenu_DrawListPage(u8 mode, u16 start)
         break;
     case 1:
         i = 0;
-        while ((v = blk->list[start + i]) != 0xFFFF)
+        while ((v = blk->list[i + start]) != 0xFFFF)
         {
             if (v & 0x8000)
             {
@@ -466,7 +466,7 @@ void BattleMenu_DrawListPage(u8 mode, u16 start)
         break;
     case 3:
         i = 0;
-        while ((v = blk->list[start + i]) != 0xFFFF)
+        while ((v = blk->list[i + start]) != 0xFFFF)
         {
             struct Combatant *m = Party_GetMember(v + 0x8000);
 
@@ -482,10 +482,10 @@ void BattleMenu_DrawListPage(u8 mode, u16 start)
         break;
     case 4:
         i = 0;
-        while ((v = blk->list[(start + i) * 2]) != 0xFFFF)
+        while ((v = blk->list[(i + start) * 2]) != 0xFFFF)
         {
             sub_081272CC((u16 *)(Action_GetRecord(v) + 0xC), i);
-            sub_0812745C(blk->list[(start + i) * 2 + 1], i);
+            sub_0812745C(blk->list[(i + start) * 2 + 1], i);
             VBlankTask_AddCounted(sub_08127E04, 1);
             i++;
             if (i > 4)
@@ -493,17 +493,22 @@ void BattleMenu_DrawListPage(u8 mode, u16 start)
         }
         break;
     case 5:
-        lo = start & 0xFF;
+        lo = 0xFF;
+        lo &= start;
         start >>= 8;
         i = 0;
         while ((v = blk->list[(lo + i) * 2]) != 0xFFFF)
         {
             if (v < 0x80)
-                str = (u16 *)(Item_GetRecord(v) + 0x14);
+                rec = Item_GetRecord(v) + 0x14;
             else if (v < 0xD0)
-                str = (u16 *)(Equipment_GetRecord36_MidRange(v) + 0x14);
+                rec = Equipment_GetRecord36_MidRange(v) + 0x14;
             else if (v < 0xFF)
-                str = (u16 *)(Action_GetRecord(v) + 0xC);
+                rec = Action_GetRecord(v) + 0xC;
+            else
+                goto keep;
+            str = (u16 *)rec;
+        keep:
             tint = 0;
             if (v == start)
                 tint = 2;
@@ -516,21 +521,25 @@ void BattleMenu_DrawListPage(u8 mode, u16 start)
         }
         break;
     case 6:
+        {
+        u16 *str6;
+
         i = 0;
-        while ((v = blk->list[(start + i) * 2]) != 0xFFFF)
+        while ((v = blk->list[(i + start) * 2]) != 0xFFFF)
         {
             if (v < 0x80)
-                str = (u16 *)(Item_GetRecord(v) + 0x14);
+                str6 = (u16 *)(Item_GetRecord(v) + 0x14);
             else if (v < 0xD0)
-                str = (u16 *)(Equipment_GetRecord36_MidRange(v) + 0x14);
+                str6 = (u16 *)(Equipment_GetRecord36_MidRange(v) + 0x14);
             else if (v < 0xFF)
-                str = (u16 *)(Action_GetRecord(v) + 0xC);
-            sub_081272CC(str, i);
-            sub_0812745C(blk->list[(start + i) * 2 + 1], i);
+                str6 = (u16 *)(Action_GetRecord(v) + 0xC);
+            sub_081272CC(str6, i);
+            sub_0812745C(blk->list[(i + start) * 2 + 1], i);
             VBlankTask_AddCounted(sub_08127E04, 1);
             i++;
             if (i > 4)
                 break;
+        }
         }
         break;
     case 7:
