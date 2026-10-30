@@ -179,11 +179,11 @@ void sub_080D7D60(const u8 *src)
 
 /* Builds a 28x5 tilemap patch: base map 0x081C25F4 plus palette (nibble + 8) per cell from
    src, then uploads it to BG map 0x06003200. */
-/* NONMATCHING: same instructions and size; the loop constants 0xF / 0x202 and the counters land in different registers */
 // sub_080D7D98 @ 0x080D7D98
-#ifdef NONMATCHING
-void sub_080D7D98(const u8 *src)
+void sub_080D7D98(const u8 *src_)
 {
+    /* pin: col (11 loop-weighted refs) otherwise outranks src for r3 */
+    register const u8 *src asm("r3") = src_;
     u16 *buf = gUnk_02000000;
     u16 *patch;
     u32 row, col;
@@ -191,12 +191,14 @@ void sub_080D7D98(const u8 *src)
     DmaSet3(gUnknown_081C25F4, buf, 0x84000400);
     row = 0;
     patch = buf + 0x100;
-    for (; row < 5; row++)
+    do
     {
         u16 *p;
+        u32 next;
 
         col = 0;
-        p = buf + row * 32;
+        next = row + 1;
+        p = (u16 *)((row << 6) + (u32)buf);
         for (; col < 0x1C; col++)
         {
             u32 v = *src++;
@@ -206,87 +208,10 @@ void sub_080D7D98(const u8 *src)
             p[0x101] += v << 12;
             p++;
         }
-    }
+        row = next;
+    } while (row < 5);
     DmaSet3(patch, 0x06003200, 0x84000050);
 }
-#else
-NAKED
-void sub_080D7D98(const u8 *src)
-{
-    asm_unified(
-        ".L080D7D98:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sb\n"
-        "    mov r6, r8\n"
-        "    push {r6, r7}\n"
-        "    adds r3, r0, #0\n"
-        "    ldr r0, .L080D7E10\n"
-        "    mov ip, r0\n"
-        "    ldr r1, .L080D7E14\n"
-        "    ldr r0, .L080D7E18\n"
-        "    str r0, [r1]\n"
-        "    mov r7, ip\n"
-        "    str r7, [r1, #4]\n"
-        "    ldr r0, .L080D7E1C\n"
-        "    str r0, [r1, #8]\n"
-        "    ldr r0, [r1, #8]\n"
-        "    movs r0, #0\n"
-        "    movs r1, #0x80\n"
-        "    lsls r1, r1, #2\n"
-        "    add r1, ip\n"
-        "    mov r8, r1\n"
-        "    movs r7, #0xf\n"
-        "    mov sb, r7\n"
-        "    ldr r6, .L080D7E20\n"
-        ".L080D7DC6:\n"
-        "    movs r4, #0\n"
-        "    adds r5, r0, #1\n"
-        "    lsls r0, r0, #6\n"
-        "    mov r1, ip\n"
-        "    adds r2, r0, r1\n"
-        ".L080D7DD0:\n"
-        "    ldrb r0, [r3]\n"
-        "    adds r3, #1\n"
-        "    mov r7, sb\n"
-        "    ands r0, r7\n"
-        "    adds r0, #8\n"
-        "    adds r1, r2, r6\n"
-        "    lsls r0, r0, #0xc\n"
-        "    ldrh r7, [r1]\n"
-        "    adds r0, r0, r7\n"
-        "    strh r0, [r1]\n"
-        "    adds r2, #2\n"
-        "    adds r4, #1\n"
-        "    cmp r4, #0x1b\n"
-        "    bls .L080D7DD0\n"
-        "    adds r0, r5, #0\n"
-        "    cmp r0, #4\n"
-        "    bls .L080D7DC6\n"
-        "    ldr r1, .L080D7E14\n"
-        "    mov r0, r8\n"
-        "    str r0, [r1]\n"
-        "    ldr r0, .L080D7E24\n"
-        "    str r0, [r1, #4]\n"
-        "    ldr r0, .L080D7E28\n"
-        "    str r0, [r1, #8]\n"
-        "    ldr r0, [r1, #8]\n"
-        "    pop {r3, r4}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080D7E10: .4byte 0x02000000 @ EWRAM\n"
-        ".L080D7E14: .4byte 0x040000D4 @ REG_DMA3SAD\n"
-        ".L080D7E18: .4byte gUnknown_081C25F4\n"
-        ".L080D7E1C: .4byte 0x84000400\n"
-        ".L080D7E20: .4byte 0x00000202\n"
-        ".L080D7E24: .4byte 0x06003200 @ VRAM+0x3200\n"
-        ".L080D7E28: .4byte 0x84000050\n"
-    );
-}
-#endif
 
 // sub_080D7E2C @ 0x080D7E2C
 void sub_080D7E2C(void)

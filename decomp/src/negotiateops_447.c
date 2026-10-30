@@ -45,21 +45,23 @@ u16 sub_0813BF78(void);
    zero in r7); the register allocation and some branch layout differ. */
 // ScriptOp_447 @ 0x0813BF98
 #ifdef NONMATCHING
+/* The callers saw these as returning int: the narrowing to u16/u8 is done here. */
+#define INT_CALL(fn) ((u32 (*)())(fn))
 void ScriptOp_447(void)
 {
     s32 i = 0;
     u16 test;
     u16 lo;
-    u16 *target;
+    u32 target;
     s32 who;
-    u32 v;
-    u32 need;
-    s32 cap;
+    u16 v;
     u16 c;
+    u16 r;
 
     test = SCRIPT_READ();
     lo = SCRIPT_READ();
-    target = (u16 *)(SCRIPT_READ() << 16 | lo);
+    target = SCRIPT_READ();
+    target = (target << 16) | lo;
     if (test == 0)
     {
         if (gUnk_0203DB7C == gUnk_0203DB7E)
@@ -68,24 +70,33 @@ void ScriptOp_447(void)
     }
     else if (test == 1)
     {
-        if ((u16)Demon_GetRace(gUnk_0203DB7C) > 0x1A)
+        u16 race = INT_CALL(Demon_GetRace)(gUnk_0203DB7C);
+        u32 m;
+
+        if (race > 0x1A)
             goto jump2;
-        v = Demon_GetField(gUnk_0203DB7C, 0xB) & 0xFF;
-        if (v <= 0x6F)
+        m = 0xFF;
+        m &= INT_CALL(Demon_GetField)(gUnk_0203DB7C, 0xB);
+        if (m > 0x6F)
         {
-            if (((u16)(sub_080C0794(0) >> 8) & 0xFF) <= 0x8F)
+            if (m <= 0x8F)
+                return;
+            v = sub_080C0794(0) >> 8;
+            v &= 0xFF;
+            if (v > 0x6F)
                 return;
             goto jump2;
         }
+        v = sub_080C0794(0) >> 8;
+        v &= 0xFF;
         if (v <= 0x8F)
-            return;
-        if (((u16)(sub_080C0794(0) >> 8) & 0xFF) > 0x6F)
             return;
         goto jump2;
     }
     else if (test == 2)
     {
-        cap = Stock_GetCapacity();
+        s32 cap = Stock_GetCapacity();
+
         if (gUnk_0203DB86 != 0)
             return;
         for (; i < cap; i++)
@@ -99,7 +110,7 @@ void ScriptOp_447(void)
     {
         if (gUnk_0300685C > 0x8F)
             return;
-        if ((u16)sub_0813E804(gUnk_0203DB7C) == 0)
+        if ((u16)INT_CALL(sub_0813E804)(gUnk_0203DB7C) == 0)
             return;
         goto jump2;
     }
@@ -109,9 +120,8 @@ void ScriptOp_447(void)
         {
             if (Combatant_IsUsed(i) && Combatant_GetDemonId(i) == gUnk_0203DB7C)
             {
-                c = i - 0x8000;
-                v = (u16)(*(s16 *)(Battle_GetCombatant(c) + 0x1A) >> 2);
-                if ((s32)v >= *(s16 *)(Battle_GetCombatant(c) + 0x18))
+                v = *(s16 *)(Battle_GetCombatant(i - 0x8000) + 0x1A) >> 2;
+                if (v >= *(s16 *)(Battle_GetCombatant(i - 0x8000) + 0x18))
                     goto jump;
             }
         }
@@ -122,7 +132,7 @@ void ScriptOp_447(void)
         for (i = 0x10; i <= 0x17; i++)
         {
             if (Combatant_IsUsed(i) && Combatant_GetDemonId(i) == gUnk_0203DB7C
-                && (Combatant_GetStatus(i) & 0x200))
+                && ((u16)INT_CALL(Combatant_GetStatus)(i) & 0x200))
                 goto jump2;
         }
         return;
@@ -131,25 +141,25 @@ void ScriptOp_447(void)
     {
         if (Combatant_IsUsed(1))
         {
-            if (Combatant_GetStatus(1) & 0xA000)
+            if ((u16)INT_CALL(Combatant_GetStatus)(1) & 0xA000)
                 return;
             goto jump;
         }
         if (!Combatant_IsUsed(2))
             goto jump;
-        if (Combatant_GetStatus(2) & 0xA000)
+        if ((u16)INT_CALL(Combatant_GetStatus)(2) & 0xA000)
             return;
         goto jump2;
     }
     else if (test == 7)
     {
-        if ((u16)sub_0813BF58())
+        if ((u16)INT_CALL(sub_0813BF58)())
             return;
         goto jump2;
     }
     else if (test == 8)
     {
-        if ((u16)sub_0813BF78())
+        if ((u16)INT_CALL(sub_0813BF78)())
             return;
         goto jump;
     }
@@ -161,42 +171,53 @@ void ScriptOp_447(void)
             who = 2;
         else
             return;
-        if (Combatant_GetStatus(who) & 0x800)
-            need = 1;
+        if ((u16)INT_CALL(Combatant_GetStatus)(who) & 0x800)
+            who = 1;
         else
-            need = Combatant_GetStat(who, 2) & 0xFF;
-        v = (Random_Byte() & 0xF) + (Demon_GetField(gUnk_0203DB7C, 7) & 0xFF);
-        if (v < need)
+        {
+            who = Combatant_GetStat(who, 2);
+            who &= 0xFF;
+        }
+        v = Random_Byte();
+        v &= 0xF;
+        v += Demon_GetField(gUnk_0203DB7C, 7) & 0xFF;
+        if (v < (u32)who)
             return;
         goto jump2;
     }
     else if (test == 10)
     {
         gUnk_030068E0 = (u32)sub_0812A640();
-        gUnk_0203DAC8[0] = target;
+        gUnk_0203DAC8[0] = (u16 *)target;
         gScriptWaitState = 0x4E;
         goto waitYesNo;
     }
     else if (test == 11)
     {
         if (Combatant_IsUsed(1))
-            who = 1;
+            c = 1;
         else if (Combatant_IsUsed(2))
-            who = 2;
+            c = 2;
         else
             goto jump;
-        if (Combatant_GetStatus(who) & 0xC000)
+        if (INT_CALL(Combatant_GetStatus)(c) & 0xC000)
             goto jump;
         for (c = 0x10; c <= 0x17; c++)
         {
-            if (Combatant_IsUsed(c) && gUnk_0203DB7C == Combatant_GetDemonId(c))
+            if (Combatant_IsUsed(c))
             {
-                u16 b = c + 0x8000;
-                v = (u16)(*(s16 *)(Battle_GetCombatant(b) + 0x1A) / 4);
-                if ((s32)v >= *(s16 *)(Battle_GetCombatant(b) + 0x18))
+                u16 id = gUnk_0203DB7C;
+
+                if (id == Combatant_GetDemonId(c))
                 {
-                    v = Random_Byte() & 3;
-                    goto test_v;
+                    u16 b = c + 0x8000;
+
+                    v = *(s16 *)(Battle_GetCombatant(b) + 0x1A) / 4;
+                    if (v >= *(s16 *)(Battle_GetCombatant(b) + 0x18))
+                    {
+                        r = Random_Byte() & 3;
+                        goto test_r;
+                    }
                 }
             }
         }
@@ -208,21 +229,21 @@ void ScriptOp_447(void)
 
         for (k = 11; k >= 0; k--)
         {
-            if (sub_0813756C(k))
+            if ((u8)INT_CALL(sub_0813756C)(k))
             {
-                v = sub_0813BD58() << 16;
-                goto test_v;
+                r = INT_CALL(sub_0813BD58)();
+                goto test_r;
             }
         }
         goto jump;
-    test_v:
-        if (v == 0)
+    test_r:
+        if (r == 0)
             return;
         goto jump;
     }
     else if (test == 13)
     {
-        gUnk_0203DAC8[0] = target;
+        gUnk_0203DAC8[0] = (u16 *)target;
         sub_0813BECC(1);
     waitYesNo:
         gScriptYield = 1;
@@ -230,29 +251,30 @@ void ScriptOp_447(void)
     }
     else if (test == 14)
     {
-        u16 r = sub_0813BD58();
-        if (r != 1)
+        r = INT_CALL(sub_0813BD58)();
+        i = r;
+        if (i != 1)
             goto jump;
         sub_0813BDA4();
-        c = (u16)(((u16)sub_0813BDCC() << 4) / gUnk_03006690);
+        c = ((u16)sub_0813BDCC() << 4) / gUnk_03006690;
         c += gUnk_03006690 >> 2;
-        if (gUnk_0300684C & r)
+        if (gUnk_0300684C & i)
             c <<= 1;
         gUnk_0203DB2C = c;
         return;
     }
     else if (test == 15)
     {
-        if ((u16)Money_Pay() == 0)
+        if ((u16)INT_CALL(Money_Pay)() == 0)
             goto cannotPay;
         goto jump2;
     }
     else if (test == 16)
     {
-        if ((u16)sub_0813BD58() != 2)
+        if ((u16)INT_CALL(sub_0813BD58)() != 2)
             goto jump;
         sub_0813BDA4();
-        c = (u16)(((u16)sub_08137BB8() << 4) / gUnk_03006690);
+        c = ((u16)sub_08137BB8() << 4) / gUnk_03006690;
         c += gUnk_03006690 >> 2;
         if (gUnk_0300684C & 1)
             c <<= 1;
@@ -261,7 +283,7 @@ void ScriptOp_447(void)
     }
     else if (test == 17)
     {
-        if ((u16)Magnetite_Pay())
+        if ((u16)INT_CALL(Magnetite_Pay)())
             goto jump2;
     cannotPay:
         gUnk_0300684C |= 0x40;
@@ -271,7 +293,7 @@ void ScriptOp_447(void)
     else if (test == 18)
     {
         gScriptItemCheckId = 0xE5;
-        if (!Inventory_GetCount(0xE5))
+        if (!(u8)INT_CALL(Inventory_GetCount)(0xE5))
             goto jump;
         Inventory_RemoveItem(gScriptItemCheckId);
         sub_0813BEB8();
@@ -279,36 +301,39 @@ void ScriptOp_447(void)
     }
     else if (test == 19)
     {
-        need = ((Demon_GetField(gUnk_0203DB7C, 0x1B) & 0xFF) >> 1) + 1;
+        u32 need = ((u16)(INT_CALL(Demon_GetField)(gUnk_0203DB7C, 0x1B) & 0xFF) >> 1) + 1;
+
         if (Magnetite_Get() < need)
             goto jump2;
         Magnetite_Add(-need);
         return;
     }
     else if (test == 20)
-    {
-        if ((u16)Combatant_GetEquip(0, 1) == 0xFF)
-            goto jump;
-        if ((u16)Combatant_GetEquip(0, 6) != 0xFF)
-            return;
-        goto jump;
-    }
+        goto equip;
     else if (test == 21)
     {
-        gUnk_03006840 = (u32)target;
-        if (Flag_Test(0xE5) && sub_0812A668(0))
+        gUnk_03006840 = target;
+        if (Flag_Test(0xE5) && (u16)INT_CALL(sub_0812A668)(0))
+        {
             Script_JumpToStatusMessage(0x2D);
-        else
-            Script_JumpToStatusMessage(0x2E);
-        return;
+            return;
+        }
+        goto noFlag;
     }
-    else
+    return;
+equip:
+    if ((u16)Combatant_GetEquip(0, 1) == 0xFF)
+        goto jump;
+    if ((u16)Combatant_GetEquip(0, 6) != 0xFF)
         return;
 jump:
-    gScriptJumpTarget = target;
+    gScriptJumpTarget = (u16 *)target;
     return;
 jump2:
-    gScriptJumpTarget = target;
+    gScriptJumpTarget = (u16 *)target;
+    return;
+noFlag:
+    Script_JumpToStatusMessage(0x2E);
 }
 #else
 NAKED

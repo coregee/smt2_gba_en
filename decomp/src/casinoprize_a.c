@@ -10,6 +10,20 @@
    (item id, price) pairs; a price of 0xFFFF is shown as 100000. */
 // CasinoPrize_DrawList @ 0x0813914C
 #ifdef NONMATCHING
+/* QUEUE_GLYPH with the count and index in function-scope variables (c, k): the block-scoped
+   version lets combine fold the index narrowing, unlike the original. */
+#define QUEUE_GLYPH_CK(glyph, x, y)                 \
+{                                                   \
+    c = gMsgGlyphCount;                             \
+    k = c * 4;                                      \
+    gMsgGlyphQueue[k++] = (glyph);                  \
+    gMsgGlyphQueue[k++] = (x);                      \
+    gMsgGlyphQueue[k++] = (y);                      \
+    gMsgGlyphQueue[k] = 0;                          \
+    gMsgGlyphCount = c + 1;                         \
+    if (gMsgGlyphCount > 0x3F)                      \
+        gMsgGlyphCount = 0x3F;                      \
+}
 void CasinoPrize_DrawList(u16 first)
 {
     u16 digits[8];
@@ -17,7 +31,8 @@ void CasinoPrize_DrawList(u16 first)
     u16 set;
     s32 rows;
     u16 i, j, n;
-    u16 id;
+    u16 c, k;
+    u32 id;
     u8 *rec;
     u16 *name;
     u32 price;
@@ -36,7 +51,7 @@ void CasinoPrize_DrawList(u16 first)
         gUnk_03006848 = first;
         gUnk_03006680 = 1;
     }
-    else if (first == gUnknown_0878FEA8[set][0] - 3 + gUnk_03006844)
+    else if (first == gUnknown_0878FEA8[set][0] - (3 - gUnk_03006844))
     {
         gUnk_03006848 = 1;
         gUnk_03006680 = 0;
@@ -46,9 +61,10 @@ void CasinoPrize_DrawList(u16 first)
         gUnk_03006848 = 1;
         gUnk_03006680 = 1;
     }
-    rows = 3;
     if (gUnk_03006844 == 0)
         rows = 4;
+    else
+        rows = 3;
     for (i = first; i < first + rows && (id = gUnknown_0878FEA8[set][i * 2 + 1]) != 0xFFFF; i++)
     {
         if (id >= 0xD0)
@@ -78,18 +94,21 @@ void CasinoPrize_DrawList(u16 first)
             price /= 10;
         }
         for (n = 0, d = 7; d >= 0; d--)
-            out[n++] = digits[d];
+        {
+            out[n] = digits[d];
+            n++;
+        }
 
         n = 0;
         for (j = 0; j < 8; j++)
         {
             if (out[j] != 0xFFFF)
             {
-                QUEUE_GLYPH(out[j], n * 10 + 0x8D, gUnknown_08790390[gUnk_03006844 + (i - first)]);
+                QUEUE_GLYPH_CK(out[j], n * 10 + 0x8D, gUnknown_08790390[gUnk_03006844 + (i - first)]);
                 n++;
             }
         }
-        QUEUE_GLYPH(0xFC8, n * 10 + 0x8F, gUnknown_08790390[gUnk_03006844 + (i - first)]);
+        QUEUE_GLYPH_CK(0xFC8, n * 10 + 0x8F, gUnknown_08790390[gUnk_03006844 + (i - first)]);
     }
 }
 #else

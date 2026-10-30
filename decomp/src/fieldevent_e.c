@@ -467,22 +467,19 @@ struct Task *sub_080B7E0C(u16 arg)
 
 // sub_080B7E3C @ 0x080B7E3C
 /* Like Warp_ToWorldPosition: warps to world position (x, y) through task gUnknown_08164670. */
-#ifdef NONMATCHING
 struct Task *sub_080B7E3C(u16 unused, u16 x, u16 y, u16 unused2, u32 arg)
 {
-    u16 lx, ly, map, n, i, facing;
+    u16 lx, ly, map, i, facing;
+    u32 n;
     u16 foundMap, foundSub;
+    u32 t;
     struct SubMap *h;
     struct Task *task;
 
     lx = x;
     ly = y & 0x3F;
-    for (map = 0; ; map++)
+    for (map = 0; n = sub_080C8B3C(map), h = DungeonMap_GetFloor(map, 0), t = y >> 5, h != NULL; map++)
     {
-        n = sub_080C8B3C(map);
-        h = DungeonMap_GetFloor(map, 0);
-        if (h == NULL)
-            break;
         for (i = 0; i < n; i++, h++)
         {
             if (h->x0 <= lx && h->y0 <= ly && h->x1 >= lx && h->y1 >= ly && SubMap_IsOutsideExclusions(h, lx, ly) == 1)
@@ -497,140 +494,13 @@ struct Task *sub_080B7E3C(u16 unused, u16 x, u16 y, u16 unused2, u32 arg)
         if (i != n)
             break;
     }
-    facing = ((y >> 5) & 6) >> 1;
+    facing = (t & 6) >> 1;
     sub_080C2CC0();
     task = Task_Create(gUnknown_08164670, 0xFFFF);
     Warp_SetDestination(foundMap, foundSub, lx, ly, facing, arg);
     gWarpDest.unk0A = 1;
     return task;
 }
-#else
-NAKED
-struct Task *sub_080B7E3C(u16 unused, u16 x, u16 y, u16 unused2, u32 arg)
-{
-    asm_unified(
-        ".L080B7E3C:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sl\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6, r7}\n"
-        "    sub sp, #0x14\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsls r2, r2, #0x10\n"
-        "    lsrs r2, r2, #0x10\n"
-        "    mov sl, r2\n"
-        "    lsrs r6, r1, #0x10\n"
-        "    movs r0, #0x3f\n"
-        "    mov r1, sl\n"
-        "    ands r1, r0\n"
-        "    mov r8, r1\n"
-        "    movs r0, #0\n"
-        "    b .L080B7EC6\n"
-        ".L080B7E5E:\n"
-        "    mov r1, sb\n"
-        "    str r1, [sp, #8]\n"
-        "    str r4, [sp, #0xc]\n"
-        "    ldrh r0, [r5, #8]\n"
-        "    subs r0, r6, r0\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r6, r0, #0x10\n"
-        "    ldrh r0, [r5, #0xa]\n"
-        "    mov r1, r8\n"
-        "    subs r0, r1, r0\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    mov r8, r0\n"
-        "    b .L080B7EBA\n"
-        ".L080B7E7A:\n"
-        "    movs r4, #0\n"
-        "    cmp r4, r7\n"
-        "    bhs .L080B7EBA\n"
-        ".L080B7E80:\n"
-        "    ldrh r0, [r5, #8]\n"
-        "    cmp r0, r6\n"
-        "    bhi .L080B7EAA\n"
-        "    ldrh r0, [r5, #0xa]\n"
-        "    cmp r0, r8\n"
-        "    bhi .L080B7EAA\n"
-        "    ldrh r0, [r5, #0xc]\n"
-        "    cmp r0, r6\n"
-        "    blo .L080B7EAA\n"
-        "    ldrh r0, [r5, #0xe]\n"
-        "    cmp r0, r8\n"
-        "    blo .L080B7EAA\n"
-        "    adds r0, r5, #0\n"
-        "    adds r1, r6, #0\n"
-        "    mov r2, r8\n"
-        "    str r3, [sp, #0x10]\n"
-        "    bl SubMap_IsOutsideExclusions\n"
-        "    ldr r3, [sp, #0x10]\n"
-        "    cmp r0, #1\n"
-        "    beq .L080B7E5E\n"
-        ".L080B7EAA:\n"
-        "    adds r0, r4, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    movs r0, #0x9a\n"
-        "    lsls r0, r0, #2\n"
-        "    adds r5, r5, r0\n"
-        "    cmp r4, r7\n"
-        "    blo .L080B7E80\n"
-        ".L080B7EBA:\n"
-        "    cmp r4, r7\n"
-        "    bne .L080B7EE2\n"
-        "    mov r0, sb\n"
-        "    adds r0, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        ".L080B7EC6:\n"
-        "    mov sb, r0\n"
-        "    mov r0, sb\n"
-        "    bl sub_080C8B3C\n"
-        "    adds r7, r0, #0\n"
-        "    mov r0, sb\n"
-        "    movs r1, #0\n"
-        "    bl DungeonMap_GetFloor\n"
-        "    adds r5, r0, #0\n"
-        "    mov r1, sl\n"
-        "    lsrs r3, r1, #5\n"
-        "    cmp r5, #0\n"
-        "    bne .L080B7E7A\n"
-        ".L080B7EE2:\n"
-        "    movs r0, #6\n"
-        "    ands r3, r0\n"
-        "    lsrs r4, r3, #1\n"
-        "    bl sub_080C2CC0\n"
-        "    ldr r0, .L080B7F20\n"
-        "    ldr r1, .L080B7F24\n"
-        "    bl Task_Create\n"
-        "    adds r5, r0, #0\n"
-        "    str r4, [sp]\n"
-        "    ldr r0, [sp, #0x34]\n"
-        "    str r0, [sp, #4]\n"
-        "    ldr r0, [sp, #8]\n"
-        "    ldr r1, [sp, #0xc]\n"
-        "    adds r2, r6, #0\n"
-        "    mov r3, r8\n"
-        "    bl Warp_SetDestination\n"
-        "    ldr r1, .L080B7F28\n"
-        "    movs r0, #1\n"
-        "    strh r0, [r1, #0xa]\n"
-        "    adds r0, r5, #0\n"
-        "    add sp, #0x14\n"
-        "    pop {r3, r4, r5}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    mov sl, r5\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        ".L080B7F20: .4byte gUnknown_08164670\n"
-        ".L080B7F24: .4byte 0x0000FFFF\n"
-        ".L080B7F28: .4byte 0x03003FD0 @ IWRAM+0x3FD0\n"
-    );
-}
-#endif
 
 // sub_080B7F2C @ 0x080B7F2C
 void sub_080B7F2C(u16 map, u8 x, u8 y)

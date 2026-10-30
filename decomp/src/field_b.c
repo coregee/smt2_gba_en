@@ -326,39 +326,39 @@ void sub_080AF300(void)
     sub_080AE234();
     View_BuildCells(gFieldState.unk02, 0);
     if (Palette_IsBg13Black() == 1)
+    {
+    other:
         sub_080AF2E8();
-    else if (View_GetWall(0, 0, 0) == 1 && View_GetWall(1, 0, 0) == 1 && View_GetWall(3, 0, 0) == 1)
+        return;
+    }
+    if (View_GetWall(0, 0, 0) == 1 && View_GetWall(1, 0, 0) == 1 && View_GetWall(3, 0, 0) == 1)
     {
-        if (Flag_Test(0x101))
-            sub_080AF2E8();
-        else
+        if (!Flag_Test(0x101))
+            goto enter;
+        goto other;
+    }
+    if (View_GetWall(0, 0, 0) == 3)
+    {
+        if (sub_080AF2BC() != 1 || sub_080B78DC() != 0)
+            goto other;
+        if (!Flag_Test(0x101))
         {
             Task_Create(gUnknown_0816499C, 0xFFFF);
             Field_SetState(0x1A);
+            return;
         }
+        goto other;
     }
-    else if (View_GetWall(0, 0, 0) == 3)
+    if (View_GetWall(0, 0, 0) == 2 && sub_080B78DC() == 0)
     {
-        if (sub_080AF2BC() == 1 && sub_080B78DC() == 0 && !Flag_Test(0x101))
-        {
-            Task_Create(gUnknown_0816499C, 0xFFFF);
-            Field_SetState(0x1A);
-        }
-        else
-            sub_080AF2E8();
+        if (sub_080AF2BC() != 1 || Flag_Test(0x101))
+            goto other;
+    enter:
+        Task_Create(gUnknown_0816499C, 0xFFFF);
+        Field_SetState(0x1A);
+        return;
     }
-    else if (View_GetWall(0, 0, 0) == 2 && sub_080B78DC() == 0)
-    {
-        if (sub_080AF2BC() == 1 && !Flag_Test(0x101))
-        {
-            Task_Create(gUnknown_0816499C, 0xFFFF);
-            Field_SetState(0x1A);
-        }
-        else
-            sub_080AF2E8();
-    }
-    else
-        sub_080AF2E8();
+    sub_080AF2E8();
 }
 #else
 NAKED

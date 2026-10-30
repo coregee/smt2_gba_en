@@ -14,86 +14,24 @@ void sub_080C6AD8(u16 slot, u16 layer, u16 prio, u16 x, u16 y)
 
 // sub_080C6B40 @ 0x080C6B40
 /* Draws the face of member key & 0xF if it is in the active party. */
-#ifdef NONMATCHING
 void sub_080C6B40(u16 key, u16 layer, u16 prio, u16 x, u16 y)
 {
-    u16 who = key & 0xF;
-    u32 i = 0;
+    u32 i;
 
-    if (gGameState.order[0] != who)
+    key &= 0xF; /* the member index, kept in the parameter */
+    i = 0;
+    if (gGameState.order[0] != key)
     {
         do
         {
             i++;
             if (i > 5)
                 break;
-        } while (gGameState.order[i] != who);
+        } while (gGameState.order[i] != key);
     }
     if (i != 6)
         sub_080C6AD8(i, layer, prio, x, y);
 }
-#else
-NAKED
-void sub_080C6B40(u16 key, u16 layer, u16 prio, u16 x, u16 y)
-{
-    asm_unified(
-        ".L080C6B40:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    sub sp, #4\n"
-        "    ldr r4, [sp, #0x18]\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    mov ip, r1\n"
-        "    lsls r2, r2, #0x10\n"
-        "    lsrs r6, r2, #0x10\n"
-        "    lsls r3, r3, #0x10\n"
-        "    lsrs r5, r3, #0x10\n"
-        "    lsls r4, r4, #0x10\n"
-        "    lsrs r4, r4, #0x10\n"
-        "    movs r1, #0xf0\n"
-        "    lsls r1, r1, #0xc\n"
-        "    ands r1, r0\n"
-        "    lsrs r3, r1, #0x10\n"
-        "    movs r1, #0\n"
-        "    ldr r0, .L080C6BA4\n"
-        "    movs r7, #0xa2\n"
-        "    lsls r7, r7, #4\n"
-        "    adds r2, r0, r7\n"
-        "    movs r0, #0\n"
-        "    ldrsb r0, [r2, r0]\n"
-        "    cmp r0, r3\n"
-        "    beq .L080C6B86\n"
-        ".L080C6B74:\n"
-        "    adds r1, #1\n"
-        "    cmp r1, #5\n"
-        "    bhi .L080C6B86\n"
-        "    adds r0, r1, r2\n"
-        "    ldrb r0, [r0]\n"
-        "    lsls r0, r0, #0x18\n"
-        "    asrs r0, r0, #0x18\n"
-        "    cmp r0, r3\n"
-        "    bne .L080C6B74\n"
-        ".L080C6B86:\n"
-        "    cmp r1, #6\n"
-        "    beq .L080C6B9A\n"
-        "    lsls r0, r1, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    str r4, [sp]\n"
-        "    mov r1, ip\n"
-        "    adds r2, r6, #0\n"
-        "    adds r3, r5, #0\n"
-        "    bl sub_080C6AD8\n"
-        ".L080C6B9A:\n"
-        "    add sp, #4\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C6BA4: .4byte 0x030046C0 @ IWRAM+0x46C0\n"
-    );
-}
-#endif
 
 // sub_080C6BA8 @ 0x080C6BA8
 /* The running task whose per-frame function is sub_080D2F60, or NULL. */

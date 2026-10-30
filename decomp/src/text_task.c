@@ -15,7 +15,6 @@ void Task_ClearAll(void)
 /* Runs every task for one frame: fetches and starts ops until one leaves task->wait
    nonzero (or the task ends), or runs the pending op's update. */
 // Task_RunAll @ 0x080AD01C
-#ifdef NONMATCHING
 void Task_RunAll(void)
 {
     u32 i;
@@ -26,130 +25,36 @@ void Task_RunAll(void)
 
         if (task->state != TASK_STATE_FREE && !Task_IsPaused(task))
         {
-            do
+            for (;;)
             {
                 if (task->wait == 0)
                 {
-                    gTaskOpArgs = task->script + task->pc;
+                    {
+                        const u32 *s = task->script;
+                        gTaskOpArgs = s + task->pc;
+                    }
                     task->op = *gTaskOpArgs++;
                     task->pc++;
-                    if (task->op == TASK_OP_LABEL)
-                        task->pc++;
-                    else
+                    if (task->op != TASK_OP_LABEL)
                         gTaskOpTable[task->op].start(task);
+                    else
+                        task->pc++;
                 }
                 else
                 {
-                    gTaskOpArgs = &task->script[task->pc];
+                    const u32 *s = task->script;
+                    gTaskOpArgs = s + task->pc;
                     gTaskOpTable[task->op].update(task);
                 }
-            } while (task->wait == 0 && task->state != TASK_STATE_FREE);
+                if (task->wait != 0 || task->state == TASK_STATE_FREE)
+                    break;
+            }
 
             if (task->state != TASK_STATE_FREE && task->onFrame != NULL)
                 task->onFrame(task);
         }
     }
 }
-#else
-NAKED
-void Task_RunAll(void)
-{
-    asm_unified(
-        ".L080AD01C:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, r8\n"
-        "    push {r7}\n"
-        "    movs r2, #0\n"
-        ".L080AD024:\n"
-        "    movs r0, #0x64\n"
-        "    adds r1, r2, #0\n"
-        "    muls r1, r0, r1\n"
-        "    ldr r0, .L080AD078\n"
-        "    adds r4, r1, r0\n"
-        "    ldrh r0, [r4]\n"
-        "    adds r7, r2, #1\n"
-        "    cmp r0, #0\n"
-        "    beq .L080AD0C2\n"
-        "    adds r0, r4, #0\n"
-        "    bl Task_IsPaused\n"
-        "    cmp r0, #0\n"
-        "    bne .L080AD0C2\n"
-        "    ldr r5, .L080AD07C\n"
-        "    ldr r6, .L080AD080\n"
-        "    adds r0, r6, #4\n"
-        "    mov r8, r0\n"
-        ".L080AD048:\n"
-        "    ldr r0, [r4, #0xc]\n"
-        "    cmp r0, #0\n"
-        "    bne .L080AD08E\n"
-        "    ldr r1, [r4, #0x14]\n"
-        "    ldr r2, [r4, #0x10]\n"
-        "    lsls r0, r2, #2\n"
-        "    adds r1, r1, r0\n"
-        "    str r1, [r5]\n"
-        "    ldm r1!, {r3}\n"
-        "    str r3, [r4, #8]\n"
-        "    str r1, [r5]\n"
-        "    adds r2, #1\n"
-        "    str r2, [r4, #0x10]\n"
-        "    ldr r0, .L080AD084\n"
-        "    cmp r3, r0\n"
-        "    beq .L080AD088\n"
-        "    lsls r0, r3, #3\n"
-        "    adds r0, r0, r6\n"
-        "    ldr r1, [r0]\n"
-        "    adds r0, r4, #0\n"
-        "    bl _call_via_r1\n"
-        "    b .L080AD0A6\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080AD078: .4byte 0x02009004 @ EWRAM+0x9004\n"
-        ".L080AD07C: .4byte 0x03003B84 @ IWRAM+0x3B84\n"
-        ".L080AD080: .4byte gTaskOpTable\n"
-        ".L080AD084: .4byte 0x10241224\n"
-        ".L080AD088:\n"
-        "    adds r0, r2, #1\n"
-        "    str r0, [r4, #0x10]\n"
-        "    b .L080AD0A6\n"
-        ".L080AD08E:\n"
-        "    ldr r1, [r4, #0x14]\n"
-        "    ldr r0, [r4, #0x10]\n"
-        "    lsls r0, r0, #2\n"
-        "    adds r1, r1, r0\n"
-        "    str r1, [r5]\n"
-        "    ldr r0, [r4, #8]\n"
-        "    lsls r0, r0, #3\n"
-        "    add r0, r8\n"
-        "    ldr r1, [r0]\n"
-        "    adds r0, r4, #0\n"
-        "    bl _call_via_r1\n"
-        ".L080AD0A6:\n"
-        "    ldr r0, [r4, #0xc]\n"
-        "    ldrh r1, [r4]\n"
-        "    cmp r0, #0\n"
-        "    bne .L080AD0B2\n"
-        "    cmp r1, #0\n"
-        "    bne .L080AD048\n"
-        ".L080AD0B2:\n"
-        "    cmp r1, #0\n"
-        "    beq .L080AD0C2\n"
-        "    ldr r1, [r4, #0x20]\n"
-        "    cmp r1, #0\n"
-        "    beq .L080AD0C2\n"
-        "    adds r0, r4, #0\n"
-        "    bl _call_via_r1\n"
-        ".L080AD0C2:\n"
-        "    adds r2, r7, #0\n"
-        "    cmp r2, #0x3f\n"
-        "    bls .L080AD024\n"
-        "    pop {r3}\n"
-        "    mov r8, r3\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 /* Slot 0 is never handed out. */
 // Task_FindFreeSlot @ 0x080AD0D4

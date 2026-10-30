@@ -238,10 +238,8 @@ void sub_080E845C(u8 slot, s8 dx, s8 dy)
 
 // sub_080E847C @ 0x080E847C
 /* Steps a palette pulse and writes the tinted colours. */
-#ifdef NONMATCHING
 void sub_080E847C(struct C15cPulse *p)
 {
-    u16 c;
     u16 rr;
     u16 gg;
     u16 bb;
@@ -263,18 +261,12 @@ void sub_080E847C(struct C15cPulse *p)
     for (i = 0; i < 16; i++)
     {
         rr = p->r * p->level + 0xC0;
-        c = p->src[i];
-        rr = (c & 0x1F) * rr;
+        rr = (p->src[i] & 0x1F) * rr;
         if (rr > 0x1F00)
             rr = 0x1F00;
         rr >>= 8;
         gg = p->g * p->level + 0xC0;
-        {
-            u32 m = 0x3E0;
-
-            m &= c;
-            gg = (m >> 5) * gg;
-        }
+        gg = ((p->src[i] & 0x3E0) >> 5) * gg;
         if (gg > 0x1F00)
             gg = 0x3E0;
         else
@@ -284,165 +276,14 @@ void sub_080E847C(struct C15cPulse *p)
         if (bb > 0x1F00)
             bb = 0x7C00;
         else
-            bb = (bb & 0x1F00) << 2;
+        {
+            bb &= 0x1F00;
+            bb <<= 2;
+        }
         p->dst[i] = bb + (rr + gg);
     }
     Palette_MarkDirty();
 }
-#else
-NAKED
-void sub_080E847C(struct C15cPulse *p)
-{
-    asm_unified(
-        ".L080E847C:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sl\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6, r7}\n"
-        "    adds r5, r0, #0\n"
-        "    bl PalFade_AllDone\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    cmp r0, #1\n"
-        "    bne .L080E8580\n"
-        "    bl Palette_IsBg13Black\n"
-        "    cmp r0, #1\n"
-        "    beq .L080E8580\n"
-        "    ldrb r1, [r5, #5]\n"
-        "    movs r0, #5\n"
-        "    ldrsb r0, [r5, r0]\n"
-        "    cmp r0, #1\n"
-        "    bne .L080E84B8\n"
-        "    ldrb r0, [r5, #4]\n"
-        "    adds r0, #1\n"
-        "    strb r0, [r5, #4]\n"
-        "    movs r0, #4\n"
-        "    ldrsb r0, [r5, r0]\n"
-        "    ldrb r2, [r5, #3]\n"
-        "    cmp r0, r2\n"
-        "    bne .L080E84CA\n"
-        "    b .L080E84C4\n"
-        ".L080E84B8:\n"
-        "    ldrb r0, [r5, #4]\n"
-        "    subs r0, #1\n"
-        "    strb r0, [r5, #4]\n"
-        "    lsls r0, r0, #0x18\n"
-        "    cmp r0, #0\n"
-        "    bne .L080E84CA\n"
-        ".L080E84C4:\n"
-        "    movs r0, #1\n"
-        "    subs r0, r0, r1\n"
-        "    strb r0, [r5, #5]\n"
-        ".L080E84CA:\n"
-        "    movs r3, #0\n"
-        "    mov r8, r3\n"
-        "    ldr r0, [r5, #0x28]\n"
-        "    mov sl, r0\n"
-        "    movs r1, #8\n"
-        "    adds r1, r1, r5\n"
-        "    mov sb, r1\n"
-        "    movs r2, #0xf8\n"
-        "    lsls r2, r2, #5\n"
-        "    mov ip, r2\n"
-        ".L080E84DE:\n"
-        "    ldrb r0, [r5]\n"
-        "    movs r2, #4\n"
-        "    ldrsb r2, [r5, r2]\n"
-        "    muls r0, r2, r0\n"
-        "    adds r0, #0xc0\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    mov r3, r8\n"
-        "    lsls r1, r3, #1\n"
-        "    mov r3, sb\n"
-        "    adds r0, r3, r1\n"
-        "    ldrh r6, [r0]\n"
-        "    movs r0, #0x1f\n"
-        "    ands r0, r6\n"
-        "    muls r0, r4, r0\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    adds r7, r1, #0\n"
-        "    cmp r4, ip\n"
-        "    bls .L080E8508\n"
-        "    mov r4, ip\n"
-        ".L080E8508:\n"
-        "    lsrs r4, r4, #8\n"
-        "    ldrb r0, [r5, #1]\n"
-        "    muls r0, r2, r0\n"
-        "    adds r0, #0xc0\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r3, r0, #0x10\n"
-        "    movs r1, #0xf8\n"
-        "    lsls r1, r1, #2\n"
-        "    adds r0, r1, #0\n"
-        "    ands r0, r6\n"
-        "    lsrs r0, r0, #5\n"
-        "    muls r0, r3, r0\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r3, r0, #0x10\n"
-        "    cmp r3, ip\n"
-        "    bls .L080E852C\n"
-        "    adds r3, r1, #0\n"
-        "    b .L080E8532\n"
-        ".L080E852C:\n"
-        "    mov r0, ip\n"
-        "    ands r0, r3\n"
-        "    lsrs r3, r0, #3\n"
-        ".L080E8532:\n"
-        "    ldrb r0, [r5, #2]\n"
-        "    muls r0, r2, r0\n"
-        "    adds r0, #0xc0\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r2, r0, #0x10\n"
-        "    mov r1, sb\n"
-        "    adds r0, r1, r7\n"
-        "    ldrh r1, [r0]\n"
-        "    movs r6, #0xf8\n"
-        "    lsls r6, r6, #7\n"
-        "    adds r0, r6, #0\n"
-        "    ands r0, r1\n"
-        "    lsrs r0, r0, #0xa\n"
-        "    muls r0, r2, r0\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r2, r0, #0x10\n"
-        "    movs r1, #0xf8\n"
-        "    lsls r1, r1, #0x15\n"
-        "    lsrs r0, r1, #0x10\n"
-        "    cmp r2, r0\n"
-        "    bls .L080E8560\n"
-        "    adds r2, r6, #0\n"
-        "    b .L080E8564\n"
-        ".L080E8560:\n"
-        "    ands r2, r0\n"
-        "    lsls r2, r2, #2\n"
-        ".L080E8564:\n"
-        "    mov r1, sl\n"
-        "    adds r0, r7, r1\n"
-        "    adds r1, r4, r3\n"
-        "    adds r1, r2, r1\n"
-        "    strh r1, [r0]\n"
-        "    mov r0, r8\n"
-        "    adds r0, #1\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r0, r0, #0x18\n"
-        "    mov r8, r0\n"
-        "    cmp r0, #0xf\n"
-        "    bls .L080E84DE\n"
-        "    bl Palette_MarkDirty\n"
-        ".L080E8580:\n"
-        "    pop {r3, r4, r5}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    mov sl, r5\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // sub_080E8590 @ 0x080E8590
 /* As sub_080E847C, for the colours selected by mask only. */

@@ -70,17 +70,13 @@ void ScriptOp_445(struct Task *task)
             if (Combatant_IsUsed(i) && Combatant_GetDemonId(i) == gUnk_0203DB7C)
             {
                 if (Combatant_GetStatus(i) & 0x8000)
-                {
-                    Combatant_ClearStatus(i, 1);
-                    gGameState[i].hp = gGameState[i].maxHp;
-                    goto gauges;
-                }
-                if (gGameState[i].maxHp / 2 < gGameState[i].hp)
-                {
-                    Combatant_ClearStatus(i, 1);
-                    gGameState[i].hp = gGameState[i].maxHp;
-                    goto gauges;
-                }
+                    goto revive;
+                if (gGameState[i].maxHp / 2 >= gGameState[i].hp)
+                    return;
+                Combatant_ClearStatus(i, 1);
+                gGameState[i].hp = gGameState[i].maxHp;
+            gauges:
+                sub_080C84A0();
                 return;
             }
         }
@@ -90,7 +86,8 @@ void ScriptOp_445(struct Task *task)
     {
         gUnk_030068E0 = (u32)sub_0812EE8C(0, 0);
         gScriptWaitState = 0x4F;
-        goto waitWindow;
+        gScriptYield = 1;
+        return;
     }
     else if (op == 5)
         goto gauges;
@@ -108,7 +105,8 @@ void ScriptOp_445(struct Task *task)
     }
     else if (op == 8)
     {
-        gGameState[0].hp -= Demon_GetField(gUnk_0203DB7C, 0) & 0xFF;
+        d = Demon_GetField(gUnk_0203DB7C, 0) & 0xFF;
+        gGameState[0].hp -= d;
         if ((s16)(gGameState[0].hp - 1) <= 0)
             gGameState[0].hp = 1;
         return;
@@ -116,7 +114,7 @@ void ScriptOp_445(struct Task *task)
     else if (op == 9)
     {
         d = (Random_Byte() & 7) + 1;
-        d = (u8)(d + Demon_GetField(gUnk_0203DB7C, 0));
+        d = (u16)(d + Demon_GetField(gUnk_0203DB7C, 0)) & 0xFF;
         gGameState[0].hp -= d;
         if ((s16)(gGameState[0].hp - 1) <= 0)
             gGameState[0].hp = 1;
@@ -185,10 +183,7 @@ void ScriptOp_445(struct Task *task)
                 u16 b = i + 0x8000;
                 u8 *p = Battle_GetCombatant(b);
                 if (HP(p) < MAXHP(Battle_GetCombatant(b)))
-                {
-                    Combatant_RestoreHp(i);
-                    return;
-                }
+                    goto restore;
             }
         }
         return;
@@ -197,20 +192,26 @@ void ScriptOp_445(struct Task *task)
     {
         gUnk_0203DB2C = Demon_GetField(gUnk_0203DB7C, 5) & 0xFF;
         sub_08132350(0x41);
-        for (i = 0; (s8)PARTY_ORDER(i) != 0;)
+        i = 0;
+        if ((s8)PARTY_ORDER(0) != 0)
         {
-            if (++i > 4)
-                break;
+            do
+            {
+                if (++i > 4)
+                    break;
+            } while ((s8)PARTY_ORDER(i) != 0);
         }
         sub_080C8890(i, 1);
-        goto waitWindow;
+        gScriptYield = 1;
+        return;
     }
     else if (op == 19)
     {
         sub_08132350(0x16);
         gUnk_03006964 = sub_080B8AE0(0x1F, 1);
         gScriptWaitState = 0x4C;
-        goto waitWindow;
+        gScriptYield = 1;
+        return;
     }
     else if (op == 20)
     {
@@ -285,14 +286,14 @@ void ScriptOp_445(struct Task *task)
     else if (op == 29)
     {
         sub_080D4560(0);
-        goto demonList;
+        gScriptWaitState = 0x52;
+        gScriptYield = 1;
+        return;
     }
     else if (op == 30)
     {
         sub_080D4560(1);
-    demonList:
         gScriptWaitState = 0x52;
-    waitWindow:
         gScriptYield = 1;
         return;
     }
@@ -337,71 +338,88 @@ void ScriptOp_445(struct Task *task)
         stat += Random_Byte() & 1;
         stat += Random_Byte() & 1;
         /* lowers the first stat from `stat` on that is above its minimum */
-        for (tries = 0; tries <= 5; tries++)
+        for (tries = 0;;)
         {
             if (stat == 0)
             {
-                if ((base = Combatant_GetBaseStat(0, 0)) > 6)
+                if ((base = Combatant_GetBaseStat(0, 0)) <= 6)
                 {
-                    sub_08136204(0, 0, base - 1);
-                    goto heal;
+                    stat = 1;
+                    goto next;
                 }
-                stat = 1;
+                base--;
+                sub_08136204(0, 0, base);
+                goto heal;
             }
             else if (stat == 1)
             {
-                if ((base = Combatant_GetBaseStat(0, 1)) > 5)
+                if ((base = Combatant_GetBaseStat(0, 1)) <= 5)
                 {
-                    sub_08136204(0, 1, base - 1);
-                    goto heal;
+                    stat = 2;
+                    goto next;
                 }
-                stat = 2;
+                base--;
+                sub_08136204(0, 1, base);
+                goto heal;
             }
             else if (stat == 2)
             {
-                if ((base = Combatant_GetBaseStat(0, 2)) > 4)
+                if ((base = Combatant_GetBaseStat(0, 2)) <= 4)
                 {
-                    sub_08136204(0, 2, base - 1);
-                    goto heal;
+                    stat = 3;
+                    goto next;
                 }
-                stat = 3;
+                base--;
+                sub_08136204(0, 2, base);
+                goto heal;
             }
             else if (stat == 3)
             {
-                if ((base = Combatant_GetBaseStat(0, 3)) > 6)
+                if ((base = Combatant_GetBaseStat(0, 3)) <= 6)
                 {
-                    sub_08136204(0, 3, base - 1);
-                    goto heal;
+                    stat = 4;
+                    goto next;
                 }
-                stat = 4;
+                base--;
+                sub_08136204(0, 3, base);
+                goto heal;
             }
             else if (stat == 4)
             {
-                if ((base = Combatant_GetBaseStat(0, 4)) > 6)
+                if ((base = Combatant_GetBaseStat(0, 4)) <= 6)
                 {
-                    sub_08136204(0, 4, base - 1);
-                    goto heal;
+                    stat = 5;
+                    goto next;
                 }
-                stat = 5;
+                base--;
+                sub_08136204(0, 4, base);
+                goto heal;
             }
             else
             {
                 if ((base = Combatant_GetBaseStat(0, 5)) > 3)
-                {
-                    sub_08136204(0, 5, base - 1);
-                    goto heal;
-                }
+                    goto lower5;
                 stat = 0;
             }
+        next:
+            if (++tries > 5)
+                return;
         }
     }
     return;
+revive:
+    Combatant_ClearStatus(i, 1);
+    gGameState[i].hp = gGameState[i].maxHp;
+    goto gauges;
+restore:
+    Combatant_RestoreHp(i);
+    return;
+lower5:
+    base--;
+    sub_08136204(0, 5, base);
 heal:
     gGameState[0].hp = gGameState[0].maxHp;
     Hud_InvalidateGauges();
-    return;
-gauges:
-    sub_080C84A0();
 }
 #else
 NAKED

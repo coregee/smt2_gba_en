@@ -6,8 +6,8 @@
 #include "script.h"
 
 // ScriptOp_Substitute @ 0x08132B40
-/* Close: the readable C below is semantically complete but GCC's tail merging of the name
-   cases and the register choice for the long-lived addresses differ (0x79C vs 0x77C bytes). */
+/* Close: same size and block layout as the original; what differs is the register choice
+   (i/val/mode) and the address add order in the 0x328/0x329 table lookups. */
 #ifdef NONMATCHING
 void ScriptOp_Substitute(void)
 {
@@ -15,7 +15,6 @@ void ScriptOp_Substitute(void)
     s16 mode = 0;
     s16 i, j, n;
     u16 *src;
-    u16 *p16;
     u16 c;
     u16 digits[8];
 
@@ -52,13 +51,10 @@ void ScriptOp_Substitute(void)
         case 0x31D:
             if (gUnk_03006670 == 1)
             {
-                struct PartySlot *p;
-
                 if (Combatant_IsUsed(2))
-                    p = &gGameState[2];
+                    Combatant_DecodeName(&gGameState[2], gScriptSubstBuf);
                 else
-                    p = &gGameState[1];
-                Combatant_DecodeName(p, gScriptSubstBuf);
+                    Combatant_DecodeName(&gGameState[1], gScriptSubstBuf);
             }
             else
                 Combatant_DecodeName(&gGameState[1], gScriptSubstBuf);
@@ -76,20 +72,28 @@ void ScriptOp_Substitute(void)
             mode = 1;
             break;
         case 0x31E:
+        {
+            u16 id;
+
             if (gUnk_03006670 == 1)
-                p16 = &gUnk_0203DB7C;
+                id = gUnk_0203DB7C;
             else
-                p16 = &gUnk_0203DB28[0];
-            src = (u16 *)(Demon_GetRecord(*p16) + 0x22);
+                id = gUnk_0203DB28[0];
+            src = (u16 *)(Demon_GetRecord(id) + 0x22);
+        }
             for (i = 0; i < 8; i++)
                 gScriptSubstBuf[i] = *src++;
             break;
         case 0x31F:
+        {
+            u16 id;
+
             if (gUnk_03006670 == 1)
-                p16 = &gUnk_0203DB7C;
+                id = gUnk_0203DB7C;
             else
-                p16 = &gUnk_0203DB28[0];
-            src = Race_GetName(*(s8 *)Demon_GetRecord(*p16));
+                id = gUnk_0203DB28[0];
+            src = Race_GetName(*(s8 *)Demon_GetRecord(id));
+        }
             for (i = 0; i < 8; i++)
                 gScriptSubstBuf[i] = *src++;
             break;
@@ -121,8 +125,9 @@ void ScriptOp_Substitute(void)
             for (i = 0; i < 4 && Combatant_IsAlive(i) != 1; i++)
                 ;
             Combatant_DecodeName(&gGameState[i], gScriptSubstBuf);
-            j = 8;
-            if (gScriptSubstBuf[7] == 0)
+            if (gScriptSubstBuf[7] != 0)
+                j = 8;
+            else
             {
                 for (j = 6; j > 0; j--)
                 {
@@ -153,11 +158,15 @@ void ScriptOp_Substitute(void)
                 gScriptSubstBuf[i] = *src++;
             break;
         case 0x322:
+        {
+            u16 id;
+
             if (gUnk_03006670 == 1)
-                c = gUnk_0203DB7E;
+                id = gUnk_0203DB7E;
             else
-                c = gUnk_0203DB28[1];
-            src = (u16 *)(Demon_GetRecord(c) + 0x22);
+                id = gUnk_0203DB28[1];
+            src = (u16 *)(Demon_GetRecord(id) + 0x22);
+        }
             for (i = 0; i < 8; i++)
                 gScriptSubstBuf[i] = *src++;
             break;
@@ -187,7 +196,10 @@ void ScriptOp_Substitute(void)
                 for (i = 7; i >= 0; i--)
                 {
                     if (digits[i] != 0)
-                        gScriptSubstBuf[j++] = digits[i];
+                    {
+                        gScriptSubstBuf[j] = digits[i];
+                        j++;
+                    }
                 }
             break;
         case 0x32F:
@@ -215,7 +227,10 @@ void ScriptOp_Substitute(void)
                 for (i = 7; i >= 0; i--)
                 {
                     if (digits[i] != 0)
-                        gScriptSubstBuf[j++] = digits[i];
+                    {
+                        gScriptSubstBuf[j] = digits[i];
+                        j++;
+                    }
                 }
             break;
         case 0x324:
@@ -224,21 +239,30 @@ void ScriptOp_Substitute(void)
             mode = 1;
             break;
         case 0x328:
+        {
+            const u16 (*t)[10];
+
             i = 0;
-            c = gUnknown_0878F9CC[gUnk_0203DB72 * 10 + 1];
+            t = (const u16 (*)[10])gUnknown_0878F9CC;
+            c = t[gUnk_0203DB72][1];
             while (c != 0x301)
             {
                 gScriptSubstBuf[i] = c;
                 i++;
                 if (i > 9)
                     break;
-                c = gUnknown_0878F9CC[gUnk_0203DB72 * 10 + i + 1];
+                {
+                    s32 k = i + 1;
+
+                    c = t[gUnk_0203DB72][k];
+                }
             }
             break;
+        }
         case 0x329:
             for (i = 0; i < 10; i++)
             {
-                c = gUnknown_0878EF04[gUnk_030069A0[gUnk_0300696C] * 10 + i];
+                c = *(gUnknown_0878EF04 + i + gUnk_030069A0[gUnk_0300696C] * 10);
                 if (c == 0x301)
                     break;
                 gScriptSubstBuf[i] = c;
@@ -250,6 +274,17 @@ void ScriptOp_Substitute(void)
            placed its own terminator. */
         switch (mode)
         {
+        case 0:
+            for (i = 14; i >= 0; i--)
+            {
+                if (gScriptSubstBuf[i] != 0
+                 && (gScriptSubstBuf[i + 1] == 0 || gScriptSubstBuf[i + 1] == 0x318))
+                {
+                    gScriptSubstBuf[i + 1] = 0x318;
+                    break;
+                }
+            }
+            break;
         case 1:
             for (i = 14; i >= 0; i--)
             {
@@ -261,16 +296,7 @@ void ScriptOp_Substitute(void)
                 }
             }
             break;
-        case 0:
-            for (i = 14; i >= 0; i--)
-            {
-                if (gScriptSubstBuf[i] != 0
-                 && (gScriptSubstBuf[i + 1] == 0 || gScriptSubstBuf[i + 1] == 0x318))
-                {
-                    gScriptSubstBuf[i + 1] = 0x318;
-                    break;
-                }
-            }
+        case 2:
             break;
         }
     }

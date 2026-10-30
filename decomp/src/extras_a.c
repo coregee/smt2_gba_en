@@ -60,82 +60,43 @@ void sub_080D9868(void)
 /* Copies a 32x26 tilemap to 0x02000000 and adds a palette (8 + low nibble) from attr to
    the 28 tiles from column 1 of each row. */
 // sub_080D988C @ 0x080D988C
-#ifdef NONMATCHING
 void sub_080D988C(struct Task *task, const void *map, const u8 *attr)
 {
     u16 *buf = (u16 *)gUnk_02000000;
     u32 y, x;
 
     DmaSet3(map, buf, 0x84000400);
-    for (y = 0; y < 26; y++)
+    y = 0;
+    do
     {
-        for (x = 0; x < 28; x++)
+        u16 *p;
+        u32 next;
+        u32 two = 2;
+
+        x = 0;
+        next = y + 1;
+        {
+            u32 off = y << 6;
+
+            two += (u32)buf;    /* p = &buf[1 + y * 32] */
+            p = (u16 *)(off + two);
+        }
+        for (; x < 0x1C; x++)
         {
             u32 v = *attr++;
 
             v &= 0xF;
-            buf[y * 32 + x + 1] += (v + 8) << 12;
+            v += 8;
+            *p += v << 12;
+            p++;
         }
-    }
+        y = next;
+    } while (y < 26);
     VBlankTask_AddCounted(sub_080D9868, 1);
 }
-#else
-NAKED
-void sub_080D988C(struct Task *task, const void *map, const u8 *attr)
-{
-    asm_unified(
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    ldr r6, .L080D98DC\n"
-        "    ldr r0, .L080D98E0\n"
-        "    str r1, [r0]\n"
-        "    str r6, [r0, #4]\n"
-        "    ldr r1, .L080D98E4\n"
-        "    str r1, [r0, #8]\n"
-        "    ldr r0, [r0, #8]\n"
-        "    movs r1, #0\n"
-        "    ldr r0, .L080D98E8\n"
-        "    mov ip, r0\n"
-        "    movs r5, #0xf\n"
-        ".L080D98A4:\n"
-        "    movs r3, #0\n"
-        "    adds r4, r1, #1\n"
-        "    lsls r1, r1, #6\n"
-        "    adds r0, r6, #2\n"
-        "    adds r1, r1, r0\n"
-        ".L080D98AE:\n"
-        "    ldrb r0, [r2]\n"
-        "    adds r2, #1\n"
-        "    ands r0, r5\n"
-        "    adds r0, #8\n"
-        "    lsls r0, r0, #0xc\n"
-        "    ldrh r7, [r1]\n"
-        "    adds r0, r0, r7\n"
-        "    strh r0, [r1]\n"
-        "    adds r1, #2\n"
-        "    adds r3, #1\n"
-        "    cmp r3, #0x1b\n"
-        "    bls .L080D98AE\n"
-        "    adds r1, r4, #0\n"
-        "    cmp r1, #0x19\n"
-        "    bls .L080D98A4\n"
-        "    mov r0, ip\n"
-        "    movs r1, #1\n"
-        "    bl VBlankTask_AddCounted\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080D98DC: .4byte 0x02000000 @ EWRAM\n"
-        ".L080D98E0: .4byte 0x040000D4 @ REG_DMA3SAD\n"
-        ".L080D98E4: .4byte 0x84000400\n"
-        ".L080D98E8: .4byte sub_080D9868\n"
-    );
-}
-#endif
 
 /* Same, mirrored: 14 attributes per row applied from both ends. */
 // sub_080D98EC @ 0x080D98EC
-#ifdef NONMATCHING
 void sub_080D98EC(struct Task *task, const void *map, const u8 *attr)
 {
     u16 *buf = (u16 *)gUnk_02000000;
@@ -143,95 +104,37 @@ void sub_080D98EC(struct Task *task, const void *map, const u8 *attr)
     u16 *p, *q;
 
     DmaSet3(map, buf, 0x84000400);
-    for (y = 0; y < 26; y++)
+    y = 0;
+    do
     {
+        u32 next;
+
+        x = 0;
         {
-            u32 k = y * 32 + 28;
+            u32 k = y * 32;
             u32 two = 2;    /* p = &buf[1 + y * 32]; q = &buf[y * 32 + 28] */
+
+            next = y + 1;
+            k += 28;
             p = (u16 *)((y << 6) + ((u32)buf + two));
             q = (u16 *)((k << 1) + (u32)buf);
         }
-        for (x = 0; x < 14; x++)
+        for (; x < 14; x++)
         {
             u32 v = *attr++;
 
             v &= 0xF;
-            v = (v + 8) << 12;
+            v += 8;
+            v <<= 12;
             *p += v;
             *q += v;
             q--;
             p++;
         }
-    }
+        y = next;
+    } while (y < 26);
     VBlankTask_AddCounted(sub_080D9868, 1);
 }
-#else
-NAKED
-void sub_080D98EC(struct Task *task, const void *map, const u8 *attr)
-{
-    asm_unified(
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, r8\n"
-        "    push {r7}\n"
-        "    adds r4, r2, #0\n"
-        "    ldr r7, .L080D9958\n"
-        "    ldr r0, .L080D995C\n"
-        "    str r1, [r0]\n"
-        "    str r7, [r0, #4]\n"
-        "    ldr r1, .L080D9960\n"
-        "    str r1, [r0, #8]\n"
-        "    ldr r0, [r0, #8]\n"
-        "    movs r2, #0\n"
-        "    ldr r0, .L080D9964\n"
-        "    mov r8, r0\n"
-        "    movs r1, #0xf\n"
-        "    mov ip, r1\n"
-        ".L080D990C:\n"
-        "    movs r5, #0\n"
-        "    lsls r0, r2, #5\n"
-        "    adds r6, r2, #1\n"
-        "    adds r0, #0x1c\n"
-        "    lsls r2, r2, #6\n"
-        "    adds r1, r7, #2\n"
-        "    adds r2, r2, r1\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r3, r0, r7\n"
-        ".L080D991E:\n"
-        "    ldrb r0, [r4]\n"
-        "    adds r4, #1\n"
-        "    mov r1, ip\n"
-        "    ands r0, r1\n"
-        "    adds r0, #8\n"
-        "    lsls r0, r0, #0xc\n"
-        "    ldrh r1, [r2]\n"
-        "    adds r1, r1, r0\n"
-        "    strh r1, [r2]\n"
-        "    ldrh r1, [r3]\n"
-        "    adds r1, r1, r0\n"
-        "    strh r1, [r3]\n"
-        "    subs r3, #2\n"
-        "    adds r2, #2\n"
-        "    adds r5, #1\n"
-        "    cmp r5, #0xd\n"
-        "    bls .L080D991E\n"
-        "    adds r2, r6, #0\n"
-        "    cmp r2, #0x19\n"
-        "    bls .L080D990C\n"
-        "    mov r0, r8\n"
-        "    movs r1, #1\n"
-        "    bl VBlankTask_AddCounted\n"
-        "    pop {r3}\n"
-        "    mov r8, r3\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L080D9958: .4byte 0x02000000 @ EWRAM\n"
-        ".L080D995C: .4byte 0x040000D4 @ REG_DMA3SAD\n"
-        ".L080D9960: .4byte 0x84000400\n"
-        ".L080D9964: .4byte sub_080D9868\n"
-    );
-}
-#endif
 
 // sub_080D9968 @ 0x080D9968
 void sub_080D9968(struct Task *task, const void *pal)

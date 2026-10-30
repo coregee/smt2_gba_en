@@ -3,6 +3,8 @@
 #include "global.h"
 #include "fieldevent.h"
 
+extern u8 gUnk_02005004[];
+
 // sub_080B5CD8 @ 0x080B5CD8
 void sub_080B5CD8(void)
 {
@@ -111,69 +113,19 @@ void sub_080B5E50(void)
 
 // sub_080B5E74 @ 0x080B5E74
 /* VBlank: copies the wall tiles from row gUnk_0300000E/8 on and clears the rows above. */
-#ifdef NONMATCHING
 void sub_080B5E74(void)
 {
     u32 off = (gUnk_0300000E >> 3) * 0x400;
-    u32 src = 0x02005004 + off;
-    u32 size = 0x3400 - off;
+    u8 *src = gUnk_02005004; /* symbol, not a cast address: keeps 0x3400 - off at run time */
 
-    if (size != 0)
+    src += off;
+    off = 0x3400 - off;
+    if (off != 0)
     {
         DmaFill32(3, 0, (void *)0x06008800, 0x3400);
-        DmaCopy32(3, src, (void *)0x06008800, size);
+        DmaCopy32(3, src, (void *)0x06008800, off);
     }
 }
-#else
-NAKED
-void sub_080B5E74(void)
-{
-    asm_unified(
-        "    push {r4, lr}\n"
-        "    sub sp, #4\n"
-        "    ldr r0, .L080B5EBC\n"
-        "    ldrh r0, [r0]\n"
-        "    lsrs r0, r0, #3\n"
-        "    lsls r0, r0, #0xa\n"
-        "    ldr r3, .L080B5EC0\n"
-        "    adds r3, r0, r3\n"
-        "    movs r1, #0xd0\n"
-        "    lsls r1, r1, #6\n"
-        "    subs r4, r1, r0\n"
-        "    cmp r4, #0\n"
-        "    beq .L080B5EB2\n"
-        "    movs r0, #0\n"
-        "    str r0, [sp]\n"
-        "    ldr r1, .L080B5EC4\n"
-        "    mov r0, sp\n"
-        "    str r0, [r1]\n"
-        "    ldr r2, .L080B5EC8\n"
-        "    str r2, [r1, #4]\n"
-        "    ldr r0, .L080B5ECC\n"
-        "    str r0, [r1, #8]\n"
-        "    ldr r0, [r1, #8]\n"
-        "    str r3, [r1]\n"
-        "    str r2, [r1, #4]\n"
-        "    lsrs r0, r4, #2\n"
-        "    movs r2, #0x84\n"
-        "    lsls r2, r2, #0x18\n"
-        "    orrs r0, r2\n"
-        "    str r0, [r1, #8]\n"
-        "    ldr r0, [r1, #8]\n"
-        ".L080B5EB2:\n"
-        "    add sp, #4\n"
-        "    pop {r4}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080B5EBC: .4byte 0x0300000E @ IWRAM+0xE\n"
-        ".L080B5EC0: .4byte 0x02005004 @ EWRAM+0x5004\n"
-        ".L080B5EC4: .4byte 0x040000D4 @ REG_DMA3SAD\n"
-        ".L080B5EC8: .4byte 0x06008800 @ VRAM+0x8800\n"
-        ".L080B5ECC: .4byte 0x85000D00\n"
-    );
-}
-#endif
 
 // sub_080B5ED0 @ 0x080B5ED0
 void sub_080B5ED0(void)

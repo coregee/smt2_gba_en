@@ -345,7 +345,7 @@ u32 sub_080EDE70(void)
     s16 r;
     s32 a, b;
     s16 d;
-    u16 m;
+    u32 m;
     s32 v;
 
     if (!(BattleFlags_Get() & 0x20))
@@ -494,7 +494,6 @@ u32 sub_080EDF0C(void)
 }
 
 // sub_080EE028 @ 0x080EE028
-#ifdef NONMATCHING
 u32 sub_080EE028(s32 att, s32 def)
 {
     s32 mode = BSTATE->unk15C;
@@ -517,9 +516,9 @@ u32 sub_080EE028(s32 att, s32 def)
     if (kind == 0xB || kind == 7)
     {
         s8 lv = d[0x41];
+        s32 t = lv * 2 - 1;
 
-        v = lv * 2 - 1;
-        v = (v - *(s16 *)(a + 0x56) + 0x10) * 2;
+        v = (t - *(s16 *)(a + 0x56) + 0x10) * 2;
         if (v > 0xFF)
             goto ret1;
     }
@@ -548,128 +547,6 @@ ret1:
 ret0:
     return 0;
 }
-#else
-NAKED u32 sub_080EE028(s32 att, s32 def)
-{
-    asm_unified(
-        ".L080EE028:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    adds r6, r0, #0\n"
-        "    ldr r0, .L080EE09C\n"
-        "    ldr r0, [r0]\n"
-        "    movs r2, #0xae\n"
-        "    lsls r2, r2, #1\n"
-        "    adds r0, r0, r2\n"
-        "    ldr r2, [r0]\n"
-        "    cmp r2, #0\n"
-        "    beq .L080EE104\n"
-        "    movs r0, #1\n"
-        "    rsbs r0, r0, #0\n"
-        "    cmp r2, r0\n"
-        "    beq .L080EE0FA\n"
-        "    ldr r0, .L080EE0A0\n"
-        "    adds r5, r0, #0\n"
-        "    adds r0, r1, r5\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    bl Battle_GetCombatant\n"
-        "    adds r4, r0, #0\n"
-        "    ldrh r1, [r4, #0x10]\n"
-        "    ldr r0, .L080EE0A4\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    bne .L080EE0FA\n"
-        "    adds r0, r6, r5\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    bl Battle_GetCombatant\n"
-        "    adds r1, r0, #0\n"
-        "    movs r3, #0x17\n"
-        "    ldrsb r3, [r1, r3]\n"
-        "    cmp r3, #8\n"
-        "    beq .L080EE0FA\n"
-        "    cmp r3, #0xb\n"
-        "    beq .L080EE07A\n"
-        "    cmp r3, #7\n"
-        "    bne .L080EE0A8\n"
-        ".L080EE07A:\n"
-        "    adds r0, r4, #0\n"
-        "    adds r0, #0x41\n"
-        "    ldrb r0, [r0]\n"
-        "    lsls r0, r0, #0x18\n"
-        "    asrs r0, r0, #0x18\n"
-        "    lsls r0, r0, #1\n"
-        "    subs r0, #1\n"
-        "    adds r1, #0x56\n"
-        "    movs r2, #0\n"
-        "    ldrsh r1, [r1, r2]\n"
-        "    subs r0, r0, r1\n"
-        "    adds r0, #0x10\n"
-        "    lsls r4, r0, #1\n"
-        "    cmp r4, #0xff\n"
-        "    bgt .L080EE0FA\n"
-        "    b .L080EE0F2\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080EE09C: .4byte 0x03006434 @ IWRAM+0x6434\n"
-        ".L080EE0A0: .4byte 0xFFFF8000\n"
-        ".L080EE0A4: .4byte 0x00003160\n"
-        ".L080EE0A8:\n"
-        "    adds r0, r4, #0\n"
-        "    adds r0, #0x52\n"
-        "    movs r2, #0\n"
-        "    ldrsh r4, [r0, r2]\n"
-        "    cmp r3, #4\n"
-        "    beq .L080EE0B8\n"
-        "    cmp r3, #0xa\n"
-        "    bne .L080EE0C2\n"
-        ".L080EE0B8:\n"
-        "    adds r0, r1, #0\n"
-        "    adds r0, #0x4a\n"
-        "    movs r1, #0\n"
-        "    ldrsh r0, [r0, r1]\n"
-        "    b .L080EE0CA\n"
-        ".L080EE0C2:\n"
-        "    adds r0, r1, #0\n"
-        "    adds r0, #0x4e\n"
-        "    movs r2, #0\n"
-        "    ldrsh r0, [r0, r2]\n"
-        ".L080EE0CA:\n"
-        "    subs r4, r4, r0\n"
-        "    adds r4, #0x10\n"
-        "    cmp r4, #0\n"
-        "    blt .L080EE0FA\n"
-        "    adds r0, r4, #0\n"
-        "    muls r0, r4, r0\n"
-        "    adds r4, r0, #0\n"
-        "    asrs r4, r4, #5\n"
-        "    adds r0, r6, #0\n"
-        "    bl sub_080EFD84\n"
-        "    adds r0, #4\n"
-        "    lsls r2, r4, #3\n"
-        "    ldr r1, .L080EE100\n"
-        "    adds r0, r0, r1\n"
-        "    ldrb r1, [r0]\n"
-        "    adds r0, r2, #0\n"
-        "    bl __divsi3\n"
-        "    adds r4, r0, #0\n"
-        ".L080EE0F2:\n"
-        "    bl Random_Byte\n"
-        "    cmp r0, r4\n"
-        "    ble .L080EE104\n"
-        ".L080EE0FA:\n"
-        "    movs r0, #1\n"
-        "    b .L080EE106\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080EE100: .4byte gUnknown_0876F78E\n"
-        ".L080EE104:\n"
-        "    movs r0, #0\n"
-        ".L080EE106:\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-    );
-}
-#endif
 
 
 // Battle_BuildTargetList @ 0x080EE10C

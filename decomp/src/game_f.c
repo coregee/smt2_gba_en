@@ -5,9 +5,7 @@
 #include "global.h"
 #include "game.h"
 
-/* NONMATCHING: the cell pointer and the loaded word swap r2/r3. */
 // FieldMap_CellRecordsRel @ 0x080B2EFC
-#ifdef NONMATCHING
 /* Attribute records of the cell fwd squares ahead and side squares to the right of the player. */
 u32 *FieldMap_CellRecordsRel(u16 fwd, u16 side)
 {
@@ -39,146 +37,19 @@ u32 *FieldMap_CellRecordsRel(u16 fwd, u16 side)
     }
     if ((s16)x < 0 || (s16)y < 0 || x >= gFieldState.unk1A || y >= gFieldState.unk1C)
         return NULL;
-next:
-    if (*p == -1)
-        return NULL;
-    if (p[0] == x && p[1] == y)
-        return p + 2;
-    p += 2;
-    do
-        p += gUnknown_0816222C[*p & 0xFFFF];
-    while (*p != -2);
-    p++;
-    goto next;
+    for (;;)
+    {
+        if (*p == -1)
+            return NULL;
+        if (p[0] == x && p[1] == y)
+            return p + 2;
+        p += 2;
+        do
+            p += gUnknown_0816222C[*p & 0xFFFF];
+        while (*p != -2);
+        p++;
+    }
 }
-#else
-NAKED
-u32 *FieldMap_CellRecordsRel(u16 fwd, u16 side)
-{
-    asm_unified(
-        ".L080B2EFC:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r6, r0, #0x10\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r5, r1, #0x10\n"
-        "    ldr r0, .L080B2F2C\n"
-        "    ldrh r0, [r0]\n"
-        "    ldr r1, .L080B2F30\n"
-        "    ldrh r1, [r1]\n"
-        "    bl DungeonMap_GetFloor\n"
-        "    adds r0, #0x94\n"
-        "    ldr r3, [r0]\n"
-        "    ldr r0, .L080B2F34\n"
-        "    ldrh r4, [r0, #0x12]\n"
-        "    ldrh r1, [r0, #0x14]\n"
-        "    ldrh r0, [r0, #2]\n"
-        "    cmp r0, #1\n"
-        "    beq .L080B2F4C\n"
-        "    cmp r0, #1\n"
-        "    bgt .L080B2F38\n"
-        "    cmp r0, #0\n"
-        "    beq .L080B2F42\n"
-        "    b .L080B2F6C\n"
-        ".L080B2F2C: .4byte 0x03004614 @ IWRAM+0x4614\n"
-        ".L080B2F30: .4byte 0x03004514 @ IWRAM+0x4514\n"
-        ".L080B2F34: .4byte 0x03004550 @ IWRAM+0x4550\n"
-        ".L080B2F38:\n"
-        "    cmp r0, #2\n"
-        "    beq .L080B2F56\n"
-        "    cmp r0, #3\n"
-        "    beq .L080B2F60\n"
-        "    b .L080B2F6C\n"
-        ".L080B2F42:\n"
-        "    adds r0, r4, r6\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    adds r0, r1, r5\n"
-        "    b .L080B2F68\n"
-        ".L080B2F4C:\n"
-        "    subs r0, r4, r5\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    adds r0, r1, r6\n"
-        "    b .L080B2F68\n"
-        ".L080B2F56:\n"
-        "    subs r0, r4, r6\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    subs r0, r1, r5\n"
-        "    b .L080B2F68\n"
-        ".L080B2F60:\n"
-        "    adds r0, r4, r5\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    subs r0, r1, r6\n"
-        ".L080B2F68:\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r1, r0, #0x10\n"
-        ".L080B2F6C:\n"
-        "    lsls r0, r4, #0x10\n"
-        "    cmp r0, #0\n"
-        "    blt .L080B2F90\n"
-        "    lsls r0, r1, #0x10\n"
-        "    cmp r0, #0\n"
-        "    blt .L080B2F90\n"
-        "    ldr r0, .L080B2F94\n"
-        "    ldrh r2, [r0, #0x1a]\n"
-        "    cmp r4, r2\n"
-        "    bhs .L080B2F90\n"
-        "    ldrh r0, [r0, #0x1c]\n"
-        "    cmp r1, r0\n"
-        "    bhs .L080B2F90\n"
-        ".L080B2F86:\n"
-        "    ldr r2, [r3]\n"
-        "    movs r0, #1\n"
-        "    rsbs r0, r0, #0\n"
-        "    cmp r2, r0\n"
-        "    bne .L080B2F98\n"
-        ".L080B2F90:\n"
-        "    movs r0, #0\n"
-        "    b .L080B2FD4\n"
-        ".L080B2F94: .4byte 0x03004550 @ IWRAM+0x4550\n"
-        ".L080B2F98:\n"
-        "    cmp r2, r4\n"
-        "    bne .L080B2FA8\n"
-        "    ldr r0, [r3, #4]\n"
-        "    cmp r0, r1\n"
-        "    bne .L080B2FA8\n"
-        "    adds r0, r3, #0\n"
-        "    adds r0, #8\n"
-        "    b .L080B2FD4\n"
-        ".L080B2FA8:\n"
-        "    adds r3, #8\n"
-        "    ldr r6, .L080B2FCC\n"
-        "    ldr r5, .L080B2FD0\n"
-        "    movs r2, #2\n"
-        "    rsbs r2, r2, #0\n"
-        ".L080B2FB2:\n"
-        "    ldr r0, [r3]\n"
-        "    ands r0, r5\n"
-        "    lsls r0, r0, #2\n"
-        "    adds r0, r0, r6\n"
-        "    ldr r0, [r0]\n"
-        "    lsls r0, r0, #2\n"
-        "    adds r3, r3, r0\n"
-        "    ldr r0, [r3]\n"
-        "    cmp r0, r2\n"
-        "    bne .L080B2FB2\n"
-        "    adds r3, #4\n"
-        "    b .L080B2F86\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080B2FCC: .4byte gUnknown_0816222C\n"
-        ".L080B2FD0: .4byte 0x0000FFFF\n"
-        ".L080B2FD4:\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-
-#endif
 
 // FieldMap_CellRecordsOffset @ 0x080B2FDC
 /* FieldMap_CellRecordsRel as if facing direction 0. */
@@ -212,9 +83,7 @@ u32 *FieldMap_CellRecordsAt(u32 x, u32 y)
     return r;
 }
 
-/* NONMATCHING: the record pointer and the loaded word swap r2/r3. */
 // FieldMap_FindRecord @ 0x080B3038
-#ifdef NONMATCHING
 /* First record of the given type in a cell's record list, or NULL. */
 u32 *FieldMap_FindRecord(u32 *p, u16 type)
 {
@@ -222,60 +91,16 @@ u32 *FieldMap_FindRecord(u32 *p, u16 type)
 
     if (p == NULL)
         return NULL;
-next:
-    if (*p == -2)
-        return NULL;
-    t = *p & 0xFFFF;
-    if (t == type)
-        return p;
-    p += gUnknown_0816222C[t];
-    goto next;
+    for (;;)
+    {
+        if (*p == -2)
+            return NULL;
+        t = *p & 0xFFFF;
+        if (t == type)
+            return p;
+        p += gUnknown_0816222C[t];
+    }
 }
-#else
-NAKED
-u32 *FieldMap_FindRecord(u32 *p, u16 type)
-{
-    asm_unified(
-        ".L080B3038:\n"
-        "    push {r4, lr}\n"
-        "    adds r3, r0, #0\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r4, r1, #0x10\n"
-        "    cmp r3, #0\n"
-        "    beq .L080B304E\n"
-        ".L080B3044:\n"
-        "    ldr r2, [r3]\n"
-        "    movs r0, #2\n"
-        "    rsbs r0, r0, #0\n"
-        "    cmp r2, r0\n"
-        "    bne .L080B3052\n"
-        ".L080B304E:\n"
-        "    movs r0, #0\n"
-        "    b .L080B3072\n"
-        ".L080B3052:\n"
-        "    ldr r1, .L080B3068\n"
-        "    ands r1, r2\n"
-        "    cmp r1, r4\n"
-        "    beq .L080B3070\n"
-        "    ldr r0, .L080B306C\n"
-        "    lsls r1, r1, #2\n"
-        "    adds r1, r1, r0\n"
-        "    ldr r0, [r1]\n"
-        "    lsls r0, r0, #2\n"
-        "    adds r3, r3, r0\n"
-        "    b .L080B3044\n"
-        ".L080B3068: .4byte 0x0000FFFF\n"
-        ".L080B306C: .4byte gUnknown_0816222C\n"
-        ".L080B3070:\n"
-        "    adds r0, r3, #0\n"
-        ".L080B3072:\n"
-        "    pop {r4}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-    );
-}
-
-#endif
 
 // FieldMap_HasRecordRel @ 0x080B3078
 /* TRUE when the cell (fwd, side) relative to the player has a record of the given type. */

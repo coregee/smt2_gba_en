@@ -151,7 +151,7 @@ address	mode	size	name	confidence	state	file
 080ACFA4	thumb	40	Palette_FillWithEffect	probable	c	src/text_font.c
 080ACFCC	thumb	40	Palette_CopyWithEffect	probable	c	src/text_font.c
 080ACFF4	thumb	40	Task_ClearAll	probable	c	src/text_task.c
-080AD01C	thumb	182	Task_RunAll	probable	nonmatching	src/text_task.c
+080AD01C	thumb	182	Task_RunAll	probable	c	src/text_task.c
 080AD0D4	thumb	40	Task_FindFreeSlot	probable	c	src/text_task.c
 080AD0FC	thumb	82	Task_Create	probable	c	src/text_task.c
 080AD150	thumb	12	Task_Pause	probable	c	src/text_task.c
@@ -332,17 +332,17 @@ address	mode	size	name	confidence	state	file
 080B23D0	thumb	1136	FieldView_BlitTiles	probable	nonmatching	src/game_c.c
 080B2840	thumb	64			c	src/game_d.c
 080B2880	thumb	120			c	src/game_d.c
-080B28F8	thumb	64			nonmatching	src/game_d.c
+080B28F8	thumb	64			c	src/game_d.c
 080B2938	thumb	72			c	src/game_d.c
 080B2980	thumb	38			c	src/game_d.c
-080B29A8	thumb	264			nonmatching	src/game_d.c
+080B29A8	thumb	264			c	src/game_d.c
 080B2AB0	thumb	528			c	src/game_e.c
-080B2CC0	thumb	210			nonmatching	src/game_e.c
+080B2CC0	thumb	210			c	src/game_e.c
 080B2D94	thumb	360	FieldView_DrawLayer	probable	c	src/game_e.c
-080B2EFC	thumb	222	FieldMap_CellRecordsRel	probable	nonmatching	src/game_f.c
+080B2EFC	thumb	222	FieldMap_CellRecordsRel	probable	c	src/game_f.c
 080B2FDC	thumb	36	FieldMap_CellRecordsOffset	probable	c	src/game_f.c
 080B3000	thumb	56	FieldMap_CellRecordsAt	probable	c	src/game_f.c
-080B3038	thumb	64	FieldMap_FindRecord	probable	nonmatching	src/game_f.c
+080B3038	thumb	64	FieldMap_FindRecord	probable	c	src/game_f.c
 080B3078	thumb	38	FieldMap_HasRecordRel	probable	c	src/game_f.c
 080B30A0	thumb	292			c	src/game_f.c
 080B31C4	thumb	386			nonmatching	src/game_f.c
@@ -430,7 +430,7 @@ address	mode	size	name	confidence	state	file
 080B5E10	thumb	28			c	src/fieldevent_a.c
 080B5E2C	thumb	36			c	src/fieldevent_a.c
 080B5E50	thumb	36			c	src/fieldevent_a.c
-080B5E74	thumb	92			nonmatching	src/fieldevent_a.c
+080B5E74	thumb	92			c	src/fieldevent_a.c
 080B5ED0	thumb	28			c	src/fieldevent_a.c
 080B5EEC	thumb	56			c	src/fieldevent_a.c
 080B5F24	thumb	36			c	src/fieldevent_a.c
@@ -538,7 +538,7 @@ address	mode	size	name	confidence	state	file
 080B7D40	thumb	184			c	src/fieldevent_e.c
 080B7DF8	thumb	18			c	src/fieldevent_e.c
 080B7E0C	thumb	48			c	src/fieldevent_e.c
-080B7E3C	thumb	240			nonmatching	src/fieldevent_e.c
+080B7E3C	thumb	240			c	src/fieldevent_e.c
 080B7F2C	thumb	68			c	src/fieldevent_e.c
 080B7F70	thumb	12			c	src/fieldevent_e.c
 080B7F7C	thumb	108			c	src/fieldevent_e.c
@@ -1337,7 +1337,7 @@ address	mode	size	name	confidence	state	file
 080C67C0	thumb	68			nonmatching	src/hud_a.c
 080C6804	thumb	724	Hud_Update	probable	c	src/hud_a.c
 080C6AD8	thumb	104			c	src/hud_b.c
-080C6B40	thumb	104			nonmatching	src/hud_b.c
+080C6B40	thumb	104			c	src/hud_b.c
 080C6BA8	thumb	56			c	src/hud_b.c
 080C6BE0	thumb	592	Hud_DrawMemberPanel	probable	c	src/hud_b.c
 080C6E30	thumb	36			c	src/hud_b.c
@@ -1904,7 +1904,7 @@ address	mode	size	name	confidence	state	file
 080D7C30	thumb	120	Char_DrawAnimFrame	probable	c	src/charsprite_a.c
 080D7CA8	thumb	182	Char_StepAnim	probable	c	src/charsprite_a.c
 080D7D60	thumb	56			c	src/charsprite_a.c
-080D7D98	thumb	148			nonmatching	src/charsprite_a.c
+080D7D98	thumb	148			c	src/charsprite_a.c
 080D7E2C	thumb	28			c	src/charsprite_a.c
 080D7E48	thumb	28			c	src/charsprite_a.c
 080D7E64	thumb	28			c	src/charsprite_a.c
@@ -2025,8 +2025,8 @@ address	mode	size	name	confidence	state	file
 080D97FC	thumb	40			c	src/extras_a.c
 080D9824	thumb	68			c	src/extras_a.c
 080D9868	thumb	36			c	src/extras_a.c
-080D988C	thumb	96			nonmatching	src/extras_a.c
-080D98EC	thumb	124			nonmatching	src/extras_a.c
+080D988C	thumb	96			c	src/extras_a.c
+080D98EC	thumb	124			c	src/extras_a.c
 080D9968	thumb	32			c	src/extras_a.c
 080D9988	thumb	24			c	src/extras_a.c
 080D99A0	thumb	24			c	src/extras_a.c
@@ -2482,7 +2482,7 @@ address	mode	size	name	confidence	state	file
 080E8034	thumb	760			c	src/battlesprite_a.c
 080E832C	thumb	304			c	src/battlesprite_a.c
 080E845C	thumb	32			c	src/battlesprite_a.c
-080E847C	thumb	274			nonmatching	src/battlesprite_a.c
+080E847C	thumb	274			c	src/battlesprite_a.c
 080E8590	thumb	292			nonmatching	src/battlesprite_a.c
 080E86B4	thumb	132			c	src/battlesprite_a.c
 080E8738	thumb	392			c	src/battlesprite_a.c
@@ -2675,7 +2675,7 @@ address	mode	size	name	confidence	state	file
 080EDD8C	thumb	228	Battle_BuildActionOrder	probable	c	src/battle_080EDB6C.c
 080EDE70	thumb	156			nonmatching	src/battle_080EDB6C.c
 080EDF0C	thumb	282			c	src/battle_080EDB6C.c
-080EE028	thumb	228			nonmatching	src/battle_080EDB6C.c
+080EE028	thumb	228			c	src/battle_080EDB6C.c
 080EE10C	thumb	476	Battle_BuildTargetList	probable	c	src/battle_080EDB6C.c
 080EE2E8	thumb	980	Battle_BuildActionTargets	probable	nonmatching	src/battle_080EE2E8.c
 080EE6BC	thumb	340	Battle_FinishDamage	probable	nonmatching	src/battle_080EE6BC.c
@@ -3074,7 +3074,7 @@ address	mode	size	name	confidence	state	file
 081298AC	thumb	48			c	src/bmenu_081294B0.c
 081298DC	thumb	182			c	src/bmenu_081298DC.c
 08129994	thumb	52			c	src/bmenu_081298DC.c
-081299C8	thumb	364			nonmatching	src/bmenu_081298DC.c
+081299C8	thumb	364			c	src/bmenu_081298DC.c
 08129B34	thumb	12			c	src/bmenu_081298DC.c
 08129B40	thumb	22			c	src/bmenu_081298DC.c
 08129B58	thumb	28			c	src/bmenu_081298DC.c

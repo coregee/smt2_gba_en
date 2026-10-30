@@ -864,10 +864,11 @@ void sub_0814D0C4(void)
 void CodeBreaker_UpdateNotes(void)
 {
     struct C14aCodeBreaker *s = GY;
-    u8 cur, n;
+    u8 cur, n, m;
     s16 k;
+    u32 lo;
 
-    s->rowTotal[(u8)(s->row / 5)] = s->unk43 + s->unk42;
+    s->rowTotal[(u8)(s->row / 5)] = s->unk42 + s->unk43;
     sub_0814C580();
     cur = s->row / 5;
     if (s->rowCount[cur] == s->digits)
@@ -877,10 +878,13 @@ void CodeBreaker_UpdateNotes(void)
             sub_0814C6C4(1);
             sub_0814C6F4(0xFF);
         }
-        else if (s->level == 2 ? s->rowTotal[cur] == 2 : s->rowTotal[cur] == 1)
+        else if (s->level != 2)
         {
-            sub_0814C6F4(1);
+            if (s->rowTotal[cur] == 1)
+                sub_0814C6F4(1);
         }
+        else if (s->rowTotal[cur] == 2)
+            sub_0814C6F4(1);
     }
     else
     {
@@ -922,21 +926,30 @@ void CodeBreaker_UpdateNotes(void)
         {
             sub_0814CC38(s->row);
             if (s->unk63 == s->rowTotal[(u8)(s->row / 5)])
-                sub_0814CA34(~sub_0814CD10(s->unk64, s->row) & s->rowMask[(u8)(s->row / 5)], 0xFF);
+            {
+                m = sub_0814CD10(s->unk64, s->row);
+                m = ~m;
+                m &= s->rowMask[(u8)(s->row / 5)];
+                sub_0814CA34(m, 0xFF);
+            }
             sub_0814CC38(s->prevRow);
             if (s->unk63 == s->rowTotal[k])
-                sub_0814CA34(s->rowMask[k] & ~sub_0814CD10(s->unk64, s->prevRow), 0xFF);
+                { u8 t = sub_0814CD10(s->unk64, s->prevRow); m = s->rowMask[k]; m &= ~t; sub_0814CA34(m, 0xFF); }
             s->tot[1] = s->rowTotal[k];
             sub_0814CD70(s->row, s->prevRow);
             if (s->tot[0] - s->tot[1] == s->unk60)
             {
-                sub_0814CE90(sub_0814CD10(s->unk71, s->row), 1);
-                sub_0814CEA4(sub_0814CD10(s->unk72, s->prevRow), 0xFF);
+                m = sub_0814CD10(s->unk71, s->row);
+                sub_0814CE90(m, 1);
+                m = sub_0814CD10(s->unk72, s->prevRow);
+                sub_0814CEA4(m, 0xFF);
             }
             if (s->tot[1] - s->tot[0] == s->unk60)
             {
-                sub_0814CE90(sub_0814CD10(s->unk71, s->row), 0xFF);
-                sub_0814CEA4(sub_0814CD10(s->unk72, s->prevRow), 1);
+                m = sub_0814CD10(s->unk71, s->row);
+                sub_0814CE90(m, 0xFF);
+                m = sub_0814CD10(s->unk72, s->prevRow);
+                sub_0814CEA4(m, 1);
             }
             if (s->rowCount[(u8)(s->row / 5)] == s->digits && s->rowCount[k] == s->rowCount[(u8)(s->row / 5)]
                 && s->level != 0)
@@ -945,15 +958,25 @@ void CodeBreaker_UpdateNotes(void)
                 {
                     if (s->unk60 == 2 && *(u16 *)s->tot == 0x303)
                     {
-                        sub_0814CEB8(sub_0814CD10(~s->unk61, s->row), 1);
-                        sub_0814CA34(~(s->rowMask[(u8)(s->row / 5)] | s->rowMask[k]), 0xFF);
+                        m = sub_0814CD10(~s->unk61, s->row);
+                        sub_0814CEB8(m, 1);
+                        m = ~(s->rowMask[(u8)(s->row / 5)] | s->rowMask[k]);
+                        sub_0814CA34(m, 0xFF);
                     }
                     if (s->unk60 == 3)
                     {
-                        if (*(u16 *)s->tot == 0x202)
-                            sub_0814CEB8(sub_0814CD10(~s->unk61, s->row), 0xFF);
-                        if (s->unk60 == 3 && *(u16 *)s->tot == 0x203)
-                            sub_0814CEB8(sub_0814CD10(~s->unk61, s->row), 1);
+                        /* the original masks the pair with 0xFFFF held in a register (ldrh; ands) */
+                        lo = 0xFFFF;
+                        if ((*(u16 *)s->tot & lo) == 0x202)
+                        {
+                            m = sub_0814CD10(~s->unk61, s->row);
+                            sub_0814CEB8(m, 0xFF);
+                        }
+                        if (s->unk60 == 3 && (*(u16 *)s->tot & lo) == 0x203)
+                        {
+                            m = sub_0814CD10(~s->unk61, s->row);
+                            sub_0814CEB8(m, 1);
+                        }
                     }
                 }
                 else
@@ -961,11 +984,16 @@ void CodeBreaker_UpdateNotes(void)
                     if (s->unk60 == 3
                         && ((s->rowTotal[(u8)(s->row / 5)] == 3 && s->rowTotal[k] == 4)
                             || (s->rowTotal[(u8)(s->row / 5)] == 4 && s->rowTotal[k] == 3)))
-                        sub_0814CEB8(sub_0814CD10(~s->unk61, s->row), 1);
+                    {
+                        m = sub_0814CD10(~s->unk61, s->row);
+                        sub_0814CEB8(m, 1);
+                    }
                     if (s->unk60 == 2 && *(u16 *)s->tot == 0x404)
                     {
-                        sub_0814CEB8(sub_0814CD10(~s->unk61, s->row), 1);
-                        sub_0814CA34(~(s->rowMask[(u8)(s->row / 5)] | s->rowMask[k]), 0xFF);
+                        m = sub_0814CD10(~s->unk61, s->row);
+                        sub_0814CEB8(m, 1);
+                        m = ~(s->rowMask[(u8)(s->row / 5)] | s->rowMask[k]);
+                        sub_0814CA34(m, 0xFF);
                     }
                 }
             }

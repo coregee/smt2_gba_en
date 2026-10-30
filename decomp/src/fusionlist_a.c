@@ -969,16 +969,20 @@ void Fusion_DrawLevel(u16 n, u16 x, u16 y, u16 tint)
    preview for the current step. */
 // Fusion_DrawListRow @ 0x08154A38
 #ifdef NONMATCHING
+/* worldmap.h declares this with four parameters; the callee takes five. */
+#define SUB_0815B884 ((void (*)(u16, u16, u16, u16 *, u16 *))sub_0815B884)
 void Fusion_DrawListRow(struct FusionMenu *f, u16 row, u16 y)
 {
     struct Combatant *m = f->members[row];
     s8 *rec;
     const u16 *race;
     u16 *name;
-    u8 tint = 0;
+    u32 tint = 0;
     u16 i;
-    u16 lv;
+    u8 lv;
     u16 out[6];
+    u16 *a, *b;
+    u8 t2;
 
     if (m == NULL)
         return;
@@ -987,9 +991,9 @@ void Fusion_DrawListRow(struct FusionMenu *f, u16 row, u16 y)
     if (!sub_081544AC(m->demonId))
         tint = 2;
     Canvas_BlitOrTinted(&gUnknown_087E13E4[row * 32], gUnk_0200F874, 0, 3, 0, y, 8, 13, 4);
+    name = (u16 *)(rec + 0x22);
     for (i = 0; i < 3; i++)
         Font_DrawGlyphTinted(race[i], gUnk_0200F874, i * 12 + 10, y, tint);
-    name = (u16 *)(rec + 0x22);
     for (i = 0; i < 8 && name[i] != 0; i++)
     {
         if (rec[0] != 0x2C)
@@ -1003,56 +1007,58 @@ void Fusion_DrawListRow(struct FusionMenu *f, u16 row, u16 y)
     if (((f->mode == 1 || f->mode == 4 || f->mode == 5) && (f->sel == 0 || (f->mode == 5 && f->sel == 1)))
         || (f->mode == 2 && f->sel == 0) || (f->mode == 3 && f->sel != 2))
     {
-        if (rec[0] == 0x2C)
+        if (rec[0] != 0x2C)
+            lv = rec[1];
+        else
         {
             lv = Inventory_GetCount(Fusion_GetDemonByIndex(m->demonId));
             Font_DrawGlyphTinted(0x115, gUnk_0200F874, 0x76, y, 0);
         }
-        else
-            lv = (u8)rec[1];
         Fusion_DrawLevel(lv, 0x82, y + 3, 0);
     }
 
-    switch (f->mode)
+    if (f->mode == 1)
     {
-    case 1:
         if (f->sel == 0)
-            break;
-        sub_0815B884(gUnk_0203B854[0], 0xFFFF, m->demonId, &out[0]);
+            goto pair;
+        SUB_0815B884(gUnk_0203B854[0], 0xFFFF, m->demonId, &out[0], b = &out[1]);
         gUnk_0203B854[3] = out[0];
         Fusion_DrawDemonName(out[0], 0x7C, y, 0);
         if (out[0] == 0xFF)
             return;
         Font_DrawGlyphTinted(0x115, gUnk_0200F874, 0xCE, y, 0);
-        Fusion_DrawLevel(Inventory_GetCount(out[1]), 0xDA, y + 3, 0);
-        return;
-    case 4:
+        Fusion_DrawLevel(Inventory_GetCount(*b), 0xDA, y + 3, 0);
+    }
+    else if (f->mode == 4)
+    {
         if (f->sel == 0)
-            break;
-        sub_0815B884(gUnk_0203B854[0], m->demonId, 0xFFFF, &out[2]);
-        gUnk_0203B854[3] = out[2];
-        Fusion_DrawDemonName(out[2], 0x7C, y, 0);
-        if (out[2] == 0xFF)
+            goto pair;
+        SUB_0815B884(gUnk_0203B854[0], m->demonId, 0xFFFF, a = &out[2], b = &out[3]);
+        gUnk_0203B854[3] = *a;
+        Fusion_DrawDemonName(*a, 0x7C, y, 0);
+        if (*a == 0xFF)
             return;
         Font_DrawGlyphTinted(0x115, gUnk_0200F874, 0xCE, y, 0);
-        Fusion_DrawLevel(Inventory_GetCount(out[3]), 0xDA, y + 3, 0);
-        return;
-    case 5:
+        Fusion_DrawLevel(Inventory_GetCount(*b), 0xDA, y + 3, 0);
+    }
+    else if (f->mode == 5)
+    {
         if (f->sel == 1)
-            break;
+            goto pair;
         if (f->sel != 2)
             return;
-        sub_0815B884(gUnk_0203B854[1], m->demonId, m->demonId, &out[4]);
-        gUnk_0203B854[3] = out[4];
-        Fusion_DrawDemonName(out[4], 0x7C, y, 0);
-        if (out[4] == 0xFF)
+        SUB_0815B884(gUnk_0203B854[0], gUnk_0203B854[1], m->demonId, a = &out[4], b = &out[5]);
+        gUnk_0203B854[3] = *a;
+        Fusion_DrawDemonName(*a, 0x7C, y, 0);
+        if (*a == 0xFF)
             return;
         Font_DrawGlyphTinted(0x115, gUnk_0200F874, 0xCE, y, 0);
-        Fusion_DrawLevel(Inventory_GetCount(out[5]), 0xDA, y + 3, 0);
-        return;
-    case 2:
+        Fusion_DrawLevel(Inventory_GetCount(*b), 0xDA, y + 3, 0);
+    }
+    else if (f->mode == 2)
+    {
         if (f->sel == 0)
-            break;
+            goto pair;
         gUnk_0203B868.ids[0] = f->picks[0]->demonId;
         gUnk_0203B868.ids[1] = m->demonId;
         gUnk_0203B868.ids[2] = 0xFFFF;
@@ -1060,17 +1066,26 @@ void Fusion_DrawListRow(struct FusionMenu *f, u16 row, u16 y)
         Fusion_CalcTwo();
         gUnk_0203B854[3] = gUnk_0203B868.result;
         sub_0815438C(f->picks[0]->demonId, Fusion_FindListSlot(m->demonId), 0x82, y + 4);
-        if ((Fusion_GetPairIcon(f->picks[0]->demonId, Fusion_FindListSlot(m->demonId)) & 0xF) != 5)
+        t2 = Fusion_GetPairIcon(f->picks[0]->demonId, Fusion_FindListSlot(m->demonId));
+        t2 &= 0xF;
+        if (t2 == 5)
         {
-            Fusion_DrawDemonName(gUnk_0203B868.result, 0x8A, y - 2,
-                         Fusion_CanCreate(f->picks[0]->demonId, m->demonId, m->demonId, gUnk_0203B868.result) ? 0 : 4);
+            sub_08154900(0x8A, y - 2);
             return;
         }
-        sub_08154900(0x8A, y - 2);
-        return;
-    case 3:
+        t2 = 0;
+        if (!(u16)Fusion_CanCreate(f->picks[0]->demonId, m->demonId, m->demonId, gUnk_0203B868.result))
+            t2 = 4;
+        Fusion_DrawDemonName(gUnk_0203B868.result, 0x8A, y - 2, t2);
+    }
+    else if (f->mode == 3)
+    {
         if (f->sel == 1)
-            break;
+        {
+        pair:
+            sub_081543E8(f, row, y + 4);
+            return;
+        }
         if (f->sel != 2)
             return;
         i = Fusion_FindListSlot(m->demonId);
@@ -1081,22 +1096,21 @@ void Fusion_DrawListRow(struct FusionMenu *f, u16 row, u16 y)
         Fusion_IsRandomResult();
         Fusion_CalcThree();
         gUnk_0203B854[3] = gUnk_0203B868.result;
-        if (gUnk_0203B868.result > 0xFE)
+        if (gUnk_0203B854[3] > 0xFE)
             gUnk_0203B854[3] = 0xFB;
         sub_0815438C(f->picks[1]->demonId, i, 0x82, y + 4);
-        if ((Fusion_GetPairIcon(f->picks[1]->demonId, i) & 0xF) != 5)
+        t2 = Fusion_GetPairIcon(f->picks[1]->demonId, i);
+        t2 &= 0xF;
+        if (t2 == 5)
         {
-            Fusion_DrawDemonName(gUnk_0203B868.result, 0x8A, y - 2,
-                         Fusion_CanCreate(f->picks[0]->demonId, f->picks[1]->demonId, m->demonId,
-                                      gUnk_0203B868.result) ? 0 : 4);
+            sub_08154900(0x8A, y - 2);
             return;
         }
-        sub_08154900(0x8A, y - 2);
-        return;
-    default:
-        return;
+        t2 = 0;
+        if (!(u16)Fusion_CanCreate(f->picks[0]->demonId, f->picks[1]->demonId, m->demonId, gUnk_0203B868.result))
+            t2 = 4;
+        Fusion_DrawDemonName(gUnk_0203B868.result, 0x8A, y - 2, t2);
     }
-    sub_081543E8(f, row, y + 4);
 }
 #else
 NAKED

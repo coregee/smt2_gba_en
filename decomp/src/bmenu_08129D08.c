@@ -133,8 +133,9 @@ void sub_08129F3C(struct Task *task)
 /* Returns the selected demon to the stock: message names the party slot it held. */
 // sub_08129F5C @ 0x08129F5C
 #ifdef NONMATCHING
-/* Follows the original block order: the first loop test is evaluated before jumping to the
-   compare (12 lines off, all register choice: blk/order and o/list swap). */
+/* The loop test is written twice (entry and loop); cross-jumping merges the two compares, as in
+   the original. 6 lines off: blk/order swap r5/r6 (blk + 0x2D0 gives blk a STACK_REG
+   preference, so it gets no REG_EQUIV live-length doubling and outranks order). */
 void sub_08129F5C(struct Task *task)
 {
     struct C127Block *blk = C127_BLOCK;
@@ -142,26 +143,24 @@ void sub_08129F5C(struct Task *task)
     s8 *order;
     u16 *list;
     const u16 *tmpl;
-    s32 o;
-    u16 *p;
 
     i = 0;
     {
         struct C127GameState *gs = &gGameState;
         order = gs->order;
     }
-    o = order[i];
-    p = (u16 *)((task->pad1E << 1) + (u32)(list = blk->list));
+    if (order[i] != *(u16 *)((task->pad1E << 1) + (u32)(list = blk->list)))
+    {
+        tmpl = gUnknown_08124182;
+        goto loop;
+    }
     tmpl = gUnknown_08124182;
-    goto test;
+    goto done;
 loop:
     i++;
     if (i > 5)
         goto done;
-    o = order[i];
-    p = &list[task->pad1E];
-test:
-    if (o != *p)
+    if (*(s8 *)((u32)i + (u32)order) != *(u16 *)((u32)list + (task->pad1E << 1)))
         goto loop;
 done:
     BattleMenu_SetMode(3, Battle_BuildNamePrependText(i, tmpl));

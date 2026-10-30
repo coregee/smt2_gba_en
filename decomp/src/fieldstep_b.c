@@ -126,6 +126,7 @@ void sub_080C55E0(void)
 // MiniView_Draw @ 0x080C5604
 /* Draws the small 3x5 view of the squares ahead (tilemap columns 25-27, rows 6-10). */
 #ifdef NONMATCHING
+extern u8 gUnk_0200DFD4[];
 void MiniView_Draw(void)
 {
     u16 row, col, i;
@@ -133,11 +134,10 @@ void MiniView_Draw(void)
     MiniView_SampleAhead(gFieldState.facing);
     for (row = 0; row < 5; row++)
     {
-        u16 *line = (u16 *)(0x0200DFD4 + ((row + 6) << 6));
-
         for (col = 0; col < 3; col++)
         {
             struct C0c2ViewCell *cell = &gMiniViewCells[row][col];
+            u16 *line = (u16 *)(gUnk_0200DFD4 + ((row + 6) << 6));
             u16 *dst = &line[col + 25];
 
             if (cell->valid == 1)

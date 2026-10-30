@@ -95,15 +95,58 @@ void Baccarat_Update(void)
             s->phase = 99;
         }
         if (gKeysNew & 0x40)
-            s->cursor = (s->cursor == 0x1E) ? 0x50 : s->cursor - 0x19;
-        if (gKeysNew & 0x80)
-            s->cursor = (s->cursor == 0x50) ? 0x1E : s->cursor + 0x19;
-        if (s->coins != 0 && (gRepeatedKeys & 1))
         {
-            Sound_Play(0x160);
+            if (s->cursor == 0x1E)
+                s->cursor = 0x50;
+            else
+                s->cursor -= 0x19;
+        }
+        if (gKeysNew & 0x80)
+        {
+            if (s->cursor == 0x50)
+                s->cursor = 0x1E;
+            else
+                s->cursor += 0x19;
+        }
+        if (s->coins != 0)
+        {
             /* the cards of the last hand are collected first */
-            s->phase = (POS(s, 0) != TARGET(s, 0)) ? 1 : 0x18;
-            Baccarat_ChangeBet(s->cursor, (gUnk_030031D0 & 4) ? 10 : 1, 0);
+            if (POS(s, 0) != TARGET(s, 0))
+            {
+                if (gUnk_030031D0 & 4)
+                {
+                    if (gRepeatedKeys & 1)
+                    {
+                        Sound_Play(0x160);
+                        s->phase = 1;
+                        Baccarat_ChangeBet(s->cursor, 10, 0);
+                    }
+                }
+                else if (gRepeatedKeys & 1)
+                {
+                    Sound_Play(0x160);
+                    s->phase = 1;
+                    Baccarat_ChangeBet(s->cursor, 1, 0);
+                }
+            }
+            else
+            {
+                if (gUnk_030031D0 & 4)
+                {
+                    if (gRepeatedKeys & 1)
+                    {
+                        Sound_Play(0x160);
+                        s->phase = 0x18;
+                        Baccarat_ChangeBet(s->cursor, 10, 0);
+                    }
+                }
+                else if (gRepeatedKeys & 1)
+                {
+                    Sound_Play(0x160);
+                    s->phase = 0x18;
+                    Baccarat_ChangeBet(s->cursor, 1, 0);
+                }
+            }
         }
     }
     else if (s->phase == 3)
@@ -111,9 +154,19 @@ void Baccarat_Update(void)
         if ((gKeysNew & 0x100) && CLEARED(s) > 5)
             s->phase = 4;
         if (gKeysNew & 0x40)
-            s->cursor = (s->cursor == 0x1E) ? 0x50 : s->cursor - 0x19;
+        {
+            if (s->cursor == 0x1E)
+                s->cursor = 0x50;
+            else
+                s->cursor -= 0x19;
+        }
         if (gKeysNew & 0x80)
-            s->cursor = (s->cursor == 0x50) ? 0x1E : s->cursor + 0x19;
+        {
+            if (s->cursor == 0x50)
+                s->cursor = 0x1E;
+            else
+                s->cursor += 0x19;
+        }
         if (gUnk_030031D0 & 4)
         {
             if (s->coins > 999 && (gRepeatedKeys & 1))
@@ -125,7 +178,8 @@ void Baccarat_Update(void)
             {
                 Sound_Play(0x160);
                 Baccarat_ChangeBet(s->cursor, 10, 1);
-                goto checkEmpty;
+                if (s->bet[0] == 0 && s->bet[2] == 0 && s->bet[1] == 0)
+                    s->phase = 2;
             }
         }
         else
@@ -139,7 +193,6 @@ void Baccarat_Update(void)
             {
                 Sound_Play(0x160);
                 Baccarat_ChangeBet(s->cursor, 1, 1);
-            checkEmpty:
                 if (s->bet[0] == 0 && s->bet[2] == 0 && s->bet[1] == 0)
                     s->phase = 2;
             }
@@ -243,11 +296,10 @@ void Baccarat_Update(void)
         s->obj[1].frame = (POINTS(s, 0) + POINTS(s, 2)) % 10 + 1;
         break;
     case 9:
-    case 0xB:
-        if (s->unk035 == 4)
-            s->phase = 0xC;
-        else
+        if (s->unk035 != 4)
             sub_0814760C();
+        else
+            s->phase = 0xC;
         if (s->unk035 == 3)
             s->obj[1].frame = (POINTS(s, 0) + POINTS(s, 2)) % 10 + 1;
         break;
@@ -260,6 +312,14 @@ void Baccarat_Update(void)
         sub_08147820();
         if ((gKeysNew & 1) || (gKeysNew & 0x100))
             s->phase = 0xB;
+        break;
+    case 0xB:
+        if (s->unk035 != 4)
+            sub_0814760C();
+        else
+            s->phase = 0xC;
+        if (s->unk035 == 3)
+            s->obj[1].frame = (POINTS(s, 0) + POINTS(s, 2)) % 10 + 1;
         break;
     case 0xC:
         /* naturals (8 or 9: frame > 8), else the cards 0/2/4 hand draws on 0-5 */

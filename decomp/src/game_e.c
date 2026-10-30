@@ -49,12 +49,11 @@ void sub_080B2AB0(void)
     }
 }
 
-/* NONMATCHING: the original does not cross-jump the mode 1 call into the shared tail, and its mode 2/3 tail computes offset+base. */
 // sub_080B2CC0 @ 0x080B2CC0
-#ifdef NONMATCHING
 void sub_080B2CC0(void)
 {
     u32 mode = gFieldState.unk24;
+    const u8 *p, *t;
 
     View_BuildCells(gFieldState.unk02, 0);
     if (gFieldState.unk00 == 3)
@@ -65,8 +64,8 @@ void sub_080B2CC0(void)
     {
         if (mode == 0)
         {
-            const u8 *p = gUnknown_08160A0C[gFieldState.unk0E];
-            sub_080B28F8(p, p);
+            const u8 *q = gUnknown_08160A0C[gFieldState.unk0E];
+            sub_080B28F8(q, q);
         }
         else if (mode == 1)
         {
@@ -75,16 +74,36 @@ void sub_080B2CC0(void)
         else if (mode == 2)
         {
             if (gFieldState.unk08 == -1)
-                sub_080B28F8(gUnknown_0816120C[gFieldState.unk0E], gUnknown_08160A0C[gFieldState.unk0E]);
+            {
+                p = gUnknown_0816120C[gFieldState.unk0E];
+                t = gUnknown_08160A0C[0]; /* = gUnknown_08160A0C[unk0E], base loaded first */
+                t += gFieldState.unk0E * 32;
+                sub_080B28F8(p, t);
+            }
             else
-                sub_080B28F8(gUnknown_0816160C[gFieldState.unk0E], gUnknown_08160A0C[gFieldState.unk0E]);
+            {
+                p = gUnknown_0816160C[gFieldState.unk0E];
+                t = gUnknown_08160A0C[0]; /* = gUnknown_08160A0C[unk0E], base loaded first */
+                t += gFieldState.unk0E * 32;
+                sub_080B28F8(p, t);
+            }
         }
         else if (mode == 3)
         {
             if (gFieldState.unk08 == 1)
-                sub_080B28F8(gUnknown_08161E0C[gFieldState.unk0E], gUnknown_08160A0C[gFieldState.unk0E]);
+            {
+                p = gUnknown_08161E0C[gFieldState.unk0E];
+                t = gUnknown_08160A0C[0]; /* = gUnknown_08160A0C[unk0E], base loaded first */
+                t += gFieldState.unk0E * 32;
+                sub_080B28F8(p, t);
+            }
             else
-                sub_080B28F8(gUnknown_08161A0C[gFieldState.unk0E], gUnknown_08160A0C[gFieldState.unk0E]);
+            {
+                p = gUnknown_08161A0C[gFieldState.unk0E];
+                t = gUnknown_08160A0C[0]; /* = gUnknown_08160A0C[unk0E], base loaded first */
+                t += gFieldState.unk0E * 32;
+                sub_080B28F8(p, t);
+            }
         }
     }
     else
@@ -93,116 +112,6 @@ void sub_080B2CC0(void)
             ;
     }
 }
-#else
-NAKED
-void sub_080B2CC0(void)
-{
-    asm_unified(
-        ".L080B2CC0:\n"
-        "    push {r4, r5, lr}\n"
-        "    ldr r5, .L080B2CFC\n"
-        "    ldr r4, [r5, #0x24]\n"
-        "    ldrh r0, [r5, #2]\n"
-        "    movs r1, #0\n"
-        "    bl View_BuildCells\n"
-        "    ldrh r0, [r5]\n"
-        "    cmp r0, #3\n"
-        "    bne .L080B2CD8\n"
-        "    bl sub_080B2AB0\n"
-        ".L080B2CD8:\n"
-        "    ldrh r0, [r5, #0xe]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080B2D8C\n"
-        "    bl sub_080ADF40\n"
-        "    cmp r0, #0\n"
-        "    bne .L080B2D80\n"
-        "    cmp r4, #0\n"
-        "    bne .L080B2D04\n"
-        "    ldrh r1, [r5, #0xe]\n"
-        "    lsls r1, r1, #5\n"
-        "    ldr r0, .L080B2D00\n"
-        "    adds r1, r1, r0\n"
-        "    adds r0, r1, #0\n"
-        "    bl sub_080B28F8\n"
-        "    b .L080B2D8C\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080B2CFC: .4byte 0x03004550 @ IWRAM+0x4550\n"
-        ".L080B2D00: .4byte gUnknown_08160A0C\n"
-        ".L080B2D04:\n"
-        "    cmp r4, #1\n"
-        "    bne .L080B2D24\n"
-        "    ldrh r1, [r5, #0xe]\n"
-        "    lsls r1, r1, #5\n"
-        "    ldr r0, .L080B2D1C\n"
-        "    adds r0, r1, r0\n"
-        "    ldr r2, .L080B2D20\n"
-        "    adds r1, r1, r2\n"
-        "    bl sub_080B28F8\n"
-        "    b .L080B2D8C\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080B2D1C: .4byte gUnknown_08160E0C\n"
-        ".L080B2D20: .4byte gUnknown_08160A0C\n"
-        ".L080B2D24:\n"
-        "    cmp r4, #2\n"
-        "    bne .L080B2D4C\n"
-        "    movs r0, #8\n"
-        "    ldrsh r1, [r5, r0]\n"
-        "    movs r0, #1\n"
-        "    rsbs r0, r0, #0\n"
-        "    cmp r1, r0\n"
-        "    bne .L080B2D40\n"
-        "    ldrh r0, [r5, #0xe]\n"
-        "    lsls r0, r0, #5\n"
-        "    ldr r1, .L080B2D3C\n"
-        "    b .L080B2D6A\n"
-        ".L080B2D3C: .4byte gUnknown_0816120C\n"
-        ".L080B2D40:\n"
-        "    ldrh r0, [r5, #0xe]\n"
-        "    lsls r0, r0, #5\n"
-        "    ldr r1, .L080B2D48\n"
-        "    b .L080B2D6A\n"
-        ".L080B2D48: .4byte gUnknown_0816160C\n"
-        ".L080B2D4C:\n"
-        "    cmp r4, #3\n"
-        "    bne .L080B2D8C\n"
-        "    movs r1, #8\n"
-        "    ldrsh r0, [r5, r1]\n"
-        "    cmp r0, #1\n"
-        "    bne .L080B2D64\n"
-        "    ldrh r0, [r5, #0xe]\n"
-        "    lsls r0, r0, #5\n"
-        "    ldr r1, .L080B2D60\n"
-        "    b .L080B2D6A\n"
-        ".L080B2D60: .4byte gUnknown_08161E0C\n"
-        ".L080B2D64:\n"
-        "    ldrh r0, [r5, #0xe]\n"
-        "    lsls r0, r0, #5\n"
-        "    ldr r1, .L080B2D78\n"
-        ".L080B2D6A:\n"
-        "    adds r2, r0, r1\n"
-        "    ldr r1, .L080B2D7C\n"
-        "    adds r1, r0, r1\n"
-        "    adds r0, r2, #0\n"
-        "    bl sub_080B28F8\n"
-        "    b .L080B2D8C\n"
-        ".L080B2D78: .4byte gUnknown_08161A0C\n"
-        ".L080B2D7C: .4byte gUnknown_08160A0C\n"
-        ".L080B2D80:\n"
-        "    lsls r4, r4, #0x10\n"
-        ".L080B2D82:\n"
-        "    lsrs r0, r4, #0x10\n"
-        "    bl sub_080BA6B4\n"
-        "    cmp r0, #1\n"
-        "    bne .L080B2D82\n"
-        ".L080B2D8C:\n"
-        "    pop {r4, r5}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-
-#endif
 
 // FieldView_DrawLayer @ 0x080B2D94
 s32 FieldView_DrawLayer(const struct ViewLayer *layer, const struct ViewCond *cond)

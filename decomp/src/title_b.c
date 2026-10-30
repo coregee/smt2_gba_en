@@ -132,12 +132,13 @@ void sub_080D6F2C(struct Task *task)
     task->data.raw[5] = 0;
 }
 
-/* NONMATCHING: the y steps go through a sign-extended 16-bit temporary (y << 16) that no spelling tried reproduces */
+/* NONMATCHING: 4 lines off: the second y step (s16 v + 0x40) builds the 0x400000 constant in r0 instead of r1 */
 // sub_080D6F90 @ 0x080D6F90
 #ifdef NONMATCHING
 void sub_080D6F90(struct Task *task)
 {
-    u8 y;
+    u32 y;
+    s16 v;
 
     if (gKeysNew & 8)
     {
@@ -170,14 +171,17 @@ void sub_080D6F90(struct Task *task)
     y = task->data.raw[0];
     if ((s8)task->data.raw[4] >= 0)
         Sprite_Draw(gUnknown_0813ECB4, 0, 0, 0, 0, 0x78, y);
-    y += 0x40;
-    Sprite_Draw(gUnknown_0813ECD0, 0, 0, 0, 0, 0x78, y);
+    v = y + 0x40;
+    v &= 0xFF;
+    Sprite_Draw(gUnknown_0813ECD0, 0, 0, 0, 0, 0x78, v);
     if (task->data.raw[4] > 0x40)
     {
-        y += 0x40;
-        Sprite_Draw(gUnknown_0813ECEC, 0, 0, 0, 0, 0x78, y);
-        y += 0x40;
-        Sprite_Draw(gUnknown_0813ED2C, 0, 0, 0, 0, 0x78, y);
+        v += 0x40;
+        v &= 0xFF;
+        Sprite_Draw(gUnknown_0813ECEC, 0, 0, 0, 0, 0x78, v);
+        v += 0x40;
+        v &= 0xFF;
+        Sprite_Draw(gUnknown_0813ED2C, 0, 0, 0, 0, 0x78, v);
     }
 }
 #else
