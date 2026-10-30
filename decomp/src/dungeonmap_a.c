@@ -161,14 +161,13 @@ void sub_080C86F4(u16 slot)
 // sub_080C8718 @ 0x080C8718
 /* One step of a palette fade of colour 0x111 through row d->row of gUnknown_081B70D0; the
    task result becomes 1 after the 7th step. */
-#ifdef NONMATCHING
 void sub_080C8718(struct Task *t)
 {
     struct C0c6CursorData *d = (struct C0c6CursorData *)t->data.raw;
-
     const u16 *color = (const u16 *)(((d->kind << 5) + ((d->step + 1) << 1)) + (const u8 *)gUnknown_081B70D0);
+    u16 *dst = &gPaletteBuffer[0x111];
 
-    Palette_FillWithEffect(3, *color, &gPaletteBuffer[0x111], 2, 0x20);
+    Palette_FillWithEffect(3, *color, dst, 2, 0x20);
     Palette_MarkDirty();
     d->step += 2;
     if (d->step > 14)
@@ -176,55 +175,6 @@ void sub_080C8718(struct Task *t)
     else
         t->result = 0;
 }
-#else
-NAKED
-void sub_080C8718(struct Task *t)
-{
-    asm_unified(
-        ".L080C8718:\n"
-        "    push {r4, r5, lr}\n"
-        "    sub sp, #4\n"
-        "    adds r5, r0, #0\n"
-        "    adds r4, r5, #0\n"
-        "    adds r4, #0x24\n"
-        "    ldrh r1, [r4, #2]\n"
-        "    lsls r1, r1, #5\n"
-        "    ldrh r0, [r4, #4]\n"
-        "    adds r0, #1\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r1, r1, r0\n"
-        "    ldr r0, .L080C8758\n"
-        "    adds r1, r1, r0\n"
-        "    ldr r2, .L080C875C\n"
-        "    ldrh r1, [r1]\n"
-        "    movs r0, #0x20\n"
-        "    str r0, [sp]\n"
-        "    movs r0, #3\n"
-        "    movs r3, #2\n"
-        "    bl Palette_FillWithEffect\n"
-        "    bl Palette_MarkDirty\n"
-        "    ldrh r0, [r4, #4]\n"
-        "    adds r0, #2\n"
-        "    strh r0, [r4, #4]\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    cmp r0, #0xe\n"
-        "    bls .L080C8760\n"
-        "    movs r0, #1\n"
-        "    b .L080C8762\n"
-        ".L080C8758: .4byte gUnknown_081B70D0\n"
-        ".L080C875C: .4byte 0x03002FD2 @ IWRAM+0x2FD2\n"
-        ".L080C8760:\n"
-        "    movs r0, #0\n"
-        ".L080C8762:\n"
-        "    strh r0, [r5, #0x1c]\n"
-        "    add sp, #4\n"
-        "    pop {r4, r5}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-    );
-}
-#endif
 
 // sub_080C876C @ 0x080C876C
 void sub_080C876C(void)
@@ -392,12 +342,11 @@ u32 sub_080C88F0(u16 *p)
 }
 
 // sub_080C8904 @ 0x080C8904
-#ifdef NONMATCHING
 void sub_080C8904(struct Task *t)
 {
     struct C0c6CursorData *d = (struct C0c6CursorData *)t->data.raw;
     u16 x = gUnknown_0834A750[d->pos].x;
-    u16 y = gUnknown_0834A750[d->pos].y;
+    u16 y = (&gUnknown_0834A750[0].y)[d->pos * 2];  /* = gUnknown_0834A750[d->pos].y */
 
     if (d->kind == 0)
     {
@@ -410,84 +359,6 @@ void sub_080C8904(struct Task *t)
         Sprite_Draw(gUnknown_080013DC, 9, 4, 1, 0x280, x, y);
     }
 }
-#else
-NAKED
-void sub_080C8904(struct Task *t)
-{
-    asm_unified(
-        "    push {r4, r5, r6, lr}\n"
-        "    sub sp, #0xc\n"
-        "    ldr r3, .L080C8950\n"
-        "    ldrh r1, [r0, #0x24]\n"
-        "    lsls r1, r1, #2\n"
-        "    adds r2, r1, r3\n"
-        "    ldrh r6, [r2]\n"
-        "    adds r3, #2\n"
-        "    adds r1, r1, r3\n"
-        "    ldrh r5, [r1]\n"
-        "    ldrh r0, [r0, #0x26]\n"
-        "    cmp r0, #0\n"
-        "    bne .L080C8960\n"
-        "    ldr r0, .L080C8954\n"
-        "    movs r1, #0xa0\n"
-        "    lsls r1, r1, #2\n"
-        "    str r1, [sp]\n"
-        "    subs r1, r6, #4\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    str r1, [sp, #4]\n"
-        "    str r5, [sp, #8]\n"
-        "    movs r1, #9\n"
-        "    movs r2, #0\n"
-        "    movs r3, #1\n"
-        "    bl Sprite_Draw\n"
-        "    ldr r0, .L080C8958\n"
-        "    ldr r1, .L080C895C\n"
-        "    str r1, [sp]\n"
-        "    str r6, [sp, #4]\n"
-        "    str r5, [sp, #8]\n"
-        "    movs r1, #9\n"
-        "    movs r2, #2\n"
-        "    movs r3, #1\n"
-        "    bl Sprite_Draw\n"
-        "    b .L080C898E\n"
-        ".L080C8950: .4byte gUnknown_0834A750\n"
-        ".L080C8954: .4byte gUnknown_080013F4\n"
-        ".L080C8958: .4byte gUnknown_080013DC\n"
-        ".L080C895C: .4byte 0x00000293\n"
-        ".L080C8960:\n"
-        "    ldr r0, .L080C8998\n"
-        "    movs r4, #0xa0\n"
-        "    lsls r4, r4, #2\n"
-        "    str r4, [sp]\n"
-        "    subs r1, r6, #4\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    str r1, [sp, #4]\n"
-        "    str r5, [sp, #8]\n"
-        "    movs r1, #9\n"
-        "    movs r2, #0\n"
-        "    movs r3, #1\n"
-        "    bl Sprite_Draw\n"
-        "    ldr r0, .L080C899C\n"
-        "    str r4, [sp]\n"
-        "    str r6, [sp, #4]\n"
-        "    str r5, [sp, #8]\n"
-        "    movs r1, #9\n"
-        "    movs r2, #4\n"
-        "    movs r3, #1\n"
-        "    bl Sprite_Draw\n"
-        ".L080C898E:\n"
-        "    add sp, #0xc\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C8998: .4byte gUnknown_0800140C\n"
-        ".L080C899C: .4byte gUnknown_080013DC\n"
-    );
-}
-#endif
 
 // sub_080C89A0 @ 0x080C89A0
 /* Moves the cursor over a 3x2 grid (0-2 top row, 3-5 bottom row); A stores the position in

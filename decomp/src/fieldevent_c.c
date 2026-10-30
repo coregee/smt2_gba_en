@@ -209,7 +209,6 @@ void sub_080B6F28(const struct ScaleParams *p)
 // Picture_ScaleStep @ 0x080B6F40
 /* Scales up to 16 rows of a picture per call (see struct ScaleParams); returns 0 when all
    p->h rows are done. Destination pixels are ORed in. */
-#ifdef NONMATCHING
 u32 Picture_ScaleStep(const struct ScaleParams *p)
 {
     u16 srcX0 = p->srcX;
@@ -220,14 +219,15 @@ u32 Picture_ScaleStep(const struct ScaleParams *p)
     u16 stepY = p->stepY;
     u16 w = p->w;
     u16 h = p->h;
+    u16 i;
     const u8 *src = *p->src;
     u8 *dst = p->dst;
     u32 accX = gScaleState.accX;
     u32 accY = gScaleState.accY;
     u16 n;
-    u16 sx, dx, i;
+    u16 sx, dx;
 
-    for (n = 0; n < 16; n++)
+    for (n = 0; n < 16; n++, gScaleState.row++)
     {
 
         if (gScaleState.row >= h)
@@ -238,7 +238,7 @@ u32 Picture_ScaleStep(const struct ScaleParams *p)
         {
             u8 *d = TILE_PIXEL_BYTE(dst, dx, dstRow);
             u8 dv = *d;
-            u8 sv = *TILE_PIXEL_BYTE(src, sx, srcRow);
+            u8 sv = *(src + ((srcRow >> 3) << 10) + ((sx >> 3) << 5) + ((srcRow & 7) << 2) + ((sx & 7) >> 1));
 
             if (!(dx & 1))
             {
@@ -270,7 +270,6 @@ u32 Picture_ScaleStep(const struct ScaleParams *p)
             srcRow++;
             accY -= h;
         }
-        gScaleState.row++;
     }
     gScaleState.accX = accX;
     gScaleState.accY = accY;
@@ -278,215 +277,6 @@ u32 Picture_ScaleStep(const struct ScaleParams *p)
     gScaleState.dstRow = dstRow;
     return 1;
 }
-#else
-NAKED
-u32 Picture_ScaleStep(const struct ScaleParams *p)
-{
-    asm_unified(
-        ".L080B6F40:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sl\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6, r7}\n"
-        "    sub sp, #0x38\n"
-        "    ldrh r1, [r0, #8]\n"
-        "    str r1, [sp]\n"
-        "    ldr r2, .L080B6F8C\n"
-        "    ldrh r3, [r2, #8]\n"
-        "    mov sb, r3\n"
-        "    ldrh r1, [r0, #0xc]\n"
-        "    str r1, [sp, #4]\n"
-        "    ldrh r3, [r2, #0xa]\n"
-        "    ldrh r1, [r0, #0x10]\n"
-        "    str r1, [sp, #8]\n"
-        "    ldrh r1, [r0, #0x12]\n"
-        "    str r1, [sp, #0xc]\n"
-        "    ldrh r1, [r0, #0x18]\n"
-        "    mov r8, r1\n"
-        "    ldrh r1, [r0, #0x1a]\n"
-        "    str r1, [sp, #0x10]\n"
-        "    ldr r1, [r0]\n"
-        "    ldr r1, [r1]\n"
-        "    str r1, [sp, #0x18]\n"
-        "    ldr r0, [r0, #4]\n"
-        "    str r0, [sp, #0x1c]\n"
-        "    ldrh r7, [r2, #4]\n"
-        "    ldrh r1, [r2, #6]\n"
-        "    movs r4, #0\n"
-        ".L080B6F7C:\n"
-        "    ldr r2, .L080B6F8C\n"
-        "    ldrh r0, [r2, #2]\n"
-        "    ldr r2, [sp, #0x10]\n"
-        "    cmp r0, r2\n"
-        "    blo .L080B6F90\n"
-        "    movs r0, #0\n"
-        "    b .L080B70A8\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080B6F8C: .4byte 0x03004520 @ IWRAM+0x4520\n"
-        ".L080B6F90:\n"
-        "    ldr r5, [sp]\n"
-        "    ldr r6, [sp, #4]\n"
-        "    movs r0, #0\n"
-        "    str r0, [sp, #0x14]\n"
-        "    adds r2, r3, #1\n"
-        "    str r2, [sp, #0x2c]\n"
-        "    ldr r0, [sp, #0xc]\n"
-        "    adds r1, r1, r0\n"
-        "    str r1, [sp, #0x28]\n"
-        "    adds r4, #1\n"
-        "    str r4, [sp, #0x30]\n"
-        "    ldr r1, [sp, #0x14]\n"
-        "    cmp r1, r8\n"
-        "    bhs .L080B706A\n"
-        "    lsrs r0, r3, #3\n"
-        "    lsls r0, r0, #0xa\n"
-        "    ldr r2, [sp, #0x1c]\n"
-        "    adds r0, r2, r0\n"
-        "    str r0, [sp, #0x20]\n"
-        "    movs r0, #7\n"
-        "    mov sl, r0\n"
-        "    ands r3, r0\n"
-        "    lsls r3, r3, #2\n"
-        "    str r3, [sp, #0x24]\n"
-        ".L080B6FC0:\n"
-        "    lsrs r1, r6, #3\n"
-        "    lsls r1, r1, #5\n"
-        "    ldr r2, [sp, #0x20]\n"
-        "    adds r1, r2, r1\n"
-        "    ldr r3, [sp, #0x24]\n"
-        "    adds r1, r1, r3\n"
-        "    adds r0, r6, #0\n"
-        "    mov r2, sl\n"
-        "    ands r0, r2\n"
-        "    lsrs r0, r0, #1\n"
-        "    adds r1, r1, r0\n"
-        "    mov ip, r1\n"
-        "    ldrb r4, [r1]\n"
-        "    mov r3, sb\n"
-        "    lsrs r0, r3, #3\n"
-        "    lsls r0, r0, #0xa\n"
-        "    lsrs r3, r5, #3\n"
-        "    lsls r3, r3, #5\n"
-        "    str r3, [sp, #0x34]\n"
-        "    mov r2, sb\n"
-        "    mov r1, sl\n"
-        "    ands r2, r1\n"
-        "    lsls r2, r2, #2\n"
-        "    adds r1, r5, #0\n"
-        "    mov r3, sl\n"
-        "    ands r1, r3\n"
-        "    lsrs r1, r1, #1\n"
-        "    ldr r3, [sp, #0x18]\n"
-        "    adds r0, r3, r0\n"
-        "    ldr r3, [sp, #0x34]\n"
-        "    adds r0, r0, r3\n"
-        "    adds r0, r0, r2\n"
-        "    adds r0, r0, r1\n"
-        "    ldrb r1, [r0]\n"
-        "    adds r2, r1, #0\n"
-        "    adds r0, r6, #0\n"
-        "    movs r3, #1\n"
-        "    ands r0, r3\n"
-        "    cmp r0, #0\n"
-        "    bne .L080B7026\n"
-        "    adds r0, r5, #0\n"
-        "    ands r0, r3\n"
-        "    cmp r0, #0\n"
-        "    bne .L080B7020\n"
-        "    movs r0, #0xf\n"
-        "    ands r1, r0\n"
-        "    orrs r4, r1\n"
-        "    b .L080B7040\n"
-        ".L080B7020:\n"
-        "    lsrs r0, r1, #4\n"
-        "    orrs r4, r0\n"
-        "    b .L080B7040\n"
-        ".L080B7026:\n"
-        "    adds r0, r5, #0\n"
-        "    movs r3, #1\n"
-        "    ands r0, r3\n"
-        "    cmp r0, #0\n"
-        "    bne .L080B703A\n"
-        "    lsls r0, r1, #4\n"
-        "    orrs r4, r0\n"
-        "    lsls r0, r4, #0x18\n"
-        "    lsrs r4, r0, #0x18\n"
-        "    b .L080B7040\n"
-        ".L080B703A:\n"
-        "    movs r0, #0xf0\n"
-        "    ands r2, r0\n"
-        "    orrs r4, r2\n"
-        ".L080B7040:\n"
-        "    mov r0, ip\n"
-        "    strb r4, [r0]\n"
-        "    adds r0, r6, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r6, r0, #0x10\n"
-        "    ldr r1, [sp, #8]\n"
-        "    adds r7, r7, r1\n"
-        "    cmp r7, r8\n"
-        "    blo .L080B705C\n"
-        "    adds r0, r5, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r5, r0, #0x10\n"
-        "    mov r2, r8\n"
-        "    subs r7, r7, r2\n"
-        ".L080B705C:\n"
-        "    ldr r0, [sp, #0x14]\n"
-        "    adds r0, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    str r0, [sp, #0x14]\n"
-        "    cmp r0, r8\n"
-        "    blo .L080B6FC0\n"
-        ".L080B706A:\n"
-        "    ldr r3, [sp, #0x2c]\n"
-        "    lsls r0, r3, #0x10\n"
-        "    lsrs r3, r0, #0x10\n"
-        "    ldr r1, [sp, #0x28]\n"
-        "    ldr r0, [sp, #0x10]\n"
-        "    cmp r1, r0\n"
-        "    blo .L080B7086\n"
-        "    mov r0, sb\n"
-        "    adds r0, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    mov sb, r0\n"
-        "    ldr r2, [sp, #0x10]\n"
-        "    subs r1, r1, r2\n"
-        ".L080B7086:\n"
-        "    ldr r2, [sp, #0x30]\n"
-        "    lsls r0, r2, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    ldr r2, .L080B70B8\n"
-        "    ldrh r0, [r2, #2]\n"
-        "    adds r0, #1\n"
-        "    strh r0, [r2, #2]\n"
-        "    cmp r4, #0xf\n"
-        "    bhi .L080B709A\n"
-        "    b .L080B6F7C\n"
-        ".L080B709A:\n"
-        "    adds r0, r2, #0\n"
-        "    strh r7, [r0, #4]\n"
-        "    strh r1, [r0, #6]\n"
-        "    mov r1, sb\n"
-        "    strh r1, [r0, #8]\n"
-        "    strh r3, [r0, #0xa]\n"
-        "    movs r0, #1\n"
-        ".L080B70A8:\n"
-        "    add sp, #0x38\n"
-        "    pop {r3, r4, r5}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    mov sl, r5\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        ".L080B70B8: .4byte 0x03004520 @ IWRAM+0x4520\n"
-    );
-}
-#endif
 
 // sub_080B70BC @ 0x080B70BC
 /* Queues a warp to (map, floor) at (x, y) facing dir and switches the main callback. */

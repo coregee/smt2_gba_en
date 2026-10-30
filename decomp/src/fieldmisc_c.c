@@ -128,7 +128,6 @@ u16 sub_080C5E44(u16 id)
 
 // sub_080C5E58 @ 0x080C5E58
 /* Value of the spot entry at the player's block position and facing, 0xFFFF if none. */
-#ifdef NONMATCHING
 u16 sub_080C5E58(void)
 {
     const struct C0c2Spot *e = gUnknown_081A6F68;
@@ -136,10 +135,10 @@ u16 sub_080C5E58(void)
     u16 dir;
 
     sub_080C1F50(gFieldState.x, gFieldState.y, &bx, &by);
-    dir = ((e->yd >> 5) & 6) >> 1;
-    while (e->x != 0xFFFF)
+    for (dir = ((e->yd >> 5) & 6) >> 1; e->x != 0xFFFF; dir = ((e->yd >> 5) & 6) >> 1)
     {
-        if (e->x == bx && (e->yd & 0x3F) == by && gFieldState.facing == dir)
+        /* x is re-read through the table index; through e the compiler reuses the loop-test load */
+        if (gUnknown_081A6F68[e - gUnknown_081A6F68].x == bx && (e->yd & 0x3F) == by && gFieldState.facing == dir)
         {
             /* the spot at block (0x2D, 6) needs flag 0x15 */
             if ((*(u32 *)e & 0x3FFFFF) != 0x6002D || Flag_Test(0x15))
@@ -147,92 +146,9 @@ u16 sub_080C5E58(void)
             break;
         }
         e++;
-        dir = ((e->yd >> 5) & 6) >> 1;
     }
     return 0xFFFF;
 }
-#else
-NAKED
-u16 sub_080C5E58(void)
-{
-    asm_unified(
-        ".L080C5E58:\n"
-        "    push {r4, r5, lr}\n"
-        "    sub sp, #4\n"
-        "    ldr r5, .L080C5EBC\n"
-        "    ldr r1, .L080C5EC0\n"
-        "    ldrh r0, [r1, #0x12]\n"
-        "    ldrh r1, [r1, #0x14]\n"
-        "    mov r4, sp\n"
-        "    adds r4, #2\n"
-        "    mov r2, sp\n"
-        "    adds r3, r4, #0\n"
-        "    bl sub_080C1F50\n"
-        "    ldrh r0, [r5, #2]\n"
-        "    lsrs r0, r0, #5\n"
-        "    movs r1, #6\n"
-        "    ands r0, r1\n"
-        "    lsrs r2, r0, #1\n"
-        "    ldrh r0, [r5]\n"
-        "    ldr r1, .L080C5EC4\n"
-        "    cmp r0, r1\n"
-        "    beq .L080C5EE2\n"
-        "    adds r3, r1, #0\n"
-        ".L080C5E84:\n"
-        "    mov r1, sp\n"
-        "    ldrh r0, [r5]\n"
-        "    ldrh r1, [r1]\n"
-        "    cmp r0, r1\n"
-        "    bne .L080C5ED0\n"
-        "    ldrh r1, [r5, #2]\n"
-        "    movs r0, #0x3f\n"
-        "    ands r0, r1\n"
-        "    ldrh r1, [r4]\n"
-        "    cmp r0, r1\n"
-        "    bne .L080C5ED0\n"
-        "    ldr r0, .L080C5EC0\n"
-        "    ldrh r0, [r0, #2]\n"
-        "    cmp r0, r2\n"
-        "    bne .L080C5ED0\n"
-        "    ldr r0, [r5]\n"
-        "    ldr r1, .L080C5EC8\n"
-        "    ands r0, r1\n"
-        "    ldr r1, .L080C5ECC\n"
-        "    cmp r0, r1\n"
-        "    bne .L080C5EB8\n"
-        "    movs r0, #0x15\n"
-        "    bl Flag_Test\n"
-        "    cmp r0, #0\n"
-        "    beq .L080C5EE2\n"
-        ".L080C5EB8:\n"
-        "    ldrh r0, [r5, #4]\n"
-        "    b .L080C5EE4\n"
-        ".L080C5EBC: .4byte gUnknown_081A6F68\n"
-        ".L080C5EC0: .4byte 0x03004550 @ IWRAM+0x4550\n"
-        ".L080C5EC4: .4byte 0x0000FFFF\n"
-        ".L080C5EC8: .4byte 0x003FFFFF\n"
-        ".L080C5ECC: .4byte 0x0006002D\n"
-        ".L080C5ED0:\n"
-        "    adds r5, #8\n"
-        "    ldrh r0, [r5, #2]\n"
-        "    lsrs r0, r0, #5\n"
-        "    movs r1, #6\n"
-        "    ands r0, r1\n"
-        "    lsrs r2, r0, #1\n"
-        "    ldrh r0, [r5]\n"
-        "    cmp r0, r3\n"
-        "    bne .L080C5E84\n"
-        ".L080C5EE2:\n"
-        "    ldr r0, .L080C5EEC\n"
-        ".L080C5EE4:\n"
-        "    add sp, #4\n"
-        "    pop {r4, r5}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        ".L080C5EEC: .4byte 0x0000FFFF\n"
-    );
-}
-#endif
 
 // sub_080C5EF0 @ 0x080C5EF0
 struct C0c2Rec5C *sub_080C5EF0(u16 id)

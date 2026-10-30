@@ -3,9 +3,7 @@
 #include "global.h"
 #include "game.h"
 
-/* NONMATCHING: only the base/value registers of the step increment in case 6 swap. */
 // sub_080B38A8 @ 0x080B38A8
-#ifdef NONMATCHING
 /* Automap open/close steps (gFieldState.unk1E); returns 1 when open, -1 when closed. */
 s32 sub_080B38A8(void)
 {
@@ -31,16 +29,11 @@ s32 sub_080B38A8(void)
         sub_080B0778();
         gFieldState.unk1E++;
         p = (u8 *)gPaletteBuffer;
-        i = 0;
-        goto test;
-        do
+        for (i = 0; i < 32; i++, p++)
         {
-            i++;
-            p++;
-            if (i > 31)
+            if (*p != 0)
                 break;
-        test:;
-        } while (*p == 0);
+        }
         if (i == 32)
         {
             PalFade_FadeRangeInFromBlack(0, 0x80, 1);
@@ -94,246 +87,6 @@ s32 sub_080B38A8(void)
     }
     return result;
 }
-#else
-NAKED
-s32 sub_080B38A8(void)
-{
-    asm_unified(
-        ".L080B38A8:\n"
-        "    push {r4, r5, lr}\n"
-        "    sub sp, #0xc\n"
-        "    movs r5, #0\n"
-        "    ldr r0, .L080B38C4\n"
-        "    ldrh r0, [r0, #0x1e]\n"
-        "    cmp r0, #0x1c\n"
-        "    bls .L080B38B8\n"
-        "    b .L080B3AC4\n"
-        ".L080B38B8:\n"
-        "    lsls r0, r0, #2\n"
-        "    ldr r1, .L080B38C8\n"
-        "    adds r0, r0, r1\n"
-        "    ldr r0, [r0]\n"
-        "    mov pc, r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080B38C4: .4byte 0x03004550 @ IWRAM+0x4550\n"
-        ".L080B38C8: .4byte gUnknown_080B38CC\n"
-        "    .global gUnknown_080B38CC\n"
-        "gUnknown_080B38CC:\n"
-        ".L080B38CC: @ jump table\n"
-        "    .4byte .L080B3940\n"
-        "    .4byte .L080B3AC4\n"
-        "    .4byte .L080B398C\n"
-        "    .4byte .L080B3AC4\n"
-        "    .4byte .L080B3AC4\n"
-        "    .4byte .L080B3AC4\n"
-        "    .4byte .L080B39A8\n"
-        "    .4byte .L080B39F2\n"
-        "    .4byte .L080B3A3C\n"
-        "    .4byte .L080B3A40\n"
-        "    .4byte .L080B3AC4\n"
-        "    .4byte .L080B3AC4\n"
-        "    .4byte .L080B3AC4\n"
-        "    .4byte .L080B3AC4\n"
-        "    .4byte .L080B3AC4\n"
-        "    .4byte .L080B3AC4\n"
-        "    .4byte .L080B3AC4\n"
-        "    .4byte .L080B3AC4\n"
-        "    .4byte .L080B3AC4\n"
-        "    .4byte .L080B3AC4\n"
-        "    .4byte .L080B3AC4\n"
-        "    .4byte .L080B3AC4\n"
-        "    .4byte .L080B3AC4\n"
-        "    .4byte .L080B3AC4\n"
-        "    .4byte .L080B3AC4\n"
-        "    .4byte .L080B3AC4\n"
-        "    .4byte .L080B3AC4\n"
-        "    .4byte .L080B3AC4\n"
-        "    .4byte .L080B3A60\n"
-        ".L080B3940:\n"
-        "    bl sub_080C14FC\n"
-        "    ldr r1, .L080B3978\n"
-        "    movs r0, #0x1c\n"
-        "    str r0, [sp]\n"
-        "    movs r0, #0xd\n"
-        "    str r0, [sp, #4]\n"
-        "    movs r0, #0\n"
-        "    movs r2, #1\n"
-        "    movs r3, #0\n"
-        "    bl Tilemap_FillRect\n"
-        "    add r1, sp, #8\n"
-        "    movs r0, #0\n"
-        "    strh r0, [r1]\n"
-        "    ldr r1, .L080B397C\n"
-        "    add r0, sp, #8\n"
-        "    str r0, [r1]\n"
-        "    ldr r0, .L080B3980\n"
-        "    str r0, [r1, #4]\n"
-        "    ldr r0, .L080B3984\n"
-        "    str r0, [r1, #8]\n"
-        "    ldr r0, [r1, #8]\n"
-        "    ldr r0, .L080B3988\n"
-        "    movs r1, #1\n"
-        "    bl VBlankTask_AddCounted\n"
-        "    b .L080B3ACC\n"
-        ".L080B3978: .4byte 0x02000000 @ EWRAM\n"
-        ".L080B397C: .4byte 0x040000D4 @ REG_DMA3SAD\n"
-        ".L080B3980: .4byte 0x03002EB0 @ IWRAM+0x2EB0\n"
-        ".L080B3984: .4byte 0x81000080\n"
-        ".L080B3988: .4byte BgPicture_SetupStepTask\n"
-        ".L080B398C:\n"
-        "    movs r0, #0\n"
-        "    bl BgPicture_LoadStep\n"
-        "    cmp r0, #1\n"
-        "    beq .L080B3998\n"
-        "    b .L080B3ACC\n"
-        ".L080B3998:\n"
-        "    ldr r1, .L080B39A4\n"
-        "    ldrh r0, [r1, #0x1e]\n"
-        "    adds r0, #1\n"
-        "    strh r0, [r1, #0x1e]\n"
-        "    b .L080B3ACC\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080B39A4: .4byte 0x03004550 @ IWRAM+0x4550\n"
-        ".L080B39A8:\n"
-        "    bl sub_080B0778\n"
-        "    ldr r0, .L080B39BC\n"
-        "    ldrh r1, [r0, #0x1e]\n"
-        "    adds r1, #1\n"
-        "    strh r1, [r0, #0x1e]\n"
-        "    ldr r2, .L080B39C0\n"
-        "    movs r1, #0\n"
-        "    b .L080B39D0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080B39BC: .4byte 0x03004550 @ IWRAM+0x4550\n"
-        ".L080B39C0: .4byte 0x03002DB0 @ IWRAM+0x2DB0\n"
-        ".L080B39C4:\n"
-        "    adds r0, r1, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r1, r0, #0x10\n"
-        "    adds r2, #1\n"
-        "    cmp r1, #0x1f\n"
-        "    bhi .L080B39D6\n"
-        ".L080B39D0:\n"
-        "    ldrb r0, [r2]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080B39C4\n"
-        ".L080B39D6:\n"
-        "    cmp r1, #0x20\n"
-        "    bne .L080B3ACC\n"
-        "    movs r0, #0\n"
-        "    movs r1, #0x80\n"
-        "    movs r2, #1\n"
-        "    bl PalFade_FadeRangeInFromBlack\n"
-        "    movs r0, #0x80\n"
-        "    lsls r0, r0, #1\n"
-        "    movs r1, #0xd0\n"
-        "    movs r2, #1\n"
-        "    bl PalFade_FadeRangeInFromBlack\n"
-        "    b .L080B3ACC\n"
-        ".L080B39F2:\n"
-        "    bl PalFade_AllDone\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    cmp r0, #1\n"
-        "    bne .L080B3ACC\n"
-        "    ldr r1, .L080B3A30\n"
-        "    ldrh r0, [r1, #0x1e]\n"
-        "    adds r0, #1\n"
-        "    movs r2, #0\n"
-        "    strh r0, [r1, #0x1e]\n"
-        "    ldr r0, .L080B3A34\n"
-        "    strh r2, [r0, #0x34]\n"
-        "    ldr r4, .L080B3A38\n"
-        "    adds r0, r4, #0\n"
-        "    bl Flag_Test\n"
-        "    cmp r0, #0\n"
-        "    beq .L080B3ACC\n"
-        "    movs r0, #0x81\n"
-        "    lsls r0, r0, #1\n"
-        "    bl Flag_Clear\n"
-        "    movs r0, #0x83\n"
-        "    lsls r0, r0, #1\n"
-        "    bl Flag_Clear\n"
-        "    adds r0, r4, #0\n"
-        "    bl Flag_Clear\n"
-        "    b .L080B3ACC\n"
-        ".L080B3A30: .4byte 0x03004550 @ IWRAM+0x4550\n"
-        ".L080B3A34: .4byte 0x0200E7D4 @ EWRAM+0xE7D4\n"
-        ".L080B3A38: .4byte 0x00000105\n"
-        ".L080B3A3C:\n"
-        "    movs r5, #1\n"
-        "    b .L080B3ACC\n"
-        ".L080B3A40:\n"
-        "    bl sub_080B092C\n"
-        "    cmp r0, #0\n"
-        "    bne .L080B3ACC\n"
-        "    bl sub_080C14FC\n"
-        "    ldr r1, .L080B3A5C\n"
-        "    movs r0, #0x14\n"
-        "    strh r0, [r1, #0x1e]\n"
-        "    movs r0, #0\n"
-        "    bl sub_080B7530\n"
-        "    b .L080B3ACC\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080B3A5C: .4byte 0x03004550 @ IWRAM+0x4550\n"
-        ".L080B3A60:\n"
-        "    movs r0, #1\n"
-        "    bl sub_080C3818\n"
-        "    movs r0, #0\n"
-        "    bl View_IsSideOpen\n"
-        "    cmp r0, #0\n"
-        "    bne .L080B3AA0\n"
-        "    movs r0, #1\n"
-        "    bl View_IsSideOpen\n"
-        "    cmp r0, #0\n"
-        "    bne .L080B3AA0\n"
-        "    movs r0, #3\n"
-        "    bl View_IsSideOpen\n"
-        "    cmp r0, #0\n"
-        "    bne .L080B3AA0\n"
-        "    ldr r4, .L080B3A9C\n"
-        "    ldrh r0, [r4, #2]\n"
-        "    bl sub_080B1A1C\n"
-        "    strh r0, [r4, #2]\n"
-        "    ldrh r0, [r4, #0xa]\n"
-        "    ldrh r1, [r4, #2]\n"
-        "    movs r2, #3\n"
-        "    bl sub_080B2030\n"
-        "    b .L080B3ABA\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080B3A9C: .4byte 0x03004550 @ IWRAM+0x4550\n"
-        ".L080B3AA0:\n"
-        "    bl sub_080B05A4\n"
-        "    movs r0, #0x1f\n"
-        "    bl Field_SetState\n"
-        "    movs r0, #0\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    bl sub_080B2840\n"
-        "    ldr r1, .L080B3AC0\n"
-        "    movs r0, #0\n"
-        "    strh r0, [r1, #0x1e]\n"
-        ".L080B3ABA:\n"
-        "    movs r5, #1\n"
-        "    rsbs r5, r5, #0\n"
-        "    b .L080B3ACC\n"
-        ".L080B3AC0: .4byte 0x03004550 @ IWRAM+0x4550\n"
-        ".L080B3AC4:\n"
-        "    ldr r0, .L080B3AD8\n"
-        "    movs r1, #1\n"
-        "    bl VBlankTask_AddCounted\n"
-        ".L080B3ACC:\n"
-        "    adds r0, r5, #0\n"
-        "    add sp, #0xc\n"
-        "    pop {r4, r5}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080B3AD8: .4byte BgPicture_SetupStepTask\n"
-    );
-}
-
-#endif
 
 
 // sub_080B3ADC @ 0x080B3ADC
@@ -421,11 +174,14 @@ void sub_080B3C34(u32 idx, u32 now)
    0x0200AFC8 and queues its upload (sub_080B3C34). Huffman pieces take two calls: the
    Huffman stage goes to buffer+0x1000 and bit 15 of the piece index is set, the next call
    LZ77-decodes that into the buffer. gBgPicturePiece becomes 0xFFFF when all are done; with
-   gUnk_03003BA0 set the pieces from 8 on are uploaded through slots 3 and up. */
+   gUnk_03003BA0 set the pieces from 8 on are uploaded through slots 3 and up.
+   Closest version: only r4-r6 are permuted (src, piece address, huff). */
+extern u8 gBgPictureBuffer[];
 void BgPicture_LoadPiece(u32 now)
 {
     struct BgPicture *bg = sub_080C5EF0(gUnk_03004534);
     const void *src;
+    const void *src2;
     u16 huff;
     u32 zero;
 
@@ -435,34 +191,34 @@ void BgPicture_LoadPiece(u32 now)
         if (huff)
         {
             gBgPicturePiece &= 0x7FFF;
-            LZ77UnCompWram((void *)0x0200BFC8, (void *)0x0200AFC8);
+            LZ77UnCompWram(gBgPictureBuffer + 0x1000, gBgPictureBuffer);
+            sub_080B3C34(gBgPicturePiece, now);
+            gBgPicturePiece++;
         }
         else
         {
             src = sub_080C5F04(gUnk_03004534, gBgPicturePiece);
-            if (src == NULL)
+            if (src != NULL)
             {
-                gBgPicturePiece = 0xFFFF;
-                return;
-            }
-            zero = huff;
-            CpuFastSet(&zero, (void *)0x0200AFC8, 0x01000400);
-            if (bg->kind == 1)
-            {
-                LZ77UnCompWram(src, (void *)0x0200AFC8);
+                zero = huff;
+                CpuFastSet(&zero, gBgPictureBuffer, 0x01000400);
+                if (bg->kind == 1)
+                {
+                    LZ77UnCompWram(src, gBgPictureBuffer);
+                    sub_080B3C34(gBgPicturePiece, now);
+                    gBgPicturePiece++;
+                }
+                else if (bg->kind == 2)
+                {
+                    HuffUnComp(src, gBgPictureBuffer + 0x1000);
+                    gBgPicturePiece |= 0x8000;
+                }
             }
             else
             {
-                if (bg->kind == 2)
-                {
-                    HuffUnComp(src, (void *)(0x0200AFC8 + 0x1000));
-                    gBgPicturePiece |= 0x8000;
-                }
-                return;
+                gBgPicturePiece = 0xFFFF;
             }
         }
-        sub_080B3C34(gBgPicturePiece, now);
-        gBgPicturePiece++;
         return;
     }
 
@@ -470,7 +226,7 @@ void BgPicture_LoadPiece(u32 now)
     if (huff)
     {
         gBgPicturePiece &= 0x7FFF;
-        LZ77UnCompWram((void *)0x0200BFC8, (void *)0x0200AFC8);
+        LZ77UnCompWram(gBgPictureBuffer + 0x1000, gBgPictureBuffer);
         if (gBgPicturePiece < 8)
             sub_080B3C34(gBgPicturePiece, now);
         else
@@ -478,44 +234,46 @@ void BgPicture_LoadPiece(u32 now)
         gBgPicturePiece++;
         return;
     }
-    src = sub_080C5F04(gUnk_03004534, gBgPicturePiece);
-    if (src == NULL)
+    src2 = sub_080C5F04(gUnk_03004534, gBgPicturePiece);
+    if (src2 != NULL)
+    {
+        zero = huff;
+        CpuFastSet(&zero, gBgPictureBuffer, 0x01000400);
+        if (gBgPicturePiece < 8)
+        {
+            if (bg->kind == 1)
+            {
+                LZ77UnCompWram(src2, gBgPictureBuffer);
+                sub_080B3C34(gBgPicturePiece, now);
+                gBgPicturePiece++;
+            }
+            else if (bg->kind == 2)
+            {
+                HuffUnComp(src2, gBgPictureBuffer + 0x1000);
+                gBgPicturePiece |= 0x8000;
+            }
+        }
+        else
+        {
+            if (bg->kind == 1)
+            {
+                LZ77UnCompWram(src2, gBgPictureBuffer);
+                sub_080B3C34(gBgPicturePiece - 5, now);
+                gBgPicturePiece++;
+            }
+            else if (bg->kind == 2)
+            {
+                HuffUnComp(src2, gBgPictureBuffer + 0x1000);
+                gBgPicturePiece |= 0x8000;
+            }
+        }
+    }
+    else
     {
         if (gBgPicturePiece < 8)
             gBgPicturePiece = 8;
         else
             gBgPicturePiece = 0xFFFF;
-        return;
-    }
-    zero = huff;
-    CpuFastSet(&zero, (void *)0x0200AFC8, 0x01000400);
-    if (gBgPicturePiece < 8)
-    {
-        if (bg->kind == 1)
-        {
-            LZ77UnCompWram(src, (void *)0x0200AFC8);
-            sub_080B3C34(gBgPicturePiece, now);
-            gBgPicturePiece++;
-        }
-        else if (bg->kind == 2)
-        {
-            HuffUnComp(src, (void *)(0x0200AFC8 + 0x1000));
-            gBgPicturePiece |= 0x8000;
-        }
-    }
-    else
-    {
-        if (bg->kind == 1)
-        {
-            LZ77UnCompWram(src, (void *)0x0200AFC8);
-            sub_080B3C34(gBgPicturePiece - 5, now);
-            gBgPicturePiece++;
-        }
-        else if (bg->kind == 2)
-        {
-            HuffUnComp(src, (void *)(0x0200AFC8 + 0x1000));
-            gBgPicturePiece |= 0x8000;
-        }
     }
 }
 #else

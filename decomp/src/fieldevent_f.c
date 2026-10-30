@@ -169,21 +169,21 @@ void sub_080B85F8(struct Task *task)
     const u16 *text;
     u32 amount;
     u32 v = ITEM_DATA(task)->rec->u.value;
+    u32 kind = v & 0xF0000000;
 
     task->unk1E = 0;
-    switch (v & 0xF0000000)
+    if (kind == 0x80000000)
     {
-    case 0x80000000:
         amount = v & 0x0FFFFFFF;
         text = gUnknown_080033D6;
-        break;
-    case 0x90000000:
+    }
+    else if (kind == 0x90000000)
+    {
         amount = v & 0x0FFFFFFF;
         text = gUnknown_080033BA;
-        break;
-    default:
-        return;
     }
+    else
+        return;
     Text_CopyToMenuBuffer(text);
     sub_080B832C(task, gMenuState);
     sub_080C2438(ITEM_DATA(task)->rec->unk8);
@@ -265,18 +265,18 @@ u16 Spring_GetKindAt(void)
 /* Heals party member `slot` at a spring: 0 restores HP/4, 1 HP/2 (front three only), 2 and 3
    cure a status. In case 2 the cure path calls sub_080C8490 twice and the result is 1 even
    when nothing was cured. */
-#ifdef NONMATCHING
 void Spring_HealMember(struct Task *task, u32 slot)
 {
-    s8 id;
+    s32 id;
     s32 ok;
+    s32 ok1;
     s32 n;
 
     sub_080C2438(ITEM_DATA(task)->rec->unk8);
     task->result = 0;
-    id = gGameState.party[slot];
-    if (id == -1)
+    if (gGameState.party[slot] == -1)
         return;
+    id = gGameState.party[slot];
     switch (Spring_GetKindAt())
     {
     case 0:
@@ -295,15 +295,15 @@ void Spring_HealMember(struct Task *task, u32 slot)
     case 1:
         if (slot > 2)
             break;
-        ok = Combatant_IsUsed(id);
-        if (ok == 1 && Combatant_IsDead(id) == 0)
+        ok1 = Combatant_IsUsed(id);
+        if (ok1 == 1 && Combatant_IsDead(id) == 0)
         {
             n = Battle_GetHp(id) >> 1;
             if (n == 0)
                 n = 1;
             Combatant_Damage(id, n);
             ITEM_DATA(task)->healed[slot] = n;
-            task->result = ok;
+            task->result = ok1;
             sub_080C8490(slot);
         }
         break;
@@ -331,164 +331,6 @@ void Spring_HealMember(struct Task *task, u32 slot)
         break;
     }
 }
-#else
-NAKED
-void Spring_HealMember(struct Task *task, u32 slot)
-{
-    asm_unified(
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, r8\n"
-        "    push {r7}\n"
-        "    adds r7, r0, #0\n"
-        "    adds r6, r1, #0\n"
-        "    ldr r0, [r7, #0x24]\n"
-        "    ldrh r0, [r0, #8]\n"
-        "    bl sub_080C2438\n"
-        "    movs r0, #0\n"
-        "    strh r0, [r7, #0x1c]\n"
-        "    ldr r0, .L080B86F8\n"
-        "    movs r1, #0xa2\n"
-        "    lsls r1, r1, #4\n"
-        "    adds r0, r0, r1\n"
-        "    adds r2, r6, r0\n"
-        "    movs r1, #0\n"
-        "    ldrsb r1, [r2, r1]\n"
-        "    movs r0, #1\n"
-        "    rsbs r0, r0, #0\n"
-        "    cmp r1, r0\n"
-        "    bne .L080B86DE\n"
-        "    b .L080B87E0\n"
-        ".L080B86DE:\n"
-        "    adds r5, r1, #0\n"
-        "    bl Spring_GetKindAt\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    cmp r0, #1\n"
-        "    beq .L080B8740\n"
-        "    cmp r0, #1\n"
-        "    bgt .L080B86FC\n"
-        "    cmp r0, #0\n"
-        "    beq .L080B8706\n"
-        "    b .L080B87E0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080B86F8: .4byte 0x030046C0 @ IWRAM+0x46C0\n"
-        ".L080B86FC:\n"
-        "    cmp r0, #2\n"
-        "    beq .L080B8780\n"
-        "    cmp r0, #3\n"
-        "    beq .L080B87B6\n"
-        "    b .L080B87E0\n"
-        ".L080B8706:\n"
-        "    adds r0, r5, #0\n"
-        "    bl Combatant_IsUsed\n"
-        "    mov r8, r0\n"
-        "    cmp r0, #1\n"
-        "    bne .L080B87E0\n"
-        "    adds r0, r5, #0\n"
-        "    bl Combatant_IsDead\n"
-        "    cmp r0, #0\n"
-        "    bne .L080B87E0\n"
-        "    adds r0, r5, #0\n"
-        "    bl Battle_GetHp\n"
-        "    asrs r4, r0, #2\n"
-        "    cmp r4, #0\n"
-        "    bne .L080B872A\n"
-        "    movs r4, #1\n"
-        ".L080B872A:\n"
-        "    adds r0, r5, #0\n"
-        "    adds r1, r4, #0\n"
-        "    bl Combatant_Damage\n"
-        "    lsls r1, r6, #1\n"
-        "    adds r0, r7, #0\n"
-        "    adds r0, #0x3c\n"
-        "    adds r0, r0, r1\n"
-        "    strh r4, [r0]\n"
-        "    mov r0, r8\n"
-        "    b .L080B87AC\n"
-        ".L080B8740:\n"
-        "    cmp r6, #2\n"
-        "    bhi .L080B87E0\n"
-        "    adds r0, r5, #0\n"
-        "    bl Combatant_IsUsed\n"
-        "    mov r8, r0\n"
-        "    cmp r0, #1\n"
-        "    bne .L080B87E0\n"
-        "    adds r0, r5, #0\n"
-        "    bl Combatant_IsDead\n"
-        "    cmp r0, #0\n"
-        "    bne .L080B87E0\n"
-        "    adds r0, r5, #0\n"
-        "    bl Battle_GetHp\n"
-        "    asrs r4, r0, #1\n"
-        "    cmp r4, #0\n"
-        "    bne .L080B8768\n"
-        "    movs r4, #1\n"
-        ".L080B8768:\n"
-        "    adds r0, r5, #0\n"
-        "    adds r1, r4, #0\n"
-        "    bl Combatant_Damage\n"
-        "    lsls r1, r6, #1\n"
-        "    adds r0, r7, #0\n"
-        "    adds r0, #0x3c\n"
-        "    adds r0, r0, r1\n"
-        "    strh r4, [r0]\n"
-        "    mov r1, r8\n"
-        "    strh r1, [r7, #0x1c]\n"
-        "    b .L080B87AE\n"
-        ".L080B8780:\n"
-        "    cmp r6, #2\n"
-        "    bhi .L080B87E0\n"
-        "    adds r0, r5, #0\n"
-        "    bl Combatant_IsUsed\n"
-        "    adds r4, r0, #0\n"
-        "    cmp r4, #1\n"
-        "    bne .L080B87AA\n"
-        "    adds r0, r5, #0\n"
-        "    bl Combatant_IsDead\n"
-        "    cmp r0, #0\n"
-        "    bne .L080B87AA\n"
-        "    adds r0, r5, #0\n"
-        "    movs r1, #4\n"
-        "    bl Combatant_SetStatus\n"
-        "    strh r4, [r7, #0x1c]\n"
-        "    adds r0, r6, #0\n"
-        "    bl sub_080C8490\n"
-        ".L080B87AA:\n"
-        "    movs r0, #1\n"
-        ".L080B87AC:\n"
-        "    strh r0, [r7, #0x1c]\n"
-        ".L080B87AE:\n"
-        "    adds r0, r6, #0\n"
-        "    bl sub_080C8490\n"
-        "    b .L080B87E0\n"
-        ".L080B87B6:\n"
-        "    cmp r6, #2\n"
-        "    bls .L080B87E0\n"
-        "    adds r0, r5, #0\n"
-        "    bl Combatant_IsUsed\n"
-        "    adds r4, r0, #0\n"
-        "    cmp r4, #1\n"
-        "    bne .L080B87E0\n"
-        "    adds r0, r5, #0\n"
-        "    bl Combatant_IsDead\n"
-        "    cmp r0, #0\n"
-        "    bne .L080B87E0\n"
-        "    adds r0, r5, #0\n"
-        "    movs r1, #2\n"
-        "    bl Combatant_SetStatus\n"
-        "    strh r4, [r7, #0x1c]\n"
-        "    adds r0, r6, #0\n"
-        "    bl sub_080C8490\n"
-        ".L080B87E0:\n"
-        "    pop {r3}\n"
-        "    mov r8, r3\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // sub_080B87EC @ 0x080B87EC
 void sub_080B87EC(struct Task *task, u32 slot)
@@ -519,7 +361,6 @@ void sub_080B87EC(struct Task *task, u32 slot)
 }
 
 // sub_080B8874 @ 0x080B8874
-#ifdef NONMATCHING
 void sub_080B8874(struct Task *task, u32 step, u32 a, u32 b)
 {
     struct ItemTaskData *d = ITEM_DATA(task);
@@ -533,44 +374,11 @@ void sub_080B8874(struct Task *task, u32 step, u32 a, u32 b)
         s32 r = sub_080B8B08(d->unk0C);
 
         if (r != 1)
-            r = 0;
-        task->result = r;
+            task->result = 0;
+        else
+            task->result = r;
     }
 }
-#else
-NAKED
-void sub_080B8874(struct Task *task, u32 step, u32 a, u32 b)
-{
-    asm_unified(
-        ".L080B8874:\n"
-        "    push {r4, r5, lr}\n"
-        "    adds r4, r0, #0\n"
-        "    adds r5, r4, #0\n"
-        "    adds r5, #0x24\n"
-        "    cmp r1, #0\n"
-        "    bne .L080B8890\n"
-        "    lsls r0, r2, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    lsls r1, r3, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    bl sub_080B8AE0\n"
-        "    str r0, [r5, #0xc]\n"
-        "    b .L080B889E\n"
-        ".L080B8890:\n"
-        "    ldr r0, [r5, #0xc]\n"
-        "    bl sub_080B8B08\n"
-        "    cmp r0, #1\n"
-        "    beq .L080B889C\n"
-        "    movs r0, #0\n"
-        ".L080B889C:\n"
-        "    strh r0, [r4, #0x1c]\n"
-        ".L080B889E:\n"
-        "    pop {r4, r5}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-    );
-}
-#endif
 
 // sub_080B88A4 @ 0x080B88A4
 void sub_080B88A4(struct Task *task)

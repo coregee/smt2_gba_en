@@ -37,9 +37,7 @@ void sub_080D4774(struct Task *task)
     task->result = r;
 }
 
-/* NONMATCHING: the original passes an uninitialised first argument (r0 left over). */
 // sub_080D478C @ 0x080D478C
-#ifdef NONMATCHING
 void sub_080D478C(struct Task *task)
 {
     u16 *data = task->data.h;
@@ -49,52 +47,8 @@ void sub_080D478C(struct Task *task)
         gUnk_0203DB28 = task->data.h[0];
     else
         gUnk_0203DB28 = data[1];
-    /* The original never sets r0 here: the first argument is whatever was left in it. */
     *(u32 *)&data[4] = CharObj_Create(0, 0x1C1, 0x50, 4, 0, 0);
 }
-#else
-NAKED
-void sub_080D478C(struct Task *task)
-{
-    asm_unified(
-        "    push {r4, r5, lr}\n"
-        "    sub sp, #8\n"
-        "    adds r4, r0, #0\n"
-        "    adds r5, r4, #0\n"
-        "    adds r5, #0x24\n"
-        "    movs r0, #0x86\n"
-        "    lsls r0, r0, #1\n"
-        "    bl Flag_Set\n"
-        "    ldrh r1, [r5, #2]\n"
-        "    cmp r1, #0\n"
-        "    bne .L080D47B0\n"
-        "    ldr r1, .L080D47AC\n"
-        "    ldrh r0, [r4, #0x24]\n"
-        "    strh r0, [r1]\n"
-        "    b .L080D47B4\n"
-        ".L080D47AC: .4byte 0x0203DB28 @ EWRAM+0x3DB28\n"
-        ".L080D47B0:\n"
-        "    ldr r0, .L080D47D0\n"
-        "    strh r1, [r0]\n"
-        ".L080D47B4:\n"
-        "    ldr r1, .L080D47D4\n"
-        "    movs r0, #0\n"
-        "    str r0, [sp]\n"
-        "    str r0, [sp, #4]\n"
-        "    movs r2, #0x50\n"
-        "    movs r3, #4\n"
-        "    bl CharObj_Create\n"
-        "    str r0, [r5, #8]\n"
-        "    add sp, #8\n"
-        "    pop {r4, r5}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080D47D0: .4byte 0x0203DB28 @ EWRAM+0x3DB28\n"
-        ".L080D47D4: .4byte 0x000001C1\n"
-    );
-}
-#endif
 
 // sub_080D47D8 @ 0x080D47D8
 void sub_080D47D8(void)

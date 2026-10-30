@@ -1,6 +1,9 @@
 #include "global.h"
 #include "inventory.h"
 
+extern u8 gUnk_02039FE4[];   /* per-member face tiles, 0x80 bytes each */
+extern u8 gUnk_020399E4[];   /* per-member name tiles, 0x100 bytes each */
+
 // sub_080C6AD8 @ 0x080C6AD8
 void sub_080C6AD8(u16 slot, u16 layer, u16 prio, u16 x, u16 y)
 {
@@ -94,55 +97,19 @@ void sub_080C6B40(u16 key, u16 layer, u16 prio, u16 x, u16 y)
 
 // sub_080C6BA8 @ 0x080C6BA8
 /* The running task whose per-frame function is sub_080D2F60, or NULL. */
-#ifdef NONMATCHING
 struct Task *sub_080C6BA8(void)
 {
     u32 i;
 
     for (i = 0; i < 64; i++)
     {
-        if (gTasks[i].state != 0 && gTasks[i].onFrame == sub_080D2F60)
-            return &gTasks[i];
+        struct Task *t = &gTasks[i];
+
+        if (t->state != 0 && t->onFrame == sub_080D2F60)
+            return t;
     }
     return NULL;
 }
-#else
-NAKED
-struct Task *sub_080C6BA8(void)
-{
-    asm_unified(
-        ".L080C6BA8:\n"
-        "    push {r4, lr}\n"
-        "    ldr r4, .L080C6BC4\n"
-        "    ldr r1, .L080C6BC8\n"
-        "    adds r2, r1, #0\n"
-        "    ldr r0, .L080C6BCC\n"
-        "    adds r3, r1, r0\n"
-        ".L080C6BB4:\n"
-        "    ldrh r0, [r1]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080C6BD0\n"
-        "    ldr r0, [r1, #0x20]\n"
-        "    cmp r0, r4\n"
-        "    bne .L080C6BD0\n"
-        "    adds r0, r2, #0\n"
-        "    b .L080C6BDA\n"
-        ".L080C6BC4: .4byte sub_080D2F60\n"
-        ".L080C6BC8: .4byte 0x02009004 @ EWRAM+0x9004\n"
-        ".L080C6BCC: .4byte 0x0000189C\n"
-        ".L080C6BD0:\n"
-        "    adds r1, #0x64\n"
-        "    adds r2, #0x64\n"
-        "    cmp r1, r3\n"
-        "    bls .L080C6BB4\n"
-        "    movs r0, #0\n"
-        ".L080C6BDA:\n"
-        "    pop {r4}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-    );
-}
-#endif
 
 // Hud_DrawMemberPanel @ 0x080C6BE0
 /* Draws party panel 'slot' of the field HUD: face, HP and MP bars, shaking while hit. */
@@ -515,26 +482,24 @@ void sub_080C6E54(void)
 /* Renders the names of the six active members as eight 8x8 glyph tiles each (name bytes
    index gUnknown_081AF7B8, 0xFF = blank) at 0x020399E4 + slot * 0x100, then queues the DMA
    to OBJ VRAM 0x06010C00. Names longer than 8 characters cannot be shown. */
-#ifdef NONMATCHING
 void Party_BuildMemberNameTiles(void)
 {
     s32 i, j;
 
     for (i = 0; i <= 5; i++)
     {
-        struct Combatant *c = Party_GetMember(i);
+        struct Combatant *c;
 
-        if (c != NULL)
+        if ((c = Party_GetMember(i)) != NULL)
         {
-            u32 *p = (u32 *)((i << 8) + 0x020399E4);
+            const u8 *name = c->name;
+            u32 *p = (u32 *)&gUnk_020399E4[i << 8];
 
             for (j = 0; j <= 7; j++)
             {
-                u8 ch = c->name[j];
-
-                if (ch != 0xFF)
+                if (name[j] != 0xFF)
                 {
-                    const u32 *src = gUnknown_081AF7B8[ch].w;
+                    const u32 *src = gUnknown_081AF7B8[name[j]].w;
 
                     *p++ = *src++;
                     *p++ = *src++;
@@ -561,83 +526,6 @@ void Party_BuildMemberNameTiles(void)
     }
     VBlankTask_AddCounted(sub_080C6E54, 1);
 }
-#else
-NAKED
-void Party_BuildMemberNameTiles(void)
-{
-    asm_unified(
-        ".L080C6E78:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    movs r4, #0\n"
-        ".L080C6E7C:\n"
-        "    lsls r0, r4, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    bl Party_GetMember\n"
-        "    adds r6, r4, #1\n"
-        "    cmp r0, #0\n"
-        "    beq .L080C6EE6\n"
-        "    adds r5, r0, #0\n"
-        "    lsls r1, r4, #8\n"
-        "    ldr r0, .L080C6EC8\n"
-        "    adds r2, r1, r0\n"
-        "    movs r4, #0\n"
-        "    movs r3, #0\n"
-        "    ldr r7, .L080C6ECC\n"
-        ".L080C6E98:\n"
-        "    adds r1, r5, r4\n"
-        "    ldrb r0, [r1]\n"
-        "    cmp r0, #0xff\n"
-        "    beq .L080C6ED0\n"
-        "    adds r1, r0, #0\n"
-        "    lsls r1, r1, #5\n"
-        "    adds r1, r1, r7\n"
-        "    ldm r1!, {r0}\n"
-        "    stm r2!, {r0}\n"
-        "    ldm r1!, {r0}\n"
-        "    stm r2!, {r0}\n"
-        "    ldm r1!, {r0}\n"
-        "    stm r2!, {r0}\n"
-        "    ldm r1!, {r0}\n"
-        "    stm r2!, {r0}\n"
-        "    ldm r1!, {r0}\n"
-        "    stm r2!, {r0}\n"
-        "    ldm r1!, {r0}\n"
-        "    stm r2!, {r0}\n"
-        "    ldm r1!, {r0}\n"
-        "    stm r2!, {r0}\n"
-        "    ldr r0, [r1]\n"
-        "    stm r2!, {r0}\n"
-        "    b .L080C6EE0\n"
-        ".L080C6EC8: .4byte 0x020399E4 @ EWRAM+0x399E4\n"
-        ".L080C6ECC: .4byte gUnknown_081AF7B8\n"
-        ".L080C6ED0:\n"
-        "    stm r2!, {r3}\n"
-        "    stm r2!, {r3}\n"
-        "    stm r2!, {r3}\n"
-        "    stm r2!, {r3}\n"
-        "    stm r2!, {r3}\n"
-        "    stm r2!, {r3}\n"
-        "    stm r2!, {r3}\n"
-        "    stm r2!, {r3}\n"
-        ".L080C6EE0:\n"
-        "    adds r4, #1\n"
-        "    cmp r4, #7\n"
-        "    ble .L080C6E98\n"
-        ".L080C6EE6:\n"
-        "    adds r4, r6, #0\n"
-        "    cmp r4, #5\n"
-        "    ble .L080C6E7C\n"
-        "    ldr r0, .L080C6EFC\n"
-        "    movs r1, #1\n"
-        "    bl VBlankTask_AddCounted\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C6EFC: .4byte sub_080C6E54\n"
-    );
-}
-#endif
 
 // sub_080C6F00 @ 0x080C6F00
 void sub_080C6F00(void)
@@ -651,13 +539,12 @@ void sub_080C6F00(void)
 
 // Hud_LoadMemberFace @ 0x080C6F30
 /* Copies the 4 face tiles of party slot i to 0x02039FE4 + i * 0x80 and queues the DMA. */
-#ifdef NONMATCHING
 void Hud_LoadMemberFace(u16 i)
 {
     if (Party_GetMember(i) != NULL)
     {
         const u32 *src = gUnknown_081A81B8;
-        u32 *dst = (u32 *)((i << 7) + 0x02039FE4);
+        u32 *dst = (u32 *)&gUnk_02039FE4[i << 7];
         u32 k;
         u16 *hud;
 
@@ -681,77 +568,6 @@ void Hud_LoadMemberFace(u16 i)
         }
     }
 }
-#else
-NAKED
-void Hud_LoadMemberFace(u16 i)
-{
-    asm_unified(
-        ".L080C6F30:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r5, r0, #0x10\n"
-        "    adds r0, r5, #0\n"
-        "    bl Party_GetMember\n"
-        "    cmp r0, #0\n"
-        "    beq .L080C6F9E\n"
-        "    ldr r6, .L080C6FA4\n"
-        "    lsls r1, r5, #7\n"
-        "    ldr r0, .L080C6FA8\n"
-        "    adds r4, r1, r0\n"
-        "    lsls r0, r5, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    bl Hud_GetMemberFace\n"
-        "    ldr r1, .L080C6FAC\n"
-        "    lsls r0, r0, #0x10\n"
-        "    asrs r0, r0, #0xd\n"
-        "    adds r0, r0, r1\n"
-        "    ldr r0, [r0]\n"
-        "    lsls r0, r0, #2\n"
-        "    adds r6, r0, r6\n"
-        "    movs r1, #0\n"
-        ".L080C6F60:\n"
-        "    ldm r6!, {r0}\n"
-        "    stm r4!, {r0}\n"
-        "    ldm r6!, {r0}\n"
-        "    stm r4!, {r0}\n"
-        "    ldm r6!, {r0}\n"
-        "    stm r4!, {r0}\n"
-        "    ldm r6!, {r0}\n"
-        "    stm r4!, {r0}\n"
-        "    ldm r6!, {r0}\n"
-        "    stm r4!, {r0}\n"
-        "    ldm r6!, {r0}\n"
-        "    stm r4!, {r0}\n"
-        "    ldm r6!, {r0}\n"
-        "    stm r4!, {r0}\n"
-        "    ldm r6!, {r0}\n"
-        "    stm r4!, {r0}\n"
-        "    adds r1, #1\n"
-        "    cmp r1, #3\n"
-        "    bls .L080C6F60\n"
-        "    ldr r0, .L080C6FB0\n"
-        "    adds r4, r0, #0\n"
-        "    adds r4, #0x6e\n"
-        "    ldrh r0, [r4]\n"
-        "    cmp r0, #0\n"
-        "    bne .L080C6F9E\n"
-        "    ldr r0, .L080C6FB4\n"
-        "    movs r1, #1\n"
-        "    bl VBlankTask_AddCounted\n"
-        "    movs r0, #1\n"
-        "    strh r0, [r4]\n"
-        ".L080C6F9E:\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L080C6FA4: .4byte gUnknown_081A81B8\n"
-        ".L080C6FA8: .4byte 0x02039FE4 @ EWRAM+0x39FE4\n"
-        ".L080C6FAC: .4byte gUnknown_0834A2EC\n"
-        ".L080C6FB0: .4byte 0x0200E7D4 @ EWRAM+0xE7D4\n"
-        ".L080C6FB4: .4byte sub_080C6F00\n"
-    );
-}
-#endif
 
 // sub_080C6FB8 @ 0x080C6FB8
 u32 sub_080C6FB8(u16 slot)

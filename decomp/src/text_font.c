@@ -1380,107 +1380,22 @@ void SmallFont_DrawAsciiTinted(const u8 *str, u8 *canvas, u16 x, u16 y, u8 tint,
 
 /* 8x10 glyph (digits): rows 6..15 of an 8x16 cell in the small font sheet. */
 // DigitFont_DrawGlyph @ 0x080ACB30
-#ifdef NONMATCHING
 void DigitFont_DrawGlyph(u16 index, u8 *canvas, u16 x, u16 y)
 {
-    Canvas_BlitOr(gSmallFontSheet + (index >> 5) * 0x800 + (index & 0x1F) * 32 + 0xC00, canvas, 0, 6, x, y, 8, 10);
+    u32 row = (index >> 5) * 0x800;
+    u32 col = (index & 0x1F) * 32 + 0xC00;
+
+    Canvas_BlitOr(gSmallFontSheet + (row + col), canvas, 0, 6, x, y, 8, 10);
 }
-#else
-NAKED
-void DigitFont_DrawGlyph(u16 index, u8 *canvas, u16 x, u16 y)
-{
-    asm_unified(
-        "    push {r4, r5, lr}\n"
-        "    sub sp, #0x10\n"
-        "    adds r5, r0, #0\n"
-        "    lsls r5, r5, #0x10\n"
-        "    lsls r2, r2, #0x10\n"
-        "    lsrs r2, r2, #0x10\n"
-        "    lsls r3, r3, #0x10\n"
-        "    lsrs r3, r3, #0x10\n"
-        "    lsrs r0, r5, #0x15\n"
-        "    lsls r0, r0, #0xb\n"
-        "    movs r4, #0xf8\n"
-        "    lsls r4, r4, #0xd\n"
-        "    ands r4, r5\n"
-        "    lsrs r4, r4, #0xb\n"
-        "    movs r5, #0xc0\n"
-        "    lsls r5, r5, #4\n"
-        "    adds r4, r4, r5\n"
-        "    adds r0, r0, r4\n"
-        "    ldr r4, .L080ACB74\n"
-        "    adds r0, r0, r4\n"
-        "    str r2, [sp]\n"
-        "    str r3, [sp, #4]\n"
-        "    movs r2, #8\n"
-        "    str r2, [sp, #8]\n"
-        "    movs r2, #0xa\n"
-        "    str r2, [sp, #0xc]\n"
-        "    movs r2, #0\n"
-        "    movs r3, #6\n"
-        "    bl Canvas_BlitOr\n"
-        "    add sp, #0x10\n"
-        "    pop {r4, r5}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L080ACB74: .4byte gSmallFontSheet\n"
-    );
-}
-#endif
 
 // DigitFont_DrawGlyphTinted @ 0x080ACB78
-#ifdef NONMATCHING
 void DigitFont_DrawGlyphTinted(u16 index, u8 *canvas, u16 x, u16 y, u8 tint)
 {
-    Canvas_BlitOrTinted(gSmallFontSheet + (index >> 5) * 0x800 + (index & 0x1F) * 32 + 0xC00, canvas, 0, 6, x, y, 8, 10, tint);
+    u32 row = (index >> 5) * 0x800;
+    u32 col = (index & 0x1F) * 32 + 0xC00;
+
+    Canvas_BlitOrTinted(gSmallFontSheet + (row + col), canvas, 0, 6, x, y, 8, 10, tint);
 }
-#else
-NAKED
-void DigitFont_DrawGlyphTinted(u16 index, u8 *canvas, u16 x, u16 y, u8 tint)
-{
-    asm_unified(
-        ".L080ACB78:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    sub sp, #0x14\n"
-        "    adds r5, r0, #0\n"
-        "    ldr r6, [sp, #0x24]\n"
-        "    lsls r5, r5, #0x10\n"
-        "    lsls r2, r2, #0x10\n"
-        "    lsrs r2, r2, #0x10\n"
-        "    lsls r3, r3, #0x10\n"
-        "    lsrs r3, r3, #0x10\n"
-        "    lsls r6, r6, #0x18\n"
-        "    lsrs r6, r6, #0x18\n"
-        "    lsrs r0, r5, #0x15\n"
-        "    lsls r0, r0, #0xb\n"
-        "    movs r4, #0xf8\n"
-        "    lsls r4, r4, #0xd\n"
-        "    ands r4, r5\n"
-        "    lsrs r4, r4, #0xb\n"
-        "    movs r5, #0xc0\n"
-        "    lsls r5, r5, #4\n"
-        "    adds r4, r4, r5\n"
-        "    adds r0, r0, r4\n"
-        "    ldr r4, .L080ACBC4\n"
-        "    adds r0, r0, r4\n"
-        "    str r2, [sp]\n"
-        "    str r3, [sp, #4]\n"
-        "    movs r2, #8\n"
-        "    str r2, [sp, #8]\n"
-        "    movs r2, #0xa\n"
-        "    str r2, [sp, #0xc]\n"
-        "    str r6, [sp, #0x10]\n"
-        "    movs r2, #0\n"
-        "    movs r3, #6\n"
-        "    bl Canvas_BlitOrTinted\n"
-        "    add sp, #0x14\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L080ACBC4: .4byte gSmallFontSheet\n"
-    );
-}
-#endif
 
 /* Decimal digit string in the 8x10 font (characters must be '0'..'9'). */
 // DigitFont_DrawStringTinted @ 0x080ACBC8

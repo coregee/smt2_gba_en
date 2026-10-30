@@ -179,7 +179,6 @@ void sub_080C1FC8(u16 *x, u16 *y)
 // sub_080C2000 @ 0x080C2000
 /* With field flag 0x80: whether the hero outlevels both demons of the encounter that would
    be rolled (so it is skipped). */
-#ifdef NONMATCHING
 u32 sub_080C2000(s32 mode)
 {
     u32 enc[2];
@@ -189,11 +188,11 @@ u32 sub_080C2000(s32 mode)
         return 0;
     if (mode == 0)
     {
-        u32 zone = sub_080C5D0C() & 0x7F;
+        u32 zone = ((u16 (*)(void))sub_080C5D0C)() & 0x7F; /* defined as u16; combatant.h says u32 */
 
         if (zone > 0x6B)
             zone = 0x3E;
-        sub_080ED398(&enc[0], &enc[1], zone & 0x7F);
+        sub_080ED398(&enc[0], &enc[1], zone);
     }
     else
     {
@@ -205,83 +204,6 @@ u32 sub_080C2000(s32 mode)
         return 1;
     return 0;
 }
-#else
-NAKED
-u32 sub_080C2000(s32 mode)
-{
-    asm_unified(
-        ".L080C2000:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    sub sp, #8\n"
-        "    adds r4, r0, #0\n"
-        "    bl BattleFlags_Get\n"
-        "    movs r1, #0x80\n"
-        "    ands r1, r0\n"
-        "    cmp r1, #0\n"
-        "    beq .L080C2084\n"
-        "    cmp r4, #0\n"
-        "    bne .L080C202E\n"
-        "    bl sub_080C5D0C\n"
-        "    movs r2, #0x7f\n"
-        "    ands r2, r0\n"
-        "    cmp r2, #0x6b\n"
-        "    bls .L080C2024\n"
-        "    movs r2, #0x3e\n"
-        ".L080C2024:\n"
-        "    add r1, sp, #4\n"
-        "    mov r0, sp\n"
-        "    bl sub_080ED398\n"
-        "    b .L080C2036\n"
-        ".L080C202E:\n"
-        "    add r1, sp, #4\n"
-        "    mov r0, sp\n"
-        "    bl sub_080F450C\n"
-        ".L080C2036:\n"
-        "    ldr r0, [sp]\n"
-        "    movs r1, #0\n"
-        "    bl sub_080ED5B4\n"
-        "    adds r5, r0, #0\n"
-        "    lsls r5, r5, #0x10\n"
-        "    lsrs r5, r5, #0x10\n"
-        "    ldr r0, [sp]\n"
-        "    movs r1, #1\n"
-        "    bl sub_080ED5B4\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r6, r0, #0x10\n"
-        "    movs r0, #0\n"
-        "    bl Combatant_GetLevel\n"
-        "    adds r4, r0, #0\n"
-        "    lsls r4, r4, #0x10\n"
-        "    asrs r4, r4, #0x10\n"
-        "    adds r0, r5, #0\n"
-        "    bl Demon_GetRecord\n"
-        "    ldrb r0, [r0, #1]\n"
-        "    cmp r4, r0\n"
-        "    bgt .L080C2080\n"
-        "    movs r0, #0\n"
-        "    bl Combatant_GetLevel\n"
-        "    adds r4, r0, #0\n"
-        "    lsls r4, r4, #0x10\n"
-        "    asrs r4, r4, #0x10\n"
-        "    adds r0, r6, #0\n"
-        "    bl Demon_GetRecord\n"
-        "    ldrb r0, [r0, #1]\n"
-        "    cmp r4, r0\n"
-        "    ble .L080C2084\n"
-        ".L080C2080:\n"
-        "    movs r0, #1\n"
-        "    b .L080C2086\n"
-        ".L080C2084:\n"
-        "    movs r0, #0\n"
-        ".L080C2086:\n"
-        "    add sp, #8\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // sub_080C2090 @ 0x080C2090
 u32 sub_080C2090(void)
@@ -305,166 +227,70 @@ u32 sub_080C20C8(void)
 
 // sub_080C20EC @ 0x080C20EC
 /* Encounter counter step for the current zone (dungeon). */
-#ifdef NONMATCHING
 void sub_080C20EC(void)
 {
-    u32 v = sub_080C5D0C() & 0x7F;
+    u32 v = ((u16 (*)(void))sub_080C5D0C)() & 0x7F; /* defined as u16; combatant.h says u32 */
     u8 *rec;
+    u8 t;
 
     gUnk_0203A450[0] = Random_Byte();
     gUnk_0203A450[1] = Random_Byte();
     if (v > 0x6B)
         v = 0x3E;
     rec = sub_080C5D48(v & 0x7F);
-    v = rec[0] * 2;
-    if (v == 0 || Flag_Test(0xFF)
-     || (rec[1] != 0 && (Flag_Test(rec[1]) ? rec[2] : rec[3]) == 0xFF))
-        Encounter_SetCounter(0);
+    v = rec[0];
+    v *= 2;
+    if (v == 0 || Flag_Test(0xFF))
+        goto none;
+    if (rec[1] == 0)
+        goto add;
+    if (Flag_Test(rec[1]))
+        t = rec[2];
     else
-        Encounter_SetCounter(Encounter_GetCounter() + v);
+        t = rec[3];
+    if (t != 0xFF)
+        goto add;
+none:
+    Encounter_SetCounter(0);
+    return;
+add:
+    {
+        u32 c = Encounter_GetCounter();
+        Encounter_SetCounter(c + v);
+    }
 }
-#else
-NAKED
-void sub_080C20EC(void)
-{
-    asm_unified(
-        ".L080C20EC:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    bl sub_080C5D0C\n"
-        "    movs r6, #0x7f\n"
-        "    adds r5, r6, #0\n"
-        "    ands r5, r0\n"
-        "    bl Random_Byte\n"
-        "    ldr r4, .L080C213C\n"
-        "    strh r0, [r4]\n"
-        "    bl Random_Byte\n"
-        "    strh r0, [r4, #2]\n"
-        "    cmp r5, #0x6b\n"
-        "    bls .L080C210C\n"
-        "    movs r5, #0x3e\n"
-        ".L080C210C:\n"
-        "    ands r5, r6\n"
-        "    adds r0, r5, #0\n"
-        "    bl sub_080C5D48\n"
-        "    adds r4, r0, #0\n"
-        "    ldrb r5, [r4]\n"
-        "    lsls r5, r5, #1\n"
-        "    cmp r5, #0\n"
-        "    beq .L080C2146\n"
-        "    movs r0, #0xff\n"
-        "    bl Flag_Test\n"
-        "    cmp r0, #0\n"
-        "    bne .L080C2146\n"
-        "    ldrb r0, [r4, #1]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080C214E\n"
-        "    bl Flag_Test\n"
-        "    cmp r0, #0\n"
-        "    beq .L080C2140\n"
-        "    ldrb r0, [r4, #2]\n"
-        "    b .L080C2142\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C213C: .4byte 0x0203A450 @ EWRAM+0x3A450\n"
-        ".L080C2140:\n"
-        "    ldrb r0, [r4, #3]\n"
-        ".L080C2142:\n"
-        "    cmp r0, #0xff\n"
-        "    bne .L080C214E\n"
-        ".L080C2146:\n"
-        "    movs r0, #0\n"
-        "    bl Encounter_SetCounter\n"
-        "    b .L080C2160\n"
-        ".L080C214E:\n"
-        "    bl Encounter_GetCounter\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    adds r0, r0, r5\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    bl Encounter_SetCounter\n"
-        ".L080C2160:\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // sub_080C2168 @ 0x080C2168
 /* As sub_080C20EC for the zone record of sub_080C5D98. */
-#ifdef NONMATCHING
 void sub_080C2168(void)
 {
     u8 *rec = sub_080C5D98();
-    u32 rate = rec[0] * 2;
-    u8 v;
+    u32 rate;
+    u8 t;
 
+    rate = rec[0];
+    rate *= 2;
     gUnk_0203A450[0] = Random_Byte();
     gUnk_0203A450[1] = Random_Byte();
-    if (rate == 0 || Flag_Test(0xFF)
-     || (rec[1] != 0 && (v = Flag_Test(rec[1]) ? rec[2] : rec[3]) == 0xFF))
-        Encounter_SetCounter(0);
+    if (rate == 0 || Flag_Test(0xFF))
+        goto none;
+    if (rec[1] == 0)
+        goto add;
+    if (Flag_Test(rec[1]))
+        t = rec[2];
     else
-        Encounter_SetCounter(Encounter_GetCounter() + rate);
+        t = rec[3];
+    if (t != 0xFF)
+        goto add;
+none:
+    Encounter_SetCounter(0);
+    return;
+add:
+    {
+        u32 c = Encounter_GetCounter();
+        Encounter_SetCounter(c + rate);
+    }
 }
-#else
-NAKED
-void sub_080C2168(void)
-{
-    asm_unified(
-        ".L080C2168:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    bl sub_080C5D98\n"
-        "    adds r5, r0, #0\n"
-        "    ldrb r6, [r5]\n"
-        "    lsls r6, r6, #1\n"
-        "    bl Random_Byte\n"
-        "    ldr r4, .L080C21A4\n"
-        "    strh r0, [r4]\n"
-        "    bl Random_Byte\n"
-        "    strh r0, [r4, #2]\n"
-        "    cmp r6, #0\n"
-        "    beq .L080C21AE\n"
-        "    movs r0, #0xff\n"
-        "    bl Flag_Test\n"
-        "    cmp r0, #0\n"
-        "    bne .L080C21AE\n"
-        "    ldrb r0, [r5, #1]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080C21B6\n"
-        "    bl Flag_Test\n"
-        "    cmp r0, #0\n"
-        "    beq .L080C21A8\n"
-        "    ldrb r0, [r5, #2]\n"
-        "    b .L080C21AA\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C21A4: .4byte 0x0203A450 @ EWRAM+0x3A450\n"
-        ".L080C21A8:\n"
-        "    ldrb r0, [r5, #3]\n"
-        ".L080C21AA:\n"
-        "    cmp r0, #0xff\n"
-        "    bne .L080C21B6\n"
-        ".L080C21AE:\n"
-        "    movs r0, #0\n"
-        "    bl Encounter_SetCounter\n"
-        "    b .L080C21C8\n"
-        ".L080C21B6:\n"
-        "    bl Encounter_GetCounter\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    adds r0, r0, r6\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    bl Encounter_SetCounter\n"
-        ".L080C21C8:\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // Encounter_GetDangerLevel @ 0x080C21D0
 /* Encounter counter level: 0, 1-250 -> 1, 251-500 -> 2, 501-750 -> 3, else 4. */
@@ -545,13 +371,15 @@ u32 Encounter_Check(u16 mode)
 
 // PlayTime_Tick @ 0x080C22E4
 /* Play time tick (frames, seconds, minutes, hours); stops at 255:59:59. */
-#ifdef NONMATCHING
 void PlayTime_Tick(void)
 {
     u8 *t = gGameState.playTime.raw;
-    u8 zero = 0;
+    u32 zero, v;
 
-    if (++t[3] > 59)
+    v = t[3] + 1;
+    zero = 0;
+    t[3] = v;
+    if ((u8)v > 59)
     {
         t[3] = zero;
         t[2]++;
@@ -574,60 +402,6 @@ void PlayTime_Tick(void)
         t[0] = 255;
     }
 }
-#else
-NAKED
-void PlayTime_Tick(void)
-{
-    asm_unified(
-        ".L080C22E4:\n"
-        "    push {lr}\n"
-        "    ldr r1, .L080C2334\n"
-        "    ldrb r0, [r1, #3]\n"
-        "    adds r0, #1\n"
-        "    movs r2, #0\n"
-        "    strb r0, [r1, #3]\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r0, r0, #0x18\n"
-        "    cmp r0, #0x3b\n"
-        "    bls .L080C2300\n"
-        "    strb r2, [r1, #3]\n"
-        "    ldrb r0, [r1, #2]\n"
-        "    adds r0, #1\n"
-        "    strb r0, [r1, #2]\n"
-        ".L080C2300:\n"
-        "    ldrb r0, [r1, #2]\n"
-        "    cmp r0, #0x3b\n"
-        "    bls .L080C230E\n"
-        "    strb r2, [r1, #2]\n"
-        "    ldrb r0, [r1, #1]\n"
-        "    adds r0, #1\n"
-        "    strb r0, [r1, #1]\n"
-        ".L080C230E:\n"
-        "    ldrb r0, [r1, #1]\n"
-        "    cmp r0, #0x3b\n"
-        "    bls .L080C231C\n"
-        "    strb r2, [r1, #1]\n"
-        "    ldrb r0, [r1]\n"
-        "    adds r0, #1\n"
-        "    strb r0, [r1]\n"
-        ".L080C231C:\n"
-        "    ldr r0, [r1]\n"
-        "    cmp r0, #0\n"
-        "    bne .L080C232E\n"
-        "    movs r0, #0x3b\n"
-        "    strb r0, [r1, #3]\n"
-        "    strb r0, [r1, #2]\n"
-        "    strb r0, [r1, #1]\n"
-        "    movs r0, #0xff\n"
-        "    strb r0, [r1]\n"
-        ".L080C232E:\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C2334: .4byte 0x030051A4 @ IWRAM+0x51A4\n"
-    );
-}
-#endif
 
 // PlayTime_Get @ 0x080C2338
 union PlayTime *PlayTime_Get(void)

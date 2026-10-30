@@ -119,15 +119,13 @@ void sub_080CD0E4(u16 id)
 // Status_DrawEquipName @ 0x080CD100
 /* Draws the name of equipment id: always 8 glyphs, 12 pixels apart (empty name: 8 glyphs
    0x3C; id 0xFF: the "none" string). */
-#ifdef NONMATCHING
 void Status_DrawEquipName(u16 id, u16 x, u16 y, u16 tint)
 {
-    s32 i;
     u32 cx = x;
 
     if (id == 0xFF)
     {
-        Text_DrawStringTinted(gUnknown_084F02CA, gUnk_0200F874, cx, y, 2, 12);
+        Text_DrawStringTinted(gUnknown_084F02CA, gUnk_0200F874, (u16)cx, y, 2, 12);
     }
     else
     {
@@ -135,15 +133,18 @@ void Status_DrawEquipName(u16 id, u16 x, u16 y, u16 tint)
 
         if (*name == 0)
         {
-            for (i = 7; i >= 0; i--)
+            s32 i;
+            for (i = 0; i < 8; i++)
             {
                 Font_DrawGlyphTinted(0x3C, gUnk_0200F874, cx, y, 2);
+                name++;
                 cx += 12;
             }
         }
         else
         {
-            for (i = 7; i >= 0; i--)
+            s32 i;
+            for (i = 0; i < 8; i++)
             {
                 Font_DrawGlyphTinted(*name, gUnk_0200F874, cx, y, (u8)tint);
                 cx += 12;
@@ -152,252 +153,54 @@ void Status_DrawEquipName(u16 id, u16 x, u16 y, u16 tint)
         }
     }
 }
-#else
-NAKED
-void Status_DrawEquipName(u16 id, u16 x, u16 y, u16 tint)
-{
-    asm_unified(
-        ".L080CD100:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, r8\n"
-        "    push {r7}\n"
-        "    sub sp, #8\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsls r2, r2, #0x10\n"
-        "    lsrs r7, r2, #0x10\n"
-        "    lsls r3, r3, #0x10\n"
-        "    lsrs r6, r3, #0x10\n"
-        "    lsrs r4, r1, #0x10\n"
-        "    cmp r0, #0xff\n"
-        "    bne .L080CD13C\n"
-        "    ldr r0, .L080CD134\n"
-        "    ldr r1, .L080CD138\n"
-        "    adds r2, r4, #0\n"
-        "    movs r3, #2\n"
-        "    str r3, [sp]\n"
-        "    movs r3, #0xc\n"
-        "    str r3, [sp, #4]\n"
-        "    adds r3, r7, #0\n"
-        "    bl Text_DrawStringTinted\n"
-        "    b .L080CD190\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080CD134: .4byte gUnknown_084F02CA\n"
-        ".L080CD138: .4byte 0x0200F874 @ EWRAM+0xF874\n"
-        ".L080CD13C:\n"
-        "    bl Equipment_GetRecord36_MidRange\n"
-        "    adds r5, r0, #0\n"
-        "    adds r5, #0x14\n"
-        "    ldrh r0, [r0, #0x14]\n"
-        "    cmp r0, #0\n"
-        "    bne .L080CD16C\n"
-        "    movs r5, #7\n"
-        ".L080CD14C:\n"
-        "    lsls r2, r4, #0x10\n"
-        "    lsrs r2, r2, #0x10\n"
-        "    movs r0, #2\n"
-        "    str r0, [sp]\n"
-        "    movs r0, #0x3c\n"
-        "    ldr r1, .L080CD168\n"
-        "    adds r3, r7, #0\n"
-        "    bl Font_DrawGlyphTinted\n"
-        "    adds r4, #0xc\n"
-        "    subs r5, #1\n"
-        "    cmp r5, #0\n"
-        "    bge .L080CD14C\n"
-        "    b .L080CD190\n"
-        ".L080CD168: .4byte 0x0200F874 @ EWRAM+0xF874\n"
-        ".L080CD16C:\n"
-        "    lsls r6, r6, #0x18\n"
-        "    mov r8, r6\n"
-        "    movs r6, #7\n"
-        ".L080CD172:\n"
-        "    ldrh r0, [r5]\n"
-        "    lsls r2, r4, #0x10\n"
-        "    lsrs r2, r2, #0x10\n"
-        "    mov r3, r8\n"
-        "    lsrs r1, r3, #0x18\n"
-        "    str r1, [sp]\n"
-        "    ldr r1, .L080CD19C\n"
-        "    adds r3, r7, #0\n"
-        "    bl Font_DrawGlyphTinted\n"
-        "    adds r4, #0xc\n"
-        "    adds r5, #2\n"
-        "    subs r6, #1\n"
-        "    cmp r6, #0\n"
-        "    bge .L080CD172\n"
-        ".L080CD190:\n"
-        "    add sp, #8\n"
-        "    pop {r3}\n"
-        "    mov r8, r3\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L080CD19C: .4byte 0x0200F874 @ EWRAM+0xF874\n"
-    );
-}
-#endif
 
 // Status_DrawActionName @ 0x080CD1A0
 /* Draws the name of item/action id (8 glyphs). */
-#ifdef NONMATCHING
 void Status_DrawActionName(u16 id, u16 x, u16 y, u16 tint)
 {
-    u16 *name = (u16 *)(Action_GetRecord(id) + 0xC);
-    s32 i;
     u32 cx = x;
+    u16 *name = (u16 *)(Action_GetRecord(id) + 0xC);
 
     if (*name != 0)
     {
-        for (i = 7; i >= 0; i--)
+        s32 i;
+        for (i = 0; i < 8; i++)
         {
             Font_DrawGlyphTinted(*name, gUnk_0200F874, cx, y, (u8)tint);
-            x += 12;
+            cx += 12;
             name++;
         }
     }
 }
-#else
-NAKED
-void Status_DrawActionName(u16 id, u16 x, u16 y, u16 tint)
-{
-    asm_unified(
-        ".L080CD1A0:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, r8\n"
-        "    push {r7}\n"
-        "    sub sp, #4\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsls r2, r2, #0x10\n"
-        "    lsrs r2, r2, #0x10\n"
-        "    mov r8, r2\n"
-        "    lsls r3, r3, #0x10\n"
-        "    lsrs r6, r3, #0x10\n"
-        "    lsrs r5, r1, #0x10\n"
-        "    bl Action_GetRecord\n"
-        "    adds r4, r0, #0\n"
-        "    adds r4, #0xc\n"
-        "    ldrh r0, [r0, #0xc]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080CD1E8\n"
-        "    lsls r7, r6, #0x18\n"
-        "    movs r6, #7\n"
-        ".L080CD1CC:\n"
-        "    ldrh r0, [r4]\n"
-        "    lsls r2, r5, #0x10\n"
-        "    lsrs r2, r2, #0x10\n"
-        "    lsrs r1, r7, #0x18\n"
-        "    str r1, [sp]\n"
-        "    ldr r1, .L080CD1F4\n"
-        "    mov r3, r8\n"
-        "    bl Font_DrawGlyphTinted\n"
-        "    adds r5, #0xc\n"
-        "    adds r4, #2\n"
-        "    subs r6, #1\n"
-        "    cmp r6, #0\n"
-        "    bge .L080CD1CC\n"
-        ".L080CD1E8:\n"
-        "    add sp, #4\n"
-        "    pop {r3}\n"
-        "    mov r8, r3\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L080CD1F4: .4byte 0x0200F874 @ EWRAM+0xF874\n"
-    );
-}
-#endif
 
 // Status_DrawSkillName @ 0x080CD1F8
 /* Draws the name of skill id (8 glyphs; empty: 8 glyphs 0x3C). */
-#ifdef NONMATCHING
 void Status_DrawSkillName(u16 id, u16 x, u16 y)
 {
-    u16 *name = (u16 *)(sub_080BF5C0(id) + 6);
-    s32 i;
     u32 cx = x;
+    u16 *name = (u16 *)(sub_080BF5C0(id) + 6);
 
     if (*name == 0)
     {
-        for (i = 7; i >= 0; i--)
+        s32 i;
+        for (i = 0; i < 8; i++)
         {
             Font_DrawGlyphTinted(0x3C, gUnk_0200F874, cx, y, 2);
-            x += 12;
+            cx += 12;
+            name++;
         }
     }
     else
     {
-        for (i = 7; i >= 0; i--)
+        s32 i;
+        for (i = 0; i < 8; i++)
         {
             Font_DrawGlyph(*name, gUnk_0200F874, cx, y);
-            x += 12;
+            cx += 12;
             name++;
         }
     }
 }
-#else
-NAKED
-void Status_DrawSkillName(u16 id, u16 x, u16 y)
-{
-    asm_unified(
-        ".L080CD1F8:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    sub sp, #4\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsls r2, r2, #0x10\n"
-        "    lsrs r7, r2, #0x10\n"
-        "    lsrs r4, r1, #0x10\n"
-        "    bl sub_080BF5C0\n"
-        "    adds r5, r0, #6\n"
-        "    ldrh r0, [r0, #6]\n"
-        "    cmp r0, #0\n"
-        "    bne .L080CD238\n"
-        "    movs r5, #7\n"
-        ".L080CD216:\n"
-        "    lsls r2, r4, #0x10\n"
-        "    lsrs r2, r2, #0x10\n"
-        "    movs r0, #2\n"
-        "    str r0, [sp]\n"
-        "    movs r0, #0x3c\n"
-        "    ldr r1, .L080CD234\n"
-        "    adds r3, r7, #0\n"
-        "    bl Font_DrawGlyphTinted\n"
-        "    adds r4, #0xc\n"
-        "    subs r5, #1\n"
-        "    cmp r5, #0\n"
-        "    bge .L080CD216\n"
-        "    b .L080CD252\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080CD234: .4byte 0x0200F874 @ EWRAM+0xF874\n"
-        ".L080CD238:\n"
-        "    movs r6, #7\n"
-        ".L080CD23A:\n"
-        "    ldrh r0, [r5]\n"
-        "    lsls r2, r4, #0x10\n"
-        "    lsrs r2, r2, #0x10\n"
-        "    ldr r1, .L080CD25C\n"
-        "    adds r3, r7, #0\n"
-        "    bl Font_DrawGlyph\n"
-        "    adds r4, #0xc\n"
-        "    adds r5, #2\n"
-        "    subs r6, #1\n"
-        "    cmp r6, #0\n"
-        "    bge .L080CD23A\n"
-        ".L080CD252:\n"
-        "    add sp, #4\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080CD25C: .4byte 0x0200F874 @ EWRAM+0xF874\n"
-    );
-}
-#endif
 
 // sub_080CD260 @ 0x080CD260
 /* Draws the cost of skill id (record +3) after a label, if any. */

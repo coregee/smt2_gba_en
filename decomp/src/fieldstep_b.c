@@ -1,6 +1,9 @@
 #include "global.h"
 #include "inventory.h"
 
+/* gMiniViewCells as a symbol: the cast-address macro allocates the row/column pieces differently. */
+extern struct C0c2ViewCell gUnk_0200AF08[][3];
+
 // Encounter_IsAllowed @ 0x080C5320
 /* Whether random encounters may happen here. */
 u32 Encounter_IsAllowed(void)
@@ -30,11 +33,10 @@ void sub_080C53F0(void)
 // MiniView_SampleSquare @ 0x080C53F4
 /* Fills view cell (col, row) from map square (x, y): valid, and its four walls relative to
    the facing. */
-#ifdef NONMATCHING
 void MiniView_SampleSquare(u16 x, u16 y, u16 col, u16 row)
 {
     struct MapHeader *floor = DungeonMap_GetFloor(*(u16 *)&gUnk_03004614, gUnk_03004514);
-    struct C0c2ViewCell *cell = &gMiniViewCells[row][col];
+    struct C0c2ViewCell *cell = &gUnk_0200AF08[row][col];
     u16 ax = x + floor->originX;
     u16 ay = y + floor->originY;
     u32 v;
@@ -62,124 +64,6 @@ void MiniView_SampleSquare(u16 x, u16 y, u16 col, u16 row)
     }
     cell->valid = v;
 }
-#else
-NAKED
-void MiniView_SampleSquare(u16 x, u16 y, u16 col, u16 row)
-{
-    asm_unified(
-        ".L080C53F4:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sl\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6, r7}\n"
-        "    adds r5, r2, #0\n"
-        "    adds r4, r3, #0\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r6, r0, #0x10\n"
-        "    mov sl, r6\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r7, r1, #0x10\n"
-        "    mov sb, r7\n"
-        "    lsls r5, r5, #0x10\n"
-        "    lsrs r5, r5, #0x10\n"
-        "    lsls r4, r4, #0x10\n"
-        "    lsrs r4, r4, #0x10\n"
-        "    ldr r0, .L080C5468\n"
-        "    ldrh r0, [r0]\n"
-        "    ldr r1, .L080C546C\n"
-        "    ldrh r1, [r1]\n"
-        "    bl DungeonMap_GetFloor\n"
-        "    adds r3, r0, #0\n"
-        "    lsls r2, r4, #3\n"
-        "    adds r2, r2, r4\n"
-        "    lsls r2, r2, #2\n"
-        "    lsls r0, r5, #1\n"
-        "    adds r0, r0, r5\n"
-        "    lsls r0, r0, #2\n"
-        "    ldr r1, .L080C5470\n"
-        "    adds r0, r0, r1\n"
-        "    adds r2, r2, r0\n"
-        "    mov r8, r2\n"
-        "    ldrh r0, [r3, #8]\n"
-        "    adds r0, r6, r0\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r1, r0, #0x10\n"
-        "    ldrh r0, [r3, #0xa]\n"
-        "    adds r0, r7, r0\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r2, r0, #0x10\n"
-        "    lsls r0, r6, #0x10\n"
-        "    cmp r0, #0\n"
-        "    blt .L080C5462\n"
-        "    ldr r4, .L080C5474\n"
-        "    ldrh r0, [r4, #0x1a]\n"
-        "    cmp r6, r0\n"
-        "    bhs .L080C5462\n"
-        "    lsls r0, r7, #0x10\n"
-        "    cmp r0, #0\n"
-        "    blt .L080C5462\n"
-        "    ldrh r0, [r4, #0x1c]\n"
-        "    cmp r7, r0\n"
-        "    blo .L080C5478\n"
-        ".L080C5462:\n"
-        "    movs r0, #0\n"
-        "    b .L080C54BC\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C5468: .4byte 0x03004614 @ IWRAM+0x4614\n"
-        ".L080C546C: .4byte 0x03004514 @ IWRAM+0x4514\n"
-        ".L080C5470: .4byte 0x0200AF08 @ EWRAM+0xAF08\n"
-        ".L080C5474: .4byte 0x03004550 @ IWRAM+0x4550\n"
-        ".L080C5478:\n"
-        "    adds r0, r3, #0\n"
-        "    bl SubMap_IsOutsideExclusions\n"
-        "    cmp r0, #0\n"
-        "    beq .L080C54BC\n"
-        "    ldrh r2, [r4, #2]\n"
-        "    ldrh r0, [r4, #0x1a]\n"
-        "    mov r1, sb\n"
-        "    muls r1, r0, r1\n"
-        "    adds r0, r1, #0\n"
-        "    add r0, sl\n"
-        "    ldr r1, [r4, #0x20]\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r0, r0, r1\n"
-        "    ldrh r6, [r0]\n"
-        "    movs r4, #0\n"
-        "    ldr r7, .L080C54D0\n"
-        "    movs r5, #3\n"
-        "    mov r3, r8\n"
-        "    adds r3, #4\n"
-        ".L080C54A0:\n"
-        "    lsls r1, r2, #1\n"
-        "    adds r1, r1, r7\n"
-        "    adds r0, r6, #0\n"
-        "    ldrh r1, [r1]\n"
-        "    asrs r0, r1\n"
-        "    ands r0, r5\n"
-        "    strh r0, [r3]\n"
-        "    adds r2, #1\n"
-        "    ands r2, r5\n"
-        "    adds r3, #2\n"
-        "    adds r4, #1\n"
-        "    cmp r4, #3\n"
-        "    bls .L080C54A0\n"
-        "    movs r0, #1\n"
-        ".L080C54BC:\n"
-        "    mov r1, r8\n"
-        "    strh r0, [r1]\n"
-        "    pop {r3, r4, r5}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    mov sl, r5\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C54D0: .4byte gUnknown_0815F2E6\n"
-    );
-}
-#endif
 
 // MiniView_SampleAhead @ 0x080C54D4
 /* Samples the 3x5 squares ahead of the player into gMiniViewCells. */

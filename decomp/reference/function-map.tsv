@@ -143,8 +143,8 @@ address	mode	size	name	confidence	state	file
 080ACA40	thumb	52	SmallFont_DrawGlyph	probable	c	src/text_font.c
 080ACA74	thumb	60	SmallFont_DrawGlyphTinted	probable	c	src/text_font.c
 080ACAB0	thumb	126	SmallFont_DrawAsciiTinted	probable	c	src/text_font.c
-080ACB30	thumb	72	DigitFont_DrawGlyph	probable	nonmatching	src/text_font.c
-080ACB78	thumb	80	DigitFont_DrawGlyphTinted	probable	nonmatching	src/text_font.c
+080ACB30	thumb	72	DigitFont_DrawGlyph	probable	c	src/text_font.c
+080ACB78	thumb	80	DigitFont_DrawGlyphTinted	probable	c	src/text_font.c
 080ACBC8	thumb	104	DigitFont_DrawStringTinted	probable	c	src/text_font.c
 080ACC30	thumb	36	System_CheckSoftReset	probable	c	src/text_font.c
 080ACC54	thumb	848	Color_ApplyEffect	probable	nonmatching	src/text_font.c
@@ -268,13 +268,13 @@ address	mode	size	name	confidence	state	file
 080AF2E8	thumb	24			c	src/field_b.c
 080AF300	thumb	252			nonmatching	src/field_b.c
 080AF3FC	thumb	186			c	src/field_b.c
-080AF4B8	thumb	52	Automap_SetVisitedRaw	probable	nonmatching	src/field_b.c
+080AF4B8	thumb	52	Automap_SetVisitedRaw	probable	c	src/field_b.c
 080AF4EC	thumb	76	Automap_SetVisited	probable	c	src/field_b.c
-080AF538	thumb	52	Automap_ClearVisitedRaw	probable	nonmatching	src/field_b.c
+080AF538	thumb	52	Automap_ClearVisitedRaw	probable	c	src/field_b.c
 080AF56C	thumb	76	Automap_ClearVisited	probable	c	src/field_b.c
 080AF5B8	thumb	104	Automap_SetVisitedAhead	probable	c	src/field_b.c
 080AF620	thumb	108	Automap_IsVisited	probable	nonmatching	src/field_b.c
-080AF68C	thumb	88	Automap_IsVisitedUnchecked	probable	nonmatching	src/field_b.c
+080AF68C	thumb	88	Automap_IsVisitedUnchecked	probable	c	src/field_b.c
 080AF6E4	thumb	20			c	src/field_b.c
 080AF6F8	thumb	50			c	src/field_b.c
 080AF72C	thumb	188			nonmatching	src/field_b.c
@@ -362,7 +362,7 @@ address	mode	size	name	confidence	state	file
 080B3814	thumb	82			c	src/game_g.c
 080B3868	thumb	16			c	src/game_g.c
 080B3878	thumb	48			c	src/game_g.c
-080B38A8	thumb	564			nonmatching	src/game_h.c
+080B38A8	thumb	564			c	src/game_h.c
 080B3ADC	thumb	36			c	src/game_h.c
 080B3B00	thumb	60			c	src/game_h.c
 080B3B3C	thumb	36			c	src/game_h.c
@@ -494,7 +494,7 @@ address	mode	size	name	confidence	state	file
 080B6D9C	thumb	22			c	src/fieldevent_c.c
 080B6DB4	thumb	372	BgPicture_StartTask	probable	c	src/fieldevent_c.c
 080B6F28	thumb	24			c	src/fieldevent_c.c
-080B6F40	thumb	380	Picture_ScaleStep	probable	nonmatching	src/fieldevent_c.c
+080B6F40	thumb	380	Picture_ScaleStep	probable	c	src/fieldevent_c.c
 080B70BC	thumb	80			c	src/fieldevent_c.c
 080B710C	thumb	80			c	src/fieldevent_c.c
 080B715C	thumb	4			c	src/fieldevent_c.c
@@ -567,9 +567,9 @@ address	mode	size	name	confidence	state	file
 080B85C8	thumb	46			c	src/fieldevent_f.c
 080B85F8	thumb	104			nonmatching	src/fieldevent_f.c
 080B8660	thumb	78	Spring_GetKindAt	probable	c	src/fieldevent_f.c
-080B86B0	thumb	314	Spring_HealMember	probable	nonmatching	src/fieldevent_f.c
+080B86B0	thumb	314	Spring_HealMember	probable	c	src/fieldevent_f.c
 080B87EC	thumb	136			c	src/fieldevent_f.c
-080B8874	thumb	48			nonmatching	src/fieldevent_f.c
+080B8874	thumb	48			c	src/fieldevent_f.c
 080B88A4	thumb	40			c	src/fieldevent_f.c
 080B88CC	thumb	24			c	src/fieldevent_f.c
 080B88E4	thumb	28			c	src/fieldevent_f.c
@@ -917,7 +917,7 @@ address	mode	size	name	confidence	state	file
 080BE530	thumb	76			c	src/fieldfx_b.c
 080BE57C	thumb	356			c	src/fieldfx_b.c
 080BE6E0	thumb	44			c	src/door_a.c
-080BE70C	thumb	94	Door_FindAtPlayer	probable	nonmatching	src/door_a.c
+080BE70C	thumb	94	Door_FindAtPlayer	probable	c	src/door_a.c
 080BE76C	thumb	98	Door_TryOpen	probable	c	src/door_a.c
 080BE7D0	thumb	16			c	src/door_a.c
 080BE7E0	thumb	8			c	src/door_a.c
@@ -926,7 +926,7 @@ address	mode	size	name	confidence	state	file
 080BE874	thumb	12			c	src/door_a.c
 080BE880	thumb	52			c	src/door_a.c
 080BE8B4	thumb	180	Door_CheckStat	probable	c	src/door_a.c
-080BE968	thumb	124	Door_CheckAlignment	probable	nonmatching	src/door_a.c
+080BE968	thumb	124	Door_CheckAlignment	probable	c	src/door_a.c
 080BE9E4	thumb	34			c	src/door_a.c
 080BEA08	thumb	42			c	src/door_a.c
 080BEA34	thumb	44			c	src/door_a.c
@@ -960,7 +960,7 @@ address	mode	size	name	confidence	state	file
 080BF5D8	thumb	112			c	src/records_a.c
 080BF648	thumb	140	Demon_GetRecord	probable	c	src/records_a.c
 080BF6D4	thumb	114	Demon_DrawName	probable	c	src/records_a.c
-080BF748	thumb	400	Party_InitMember	probable	nonmatching	src/records_a.c
+080BF748	thumb	400	Party_InitMember	probable	c	src/records_a.c
 080BF8D8	thumb	48			c	src/records_a.c
 080BF908	thumb	48			c	src/combatant_a.c
 080BF938	thumb	996	Combatant_RecalcStats	probable	nonmatching	src/combatant_a.c
@@ -1085,18 +1085,18 @@ address	mode	size	name	confidence	state	file
 080C1F50	thumb	68			c	src/moon_a.c
 080C1F94	thumb	50	Math_DivRound	probable	c	src/moon_a.c
 080C1FC8	thumb	56			c	src/moon_a.c
-080C2000	thumb	142			nonmatching	src/moon_a.c
+080C2000	thumb	142			c	src/moon_a.c
 080C2090	thumb	56			c	src/moon_a.c
 080C20C8	thumb	36			c	src/moon_a.c
-080C20EC	thumb	122			nonmatching	src/moon_a.c
-080C2168	thumb	102			nonmatching	src/moon_a.c
+080C20EC	thumb	122			c	src/moon_a.c
+080C2168	thumb	102			c	src/moon_a.c
 080C21D0	thumb	76	Encounter_GetDangerLevel	probable	c	src/moon_a.c
 080C221C	thumb	20	Encounter_GetCounter	probable	c	src/moon_a.c
 080C2230	thumb	20	Encounter_SetCounter	probable	c	src/moon_a.c
 080C2244	thumb	16	Random_Byte	probable	c	src/moon_a.c
 080C2254	thumb	44			c	src/moon_a.c
 080C2280	thumb	98	Encounter_Check	probable	c	src/moon_a.c
-080C22E4	thumb	84	PlayTime_Tick	probable	nonmatching	src/moon_a.c
+080C22E4	thumb	84	PlayTime_Tick	probable	c	src/moon_a.c
 080C2338	thumb	8	PlayTime_Get	probable	c	src/moon_a.c
 080C2340	thumb	36	Flag_Test	probable	c	src/flags_a.c
 080C2364	thumb	88	Flag_Set	probable	c	src/flags_a.c
@@ -1276,7 +1276,7 @@ address	mode	size	name	confidence	state	file
 080C5304	thumb	28			c	src/fieldstep_a.c
 080C5320	thumb	208	Encounter_IsAllowed	probable	c	src/fieldstep_b.c
 080C53F0	thumb	2			c	src/fieldstep_b.c
-080C53F4	thumb	224	MiniView_SampleSquare	probable	nonmatching	src/fieldstep_b.c
+080C53F4	thumb	224	MiniView_SampleSquare	probable	c	src/fieldstep_b.c
 080C54D4	thumb	268	MiniView_SampleAhead	probable	nonmatching	src/fieldstep_b.c
 080C55E0	thumb	36			c	src/fieldstep_b.c
 080C5604	thumb	260	MiniView_Draw	probable	nonmatching	src/fieldstep_b.c
@@ -1298,7 +1298,7 @@ address	mode	size	name	confidence	state	file
 080C5DB0	thumb	48	Party_SnapshotHumans	probable	c	src/fieldmisc_c.c
 080C5DE0	thumb	100	Party_RestoreHumans	probable	nonmatching	src/fieldmisc_c.c
 080C5E44	thumb	20			c	src/fieldmisc_c.c
-080C5E58	thumb	152			nonmatching	src/fieldmisc_c.c
+080C5E58	thumb	152			c	src/fieldmisc_c.c
 080C5EF0	thumb	20			c	src/fieldmisc_c.c
 080C5F04	thumb	60			c	src/fieldmisc_c.c
 080C5F40	thumb	32			c	src/fieldmisc_c.c
@@ -1338,13 +1338,13 @@ address	mode	size	name	confidence	state	file
 080C6804	thumb	724	Hud_Update	probable	c	src/hud_a.c
 080C6AD8	thumb	104			c	src/hud_b.c
 080C6B40	thumb	104			nonmatching	src/hud_b.c
-080C6BA8	thumb	56			nonmatching	src/hud_b.c
+080C6BA8	thumb	56			c	src/hud_b.c
 080C6BE0	thumb	592	Hud_DrawMemberPanel	probable	nonmatching	src/hud_b.c
 080C6E30	thumb	36			c	src/hud_b.c
 080C6E54	thumb	36			c	src/hud_b.c
-080C6E78	thumb	136	Party_BuildMemberNameTiles	tentative	nonmatching	src/hud_b.c
+080C6E78	thumb	136	Party_BuildMemberNameTiles	tentative	c	src/hud_b.c
 080C6F00	thumb	48			c	src/hud_b.c
-080C6F30	thumb	136	Hud_LoadMemberFace	probable	nonmatching	src/hud_b.c
+080C6F30	thumb	136	Hud_LoadMemberFace	probable	c	src/hud_b.c
 080C6FB8	thumb	32			c	src/hud_b.c
 080C6FD8	thumb	24	Hud_LoadAllMemberFaces	probable	c	src/hudslide_a.c
 080C6FF0	thumb	28			c	src/hudslide_a.c
@@ -1400,7 +1400,7 @@ address	mode	size	name	confidence	state	file
 080C8624	thumb	142	Hud_GetAltFace	probable	c	src/dungeonmap_a.c
 080C86B4	thumb	64	Hud_GetMemberFace	probable	c	src/dungeonmap_a.c
 080C86F4	thumb	36			c	src/dungeonmap_a.c
-080C8718	thumb	84			nonmatching	src/dungeonmap_a.c
+080C8718	thumb	84			c	src/dungeonmap_a.c
 080C876C	thumb	36			c	src/dungeonmap_a.c
 080C8790	thumb	28			c	src/dungeonmap_a.c
 080C87AC	thumb	128			nonmatching	src/dungeonmap_a.c
@@ -1411,7 +1411,7 @@ address	mode	size	name	confidence	state	file
 080C88C0	thumb	22			c	src/dungeonmap_a.c
 080C88D8	thumb	22			c	src/dungeonmap_a.c
 080C88F0	thumb	18			c	src/dungeonmap_a.c
-080C8904	thumb	156			nonmatching	src/dungeonmap_a.c
+080C8904	thumb	156			c	src/dungeonmap_a.c
 080C89A0	thumb	214			c	src/dungeonmap_a.c
 080C8A78	thumb	52			c	src/dungeonmap_a.c
 080C8AAC	thumb	22			c	src/dungeonmap_a.c
@@ -1531,9 +1531,9 @@ address	mode	size	name	confidence	state	file
 080CCFC4	thumb	128	DigitFont_DrawNumber	probable	c	src/statusfont_a.c
 080CD044	thumb	160			c	src/statusfont_a.c
 080CD0E4	thumb	26			c	src/statusfont_a.c
-080CD100	thumb	160	Status_DrawEquipName	probable	nonmatching	src/statusfont_a.c
-080CD1A0	thumb	88	Status_DrawActionName	probable	nonmatching	src/statusfont_a.c
-080CD1F8	thumb	104	Status_DrawSkillName	probable	nonmatching	src/statusfont_a.c
+080CD100	thumb	160	Status_DrawEquipName	probable	c	src/statusfont_a.c
+080CD1A0	thumb	88	Status_DrawActionName	probable	c	src/statusfont_a.c
+080CD1F8	thumb	104	Status_DrawSkillName	probable	c	src/statusfont_a.c
 080CD260	thumb	64			nonmatching	src/statusfont_a.c
 080CD2A0	thumb	144	Status_DrawDemonDescription	probable	c	src/statusfont_a.c
 080CD330	thumb	92			c	src/statusfont_a.c
@@ -1729,7 +1729,7 @@ address	mode	size	name	confidence	state	file
 080D3740	thumb	24			c	src/menu2_a.c
 080D3758	thumb	24			c	src/menu2_a.c
 080D3770	thumb	76			c	src/menu2_a.c
-080D37BC	thumb	276	CasinoPrize_DrawRows	probable	nonmatching	src/menu2_a.c
+080D37BC	thumb	276	CasinoPrize_DrawRows	probable	c	src/menu2_a.c
 080D38D0	thumb	376	CasinoPrize_HandleInput	probable	nonmatching	src/menu2_b.c
 080D3A48	thumb	48			c	src/menu2_b.c
 080D3A78	thumb	6			c	src/menu2_b.c
@@ -1770,7 +1770,7 @@ address	mode	size	name	confidence	state	file
 080D4744	thumb	28			c	src/menu2_d.c
 080D4760	thumb	18			c	src/menu2_d.c
 080D4774	thumb	22			c	src/menu2_d.c
-080D478C	thumb	76			nonmatching	src/menu2_d.c
+080D478C	thumb	76			c	src/menu2_d.c
 080D47D8	thumb	18			c	src/menu2_d.c
 080D47EC	thumb	56			c	src/menu2_d.c
 080D4824	thumb	14			c	src/menu2_d.c
