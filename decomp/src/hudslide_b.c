@@ -259,11 +259,11 @@ u32 *sub_080C8148(u32 off, u32 *dst)
 
 // Hud_DrawGaugeValue @ 0x080C8174
 /* Prints cur (or alt when cur > 999) as three 4-pixel digits into the 8x8-tile canvas. */
-#ifdef NONMATCHING
 void Hud_DrawGaugeValue(u32 cur, u32 alt, u8 *canvas)
 {
     u8 *digits;
     u32 shown = 0;
+    const u8 *glyph;
 
     if (cur <= 999)
         digits = NumberToDigits(cur);
@@ -271,101 +271,18 @@ void Hud_DrawGaugeValue(u32 cur, u32 alt, u8 *canvas)
         digits = NumberToDigits(alt);
     if (digits[2] != 0)
     {
-        Canvas_BlitOr(&gUnknown_081B17B8[digits[2] * 32], canvas, 0, 0, 0, 0, 8, 8);
+        glyph = &gUnknown_081B17B8[digits[2] * 32];
+        Canvas_BlitOr(glyph, canvas, 0, 0, 0, 0, 8, 8);
         shown = 1;
     }
     if (shown == 1 || digits[1] != 0)
-        Canvas_BlitOr(&gUnknown_081B17B8[digits[1] * 32], canvas, 0, 0, 4, 0, 8, 8);
-    Canvas_BlitOr(&gUnknown_081B17B8[digits[0] * 32], canvas, 0, 0, 8, 0, 8, 8);
+    {
+        glyph = &gUnknown_081B17B8[digits[1] * 32];
+        Canvas_BlitOr(glyph, canvas, 0, 0, 4, 0, 8, 8);
+    }
+    glyph = &gUnknown_081B17B8[digits[0] * 32];
+    Canvas_BlitOr(glyph, canvas, 0, 0, 8, 0, 8, 8);
 }
-#else
-NAKED
-void Hud_DrawGaugeValue(u32 cur, u32 alt, u8 *canvas)
-{
-    asm_unified(
-        ".L080C8174:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    sub sp, #0x10\n"
-        "    adds r3, r0, #0\n"
-        "    adds r5, r2, #0\n"
-        "    movs r6, #0\n"
-        "    ldr r0, .L080C8188\n"
-        "    cmp r3, r0\n"
-        "    bhi .L080C818C\n"
-        "    adds r0, r3, #0\n"
-        "    b .L080C818E\n"
-        ".L080C8188: .4byte 0x000003E7\n"
-        ".L080C818C:\n"
-        "    adds r0, r1, #0\n"
-        ".L080C818E:\n"
-        "    bl NumberToDigits\n"
-        "    adds r4, r0, #0\n"
-        "    ldrb r0, [r4, #2]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080C81BA\n"
-        "    lsls r0, r0, #5\n"
-        "    ldr r1, .L080C8210\n"
-        "    adds r2, r0, r1\n"
-        "    movs r0, #0\n"
-        "    str r0, [sp]\n"
-        "    str r0, [sp, #4]\n"
-        "    movs r0, #8\n"
-        "    str r0, [sp, #8]\n"
-        "    str r0, [sp, #0xc]\n"
-        "    adds r0, r2, #0\n"
-        "    adds r1, r5, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0\n"
-        "    bl Canvas_BlitOr\n"
-        "    movs r6, #1\n"
-        ".L080C81BA:\n"
-        "    cmp r6, #1\n"
-        "    beq .L080C81C4\n"
-        "    ldrb r0, [r4, #1]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080C81E6\n"
-        ".L080C81C4:\n"
-        "    ldrb r0, [r4, #1]\n"
-        "    lsls r0, r0, #5\n"
-        "    ldr r1, .L080C8210\n"
-        "    adds r2, r0, r1\n"
-        "    movs r0, #4\n"
-        "    str r0, [sp]\n"
-        "    movs r0, #0\n"
-        "    str r0, [sp, #4]\n"
-        "    movs r0, #8\n"
-        "    str r0, [sp, #8]\n"
-        "    str r0, [sp, #0xc]\n"
-        "    adds r0, r2, #0\n"
-        "    adds r1, r5, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0\n"
-        "    bl Canvas_BlitOr\n"
-        ".L080C81E6:\n"
-        "    ldrb r0, [r4]\n"
-        "    lsls r0, r0, #5\n"
-        "    ldr r1, .L080C8210\n"
-        "    adds r2, r0, r1\n"
-        "    movs r1, #8\n"
-        "    str r1, [sp]\n"
-        "    movs r0, #0\n"
-        "    str r0, [sp, #4]\n"
-        "    str r1, [sp, #8]\n"
-        "    str r1, [sp, #0xc]\n"
-        "    adds r0, r2, #0\n"
-        "    adds r1, r5, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0\n"
-        "    bl Canvas_BlitOr\n"
-        "    add sp, #0x10\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C8210: .4byte gUnknown_081B17B8\n"
-    );
-}
-#endif
 
 // Hud_DrawGauge @ 0x080C8214
 /* Draws the HP (kind 0) or MP gauge of party slot 'slot' at (x, y): a 46-pixel bar built from

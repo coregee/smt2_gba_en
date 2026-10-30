@@ -101,7 +101,7 @@ void Shop_UpdateQuantityArrows(void)
         else
         {
             gUnk_03006848 = ROW * 2 + 2;
-            gUnk_03006680 = ROW * 2 + 2;
+            gUnk_03006680 = gUnk_03006848;
         }
         if (gUnk_030065FC <= 1)
             gUnk_03006680 = 0;
@@ -126,7 +126,7 @@ void Shop_UpdateQuantityArrows(void)
         else
         {
             gUnk_03006848 = ROW * 2 + 3;
-            gUnk_03006680 = ROW * 2 + 3;
+            gUnk_03006680 = gUnk_03006848;
         }
         if (gUnk_030065FC == 1)
             gUnk_03006680 = 0;

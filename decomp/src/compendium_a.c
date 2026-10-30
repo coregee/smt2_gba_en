@@ -1792,7 +1792,6 @@ void sub_081574D0(void)
 }
 
 // sub_08157534 @ 0x08157534
-#ifdef NONMATCHING
 void sub_08157534(void)
 {
     DmaSet3(gUnk_02001000, 0x06004000, 0x84001B00);
@@ -1802,79 +1801,10 @@ void sub_08157534(void)
     REG_BG1CNT = 0x8205;
     REG_BG2CNT = 0x8406;
     REG_BG3CNT = 0x8607;
-    gUnk_03000040 = 0x3C42;
-    gUnk_03000042 = 0x808;
-    gUnk_03000044 = 0x10;
+    {
+        u16 y = 0x10;   /* blend: EVA = EVB = y / 2, EVY = y (written this way to match) */
+        gUnk_03000040 = 0x3C42;
+        gUnk_03000042 = ((y / 2) << 8) | (y / 2);
+        gUnk_03000044 = y;
+    }
 }
-#else
-NAKED
-void sub_08157534(void)
-{
-    asm_unified(
-        "    push {r4, r5, r6, lr}\n"
-        "    ldr r4, .L08157594\n"
-        "    ldr r0, .L08157598\n"
-        "    str r0, [r4]\n"
-        "    ldr r0, .L0815759C\n"
-        "    str r0, [r4, #4]\n"
-        "    ldr r0, .L081575A0\n"
-        "    str r0, [r4, #8]\n"
-        "    ldr r0, [r4, #8]\n"
-        "    ldr r6, .L081575A4\n"
-        "    str r6, [r4]\n"
-        "    ldr r0, .L081575A8\n"
-        "    str r0, [r4, #4]\n"
-        "    ldr r5, .L081575AC\n"
-        "    str r5, [r4, #8]\n"
-        "    ldr r0, [r4, #8]\n"
-        "    bl sub_081574D0\n"
-        "    str r6, [r4]\n"
-        "    ldr r0, .L081575B0\n"
-        "    str r0, [r4, #4]\n"
-        "    str r5, [r4, #8]\n"
-        "    ldr r0, [r4, #8]\n"
-        "    ldr r1, .L081575B4\n"
-        "    ldr r2, .L081575B8\n"
-        "    adds r0, r2, #0\n"
-        "    strh r0, [r1]\n"
-        "    adds r1, #2\n"
-        "    ldr r3, .L081575BC\n"
-        "    adds r0, r3, #0\n"
-        "    strh r0, [r1]\n"
-        "    adds r1, #2\n"
-        "    ldr r2, .L081575C0\n"
-        "    adds r0, r2, #0\n"
-        "    strh r0, [r1]\n"
-        "    movs r2, #0x10\n"
-        "    ldr r1, .L081575C4\n"
-        "    ldr r3, .L081575C8\n"
-        "    adds r0, r3, #0\n"
-        "    strh r0, [r1]\n"
-        "    ldr r1, .L081575CC\n"
-        "    ldr r0, .L081575D0\n"
-        "    strh r0, [r1]\n"
-        "    ldr r0, .L081575D4\n"
-        "    strh r2, [r0]\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L08157594: .4byte 0x040000D4 @ REG_DMA3SAD\n"
-        ".L08157598: .4byte 0x02001000 @ EWRAM+0x1000\n"
-        ".L0815759C: .4byte 0x06004000 @ VRAM+0x4000\n"
-        ".L081575A0: .4byte 0x84001B00\n"
-        ".L081575A4: .4byte 0x02000000 @ EWRAM\n"
-        ".L081575A8: .4byte 0x06001000 @ VRAM+0x1000\n"
-        ".L081575AC: .4byte 0x84000200\n"
-        ".L081575B0: .4byte 0x06003000 @ VRAM+0x3000\n"
-        ".L081575B4: .4byte 0x0400000A @ REG_BG1CNT\n"
-        ".L081575B8: .4byte 0x00008205\n"
-        ".L081575BC: .4byte 0x00008406\n"
-        ".L081575C0: .4byte 0x00008607\n"
-        ".L081575C4: .4byte 0x03000040 @ IWRAM+0x40\n"
-        ".L081575C8: .4byte 0x00003C42\n"
-        ".L081575CC: .4byte 0x03000042 @ IWRAM+0x42\n"
-        ".L081575D0: .4byte 0x00000808\n"
-        ".L081575D4: .4byte 0x03000044 @ IWRAM+0x44\n"
-    );
-}
-#endif

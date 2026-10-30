@@ -477,14 +477,17 @@ u8 sub_0814CD70(u8 rowA, u8 rowB)
         s->guessA[i] = s->board[rowA + i].symbol;
         s->guessB[i] = s->board[rowB + i].symbol;
     }
+    i = 0;
     usedA = 0;
     usedB = 0;
     n = 0;
-    for (i = 0; i < s->digits; i++)
+    for (; i < s->digits; i++)
     {
         for (j = 0; j < s->digits; j++)
         {
-            if (!(gUnknown_0879F05C[j] & usedA) && s->guessB[i] == s->guessA[j])
+            u8 m = gUnknown_0879F05C[j];
+            m &= usedA;
+            if (!m && s->guessB[i] == s->guessA[j])
             {
                 usedA |= gUnknown_0879F05C[j];
                 usedB |= gUnknown_0879F05C[i];

@@ -68,8 +68,15 @@ void sub_080D988C(struct Task *task, const void *map, const u8 *attr)
 
     DmaSet3(map, buf, 0x84000400);
     for (y = 0; y < 26; y++)
+    {
         for (x = 0; x < 28; x++)
-            buf[y * 32 + x + 1] += ((*attr++ & 0xF) + 8) << 12;
+        {
+            u32 v = *attr++;
+
+            v &= 0xF;
+            buf[y * 32 + x + 1] += (v + 8) << 12;
+        }
+    }
     VBlankTask_AddCounted(sub_080D9868, 1);
 }
 #else
@@ -134,16 +141,22 @@ void sub_080D98EC(struct Task *task, const void *map, const u8 *attr)
     u16 *buf = (u16 *)gUnk_02000000;
     u32 y, x;
     u16 *p, *q;
-    s32 v;
 
     DmaSet3(map, buf, 0x84000400);
     for (y = 0; y < 26; y++)
     {
-        p = buf + 1 + y * 32;
-        q = &buf[y * 32 + 28];
+        {
+            u32 k = y * 32 + 28;
+            u32 two = 2;    /* p = &buf[1 + y * 32]; q = &buf[y * 32 + 28] */
+            p = (u16 *)((y << 6) + ((u32)buf + two));
+            q = (u16 *)((k << 1) + (u32)buf);
+        }
         for (x = 0; x < 14; x++)
         {
-            v = ((*attr++ & 0xF) + 8) << 12;
+            u32 v = *attr++;
+
+            v &= 0xF;
+            v = (v + 8) << 12;
             *p += v;
             *q += v;
             q--;

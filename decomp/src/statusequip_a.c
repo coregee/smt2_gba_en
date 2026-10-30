@@ -3,7 +3,6 @@
 
 // sub_080CD3E8 @ 0x080CD3E8
 /* NONMATCHING: the last call takes y and tint from second copies (sb, r8) that no spelling tried reproduces. */
-#ifdef NONMATCHING
 void sub_080CD3E8(u16 item, u16 x, u16 y, u16 tint)
 {
     s32 x2 = x + 16;
@@ -14,73 +13,8 @@ void sub_080CD3E8(u16 item, u16 x, u16 y, u16 tint)
     else if (kind <= 1)
         DigitFont_DrawAscii(gUnknown_084F02DE + kind * 4, x2, y, tint);
     else
-        DigitFont_DrawAscii(gUnknown_084F02DE + kind * 4, x, y, tint);
+        DigitFont_DrawAscii(gUnknown_084F02DE + kind * 4, x2 - 16, y, tint); /* = x */
 }
-#else
-NAKED
-void sub_080CD3E8(u16 item, u16 x, u16 y, u16 tint)
-{
-    asm_unified(
-        ".L080CD3E8:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sb\n"
-        "    mov r6, r8\n"
-        "    push {r6, r7}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r4, r1, #0x10\n"
-        "    lsls r2, r2, #0x10\n"
-        "    lsrs r6, r2, #0x10\n"
-        "    mov sb, r6\n"
-        "    lsls r3, r3, #0x10\n"
-        "    lsrs r5, r3, #0x10\n"
-        "    mov r8, r5\n"
-        "    adds r7, r4, #0\n"
-        "    adds r7, #0x10\n"
-        "    bl Item_GetRecord\n"
-        "    ldrb r0, [r0, #3]\n"
-        "    adds r1, r0, #0\n"
-        "    cmp r0, #0xf\n"
-        "    bne .L080CD420\n"
-        "    ldr r0, .L080CD41C\n"
-        "    adds r1, r4, #0\n"
-        "    b .L080CD42E\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080CD41C: .4byte gUnknown_084F0320\n"
-        ".L080CD420:\n"
-        "    cmp r0, #1\n"
-        "    bhi .L080CD43C\n"
-        "    lsls r0, r0, #2\n"
-        "    ldr r1, .L080CD438\n"
-        "    adds r0, r0, r1\n"
-        "    lsls r1, r7, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        ".L080CD42E:\n"
-        "    adds r2, r6, #0\n"
-        "    adds r3, r5, #0\n"
-        "    bl DigitFont_DrawAscii\n"
-        "    b .L080CD44C\n"
-        ".L080CD438: .4byte gUnknown_084F02DE\n"
-        ".L080CD43C:\n"
-        "    lsls r0, r1, #2\n"
-        "    ldr r1, .L080CD458\n"
-        "    adds r0, r0, r1\n"
-        "    adds r1, r4, #0\n"
-        "    mov r2, sb\n"
-        "    mov r3, r8\n"
-        "    bl DigitFont_DrawAscii\n"
-        ".L080CD44C:\n"
-        "    pop {r3, r4}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L080CD458: .4byte gUnknown_084F02DE\n"
-    );
-}
-#endif
 
 // sub_080CD45C @ 0x080CD45C
 /* The separate copies of x and y used by the last case reproduce the original register use. */
@@ -150,129 +84,25 @@ void sub_080CD50C(u16 item, u16 x, u16 y)
 
 // sub_080CD668 @ 0x080CD668
 /* NONMATCHING: register allocation (x and the x+N temporary swap registers). */
-#ifdef NONMATCHING
 void sub_080CD668(u16 item, u16 x, u16 y, u16 tint)
 {
     s32 x2 = x + 24;
     u8 v = Equipment_GetRecord36_MidRange(item)[1];
 
-    DigitFont_DrawAscii(gUnknown_084F02DC, x, y, tint);
+    DigitFont_DrawAscii(gUnknown_084F02DC, x2 - 24, y, tint); /* = x */
     DigitFont_DrawNumber(v, x2, y, tint);
 }
-#else
-NAKED
-void sub_080CD668(u16 item, u16 x, u16 y, u16 tint)
-{
-    asm_unified(
-        ".L080CD668:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6}\n"
-        "    adds r4, r1, #0\n"
-        "    adds r6, r2, #0\n"
-        "    mov r8, r3\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    lsls r4, r4, #0x10\n"
-        "    lsrs r4, r4, #0x10\n"
-        "    lsls r6, r6, #0x10\n"
-        "    lsrs r6, r6, #0x10\n"
-        "    mov r1, r8\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    mov r8, r1\n"
-        "    adds r5, r4, #0\n"
-        "    adds r5, #0x18\n"
-        "    bl Equipment_GetRecord36_MidRange\n"
-        "    ldrb r0, [r0, #1]\n"
-        "    mov sb, r0\n"
-        "    ldr r0, .L080CD6C0\n"
-        "    adds r1, r4, #0\n"
-        "    adds r2, r6, #0\n"
-        "    mov r3, r8\n"
-        "    bl DigitFont_DrawAscii\n"
-        "    lsls r5, r5, #0x10\n"
-        "    lsrs r5, r5, #0x10\n"
-        "    mov r0, sb\n"
-        "    adds r1, r5, #0\n"
-        "    adds r2, r6, #0\n"
-        "    mov r3, r8\n"
-        "    bl DigitFont_DrawNumber\n"
-        "    pop {r3, r4}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080CD6C0: .4byte gUnknown_084F02DC\n"
-    );
-}
-#endif
 
 // sub_080CD6C4 @ 0x080CD6C4
 /* NONMATCHING: register allocation (x and the x+N temporary swap registers). */
-#ifdef NONMATCHING
 void sub_080CD6C4(u16 item, u16 x, u16 y, u16 tint)
 {
     s32 x2 = x + 24;
     u8 v = Equipment_GetRecord36_MidRange(item)[2];
 
-    DigitFont_DrawAscii(gUnknown_084F02DC, x, y, tint);
+    DigitFont_DrawAscii(gUnknown_084F02DC, x2 - 24, y, tint); /* = x */
     DigitFont_DrawNumber(v, x2, y, tint);
 }
-#else
-NAKED
-void sub_080CD6C4(u16 item, u16 x, u16 y, u16 tint)
-{
-    asm_unified(
-        ".L080CD6C4:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6}\n"
-        "    adds r4, r1, #0\n"
-        "    adds r6, r2, #0\n"
-        "    mov r8, r3\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    lsls r4, r4, #0x10\n"
-        "    lsrs r4, r4, #0x10\n"
-        "    lsls r6, r6, #0x10\n"
-        "    lsrs r6, r6, #0x10\n"
-        "    mov r1, r8\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    mov r8, r1\n"
-        "    adds r5, r4, #0\n"
-        "    adds r5, #0x18\n"
-        "    bl Equipment_GetRecord36_MidRange\n"
-        "    ldrb r0, [r0, #2]\n"
-        "    mov sb, r0\n"
-        "    ldr r0, .L080CD71C\n"
-        "    adds r1, r4, #0\n"
-        "    adds r2, r6, #0\n"
-        "    mov r3, r8\n"
-        "    bl DigitFont_DrawAscii\n"
-        "    lsls r5, r5, #0x10\n"
-        "    lsrs r5, r5, #0x10\n"
-        "    mov r0, sb\n"
-        "    adds r1, r5, #0\n"
-        "    adds r2, r6, #0\n"
-        "    mov r3, r8\n"
-        "    bl DigitFont_DrawNumber\n"
-        "    pop {r3, r4}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080CD71C: .4byte gUnknown_084F02DC\n"
-    );
-}
-#endif
 
 // sub_080CD720 @ 0x080CD720
 void sub_080CD720(u16 item, u16 x, u16 y)

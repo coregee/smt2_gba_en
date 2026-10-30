@@ -608,13 +608,13 @@ u32 JokerStars_CountStars(void)
 }
 
 // sub_081454F4 @ 0x081454F4
-#ifdef NONMATCHING
 void sub_081454F4(struct Task *task)
 {
     struct JokerStars *s = (struct JokerStars *)gMenuState;
     u32 n;
 
-    task->result = 0;
+    n = 0;   /* the zero goes through n, so the later 0 store is not CSE'd with it */
+    task->result = n;
     n = JokerStars_CountStars();
     if (n > 3)
     {
@@ -624,41 +624,6 @@ void sub_081454F4(struct Task *task)
         task->result = 1;
     }
 }
-#else
-NAKED
-void sub_081454F4(struct Task *task)
-{
-    asm_unified(
-        "    push {r4, r5, lr}\n"
-        "    adds r5, r0, #0\n"
-        "    ldr r4, .L08145528\n"
-        "    movs r2, #0\n"
-        "    strh r2, [r5, #0x1c]\n"
-        "    bl JokerStars_CountStars\n"
-        "    adds r2, r0, #0\n"
-        "    cmp r2, #3\n"
-        "    bls .L08145520\n"
-        "    adds r0, r4, #0\n"
-        "    adds r0, #0xa6\n"
-        "    strh r2, [r0]\n"
-        "    adds r1, r4, #0\n"
-        "    adds r1, #0xa4\n"
-        "    movs r0, #0\n"
-        "    strh r0, [r1]\n"
-        "    adds r0, r4, #0\n"
-        "    adds r0, #0xa8\n"
-        "    strh r2, [r0]\n"
-        "    movs r0, #1\n"
-        "    strh r0, [r5, #0x1c]\n"
-        ".L08145520:\n"
-        "    pop {r4, r5}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08145528: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
-    );
-}
-#endif
 
 
 // sub_0814552C @ 0x0814552C

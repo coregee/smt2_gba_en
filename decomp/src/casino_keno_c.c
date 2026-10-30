@@ -221,14 +221,15 @@ void sub_08149334(void)
     n = 6;
     d = NumberToDigits(gGrid->payout);
     i = n - 1;
-    y = 0x4A;
     for (k = 0; k < n; k++)
     {
-        Sprite_Draw(gUnknown_0879CE24[d[i]], 0, 0, 0, 0, x + 0x14, y);
+        const void *g = gUnknown_0879CE24[d[i]];
+        y = 0x4A;
+        Sprite_Draw(g, 0, 0, 0, 0, x + 0x14, y);
         i--;
         x += 8;
     }
-    gGrid->state = 5;
+    { u16 st = 5; gGrid->state = st; }
 }
 #else
 NAKED

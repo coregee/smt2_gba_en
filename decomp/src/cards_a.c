@@ -69,52 +69,18 @@ const void *Dict_GetMapScript(u16 id)
 /* Whether a demon can be listed: always for ids up to 0xFE after sub_080C2600, otherwise
    only when it has a map record script. */
 // sub_080DD248 @ 0x080DD248
-#ifdef NONMATCHING
-u32 sub_080DD248(u16 id)
+u32 sub_080DD248(id)
+    u16 id;
 {
-    u16 v;
-
+    /* K&R definition: id is narrowed once on entry and also holds sub_080C2600's result */
     if (id > 0x17B)
         return 0;
-    v = sub_080C2600(id);
-    if (v <= 0xFE)
+    id = sub_080C2600(id);
+    if (id <= 0xFE)
         return 1;
-    /* called without a prototype in the original: v is passed unnarrowed */
-    return ((u32 (*)())Dict_GetMapScript)(v);
+    /* called without a prototype in the original: id is passed unnarrowed */
+    return ((u32 (*)())Dict_GetMapScript)(id);
 }
-#else
-NAKED
-u32 sub_080DD248(u16 id)
-{
-    asm_unified(
-        ".L080DD248:\n"
-        "    push {lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r1, r0, #0x10\n"
-        "    ldr r0, .L080DD258\n"
-        "    cmp r1, r0\n"
-        "    bls .L080DD25C\n"
-        "    movs r0, #0\n"
-        "    b .L080DD272\n"
-        ".L080DD258: .4byte 0x0000017B\n"
-        ".L080DD25C:\n"
-        "    adds r0, r1, #0\n"
-        "    bl sub_080C2600\n"
-        "    adds r1, r0, #0\n"
-        "    cmp r1, #0xfe\n"
-        "    bls .L080DD270\n"
-        "    adds r0, r1, #0\n"
-        "    bl Dict_GetMapScript\n"
-        "    b .L080DD272\n"
-        ".L080DD270:\n"
-        "    movs r0, #1\n"
-        ".L080DD272:\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // sub_080DD278 @ 0x080DD278
 #ifdef NONMATCHING

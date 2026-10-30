@@ -372,17 +372,18 @@ u32 Automap_HasCells(void)
 #ifdef NONMATCHING
 void Automap_DrawTilemap(void)
 {
-    u16 w = 28;
+    u16 w = 28, h = 11;
     u16 x, y;
 
     sub_080B447C();
-    for (y = 0; y < 11; y++)
+    for (y = 0; y < h; y++)
     {
         for (x = 0; x < w; x++)
         {
             if (gAutomapCells[y][x].flags != 0)
             {
-                u16 *dst = &gUnk_02000000[y][x + 1];
+                u16 *row = gUnk_02000000[y];
+                u16 *dst = &row[x + 1];
                 u16 tile = sub_080B4448(&gAutomapCells[y][x]);
 
                 if (!(gAutomapCells[y][x].flags & 0x8000))

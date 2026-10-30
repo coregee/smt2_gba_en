@@ -128,83 +128,21 @@ void Elevator_Init(struct Task *task)
 }
 
 // Elevator_SetScroll @ 0x080BA4C4
-#ifdef NONMATCHING
 void Elevator_SetScroll(struct Task *task)
 {
-    struct ElevatorData *d = (struct ElevatorData *)task->data.raw;
     u16 x, y;
 
+    /* The data pointer reuses the parameter (a separate local lets CSE fold
+       d->floors into task + 0x44). */
+    task = (struct Task *)task->data.raw;
+#define d ((struct ElevatorData *)task)
     sub_080C1F50(gFieldState.unk12, gFieldState.unk14, &x, &y);
     if ((x == 0x40 && y == 0xC) || d->to < d->floors[d->from])
         gUnk_0300000E = 0xA8 - (d->pos % 0xA8u & 0xFF);
     else
         gUnk_0300000E = d->pos % 0xA8u & 0xFF;
+#undef d
 }
-#else
-NAKED
-void Elevator_SetScroll(struct Task *task)
-{
-    asm_unified(
-        ".L080BA4C4:\n"
-        "    push {r4, r5, lr}\n"
-        "    sub sp, #4\n"
-        "    adds r5, r0, #0\n"
-        "    adds r5, #0x24\n"
-        "    ldr r1, .L080BA514\n"
-        "    ldrh r0, [r1, #0x12]\n"
-        "    ldrh r1, [r1, #0x14]\n"
-        "    mov r4, sp\n"
-        "    adds r4, #2\n"
-        "    mov r2, sp\n"
-        "    adds r3, r4, #0\n"
-        "    bl sub_080C1F50\n"
-        "    mov r0, sp\n"
-        "    ldrh r0, [r0]\n"
-        "    cmp r0, #0x40\n"
-        "    bne .L080BA4EC\n"
-        "    ldrh r0, [r4]\n"
-        "    cmp r0, #0xc\n"
-        "    beq .L080BA4FE\n"
-        ".L080BA4EC:\n"
-        "    ldr r0, [r5, #8]\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r1, r5, #0\n"
-        "    adds r1, #0x20\n"
-        "    adds r1, r1, r0\n"
-        "    ldr r0, [r5, #0xc]\n"
-        "    ldrh r1, [r1]\n"
-        "    cmp r0, r1\n"
-        "    bhs .L080BA51C\n"
-        ".L080BA4FE:\n"
-        "    ldr r4, .L080BA518\n"
-        "    ldrh r0, [r5, #0x38]\n"
-        "    movs r1, #0xa8\n"
-        "    bl __umodsi3\n"
-        "    movs r1, #0xff\n"
-        "    ands r0, r1\n"
-        "    movs r1, #0xa8\n"
-        "    subs r1, r1, r0\n"
-        "    strh r1, [r4]\n"
-        "    b .L080BA52C\n"
-        ".L080BA514: .4byte 0x03004550 @ IWRAM+0x4550\n"
-        ".L080BA518: .4byte 0x0300000E @ IWRAM+0xE\n"
-        ".L080BA51C:\n"
-        "    ldr r4, .L080BA534\n"
-        "    ldrh r0, [r5, #0x38]\n"
-        "    movs r1, #0xa8\n"
-        "    bl __umodsi3\n"
-        "    movs r1, #0xff\n"
-        "    ands r0, r1\n"
-        "    strh r0, [r4]\n"
-        ".L080BA52C:\n"
-        "    add sp, #4\n"
-        "    pop {r4, r5}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L080BA534: .4byte 0x0300000E @ IWRAM+0xE\n"
-    );
-}
-#endif
 
 // Elevator_Accelerate @ 0x080BA538
 void Elevator_Accelerate(struct Task *task)

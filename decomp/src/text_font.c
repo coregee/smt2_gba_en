@@ -461,89 +461,38 @@ void Font_CopyGlyphCell(u8 *src, u8 *dst)
 /* Random number: a scrambled multiply of the seed, plus frame counter x VCOUNT rotated by 3,
    12, 21 and 30 bits. */
 // Random_Next @ 0x080AC468
-#ifdef NONMATCHING
 u32 Random_Next(void)
 {
-    u32 seed = gRandomSeed;
-    u32 t = (seed >> 16) * 0x4E6D;
-    u32 lo = seed & 0xFFFF;
-    u32 a = lo * t;
-    u32 r = (a + t) >> 16;
-    u32 n;
+    /* Seed mixed with 16-bit multiplies (0x4E6D), plus rotations of frame counter * VCOUNT;
+       t, lo and a are reused the way the original reused registers. */
+    u32 *seedp = &gRandomSeed;
+    u32 seed = *seedp;
+    u32 t = 0x4E6D;
+    u32 hi = 0xFFFF0000;
+    u32 lo, a;
 
-    r += ((((a & 0xFFFF0000) - 0xDD3C) * lo >> 16) * lo) << 16;
-    n = gFrameCounter * REG_VCOUNT;
-    r += (n << 29) + (n >> 3);
-    r += (n << 20) + (n >> 12);
-    r += (n << 11) + (n >> 21);
-    r += (n << 2) + (n >> 30);
-    gRandomSeed = r;
-    return r;
+    lo = seed >> 16;
+    t *= lo;
+    lo = 0xFFFF;
+    lo &= seed;
+    a = lo;
+    a *= t;
+    t = (a + t) >> 16;
+    hi &= a;
+    a = hi - 0xDD3C;
+    a *= lo;
+    lo *= a >> 16;
+    lo = t + (lo << 16);
+    /* mix in the frame counter times the scanline */
+    a = gFrameCounter;
+    a *= REG_VCOUNT;
+    lo += (a << 29) + (a >> 3);
+    lo += (a << 20) + (a >> 12);
+    lo += (a << 11) + (a >> 21);
+    lo += (a << 2) + (a >> 30);
+    *seedp = lo;
+    return lo;
 }
-#else
-NAKED
-u32 Random_Next(void)
-{
-    asm_unified(
-        ".L080AC468:\n"
-        "    push {r4, r5, lr}\n"
-        "    ldr r2, .L080AC4C8\n"
-        "    ldr r0, [r2]\n"
-        "    ldr r5, .L080AC4CC\n"
-        "    ldr r1, .L080AC4D0\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    muls r5, r4, r5\n"
-        "    ldr r4, .L080AC4D4\n"
-        "    ands r4, r0\n"
-        "    adds r3, r4, #0\n"
-        "    muls r3, r5, r3\n"
-        "    adds r0, r3, r5\n"
-        "    lsrs r5, r0, #0x10\n"
-        "    ands r1, r3\n"
-        "    ldr r0, .L080AC4D8\n"
-        "    adds r3, r1, r0\n"
-        "    muls r3, r4, r3\n"
-        "    lsrs r0, r3, #0x10\n"
-        "    muls r4, r0, r4\n"
-        "    lsls r0, r4, #0x10\n"
-        "    adds r4, r5, r0\n"
-        "    ldr r0, .L080AC4DC\n"
-        "    ldr r3, [r0]\n"
-        "    ldr r0, .L080AC4E0\n"
-        "    ldrh r0, [r0]\n"
-        "    muls r3, r0, r3\n"
-        "    lsls r0, r3, #0x1d\n"
-        "    lsrs r1, r3, #3\n"
-        "    adds r0, r0, r1\n"
-        "    adds r4, r4, r0\n"
-        "    lsls r0, r3, #0x14\n"
-        "    lsrs r1, r3, #0xc\n"
-        "    adds r0, r0, r1\n"
-        "    adds r4, r4, r0\n"
-        "    lsls r0, r3, #0xb\n"
-        "    lsrs r1, r3, #0x15\n"
-        "    adds r0, r0, r1\n"
-        "    adds r4, r4, r0\n"
-        "    lsls r0, r3, #2\n"
-        "    lsrs r1, r3, #0x1e\n"
-        "    adds r0, r0, r1\n"
-        "    adds r4, r4, r0\n"
-        "    str r4, [r2]\n"
-        "    adds r0, r4, #0\n"
-        "    pop {r4, r5}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080AC4C8: .4byte 0x030020E0 @ IWRAM+0x20E0\n"
-        ".L080AC4CC: .4byte 0x00004E6D\n"
-        ".L080AC4D0: .4byte 0xFFFF0000\n"
-        ".L080AC4D4: .4byte 0x0000FFFF\n"
-        ".L080AC4D8: .4byte 0xFFFF22C4\n"
-        ".L080AC4DC: .4byte 0x030031BC @ IWRAM+0x31BC\n"
-        ".L080AC4E0: .4byte 0x04000006 @ REG_VCOUNT\n"
-    );
-}
-#endif
 
 /* ORs a w x h block of pixels from one 32-tile-wide 4bpp canvas into another.  The source
    is read a byte (two pixels) at a time, so srcX and w are assumed even; dstX may be odd,

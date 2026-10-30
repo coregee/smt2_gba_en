@@ -133,19 +133,38 @@ void sub_08129F3C(struct Task *task)
 /* Returns the selected demon to the stock: message names the party slot it held. */
 // sub_08129F5C @ 0x08129F5C
 #ifdef NONMATCHING
+/* Follows the original block order: the first loop test is evaluated before jumping to the
+   compare (12 lines off, all register choice: blk/order and o/list swap). */
 void sub_08129F5C(struct Task *task)
 {
     struct C127Block *blk = C127_BLOCK;
     u16 i;
+    s8 *order;
+    u16 *list;
+    const u16 *tmpl;
+    s32 o;
+    u16 *p;
 
     i = 0;
-    while (gGameState.order[i] != blk->list[task->pad1E])
     {
-        i++;
-        if (i > 5)
-            break;
+        struct C127GameState *gs = &gGameState;
+        order = gs->order;
     }
-    BattleMenu_SetMode(3, Battle_BuildNamePrependText(i, gUnknown_08124182));
+    o = order[i];
+    p = (u16 *)((task->pad1E << 1) + (u32)(list = blk->list));
+    tmpl = gUnknown_08124182;
+    goto test;
+loop:
+    i++;
+    if (i > 5)
+        goto done;
+    o = order[i];
+    p = &list[task->pad1E];
+test:
+    if (o != *p)
+        goto loop;
+done:
+    BattleMenu_SetMode(3, Battle_BuildNamePrependText(i, tmpl));
     Party_Remove(blk->list[task->pad1E], 0);
     Party_FixFormation();
     sub_081269B0(2);

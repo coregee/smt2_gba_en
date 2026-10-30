@@ -347,12 +347,10 @@ void sub_080C3D5C(struct Task *t)
 
 // DemonObj_Create @ 0x080C3D84
 /* Creates a demon object task (gUnknown_081A647C) with its graphics slot and child task. */
-#ifdef NONMATCHING
 struct Task *DemonObj_Create(u16 a, u16 id, u16 x, u16 y, u16 e, u16 f)
 {
     struct Task *t = Task_Create(gUnknown_081A647C, 0xFFFF);
     struct ObjData *d = (struct ObjData *)t->data.raw;
-    const void *script;
 
     d->palSlot = GfxSlot_Acquire(t, id);
     CharTask_Register(t);
@@ -364,109 +362,13 @@ struct Task *DemonObj_Create(u16 a, u16 id, u16 x, u16 y, u16 e, u16 f)
     d->unk0E = f;
     d->unk10 = 2;
     d->hasPal = 1;
-    if (sub_080E8AC0(id) == 0xFFFF)
-        script = gUnknown_081A631C;
+    if (((u32 (*)(u16))sub_080E8AC0)(id) == 0xFFFF)
+        OBJ_CHILD(d) = Task_Create(gUnknown_081A631C, t->id);
     else
-        script = gUnknown_081A6420;
-    OBJ_CHILD(d) = Task_Create(script, t->id);
+        OBJ_CHILD(d) = Task_Create(gUnknown_081A6420, t->id);
     sub_080E8A28(d->palSlot, id);
     return t;
 }
-#else
-NAKED
-struct Task *DemonObj_Create(u16 a, u16 id, u16 x, u16 y, u16 e, u16 f)
-{
-    asm_unified(
-        ".L080C3D84:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sl\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6, r7}\n"
-        "    sub sp, #4\n"
-        "    adds r4, r0, #0\n"
-        "    adds r5, r2, #0\n"
-        "    adds r6, r3, #0\n"
-        "    ldr r0, [sp, #0x24]\n"
-        "    ldr r2, [sp, #0x28]\n"
-        "    mov sb, r2\n"
-        "    lsls r4, r4, #0x10\n"
-        "    lsrs r4, r4, #0x10\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    str r1, [sp]\n"
-        "    lsls r5, r5, #0x10\n"
-        "    lsrs r5, r5, #0x10\n"
-        "    lsls r6, r6, #0x10\n"
-        "    lsrs r6, r6, #0x10\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    mov r8, r0\n"
-        "    mov r1, sb\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    mov sb, r1\n"
-        "    ldr r0, .L080C3E08\n"
-        "    ldr r1, .L080C3E0C\n"
-        "    bl Task_Create\n"
-        "    mov sl, r0\n"
-        "    mov r7, sl\n"
-        "    adds r7, #0x24\n"
-        "    ldr r1, [sp]\n"
-        "    bl GfxSlot_Acquire\n"
-        "    strh r0, [r7, #2]\n"
-        "    mov r0, sl\n"
-        "    bl CharTask_Register\n"
-        "    mov r2, sl\n"
-        "    strh r4, [r2, #0x24]\n"
-        "    mov r0, sp\n"
-        "    ldrh r0, [r0]\n"
-        "    strh r0, [r7, #6]\n"
-        "    strh r5, [r7, #8]\n"
-        "    strh r6, [r7, #0xa]\n"
-        "    mov r1, r8\n"
-        "    strh r1, [r7, #0xc]\n"
-        "    mov r2, sb\n"
-        "    strh r2, [r7, #0xe]\n"
-        "    movs r0, #2\n"
-        "    strh r0, [r7, #0x10]\n"
-        "    movs r0, #1\n"
-        "    strh r0, [r7, #4]\n"
-        "    ldr r0, [sp]\n"
-        "    bl sub_080E8AC0\n"
-        "    ldr r1, .L080C3E0C\n"
-        "    cmp r0, r1\n"
-        "    bne .L080C3E14\n"
-        "    ldr r0, .L080C3E10\n"
-        "    b .L080C3E16\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C3E08: .4byte gUnknown_081A647C\n"
-        ".L080C3E0C: .4byte 0x0000FFFF\n"
-        ".L080C3E10: .4byte gUnknown_081A631C\n"
-        ".L080C3E14:\n"
-        "    ldr r0, .L080C3E3C\n"
-        ".L080C3E16:\n"
-        "    mov r2, sl\n"
-        "    ldrh r1, [r2, #2]\n"
-        "    bl Task_Create\n"
-        "    str r0, [r7, #0x14]\n"
-        "    ldrb r0, [r7, #2]\n"
-        "    ldr r1, [sp]\n"
-        "    bl sub_080E8A28\n"
-        "    mov r0, sl\n"
-        "    add sp, #4\n"
-        "    pop {r3, r4, r5}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    mov sl, r5\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C3E3C: .4byte gUnknown_081A6420\n"
-    );
-}
-#endif
 
 // sub_080C3E40 @ 0x080C3E40
 void sub_080C3E40(struct Task *t, u16 v)

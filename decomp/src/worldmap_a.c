@@ -91,11 +91,11 @@ void sub_0815201C(void)
     rec2 = FieldMap_GetArea(gWorldMap.map);
     if (gWorldMap.state == 2 || gWorldMap.state == 13)
     {
-        u16 tx, ty;
-        bx = gWorldMap.unk10 >> 3;
-        by = gWorldMap.unk12 >> 3;
+        u16 tx, ty, fx, fy;
+        fx = gWorldMap.unk10 >> 3;
+        fy = gWorldMap.unk12 >> 3;
         m = sub_08151FD8(0);
-        m += by * (rec2->width >> 3) + bx;
+        m += fy * (rec2->width >> 3) + fx;
         t = *m & 0x1FF;
         tx = gWorldMap.unk14 >> 3;
         ty = gWorldMap.unk16 >> 3;
@@ -632,6 +632,7 @@ void WorldMap_CopyTilemapView(const u16 *src, u16 *dst, u16 x, u16 y, u16 width,
     struct MapRecord *rec = FieldMap_GetArea(gWorldMap.map);
     u16 sx, sy;
     u16 i, j;
+    u16 ox, oy;
     u32 stride = width >> 3;
 
     if (x > 0x78)
@@ -648,12 +649,15 @@ void WorldMap_CopyTilemapView(const u16 *src, u16 *dst, u16 x, u16 y, u16 width,
     if (sy > rec->height - 0xA0)
         sy = rec->height - 0xA0;
     sy >>= 3;
-    for (i = 0; i < 32; i++)
+    ox = sx & 31;
+    oy = sy & 31;
+    i = 0;
+    do
     {
         const u16 *s = &src[(sy + i) * stride + sx];
         for (j = 0; j < 32; j++)
-            dst[(((sy & 31) + i) & 31) * 32 + (((sx & 31) + j) & 31)] = *s++;
-    }
+            dst[((oy + i) & 31) * 32 + ((ox + j) & 31)] = *s++;
+    } while (++i < 32);
 }
 #else
 NAKED

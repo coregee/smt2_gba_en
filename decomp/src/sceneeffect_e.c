@@ -42,72 +42,24 @@ void sub_080BBA1C(void)
 }
 
 // sub_080BBA64 @ 0x080BBA64
-#ifdef NONMATCHING
 void sub_080BBA64(struct Task *task)
 {
     u16 *d = task->data.h;
     u16 n = d[0];
     u16 y = d[1];
     u16 c = d[2];
+    const struct GfxRow *e = &gUnknown_0818B2E0[n];
+    u8 *cells = gAutomapCells;
+    u16 *buf = gUnk_02000000;
 
-    sub_080BB868(gUnknown_0818B2E0[n].gfx, gUnknown_0818B2E0[n].pals, &gAutomapCells[c * 0x400 + 0x20], &gUnk_02000000[y * 32]);
+    cells += c * 0x400 + 0x20;
+    buf += y * 32;
+    sub_080BB868(e->gfx, e->pals, cells, buf);
     if (d[0] != 0)
         d[0]--;
     d[2] = (d[2] - 1) & 0xF;
     d[1] = (d[1] - 1) & 0x3F;
 }
-#else
-NAKED
-void sub_080BBA64(struct Task *task)
-{
-    asm_unified(
-        ".L080BBA64:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    adds r7, r0, #0\n"
-        "    adds r6, r7, #0\n"
-        "    adds r6, #0x24\n"
-        "    ldrh r4, [r7, #0x24]\n"
-        "    ldrh r5, [r6, #2]\n"
-        "    ldrh r1, [r6, #4]\n"
-        "    lsls r4, r4, #3\n"
-        "    ldr r0, .L080BBAB4\n"
-        "    adds r4, r4, r0\n"
-        "    ldr r2, .L080BBAB8\n"
-        "    ldr r3, .L080BBABC\n"
-        "    lsls r1, r1, #0xa\n"
-        "    adds r1, #0x20\n"
-        "    adds r2, r1, r2\n"
-        "    lsls r5, r5, #6\n"
-        "    adds r3, r5, r3\n"
-        "    ldr r0, [r4]\n"
-        "    ldr r1, [r4, #4]\n"
-        "    bl sub_080BB868\n"
-        "    ldrh r0, [r7, #0x24]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080BBA98\n"
-        "    subs r0, #1\n"
-        "    strh r0, [r7, #0x24]\n"
-        ".L080BBA98:\n"
-        "    ldrh r0, [r6, #4]\n"
-        "    subs r0, #1\n"
-        "    movs r1, #0xf\n"
-        "    ands r0, r1\n"
-        "    strh r0, [r6, #4]\n"
-        "    ldrh r0, [r6, #2]\n"
-        "    subs r0, #1\n"
-        "    movs r1, #0x3f\n"
-        "    ands r0, r1\n"
-        "    strh r0, [r6, #2]\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080BBAB4: .4byte gUnknown_0818B2E0\n"
-        ".L080BBAB8: .4byte 0x02005000 @ EWRAM+0x5000\n"
-        ".L080BBABC: .4byte 0x02000000 @ EWRAM\n"
-    );
-}
-#endif
 
 // sub_080BBAC0 @ 0x080BBAC0
 void sub_080BBAC0(struct Task *task)

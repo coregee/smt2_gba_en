@@ -602,71 +602,19 @@ void sub_080B9368(void)
     Field_SetState(1);
 }
 
+extern u8 gUnk_02005004[];
+
 // sub_080B9390 @ 0x080B9390
-#ifdef NONMATCHING
-/* The original computes 0x3400 - 0x400 at run time; no spelling found reproduces that. */
 void sub_080B9390(void)
 {
     u32 off = 0x400;
+    u8 *src = gUnk_02005004 + off;
 
     DmaFill32(3, 0, (void *)0x06003800, 0x800);
+    off = 0x3400 - off;
     DmaFill32(3, 0, (void *)0x06008800, 0x3400);
-    DmaCopy32(3, (u8 *)0x02005004 + off, (void *)0x06008800, 0x3400 - off);
+    DmaCopy32(3, src, (void *)0x06008800, off);
 }
-#else
-NAKED
-void sub_080B9390(void)
-{
-    asm_unified(
-        "    push {r4, lr}\n"
-        "    sub sp, #4\n"
-        "    movs r2, #0x80\n"
-        "    lsls r2, r2, #3\n"
-        "    ldr r4, .L080B93E0\n"
-        "    adds r4, r4, r2\n"
-        "    movs r3, #0\n"
-        "    str r3, [sp]\n"
-        "    ldr r1, .L080B93E4\n"
-        "    mov r0, sp\n"
-        "    str r0, [r1]\n"
-        "    ldr r0, .L080B93E8\n"
-        "    str r0, [r1, #4]\n"
-        "    ldr r0, .L080B93EC\n"
-        "    str r0, [r1, #8]\n"
-        "    ldr r0, [r1, #8]\n"
-        "    movs r0, #0xd0\n"
-        "    lsls r0, r0, #6\n"
-        "    subs r2, r0, r2\n"
-        "    str r3, [sp]\n"
-        "    mov r0, sp\n"
-        "    str r0, [r1]\n"
-        "    ldr r3, .L080B93F0\n"
-        "    str r3, [r1, #4]\n"
-        "    ldr r0, .L080B93F4\n"
-        "    str r0, [r1, #8]\n"
-        "    ldr r0, [r1, #8]\n"
-        "    str r4, [r1]\n"
-        "    str r3, [r1, #4]\n"
-        "    lsrs r2, r2, #2\n"
-        "    movs r0, #0x84\n"
-        "    lsls r0, r0, #0x18\n"
-        "    orrs r2, r0\n"
-        "    str r2, [r1, #8]\n"
-        "    ldr r0, [r1, #8]\n"
-        "    add sp, #4\n"
-        "    pop {r4}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080B93E0: .4byte 0x02005004 @ EWRAM+0x5004\n"
-        ".L080B93E4: .4byte 0x040000D4 @ REG_DMA3SAD\n"
-        ".L080B93E8: .4byte 0x06003800 @ VRAM+0x3800\n"
-        ".L080B93EC: .4byte 0x85000200\n"
-        ".L080B93F0: .4byte 0x06008800 @ VRAM+0x8800\n"
-        ".L080B93F4: .4byte 0x85000D00\n"
-    );
-}
-#endif
 
 // sub_080B93F8 @ 0x080B93F8
 void sub_080B93F8(void)
@@ -676,69 +624,15 @@ void sub_080B93F8(void)
 }
 
 // sub_080B9414 @ 0x080B9414
-#ifdef NONMATCHING
 void sub_080B9414(void)
 {
     u32 off = 0x400;
+    u8 *src = gUnk_02005004;
 
     DmaFill32(3, 0, (void *)0x06003800, 0x800);
     DmaFill32(3, 0, (void *)0x06008800, 0x3400);
-    DmaCopy32(3, (void *)0x02005004, (u8 *)0x06008800 + off, 0x3400 - off);
+    DmaCopy32(3, src, (u8 *)0x06008800 + off, 0x3400 - off);
 }
-#else
-NAKED
-void sub_080B9414(void)
-{
-    asm_unified(
-        "    push {r4, lr}\n"
-        "    sub sp, #4\n"
-        "    movs r3, #0x80\n"
-        "    lsls r3, r3, #3\n"
-        "    ldr r4, .L080B9464\n"
-        "    movs r1, #0\n"
-        "    str r1, [sp]\n"
-        "    ldr r2, .L080B9468\n"
-        "    mov r0, sp\n"
-        "    str r0, [r2]\n"
-        "    ldr r0, .L080B946C\n"
-        "    str r0, [r2, #4]\n"
-        "    ldr r0, .L080B9470\n"
-        "    str r0, [r2, #8]\n"
-        "    ldr r0, [r2, #8]\n"
-        "    str r1, [sp]\n"
-        "    mov r0, sp\n"
-        "    str r0, [r2]\n"
-        "    ldr r1, .L080B9474\n"
-        "    str r1, [r2, #4]\n"
-        "    ldr r0, .L080B9478\n"
-        "    str r0, [r2, #8]\n"
-        "    ldr r0, [r2, #8]\n"
-        "    str r4, [r2]\n"
-        "    adds r1, r3, r1\n"
-        "    str r1, [r2, #4]\n"
-        "    movs r0, #0xd0\n"
-        "    lsls r0, r0, #6\n"
-        "    subs r0, r0, r3\n"
-        "    lsrs r0, r0, #2\n"
-        "    movs r1, #0x84\n"
-        "    lsls r1, r1, #0x18\n"
-        "    orrs r0, r1\n"
-        "    str r0, [r2, #8]\n"
-        "    ldr r0, [r2, #8]\n"
-        "    add sp, #4\n"
-        "    pop {r4}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080B9464: .4byte 0x02005004 @ EWRAM+0x5004\n"
-        ".L080B9468: .4byte 0x040000D4 @ REG_DMA3SAD\n"
-        ".L080B946C: .4byte 0x06003800 @ VRAM+0x3800\n"
-        ".L080B9470: .4byte 0x85000200\n"
-        ".L080B9474: .4byte 0x06008800 @ VRAM+0x8800\n"
-        ".L080B9478: .4byte 0x85000D00\n"
-    );
-}
-#endif
 
 // sub_080B947C @ 0x080B947C
 void sub_080B947C(void)

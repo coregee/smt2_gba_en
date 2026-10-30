@@ -135,10 +135,9 @@ void sub_080F59CC(struct Action *a)
 // sub_080F59F8 @ 0x080F59F8
 /* Claims the side's one-per-turn slot (BattleFlow+0x11AC party / +0x11AE enemies); message
    0x7E with no effect when already taken. */
-#ifdef NONMATCHING
 void sub_080F59F8(struct Action *a)
 {
-    s32 who = a->att;
+    register s32 who asm("r2") = a->att; /* pin: global-alloc otherwise gives who r4, a r2 */
     struct BattleFlow *b = BFLOW;
     u16 *p;
 
@@ -154,46 +153,6 @@ void sub_080F59F8(struct Action *a)
         a->unkC = 0;
     }
 }
-#else
-NAKED
-void sub_080F59F8(struct Action *a)
-{
-    asm_unified(
-        "    push {r4, lr}\n"
-        "    adds r3, r0, #0\n"
-        "    ldr r2, [r3]\n"
-        "    ldr r0, .L080F5A08\n"
-        "    cmp r2, #0xf\n"
-        "    bgt .L080F5A10\n"
-        "    ldr r1, .L080F5A0C\n"
-        "    b .L080F5A12\n"
-        ".L080F5A08: .4byte 0x0203C200 @ EWRAM+0x3C200\n"
-        ".L080F5A0C: .4byte 0x000011AC\n"
-        ".L080F5A10:\n"
-        "    ldr r1, .L080F5A20\n"
-        ".L080F5A12:\n"
-        "    adds r4, r0, r1\n"
-        "    ldrh r1, [r4]\n"
-        "    ldr r0, .L080F5A24\n"
-        "    cmp r1, r0\n"
-        "    bne .L080F5A28\n"
-        "    strh r2, [r4]\n"
-        "    b .L080F5A30\n"
-        ".L080F5A20: .4byte 0x000011AE\n"
-        ".L080F5A24: .4byte 0x0000FFFF\n"
-        ".L080F5A28:\n"
-        "    movs r0, #0x7e\n"
-        "    str r0, [r3, #8]\n"
-        "    movs r0, #0\n"
-        "    str r0, [r3, #0xc]\n"
-        ".L080F5A30:\n"
-        "    pop {r4}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // sub_080F5A38 @ 0x080F5A38
 /* Enemy merge: 1 in 8, with at least two enemies left, the attacker absorbs another living

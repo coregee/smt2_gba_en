@@ -138,7 +138,6 @@ u32 sub_080C92AC(u16 id)
 
 // Status_GetCombatant @ 0x080C92C8
 /* The combatant of list entry i: a member, or (bit 15) a demon built in the menu state. */
-#ifdef NONMATCHING
 struct Combatant *Status_GetCombatant(u16 i)
 {
     struct C0c6Status *st = &gMenuState;
@@ -149,14 +148,15 @@ struct Combatant *Status_GetCombatant(u16 i)
     if (sub_080C92AC(st->demon.demonId) == 1)
     {
         u8 attr[8];
+        u8 *p;
 
-        Item_GetAttribute(Fusion_GetDemonByIndex(st->demon.demonId), 5, attr);
+        Item_GetAttribute(Fusion_GetDemonByIndex(st->demon.demonId), 5, p = attr);
         st->demon.total[0] = attr[0];
-        st->demon.total[1] = attr[1];
-        st->demon.total[2] = attr[2];
-        st->demon.total[3] = attr[3];
-        st->demon.total[4] = attr[4];
-        st->demon.total[5] = attr[5];
+        st->demon.total[1] = p[1];
+        st->demon.total[2] = p[2];
+        st->demon.total[3] = p[3];
+        st->demon.total[4] = p[4];
+        st->demon.total[5] = p[5];
         st->demon.base[0] = 0;
         st->demon.base[1] = 0;
         st->demon.base[2] = 0;
@@ -166,105 +166,6 @@ struct Combatant *Status_GetCombatant(u16 i)
     }
     return &st->demon;
 }
-#else
-NAKED
-struct Combatant *Status_GetCombatant(u16 i)
-{
-    asm_unified(
-        ".L080C92C8:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    sub sp, #8\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    ldr r5, .L080C92F0\n"
-        "    adds r0, r4, #0\n"
-        "    bl sub_080C9290\n"
-        "    lsls r0, r0, #0x10\n"
-        "    cmp r0, #0\n"
-        "    bne .L080C92F8\n"
-        "    adds r0, r4, #0\n"
-        "    bl sub_080C9278\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #9\n"
-        "    ldr r1, .L080C92F4\n"
-        "    adds r0, r0, r1\n"
-        "    b .L080C937E\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C92F0: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
-        ".L080C92F4: .4byte 0x030046C0 @ IWRAM+0x46C0\n"
-        ".L080C92F8:\n"
-        "    adds r6, r5, #0\n"
-        "    adds r6, #0x54\n"
-        "    ldrh r0, [r5, #2]\n"
-        "    bl sub_080C9278\n"
-        "    adds r2, r0, #0\n"
-        "    lsls r2, r2, #0x10\n"
-        "    lsrs r2, r2, #0x10\n"
-        "    adds r0, r6, #0\n"
-        "    movs r1, #4\n"
-        "    bl Combatant_InitDemon\n"
-        "    adds r4, r5, #0\n"
-        "    adds r4, #0x66\n"
-        "    ldrh r0, [r4]\n"
-        "    bl sub_080C92AC\n"
-        "    cmp r0, #1\n"
-        "    bne .L080C937C\n"
-        "    ldrh r0, [r4]\n"
-        "    bl Fusion_GetDemonByIndex\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    mov r4, sp\n"
-        "    movs r1, #5\n"
-        "    mov r2, sp\n"
-        "    bl Item_GetAttribute\n"
-        "    mov r0, sp\n"
-        "    ldrb r1, [r0]\n"
-        "    adds r0, r5, #0\n"
-        "    adds r0, #0x94\n"
-        "    movs r2, #0\n"
-        "    strb r1, [r0]\n"
-        "    ldrb r0, [r4, #1]\n"
-        "    adds r1, r5, #0\n"
-        "    adds r1, #0x95\n"
-        "    strb r0, [r1]\n"
-        "    ldrb r0, [r4, #2]\n"
-        "    adds r1, #1\n"
-        "    strb r0, [r1]\n"
-        "    ldrb r0, [r4, #3]\n"
-        "    adds r1, #1\n"
-        "    strb r0, [r1]\n"
-        "    ldrb r1, [r4, #4]\n"
-        "    adds r0, r5, #0\n"
-        "    adds r0, #0x98\n"
-        "    strb r1, [r0]\n"
-        "    ldrb r0, [r4, #5]\n"
-        "    adds r1, r5, #0\n"
-        "    adds r1, #0x99\n"
-        "    strb r0, [r1]\n"
-        "    adds r0, r5, #0\n"
-        "    adds r0, #0x7c\n"
-        "    strb r2, [r0]\n"
-        "    adds r0, #1\n"
-        "    strb r2, [r0]\n"
-        "    adds r0, #1\n"
-        "    strb r2, [r0]\n"
-        "    adds r0, #1\n"
-        "    strb r2, [r0]\n"
-        "    adds r0, #1\n"
-        "    strb r2, [r0]\n"
-        "    adds r0, #1\n"
-        "    strb r2, [r0]\n"
-        ".L080C937C:\n"
-        "    adds r0, r6, #0\n"
-        ".L080C937E:\n"
-        "    add sp, #8\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // sub_080C9388 @ 0x080C9388
 u32 sub_080C9388(u16 i)
@@ -359,14 +260,14 @@ void Status_BuildList(void)
                 goto next;
         }
         else if (v & 0x8000)
-        {
-            list[n] = v | 0x8000;
-            n++;
-            goto next;
-        }
+            goto or;
         list[n] = v + 0x8000;
         n++;
         n2++;
+        goto next;
+    or:
+        list[n] = v | 0x8000;
+        n++;
     next:
         i++;
     check:
@@ -771,51 +672,16 @@ void sub_080C97A4(const u32 *src, u32 *dst)
 }
 
 // sub_080C97B8 @ 0x080C97B8
-#ifdef NONMATCHING
 void sub_080C97B8(u32 frame)
 {
     u32 off = frame * 96;
     const u8 *src = gUnknown_081B4F10;
-    u8 *dst = gUnk_0200FC74;
 
-    sub_080C97A4((const u32 *)(src + off), (u32 *)dst);
+    sub_080C97A4((const u32 *)(src + off), (u32 *)gUnk_0200FC74);
     src += 0x400;
-    dst += 0x400;
-    sub_080C97A4((const u32 *)(src + off), (u32 *)dst);
+    frame = (u32)(src + off);
+    sub_080C97A4((const u32 *)frame, (u32 *)(gUnk_0200FC74 + 0x400));
 }
-#else
-NAKED
-void sub_080C97B8(u32 frame)
-{
-    asm_unified(
-        ".L080C97B8:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    lsls r5, r0, #1\n"
-        "    adds r5, r5, r0\n"
-        "    lsls r5, r5, #5\n"
-        "    ldr r4, .L080C97E8\n"
-        "    adds r0, r5, r4\n"
-        "    ldr r6, .L080C97EC\n"
-        "    adds r1, r6, #0\n"
-        "    bl sub_080C97A4\n"
-        "    movs r0, #0x80\n"
-        "    lsls r0, r0, #3\n"
-        "    adds r4, r4, r0\n"
-        "    adds r0, r5, r4\n"
-        "    movs r1, #0x80\n"
-        "    lsls r1, r1, #3\n"
-        "    adds r6, r6, r1\n"
-        "    adds r1, r6, #0\n"
-        "    bl sub_080C97A4\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C97E8: .4byte gUnknown_081B4F10\n"
-        ".L080C97EC: .4byte 0x0200FC74 @ EWRAM+0xFC74\n"
-    );
-}
-#endif
 
 // sub_080C97F0 @ 0x080C97F0
 void sub_080C97F0(struct Task *t, u32 frame)
@@ -828,51 +694,16 @@ void sub_080C97F0(struct Task *t, u32 frame)
 }
 
 // sub_080C981C @ 0x080C981C
-#ifdef NONMATCHING
 void sub_080C981C(u32 frame)
 {
     u32 off = frame * 96;
     const u8 *src = gUnknown_081B4FD0;
-    u8 *dst = gUnk_0200FFD4;
 
-    sub_080C97A4((const u32 *)(src + off), (u32 *)dst);
+    sub_080C97A4((const u32 *)(src + off), (u32 *)gUnk_0200FFD4);
     src += 0x400;
-    dst += 0x400;
-    sub_080C97A4((const u32 *)(src + off), (u32 *)dst);
+    frame = (u32)(src + off);
+    sub_080C97A4((const u32 *)frame, (u32 *)(gUnk_0200FFD4 + 0x400));
 }
-#else
-NAKED
-void sub_080C981C(u32 frame)
-{
-    asm_unified(
-        ".L080C981C:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    lsls r5, r0, #1\n"
-        "    adds r5, r5, r0\n"
-        "    lsls r5, r5, #5\n"
-        "    ldr r4, .L080C984C\n"
-        "    adds r0, r5, r4\n"
-        "    ldr r6, .L080C9850\n"
-        "    adds r1, r6, #0\n"
-        "    bl sub_080C97A4\n"
-        "    movs r0, #0x80\n"
-        "    lsls r0, r0, #3\n"
-        "    adds r4, r4, r0\n"
-        "    adds r0, r5, r4\n"
-        "    movs r1, #0x80\n"
-        "    lsls r1, r1, #3\n"
-        "    adds r6, r6, r1\n"
-        "    adds r1, r6, #0\n"
-        "    bl sub_080C97A4\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C984C: .4byte gUnknown_081B4FD0\n"
-        ".L080C9850: .4byte 0x0200FFD4 @ EWRAM+0xFFD4\n"
-    );
-}
-#endif
 
 // sub_080C9854 @ 0x080C9854
 void sub_080C9854(struct Task *t, u32 frame)

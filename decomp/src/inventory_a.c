@@ -193,61 +193,24 @@ u32 Magnetite_Get(void)
 }
 
 // sub_080C317C @ 0x080C317C
-#ifdef NONMATCHING
 u32 *sub_080C317C(void)
 {
-    u32 *p = &gGameState.coins[0];
+    u32 g = gUnk_03004614;
 
-    switch (gUnk_03004614)
+    if (g == 0x26)
+        return &gGameState.coins[0];
+    if (g > 0x26)
     {
-    case 0x26:
-        break;
-    case 0x30:
-        p = &gGameState.coins[1];
-        break;
-    case 0x40:
-        p = &gGameState.coins[2];
-        break;
+        switch (g)
+        {
+        case 0x30:
+            return &gGameState.coins[1];
+        case 0x40:
+            return &gGameState.coins[2];
+        }
     }
-    return p;
+    return &gGameState.coins[0];
 }
-#else
-NAKED
-u32 *sub_080C317C(void)
-{
-    asm_unified(
-        ".L080C317C:\n"
-        "    push {lr}\n"
-        "    ldr r0, .L080C3194\n"
-        "    ldr r0, [r0]\n"
-        "    cmp r0, #0x26\n"
-        "    beq .L080C31A8\n"
-        "    cmp r0, #0x26\n"
-        "    bls .L080C31A8\n"
-        "    cmp r0, #0x30\n"
-        "    beq .L080C3198\n"
-        "    cmp r0, #0x40\n"
-        "    beq .L080C31A0\n"
-        "    b .L080C31A8\n"
-        ".L080C3194: .4byte 0x03004614 @ IWRAM+0x4614\n"
-        ".L080C3198:\n"
-        "    ldr r0, .L080C319C\n"
-        "    b .L080C31AA\n"
-        ".L080C319C: .4byte 0x03005F8C @ IWRAM+0x5F8C\n"
-        ".L080C31A0:\n"
-        "    ldr r0, .L080C31A4\n"
-        "    b .L080C31AA\n"
-        ".L080C31A4: .4byte 0x03005F90 @ IWRAM+0x5F90\n"
-        ".L080C31A8:\n"
-        "    ldr r0, .L080C31B0\n"
-        ".L080C31AA:\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C31B0: .4byte 0x03005F88 @ IWRAM+0x5F88\n"
-    );
-}
-#endif
 
 // sub_080C31B4 @ 0x080C31B4
 u32 sub_080C31B4(s32 delta)

@@ -67,9 +67,9 @@ void Func(...)
 
 ## Register pins
 
-Seven matching functions use GNU `register T x asm("rN")` pins (`compendium_a.c`,
-`dungeonmap_b.c`, `fieldbg_a.c`, `fieldevent_f.c`, `game_k.c`, `vm_run.c`, `vm_wait.c`), each with
-a comment. They are a last resort, used only where no
+Eleven matching functions use GNU `register T x asm("rN")` pins (`battle_080F57F4.c`,
+`compendium_a.c`, `dungeonmap_b.c`, `fieldbg_a.c`, `fieldevent_f.c`, `game_k.c`, `link_a.c`,
+`menu_b.c`, `msgwin_qtyinput.c`, `vm_run.c`, `vm_wait.c`), each with a comment. They are a last resort, used only where no
 plain source shape reproduced the original allocation; they count as matching because the
 build proves the bytes, but they are less likely to be the original source than the rest.
 

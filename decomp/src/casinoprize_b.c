@@ -9,12 +9,11 @@
 #ifdef NONMATCHING
 u16 sub_081397D8(void)
 {
-    u32 x = Random_Byte();
+    u16 x = Random_Byte() & 0x1F;
     u16 r;
     u16 diff, row, off;
     u8 kind;
 
-    x &= 0x1F;
     r = gUnknown_08790AE6[x];
     if (gShopItemIds[3] == r)
     {
@@ -34,15 +33,15 @@ u16 sub_081397D8(void)
         if (diff == 1)
             off = 50;
     }
-    r = off + r;
-    kind = gUnknown_0879050A[row][r];
-    gUnk_0203DB28[0] = gUnknown_0879050A[row][r + 1];
-    gUnk_0203DB2C = gUnk_03006970[0] = gUnknown_0879050A[row][r + 2];
-    gUnk_0203DB66 = 1;
+    off += r;
+    kind = gUnknown_0879050A[row][off];
+    { u16 v = gUnknown_0879050A[row][off + 1]; gUnk_0203DB28[0] = v; }
+    { u16 v = gUnknown_0879050A[row][off + 2]; gUnk_0203DB2C = gUnk_03006970[0] = v; }
+    { u16 one = 1; gUnk_0203DB66 = one; }
     if (kind == 2)
     {
-        gUnk_0203DB28[1] = gUnknown_0879050A[row][r + 3];
-        gUnk_0203DB30 = gUnk_03006970[1] = gUnknown_0879050A[row][r + 4];
+        gUnk_0203DB28[1] = gUnknown_0879050A[row][off + 3];
+        { u16 v = gUnknown_0879050A[row][off + 4]; gUnk_0203DB30 = gUnk_03006970[1] = v; }
         gUnk_0203DB68 = 1;
     }
     return kind;
@@ -173,13 +172,13 @@ u16 sub_081397D8(void)
 #ifdef NONMATCHING
 u16 sub_081398C8(void)
 {
-    u32 x = Random_Byte();
+    u16 x = Random_Byte() & 0x1F;
     u16 r;
     u16 diff, row, off;
     u8 kind;
 
-    x &= 0x1F;
-    r = gUnknown_08790AE6[x] * 5;
+    r = gUnknown_08790AE6[x];
+    r *= 5;
     diff = gShopItemIds[1];
     row = gShopItemIds[2] - 1;
     off = 0;
@@ -189,15 +188,15 @@ u16 sub_081398C8(void)
         if (diff == 1)
             off = 50;
     }
-    r = off + r;
-    kind = gUnknown_087907F8[row][r];
-    gUnk_0203DB28[0] = gUnknown_087907F8[row][r + 1];
-    gUnk_0203DB2C = gUnk_03006970[0] = gUnknown_087907F8[row][r + 2];
-    gUnk_0203DB66 = 1;
+    off += r;
+    kind = gUnknown_087907F8[row][off];
+    { u16 v = gUnknown_087907F8[row][off + 1]; gUnk_0203DB28[0] = v; }
+    { u16 v = gUnknown_087907F8[row][off + 2]; gUnk_0203DB2C = gUnk_03006970[0] = v; }
+    { u16 one = 1; gUnk_0203DB66 = one; }
     if (kind == 2)
     {
-        gUnk_0203DB28[1] = gUnknown_087907F8[row][r + 3];
-        gUnk_0203DB30 = gUnk_03006970[1] = gUnknown_087907F8[row][r + 4];
+        gUnk_0203DB28[1] = gUnknown_087907F8[row][off + 3];
+        { u16 v = gUnknown_087907F8[row][off + 4]; gUnk_0203DB30 = gUnk_03006970[1] = v; }
         gUnk_0203DB68 = 1;
     }
     return kind;

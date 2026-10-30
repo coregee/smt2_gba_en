@@ -573,9 +573,8 @@ void sub_0815AAC4(void)
 }
 
 /* Sorts a 0xFF-terminated byte list ascending, dropping duplicates. */
-/* NONMATCHING: same code, list pointer and index registers permuted. */
+/* Written with gotos: the original loops were not loop-optimised (list + i recomputed). */
 // SkillList_SortAscending @ 0x0815AAC8
-#ifdef NONMATCHING
 void SkillList_SortAscending(u8 *list)
 {
     u8 i;
@@ -587,114 +586,40 @@ void SkillList_SortAscending(u8 *list)
         return;
     i = 0;
     j = 0;
-    do
+again:
+    if (list[j + 1] != 0xFF)
     {
-    again:
-        if (list[j + 1] != 0xFF)
+    inner:
+        if (list[i] == list[j + 1])
         {
+            k = j;
             do
             {
-                if (list[i] == list[j + 1])
-                {
-                    k = j;
-                    do
-                    {
-                        t = list[k + 2];
-                        list[k + 1] = t;
-                        k++;
-                    } while (t != 0xFF);
-                    goto again;
-                }
-                if (list[i] > list[j + 1])
-                {
-                    t = list[i];
-                    list[i] = list[j + 1];
-                    list[j + 1] = t;
-                }
-                j++;
-            } while (list[j + 1] != 0xFF);
+                t = list[k + 2];
+                list[k + 1] = t;
+                k++;
+            } while (t != 0xFF);
+            goto again;
         }
-        i++;
-        j = i;
-    } while (list[i + 1] != 0xFF);
+        if (list[i] > list[j + 1])
+        {
+            t = list[i];
+            list[i] = list[j + 1];
+            list[j + 1] = t;
+        }
+        j++;
+        if (list[j + 1] != 0xFF)
+            goto inner;
+    }
+    i++;
+    j = i;
+    if (list[i + 1] != 0xFF)
+        goto again;
 }
-#else
-NAKED
-void SkillList_SortAscending(u8 *list)
-{
-    asm_unified(
-        ".L0815AAC8:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    adds r3, r0, #0\n"
-        "    ldrb r0, [r3]\n"
-        "    cmp r0, #0xff\n"
-        "    beq .L0815AB32\n"
-        "    ldrb r0, [r3, #1]\n"
-        "    cmp r0, #0xff\n"
-        "    beq .L0815AB32\n"
-        "    movs r7, #0\n"
-        "    movs r5, #0\n"
-        ".L0815AADC:\n"
-        "    adds r0, r5, r3\n"
-        "    ldrb r0, [r0, #1]\n"
-        "    adds r1, r7, #1\n"
-        "    mov ip, r1\n"
-        "    cmp r0, #0xff\n"
-        "    beq .L0815AB22\n"
-        ".L0815AAE8:\n"
-        "    adds r2, r3, r7\n"
-        "    adds r6, r5, r3\n"
-        "    ldrb r4, [r6, #1]\n"
-        "    ldrb r1, [r2]\n"
-        "    adds r0, r4, #0\n"
-        "    cmp r1, r0\n"
-        "    bne .L0815AB0A\n"
-        "    adds r2, r5, #0\n"
-        ".L0815AAF8:\n"
-        "    adds r0, r2, r3\n"
-        "    ldrb r1, [r0, #2]\n"
-        "    strb r1, [r0, #1]\n"
-        "    adds r0, r2, #1\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r2, r0, #0x18\n"
-        "    cmp r1, #0xff\n"
-        "    bne .L0815AAF8\n"
-        "    b .L0815AADC\n"
-        ".L0815AB0A:\n"
-        "    cmp r1, r0\n"
-        "    bls .L0815AB14\n"
-        "    ldrb r1, [r2]\n"
-        "    strb r4, [r2]\n"
-        "    strb r1, [r6, #1]\n"
-        ".L0815AB14:\n"
-        "    adds r0, r5, #1\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r5, r0, #0x18\n"
-        "    adds r0, r5, r3\n"
-        "    ldrb r0, [r0, #1]\n"
-        "    cmp r0, #0xff\n"
-        "    bne .L0815AAE8\n"
-        ".L0815AB22:\n"
-        "    mov r1, ip\n"
-        "    lsls r0, r1, #0x18\n"
-        "    lsrs r7, r0, #0x18\n"
-        "    adds r5, r7, #0\n"
-        "    adds r0, r7, r3\n"
-        "    ldrb r0, [r0, #1]\n"
-        "    cmp r0, #0xff\n"
-        "    bne .L0815AADC\n"
-        ".L0815AB32:\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-    );
-}
-#endif
 
 /* Sorts a 0xFF-terminated byte list descending, dropping duplicates. */
-/* NONMATCHING: same code, list pointer and index registers permuted. */
+/* Written with gotos: the original loops were not loop-optimised (list + i recomputed). */
 // SkillList_SortDescending @ 0x0815AB38
-#ifdef NONMATCHING
 void SkillList_SortDescending(u8 *list)
 {
     u8 i;
@@ -707,25 +632,26 @@ void SkillList_SortDescending(u8 *list)
         return;
     i = 0;
     j = 0;
-    do
+again:
+    if (list[j + 1] != 0xFF)
     {
-    again:
-        while (list[j + 1] != 0xFF)
+    inner:
+        if (list[i] == list[j + 1])
+            goto dup;
+        if (list[i] < list[j + 1])
         {
-            b = list[j + 1];
             a = list[i];
-            if (a == b)
-                goto dup;
-            if (a < b)
-            {
-                list[i] = b;
-                list[j + 1] = a;
-            }
-            j++;
+            list[i] = list[j + 1];
+            list[j + 1] = a;
         }
-        i++;
-        j = i;
-    } while (list[i + 1] != 0xFF);
+        j++;
+        if (list[j + 1] != 0xFF)
+            goto inner;
+    }
+    i++;
+    j = i;
+    if (list[i + 1] != 0xFF)
+        goto again;
     return;
 dup:
     k = j;
@@ -737,78 +663,6 @@ dup:
     } while (a != 0xFF);
     goto again;
 }
-#else
-NAKED
-void SkillList_SortDescending(u8 *list)
-{
-    asm_unified(
-        ".L0815AB38:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    adds r3, r0, #0\n"
-        "    ldrb r0, [r3]\n"
-        "    cmp r0, #0xff\n"
-        "    beq .L0815ABA2\n"
-        "    ldrb r0, [r3, #1]\n"
-        "    cmp r0, #0xff\n"
-        "    beq .L0815ABA2\n"
-        "    movs r7, #0\n"
-        "    movs r4, #0\n"
-        ".L0815AB4C:\n"
-        "    adds r0, r4, r3\n"
-        "    ldrb r0, [r0, #1]\n"
-        "    adds r1, r7, #1\n"
-        "    mov ip, r1\n"
-        "    cmp r0, #0xff\n"
-        "    beq .L0815AB7C\n"
-        ".L0815AB58:\n"
-        "    adds r2, r3, r7\n"
-        "    adds r6, r4, r3\n"
-        "    ldrb r5, [r6, #1]\n"
-        "    ldrb r1, [r2]\n"
-        "    adds r0, r5, #0\n"
-        "    cmp r1, r0\n"
-        "    beq .L0815AB8E\n"
-        "    cmp r1, r0\n"
-        "    bhs .L0815AB6E\n"
-        "    strb r5, [r2]\n"
-        "    strb r1, [r6, #1]\n"
-        ".L0815AB6E:\n"
-        "    adds r0, r4, #1\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r4, r0, #0x18\n"
-        "    adds r0, r4, r3\n"
-        "    ldrb r0, [r0, #1]\n"
-        "    cmp r0, #0xff\n"
-        "    bne .L0815AB58\n"
-        ".L0815AB7C:\n"
-        "    mov r1, ip\n"
-        "    lsls r0, r1, #0x18\n"
-        "    lsrs r4, r0, #0x18\n"
-        "    adds r7, r4, #0\n"
-        "    adds r0, r4, r3\n"
-        "    ldrb r0, [r0, #1]\n"
-        "    cmp r0, #0xff\n"
-        "    bne .L0815AB4C\n"
-        "    b .L0815ABA2\n"
-        ".L0815AB8E:\n"
-        "    adds r2, r4, #0\n"
-        ".L0815AB90:\n"
-        "    adds r0, r2, r3\n"
-        "    ldrb r1, [r0, #2]\n"
-        "    strb r1, [r0, #1]\n"
-        "    adds r0, r2, #1\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r2, r0, #0x18\n"
-        "    cmp r1, #0xff\n"
-        "    bne .L0815AB90\n"
-        "    b .L0815AB4C\n"
-        ".L0815ABA2:\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-    );
-}
-#endif
 
 /* Collects the skills of material id (a stock demon): those of the result's class into
    inherit[], the others in 0x24-0x39 into x290.list[], without duplicates. */

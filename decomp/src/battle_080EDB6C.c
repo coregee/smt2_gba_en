@@ -506,14 +506,14 @@ u32 sub_080EE028(s32 att, s32 def)
     if (mode == 0)
         return 0;
     if (mode == -1)
-        return 1;
+        goto ret1;
     d = Battle_GetCombatant(def + 0x8000);
     if (*(u16 *)(d + 0x10) & 0x3160)
-        return 1;
+        goto ret1;
     a = Battle_GetCombatant(att + 0x8000);
     kind = (s8)a[0x17];
     if (kind == 8)
-        return 1;
+        goto ret1;
     if (kind == 0xB || kind == 7)
     {
         s8 lv = d[0x41];
@@ -521,7 +521,7 @@ u32 sub_080EE028(s32 att, s32 def)
         v = lv * 2 - 1;
         v = (v - *(s16 *)(a + 0x56) + 0x10) * 2;
         if (v > 0xFF)
-            return 1;
+            goto ret1;
     }
     else
     {
@@ -532,12 +532,20 @@ u32 sub_080EE028(s32 att, s32 def)
             v -= *(s16 *)(a + 0x4E);
         v += 0x10;
         if (v < 0)
-            return 1;
-        v = v * v >> 5;
-        v = v * 8 / gUnknown_0876F78E[sub_080EFD84(att) + 4];
+            goto ret1;
+        v = v * v;
+        v >>= 5;
+        {
+            u32 k = sub_080EFD84(att) + 4;
+
+            v = v * 8 / gUnknown_0876F78E[k];
+        }
     }
-    if ((s32)Random_Byte() > v)
-        return 1;
+    if ((s32)Random_Byte() <= v)
+        goto ret0;
+ret1:
+    return 1;
+ret0:
     return 0;
 }
 #else

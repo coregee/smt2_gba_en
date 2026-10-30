@@ -296,78 +296,36 @@ void MiniView_Draw(void)
 #endif
 
 // MiniView_Clear @ 0x080C5708
-#ifdef NONMATCHING
 void MiniView_Clear(void)
 {
     u8 *base = (u8 *)0x0200DFD4;
     u16 row, col;
 
     View_BuildCells(gFieldState.facing, 1);
-    for (row = 0; row < 5; row++)
+    row = 0;
+    do
     {
-        u16 *line = (u16 *)(base + ((row + 6) << 6));
+        u8 *line;
+        u32 next;
 
-        for (col = 0; col < 3; col++)
-            line[col + 25] = 0;
-    }
+        col = 0;
+        {
+            u32 y = row + 6;
+            next = row + 1;
+            line = base + (y << 6);
+        }
+        do
+        {
+            u32 off = (col << 1) + 0x32; /* tiles 25..27 */
+            *(u16 *)(line + off) = 0;
+            col++;
+        } while (col <= 2);
+        row = next;
+    } while (row <= 4);
     gUnk_03000038 = 0x3F;
     VBlankTask_AddCounted(sub_080C55E0, 1);
     gFieldState.unk58 = 0;
 }
-#else
-NAKED
-void MiniView_Clear(void)
-{
-    asm_unified(
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    ldr r5, .L080C575C\n"
-        "    ldr r0, .L080C5760\n"
-        "    ldrh r0, [r0, #2]\n"
-        "    movs r1, #1\n"
-        "    bl View_BuildCells\n"
-        "    movs r2, #0\n"
-        "    ldr r6, .L080C5764\n"
-        "    ldr r7, .L080C5768\n"
-        "    movs r4, #0\n"
-        ".L080C571E:\n"
-        "    movs r1, #0\n"
-        "    adds r0, r2, #6\n"
-        "    adds r3, r2, #1\n"
-        "    lsls r0, r0, #6\n"
-        "    adds r2, r5, r0\n"
-        ".L080C5728:\n"
-        "    lsls r0, r1, #1\n"
-        "    adds r0, #0x32\n"
-        "    adds r0, r2, r0\n"
-        "    strh r4, [r0]\n"
-        "    adds r0, r1, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r1, r0, #0x10\n"
-        "    cmp r1, #2\n"
-        "    bls .L080C5728\n"
-        "    lsls r0, r3, #0x10\n"
-        "    lsrs r2, r0, #0x10\n"
-        "    cmp r2, #4\n"
-        "    bls .L080C571E\n"
-        "    movs r0, #0x3f\n"
-        "    strb r0, [r6]\n"
-        "    adds r0, r7, #0\n"
-        "    movs r1, #1\n"
-        "    bl VBlankTask_AddCounted\n"
-        "    ldr r1, .L080C5760\n"
-        "    movs r0, #0\n"
-        "    str r0, [r1, #0x58]\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C575C: .4byte 0x0200DFD4 @ EWRAM+0xDFD4\n"
-        ".L080C5760: .4byte 0x03004550 @ IWRAM+0x4550\n"
-        ".L080C5764: .4byte 0x03000038 @ IWRAM+0x38\n"
-        ".L080C5768: .4byte sub_080C55E0\n"
-    );
-}
-#endif
 
 // sub_080C576C @ 0x080C576C
 void sub_080C576C(struct Task *t)
@@ -1020,7 +978,6 @@ u32 sub_080C5C7C(void)
 
 // sub_080C5CC0 @ 0x080C5CC0
 /* Number of party members with demon ids 0x16A-0x17B. */
-#ifdef NONMATCHING
 u32 sub_080C5CC0(void)
 {
     u32 n = 0;
@@ -1028,55 +985,14 @@ u32 sub_080C5CC0(void)
 
     for (i = 0; i < 6; i++)
     {
-        if (gGameState.order[i] != -1
-            && (u16)(Party_GetMember(gGameState.order[i] + 0x8000)->demonId - 0x16A) <= 0x11)
-            n++;
+        s32 m = gGameState.order[i];
+
+        if (m != -1)
+        {
+            u32 id = m + 0x8000;
+            if ((u16)(Party_GetMember(id)->demonId - 0x16A) <= 0x11)
+                n++;
+        }
     }
     return n;
 }
-#else
-NAKED
-u32 sub_080C5CC0(void)
-{
-    asm_unified(
-        ".L080C5CC0:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    movs r5, #0\n"
-        "    movs r4, #0\n"
-        "    ldr r6, .L080C5D04\n"
-        ".L080C5CC8:\n"
-        "    adds r0, r4, r6\n"
-        "    movs r1, #0\n"
-        "    ldrsb r1, [r0, r1]\n"
-        "    movs r0, #1\n"
-        "    rsbs r0, r0, #0\n"
-        "    cmp r1, r0\n"
-        "    beq .L080C5CF6\n"
-        "    movs r2, #0x80\n"
-        "    lsls r2, r2, #8\n"
-        "    adds r0, r1, r2\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    bl Party_GetMember\n"
-        "    ldr r2, .L080C5D08\n"
-        "    adds r1, r2, #0\n"
-        "    ldrh r0, [r0, #0x12]\n"
-        "    adds r1, r1, r0\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    cmp r1, #0x11\n"
-        "    bhi .L080C5CF6\n"
-        "    adds r5, #1\n"
-        ".L080C5CF6:\n"
-        "    adds r4, #1\n"
-        "    cmp r4, #5\n"
-        "    bls .L080C5CC8\n"
-        "    adds r0, r5, #0\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        ".L080C5D04: .4byte 0x030050E0 @ IWRAM+0x50E0\n"
-        ".L080C5D08: .4byte 0xFFFFFE96\n"
-    );
-}
-#endif

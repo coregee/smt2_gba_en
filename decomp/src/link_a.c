@@ -15,10 +15,9 @@ void Mini_UpdateBg2Affine(void)
 
 /* VBlank: BG2 affine registers from gC0d9Bg. */
 // Mini_UploadBg2Affine @ 0x080DEDD8
-#ifdef NONMATCHING
 void Mini_UploadBg2Affine(void)
 {
-    vu16 *reg = (vu16 *)(REG_BASE + 0x20);
+    register vu16 *reg asm("r1") = (vu16 *)(REG_BASE + 0x20); /* pin: local-alloc otherwise puts the pointer in r0 */
 
     *reg++ = gC0d9Bg.unk08;
     *reg++ = gC0d9Bg.unk0A;
@@ -29,47 +28,6 @@ void Mini_UploadBg2Affine(void)
     *reg++ = gC0d9Bg.unk14;
     *reg++ = (gC0d9Bg.unk14 & 0x0FFF0000) >> 16;
 }
-#else
-NAKED
-void Mini_UploadBg2Affine(void)
-{
-    asm_unified(
-        "    ldr r1, .L080DEE14\n"
-        "    ldr r2, .L080DEE18\n"
-        "    ldrh r0, [r2, #8]\n"
-        "    strh r0, [r1]\n"
-        "    adds r1, #2\n"
-        "    ldrh r0, [r2, #0xa]\n"
-        "    strh r0, [r1]\n"
-        "    adds r1, #2\n"
-        "    ldrh r0, [r2, #0xc]\n"
-        "    strh r0, [r1]\n"
-        "    adds r1, #2\n"
-        "    ldrh r0, [r2, #0xe]\n"
-        "    strh r0, [r1]\n"
-        "    adds r1, #2\n"
-        "    ldr r0, [r2, #0x10]\n"
-        "    strh r0, [r1]\n"
-        "    adds r1, #2\n"
-        "    ldr r3, .L080DEE1C\n"
-        "    ands r0, r3\n"
-        "    asrs r0, r0, #0x10\n"
-        "    strh r0, [r1]\n"
-        "    adds r1, #2\n"
-        "    ldr r0, [r2, #0x14]\n"
-        "    strh r0, [r1]\n"
-        "    adds r1, #2\n"
-        "    ands r0, r3\n"
-        "    asrs r0, r0, #0x10\n"
-        "    strh r0, [r1]\n"
-        "    bx lr\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080DEE14: .4byte 0x04000020 @ REG_BG2PA\n"
-        ".L080DEE18: .4byte 0x020399E0 @ EWRAM+0x399E0\n"
-        ".L080DEE1C: .4byte 0x0FFF0000\n"
-    );
-}
-#endif
 
 /* Link cable: serial setup in normal mode and copies of the serial/timer interrupt
    handlers into IWRAM. */

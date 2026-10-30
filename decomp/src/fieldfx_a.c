@@ -297,71 +297,23 @@ void sub_080BDC28(void)
 }
 
 // sub_080BDC50 @ 0x080BDC50
-#ifdef NONMATCHING
 /* Window shadow registers: WIN0 = (8..0xE8, 0x60..0xA0), WIN1 = (8..0xE8, 0..8). */
 void sub_080BDC50(void)
 {
+    u8 v;
+
     gUnk_03000030 = 0xE8;
     gUnk_03000031 = 8;
     gUnk_03000034 = 0xA0;
     gUnk_03000035 = 0x60;
-    gUnk_03000038 = 0x35;
+
+    gUnk_03000038 = (v = 0x3D) & ~8;
     gUnk_03000032 = 0xE8;
     gUnk_03000033 = 8;
     gUnk_03000036 = 8;
     gUnk_03000037 = 0;
-    gUnk_03000039 = 0x3D;
+    gUnk_03000039 = v;
 }
-#else
-NAKED
-void sub_080BDC50(void)
-{
-    asm_unified(
-        "    push {r4, lr}\n"
-        "    ldr r0, .L080BDC90\n"
-        "    movs r3, #0xe8\n"
-        "    strb r3, [r0]\n"
-        "    ldr r0, .L080BDC94\n"
-        "    movs r2, #8\n"
-        "    strb r2, [r0]\n"
-        "    ldr r1, .L080BDC98\n"
-        "    movs r0, #0xa0\n"
-        "    strb r0, [r1]\n"
-        "    ldr r1, .L080BDC9C\n"
-        "    movs r0, #0x60\n"
-        "    strb r0, [r1]\n"
-        "    ldr r1, .L080BDCA0\n"
-        "    movs r4, #0x3d\n"
-        "    movs r0, #0x35\n"
-        "    strb r0, [r1]\n"
-        "    ldr r0, .L080BDCA4\n"
-        "    strb r3, [r0]\n"
-        "    ldr r0, .L080BDCA8\n"
-        "    strb r2, [r0]\n"
-        "    ldr r0, .L080BDCAC\n"
-        "    strb r2, [r0]\n"
-        "    ldr r1, .L080BDCB0\n"
-        "    movs r0, #0\n"
-        "    strb r0, [r1]\n"
-        "    ldr r0, .L080BDCB4\n"
-        "    strb r4, [r0]\n"
-        "    pop {r4}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080BDC90: .4byte 0x03000030 @ IWRAM+0x30\n"
-        ".L080BDC94: .4byte 0x03000031 @ IWRAM+0x31\n"
-        ".L080BDC98: .4byte 0x03000034 @ IWRAM+0x34\n"
-        ".L080BDC9C: .4byte 0x03000035 @ IWRAM+0x35\n"
-        ".L080BDCA0: .4byte 0x03000038 @ IWRAM+0x38\n"
-        ".L080BDCA4: .4byte 0x03000032 @ IWRAM+0x32\n"
-        ".L080BDCA8: .4byte 0x03000033 @ IWRAM+0x33\n"
-        ".L080BDCAC: .4byte 0x03000036 @ IWRAM+0x36\n"
-        ".L080BDCB0: .4byte 0x03000037 @ IWRAM+0x37\n"
-        ".L080BDCB4: .4byte 0x03000039 @ IWRAM+0x39\n"
-    );
-}
-#endif
 
 // sub_080BDCB8 @ 0x080BDCB8
 void sub_080BDCB8(void)

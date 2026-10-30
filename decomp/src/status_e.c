@@ -61,7 +61,6 @@ void sub_080CC4B4(struct Combatant *old)
 
 // sub_080CC630 @ 0x080CC630
 /* Previews the stats with the selected item equipped. */
-#ifdef NONMATCHING
 void sub_080CC630(u32 a, struct Task *t)
 {
     struct C0c6Status *st = &gMenuState;
@@ -69,61 +68,15 @@ void sub_080CC630(u32 a, struct Task *t)
     struct Combatant *saved = &st->saved;
 
     CpuSet(c, saved, 0x04000020);
-    Combatant_SetEquip(c->id, st->unk30, gUnk_0203B454[st->unk2C + st->unk2E]);
+    {
+        u16 item = gUnk_0203B454[st->unk2C + st->unk2E];
+        u16 slot = st->unk30;
+        Combatant_SetEquip(c->id, slot, item);
+    }
     Combatant_RecalcStats(c->id);
     sub_080CC4B4(saved);
     CpuSet(saved, c, 0x04000020);
 }
-#else
-NAKED
-void sub_080CC630(u32 a, struct Task *t)
-{
-    asm_unified(
-        ".L080CC630:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    mov r6, r8\n"
-        "    push {r6}\n"
-        "    ldr r4, .L080CC688\n"
-        "    ldrh r0, [r4, #2]\n"
-        "    bl Status_GetCombatant\n"
-        "    adds r5, r0, #0\n"
-        "    adds r6, r4, #0\n"
-        "    adds r6, #0xd4\n"
-        "    ldr r0, .L080CC68C\n"
-        "    mov r8, r0\n"
-        "    adds r0, r5, #0\n"
-        "    adds r1, r6, #0\n"
-        "    mov r2, r8\n"
-        "    bl CpuSet\n"
-        "    ldr r2, .L080CC690\n"
-        "    ldrh r0, [r4, #0x2c]\n"
-        "    ldrh r1, [r4, #0x2e]\n"
-        "    adds r0, r0, r1\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r0, r0, r2\n"
-        "    ldrh r2, [r0]\n"
-        "    ldrh r1, [r4, #0x30]\n"
-        "    ldrb r0, [r5, #0xc]\n"
-        "    bl Combatant_SetEquip\n"
-        "    ldrb r0, [r5, #0xc]\n"
-        "    bl Combatant_RecalcStats\n"
-        "    adds r0, r6, #0\n"
-        "    bl sub_080CC4B4\n"
-        "    adds r0, r6, #0\n"
-        "    adds r1, r5, #0\n"
-        "    mov r2, r8\n"
-        "    bl CpuSet\n"
-        "    pop {r3}\n"
-        "    mov r8, r3\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L080CC688: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
-        ".L080CC68C: .4byte 0x04000020 @ REG_BG2PA\n"
-        ".L080CC690: .4byte 0x0203B454 @ EWRAM+0x3B454\n"
-    );
-}
-#endif
 
 // sub_080CC694 @ 0x080CC694
 /* The HP/MP block: full HP/MP of the (recalculated) combatant against the saved one. */

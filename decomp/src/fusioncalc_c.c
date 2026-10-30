@@ -61,85 +61,33 @@ void sub_0815B884(u16 a, u16 b, u16 c, u16 *out, u16 *out2)
 /* Whether demon id may be fused: gated by the flag table 0x087F1D01, else (a == 0) by the
    exclusion list 0x087F1D72. */
 // sub_0815B8F8 @ 0x0815B8F8
-#ifdef NONMATCHING
 u32 sub_0815B8F8(u16 id, u16 a)
 {
     u16 i = 0;
 
-    while (gUnknown_087F1D01[i] != 0xFF)
+    if (gUnknown_087F1D01[0] != 0xFF)
     {
+    loop:
         if (id == gUnknown_087F1D01[i])
             goto found;
         i += 2;
+        if (gUnknown_087F1D01[i] != 0xFF)
+            goto loop;
     }
-    if (a == 0 && !sub_0815BA7C(id))
-        return 0;
-    return 1;
+    goto other;
 found:
     if (gUnknown_087F1D01[i + 1] != 0 && Flag_Test(gUnknown_087F1D01[i + 1]))
-        return 1;
+        goto one;
+zero:
     return 0;
+other:
+    if (a != 0)
+        goto one;
+    if (!sub_0815BA7C(id))
+        goto zero;
+one:
+    return 1;
 }
-#else
-NAKED
-u32 sub_0815B8F8(u16 id, u16 a)
-{
-    asm_unified(
-        ".L0815B8F8:\n"
-        "    push {r4, r5, lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r5, r1, #0x10\n"
-        "    movs r2, #0\n"
-        "    ldr r0, .L0815B928\n"
-        "    ldrb r1, [r0]\n"
-        "    adds r3, r0, #0\n"
-        "    cmp r1, #0xff\n"
-        "    beq .L0815B942\n"
-        ".L0815B90E:\n"
-        "    adds r0, r2, r3\n"
-        "    ldrb r0, [r0]\n"
-        "    cmp r4, r0\n"
-        "    beq .L0815B92C\n"
-        "    adds r0, r2, #2\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r2, r0, #0x10\n"
-        "    adds r0, r2, r3\n"
-        "    ldrb r0, [r0]\n"
-        "    cmp r0, #0xff\n"
-        "    bne .L0815B90E\n"
-        "    b .L0815B942\n"
-        "    .byte 0x00, 0x00\n"
-        ".L0815B928: .4byte gUnknown_087F1D01\n"
-        ".L0815B92C:\n"
-        "    adds r0, r2, #1\n"
-        "    adds r1, r0, r3\n"
-        "    ldrb r0, [r1]\n"
-        "    cmp r0, #0\n"
-        "    beq .L0815B93E\n"
-        "    bl Flag_Test\n"
-        "    cmp r0, #0\n"
-        "    bne .L0815B950\n"
-        ".L0815B93E:\n"
-        "    movs r0, #0\n"
-        "    b .L0815B952\n"
-        ".L0815B942:\n"
-        "    cmp r5, #0\n"
-        "    bne .L0815B950\n"
-        "    adds r0, r4, #0\n"
-        "    bl sub_0815BA7C\n"
-        "    cmp r0, #0\n"
-        "    beq .L0815B93E\n"
-        ".L0815B950:\n"
-        "    movs r0, #1\n"
-        ".L0815B952:\n"
-        "    pop {r4, r5}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-    );
-}
-#endif
 
 // sub_0815B958 @ 0x0815B958
 u16 sub_0815B958(u16 id)
@@ -196,7 +144,6 @@ u16 Demon_GetRace(u16 id)
 
 /* Whether demon id is available as a fusion result (flag table 0x087F1D22). */
 // sub_0815BA28 @ 0x0815BA28
-#ifdef NONMATCHING
 u32 sub_0815BA28(u16 id)
 {
     u16 i = 0;
@@ -205,12 +152,12 @@ u32 sub_0815BA28(u16 id)
         return 0;
     if (gUnknown_087F1D22[0] != 0xFF)
     {
-        do
-        {
-            if (id == gUnknown_087F1D22[i])
-                goto found;
-            i += 2;
-        } while (gUnknown_087F1D22[i] != 0xFF);
+    loop:
+        if (id == gUnknown_087F1D22[i])
+            goto found;
+        i += 2;
+        if (gUnknown_087F1D22[i] != 0xFF)
+            goto loop;
     }
     return 1;
 found:
@@ -218,60 +165,6 @@ found:
         return 0;
     return 1;
 }
-#else
-NAKED
-u32 sub_0815BA28(u16 id)
-{
-    asm_unified(
-        ".L0815BA28:\n"
-        "    push {r4, lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    movs r2, #0\n"
-        "    cmp r4, #0xfe\n"
-        "    bhi .L0815BA6E\n"
-        "    ldr r0, .L0815BA58\n"
-        "    ldrb r1, [r0]\n"
-        "    adds r3, r0, #0\n"
-        "    cmp r1, #0xff\n"
-        "    beq .L0815BA72\n"
-        ".L0815BA3E:\n"
-        "    adds r0, r2, r3\n"
-        "    ldrb r0, [r0]\n"
-        "    cmp r4, r0\n"
-        "    beq .L0815BA5C\n"
-        "    adds r0, r2, #2\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r2, r0, #0x10\n"
-        "    adds r0, r2, r3\n"
-        "    ldrb r0, [r0]\n"
-        "    cmp r0, #0xff\n"
-        "    bne .L0815BA3E\n"
-        "    b .L0815BA72\n"
-        "    .byte 0x00, 0x00\n"
-        ".L0815BA58: .4byte gUnknown_087F1D22\n"
-        ".L0815BA5C:\n"
-        "    adds r0, r2, #1\n"
-        "    adds r1, r0, r3\n"
-        "    ldrb r0, [r1]\n"
-        "    cmp r0, #0\n"
-        "    beq .L0815BA6E\n"
-        "    bl Flag_Test\n"
-        "    cmp r0, #0\n"
-        "    bne .L0815BA72\n"
-        ".L0815BA6E:\n"
-        "    movs r0, #0\n"
-        "    b .L0815BA74\n"
-        ".L0815BA72:\n"
-        "    movs r0, #1\n"
-        ".L0815BA74:\n"
-        "    pop {r4}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // sub_0815BA7C @ 0x0815BA7C
 u32 sub_0815BA7C(u16 id)

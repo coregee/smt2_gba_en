@@ -269,7 +269,12 @@ void sub_080E847C(struct C15cPulse *p)
             rr = 0x1F00;
         rr >>= 8;
         gg = p->g * p->level + 0xC0;
-        gg = ((c & 0x3E0) >> 5) * gg;
+        {
+            u32 m = 0x3E0;
+
+            m &= c;
+            gg = (m >> 5) * gg;
+        }
         if (gg > 0x1F00)
             gg = 0x3E0;
         else

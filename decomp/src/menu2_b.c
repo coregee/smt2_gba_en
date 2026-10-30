@@ -159,62 +159,22 @@ void sub_080D3B18(void)
     CpuSet(&zero2, state + 0x38 / 4, 0x05000002);
 }
 
-/* Sets `flag` when bit (id - 0x100) of the bitfield at gMenuState+0x38 is set. */
-/* NONMATCHING: operands of the and are swapped (n & 7 computed into another register). */
+/* Sets `flag` and returns 0 when bit (id - 0x100) of the bitfield at gMenuState+0x38 is set;
+   returns 1 otherwise. */
 // sub_080D3B58 @ 0x080D3B58
-#ifdef NONMATCHING
 s32 sub_080D3B58(u16 id, u16 flag)
 {
     struct FlagState *st = FLAG_STATE;
     u8 *bits = st->bits;
     u32 n = id - 0x100;
-    u32 bit;
 
-    /* The original returns the bit index (garbage) when the bit is clear. */
-    if ((bits[n >> 3] >> (bit = n & 7)) & 1)
+    if ((bits[n >> 3] >> (n & 7)) & 1)
     {
         Flag_Set(flag);
-        bit = 0;
+        return 0;
     }
-    return bit;
+    return 1;
 }
-#else
-NAKED
-s32 sub_080D3B58(u16 id, u16 flag)
-{
-    asm_unified(
-        ".L080D3B58:\n"
-        "    push {lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r3, r1, #0x10\n"
-        "    ldr r2, .L080D3B8C\n"
-        "    adds r2, #0x38\n"
-        "    ldr r1, .L080D3B90\n"
-        "    adds r0, r0, r1\n"
-        "    lsrs r1, r0, #3\n"
-        "    adds r1, r1, r2\n"
-        "    ldrb r1, [r1]\n"
-        "    movs r2, #7\n"
-        "    ands r0, r2\n"
-        "    asrs r1, r0\n"
-        "    movs r0, #1\n"
-        "    ands r1, r0\n"
-        "    cmp r1, #0\n"
-        "    beq .L080D3B86\n"
-        "    adds r0, r3, #0\n"
-        "    bl Flag_Set\n"
-        "    movs r0, #0\n"
-        ".L080D3B86:\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080D3B8C: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
-        ".L080D3B90: .4byte 0xFFFFFF00\n"
-    );
-}
-#endif
 
 /* After a script item check: sets the flag paired with the checked item (0x13D..0x14F) when its
    bit is set, and on result 1 switches every running sub_080DA5DC task to sub_080DA608. */

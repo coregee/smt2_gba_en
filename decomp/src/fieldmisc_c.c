@@ -44,7 +44,6 @@ void Party_SnapshotHumans(void)
 
 // Party_RestoreHumans @ 0x080C5DE0
 /* Restores HP, MP and status of the humans from the snapshot (keeping status bit 0). */
-#ifdef NONMATCHING
 void Party_RestoreHumans(void)
 {
     u32 i;
@@ -52,73 +51,21 @@ void Party_RestoreHumans(void)
     for (i = 0; i < 4; i++)
     {
         u16 old;
+        struct C0c2GameState *gs = &gGameState;
+        u8 *raw = (u8 *)gs + i * 0x80;
+        /* raw + 0x810 is &gs->members[i + 16] (the saved copy of member i). */
 
-        gGameState.members[i].hp = gGameState.members[i + 16].hp;
-        gGameState.members[i].mp = gGameState.members[i + 16].mp;
-        old = gGameState.members[i].flags;
-        gGameState.members[i].flags = gGameState.members[i + 16].flags;
+        gs->members[i].hp = *(u16 *)(raw + 0x818);
+        gs->members[i].mp = *(u16 *)(raw + 0x81C);
+        old = gs->members[i].flags;
+        gs->members[i].flags = *(u16 *)(raw + 0x810);
         if (old & 1)
-            gGameState.members[i].flags |= 1;
+            gs->members[i].flags |= 1;
     }
     Hud_LoadAllMemberFaces();
     Encounter_SetCounter(0);
     Flag_Clear(0xDF);
 }
-#else
-NAKED
-void Party_RestoreHumans(void)
-{
-    asm_unified(
-        ".L080C5DE0:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    movs r5, #0\n"
-        "    ldr r0, .L080C5E38\n"
-        "    movs r7, #0\n"
-        "    movs r6, #1\n"
-        "    adds r3, r0, #0\n"
-        "    adds r3, #0x10\n"
-        "    adds r4, r0, #0\n"
-        ".L080C5DF0:\n"
-        "    ldr r1, .L080C5E3C\n"
-        "    adds r0, r4, r1\n"
-        "    ldrh r0, [r0]\n"
-        "    strh r0, [r3, #8]\n"
-        "    ldr r2, .L080C5E40\n"
-        "    adds r0, r4, r2\n"
-        "    ldrh r0, [r0]\n"
-        "    strh r0, [r3, #0xc]\n"
-        "    ldrh r1, [r3]\n"
-        "    subs r2, #0xc\n"
-        "    adds r0, r4, r2\n"
-        "    ldrh r2, [r0]\n"
-        "    strh r2, [r3]\n"
-        "    movs r0, #1\n"
-        "    ands r1, r0\n"
-        "    cmp r1, #0\n"
-        "    beq .L080C5E18\n"
-        "    adds r0, r2, #0\n"
-        "    orrs r0, r6\n"
-        "    strh r0, [r3]\n"
-        ".L080C5E18:\n"
-        "    adds r3, #0x80\n"
-        "    adds r4, #0x80\n"
-        "    adds r5, #1\n"
-        "    cmp r5, #3\n"
-        "    bls .L080C5DF0\n"
-        "    bl Hud_LoadAllMemberFaces\n"
-        "    movs r0, #0\n"
-        "    bl Encounter_SetCounter\n"
-        "    movs r0, #0xdf\n"
-        "    bl Flag_Clear\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L080C5E38: .4byte 0x030046C0 @ IWRAM+0x46C0\n"
-        ".L080C5E3C: .4byte 0x00000818\n"
-        ".L080C5E40: .4byte 0x0000081C\n"
-    );
-}
-#endif
 
 // sub_080C5E44 @ 0x080C5E44
 u16 sub_080C5E44(u16 id)

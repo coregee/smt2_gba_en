@@ -189,15 +189,21 @@ void sub_080D7D98(const u8 *src)
     u32 row, col;
 
     DmaSet3(gUnknown_081C25F4, buf, 0x84000400);
+    row = 0;
     patch = buf + 0x100;
-    for (row = 0; row < 5; row++)
+    for (; row < 5; row++)
     {
-        u16 *p = buf + row * 32;
+        u16 *p;
 
-        for (col = 0; col < 0x1C; col++)
+        col = 0;
+        p = buf + row * 32;
+        for (; col < 0x1C; col++)
         {
             u32 v = *src++;
-            p[0x101] += ((v & 0xF) + 8) << 12;
+
+            v &= 0xF;
+            v += 8;
+            p[0x101] += v << 12;
             p++;
         }
     }

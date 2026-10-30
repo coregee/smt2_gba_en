@@ -495,10 +495,9 @@ u32 sub_080D0E74(void)
 
 /* NONMATCHING: only menu/p swap registers (r6/r4). */
 // SaveScreen_WriteSlot @ 0x080D0EA0
-#ifdef NONMATCHING
 void SaveScreen_WriteSlot(struct MenuTask *task)
 {
-    struct SaveMenu *menu = &gMenuState;
+    register struct SaveMenu *menu asm("r6") = &gMenuState; /* pin: global-alloc otherwise gives menu r5, the zero r6 */
     struct Unk03004550 *p;
     u16 v;
 
@@ -529,100 +528,15 @@ skip:
     task->unk1E = SaveSlot_Write(menu->cursor, &gGameState);
     if (menu->unk02 != 2)
     {
-        p = &gFieldState;
-        Field_Step(sub_080B1A1C(p->unk02));
-        p->unk02 = sub_080B1A1C(p->unk02);
+        struct Unk03004550 *q = &gFieldState;
+        Field_Step(sub_080B1A1C(q->unk02));
+        q->unk02 = sub_080B1A1C(q->unk02);
     }
     gUnk_03003BB4 = 0;
     gYesNoResult = 0;
     if (menu->unk02 != 4)
         menu->unk02 = 0;
 }
-#else
-NAKED
-void SaveScreen_WriteSlot(struct MenuTask *task)
-{
-    asm_unified(
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    adds r7, r0, #0\n"
-        "    ldr r6, .L080D0EC8\n"
-        "    ldrh r0, [r6, #2]\n"
-        "    cmp r0, #2\n"
-        "    beq .L080D0EE8\n"
-        "    bl sub_080D0E74\n"
-        "    cmp r0, #1\n"
-        "    bne .L080D0ED0\n"
-        "    movs r0, #2\n"
-        "    bl Flag_Test\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D0EE8\n"
-        "    ldr r4, .L080D0ECC\n"
-        "    movs r0, #3\n"
-        "    strh r0, [r4, #2]\n"
-        "    b .L080D0ED4\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080D0EC8: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
-        ".L080D0ECC: .4byte 0x03004550 @ IWRAM+0x4550\n"
-        ".L080D0ED0:\n"
-        "    ldr r4, .L080D0F40\n"
-        "    ldrh r0, [r4, #2]\n"
-        ".L080D0ED4:\n"
-        "    bl sub_080B1A1C\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    bl Field_Step\n"
-        "    ldrh r0, [r4, #2]\n"
-        "    bl sub_080B1A1C\n"
-        "    strh r0, [r4, #2]\n"
-        ".L080D0EE8:\n"
-        "    ldrh r0, [r6, #2]\n"
-        "    cmp r0, #4\n"
-        "    beq .L080D0EFA\n"
-        "    movs r0, #0xcb\n"
-        "    bl Flag_Set\n"
-        "    ldr r0, .L080D0F44\n"
-        "    bl Flag_Set\n"
-        ".L080D0EFA:\n"
-        "    ldrh r0, [r6, #6]\n"
-        "    bl GameState_StoreLocation\n"
-        "    ldrh r0, [r6, #6]\n"
-        "    ldr r1, .L080D0F48\n"
-        "    bl SaveSlot_Write\n"
-        "    movs r5, #0\n"
-        "    strh r0, [r7, #0x1e]\n"
-        "    ldrh r0, [r6, #2]\n"
-        "    cmp r0, #2\n"
-        "    beq .L080D0F2A\n"
-        "    ldr r4, .L080D0F40\n"
-        "    ldrh r0, [r4, #2]\n"
-        "    bl sub_080B1A1C\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    bl Field_Step\n"
-        "    ldrh r0, [r4, #2]\n"
-        "    bl sub_080B1A1C\n"
-        "    strh r0, [r4, #2]\n"
-        ".L080D0F2A:\n"
-        "    ldr r0, .L080D0F4C\n"
-        "    str r5, [r0]\n"
-        "    ldr r0, .L080D0F50\n"
-        "    str r5, [r0]\n"
-        "    ldrh r0, [r6, #2]\n"
-        "    cmp r0, #4\n"
-        "    beq .L080D0F3A\n"
-        "    strh r5, [r6, #2]\n"
-        ".L080D0F3A:\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L080D0F40: .4byte 0x03004550 @ IWRAM+0x4550\n"
-        ".L080D0F44: .4byte 0x00000163\n"
-        ".L080D0F48: .4byte 0x030046C0 @ IWRAM+0x46C0\n"
-        ".L080D0F4C: .4byte 0x03003BB4 @ IWRAM+0x3BB4\n"
-        ".L080D0F50: .4byte 0x030031CC @ IWRAM+0x31CC\n"
-    );
-}
-#endif
 
 // sub_080D0F54 @ 0x080D0F54
 void sub_080D0F54(void)

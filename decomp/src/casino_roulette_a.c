@@ -836,19 +836,17 @@ u32 sub_0814E538(u32 id)
    tblA, tblB, tblC = gUnknown_087A045C/055B/065A of the demon id against the party and the
    flagged list: mode[slot] = 0/10/20/30 (see RussianRoulette_MakeOpponentDemons), 2 = fall back to a default demon. */
 // sub_0814E568 @ 0x0814E568
-#ifdef NONMATCHING
 void sub_0814E568(u32 slot)
 {
     struct C14aRoulette *s = GR;
     u32 i, j, k;
-    u8 v;
 
     for (i = 0; i < s->count; i++)
     {
         if (i == 0)
             s->mode[slot] = 0;
-        v = gUnknown_087A045C[s->mine[slot]];
-        if (v == s->mine[i] || (u8)sub_0814E538(v) == 1)
+        if (gUnknown_087A045C[s->mine[slot]] == s->mine[i]
+            || (u8)sub_0814E538(gUnknown_087A045C[s->mine[slot]]) == 1)
         {
             for (j = 0; j < s->count; j++)
             {
@@ -860,9 +858,12 @@ void sub_0814E568(u32 slot)
                     {
                         if (k == 0)
                             s->mode[slot] = 20;
-                        v = gUnknown_087A065A[s->mine[slot]];
-                        if (v == s->mine[k] || (u8)sub_0814E538(v) == 1)
-                            goto fail;
+                        if (gUnknown_087A065A[s->mine[slot]] == s->mine[k]
+                            || (u8)sub_0814E538(gUnknown_087A065A[s->mine[slot]]) == 1)
+                        {
+                            s->mode[slot] = 2;
+                            return;
+                        }
                     }
                 }
                 if ((u8)sub_0814E538(gUnknown_087A055B[s->mine[slot]]) == 1)
@@ -871,229 +872,18 @@ void sub_0814E568(u32 slot)
                     {
                         if (k == 0)
                             s->mode[slot] = 30;
-                        v = gUnknown_087A045C[gUnknown_087A065A[s->mine[slot]]];
-                        if (v == s->mine[k] || (u8)sub_0814E538(v) == 1)
-                            goto fail;
+                        if (gUnknown_087A045C[gUnknown_087A065A[s->mine[slot]]] == s->mine[k]
+                            || (u8)sub_0814E538(gUnknown_087A045C[gUnknown_087A065A[s->mine[slot]]]) == 1)
+                        {
+                            s->mode[slot] = 2;
+                            return;
+                        }
                     }
                 }
             }
         }
     }
-    return;
-fail:
-    s->mode[slot] = 2;
 }
-#else
-NAKED
-void sub_0814E568(u32 slot)
-{
-    asm_unified(
-        ".L0814E568:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sl\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6, r7}\n"
-        "    sub sp, #0x18\n"
-        "    str r0, [sp]\n"
-        "    ldr r7, .L0814E6A8\n"
-        "    movs r0, #0\n"
-        "    str r0, [sp, #4]\n"
-        "    ldrh r1, [r7, #2]\n"
-        "    cmp r0, r1\n"
-        "    blo .L0814E584\n"
-        "    b .L0814E6DC\n"
-        ".L0814E584:\n"
-        "    ldr r2, [sp]\n"
-        "    lsls r6, r2, #1\n"
-        "    ldr r3, [sp, #4]\n"
-        "    cmp r3, #0\n"
-        "    bne .L0814E596\n"
-        "    adds r0, r7, #0\n"
-        "    adds r0, #0xb0\n"
-        "    adds r0, r0, r6\n"
-        "    strh r3, [r0]\n"
-        ".L0814E596:\n"
-        "    ldr r2, .L0814E6AC\n"
-        "    adds r1, r7, #0\n"
-        "    adds r1, #0x80\n"
-        "    adds r0, r1, r6\n"
-        "    ldrh r0, [r0]\n"
-        "    adds r0, r0, r2\n"
-        "    ldrb r2, [r0]\n"
-        "    ldr r3, [sp, #4]\n"
-        "    lsls r0, r3, #1\n"
-        "    adds r0, r1, r0\n"
-        "    mov sl, r1\n"
-        "    ldrh r0, [r0]\n"
-        "    cmp r2, r0\n"
-        "    beq .L0814E5C2\n"
-        "    adds r0, r2, #0\n"
-        "    bl sub_0814E538\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r0, r0, #0x18\n"
-        "    cmp r0, #1\n"
-        "    beq .L0814E5C2\n"
-        "    b .L0814E6CE\n"
-        ".L0814E5C2:\n"
-        "    movs r0, #0\n"
-        "    mov sb, r0\n"
-        "    ldrh r1, [r7, #2]\n"
-        "    cmp sb, r1\n"
-        "    blo .L0814E5CE\n"
-        "    b .L0814E6CE\n"
-        ".L0814E5CE:\n"
-        "    mov r8, sl\n"
-        ".L0814E5D0:\n"
-        "    mov r2, sb\n"
-        "    cmp r2, #0\n"
-        "    bne .L0814E5E0\n"
-        "    adds r0, r7, #0\n"
-        "    adds r0, #0xb0\n"
-        "    adds r0, r0, r6\n"
-        "    movs r1, #0xa\n"
-        "    strh r1, [r0]\n"
-        ".L0814E5E0:\n"
-        "    mov r3, r8\n"
-        "    adds r0, r3, r6\n"
-        "    ldrh r1, [r0]\n"
-        "    ldr r0, .L0814E6B0\n"
-        "    adds r1, r1, r0\n"
-        "    mov r2, sb\n"
-        "    lsls r0, r2, #1\n"
-        "    add r0, r8\n"
-        "    ldrb r1, [r1]\n"
-        "    ldrh r0, [r0]\n"
-        "    cmp r1, r0\n"
-        "    bne .L0814E644\n"
-        "    movs r5, #0\n"
-        "    ldrh r3, [r7, #2]\n"
-        "    cmp r5, r3\n"
-        "    bhs .L0814E644\n"
-        "    adds r1, r7, #0\n"
-        "    adds r1, #0xb0\n"
-        "    adds r0, r1, r6\n"
-        "    str r0, [sp, #0x14]\n"
-        "    mov r2, sl\n"
-        "    mov r4, sl\n"
-        ".L0814E60C:\n"
-        "    cmp r5, #0\n"
-        "    bne .L0814E616\n"
-        "    movs r0, #0x14\n"
-        "    ldr r3, [sp, #0x14]\n"
-        "    strh r0, [r3]\n"
-        ".L0814E616:\n"
-        "    adds r0, r2, r6\n"
-        "    ldrh r0, [r0]\n"
-        "    ldr r3, .L0814E6B4\n"
-        "    adds r0, r0, r3\n"
-        "    ldrb r0, [r0]\n"
-        "    ldrh r3, [r4]\n"
-        "    cmp r0, r3\n"
-        "    beq .L0814E6A0\n"
-        "    str r1, [sp, #8]\n"
-        "    str r2, [sp, #0xc]\n"
-        "    bl sub_0814E538\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r0, r0, #0x18\n"
-        "    ldr r1, [sp, #8]\n"
-        "    ldr r2, [sp, #0xc]\n"
-        "    cmp r0, #1\n"
-        "    beq .L0814E6A0\n"
-        "    adds r4, #2\n"
-        "    adds r5, #1\n"
-        "    ldrh r0, [r7, #2]\n"
-        "    cmp r5, r0\n"
-        "    blo .L0814E60C\n"
-        ".L0814E644:\n"
-        "    mov r1, sl\n"
-        "    adds r0, r1, r6\n"
-        "    ldrh r0, [r0]\n"
-        "    ldr r2, .L0814E6B0\n"
-        "    adds r0, r0, r2\n"
-        "    ldrb r0, [r0]\n"
-        "    bl sub_0814E538\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r0, r0, #0x18\n"
-        "    cmp r0, #1\n"
-        "    bne .L0814E6C2\n"
-        "    movs r5, #0\n"
-        "    ldrh r3, [r7, #2]\n"
-        "    cmp r5, r3\n"
-        "    bhs .L0814E6C2\n"
-        "    adds r1, r7, #0\n"
-        "    adds r1, #0xb0\n"
-        "    adds r2, r1, r6\n"
-        "    mov r4, r8\n"
-        ".L0814E66C:\n"
-        "    cmp r5, #0\n"
-        "    bne .L0814E674\n"
-        "    movs r0, #0x1e\n"
-        "    strh r0, [r2]\n"
-        ".L0814E674:\n"
-        "    mov r3, r8\n"
-        "    adds r0, r3, r6\n"
-        "    ldrh r0, [r0]\n"
-        "    ldr r3, .L0814E6B4\n"
-        "    adds r0, r0, r3\n"
-        "    ldrb r0, [r0]\n"
-        "    ldr r3, .L0814E6AC\n"
-        "    adds r0, r0, r3\n"
-        "    ldrb r0, [r0]\n"
-        "    ldrh r3, [r4]\n"
-        "    cmp r0, r3\n"
-        "    beq .L0814E6A0\n"
-        "    str r1, [sp, #8]\n"
-        "    str r2, [sp, #0xc]\n"
-        "    bl sub_0814E538\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r0, r0, #0x18\n"
-        "    ldr r1, [sp, #8]\n"
-        "    ldr r2, [sp, #0xc]\n"
-        "    cmp r0, #1\n"
-        "    bne .L0814E6B8\n"
-        ".L0814E6A0:\n"
-        "    adds r1, r1, r6\n"
-        "    movs r0, #2\n"
-        "    strh r0, [r1]\n"
-        "    b .L0814E6DC\n"
-        ".L0814E6A8: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
-        ".L0814E6AC: .4byte gUnknown_087A045C\n"
-        ".L0814E6B0: .4byte gUnknown_087A055B\n"
-        ".L0814E6B4: .4byte gUnknown_087A065A\n"
-        ".L0814E6B8:\n"
-        "    adds r4, #2\n"
-        "    adds r5, #1\n"
-        "    ldrh r0, [r7, #2]\n"
-        "    cmp r5, r0\n"
-        "    blo .L0814E66C\n"
-        ".L0814E6C2:\n"
-        "    movs r1, #1\n"
-        "    add sb, r1\n"
-        "    ldrh r2, [r7, #2]\n"
-        "    cmp sb, r2\n"
-        "    bhs .L0814E6CE\n"
-        "    b .L0814E5D0\n"
-        ".L0814E6CE:\n"
-        "    ldr r3, [sp, #4]\n"
-        "    adds r3, #1\n"
-        "    str r3, [sp, #4]\n"
-        "    ldrh r0, [r7, #2]\n"
-        "    cmp r3, r0\n"
-        "    bhs .L0814E6DC\n"
-        "    b .L0814E584\n"
-        ".L0814E6DC:\n"
-        "    add sp, #0x18\n"
-        "    pop {r3, r4, r5}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    mov sl, r5\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-    );
-}
-#endif
 
 // sub_0814E6EC @ 0x0814E6EC
 void sub_0814E6EC(u16 slot)
