@@ -2,63 +2,28 @@
 #include "battle.h"
 
 // sub_080F0B78 @ 0x080F0B78
-#ifdef NONMATCHING
-u32 sub_080F0B78(u8 who)
+u32 sub_080F0B78(u32 who)
 {
+    u8 slot;
     struct BattleFlow *b = BFLOW;
-    u8 slot = who - 0x10;
 
+    slot = who;
+    slot -= 0x10;
     if (Battle_IsTwoSided() && b->unk118C == 0)
     {
-        if (!sub_080EDA24(slot > 3 ? 1 : 0))
-            return 1;
+        if (slot <= 3)
+        {
+            if (!sub_080EDA24(0))
+                return 1;
+        }
+        else
+        {
+            if (!sub_080EDA24(1))
+                return 1;
+        }
     }
     return 0;
 }
-#else
-NAKED u32 sub_080F0B78(u8 who)
-{
-    asm_unified(
-        ".L080F0B78:\n"
-        "    push {r4, r5, lr}\n"
-        "    ldr r5, .L080F0BA0\n"
-        "    lsls r0, r0, #0x18\n"
-        "    movs r1, #0xf0\n"
-        "    lsls r1, r1, #0x18\n"
-        "    adds r0, r0, r1\n"
-        "    lsrs r4, r0, #0x18\n"
-        "    bl Battle_IsTwoSided\n"
-        "    cmp r0, #0\n"
-        "    beq .L080F0BB6\n"
-        "    ldr r1, .L080F0BA4\n"
-        "    adds r0, r5, r1\n"
-        "    ldrh r0, [r0]\n"
-        "    cmp r0, #0\n"
-        "    bne .L080F0BB6\n"
-        "    cmp r4, #3\n"
-        "    bhi .L080F0BA8\n"
-        "    movs r0, #0\n"
-        "    b .L080F0BAA\n"
-        ".L080F0BA0: .4byte 0x0203C200 @ EWRAM+0x3C200\n"
-        ".L080F0BA4: .4byte 0x0000118C\n"
-        ".L080F0BA8:\n"
-        "    movs r0, #1\n"
-        ".L080F0BAA:\n"
-        "    bl sub_080EDA24\n"
-        "    cmp r0, #0\n"
-        "    bne .L080F0BB6\n"
-        "    movs r0, #1\n"
-        "    b .L080F0BB8\n"
-        ".L080F0BB6:\n"
-        "    movs r0, #0\n"
-        ".L080F0BB8:\n"
-        "    pop {r4, r5}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // sub_080F0BC0 @ 0x080F0BC0
 void sub_080F0BC0(void)

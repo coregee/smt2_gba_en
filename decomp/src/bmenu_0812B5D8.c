@@ -89,7 +89,6 @@ void sub_0812B784(struct Task *task)
 }
 
 // sub_0812B794 @ 0x0812B794
-#ifdef NONMATCHING
 void sub_0812B794(struct Task *task)
 {
     u8 *rec = Action_GetRecord(task->data.raw[8]);
@@ -117,6 +116,8 @@ void sub_0812B794(struct Task *task)
     case 0:
     case 0x81:
         break;
+    case 0x84:
+        break;
     }
     if (n != 0)
     {
@@ -134,125 +135,6 @@ void sub_0812B794(struct Task *task)
         BattleMenu_SetMode(4, Menu_ExpandListTemplate(gUnknown_08124D72, 0));
     }
 }
-#else
-NAKED
-void sub_0812B794(struct Task *task)
-{
-    asm_unified(
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    sub sp, #4\n"
-        "    adds r7, r0, #0\n"
-        "    adds r0, #0x2c\n"
-        "    ldrb r0, [r0]\n"
-        "    bl Action_GetRecord\n"
-        "    movs r5, #0\n"
-        "    ldr r6, .L0812B7BC\n"
-        "    strh r5, [r7, #0x1e]\n"
-        "    ldrb r0, [r0, #3]\n"
-        "    cmp r0, #0x81\n"
-        "    beq .L0812B7F8\n"
-        "    cmp r0, #0x81\n"
-        "    bgt .L0812B7C0\n"
-        "    cmp r0, #0\n"
-        "    beq .L0812B7F8\n"
-        "    cmp r0, #0x80\n"
-        "    beq .L0812B7CA\n"
-        "    b .L0812B7F8\n"
-        ".L0812B7BC: .4byte 0x0203C200 @ EWRAM+0x3C200\n"
-        ".L0812B7C0:\n"
-        "    cmp r0, #0x83\n"
-        "    beq .L0812B7EE\n"
-        "    cmp r0, #0x83\n"
-        "    blt .L0812B7DC\n"
-        "    b .L0812B7F8\n"
-        ".L0812B7CA:\n"
-        "    ldr r0, [r6, #0x48]\n"
-        "    adds r0, #0x24\n"
-        "    ldrb r0, [r0]\n"
-        "    cmp r0, #1\n"
-        "    bne .L0812B7D8\n"
-        "    movs r0, #1\n"
-        "    b .L0812B7F0\n"
-        ".L0812B7D8:\n"
-        "    movs r0, #0\n"
-        "    b .L0812B7F0\n"
-        ".L0812B7DC:\n"
-        "    ldr r0, [r6, #0x48]\n"
-        "    adds r0, #0x24\n"
-        "    ldrb r0, [r0]\n"
-        "    cmp r0, #1\n"
-        "    bne .L0812B7EA\n"
-        "    movs r0, #1\n"
-        "    b .L0812B7F0\n"
-        ".L0812B7EA:\n"
-        "    movs r0, #0\n"
-        "    b .L0812B7F0\n"
-        ".L0812B7EE:\n"
-        "    movs r0, #6\n"
-        ".L0812B7F0:\n"
-        "    bl BattleMenu_BuildMemberList\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r5, r0, #0x10\n"
-        ".L0812B7F8:\n"
-        "    cmp r5, #0\n"
-        "    beq .L0812B86A\n"
-        "    ldr r0, [r6, #0x4c]\n"
-        "    bl Task_End\n"
-        "    ldr r0, [r6, #0x50]\n"
-        "    bl Task_End\n"
-        "    movs r4, #1\n"
-        "    str r4, [sp]\n"
-        "    movs r0, #1\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0xf\n"
-        "    movs r3, #0xa\n"
-        "    bl TextWindow_Create\n"
-        "    str r0, [r6, #0x4c]\n"
-        "    str r4, [sp]\n"
-        "    movs r0, #0x11\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0xc\n"
-        "    movs r3, #6\n"
-        "    bl TextWindow_Create\n"
-        "    str r0, [r6, #0x50]\n"
-        "    bl sub_081272AC\n"
-        "    cmp r5, #4\n"
-        "    bhi .L0812B842\n"
-        "    str r5, [sp]\n"
-        "    movs r0, #4\n"
-        "    movs r1, #0\n"
-        "    movs r2, #1\n"
-        "    adds r3, r5, #0\n"
-        "    bl sub_08126928\n"
-        "    b .L0812B852\n"
-        ".L0812B842:\n"
-        "    movs r0, #5\n"
-        "    str r0, [sp]\n"
-        "    movs r0, #4\n"
-        "    movs r1, #0x10\n"
-        "    movs r2, #1\n"
-        "    adds r3, r5, #0\n"
-        "    bl sub_08126928\n"
-        ".L0812B852:\n"
-        "    movs r0, #1\n"
-        "    strh r0, [r7, #0x1e]\n"
-        "    bl sub_080EA210\n"
-        "    ldr r0, .L0812B874\n"
-        "    movs r1, #0\n"
-        "    bl Menu_ExpandListTemplate\n"
-        "    adds r1, r0, #0\n"
-        "    movs r0, #4\n"
-        "    bl BattleMenu_SetMode\n"
-        ".L0812B86A:\n"
-        "    add sp, #4\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L0812B874: .4byte gUnknown_08124D72\n"
-    );
-}
-#endif
 
 // sub_0812B878 @ 0x0812B878
 void sub_0812B878(void)

@@ -568,179 +568,47 @@ u16 BattleMenu_BuildSkillList(u8 mode, u16 who)
 }
 
 // sub_0812C624 @ 0x0812C624
-#ifdef NONMATCHING
 void sub_0812C624(struct Task *task)
 {
     struct C127Block *blk = C127_BLOCK;
     u16 n = 0;
-    u16 who = gGameState.order[blk->unk691];
-    const u16 *tmpl;
+    u32 who = (u16)gGameState.order[blk->unk691];
     s32 r;
 
     task->pad1E = n;
     n = BattleMenu_BuildSkillList(task->data.raw[0], who);
     if (n == 0)
         goto none;
-    if (task->data.raw[0] == 2)
-        goto window;
-    if (sub_080F31E0())
+    if (task->data.raw[0] != 2)
     {
-        tmpl = gUnknown_08124F82;
-        goto show;
+        if (sub_080F31E0())
+        {
+            BattleMenu_SetMode(3, Menu_ExpandListTemplate(gUnknown_08124F82, 0));
+            task->pad1E = 1;
+            return;
+        }
+        r = sub_080F4410(who);
+        switch (r)
+        {
+        case 0:
+        none:
+            BattleMenu_SetMode(3, Menu_ExpandListTemplate(gUnknown_08124F46, 0));
+            task->pad1E = 1;
+            return;
+        case 1:
+            BattleMenu_SetMode(3, Menu_ExpandListTemplate(gUnknown_08124F60, who));
+            task->pad1E = r;
+            return;
+        }
     }
-    r = sub_080F4410(who);
-    if (r == 0)
-    {
-    none:
-        tmpl = gUnknown_08124F46;
-    show:
-        BattleMenu_SetMode(3, Menu_ExpandListTemplate(tmpl, 0));
-        task->pad1E = 1;
-    }
-    else if (r == 1)
-    {
-        BattleMenu_SetMode(3, Menu_ExpandListTemplate(gUnknown_08124F60, who));
-        task->pad1E = 1;
-    }
+    blk->unk4C = TextWindow_Create(1, 0, 0x13, 0xA, 1);
+    blk->unk50 = sub_080AB890(2, 0xD, 0x1A, 6, 0);
+    sub_081272AC();
+    if (n <= 4)
+        sub_08126928(4, 0, 1, n, n);
     else
-    {
-    window:
-        blk->unk4C = TextWindow_Create(1, 0, 0x13, 0xA, 1);
-        blk->unk50 = sub_080AB890(2, 0xD, 0x1A, 6, 0);
-        sub_081272AC();
-        if (n <= 4)
-            sub_08126928(4, 0, 1, n, n);
-        else
-            sub_08126928(4, 0x10, 1, n, 5);
-    }
+        sub_08126928(4, 0x10, 1, n, 5);
 }
-#else
-NAKED
-void sub_0812C624(struct Task *task)
-{
-    asm_unified(
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, r8\n"
-        "    push {r7}\n"
-        "    sub sp, #4\n"
-        "    adds r7, r0, #0\n"
-        "    ldr r0, .L0812C678\n"
-        "    mov r8, r0\n"
-        "    movs r6, #0\n"
-        "    ldr r0, .L0812C67C\n"
-        "    ldr r1, .L0812C680\n"
-        "    add r1, r8\n"
-        "    movs r2, #0xa2\n"
-        "    lsls r2, r2, #4\n"
-        "    adds r0, r0, r2\n"
-        "    ldrb r1, [r1]\n"
-        "    adds r0, r0, r1\n"
-        "    ldrb r0, [r0]\n"
-        "    lsls r0, r0, #0x18\n"
-        "    asrs r0, r0, #0x18\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r5, r0, #0x10\n"
-        "    strh r6, [r7, #0x1e]\n"
-        "    adds r4, r7, #0\n"
-        "    adds r4, #0x24\n"
-        "    ldrb r0, [r4]\n"
-        "    adds r1, r5, #0\n"
-        "    bl BattleMenu_BuildSkillList\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r6, r0, #0x10\n"
-        "    cmp r6, #0\n"
-        "    beq .L0812C69A\n"
-        "    ldrb r0, [r4]\n"
-        "    cmp r0, #2\n"
-        "    beq .L0812C6CC\n"
-        "    bl sub_080F31E0\n"
-        "    cmp r0, #0\n"
-        "    beq .L0812C688\n"
-        "    ldr r0, .L0812C684\n"
-        "    b .L0812C69C\n"
-        "    .byte 0x00, 0x00\n"
-        ".L0812C678: .4byte 0x0203C200 @ EWRAM+0x3C200\n"
-        ".L0812C67C: .4byte 0x030046C0 @ IWRAM+0x46C0\n"
-        ".L0812C680: .4byte 0x00000691\n"
-        ".L0812C684: .4byte gUnknown_08124F82\n"
-        ".L0812C688:\n"
-        "    adds r0, r5, #0\n"
-        "    bl sub_080F4410\n"
-        "    adds r4, r0, #0\n"
-        "    cmp r4, #0\n"
-        "    beq .L0812C69A\n"
-        "    cmp r4, #1\n"
-        "    beq .L0812C6B4\n"
-        "    b .L0812C6CC\n"
-        ".L0812C69A:\n"
-        "    ldr r0, .L0812C6B0\n"
-        ".L0812C69C:\n"
-        "    movs r1, #0\n"
-        "    bl Menu_ExpandListTemplate\n"
-        "    adds r1, r0, #0\n"
-        "    movs r0, #3\n"
-        "    bl BattleMenu_SetMode\n"
-        "    movs r0, #1\n"
-        "    strh r0, [r7, #0x1e]\n"
-        "    b .L0812C71A\n"
-        ".L0812C6B0: .4byte gUnknown_08124F46\n"
-        ".L0812C6B4:\n"
-        "    ldr r0, .L0812C6C8\n"
-        "    adds r1, r5, #0\n"
-        "    bl Menu_ExpandListTemplate\n"
-        "    adds r1, r0, #0\n"
-        "    movs r0, #3\n"
-        "    bl BattleMenu_SetMode\n"
-        "    strh r4, [r7, #0x1e]\n"
-        "    b .L0812C71A\n"
-        ".L0812C6C8: .4byte gUnknown_08124F60\n"
-        ".L0812C6CC:\n"
-        "    movs r0, #1\n"
-        "    str r0, [sp]\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0x13\n"
-        "    movs r3, #0xa\n"
-        "    bl TextWindow_Create\n"
-        "    mov r1, r8\n"
-        "    str r0, [r1, #0x4c]\n"
-        "    movs r0, #0\n"
-        "    str r0, [sp]\n"
-        "    movs r0, #2\n"
-        "    movs r1, #0xd\n"
-        "    movs r2, #0x1a\n"
-        "    movs r3, #6\n"
-        "    bl sub_080AB890\n"
-        "    mov r2, r8\n"
-        "    str r0, [r2, #0x50]\n"
-        "    bl sub_081272AC\n"
-        "    cmp r6, #4\n"
-        "    bhi .L0812C70A\n"
-        "    str r6, [sp]\n"
-        "    movs r0, #4\n"
-        "    movs r1, #0\n"
-        "    movs r2, #1\n"
-        "    adds r3, r6, #0\n"
-        "    bl sub_08126928\n"
-        "    b .L0812C71A\n"
-        ".L0812C70A:\n"
-        "    movs r0, #5\n"
-        "    str r0, [sp]\n"
-        "    movs r0, #4\n"
-        "    movs r1, #0x10\n"
-        "    movs r2, #1\n"
-        "    adds r3, r6, #0\n"
-        "    bl sub_08126928\n"
-        ".L0812C71A:\n"
-        "    add sp, #4\n"
-        "    pop {r3}\n"
-        "    mov r8, r3\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // sub_0812C728 @ 0x0812C728
 void sub_0812C728(struct Task *task)

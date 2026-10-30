@@ -289,87 +289,27 @@ void sub_080F5B98(struct Action *a)
 
 // sub_080F5C04 @ 0x080F5C04
 /* Heals the attacker by 3 x byte 3 of its skill record; 1 in 16 it gets status 0x40 instead. */
-#ifdef NONMATCHING
 void sub_080F5C04(struct Action *a)
 {
     s32 who = a->att;
     s32 skill = Combatant_GetChosenSkill(who);
-    s32 r;
 
-    if (Random_Byte() & 0xF)
+    if (!(Random_Byte() & 0xF))
     {
-        sub_080F40C4(Combatant_GetDemonId(who));
-        if (Combatant_IsHpFull(who) || (Combatant_GetStatus(who) & 0x4000))
-            r = 0;
-        else
-        {
-            Battle_HealHp(who, sub_080BF5C0(skill)[3] * 3);
-            r = 1;
-        }
+        sub_080C08E8(who, 0x40);
     }
     else
     {
-        sub_080C08E8(who, 0x40);
-        r = 0;
+        sub_080F40C4(Combatant_GetDemonId(who));
+        if (!Combatant_IsHpFull(who) && !(Combatant_GetStatus(who) & 0x4000))
+        {
+            Battle_HealHp(who, sub_080BF5C0(skill)[3] * 3);
+            a->unkC = 1;
+            return;
+        }
     }
-    a->unkC = r;
+    a->unkC = 0;
 }
-#else
-NAKED
-void sub_080F5C04(struct Action *a)
-{
-    asm_unified(
-        "    push {r4, r5, r6, lr}\n"
-        "    adds r5, r0, #0\n"
-        "    ldr r4, [r5]\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_GetChosenSkill\n"
-        "    adds r6, r0, #0\n"
-        "    bl Random_Byte\n"
-        "    movs r1, #0xf\n"
-        "    ands r1, r0\n"
-        "    cmp r1, #0\n"
-        "    beq .L080F5C5E\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_GetDemonId\n"
-        "    lsls r0, r0, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    bl sub_080F40C4\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_IsHpFull\n"
-        "    cmp r0, #0\n"
-        "    bne .L080F5C66\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_GetStatus\n"
-        "    movs r1, #0x80\n"
-        "    lsls r1, r1, #7\n"
-        "    ands r1, r0\n"
-        "    cmp r1, #0\n"
-        "    bne .L080F5C66\n"
-        "    lsls r0, r6, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    bl sub_080BF5C0\n"
-        "    ldrb r0, [r0, #3]\n"
-        "    lsls r1, r0, #1\n"
-        "    adds r1, r1, r0\n"
-        "    adds r0, r4, #0\n"
-        "    bl Battle_HealHp\n"
-        "    movs r0, #1\n"
-        "    b .L080F5C68\n"
-        ".L080F5C5E:\n"
-        "    adds r0, r4, #0\n"
-        "    movs r1, #0x40\n"
-        "    bl sub_080C08E8\n"
-        ".L080F5C66:\n"
-        "    movs r0, #0\n"
-        ".L080F5C68:\n"
-        "    str r0, [r5, #0xc]\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-    );
-}
-#endif
 
 // sub_080F5C70 @ 0x080F5C70
 void sub_080F5C70(struct Action *a)
@@ -422,7 +362,6 @@ void sub_080F5CD0(struct Action *a)
 // sub_080F5D28 @ 0x080F5D28
 /* Item: heals ((rand & 7) + 1) * 4 (kind 4) or * 6 (others) + level / 2 HP; past 998 or
    twice max HP the target is set to half max HP and gets status `kind`. */
-#ifdef NONMATCHING
 void sub_080F5D28(struct Action *a, u16 kind)
 {
     s32 who = a->def;
@@ -430,8 +369,7 @@ void sub_080F5D28(struct Action *a, u16 kind)
     u16 st;
     s32 hp;
 
-    st = Combatant_GetStatus(who) & 0x4000;
-    if (st)
+    if ((st = Combatant_GetStatus(who) & 0x4000))
     {
         Party_Remove(who, 0);
         a->unkC = 0;
@@ -453,115 +391,6 @@ void sub_080F5D28(struct Action *a, u16 kind)
     else
         a->unkC = st;
 }
-#else
-NAKED
-void sub_080F5D28(struct Action *a, u16 kind)
-{
-    asm_unified(
-        ".L080F5D28:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, r8\n"
-        "    push {r7}\n"
-        "    adds r5, r0, #0\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    mov r8, r1\n"
-        "    ldr r6, [r5, #4]\n"
-        "    adds r0, r6, #0\n"
-        "    bl Battle_GetMaxHp\n"
-        "    adds r7, r0, #0\n"
-        "    adds r0, r6, #0\n"
-        "    bl Combatant_GetStatus\n"
-        "    movs r1, #0x80\n"
-        "    lsls r1, r1, #7\n"
-        "    ands r1, r0\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r4, r1, #0x10\n"
-        "    cmp r4, #0\n"
-        "    beq .L080F5D64\n"
-        "    lsls r0, r6, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    movs r1, #0\n"
-        "    bl Party_Remove\n"
-        "    movs r0, #0\n"
-        "    str r0, [r5, #0xc]\n"
-        "    b .L080F5DF6\n"
-        ".L080F5D64:\n"
-        "    adds r0, r6, #0\n"
-        "    bl Combatant_IsDead\n"
-        "    cmp r0, #0\n"
-        "    bne .L080F5DF4\n"
-        "    mov r0, r8\n"
-        "    cmp r0, #4\n"
-        "    bne .L080F5D9C\n"
-        "    bl Random_Byte\n"
-        "    adds r4, r0, #0\n"
-        "    adds r0, r6, #0\n"
-        "    bl Battle_GetHp\n"
-        "    adds r5, r0, #0\n"
-        "    adds r0, r6, #0\n"
-        "    bl Combatant_GetLevel\n"
-        "    lsls r0, r0, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    movs r1, #2\n"
-        "    bl Math_DivRound\n"
-        "    movs r1, #7\n"
-        "    ands r1, r4\n"
-        "    adds r1, #1\n"
-        "    lsls r1, r1, #2\n"
-        "    b .L080F5DC6\n"
-        ".L080F5D9C:\n"
-        "    bl Random_Byte\n"
-        "    adds r4, r0, #0\n"
-        "    adds r0, r6, #0\n"
-        "    bl Battle_GetHp\n"
-        "    adds r5, r0, #0\n"
-        "    adds r0, r6, #0\n"
-        "    bl Combatant_GetLevel\n"
-        "    lsls r0, r0, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    movs r1, #2\n"
-        "    bl Math_DivRound\n"
-        "    movs r2, #7\n"
-        "    ands r2, r4\n"
-        "    adds r2, #1\n"
-        "    lsls r1, r2, #1\n"
-        "    adds r1, r1, r2\n"
-        "    lsls r1, r1, #1\n"
-        ".L080F5DC6:\n"
-        "    adds r1, r1, r5\n"
-        "    adds r4, r1, r0\n"
-        "    ldr r0, .L080F5DF0\n"
-        "    cmp r4, r0\n"
-        "    bgt .L080F5DD6\n"
-        "    lsls r0, r7, #1\n"
-        "    cmp r4, r0\n"
-        "    ble .L080F5DE4\n"
-        ".L080F5DD6:\n"
-        "    lsrs r0, r7, #0x1f\n"
-        "    adds r0, r7, r0\n"
-        "    asrs r4, r0, #1\n"
-        "    adds r0, r6, #0\n"
-        "    mov r1, r8\n"
-        "    bl sub_080C08E8\n"
-        ".L080F5DE4:\n"
-        "    adds r0, r6, #0\n"
-        "    adds r1, r4, #0\n"
-        "    bl Battle_SetHp\n"
-        "    b .L080F5DF6\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080F5DF0: .4byte 0x000003E6\n"
-        ".L080F5DF4:\n"
-        "    str r4, [r5, #0xc]\n"
-        ".L080F5DF6:\n"
-        "    pop {r3}\n"
-        "    mov r8, r3\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-    );
-}
-#endif
 
 // sub_080F5E00 @ 0x080F5E00
 void sub_080F5E00(struct Action *a)
@@ -616,11 +445,12 @@ void sub_080F5E10(struct Action *a)
 
 // sub_080F5ED8 @ 0x080F5ED8
 /* Item: full HP and MP, cures status bits 0x73FE. */
-#ifdef NONMATCHING
 void sub_080F5ED8(struct Action *a)
 {
     s32 who = a->def;
     s32 n = 0;
+    u32 st;
+    u32 m;
 
     if (Combatant_GetStatus(who) & 0x4000)
     {
@@ -639,7 +469,10 @@ void sub_080F5ED8(struct Action *a)
             Combatant_RestoreMp(who);
             n++;
         }
-        if ((Combatant_GetStatus(who) << 16) & (0x73FE << 16))
+        st = Combatant_GetStatus(who) << 16;
+        m = 0x73FE << 16;
+        m &= st;
+        if (m)
         {
             Combatant_ClearStatus(who, (u16)~0x73FE);
             n++;
@@ -651,73 +484,6 @@ void sub_080F5ED8(struct Action *a)
         a->unkC = n;
     }
 }
-#else
-NAKED
-void sub_080F5ED8(struct Action *a)
-{
-    asm_unified(
-        "    push {r4, r5, r6, lr}\n"
-        "    adds r6, r0, #0\n"
-        "    ldr r4, [r6, #4]\n"
-        "    movs r5, #0\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_GetStatus\n"
-        "    movs r1, #0x80\n"
-        "    lsls r1, r1, #7\n"
-        "    ands r1, r0\n"
-        "    cmp r1, #0\n"
-        "    beq .L080F5EFC\n"
-        "    lsls r0, r4, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    movs r1, #0\n"
-        "    bl Party_Remove\n"
-        "    b .L080F5F48\n"
-        ".L080F5EFC:\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_IsDead\n"
-        "    cmp r0, #0\n"
-        "    bne .L080F5F44\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_IsHpFull\n"
-        "    cmp r0, #0\n"
-        "    bne .L080F5F18\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_RestoreHp\n"
-        "    movs r5, #1\n"
-        ".L080F5F18:\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_IsMpFull\n"
-        "    cmp r0, #0\n"
-        "    bne .L080F5F2A\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_RestoreMp\n"
-        "    adds r5, #1\n"
-        ".L080F5F2A:\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_GetStatus\n"
-        "    lsls r0, r0, #0x10\n"
-        "    ldr r1, .L080F5F50\n"
-        "    ands r1, r0\n"
-        "    cmp r1, #0\n"
-        "    beq .L080F5F44\n"
-        "    ldr r1, .L080F5F54\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_ClearStatus\n"
-        "    adds r5, #1\n"
-        ".L080F5F44:\n"
-        "    cmp r5, #0\n"
-        "    bne .L080F5F4A\n"
-        ".L080F5F48:\n"
-        "    str r5, [r6, #0xc]\n"
-        ".L080F5F4A:\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L080F5F50: .4byte 0x73FE0000\n"
-        ".L080F5F54: .4byte 0x00008C01\n"
-    );
-}
-#endif
 
 // sub_080F5F58 @ 0x080F5F58
 /* Item: revives with 1/8 of max HP; 1 in 64 it fails and the target stays dead. */

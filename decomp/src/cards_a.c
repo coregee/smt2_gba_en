@@ -59,48 +59,12 @@ void sub_080DD208(void)
 
 /* The map record's event script for a demon id, or NULL past the table. */
 // Dict_GetMapScript @ 0x080DD21C
-#ifdef NONMATCHING
 const void *Dict_GetMapScript(u16 id)
 {
-    const void *script;
-
-    if (id <= 0x17B)
-        script = (gUnknown_08583E84 + id)->script;
-    else
-        script = NULL;
-    return script;
+    if (id > 0x17B)
+        return NULL;
+    return gUnknown_08583E84[id].script;
 }
-#else
-NAKED
-const void *Dict_GetMapScript(u16 id)
-{
-    asm_unified(
-        ".L080DD21C:\n"
-        "    push {lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r2, r0, #0x10\n"
-        "    ldr r0, .L080DD238\n"
-        "    cmp r2, r0\n"
-        "    bhi .L080DD240\n"
-        "    ldr r0, .L080DD23C\n"
-        "    lsls r1, r2, #2\n"
-        "    adds r1, r1, r2\n"
-        "    lsls r1, r1, #2\n"
-        "    adds r1, r1, r0\n"
-        "    ldr r0, [r1]\n"
-        "    b .L080DD242\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080DD238: .4byte 0x0000017B\n"
-        ".L080DD23C: .4byte gUnknown_08583E84\n"
-        ".L080DD240:\n"
-        "    movs r0, #0\n"
-        ".L080DD242:\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 /* Whether a demon can be listed: always for ids up to 0xFE after sub_080C2600, otherwise
    only when it has a map record script. */

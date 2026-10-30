@@ -4,16 +4,16 @@
 // sub_080F60A4 @ 0x080F60A4
 /* Alignment-keyed item/skill: a target of alignment `al` is healed and cured (result 1);
    others lose 1/2 (1/8 when neutral) of their HP (result 2, damage in a->dmg). */
-#ifdef NONMATCHING
 void sub_080F60A4(struct Action *a, s32 al)
 {
     s32 who = a->def;
-    u16 st;
+    u32 st;
+    u16 s;
     s32 d;
+    u32 m;
 
     a->unkC = 0;
-    st = Combatant_GetStatus(who) & 0x4000;
-    if (st)
+    if ((s = Combatant_GetStatus(who) & 0x4000))
         a->unkC = 3;
     else if (!Combatant_IsDead(who))
     {
@@ -21,7 +21,10 @@ void sub_080F60A4(struct Action *a, s32 al)
         {
             if (!Combatant_IsHpFull(who))
                 Combatant_RestoreHp(who);
-            if (Combatant_GetStatus(who) & 0x33FE)
+            st = Combatant_GetStatus(who) << 16;
+            m = 0x33FE << 16;
+            m &= st;
+            if (m)
                 Combatant_ClearStatus(who, (u16)~0x33FE);
             a->unkC = 1;
         }
@@ -41,106 +44,8 @@ void sub_080F60A4(struct Action *a, s32 al)
         }
     }
     else
-        a->unkC = st;
+        a->unkC = s;
 }
-#else
-NAKED
-void sub_080F60A4(struct Action *a, s32 al)
-{
-    asm_unified(
-        ".L080F60A4:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    adds r6, r0, #0\n"
-        "    adds r7, r1, #0\n"
-        "    ldr r5, [r6, #4]\n"
-        "    movs r0, #0\n"
-        "    str r0, [r6, #0xc]\n"
-        "    adds r0, r5, #0\n"
-        "    bl Combatant_GetStatus\n"
-        "    movs r1, #0x80\n"
-        "    lsls r1, r1, #7\n"
-        "    ands r1, r0\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r4, r1, #0x10\n"
-        "    cmp r4, #0\n"
-        "    beq .L080F60CA\n"
-        "    movs r0, #3\n"
-        "    str r0, [r6, #0xc]\n"
-        "    b .L080F615A\n"
-        ".L080F60CA:\n"
-        "    adds r0, r5, #0\n"
-        "    bl Combatant_IsDead\n"
-        "    cmp r0, #0\n"
-        "    bne .L080F6158\n"
-        "    adds r0, r5, #0\n"
-        "    bl Combatant_GetAlignment\n"
-        "    cmp r0, r7\n"
-        "    bne .L080F6114\n"
-        "    adds r0, r5, #0\n"
-        "    bl Combatant_IsHpFull\n"
-        "    cmp r0, #0\n"
-        "    bne .L080F60EE\n"
-        "    adds r0, r5, #0\n"
-        "    bl Combatant_RestoreHp\n"
-        ".L080F60EE:\n"
-        "    adds r0, r5, #0\n"
-        "    bl Combatant_GetStatus\n"
-        "    lsls r0, r0, #0x10\n"
-        "    ldr r1, .L080F610C\n"
-        "    ands r1, r0\n"
-        "    cmp r1, #0\n"
-        "    beq .L080F6106\n"
-        "    ldr r1, .L080F6110\n"
-        "    adds r0, r5, #0\n"
-        "    bl Combatant_ClearStatus\n"
-        ".L080F6106:\n"
-        "    movs r0, #1\n"
-        "    str r0, [r6, #0xc]\n"
-        "    b .L080F615A\n"
-        ".L080F610C: .4byte 0x33FE0000\n"
-        ".L080F6110: .4byte 0x0000CC01\n"
-        ".L080F6114:\n"
-        "    adds r0, r5, #0\n"
-        "    bl Combatant_GetAlignment\n"
-        "    cmp r0, #1\n"
-        "    bne .L080F6128\n"
-        "    adds r0, r5, #0\n"
-        "    bl Battle_GetHp\n"
-        "    movs r1, #8\n"
-        "    b .L080F6130\n"
-        ".L080F6128:\n"
-        "    adds r0, r5, #0\n"
-        "    bl Battle_GetHp\n"
-        "    movs r1, #2\n"
-        ".L080F6130:\n"
-        "    bl Math_DivRound\n"
-        "    adds r4, r0, #0\n"
-        "    str r4, [r6, #0x18]\n"
-        "    adds r0, r5, #0\n"
-        "    bl Battle_GetHp\n"
-        "    subs r4, r0, r4\n"
-        "    cmp r4, #0\n"
-        "    ble .L080F614E\n"
-        "    adds r0, r5, #0\n"
-        "    adds r1, r4, #0\n"
-        "    bl Battle_SetHp\n"
-        "    b .L080F6152\n"
-        ".L080F614E:\n"
-        "    movs r0, #0\n"
-        "    str r0, [r6, #0x18]\n"
-        ".L080F6152:\n"
-        "    movs r0, #2\n"
-        "    str r0, [r6, #0xc]\n"
-        "    b .L080F615A\n"
-        ".L080F6158:\n"
-        "    str r4, [r6, #0xc]\n"
-        ".L080F615A:\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-    );
-}
-#endif
 
 // sub_080F6160 @ 0x080F6160
 void sub_080F6160(struct Action *a)

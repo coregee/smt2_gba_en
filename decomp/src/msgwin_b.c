@@ -98,9 +98,8 @@ void sub_08130344(struct Task *task)
 
 /* Old-style definition: callers pass `who` unnarrowed. The signed stat byte of member `who` that item `item` (0x9D-0xA5) raises. */
 // sub_08130364 @ 0x08130364
-#ifdef NONMATCHING
 u16 sub_08130364(who, item)
-    u16 who;
+    s16 who;
     u16 item;
 {
     s8 *stats = (s8 *)Battle_GetCombatant(who + 0x8000) + 0x38;
@@ -125,84 +124,6 @@ u16 sub_08130364(who, item)
     }
     return 0;
 }
-#else
-NAKED
-u16 sub_08130364(who, item)
-    u16 who;
-    u16 item;
-{
-    asm_unified(
-        ".L08130364:\n"
-        "    push {r4, lr}\n"
-        "    adds r4, r1, #0\n"
-        "    lsls r4, r4, #0x10\n"
-        "    lsrs r4, r4, #0x10\n"
-        "    lsls r0, r0, #0x10\n"
-        "    movs r1, #0x80\n"
-        "    lsls r1, r1, #0x18\n"
-        "    adds r0, r0, r1\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    bl Battle_GetCombatant\n"
-        "    adds r2, r0, #0\n"
-        "    adds r2, #0x38\n"
-        "    adds r0, r4, #0\n"
-        "    subs r0, #0x9d\n"
-        "    cmp r0, #8\n"
-        "    bhi .L081303E0\n"
-        "    lsls r0, r0, #2\n"
-        "    ldr r1, .L08130390\n"
-        "    adds r0, r0, r1\n"
-        "    ldr r0, [r0]\n"
-        "    mov pc, r0\n"
-        ".L08130390: .4byte gUnknown_08130394\n"
-        "    .global gUnknown_08130394\n"
-        "gUnknown_08130394:\n"
-        ".L08130394: @ jump table\n"
-        "    .4byte .L081303B8\n"
-        "    .4byte .L081303BE\n"
-        "    .4byte .L081303C4\n"
-        "    .4byte .L081303CA\n"
-        "    .4byte .L081303D0\n"
-        "    .4byte .L081303D6\n"
-        "    .4byte .L081303B8\n"
-        "    .4byte .L081303BE\n"
-        "    .4byte .L081303C4\n"
-        ".L081303B8:\n"
-        "    movs r0, #0\n"
-        "    ldrsb r0, [r2, r0]\n"
-        "    b .L081303DA\n"
-        ".L081303BE:\n"
-        "    movs r0, #1\n"
-        "    ldrsb r0, [r2, r0]\n"
-        "    b .L081303DA\n"
-        ".L081303C4:\n"
-        "    movs r0, #2\n"
-        "    ldrsb r0, [r2, r0]\n"
-        "    b .L081303DA\n"
-        ".L081303CA:\n"
-        "    movs r0, #3\n"
-        "    ldrsb r0, [r2, r0]\n"
-        "    b .L081303DA\n"
-        ".L081303D0:\n"
-        "    movs r0, #4\n"
-        "    ldrsb r0, [r2, r0]\n"
-        "    b .L081303DA\n"
-        ".L081303D6:\n"
-        "    movs r0, #5\n"
-        "    ldrsb r0, [r2, r0]\n"
-        ".L081303DA:\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    b .L081303E2\n"
-        ".L081303E0:\n"
-        "    movs r0, #0\n"
-        ".L081303E2:\n"
-        "    pop {r4}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-    );
-}
-#endif
 
 // sub_081303E8 @ 0x081303E8
 void sub_081303E8(struct Task *task)

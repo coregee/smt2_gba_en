@@ -775,87 +775,26 @@ void sub_080DAFEC(void)
 /* Starts the selected vision: clears the field state, sets the windows and loads the
    vision's script. */
 // sub_080DB000 @ 0x080DB000
-#ifdef NONMATCHING
 void sub_080DB000(struct Task *task)
 {
+    u8 *p;
+
     DmaFill32_3(0, &gFieldState, 0x85000029);
-    gUnk_03000039 = 0x3F;
+    p = &gUnk_03000038;
+    {
+        u8 v = 0x3F;
+        gUnk_03000039 = v;
+    }
     gUnk_03000030 = 0xE8;
     gUnk_03000031 = 8;
     gUnk_03000034 = 0x98;
     gUnk_03000035 = 0x60;
-    gUnk_03000038 = 0x37;
-    sub_080AF218(0x24, gUnknown_085829CC[gUnk_0203B454[task->data.h[0] + task->data.h[1]] - 300]);
+    *p = 0x37;
+    {
+        u16 *t = gUnk_0203B454;
+        sub_080AF218(0x24, gUnknown_085829CC[t[task->data.h[0] + task->data.h[1]] - 300]);
+    }
 }
-#else
-NAKED
-void sub_080DB000(struct Task *task)
-{
-    asm_unified(
-        "    push {lr}\n"
-        "    sub sp, #4\n"
-        "    movs r1, #0\n"
-        "    str r1, [sp]\n"
-        "    ldr r2, .L080DB064\n"
-        "    mov r1, sp\n"
-        "    str r1, [r2]\n"
-        "    ldr r1, .L080DB068\n"
-        "    str r1, [r2, #4]\n"
-        "    ldr r1, .L080DB06C\n"
-        "    str r1, [r2, #8]\n"
-        "    ldr r1, [r2, #8]\n"
-        "    ldr r3, .L080DB070\n"
-        "    movs r2, #0x3f\n"
-        "    ldr r1, .L080DB074\n"
-        "    strb r2, [r1]\n"
-        "    ldr r2, .L080DB078\n"
-        "    movs r1, #0xe8\n"
-        "    strb r1, [r2]\n"
-        "    ldr r2, .L080DB07C\n"
-        "    movs r1, #8\n"
-        "    strb r1, [r2]\n"
-        "    ldr r2, .L080DB080\n"
-        "    movs r1, #0x98\n"
-        "    strb r1, [r2]\n"
-        "    ldr r2, .L080DB084\n"
-        "    movs r1, #0x60\n"
-        "    strb r1, [r2]\n"
-        "    movs r1, #0x37\n"
-        "    strb r1, [r3]\n"
-        "    ldr r2, .L080DB088\n"
-        "    ldr r3, .L080DB08C\n"
-        "    ldrh r1, [r0, #0x24]\n"
-        "    ldrh r0, [r0, #0x26]\n"
-        "    adds r1, r1, r0\n"
-        "    lsls r1, r1, #1\n"
-        "    adds r1, r1, r2\n"
-        "    ldrh r0, [r1]\n"
-        "    ldr r1, .L080DB090\n"
-        "    adds r0, r0, r1\n"
-        "    lsls r0, r0, #2\n"
-        "    adds r0, r0, r3\n"
-        "    ldr r1, [r0]\n"
-        "    movs r0, #0x24\n"
-        "    bl sub_080AF218\n"
-        "    add sp, #4\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080DB064: .4byte 0x040000D4 @ REG_DMA3SAD\n"
-        ".L080DB068: .4byte 0x03004550 @ IWRAM+0x4550\n"
-        ".L080DB06C: .4byte 0x85000029\n"
-        ".L080DB070: .4byte 0x03000038 @ IWRAM+0x38\n"
-        ".L080DB074: .4byte 0x03000039 @ IWRAM+0x39\n"
-        ".L080DB078: .4byte 0x03000030 @ IWRAM+0x30\n"
-        ".L080DB07C: .4byte 0x03000031 @ IWRAM+0x31\n"
-        ".L080DB080: .4byte 0x03000034 @ IWRAM+0x34\n"
-        ".L080DB084: .4byte 0x03000035 @ IWRAM+0x35\n"
-        ".L080DB088: .4byte 0x0203B454 @ EWRAM+0x3B454\n"
-        ".L080DB08C: .4byte gUnknown_085829CC\n"
-        ".L080DB090: .4byte 0xFFFFFED4\n"
-    );
-}
-#endif
 
 // sub_080DB094 @ 0x080DB094
 void sub_080DB094(struct Task *task)

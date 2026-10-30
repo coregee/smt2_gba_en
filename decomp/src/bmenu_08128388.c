@@ -137,7 +137,6 @@ void BattleMenu_DrawMp(u16 cur, u16 max)
 }
 
 // sub_0812876C @ 0x0812876C
-#ifdef NONMATCHING
 void sub_0812876C(u16 value, u8 tint)
 {
     u8 *canvas = PANEL;
@@ -157,12 +156,14 @@ void sub_0812876C(u16 value, u8 tint)
     n = 4;
     if (b[3] == 0)
     {
-        if (b[2] != 0)
-            n = 3;
-        else if (b[1] == 0)
+        if (b[2] == 0)
+        {
+            if (b[1] == 0)
+                n = 1;
             n = 2;
+        }
         else
-            n = 2;
+            n = 3;
     }
     while (n != 0)
     {
@@ -170,104 +171,6 @@ void sub_0812876C(u16 value, u8 tint)
         n--;
     }
 }
-#else
-NAKED
-void sub_0812876C(u16 value, u8 tint)
-{
-    asm_unified(
-        ".L0812876C:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    sub sp, #8\n"
-        "    adds r6, r0, #0\n"
-        "    lsls r6, r6, #0x10\n"
-        "    lsrs r6, r6, #0x10\n"
-        "    lsls r1, r1, #0x18\n"
-        "    lsrs r7, r1, #0x18\n"
-        "    ldr r5, .L081287E8\n"
-        "    movs r4, #4\n"
-        "    str r4, [sp]\n"
-        "    movs r0, #0x23\n"
-        "    adds r1, r5, #0\n"
-        "    movs r2, #3\n"
-        "    movs r3, #0x1e\n"
-        "    bl DigitFont_DrawGlyphTinted\n"
-        "    str r4, [sp]\n"
-        "    movs r0, #0x2f\n"
-        "    adds r1, r5, #0\n"
-        "    movs r2, #0xb\n"
-        "    movs r3, #0x1e\n"
-        "    bl DigitFont_DrawGlyphTinted\n"
-        "    str r4, [sp]\n"
-        "    movs r0, #0x33\n"
-        "    adds r1, r5, #0\n"
-        "    movs r2, #0x13\n"
-        "    movs r3, #0x1e\n"
-        "    bl DigitFont_DrawGlyphTinted\n"
-        "    str r4, [sp]\n"
-        "    movs r0, #0x34\n"
-        "    adds r1, r5, #0\n"
-        "    movs r2, #0x1b\n"
-        "    movs r3, #0x1e\n"
-        "    bl DigitFont_DrawGlyphTinted\n"
-        "    adds r0, r6, #0\n"
-        "    bl NumberToDigits\n"
-        "    add r2, sp, #4\n"
-        "    ldrb r1, [r0]\n"
-        "    strb r1, [r2]\n"
-        "    adds r0, #1\n"
-        "    ldrb r1, [r0]\n"
-        "    strb r1, [r2, #1]\n"
-        "    adds r0, #1\n"
-        "    ldrb r1, [r0]\n"
-        "    strb r1, [r2, #2]\n"
-        "    adds r1, r2, #0\n"
-        "    ldrb r0, [r0, #1]\n"
-        "    strb r0, [r1, #3]\n"
-        "    movs r3, #4\n"
-        "    lsls r0, r0, #0x18\n"
-        "    cmp r0, #0\n"
-        "    bne .L08128818\n"
-        "    adds r0, r1, #0\n"
-        "    ldrb r0, [r0, #2]\n"
-        "    cmp r0, #0\n"
-        "    beq .L081287EC\n"
-        "    movs r3, #3\n"
-        "    b .L081287F2\n"
-        ".L081287E8: .4byte 0x03000AB4 @ IWRAM+0xAB4\n"
-        ".L081287EC:\n"
-        "    adds r0, r1, #0\n"
-        "    ldrb r0, [r0, #1]\n"
-        "    movs r3, #2\n"
-        ".L081287F2:\n"
-        "    subs r4, r3, #1\n"
-        "    mov r0, sp\n"
-        "    adds r0, r0, r4\n"
-        "    adds r0, #4\n"
-        "    ldrb r0, [r0]\n"
-        "    adds r0, #0x10\n"
-        "    ldr r1, .L08128824\n"
-        "    movs r2, #0xb\n"
-        "    subs r2, r2, r3\n"
-        "    lsls r2, r2, #3\n"
-        "    adds r2, #5\n"
-        "    lsls r2, r2, #0x10\n"
-        "    lsrs r2, r2, #0x10\n"
-        "    str r7, [sp]\n"
-        "    movs r3, #0x1e\n"
-        "    bl DigitFont_DrawGlyphTinted\n"
-        "    lsls r4, r4, #0x18\n"
-        "    lsrs r3, r4, #0x18\n"
-        ".L08128818:\n"
-        "    cmp r3, #0\n"
-        "    bne .L081287F2\n"
-        "    add sp, #8\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L08128824: .4byte 0x03000AB4 @ IWRAM+0xAB4\n"
-    );
-}
-#endif
 
 // BattleMenu_DrawStatus @ 0x08128828
 void BattleMenu_DrawStatus(u16 flags, u16 race)

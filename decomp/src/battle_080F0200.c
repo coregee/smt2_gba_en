@@ -192,7 +192,6 @@ NAKED void Battle_InitEnemyUnit(s32 slot, s32 id)
 #endif
 
 // sub_080F030C @ 0x080F030C
-#ifdef NONMATCHING
 u16 sub_080F030C(u16 a, u16 b)
 {
     u8 lvl = a >> 8;
@@ -200,53 +199,17 @@ u16 sub_080F030C(u16 a, u16 b)
     u16 v;
 
     if (n > 7)
-        n = (n & 7) + 1;
+    {
+        n &= 7;
+        n++;
+    }
     v = n * lvl;
     if (!(b & 0x80))
         v <<= 3;
     return v;
 }
-#else
-NAKED u16 sub_080F030C(u16 a, u16 b)
-{
-    asm_unified(
-        ".L080F030C:\n"
-        "    push {lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r2, r1, #0x10\n"
-        "    lsrs r3, r0, #0x18\n"
-        "    movs r1, #0xf0\n"
-        "    lsls r1, r1, #0xc\n"
-        "    ands r1, r0\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    cmp r1, #7\n"
-        "    bls .L080F0328\n"
-        "    movs r0, #7\n"
-        "    ands r1, r0\n"
-        "    adds r1, #1\n"
-        ".L080F0328:\n"
-        "    adds r0, r1, #0\n"
-        "    muls r0, r3, r0\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r1, r0, #0x10\n"
-        "    movs r0, #0x80\n"
-        "    ands r2, r0\n"
-        "    cmp r2, #0\n"
-        "    bne .L080F033C\n"
-        "    lsls r0, r1, #0x13\n"
-        "    lsrs r1, r0, #0x10\n"
-        ".L080F033C:\n"
-        "    adds r0, r1, #0\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // sub_080F0344 @ 0x080F0344
-#ifdef NONMATCHING
 void sub_080F0344(u16 kind, u16 v)
 {
     struct BattleFlow *b = BFLOW;
@@ -261,51 +224,10 @@ void sub_080F0344(u16 kind, u16 v)
         gUnk_030000AC = b->unk97E;
         b->unk97E = v;
         break;
+    case 0:
+        break;
     }
 }
-#else
-NAKED void sub_080F0344(u16 kind, u16 v)
-{
-    asm_unified(
-        ".L080F0344:\n"
-        "    push {lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r3, r1, #0x10\n"
-        "    ldr r1, .L080F0360\n"
-        "    cmp r0, #3\n"
-        "    beq .L080F0364\n"
-        "    cmp r0, #3\n"
-        "    ble .L080F0380\n"
-        "    cmp r0, #4\n"
-        "    beq .L080F0374\n"
-        "    b .L080F0380\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080F0360: .4byte 0x0203C200 @ EWRAM+0x3C200\n"
-        ".L080F0364:\n"
-        "    ldr r2, .L080F036C\n"
-        "    ldr r0, .L080F0370\n"
-        "    b .L080F0378\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080F036C: .4byte 0x030000AC @ IWRAM+0xAC\n"
-        ".L080F0370: .4byte 0x0000097C\n"
-        ".L080F0374:\n"
-        "    ldr r2, .L080F0384\n"
-        "    ldr r0, .L080F0388\n"
-        ".L080F0378:\n"
-        "    adds r1, r1, r0\n"
-        "    ldrh r0, [r1]\n"
-        "    strh r0, [r2]\n"
-        "    strh r3, [r1]\n"
-        ".L080F0380:\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L080F0384: .4byte 0x030000AC @ IWRAM+0xAC\n"
-        ".L080F0388: .4byte 0x0000097E\n"
-    );
-}
-#endif
 
 // sub_080F038C @ 0x080F038C
 s16 sub_080F038C(s16 who, u8 *c)

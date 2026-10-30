@@ -209,12 +209,10 @@ void sub_080F4ED8(struct Action *a)
 
 // sub_080F4EE8 @ 0x080F4EE8
 /* Cures the status bits of ailment `kind` (sub_080ED794) on the defender. */
-#ifdef NONMATCHING
 void sub_080F4EE8(struct Action *a, s32 kind)
 {
     u16 mask = sub_080ED794(kind);
     s32 who = a->def;
-    s32 r;
 
     if (!Combatant_IsDead(who))
     {
@@ -222,59 +220,12 @@ void sub_080F4EE8(struct Action *a, s32 kind)
         if (Combatant_GetStatus(who) & mask)
         {
             Combatant_ClearStatus(who, (u16)~mask);
-            r = 1;
-            goto done;
+            a->unkC = 1;
+            return;
         }
     }
-    r = 0;
-done:
-    a->unkC = r;
+    a->unkC = 0;
 }
-#else
-NAKED
-void sub_080F4EE8(struct Action *a, s32 kind)
-{
-    asm_unified(
-        ".L080F4EE8:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    adds r5, r0, #0\n"
-        "    adds r0, r1, #0\n"
-        "    bl sub_080ED794\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r6, r0, #0x10\n"
-        "    ldr r4, [r5, #4]\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_IsDead\n"
-        "    cmp r0, #0\n"
-        "    bne .L080F4F2E\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_GetDemonId\n"
-        "    lsls r0, r0, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    bl sub_080F40C4\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_GetStatus\n"
-        "    adds r1, r6, #0\n"
-        "    ands r1, r0\n"
-        "    cmp r1, #0\n"
-        "    beq .L080F4F2E\n"
-        "    mvns r1, r6\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    adds r0, r4, #0\n"
-        "    bl Combatant_ClearStatus\n"
-        "    movs r0, #1\n"
-        "    b .L080F4F30\n"
-        ".L080F4F2E:\n"
-        "    movs r0, #0\n"
-        ".L080F4F30:\n"
-        "    str r0, [r5, #0xc]\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-    );
-}
-#endif
 
 // sub_080F4F38 @ 0x080F4F38
 void sub_080F4F38(struct Action *a)

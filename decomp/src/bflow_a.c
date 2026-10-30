@@ -1364,66 +1364,20 @@ u32 sub_080ECB6C(u16 id, u8 bank)
 }
 
 // sub_080ECB98 @ 0x080ECB98
-#ifdef NONMATCHING
 u32 sub_080ECB98(u16 id, u8 bank)
 {
     const struct PortraitInfo *info = &gUnknown_0876CE10[id];
+    u16 *pal;
 
     LZ77UnCompWram(gBgPictureBuffer, gUnk_030000B4 + bank * 0x800);
     if (bank == 0)
     {
-        Palette_CopyWithEffect(3, info->palette, &gPaletteBuffer[0x1C0], 0x40, 0x20);
+        pal = &gPaletteBuffer[0x1C0];
+        Palette_CopyWithEffect(3, info->palette, pal, 0x40, 0x20);
         Palette_MarkDirty();
     }
     return 0;
 }
-#else
-NAKED
-u32 sub_080ECB98(u16 id, u8 bank)
-{
-    asm_unified(
-        ".L080ECB98:\n"
-        "    push {r4, r5, lr}\n"
-        "    sub sp, #4\n"
-        "    adds r4, r1, #0\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    lsls r4, r4, #0x18\n"
-        "    lsrs r4, r4, #0x18\n"
-        "    lsls r1, r0, #1\n"
-        "    adds r1, r1, r0\n"
-        "    lsls r1, r1, #3\n"
-        "    ldr r0, .L080ECBE0\n"
-        "    adds r5, r1, r0\n"
-        "    ldr r0, .L080ECBE4\n"
-        "    lsls r1, r4, #0xb\n"
-        "    ldr r2, .L080ECBE8\n"
-        "    adds r1, r1, r2\n"
-        "    bl LZ77UnCompWram\n"
-        "    cmp r4, #0\n"
-        "    bne .L080ECBD4\n"
-        "    ldr r2, .L080ECBEC\n"
-        "    ldr r1, [r5, #4]\n"
-        "    movs r0, #0x20\n"
-        "    str r0, [sp]\n"
-        "    movs r0, #3\n"
-        "    movs r3, #0x40\n"
-        "    bl Palette_CopyWithEffect\n"
-        "    bl Palette_MarkDirty\n"
-        ".L080ECBD4:\n"
-        "    movs r0, #0\n"
-        "    add sp, #4\n"
-        "    pop {r4, r5}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080ECBE0: .4byte gUnknown_0876CE10\n"
-        ".L080ECBE4: .4byte 0x0200AFC8 @ EWRAM+0xAFC8\n"
-        ".L080ECBE8: .4byte 0x030000B4 @ IWRAM+0xB4\n"
-        ".L080ECBEC: .4byte 0x03003130 @ IWRAM+0x3130\n"
-    );
-}
-#endif
 
 // sub_080ECBF0 @ 0x080ECBF0
 void sub_080ECBF0(u32 unused, u32 bank)

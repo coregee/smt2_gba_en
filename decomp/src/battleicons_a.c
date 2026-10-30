@@ -58,54 +58,15 @@ void sub_080E724C(void)
 }
 
 // sub_080E7318 @ 0x080E7318
-#ifdef NONMATCHING
 void sub_080E7318(void)
 {
-    DmaSet3Wait(gUnk_030010B4 + gUnk_030063C0 * 128, 0x06011500 + gUnk_030063C0 * 128, 0x84000020);
+    DmaSet(3, gUnk_030010B4 + gUnk_030063C0 * 128, 0x06011500 + gUnk_030063C0 * 128, 0x84000020);
+    {
+        vu32 *dmaRegs = (vu32 *)(REG_BASE + 0xD4);
+        while (dmaRegs[2] & 0x80000000)
+            ;
+    }
 }
-#else
-NAKED
-void sub_080E7318(void)
-{
-    asm_unified(
-        "    push {lr}\n"
-        "    ldr r2, .L080E7350\n"
-        "    ldr r3, .L080E7354\n"
-        "    ldrb r0, [r3]\n"
-        "    lsls r0, r0, #7\n"
-        "    ldr r1, .L080E7358\n"
-        "    adds r0, r0, r1\n"
-        "    str r0, [r2]\n"
-        "    ldrb r0, [r3]\n"
-        "    lsls r0, r0, #7\n"
-        "    ldr r1, .L080E735C\n"
-        "    adds r0, r0, r1\n"
-        "    str r0, [r2, #4]\n"
-        "    ldr r0, .L080E7360\n"
-        "    str r0, [r2, #8]\n"
-        "    ldr r0, [r2, #8]\n"
-        "    ldr r0, [r2, #8]\n"
-        "    movs r1, #0x80\n"
-        "    lsls r1, r1, #0x18\n"
-        "    cmp r0, #0\n"
-        "    bge .L080E734A\n"
-        ".L080E7342:\n"
-        "    ldr r0, [r2, #8]\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    bne .L080E7342\n"
-        ".L080E734A:\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080E7350: .4byte 0x040000D4 @ REG_DMA3SAD\n"
-        ".L080E7354: .4byte 0x030063C0 @ IWRAM+0x63C0\n"
-        ".L080E7358: .4byte 0x030010B4 @ IWRAM+0x10B4\n"
-        ".L080E735C: .4byte 0x06011500 @ VRAM+0x11500\n"
-        ".L080E7360: .4byte 0x84000020\n"
-    );
-}
-#endif
 
 // sub_080E7364 @ 0x080E7364
 void sub_080E7364(void)

@@ -80,18 +80,16 @@ s16 Party_CountDemons(void)
 }
 
 // sub_080F4608 @ 0x080F4608
-#ifdef NONMATCHING
-void sub_080F4608(u16 kind_, u16 arg_)
+void sub_080F4608(u16 kind, u16 arg)
 {
-    s16 kind = kind_;
-    s16 arg = arg_;
-    s16 x;
-    s16 y;
-    s32 w = 5;
+    u16 x;
+    u16 y;
+    s16 w = 5;
+    s16 k = kind;
 
-    if (kind <= 3)
+    if (k <= 3)
     {
-        switch (kind)
+        switch (k)
         {
         case 0:
             x = 0x50;
@@ -114,79 +112,12 @@ void sub_080F4608(u16 kind_, u16 arg_)
     }
     else
     {
-        kind -= 4;
+        kind = k - 4;
         x = 0x50;
         y = 0xF;
     }
-    Battle_StartPaletteFlash(kind, x, y, w, arg);
+    Battle_StartPaletteFlash((s16)kind, (s16)x, (s16)y, w, (s16)arg);
 }
-#else
-NAKED
-void sub_080F4608(u16 kind_, u16 arg_)
-{
-    asm_unified(
-        ".L080F4608:\n"
-        "    push {r4, r5, lr}\n"
-        "    sub sp, #4\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r4, r1, #0x10\n"
-        "    movs r5, #5\n"
-        "    lsrs r1, r0, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    cmp r0, #3\n"
-        "    bgt .L080F4646\n"
-        "    cmp r0, #1\n"
-        "    beq .L080F4634\n"
-        "    cmp r0, #1\n"
-        "    bgt .L080F462A\n"
-        "    cmp r0, #0\n"
-        "    beq .L080F4634\n"
-        "    b .L080F4650\n"
-        ".L080F462A:\n"
-        "    cmp r0, #2\n"
-        "    beq .L080F463A\n"
-        "    cmp r0, #3\n"
-        "    beq .L080F4642\n"
-        "    b .L080F4650\n"
-        ".L080F4634:\n"
-        "    movs r2, #0x50\n"
-        "    movs r3, #0\n"
-        "    b .L080F4650\n"
-        ".L080F463A:\n"
-        "    movs r2, #0x58\n"
-        "    movs r5, #8\n"
-        "    movs r3, #0\n"
-        "    b .L080F4650\n"
-        ".L080F4642:\n"
-        "    movs r2, #0x5a\n"
-        "    b .L080F464E\n"
-        ".L080F4646:\n"
-        "    subs r0, #4\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r1, r0, #0x10\n"
-        "    movs r2, #0x50\n"
-        ".L080F464E:\n"
-        "    movs r3, #0xf\n"
-        ".L080F4650:\n"
-        "    lsls r0, r1, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    lsls r1, r2, #0x10\n"
-        "    asrs r1, r1, #0x10\n"
-        "    lsls r2, r3, #0x10\n"
-        "    asrs r2, r2, #0x10\n"
-        "    adds r3, r5, #0\n"
-        "    lsls r4, r4, #0x10\n"
-        "    asrs r4, r4, #0x10\n"
-        "    str r4, [sp]\n"
-        "    bl Battle_StartPaletteFlash\n"
-        "    add sp, #4\n"
-        "    pop {r4, r5}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-    );
-}
-#endif
 
 // Battle_StartPaletteFlash @ 0x080F4670
 void Battle_StartPaletteFlash(s32 kind_, s32 x_, s32 y_, s32 w_, s32 arg_)

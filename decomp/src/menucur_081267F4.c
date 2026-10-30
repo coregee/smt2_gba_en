@@ -116,17 +116,14 @@ u8 sub_081268E4(u8 id, struct MenuCursor *src)
 }
 
 // sub_08126928 @ 0x08126928
-#ifdef NONMATCHING
-u8 sub_08126928(u8 id, u8 type, u16 columns, u16 rows, u16 perColumn)
+u32 sub_08126928(u8 id, u8 type, u16 columns, u16 rows, u16 perColumn)
 {
     struct MenuCursor c;
-    u8 flags;
 
     c.state = 1;
     c.delay = 0;
-    c.mode = type >> 4;
-    flags = type & 0xF;
-    c.flags = flags;
+    c.mode = (type & 0xF0) >> 4;
+    c.flags = type & 0xF;
     c.columns = columns;
     c.rows = rows;
     c.count = columns * rows;
@@ -137,90 +134,12 @@ u8 sub_08126928(u8 id, u8 type, u16 columns, u16 rows, u16 perColumn)
     c.unk14 = 0;
     c.column = 0;
     c.row = 0;
-    c.sePage = 0x64;
-    c.seMove = 0x64;
+    c.seMove = c.sePage = 0x64;
     c.seA = 0x65;
     c.seB = 0x66;
-    c.seSelect = 0xFFFF;
-    c.seStart = 0xFFFF;
-    c.seLR = 0xFFFF;
-    return sub_081268E4(id, &c);
+    c.seLR = c.seStart = c.seSelect = 0xFFFF;
+    return ((s32 (*)(u8, struct MenuCursor *))sub_081268E4)(id, &c);
 }
-#else
-NAKED
-u8 sub_08126928(u8 id, u8 type, u16 columns, u16 rows, u16 perColumn)
-{
-    asm_unified(
-        ".L08126928:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    mov r6, r8\n"
-        "    push {r6}\n"
-        "    sub sp, #0x28\n"
-        "    ldr r4, [sp, #0x3c]\n"
-        "    mov r8, r4\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r0, r0, #0x18\n"
-        "    lsls r1, r1, #0x18\n"
-        "    lsrs r1, r1, #0x18\n"
-        "    lsls r2, r2, #0x10\n"
-        "    lsrs r2, r2, #0x10\n"
-        "    lsls r3, r3, #0x10\n"
-        "    lsrs r3, r3, #0x10\n"
-        "    mov r5, sp\n"
-        "    movs r6, #0\n"
-        "    movs r4, #1\n"
-        "    strb r4, [r5]\n"
-        "    mov r4, sp\n"
-        "    strb r6, [r4, #1]\n"
-        "    lsrs r4, r1, #4\n"
-        "    strb r4, [r5, #2]\n"
-        "    movs r4, #0xf\n"
-        "    ands r4, r1\n"
-        "    strb r4, [r5, #3]\n"
-        "    mov r1, sp\n"
-        "    strh r2, [r1, #6]\n"
-        "    strh r3, [r1, #8]\n"
-        "    mov r4, sp\n"
-        "    adds r1, r2, #0\n"
-        "    muls r1, r3, r1\n"
-        "    strh r1, [r4, #0xa]\n"
-        "    mov r1, sp\n"
-        "    strh r6, [r1, #0xc]\n"
-        "    strh r6, [r1, #0xe]\n"
-        "    mov r2, r8\n"
-        "    strh r2, [r1, #0x10]\n"
-        "    strh r6, [r1, #0x12]\n"
-        "    strh r6, [r1, #0x14]\n"
-        "    strh r6, [r1, #0x16]\n"
-        "    strh r6, [r1, #0x18]\n"
-        "    mov r3, sp\n"
-        "    mov r2, sp\n"
-        "    movs r1, #0x64\n"
-        "    strh r1, [r2, #0x1c]\n"
-        "    strh r1, [r3, #0x1a]\n"
-        "    movs r1, #0x65\n"
-        "    strh r1, [r2, #0x1e]\n"
-        "    movs r1, #0x66\n"
-        "    strh r1, [r2, #0x20]\n"
-        "    ldr r1, .L081269AC\n"
-        "    strh r1, [r2, #0x26]\n"
-        "    movs r1, #1\n"
-        "    rsbs r1, r1, #0\n"
-        "    strh r1, [r3, #0x24]\n"
-        "    strh r1, [r4, #0x22]\n"
-        "    mov r1, sp\n"
-        "    bl sub_081268E4\n"
-        "    add sp, #0x28\n"
-        "    pop {r3}\n"
-        "    mov r8, r3\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-        ".L081269AC: .4byte 0x0000FFFF\n"
-    );
-}
-#endif
 
 // sub_081269B0 @ 0x081269B0
 void sub_081269B0(u8 id)

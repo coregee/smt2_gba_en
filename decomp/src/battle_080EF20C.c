@@ -103,11 +103,11 @@ s32 sub_080EF3A0(s32 a, s32 b)
 }
 
 // sub_080EF3C8 @ 0x080EF3C8
-#ifdef NONMATCHING
 s32 sub_080EF3C8(s32 id)
 {
     u8 *rec = Demon_GetRecord(id);
     u16 v;
+    u16 r;
 
     if (Flag_Test(1) || Flag_Test(0xD5) || Flag_Test(0xB7))
         return -1;
@@ -117,72 +117,16 @@ s32 sub_080EF3C8(s32 id)
     v = (u16)(v * v) >> 1;
     if (v == 0)
         v = 1;
-    if ((Random_Byte() & 0xFF) >= v)
+    r = Random_Byte() & 0xFF;
+    if (r >= v)
         return -1;
-    v = rec[0x1F] & 1;
-    v = (u16)((v << 8) | rec[0x1A]);
+    v = rec[0x1F];
+    v &= 1;
+    r = v << 8;
+    v = rec[0x1A];
+    v |= r;
     return v;
 }
-#else
-NAKED s32 sub_080EF3C8(s32 id)
-{
-    asm_unified(
-        ".L080EF3C8:\n"
-        "    push {r4, r5, lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    bl Demon_GetRecord\n"
-        "    adds r5, r0, #0\n"
-        "    movs r0, #1\n"
-        "    bl Flag_Test\n"
-        "    cmp r0, #0\n"
-        "    bne .L080EF42A\n"
-        "    movs r0, #0xd5\n"
-        "    bl Flag_Test\n"
-        "    cmp r0, #0\n"
-        "    bne .L080EF42A\n"
-        "    movs r0, #0xb7\n"
-        "    bl Flag_Test\n"
-        "    cmp r0, #0\n"
-        "    bne .L080EF42A\n"
-        "    ldrb r0, [r5, #0x19]\n"
-        "    movs r4, #0xf\n"
-        "    ands r4, r0\n"
-        "    cmp r4, #0\n"
-        "    beq .L080EF42A\n"
-        "    adds r0, r4, #0\n"
-        "    muls r0, r4, r0\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x11\n"
-        "    cmp r4, #0\n"
-        "    bne .L080EF40A\n"
-        "    movs r4, #1\n"
-        ".L080EF40A:\n"
-        "    bl Random_Byte\n"
-        "    movs r1, #0xff\n"
-        "    ands r0, r1\n"
-        "    cmp r0, r4\n"
-        "    bhs .L080EF42A\n"
-        "    ldrb r4, [r5, #0x1f]\n"
-        "    movs r0, #1\n"
-        "    ands r4, r0\n"
-        "    lsls r0, r4, #8\n"
-        "    ldrb r4, [r5, #0x1a]\n"
-        "    orrs r4, r0\n"
-        "    lsls r0, r4, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    adds r0, r4, #0\n"
-        "    b .L080EF42E\n"
-        ".L080EF42A:\n"
-        "    movs r0, #1\n"
-        "    rsbs r0, r0, #0\n"
-        ".L080EF42E:\n"
-        "    pop {r4, r5}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-    );
-}
-#endif
 
 // sub_080EF434 @ 0x080EF434
 #ifdef NONMATCHING

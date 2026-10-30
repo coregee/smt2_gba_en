@@ -58,17 +58,18 @@ void sub_080E07D0(struct Task *t)
 /* Lists the held inventory entries whose slot mask matches mask (0x80: ids 0x120-0x12B,
    otherwise ids up to 0xFE) at 0x0203C4D0; returns the count. */
 /* NONMATCHING: register allocation (the two branches use separate copies of id and count). */
-#ifdef NONMATCHING
 u16 sub_080E0864(u32 mask)
 {
-    struct C0c2InvEntry *out = (struct C0c2InvEntry *)(gUnk_0203C200 + 0x2D0);
+    u8 *blk = gUnk_0203C200;
+    u32 off = 0x2D0;
+    struct C0c2InvEntry *out = (struct C0c2InvEntry *)(blk + off);
     u16 n = 0;
     u16 i;
 
     for (i = 0; i < 0x15A; i++)
     {
-        u16 id = gInventory[i].id;
-        u16 count = gInventory[i].count;
+        u16 id = ((struct C0c2InvEntry *)0x030051AC)[i].id;
+        u16 count = ((struct C0c2InvEntry *)0x030051AC)[i].count;
 
         if (count == 0)
             continue;
@@ -94,110 +95,6 @@ u16 sub_080E0864(u32 mask)
     out->count = 0xFFFF;
     return n;
 }
-#else
-NAKED
-u16 sub_080E0864(u32 mask)
-{
-    asm_unified(
-        ".L080E0864:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sl\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6, r7}\n"
-        "    sub sp, #8\n"
-        "    mov sb, r0\n"
-        "    ldr r0, .L080E08C4\n"
-        "    movs r1, #0xb4\n"
-        "    lsls r1, r1, #2\n"
-        "    adds r7, r0, r1\n"
-        "    movs r2, #0\n"
-        "    movs r1, #0\n"
-        "    ldr r3, .L080E08C8\n"
-        "    mov sl, r3\n"
-        ".L080E0882:\n"
-        "    lsls r0, r1, #2\n"
-        "    ldr r3, .L080E08CC\n"
-        "    adds r0, r0, r3\n"
-        "    ldrh r5, [r0]\n"
-        "    adds r4, r5, #0\n"
-        "    ldrh r6, [r0, #2]\n"
-        "    mov r8, r6\n"
-        "    cmp r6, #0\n"
-        "    beq .L080E08FC\n"
-        "    mov r0, sb\n"
-        "    cmp r0, #0x80\n"
-        "    bne .L080E08D4\n"
-        "    adds r0, r5, #0\n"
-        "    str r1, [sp]\n"
-        "    str r2, [sp, #4]\n"
-        "    bl Item_GetSlotMask\n"
-        "    mov r3, sb\n"
-        "    ands r0, r3\n"
-        "    ldr r1, [sp]\n"
-        "    ldr r2, [sp, #4]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080E08FC\n"
-        "    ldr r3, .L080E08D0\n"
-        "    adds r0, r5, r3\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    cmp r0, #0xb\n"
-        "    bhi .L080E08FC\n"
-        "    strh r5, [r7]\n"
-        "    strh r6, [r7, #2]\n"
-        "    b .L080E08F4\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080E08C4: .4byte 0x0203C200 @ EWRAM+0x3C200\n"
-        ".L080E08C8: .4byte 0x00000159\n"
-        ".L080E08CC: .4byte 0x030051AC @ IWRAM+0x51AC\n"
-        ".L080E08D0: .4byte 0xFFFFFEE0\n"
-        ".L080E08D4:\n"
-        "    adds r0, r4, #0\n"
-        "    str r1, [sp]\n"
-        "    str r2, [sp, #4]\n"
-        "    bl Item_GetSlotMask\n"
-        "    mov r3, sb\n"
-        "    ands r0, r3\n"
-        "    ldr r1, [sp]\n"
-        "    ldr r2, [sp, #4]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080E08FC\n"
-        "    cmp r4, #0xfe\n"
-        "    bhi .L080E08FC\n"
-        "    strh r4, [r7]\n"
-        "    mov r0, r8\n"
-        "    strh r0, [r7, #2]\n"
-        ".L080E08F4:\n"
-        "    adds r7, #4\n"
-        "    adds r0, r2, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r2, r0, #0x10\n"
-        ".L080E08FC:\n"
-        "    adds r0, r1, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r1, r0, #0x10\n"
-        "    cmp r1, sl\n"
-        "    bls .L080E0882\n"
-        "    ldr r0, .L080E0924\n"
-        "    strh r0, [r7]\n"
-        "    movs r0, #1\n"
-        "    rsbs r0, r0, #0\n"
-        "    strh r0, [r7, #2]\n"
-        "    adds r0, r2, #0\n"
-        "    add sp, #8\n"
-        "    pop {r3, r4, r5}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    mov sl, r5\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080E0924: .4byte 0x0000FFFF\n"
-    );
-}
-#endif
 
 
 // sub_080E0928 @ 0x080E0928

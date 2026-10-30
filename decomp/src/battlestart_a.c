@@ -619,7 +619,6 @@ void sub_080E5674(void)
    1-2 = LZ77 stage into 0x030000B4 + 0x800 * (step - 1)) and, unless pal is 0xFF, loads its
    palette into OBJ palette `pal` (faded in when the screen is black). Returns 0xFF for ids
    past 0x17B. */
-#ifdef NONMATCHING
 u8 Demon_LoadGfx(u16 id, u8 half, u8 step, u8 pal)
 {
     const struct DemonGfxRecord *rec;
@@ -649,7 +648,7 @@ u8 Demon_LoadGfx(u16 id, u8 half, u8 step, u8 pal)
         if (src != NULL)
             HuffUnComp(src, gBgPictureBuffer);
     }
-    else if (rec->gfx[half][step - 1] != NULL)
+    else if ((src = rec->gfx[half][step - 1]) != NULL)
     {
         LZ77UnCompWram(gBgPictureBuffer, gUnk_030000B4 + (step - 1) * 0x800);
     }
@@ -660,11 +659,11 @@ u8 Demon_LoadGfx(u16 id, u8 half, u8 step, u8 pal)
         if (gMainCallback == sub_080D977C && sub_080C2644(id) == 0)
         {
             palette = gUnknown_086BE584;
-            goto direct;
+            Palette_CopyWithEffect(3, palette, dst, 0x20, 0x20);
+            Palette_MarkDirty();
         }
-        if (!Palette_IsBg13Black())
+        else if (!Palette_IsBg13Black())
         {
-        direct:
             Palette_CopyWithEffect(3, palette, dst, 0x20, 0x20);
             Palette_MarkDirty();
         }
@@ -677,173 +676,6 @@ u8 Demon_LoadGfx(u16 id, u8 half, u8 step, u8 pal)
     BB->unk11A4 = 0;
     return 0;
 }
-#else
-NAKED
-u8 Demon_LoadGfx(u16 id, u8 half, u8 step, u8 pal)
-{
-    asm_unified(
-        ".L080E5678:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sl\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6, r7}\n"
-        "    sub sp, #4\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    mov r8, r0\n"
-        "    lsls r1, r1, #0x18\n"
-        "    lsrs r5, r1, #0x18\n"
-        "    mov sb, r5\n"
-        "    lsls r2, r2, #0x18\n"
-        "    lsrs r4, r2, #0x18\n"
-        "    adds r6, r4, #0\n"
-        "    lsls r3, r3, #0x18\n"
-        "    lsrs r3, r3, #0x18\n"
-        "    mov sl, r3\n"
-        "    ldr r0, .L080E56A8\n"
-        "    cmp r8, r0\n"
-        "    bls .L080E56AC\n"
-        "    movs r0, #0xff\n"
-        "    b .L080E57AE\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080E56A8: .4byte 0x0000017B\n"
-        ".L080E56AC:\n"
-        "    mov r0, r8\n"
-        "    bl Demon_GetGfxRecord\n"
-        "    adds r2, r0, #0\n"
-        "    ldr r7, [r2, #4]\n"
-        "    cmp r5, #0\n"
-        "    bne .L080E56DC\n"
-        "    cmp r4, #0\n"
-        "    bne .L080E56C2\n"
-        "    ldr r0, [r2, #0xc]\n"
-        "    b .L080E56EA\n"
-        ".L080E56C2:\n"
-        "    ldr r0, .L080E56D4\n"
-        "    subs r1, r4, #1\n"
-        "    lsls r1, r1, #0xb\n"
-        "    ldr r2, .L080E56D8\n"
-        "    adds r1, r1, r2\n"
-        "    bl LZ77UnCompWram\n"
-        "    b .L080E571E\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080E56D4: .4byte 0x0200AFC8 @ EWRAM+0xAFC8\n"
-        ".L080E56D8: .4byte 0x030000B4 @ IWRAM+0xB4\n"
-        ".L080E56DC:\n"
-        "    cmp r4, #0\n"
-        "    bne .L080E56FC\n"
-        "    lsls r1, r5, #3\n"
-        "    adds r0, r2, #0\n"
-        "    adds r0, #0xc\n"
-        "    adds r0, r0, r1\n"
-        "    ldr r0, [r0]\n"
-        ".L080E56EA:\n"
-        "    cmp r0, #0\n"
-        "    beq .L080E571E\n"
-        "    ldr r1, .L080E56F8\n"
-        "    bl HuffUnComp\n"
-        "    b .L080E571E\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080E56F8: .4byte 0x0200AFC8 @ EWRAM+0xAFC8\n"
-        ".L080E56FC:\n"
-        "    subs r3, r6, #1\n"
-        "    lsls r0, r3, #2\n"
-        "    mov r4, sb\n"
-        "    lsls r1, r4, #3\n"
-        "    adds r0, r0, r1\n"
-        "    adds r1, r2, #0\n"
-        "    adds r1, #0xc\n"
-        "    adds r1, r1, r0\n"
-        "    ldr r0, [r1]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080E571E\n"
-        "    ldr r0, .L080E5744\n"
-        "    lsls r1, r3, #0xb\n"
-        "    ldr r2, .L080E5748\n"
-        "    adds r1, r1, r2\n"
-        "    bl LZ77UnCompWram\n"
-        ".L080E571E:\n"
-        "    mov r0, sl\n"
-        "    cmp r0, #0xff\n"
-        "    beq .L080E57A2\n"
-        "    lsls r2, r0, #5\n"
-        "    ldr r0, .L080E574C\n"
-        "    adds r5, r2, r0\n"
-        "    ldr r0, .L080E5750\n"
-        "    ldr r1, [r0]\n"
-        "    ldr r0, .L080E5754\n"
-        "    adds r4, r2, #0\n"
-        "    cmp r1, r0\n"
-        "    bne .L080E575C\n"
-        "    mov r0, r8\n"
-        "    bl sub_080C2644\n"
-        "    cmp r0, #0\n"
-        "    bne .L080E575C\n"
-        "    ldr r7, .L080E5758\n"
-        "    b .L080E5764\n"
-        ".L080E5744: .4byte 0x0200AFC8 @ EWRAM+0xAFC8\n"
-        ".L080E5748: .4byte 0x030000B4 @ IWRAM+0xB4\n"
-        ".L080E574C: .4byte 0x03002FB0 @ IWRAM+0x2FB0\n"
-        ".L080E5750: .4byte 0x030020E4 @ IWRAM+0x20E4\n"
-        ".L080E5754: .4byte sub_080D977C\n"
-        ".L080E5758: .4byte gUnknown_086BE584\n"
-        ".L080E575C:\n"
-        "    bl Palette_IsBg13Black\n"
-        "    cmp r0, #0\n"
-        "    bne .L080E577A\n"
-        ".L080E5764:\n"
-        "    movs r0, #0x20\n"
-        "    str r0, [sp]\n"
-        "    movs r0, #3\n"
-        "    adds r1, r7, #0\n"
-        "    adds r2, r5, #0\n"
-        "    movs r3, #0x20\n"
-        "    bl Palette_CopyWithEffect\n"
-        "    bl Palette_MarkDirty\n"
-        "    b .L080E57A2\n"
-        ".L080E577A:\n"
-        "    ldr r2, .L080E57C0\n"
-        "    adds r2, r4, r2\n"
-        "    movs r0, #0x20\n"
-        "    str r0, [sp]\n"
-        "    movs r0, #3\n"
-        "    adds r1, r7, #0\n"
-        "    movs r3, #0x20\n"
-        "    bl Palette_CopyWithEffect\n"
-        "    mov r1, sl\n"
-        "    lsls r0, r1, #0x14\n"
-        "    movs r4, #0x80\n"
-        "    lsls r4, r4, #0x11\n"
-        "    adds r0, r0, r4\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    movs r1, #0x10\n"
-        "    movs r2, #1\n"
-        "    movs r3, #1\n"
-        "    bl PalFade_FadeRangeInFromBlackTagged\n"
-        ".L080E57A2:\n"
-        "    ldr r0, .L080E57C4\n"
-        "    ldr r1, .L080E57C8\n"
-        "    adds r0, r0, r1\n"
-        "    movs r1, #0\n"
-        "    strh r1, [r0]\n"
-        "    movs r0, #0\n"
-        ".L080E57AE:\n"
-        "    add sp, #4\n"
-        "    pop {r3, r4, r5}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    mov sl, r5\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080E57C0: .4byte 0x03002BB0 @ IWRAM+0x2BB0\n"
-        ".L080E57C4: .4byte 0x0203C200 @ EWRAM+0x3C200\n"
-        ".L080E57C8: .4byte 0x000011A4\n"
-    );
-}
-#endif
 
 // sub_080E57CC @ 0x080E57CC
 void sub_080E57CC(u8 slot)

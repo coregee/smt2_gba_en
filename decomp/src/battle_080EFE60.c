@@ -64,16 +64,19 @@ s32 sub_080EFFD8(s16 kind, s32 x)
 }
 
 // sub_080EFFF8 @ 0x080EFFF8
-#ifdef NONMATCHING
 s32 sub_080EFFF8(s32 who, s16 i)
 {
     struct BattleFlow *b = BFLOW;
 
     if ((s16)BSTATE->targets[i].id != -1)
     {
-        u16 kind = sub_080C35E4(who);
+        u16 kind;
+        s32 sk;
 
-        if (sub_080EFFD8(kind, Combatant_GetChosenSkill(who)) == 1)
+        kind = sub_080C35E4(who);
+        sk = Combatant_GetChosenSkill(who);
+
+        if (sub_080EFFD8(kind, sk) == 1)
         {
             if (who > 15)
             {
@@ -94,115 +97,6 @@ s32 sub_080EFFF8(s32 who, s16 i)
     }
     return (s16)BSTATE->targets[i].id;
 }
-#else
-NAKED s32 sub_080EFFF8(s32 who, s16 i)
-{
-    asm_unified(
-        ".L080EFFF8:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, r8\n"
-        "    push {r7}\n"
-        "    adds r5, r0, #0\n"
-        "    lsls r1, r1, #0x10\n"
-        "    ldr r7, .L080F0080\n"
-        "    ldr r0, .L080F0084\n"
-        "    ldr r0, [r0]\n"
-        "    lsrs r2, r1, #0x10\n"
-        "    mov r8, r2\n"
-        "    asrs r1, r1, #0xe\n"
-        "    adds r0, r0, r1\n"
-        "    movs r1, #0x98\n"
-        "    lsls r1, r1, #1\n"
-        "    adds r0, r0, r1\n"
-        "    movs r2, #0\n"
-        "    ldrsh r1, [r0, r2]\n"
-        "    ldr r6, .L080F0088\n"
-        "    asrs r0, r6, #0x10\n"
-        "    cmp r1, r0\n"
-        "    beq .L080F00B0\n"
-        "    adds r0, r5, #0\n"
-        "    bl sub_080C35E4\n"
-        "    adds r4, r0, #0\n"
-        "    lsls r4, r4, #0x10\n"
-        "    lsrs r4, r4, #0x10\n"
-        "    adds r0, r5, #0\n"
-        "    bl Combatant_GetChosenSkill\n"
-        "    adds r1, r0, #0\n"
-        "    lsls r4, r4, #0x10\n"
-        "    asrs r4, r4, #0x10\n"
-        "    adds r0, r4, #0\n"
-        "    bl sub_080EFFD8\n"
-        "    cmp r0, #1\n"
-        "    bne .L080F00B0\n"
-        "    cmp r5, #0xf\n"
-        "    ble .L080F0090\n"
-        "    ldr r0, .L080F008C\n"
-        "    adds r4, r7, r0\n"
-        "    ldrh r1, [r4]\n"
-        "    lsrs r0, r6, #0x10\n"
-        "    cmp r1, r0\n"
-        "    beq .L080F00B0\n"
-        "    adds r0, r1, #0\n"
-        "    bl Combatant_IsDead\n"
-        "    cmp r0, #0\n"
-        "    bne .L080F00B0\n"
-        "    movs r1, #0x80\n"
-        "    lsls r1, r1, #8\n"
-        "    adds r0, r1, #0\n"
-        "    ldrh r2, [r4]\n"
-        "    adds r0, r0, r2\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    bl Party_GetMember\n"
-        "    ldrh r1, [r0, #0xe]\n"
-        "    movs r0, #0xc0\n"
-        "    lsls r0, r0, #8\n"
-        "    cmp r1, r0\n"
-        "    bne .L080F00B0\n"
-        "    movs r1, #0\n"
-        "    ldrsh r0, [r4, r1]\n"
-        "    b .L080F00C6\n"
-        ".L080F0080: .4byte 0x0203C200 @ EWRAM+0x3C200\n"
-        ".L080F0084: .4byte 0x03006434 @ IWRAM+0x6434\n"
-        ".L080F0088: .4byte 0xFFFF0000\n"
-        ".L080F008C: .4byte 0x000011AC\n"
-        ".L080F0090:\n"
-        "    ldr r2, .L080F00AC\n"
-        "    adds r4, r7, r2\n"
-        "    ldrh r1, [r4]\n"
-        "    lsrs r0, r6, #0x10\n"
-        "    cmp r1, r0\n"
-        "    beq .L080F00B0\n"
-        "    adds r0, r1, #0\n"
-        "    bl Combatant_IsDead\n"
-        "    cmp r0, #0\n"
-        "    bne .L080F00B0\n"
-        "    movs r1, #0\n"
-        "    ldrsh r0, [r4, r1]\n"
-        "    b .L080F00C6\n"
-        ".L080F00AC: .4byte 0x000011AE\n"
-        ".L080F00B0:\n"
-        "    ldr r0, .L080F00D0\n"
-        "    ldr r1, [r0]\n"
-        "    mov r2, r8\n"
-        "    lsls r0, r2, #0x10\n"
-        "    asrs r0, r0, #0xe\n"
-        "    adds r1, r1, r0\n"
-        "    movs r0, #0x98\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r1, r1, r0\n"
-        "    movs r2, #0\n"
-        "    ldrsh r0, [r1, r2]\n"
-        ".L080F00C6:\n"
-        "    pop {r3}\n"
-        "    mov r8, r3\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        ".L080F00D0: .4byte 0x03006434 @ IWRAM+0x6434\n"
-    );
-}
-#endif
 
 // sub_080F00D4 @ 0x080F00D4
 s32 sub_080F00D4(void)

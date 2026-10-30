@@ -32,136 +32,36 @@ none:
 
 /* Cures member `who`'s ailments with an owned item, else with a party member's skill. */
 // sub_0812E4C0 @ 0x0812E4C0
-#ifdef NONMATCHING
 s32 sub_0812E4C0(s32 who)
 {
-    u16 flags = gGameState.members[who].flags;
     const struct C12BCureEntry *p;
     s16 r;
+    u16 flags = gGameState.members[who].flags;
 
     if (!(u16)sub_080C2C30())
     {
-        p = gUnknown_0877A50C;
-        goto check1;
-    next1:
-        if (sub_080C10B4(p->id) && (p->mask & flags))
-            goto useItem;
-        p++;
-    check1:
-        if (p->id != 0xFF)
-            goto next1;
+        for (p = gUnknown_0877A50C; p->id != 0xFF; p++)
+        {
+            if (sub_080C10B4(p->id) && (p->mask & flags))
+            {
+                Party_UseItemOn(who, 0, p->id);
+                return 1;
+            }
+        }
     }
-    if (!sub_080F31E0())
-        goto start2;
-    goto none;
-useItem:
-    Party_UseItemOn(who, 0, p->id);
-    return 1;
-useSkill:
-    Party_CastSkillOn(who, r, p->id);
-    return 1;
-start2:
-    p = gUnknown_0877A52C;
-    goto check2;
-next2:
-    r = Party_FindSkillCaster(p->id);
-    if (r >= 0 && (p->mask & flags))
-        goto useSkill;
-    p++;
-check2:
-    if (p->id != 0xFF)
-        goto next2;
-none:
+    if (sub_080F31E0())
+        return 0;
+    for (p = gUnknown_0877A52C; p->id != 0xFF; p++)
+    {
+        r = Party_FindSkillCaster(p->id);
+        if (r >= 0 && (p->mask & flags))
+        {
+            Party_CastSkillOn(who, r, p->id);
+            return 1;
+        }
+    }
     return 0;
 }
-#else
-NAKED
-s32 sub_0812E4C0(s32 who)
-{
-    asm_unified(
-        ".L0812E4C0:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    adds r6, r0, #0\n"
-        "    ldr r0, .L0812E4DC\n"
-        "    lsls r1, r6, #7\n"
-        "    adds r1, r1, r0\n"
-        "    ldrh r5, [r1, #0x10]\n"
-        "    bl sub_080C2C30\n"
-        "    lsls r0, r0, #0x10\n"
-        "    cmp r0, #0\n"
-        "    bne .L0812E4FE\n"
-        "    ldr r4, .L0812E4E0\n"
-        "    b .L0812E4F8\n"
-        "    .byte 0x00, 0x00\n"
-        ".L0812E4DC: .4byte 0x030046C0 @ IWRAM+0x46C0\n"
-        ".L0812E4E0: .4byte gUnknown_0877A50C\n"
-        ".L0812E4E4:\n"
-        "    ldrb r0, [r4]\n"
-        "    bl sub_080C10B4\n"
-        "    cmp r0, #0\n"
-        "    beq .L0812E4F6\n"
-        "    ldrh r0, [r4, #2]\n"
-        "    ands r0, r5\n"
-        "    cmp r0, #0\n"
-        "    bne .L0812E508\n"
-        ".L0812E4F6:\n"
-        "    adds r4, #4\n"
-        ".L0812E4F8:\n"
-        "    ldrb r0, [r4]\n"
-        "    cmp r0, #0xff\n"
-        "    bne .L0812E4E4\n"
-        ".L0812E4FE:\n"
-        "    bl sub_080F31E0\n"
-        "    cmp r0, #0\n"
-        "    beq .L0812E526\n"
-        "    b .L0812E54E\n"
-        ".L0812E508:\n"
-        "    lsls r0, r6, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    ldrb r2, [r4]\n"
-        "    movs r1, #0\n"
-        "    bl Party_UseItemOn\n"
-        "    movs r0, #1\n"
-        "    b .L0812E550\n"
-        ".L0812E518:\n"
-        "    lsls r0, r6, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    ldrb r2, [r4]\n"
-        "    bl Party_CastSkillOn\n"
-        "    movs r0, #1\n"
-        "    b .L0812E550\n"
-        ".L0812E526:\n"
-        "    ldr r4, .L0812E52C\n"
-        "    b .L0812E548\n"
-        "    .byte 0x00, 0x00\n"
-        ".L0812E52C: .4byte gUnknown_0877A52C\n"
-        ".L0812E530:\n"
-        "    ldrb r0, [r4]\n"
-        "    bl Party_FindSkillCaster\n"
-        "    lsls r0, r0, #0x10\n"
-        "    asrs r1, r0, #0x10\n"
-        "    cmp r1, #0\n"
-        "    blt .L0812E546\n"
-        "    ldrh r0, [r4, #2]\n"
-        "    ands r0, r5\n"
-        "    cmp r0, #0\n"
-        "    bne .L0812E518\n"
-        ".L0812E546:\n"
-        "    adds r4, #4\n"
-        ".L0812E548:\n"
-        "    ldrb r0, [r4]\n"
-        "    cmp r0, #0xff\n"
-        "    bne .L0812E530\n"
-        ".L0812E54E:\n"
-        "    movs r0, #0\n"
-        ".L0812E550:\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 /* A party member who knows `skill`, can act and has the MP for it, or -1. Demons
    (members 4-15, 8 skill slots) are tried before humans 1-3 (32 slots). */

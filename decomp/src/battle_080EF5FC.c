@@ -2,7 +2,6 @@
 #include "battle.h"
 
 // sub_080EF5FC @ 0x080EF5FC
-#ifdef NONMATCHING
 s32 sub_080EF5FC(u8 *c, s32 who)
 {
     s32 v = c[0x5C];
@@ -13,133 +12,41 @@ s32 sub_080EF5FC(u8 *c, s32 who)
     {
     case 4:
     case 5:
-        v = (kind == 4) ? 0 : 1;
+        if (kind == 4)
+            v = 0;
+        else
+            v = 1;
         v = Combatant_GetEquip(who, v);
         Item_GetAttribute(v, 4, &v);
         x = v;
+    lookup:
+        return sub_080EF5D0(x);
+    case 7:
+    case 11:
+    by_skill:
+        x = sub_080ED694(v);
+        if (x > 0x7F)
+            goto fail;
         goto lookup;
     case 8:
         if (v <= 0x57)
             return 1;
         Item_GetAttribute(v, 0xC, &v);
         if (v < 0)
-            return -1;
+            goto fail;
         if (v != 0x50 && v > 0x3F)
             return 1;
-    case 7:
-    case 11:
-        x = sub_080ED694(v);
-        if (x > 0x7F)
-            return -1;
-    lookup:
-        return sub_080EF5D0(x);
+        goto by_skill;
     case 10:
         return sub_080EF5E8(*(s16 *)(c + 0x12));
     case 6:
     case 9:
     case 12:
+    fail:
         return -1;
     }
     return 0;
 }
-#else
-NAKED s32 sub_080EF5FC(u8 *c, s32 who)
-{
-    asm_unified(
-        ".L080EF5FC:\n"
-        "    push {r4, lr}\n"
-        "    sub sp, #4\n"
-        "    adds r2, r0, #0\n"
-        "    adds r4, r1, #0\n"
-        "    adds r0, #0x5c\n"
-        "    ldrb r0, [r0]\n"
-        "    str r0, [sp]\n"
-        "    movs r3, #0x17\n"
-        "    ldrsb r3, [r2, r3]\n"
-        "    subs r0, r3, #4\n"
-        "    cmp r0, #8\n"
-        "    bhi .L080EF6AA\n"
-        "    lsls r0, r0, #2\n"
-        "    ldr r1, .L080EF620\n"
-        "    adds r0, r0, r1\n"
-        "    ldr r0, [r0]\n"
-        "    mov pc, r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080EF620: .4byte gUnknown_080EF624\n"
-        "    .global gUnknown_080EF624\n"
-        "gUnknown_080EF624:\n"
-        ".L080EF624: @ jump table\n"
-        "    .4byte .L080EF648\n"
-        "    .4byte .L080EF648\n"
-        "    .4byte .L080EF6A4\n"
-        "    .4byte .L080EF66E\n"
-        "    .4byte .L080EF67A\n"
-        "    .4byte .L080EF6A4\n"
-        "    .4byte .L080EF69A\n"
-        "    .4byte .L080EF66E\n"
-        "    .4byte .L080EF6A4\n"
-        ".L080EF648:\n"
-        "    cmp r3, #4\n"
-        "    bne .L080EF650\n"
-        "    movs r0, #0\n"
-        "    b .L080EF652\n"
-        ".L080EF650:\n"
-        "    movs r0, #1\n"
-        ".L080EF652:\n"
-        "    str r0, [sp]\n"
-        "    adds r0, r4, #0\n"
-        "    ldr r1, [sp]\n"
-        "    bl Combatant_GetEquip\n"
-        "    str r0, [sp]\n"
-        "    movs r1, #4\n"
-        "    mov r2, sp\n"
-        "    bl Item_GetAttribute\n"
-        "    ldr r0, [sp]\n"
-        ".L080EF668:\n"
-        "    bl sub_080EF5D0\n"
-        "    b .L080EF6AC\n"
-        ".L080EF66E:\n"
-        "    ldr r0, [sp]\n"
-        "    bl sub_080ED694\n"
-        "    cmp r0, #0x7f\n"
-        "    bhi .L080EF6A4\n"
-        "    b .L080EF668\n"
-        ".L080EF67A:\n"
-        "    ldr r0, [sp]\n"
-        "    cmp r0, #0x57\n"
-        "    ble .L080EF696\n"
-        "    movs r1, #0xc\n"
-        "    mov r2, sp\n"
-        "    bl Item_GetAttribute\n"
-        "    ldr r0, [sp]\n"
-        "    cmp r0, #0\n"
-        "    blt .L080EF6A4\n"
-        "    cmp r0, #0x50\n"
-        "    beq .L080EF66E\n"
-        "    cmp r0, #0x3f\n"
-        "    ble .L080EF66E\n"
-        ".L080EF696:\n"
-        "    movs r0, #1\n"
-        "    b .L080EF6AC\n"
-        ".L080EF69A:\n"
-        "    movs r1, #0x12\n"
-        "    ldrsh r0, [r2, r1]\n"
-        "    bl sub_080EF5E8\n"
-        "    b .L080EF6AC\n"
-        ".L080EF6A4:\n"
-        "    movs r0, #1\n"
-        "    rsbs r0, r0, #0\n"
-        "    b .L080EF6AC\n"
-        ".L080EF6AA:\n"
-        "    movs r0, #0\n"
-        ".L080EF6AC:\n"
-        "    add sp, #4\n"
-        "    pop {r4}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-    );
-}
-#endif
 
 // sub_080EF6B4 @ 0x080EF6B4
 void sub_080EF6B4(s32 x)
@@ -157,47 +64,14 @@ void sub_080EF6B4(s32 x)
 }
 
 // sub_080EF6E8 @ 0x080EF6E8
-#ifdef NONMATCHING
 s32 sub_080EF6E8(s32 who, s32 i)
 {
-    u8 v = Combatant_GetSkill(who, i);
+    s32 v = (u8)Combatant_GetSkill(who, i);
 
-    if (v == 0xFF)
+    if (v == 0xFF || (u8)(v - 0x40) > 0x5E)
         return -1;
-    if ((u8)(v - 0x40) <= 0x5E)
-        return v;
-    return -1;
+    return v;
 }
-#else
-NAKED s32 sub_080EF6E8(s32 who, s32 i)
-{
-    asm_unified(
-        ".L080EF6E8:\n"
-        "    push {lr}\n"
-        "    bl Combatant_GetSkill\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r1, r0, #0x18\n"
-        "    cmp r1, #0xff\n"
-        "    beq .L080EF702\n"
-        "    adds r0, r1, #0\n"
-        "    subs r0, #0x40\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r0, r0, #0x18\n"
-        "    cmp r0, #0x5e\n"
-        "    bls .L080EF708\n"
-        ".L080EF702:\n"
-        "    movs r0, #1\n"
-        "    rsbs r0, r0, #0\n"
-        "    b .L080EF70A\n"
-        ".L080EF708:\n"
-        "    adds r0, r1, #0\n"
-        ".L080EF70A:\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // sub_080EF710 @ 0x080EF710
 s32 sub_080EF710(s32 who)

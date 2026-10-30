@@ -158,7 +158,6 @@ void sub_08129838(struct Task *task)
 }
 
 // sub_08129850 @ 0x08129850
-#ifdef NONMATCHING
 void sub_08129850(void)
 {
     switch (C127_BLOCK->unk694)
@@ -168,40 +167,16 @@ void sub_08129850(void)
         BattleMsg_Close();
         break;
     case 1:
+        break;
     case 2:
+        break;
     case 3:
+        break;
+    case 5:
         break;
     }
     sub_081269B0(3);
 }
-#else
-NAKED
-void sub_08129850(void)
-{
-    asm_unified(
-        "    push {lr}\n"
-        "    ldr r0, .L08129878\n"
-        "    ldr r1, .L0812987C\n"
-        "    adds r0, r0, r1\n"
-        "    ldrb r0, [r0]\n"
-        "    cmp r0, #3\n"
-        "    bgt .L0812986E\n"
-        "    cmp r0, #1\n"
-        "    bge .L0812986E\n"
-        "    cmp r0, #0\n"
-        "    bne .L0812986E\n"
-        "    bl sub_08128EB4\n"
-        "    bl BattleMsg_Close\n"
-        ".L0812986E:\n"
-        "    movs r0, #3\n"
-        "    bl sub_081269B0\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L08129878: .4byte 0x0203C200 @ EWRAM+0x3C200\n"
-        ".L0812987C: .4byte 0x00000694\n"
-    );
-}
-#endif
 
 // sub_08129880 @ 0x08129880
 void sub_08129880(void)

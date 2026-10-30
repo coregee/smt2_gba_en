@@ -4,57 +4,16 @@
 #include "battledisp.h"
 
 // sub_080E5940 @ 0x080E5940
-#ifdef NONMATCHING
 void sub_080E5940(void)
 {
     DmaSet(3, gUnk_02001000, (void *)0x06016000, 0x84000400);
-    DmaSet3Wait(gUnk_02001000 + 0x2000, (void *)0x06017000, 0x84000400);
+    DmaSet(3, gUnk_02001000 + 0x2000, (void *)0x06017000, 0x84000400);
+    {
+        vu32 *dmaRegs = (vu32 *)(REG_BASE + 0xD4);
+        while (dmaRegs[2] & 0x80000000)
+            ;
+    }
 }
-#else
-NAKED
-void sub_080E5940(void)
-{
-    asm_unified(
-        "    push {lr}\n"
-        "    ldr r0, .L080E597C\n"
-        "    ldr r2, .L080E5980\n"
-        "    str r2, [r0]\n"
-        "    ldr r1, .L080E5984\n"
-        "    str r1, [r0, #4]\n"
-        "    ldr r3, .L080E5988\n"
-        "    str r3, [r0, #8]\n"
-        "    ldr r1, [r0, #8]\n"
-        "    movs r1, #0x80\n"
-        "    lsls r1, r1, #6\n"
-        "    adds r2, r2, r1\n"
-        "    str r2, [r0]\n"
-        "    ldr r1, .L080E598C\n"
-        "    str r1, [r0, #4]\n"
-        "    str r3, [r0, #8]\n"
-        "    ldr r1, [r0, #8]\n"
-        "    adds r2, r0, #0\n"
-        "    ldr r0, [r2, #8]\n"
-        "    movs r1, #0x80\n"
-        "    lsls r1, r1, #0x18\n"
-        "    cmp r0, #0\n"
-        "    bge .L080E5976\n"
-        ".L080E596E:\n"
-        "    ldr r0, [r2, #8]\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    bne .L080E596E\n"
-        ".L080E5976:\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080E597C: .4byte 0x040000D4 @ REG_DMA3SAD\n"
-        ".L080E5980: .4byte 0x02001000 @ EWRAM+0x1000\n"
-        ".L080E5984: .4byte 0x06016000 @ VRAM+0x16000\n"
-        ".L080E5988: .4byte 0x84000400\n"
-        ".L080E598C: .4byte 0x06017000 @ VRAM+0x17000\n"
-    );
-}
-#endif
 
 // sub_080E5990 @ 0x080E5990
 void sub_080E5990(void)
@@ -268,7 +227,6 @@ void sub_080E5D68(struct Task *t)
 }
 
 // sub_080E5DA0 @ 0x080E5DA0
-#ifdef NONMATCHING
 void sub_080E5DA0(void)
 {
     struct C15cBattle *b = BB;
@@ -280,40 +238,6 @@ void sub_080E5DA0(void)
         b->unkF10[i] |= 0xFFFF;
     }
 }
-#else
-NAKED
-void sub_080E5DA0(void)
-{
-    asm_unified(
-        ".L080E5DA0:\n"
-        "    push {r4, lr}\n"
-        "    ldr r0, .L080E5DCC\n"
-        "    movs r2, #0\n"
-        "    ldr r1, .L080E5DD0\n"
-        "    adds r3, r1, #0\n"
-        "    movs r4, #0xef\n"
-        "    lsls r4, r4, #4\n"
-        "    adds r1, r0, r4\n"
-        ".L080E5DB0:\n"
-        "    ldrh r0, [r1]\n"
-        "    orrs r0, r3\n"
-        "    strh r0, [r1]\n"
-        "    ldrh r0, [r1, #0x20]\n"
-        "    orrs r0, r3\n"
-        "    strh r0, [r1, #0x20]\n"
-        "    adds r1, #2\n"
-        "    adds r2, #1\n"
-        "    cmp r2, #0xf\n"
-        "    bls .L080E5DB0\n"
-        "    pop {r4}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080E5DCC: .4byte 0x0203C200 @ EWRAM+0x3C200\n"
-        ".L080E5DD0: .4byte 0x0000FFFF\n"
-    );
-}
-#endif
 
 
 // sub_080E5DD4 @ 0x080E5DD4

@@ -18,8 +18,6 @@ u16 Link_Checksum(u16 n, const u8 *p)
 
 // sub_080DF6FC @ 0x080DF6FC
 /* TRUE when both players' last packet carries header hdr. */
-/* NONMATCHING: register allocation. */
-#ifdef NONMATCHING
 u8 sub_080DF6FC(u16 hdr)
 {
     u8 ok[4];
@@ -27,8 +25,13 @@ u8 sub_080DF6FC(u16 hdr)
 
     for (i = 0; i < 4; i++)
     {
-        if (i < 2 && gUnk_03006340[i].hdr != hdr)
-            ok[i] = 0;
+        if (i < 2)
+        {
+            if (gUnk_03006340[i].hdr == hdr)
+                ok[i] = 1;
+            else
+                ok[i] = 0;
+        }
         else
             ok[i] = 1;
     }
@@ -40,69 +43,6 @@ u8 sub_080DF6FC(u16 hdr)
     }
     return FALSE;
 }
-#else
-NAKED
-u8 sub_080DF6FC(u16 hdr)
-{
-    asm_unified(
-        ".L080DF6FC:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    sub sp, #4\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r3, r0, #0x10\n"
-        "    movs r1, #0\n"
-        "    ldr r5, .L080DF724\n"
-        "    movs r2, #1\n"
-        "    movs r4, #0\n"
-        ".L080DF70C:\n"
-        "    cmp r1, #1\n"
-        "    bhi .L080DF728\n"
-        "    lsls r0, r1, #4\n"
-        "    adds r0, r0, r5\n"
-        "    ldrh r0, [r0]\n"
-        "    cmp r0, r3\n"
-        "    beq .L080DF728\n"
-        "    mov r6, sp\n"
-        "    adds r0, r6, r1\n"
-        "    strb r4, [r0]\n"
-        "    b .L080DF72E\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080DF724: .4byte 0x03006340 @ IWRAM+0x6340\n"
-        ".L080DF728:\n"
-        "    mov r6, sp\n"
-        "    adds r0, r6, r1\n"
-        "    strb r2, [r0]\n"
-        ".L080DF72E:\n"
-        "    adds r0, r1, #1\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r1, r0, #0x18\n"
-        "    cmp r1, #3\n"
-        "    bls .L080DF70C\n"
-        "    mov r0, sp\n"
-        "    ldrb r0, [r0]\n"
-        "    cmp r0, #1\n"
-        "    bne .L080DF754\n"
-        "    mov r0, sp\n"
-        "    ldrb r0, [r0, #1]\n"
-        "    adds r1, r0, #0\n"
-        "    cmp r1, #1\n"
-        "    bne .L080DF754\n"
-        "    mov r0, sp\n"
-        "    strb r1, [r0, #2]\n"
-        "    strb r1, [r0, #3]\n"
-        "    movs r0, #1\n"
-        "    b .L080DF756\n"
-        ".L080DF754:\n"
-        "    movs r0, #0\n"
-        ".L080DF756:\n"
-        "    add sp, #4\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // sub_080DF760 @ 0x080DF760
 /* Fills the send packet with header 0xE300 + block and the next 12 bytes (zero padded);
@@ -495,49 +435,52 @@ u32 sub_080DF990(void)
 /* Runs one step of the transfer started by Link_StartTransfer: header exchange (0xE100 + checksum),
    data blocks (0xE300), end (0xE400), retry on a checksum error (0xE500).  Returns 1 when done,
    0xFF after 600 frames without progress. */
-/* NONMATCHING: register allocation. */
-#ifdef NONMATCHING
 u8 Link_TransferStep(void)
 {
-    u8 busy = 0;
-    u8 done = 0;
     struct C0cdLink *l = &gUnk_03006300;
+    u8 done = 0;
+    u8 busy = 0;
     u8 i;
     u8 r;
 
     switch (gUnk_0300636C)
     {
     case 0:
+        busy = 0;
         break;
     case 1:
         gUnk_03006380[0] = 0xE100;
         gUnk_03006380[1] = l->sum;
         gUnk_0300636C = 2;
+        busy = 0;
         break;
     case 2:
         busy = 1;
-        if (sub_080DF6FC(0xE100) != 1)
-            goto out;
-        for (i = 0; i < 2; i++)
-            l->unk0E[i] = *(u16 *)gUnk_03006340[i].data;
-        gUnk_0300636C = 3;
-        sub_080DF760();
+        if (sub_080DF6FC(0xE100) == 1)
+        {
+            for (i = 0; i < 2; i++)
+                l->unk0E[i] = *(u16 *)gUnk_03006340[i].data;
+            gUnk_0300636C = 3;
+            sub_080DF760();
+            busy = 0;
+        }
         break;
     case 3:
         busy = 1;
-        i = sub_080DF7B8();
-        if (i == 0xFF)
         {
-            gUnk_03006380[0] = 0xE400;
-            gUnk_0300636C = 4;
-        }
-        else if (i == 1)
-        {
-            sub_080DF760();
-        }
-        else
-        {
-            goto out;
+            u8 res = sub_080DF7B8();
+
+            if (res == 0xFF)
+            {
+                gUnk_03006380[0] = 0xE400;
+                gUnk_0300636C = 4;
+                busy = 0;
+            }
+            else if (res == 1)
+            {
+                sub_080DF760();
+                busy = 0;
+            }
         }
         break;
     case 4:
@@ -557,20 +500,18 @@ u8 Link_TransferStep(void)
                 gUnk_03006380[0] = 0xE500;
             }
         }
-        goto out;
+        break;
     case 5:
         busy = 1;
-        if (sub_080DF6FC(0xE500) != 1)
-            goto out;
-        gUnk_03006380[0] = 0xE100;
-        gUnk_03006380[1] = l->sum;
-        gUnk_0300636C = 2;
+        if (sub_080DF6FC(0xE500) == 1)
+        {
+            gUnk_03006380[0] = 0xE100;
+            gUnk_03006380[1] = l->sum;
+            gUnk_0300636C = 2;
+            busy = 0;
+        }
         break;
-    default:
-        goto out;
     }
-    busy = 0;
-out:
     if (sub_080DFB98())
         busy = 1;
     if (busy)
@@ -581,200 +522,6 @@ out:
         return 0xFF;
     return done;
 }
-#else
-NAKED
-u8 Link_TransferStep(void)
-{
-    asm_unified(
-        ".L080DFA00:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    ldr r4, .L080DFA20\n"
-        "    movs r7, #0\n"
-        "    movs r5, #0\n"
-        "    ldr r0, .L080DFA24\n"
-        "    ldrb r1, [r0]\n"
-        "    adds r6, r0, #0\n"
-        "    cmp r1, #5\n"
-        "    bls .L080DFA14\n"
-        "    b .L080DFB3E\n"
-        ".L080DFA14:\n"
-        "    lsls r0, r1, #2\n"
-        "    ldr r1, .L080DFA28\n"
-        "    adds r0, r0, r1\n"
-        "    ldr r0, [r0]\n"
-        "    mov pc, r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080DFA20: .4byte 0x03006300 @ IWRAM+0x6300\n"
-        ".L080DFA24: .4byte 0x0300636C @ IWRAM+0x636C\n"
-        ".L080DFA28: .4byte gUnknown_080DFA2C\n"
-        "    .global gUnknown_080DFA2C\n"
-        "gUnknown_080DFA2C:\n"
-        ".L080DFA2C: @ jump table\n"
-        "    .4byte .L080DFB3C\n"
-        "    .4byte .L080DFA44\n"
-        "    .4byte .L080DFA5C\n"
-        "    .4byte .L080DFAA0\n"
-        "    .4byte .L080DFACE\n"
-        "    .4byte .L080DFB18\n"
-        ".L080DFA44:\n"
-        "    ldr r1, .L080DFA58\n"
-        "    movs r0, #0xe1\n"
-        "    lsls r0, r0, #8\n"
-        "    strh r0, [r1]\n"
-        "    ldrh r0, [r4, #0xc]\n"
-        "    strh r0, [r1, #2]\n"
-        "    movs r0, #2\n"
-        "    strb r0, [r6]\n"
-        "    b .L080DFB3C\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080DFA58: .4byte 0x03006380 @ IWRAM+0x6380\n"
-        ".L080DFA5C:\n"
-        "    movs r5, #1\n"
-        "    movs r0, #0xe1\n"
-        "    lsls r0, r0, #8\n"
-        "    bl sub_080DF6FC\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r0, r0, #0x18\n"
-        "    cmp r0, #1\n"
-        "    bne .L080DFB3E\n"
-        "    movs r2, #0\n"
-        "    ldr r6, .L080DFA98\n"
-        "    adds r3, r4, #0\n"
-        "    adds r3, #0xe\n"
-        "    ldr r4, .L080DFA9C\n"
-        ".L080DFA78:\n"
-        "    lsls r1, r2, #1\n"
-        "    adds r1, r3, r1\n"
-        "    lsls r0, r2, #4\n"
-        "    adds r0, r0, r4\n"
-        "    ldrh r0, [r0]\n"
-        "    strh r0, [r1]\n"
-        "    adds r0, r2, #1\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r2, r0, #0x18\n"
-        "    cmp r2, #1\n"
-        "    bls .L080DFA78\n"
-        "    movs r0, #3\n"
-        "    strb r0, [r6]\n"
-        "    bl sub_080DF760\n"
-        "    b .L080DFB3C\n"
-        ".L080DFA98: .4byte 0x0300636C @ IWRAM+0x636C\n"
-        ".L080DFA9C: .4byte 0x03006342 @ IWRAM+0x6342\n"
-        ".L080DFAA0:\n"
-        "    movs r5, #1\n"
-        "    bl sub_080DF7B8\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r0, r0, #0x18\n"
-        "    cmp r0, #0xff\n"
-        "    bne .L080DFAC4\n"
-        "    ldr r1, .L080DFABC\n"
-        "    movs r0, #0xe4\n"
-        "    lsls r0, r0, #8\n"
-        "    strh r0, [r1]\n"
-        "    ldr r1, .L080DFAC0\n"
-        "    movs r0, #4\n"
-        "    b .L080DFB3A\n"
-        ".L080DFABC: .4byte 0x03006380 @ IWRAM+0x6380\n"
-        ".L080DFAC0: .4byte 0x0300636C @ IWRAM+0x636C\n"
-        ".L080DFAC4:\n"
-        "    cmp r0, #1\n"
-        "    bne .L080DFB3E\n"
-        "    bl sub_080DF760\n"
-        "    b .L080DFB3C\n"
-        ".L080DFACE:\n"
-        "    movs r5, #1\n"
-        "    movs r0, #0xe4\n"
-        "    lsls r0, r0, #8\n"
-        "    bl sub_080DF6FC\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r0, r0, #0x18\n"
-        "    cmp r0, #1\n"
-        "    bne .L080DFB3E\n"
-        "    bl sub_080DF990\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r1, r0, #0x18\n"
-        "    cmp r1, #0\n"
-        "    bne .L080DFB00\n"
-        "    ldr r0, .L080DFAF8\n"
-        "    strb r1, [r0]\n"
-        "    movs r7, #1\n"
-        "    ldr r0, .L080DFAFC\n"
-        "    strh r1, [r0]\n"
-        "    b .L080DFB3E\n"
-        ".L080DFAF8: .4byte 0x0300636C @ IWRAM+0x636C\n"
-        ".L080DFAFC: .4byte 0x03006380 @ IWRAM+0x6380\n"
-        ".L080DFB00:\n"
-        "    ldr r1, .L080DFB10\n"
-        "    movs r0, #5\n"
-        "    strb r0, [r1]\n"
-        "    ldr r1, .L080DFB14\n"
-        "    movs r0, #0xe5\n"
-        "    lsls r0, r0, #8\n"
-        "    strh r0, [r1]\n"
-        "    b .L080DFB3E\n"
-        ".L080DFB10: .4byte 0x0300636C @ IWRAM+0x636C\n"
-        ".L080DFB14: .4byte 0x03006380 @ IWRAM+0x6380\n"
-        ".L080DFB18:\n"
-        "    movs r5, #1\n"
-        "    movs r0, #0xe5\n"
-        "    lsls r0, r0, #8\n"
-        "    bl sub_080DF6FC\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r0, r0, #0x18\n"
-        "    cmp r0, #1\n"
-        "    bne .L080DFB3E\n"
-        "    ldr r1, .L080DFB5C\n"
-        "    movs r0, #0xe1\n"
-        "    lsls r0, r0, #8\n"
-        "    strh r0, [r1]\n"
-        "    ldrh r0, [r4, #0xc]\n"
-        "    strh r0, [r1, #2]\n"
-        "    ldr r1, .L080DFB60\n"
-        "    movs r0, #2\n"
-        ".L080DFB3A:\n"
-        "    strb r0, [r1]\n"
-        ".L080DFB3C:\n"
-        "    movs r5, #0\n"
-        ".L080DFB3E:\n"
-        "    bl sub_080DFB98\n"
-        "    lsls r0, r0, #0x18\n"
-        "    cmp r0, #0\n"
-        "    beq .L080DFB4A\n"
-        "    movs r5, #1\n"
-        ".L080DFB4A:\n"
-        "    cmp r5, #0\n"
-        "    beq .L080DFB68\n"
-        "    ldr r1, .L080DFB64\n"
-        "    ldrh r0, [r1]\n"
-        "    adds r0, #1\n"
-        "    strh r0, [r1]\n"
-        "    adds r0, r1, #0\n"
-        "    b .L080DFB6C\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080DFB5C: .4byte 0x03006380 @ IWRAM+0x6380\n"
-        ".L080DFB60: .4byte 0x0300636C @ IWRAM+0x636C\n"
-        ".L080DFB64: .4byte 0x03006390 @ IWRAM+0x6390\n"
-        ".L080DFB68:\n"
-        "    ldr r0, .L080DFB78\n"
-        "    strh r5, [r0]\n"
-        ".L080DFB6C:\n"
-        "    ldrh r1, [r0]\n"
-        "    ldr r0, .L080DFB7C\n"
-        "    cmp r1, r0\n"
-        "    bhi .L080DFB80\n"
-        "    adds r0, r7, #0\n"
-        "    b .L080DFB82\n"
-        ".L080DFB78: .4byte 0x03006390 @ IWRAM+0x6390\n"
-        ".L080DFB7C: .4byte 0x00000257\n"
-        ".L080DFB80:\n"
-        "    movs r0, #0xff\n"
-        ".L080DFB82:\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-    );
-}
-#endif
 
 // Link_GetMultiplayerId @ 0x080DFB88
 /* This machine's multiplayer id (SIOCNT bits 4-5). */
