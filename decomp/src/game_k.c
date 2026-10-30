@@ -108,7 +108,6 @@ void BgPicture_LoadAll(void)
 
 /* NONMATCHING: agbcc reuses the register holding done (== 1) for the final store; the original loads the constant again. */
 // sub_080B43C0 @ 0x080B43C0
-#ifdef NONMATCHING
 /* Script task: scrolls BG1 vertically (0x0300000E) every other frame; task+0x24 = steps left,
    task+0x26 = 1 to scroll up. */
 void sub_080B43C0(u8 *task)
@@ -138,67 +137,12 @@ void sub_080B43C0(u8 *task)
         }
     }
     if (done == 1)
-        *(u16 *)(task + 0x1C) = 1;
+    {
+        /* A fresh 1: CSE would otherwise store `done`, known to be 1 here. */
+        register u32 one asm("r0") = 1;
+        *(u16 *)(task + 0x1C) = one;
+    }
 }
-#else
-NAKED
-void sub_080B43C0(u8 *task)
-{
-    asm_unified(
-        "    push {r4, r5, lr}\n"
-        "    adds r2, r0, #0\n"
-        "    adds r3, r2, #0\n"
-        "    adds r3, #0x24\n"
-        "    movs r5, #0\n"
-        "    strh r5, [r2, #0x1c]\n"
-        "    ldr r0, .L080B43F4\n"
-        "    ldr r0, [r0]\n"
-        "    movs r1, #1\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    bne .L080B4412\n"
-        "    ldrh r0, [r2, #0x24]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080B4410\n"
-        "    ldrh r1, [r3, #2]\n"
-        "    cmp r1, #1\n"
-        "    bne .L080B43FC\n"
-        "    ldr r4, .L080B43F8\n"
-        "    ldrh r0, [r4]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080B4404\n"
-        "    subs r0, r0, r1\n"
-        "    strh r0, [r4]\n"
-        "    b .L080B4404\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080B43F4: .4byte 0x030031BC @ IWRAM+0x31BC\n"
-        ".L080B43F8: .4byte 0x0300000E @ IWRAM+0xE\n"
-        ".L080B43FC:\n"
-        "    ldr r1, .L080B440C\n"
-        "    ldrh r0, [r1]\n"
-        "    adds r0, #1\n"
-        "    strh r0, [r1]\n"
-        ".L080B4404:\n"
-        "    ldrh r0, [r3]\n"
-        "    subs r0, #1\n"
-        "    strh r0, [r3]\n"
-        "    b .L080B4412\n"
-        ".L080B440C: .4byte 0x0300000E @ IWRAM+0xE\n"
-        ".L080B4410:\n"
-        "    movs r5, #1\n"
-        ".L080B4412:\n"
-        "    cmp r5, #1\n"
-        "    bne .L080B441A\n"
-        "    movs r0, #1\n"
-        "    strh r0, [r2, #0x1c]\n"
-        ".L080B441A:\n"
-        "    pop {r4, r5}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-    );
-}
-
-#endif
 
 
 // sub_080B4420 @ 0x080B4420

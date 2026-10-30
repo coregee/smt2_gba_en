@@ -441,7 +441,6 @@ void sub_0814CC38(u8 row)
 
 /* The symbols at the positions in mask of the guess starting at board slot row. */
 // sub_0814CD10 @ 0x0814CD10
-#ifdef NONMATCHING
 u8 sub_0814CD10(u8 mask, u8 row)
 {
     struct C14aCodeBreaker *s = GY;
@@ -454,72 +453,13 @@ u8 sub_0814CD10(u8 mask, u8 row)
         {
             mask >>= 1;
             mask |= 0x80;
-            result |= gUnknown_0879F05C[s->board[row + i].symbol];
+            { u8 sym = s->board[row + i].symbol; result |= gUnknown_0879F05C[sym]; }
         }
         else
             mask >>= 1;
     }
     return result;
 }
-#else
-NAKED
-u8 sub_0814CD10(u8 mask, u8 row)
-{
-    asm_unified(
-        ".L0814CD10:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r2, r0, #0x18\n"
-        "    lsls r1, r1, #0x18\n"
-        "    lsrs r6, r1, #0x18\n"
-        "    ldr r4, .L0814CD54\n"
-        "    movs r1, #0\n"
-        "    movs r3, #0\n"
-        "    adds r0, r4, #0\n"
-        "    adds r0, #0x2f\n"
-        "    ldrb r0, [r0]\n"
-        "    cmp r1, r0\n"
-        "    bhs .L0814CD68\n"
-        "    adds r5, r0, #0\n"
-        "    ldr r7, .L0814CD58\n"
-        ".L0814CD2E:\n"
-        "    movs r0, #1\n"
-        "    ands r0, r2\n"
-        "    cmp r0, #0\n"
-        "    beq .L0814CD5C\n"
-        "    lsrs r2, r2, #1\n"
-        "    movs r0, #0x80\n"
-        "    orrs r2, r0\n"
-        "    lsls r0, r2, #0x18\n"
-        "    lsrs r2, r0, #0x18\n"
-        "    adds r0, r6, r3\n"
-        "    lsls r0, r0, #2\n"
-        "    adds r0, r4, r0\n"
-        "    adds r0, #0x78\n"
-        "    ldrb r0, [r0]\n"
-        "    adds r0, r0, r7\n"
-        "    ldrb r0, [r0]\n"
-        "    orrs r1, r0\n"
-        "    b .L0814CD5E\n"
-        "    .byte 0x00, 0x00\n"
-        ".L0814CD54: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
-        ".L0814CD58: .4byte gUnknown_0879F05C\n"
-        ".L0814CD5C:\n"
-        "    lsrs r2, r2, #1\n"
-        ".L0814CD5E:\n"
-        "    adds r0, r3, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r3, r0, #0x10\n"
-        "    cmp r3, r5\n"
-        "    blo .L0814CD2E\n"
-        ".L0814CD68:\n"
-        "    adds r0, r1, #0\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-    );
-}
-#endif
 
 /* Compares two guesses: pairs equal symbols one to one and returns how many symbols of the
    first are left unpaired (also in unk60); unk61/unk71 = unpaired positions of the first,

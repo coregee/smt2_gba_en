@@ -163,9 +163,10 @@ void sub_080B85C8(struct Task *task)
 }
 
 // sub_080B85F8 @ 0x080B85F8
-#ifdef NONMATCHING
-void sub_080B85F8(struct Task *task)
+void sub_080B85F8(struct Task *task_)
 {
+    /* Pinned: the allocator otherwise swaps task and amount (r4/r5). */
+    register struct Task *task asm("r5") = task_;
     const u16 *text;
     u32 amount;
     u32 v = ITEM_DATA(task)->rec->u.value;
@@ -189,60 +190,6 @@ void sub_080B85F8(struct Task *task)
     sub_080C2438(ITEM_DATA(task)->rec->unk8);
     gUnk_0203DB2C = amount;
 }
-#else
-NAKED
-void sub_080B85F8(struct Task *task)
-{
-    asm_unified(
-        "    push {r4, r5, lr}\n"
-        "    adds r5, r0, #0\n"
-        "    ldr r0, [r5, #0x24]\n"
-        "    ldr r2, [r0, #4]\n"
-        "    movs r1, #0xf0\n"
-        "    lsls r1, r1, #0x18\n"
-        "    ands r1, r2\n"
-        "    movs r0, #0\n"
-        "    strh r0, [r5, #0x1e]\n"
-        "    movs r0, #0x80\n"
-        "    lsls r0, r0, #0x18\n"
-        "    cmp r1, r0\n"
-        "    bne .L080B8624\n"
-        "    ldr r4, .L080B861C\n"
-        "    ands r4, r2\n"
-        "    ldr r0, .L080B8620\n"
-        "    b .L080B8632\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080B861C: .4byte 0x0FFFFFFF\n"
-        ".L080B8620: .4byte gUnknown_080033D6\n"
-        ".L080B8624:\n"
-        "    movs r0, #0x90\n"
-        "    lsls r0, r0, #0x18\n"
-        "    cmp r1, r0\n"
-        "    bne .L080B864A\n"
-        "    ldr r4, .L080B8650\n"
-        "    ands r4, r2\n"
-        "    ldr r0, .L080B8654\n"
-        ".L080B8632:\n"
-        "    bl Text_CopyToMenuBuffer\n"
-        "    ldr r1, .L080B8658\n"
-        "    adds r0, r5, #0\n"
-        "    bl sub_080B832C\n"
-        "    ldr r0, [r5, #0x24]\n"
-        "    ldrh r0, [r0, #8]\n"
-        "    bl sub_080C2438\n"
-        "    ldr r0, .L080B865C\n"
-        "    str r4, [r0]\n"
-        ".L080B864A:\n"
-        "    pop {r4, r5}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L080B8650: .4byte 0x0FFFFFFF\n"
-        ".L080B8654: .4byte gUnknown_080033BA\n"
-        ".L080B8658: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
-        ".L080B865C: .4byte 0x0203DB2C @ EWRAM+0x3DB2C\n"
-    );
-}
-#endif
 
 // Spring_GetKindAt @ 0x080B8660
 /* Kind of healing spring at the player's world position (table gUnknown_08164A7C), 0 if

@@ -622,12 +622,15 @@ bool32 sub_0813DA14(u32 idx)
     u32 f;
     u16 g;
     u32 mask;
+    u32 m;
 
     if (t == 0x75 || t == 0x20 || t == 0x21 || t == 0x22)
         return TRUE;
     f = Combatant_GetStatus(idx);
     g = f;
-    if (0x8000 & f)
+    m = 0x8000;
+    m &= f;
+    if (m)
         mask = 0x7F;
     else if (g & 0x8000)
         mask = 0x3F;

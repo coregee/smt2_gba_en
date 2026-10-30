@@ -401,80 +401,23 @@ u32 Fusion_SetNoResult(void)
 
 /* Two materials of the same race. */
 // sub_08158E78 @ 0x08158E78
-#ifdef NONMATCHING
 u32 sub_08158E78(void)
 {
     struct FusionCalc *c = &gUnk_0203B868;
-    u32 r;
 
     if (c->race[0] > 0x1A)
         return sub_08158F48(c->race[0]);
     if (gUnknown_087F15E0[c->race[0]] == 0)
         return sub_08158ED0();
-    if (gUnknown_087F15E0[c->race[0]] != 0xFF)
-    {
-        c->result = gUnknown_087F15E0[c->race[0]];
-        r = sub_08158D08();
-    }
-    else
+    if (gUnknown_087F15E0[c->race[0]] == 0xFF)
     {
         Fusion_SetNoResult();
         c->unkA6 = 0x40;
-        r = 0;
+        return 0;
     }
-    return r;
+    c->result = gUnknown_087F15E0[c->race[0]];
+    return sub_08158D08();
 }
-#else
-NAKED
-u32 sub_08158E78(void)
-{
-    asm_unified(
-        ".L08158E78:\n"
-        "    push {r4, lr}\n"
-        "    ldr r4, .L08158E8C\n"
-        "    adds r2, r4, #0\n"
-        "    adds r2, #0x96\n"
-        "    ldrb r0, [r2]\n"
-        "    cmp r0, #0x1a\n"
-        "    bls .L08158E90\n"
-        "    bl sub_08158F48\n"
-        "    b .L08158EC8\n"
-        ".L08158E8C: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L08158E90:\n"
-        "    ldr r1, .L08158EA4\n"
-        "    ldrb r0, [r2]\n"
-        "    adds r0, r0, r1\n"
-        "    ldrb r1, [r0]\n"
-        "    cmp r1, #0\n"
-        "    bne .L08158EA8\n"
-        "    bl sub_08158ED0\n"
-        "    b .L08158EC8\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08158EA4: .4byte gUnknown_087F15E0\n"
-        ".L08158EA8:\n"
-        "    cmp r1, #0xff\n"
-        "    beq .L08158EBA\n"
-        "    ldrb r0, [r0]\n"
-        "    adds r1, r4, #0\n"
-        "    adds r1, #0xa0\n"
-        "    strh r0, [r1]\n"
-        "    bl sub_08158D08\n"
-        "    b .L08158EC8\n"
-        ".L08158EBA:\n"
-        "    bl Fusion_SetNoResult\n"
-        "    adds r1, r4, #0\n"
-        "    adds r1, #0xa6\n"
-        "    movs r0, #0x40\n"
-        "    strb r0, [r1]\n"
-        "    movs r0, #0\n"
-        ".L08158EC8:\n"
-        "    pop {r4}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 /* Element fusion table (ids 0x32-0x39 pairs) -> race, then the highest demon of that race
    not above the hero's level. */
@@ -635,7 +578,6 @@ u32 sub_08159144(void)
 /* Fusion with a dark (alignment 0xB) demon: a random demon of a given alignment below a
    level cap ("accident"-style result). */
 // sub_0815915C @ 0x0815915C
-#ifdef NONMATCHING
 u32 sub_0815915C(void)
 {
     struct FusionCalc *c;
@@ -667,8 +609,7 @@ u32 sub_0815915C(void)
         x = 1;
     a = x * 3;
     k = (sub_0815B958(b) & 3) + a;
-    want = 3;
-    want &= gUnknown_087F160B[k];
+    want = gUnknown_087F160B[k] & 3;
     for (k = 0; k <= 0x1F; k++)
     {
         for (j = 0; j <= 999; j++)
@@ -689,186 +630,14 @@ u32 sub_0815915C(void)
     }
     return sub_08158CA4();
 }
-#else
-NAKED
-u32 sub_0815915C(void)
-{
-    asm_unified(
-        ".L0815915C:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sl\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6, r7}\n"
-        "    ldr r1, .L081591BC\n"
-        "    movs r0, #1\n"
-        "    str r0, [r1]\n"
-        "    ldr r4, .L081591C0\n"
-        "    adds r2, r4, #0\n"
-        "    adds r2, #0xa4\n"
-        "    ldrb r1, [r2]\n"
-        "    movs r0, #8\n"
-        "    orrs r0, r1\n"
-        "    strb r0, [r2]\n"
-        "    adds r2, #2\n"
-        "    ldrb r1, [r2]\n"
-        "    movs r0, #3\n"
-        "    ands r0, r1\n"
-        "    movs r1, #0x30\n"
-        "    orrs r0, r1\n"
-        "    strb r0, [r2]\n"
-        "    adds r0, r4, #0\n"
-        "    adds r0, #0x9c\n"
-        "    ldrb r0, [r0]\n"
-        "    adds r1, r4, #0\n"
-        "    adds r1, #0x9d\n"
-        "    ldrb r1, [r1]\n"
-        "    ldr r2, .L081591C4\n"
-        "    adds r0, r0, r1\n"
-        "    ldrb r2, [r2, #0xd]\n"
-        "    adds r0, r0, r2\n"
-        "    movs r1, #3\n"
-        "    bl __divsi3\n"
-        "    adds r0, #4\n"
-        "    mov sl, r0\n"
-        "    adds r0, r4, #0\n"
-        "    adds r0, #0x99\n"
-        "    ldrb r0, [r0]\n"
-        "    cmp r0, #0xb\n"
-        "    bne .L081591CE\n"
-        "    adds r0, r4, #0\n"
-        "    adds r0, #0x90\n"
-        "    ldrh r5, [r0]\n"
-        "    adds r0, #2\n"
-        "    b .L081591D6\n"
-        "    .byte 0x00, 0x00\n"
-        ".L081591BC: .4byte 0x03006A38 @ IWRAM+0x6A38\n"
-        ".L081591C0: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L081591C4: .4byte 0x030046C0 @ IWRAM+0x46C0\n"
-        ".L081591C8:\n"
-        "    bl sub_08158D08\n"
-        "    b .L0815928C\n"
-        ".L081591CE:\n"
-        "    adds r0, r4, #0\n"
-        "    adds r0, #0x92\n"
-        "    ldrh r5, [r0]\n"
-        "    subs r0, #2\n"
-        ".L081591D6:\n"
-        "    ldrh r4, [r0]\n"
-        "    adds r0, r5, #0\n"
-        "    bl sub_0815B958\n"
-        "    movs r6, #3\n"
-        "    adds r1, r6, #0\n"
-        "    ands r1, r0\n"
-        "    cmp r1, #0\n"
-        "    beq .L081591EA\n"
-        "    movs r1, #1\n"
-        ".L081591EA:\n"
-        "    lsls r0, r1, #1\n"
-        "    adds r0, r0, r1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r5, r0, #0x10\n"
-        "    adds r0, r4, #0\n"
-        "    bl sub_0815B958\n"
-        "    adds r1, r6, #0\n"
-        "    ands r1, r0\n"
-        "    adds r7, r1, r5\n"
-        "    ldr r0, .L0815929C\n"
-        "    adds r0, r7, r0\n"
-        "    ldrb r0, [r0]\n"
-        "    mov r8, r6\n"
-        "    mov r1, r8\n"
-        "    ands r1, r0\n"
-        "    mov r8, r1\n"
-        "    movs r7, #0\n"
-        "    ldr r2, .L081592A0\n"
-        "    mov sb, r2\n"
-        ".L08159212:\n"
-        "    movs r6, #0\n"
-        ".L08159214:\n"
-        "    bl sub_08159144\n"
-        "    adds r1, r0, #0\n"
-        "    cmp r1, #0xff\n"
-        "    beq .L08159244\n"
-        "    ldr r5, .L081592A4\n"
-        "    adds r4, r5, #0\n"
-        "    adds r4, #0xa0\n"
-        "    strh r1, [r4]\n"
-        "    ldrh r0, [r4]\n"
-        "    bl sub_0815BA28\n"
-        "    cmp r0, #0\n"
-        "    beq .L08159244\n"
-        "    ldrh r1, [r4]\n"
-        "    mov r0, sb\n"
-        "    ldrh r0, [r0]\n"
-        "    cmp r1, r0\n"
-        "    beq .L08159244\n"
-        "    adds r0, r5, #0\n"
-        "    adds r0, #0x92\n"
-        "    ldrh r0, [r0]\n"
-        "    cmp r1, r0\n"
-        "    bne .L0815924C\n"
-        ".L08159244:\n"
-        "    adds r6, #1\n"
-        "    ldr r0, .L081592A8\n"
-        "    cmp r6, r0\n"
-        "    ble .L08159214\n"
-        ".L0815924C:\n"
-        "    ldr r5, .L081592A4\n"
-        "    adds r4, r5, #0\n"
-        "    adds r4, #0xa0\n"
-        "    ldrh r0, [r4]\n"
-        "    bl Demon_GetLevel\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r0, r0, #0x18\n"
-        "    cmp r0, sl\n"
-        "    bge .L08159282\n"
-        "    ldrh r0, [r4]\n"
-        "    bl sub_0815B958\n"
-        "    movs r1, #3\n"
-        "    ands r1, r0\n"
-        "    cmp r1, r8\n"
-        "    bne .L08159282\n"
-        "    ldrh r1, [r4]\n"
-        "    mov r2, sb\n"
-        "    ldrh r2, [r2]\n"
-        "    cmp r1, r2\n"
-        "    beq .L08159282\n"
-        "    adds r0, r5, #0\n"
-        "    adds r0, #0x92\n"
-        "    ldrh r0, [r0]\n"
-        "    cmp r1, r0\n"
-        "    bne .L081591C8\n"
-        ".L08159282:\n"
-        "    adds r7, #1\n"
-        "    cmp r7, #0x1f\n"
-        "    ble .L08159212\n"
-        "    bl sub_08158CA4\n"
-        ".L0815928C:\n"
-        "    pop {r3, r4, r5}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    mov sl, r5\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-        ".L0815929C: .4byte gUnknown_087F160B\n"
-        ".L081592A0: .4byte 0x0203B8F8 @ EWRAM+0x3B8F8\n"
-        ".L081592A4: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L081592A8: .4byte 0x000003E7\n"
-    );
-}
-#endif
 
 /* A demon and a race-8 material (table 0x087F1611): shifts the demon by rank or level. */
 // sub_081592AC @ 0x081592AC
-#ifdef NONMATCHING
 u32 sub_081592AC(void)
 {
     struct FusionCalc *c = &gUnk_0203B868;
     u16 e;
-    u16 d;
+    u32 d;
     u8 dr;
     const u8 *p;
     s32 v;
@@ -913,117 +682,6 @@ u32 sub_081592AC(void)
     }
     return sub_08158D08();
 }
-#else
-NAKED
-u32 sub_081592AC(void)
-{
-    asm_unified(
-        ".L081592AC:\n"
-        "    push {r4, lr}\n"
-        "    ldr r1, .L081592CC\n"
-        "    adds r4, r1, #0\n"
-        "    adds r4, #0x96\n"
-        "    ldrb r0, [r4]\n"
-        "    cmp r0, #8\n"
-        "    bne .L081592D0\n"
-        "    adds r0, r1, #0\n"
-        "    adds r0, #0x90\n"
-        "    ldrh r2, [r0]\n"
-        "    adds r0, #2\n"
-        "    ldrh r3, [r0]\n"
-        "    adds r0, #5\n"
-        "    ldrb r1, [r0]\n"
-        "    b .L081592DC\n"
-        "    .byte 0x00, 0x00\n"
-        ".L081592CC: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L081592D0:\n"
-        "    adds r0, r1, #0\n"
-        "    adds r0, #0x92\n"
-        "    ldrh r2, [r0]\n"
-        "    subs r0, #2\n"
-        "    ldrh r3, [r0]\n"
-        "    ldrb r1, [r4]\n"
-        ".L081592DC:\n"
-        "    adds r0, r2, #0\n"
-        "    subs r0, #0x32\n"
-        "    asrs r4, r0, #1\n"
-        "    lsls r0, r1, #2\n"
-        "    adds r0, r0, r4\n"
-        "    ldr r1, .L08159300\n"
-        "    adds r1, r0, r1\n"
-        "    ldrb r0, [r1]\n"
-        "    cmp r0, #0xff\n"
-        "    bne .L08159308\n"
-        "    bl Fusion_SetNoResult\n"
-        "    ldr r0, .L08159304\n"
-        "    adds r0, #0xa6\n"
-        "    movs r1, #0x40\n"
-        "    strb r1, [r0]\n"
-        "    movs r0, #0\n"
-        "    b .L08159372\n"
-        ".L08159300: .4byte gUnknown_087F1611\n"
-        ".L08159304: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L08159308:\n"
-        "    ldrb r4, [r1]\n"
-        "    movs r0, #1\n"
-        "    ands r2, r0\n"
-        "    cmp r2, #0\n"
-        "    bne .L08159314\n"
-        "    asrs r4, r4, #4\n"
-        ".L08159314:\n"
-        "    movs r0, #3\n"
-        "    ands r0, r4\n"
-        "    cmp r0, #0\n"
-        "    beq .L08159348\n"
-        "    adds r0, r3, #0\n"
-        "    movs r1, #3\n"
-        "    ands r4, r1\n"
-        "    adds r1, r4, #0\n"
-        "    bl Fusion_RankDown\n"
-        "    ldr r1, .L08159344\n"
-        "    adds r3, r1, #0\n"
-        "    adds r3, #0xa4\n"
-        "    adds r4, #1\n"
-        "    ldrb r2, [r3]\n"
-        "    adds r0, r4, #0\n"
-        "    orrs r0, r2\n"
-        "    strb r0, [r3]\n"
-        "    adds r1, #0xa6\n"
-        "    ldrb r2, [r1]\n"
-        "    movs r0, #0xf0\n"
-        "    ands r0, r2\n"
-        "    orrs r0, r4\n"
-        "    b .L0815936C\n"
-        ".L08159344: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L08159348:\n"
-        "    adds r0, r3, #0\n"
-        "    movs r1, #0xf\n"
-        "    ands r4, r1\n"
-        "    adds r1, r4, #1\n"
-        "    bl Fusion_RankUp\n"
-        "    ldr r1, .L08159378\n"
-        "    adds r2, r1, #0\n"
-        "    adds r2, #0xa4\n"
-        "    ldrb r0, [r2]\n"
-        "    movs r3, #1\n"
-        "    orrs r0, r3\n"
-        "    strb r0, [r2]\n"
-        "    adds r1, #0xa6\n"
-        "    ldrb r2, [r1]\n"
-        "    movs r0, #0xf0\n"
-        "    ands r0, r2\n"
-        "    orrs r0, r3\n"
-        ".L0815936C:\n"
-        "    strb r0, [r1]\n"
-        "    bl sub_08158D08\n"
-        ".L08159372:\n"
-        "    pop {r4}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        ".L08159378: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-    );
-}
-#endif
 
 /* Two demons of different races and alignments: race table, then the first demon of that
    race at or above the mean level + 3. */

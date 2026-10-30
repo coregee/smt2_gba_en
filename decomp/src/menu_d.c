@@ -336,41 +336,14 @@ u32 sub_080D2268(u16 id)
     return ret & 0xFF;
 }
 
-/* NONMATCHING: the original truncates the result with "and 0xFF" instead of two shifts. */
 // sub_080D229C @ 0x080D229C
-#ifdef NONMATCHING
 u32 sub_080D229C(u16 id, u8 *combatant)
 {
     u16 range = sub_080D2268(id);
-    u32 ret = Combatant_GetEquip(combatant[0xC], range);
+    u16 ret = Combatant_GetEquip(combatant[0xC], range) & 0xFF;
 
-    return ret & 0xFF;
+    return ret;
 }
-#else
-NAKED
-u32 sub_080D229C(u16 id, u8 *combatant)
-{
-    asm_unified(
-        ".L080D229C:\n"
-        "    push {r4, lr}\n"
-        "    adds r4, r1, #0\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    bl sub_080D2268\n"
-        "    adds r1, r0, #0\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    ldrb r0, [r4, #0xc]\n"
-        "    bl Combatant_GetEquip\n"
-        "    movs r1, #0xff\n"
-        "    ands r0, r1\n"
-        "    pop {r4}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // StatsPage_DrawLabelGrid @ 0x080D22C0
 /* The labels are drawn glyph by glyph with fixed 12-pixel spacing. */

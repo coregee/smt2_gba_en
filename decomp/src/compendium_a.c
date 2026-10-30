@@ -680,8 +680,8 @@ void List_HandleScrollInput(struct Task *task, u16 count, u16 rows, u8 *cursor, 
     }
     else if ((gRepeatedKeys & 0x200) && count > rows)
     {
-        c0 = *cursor;
-        t0 = *top;
+        u8 c1 = *cursor;
+        u8 t1 = *top;
         Font_ResetGlyphSpriteCache(0x180);
         if (*cursor != 0)
         {
@@ -691,7 +691,7 @@ void List_HandleScrollInput(struct Task *task, u16 count, u16 rows, u8 *cursor, 
         }
         else if (*top >= rows - 1)
         {
-            *top = *top + 1 - rows;
+            *top += 1 - rows;
             if (mode == 1)
                 sub_081563F4(task);
         }
@@ -701,7 +701,7 @@ void List_HandleScrollInput(struct Task *task, u16 count, u16 rows, u8 *cursor, 
             if (mode == 1)
                 sub_081563F4(task);
         }
-        if (c0 != *cursor || t0 != *top)
+        if (c1 != *cursor || t1 != *top)
             Sound_Play(0x64);
     }
     else if ((gRepeatedKeys & 0x100) && count > rows)

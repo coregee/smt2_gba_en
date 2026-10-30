@@ -203,11 +203,14 @@ u32 sub_0815BA28(u16 id)
 
     if (id > 0xFE)
         return 0;
-    while (gUnknown_087F1D22[i] != 0xFF)
+    if (gUnknown_087F1D22[0] != 0xFF)
     {
-        if (id == gUnknown_087F1D22[i])
-            goto found;
-        i += 2;
+        do
+        {
+            if (id == gUnknown_087F1D22[i])
+                goto found;
+            i += 2;
+        } while (gUnknown_087F1D22[i] != 0xFF);
     }
     return 1;
 found:

@@ -777,7 +777,8 @@ u32 sub_080B8160(const u16 *p)
 }
 
 // sub_080B8174 @ 0x080B8174
-#ifdef NONMATCHING
+/* The original saw sub_080B1A30/sub_080B2030 with word-sized parameters (the u16 prototypes
+   load the arguments in the other order). */
 void sub_080B8174(void)
 {
     u16 v = 0xC;
@@ -787,69 +788,21 @@ void sub_080B8174(void)
 
     if (wall == 3)
     {
-        sub_080B1A30(0xC, dir);
+        ((void (*)(u32, u32))sub_080B1A30)(0xC, dir);
+    }
+    else if (wall == 2)
+    {
+        fs->unk0A = v;
+        ((void (*)(u32, u32, u32))sub_080B2030)(0xC, dir, 3);
+        fs->unk46 = 1;
     }
     else
     {
-        if (wall == 2)
-        {
-            fs->unk0A = v;
-            sub_080B2030(0xC, dir, 3);
-        }
-        else
-        {
-            fs->unk0A = v;
-            sub_080B2030(0xC, dir, 2);
-        }
+        fs->unk0A = v;
+        ((void (*)(u32, u32, u32))sub_080B2030)(0xC, dir, 2);
         fs->unk46 = 1;
     }
 }
-#else
-NAKED
-void sub_080B8174(void)
-{
-    asm_unified(
-        "    push {r4, r5, r6, lr}\n"
-        "    movs r6, #0xc\n"
-        "    ldr r5, .L080B8194\n"
-        "    ldrh r4, [r5, #2]\n"
-        "    movs r0, #0\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    bl View_GetWall\n"
-        "    cmp r0, #3\n"
-        "    bne .L080B8198\n"
-        "    movs r0, #0xc\n"
-        "    adds r1, r4, #0\n"
-        "    bl sub_080B1A30\n"
-        "    b .L080B81BA\n"
-        ".L080B8194: .4byte 0x03004550 @ IWRAM+0x4550\n"
-        ".L080B8198:\n"
-        "    cmp r0, #2\n"
-        "    bne .L080B81A6\n"
-        "    strh r6, [r5, #0xa]\n"
-        "    movs r0, #0xc\n"
-        "    adds r1, r4, #0\n"
-        "    movs r2, #3\n"
-        "    b .L080B81AE\n"
-        ".L080B81A6:\n"
-        "    strh r6, [r5, #0xa]\n"
-        "    movs r0, #0xc\n"
-        "    adds r1, r4, #0\n"
-        "    movs r2, #2\n"
-        ".L080B81AE:\n"
-        "    bl sub_080B2030\n"
-        "    adds r1, r5, #0\n"
-        "    adds r1, #0x46\n"
-        "    movs r0, #1\n"
-        "    strh r0, [r1]\n"
-        ".L080B81BA:\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-    );
-}
-#endif
 
 // sub_080B81C0 @ 0x080B81C0
 void sub_080B81C0(struct Task *task)

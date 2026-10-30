@@ -27,7 +27,6 @@ extern u32 gYesNoResult;
 extern u16 gUnk_03003BA8;
 extern u32 gUnk_03004628;
 extern s8 gUnk_03003FC4, gUnk_03004618;
-extern u16 gPaletteTarget[];
 extern u16 gPaletteBuffer[];
 extern void *gUnk_0300452C;
 extern u8 gHudState[];

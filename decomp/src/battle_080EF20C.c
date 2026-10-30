@@ -129,7 +129,6 @@ s32 sub_080EF3C8(s32 id)
 }
 
 // sub_080EF434 @ 0x080EF434
-#ifdef NONMATCHING
 u32 sub_080EF434(s32 id)
 {
     u8 *rec = Demon_GetRecord(id);
@@ -144,62 +143,14 @@ u32 sub_080EF434(s32 id)
     x >>= 4;
     n = x * x;
     n >>= 1;
-    if ((u16)((u32)(rand() & 0xFF) % 0xC0) >= n)
-        return 0;
+    {
+        u16 v = rand() & 0xFF;
+
+        if ((u16)((u32)v % 0xC0) >= n)
+            return 0;
+    }
     return 1;
 }
-#else
-NAKED u32 sub_080EF434(s32 id)
-{
-    asm_unified(
-        ".L080EF434:\n"
-        "    push {r4, lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    bl Demon_GetRecord\n"
-        "    adds r4, r0, #0\n"
-        "    movs r0, #1\n"
-        "    bl Flag_Test\n"
-        "    cmp r0, #0\n"
-        "    bne .L080EF48C\n"
-        "    movs r0, #0xd5\n"
-        "    bl Flag_Test\n"
-        "    cmp r0, #0\n"
-        "    bne .L080EF48C\n"
-        "    movs r0, #0xb7\n"
-        "    bl Flag_Test\n"
-        "    cmp r0, #0\n"
-        "    bne .L080EF48C\n"
-        "    ldrb r1, [r4, #0x1f]\n"
-        "    movs r0, #0xf0\n"
-        "    ands r0, r1\n"
-        "    lsls r0, r0, #0x18\n"
-        "    cmp r0, #0\n"
-        "    beq .L080EF48C\n"
-        "    lsrs r0, r0, #0x1c\n"
-        "    adds r4, r0, #0\n"
-        "    muls r4, r0, r4\n"
-        "    lsrs r4, r4, #1\n"
-        "    bl rand\n"
-        "    movs r1, #0xff\n"
-        "    ands r0, r1\n"
-        "    movs r1, #0xc0\n"
-        "    bl __umodsi3\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    cmp r0, r4\n"
-        "    bhs .L080EF48C\n"
-        "    movs r0, #1\n"
-        "    b .L080EF48E\n"
-        ".L080EF48C:\n"
-        "    movs r0, #0\n"
-        ".L080EF48E:\n"
-        "    pop {r4}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-    );
-}
-#endif
 
 // sub_080EF494 @ 0x080EF494
 u16 sub_080EF494(u16 lvl, s32 id)

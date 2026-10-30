@@ -15,7 +15,12 @@ void ScriptOp_38B(void)
     u16 a = SCRIPT_READ();
     u16 b = SCRIPT_READ();
 
-    gUnk_03006964 = sub_080B4420(gUnknown_0879041E[b * 2 + 1], gUnknown_0879041E[b * 2]);
+    {
+        u32 k = b * 2;
+        u16 y = gUnknown_0879041E[k];
+
+        gUnk_03006964 = sub_080B4420(gUnknown_0879041E[k + 1], y);
+    }
     if (a & 0xF0)
         sub_080ECF80();
     gScriptYield = 1;

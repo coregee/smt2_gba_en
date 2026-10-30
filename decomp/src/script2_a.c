@@ -345,18 +345,16 @@ void MsgGlyphQueue_PushSubst(u16 x, u16 y, u16 pal, u16 n)
 #ifdef NONMATCHING
 void Script_QueuePartyNames(u16 base, u16 mode)
 {
-    struct PartyMember *m;
     u16 slot = 0;
     u16 row = 0;
     u16 pal;
     s16 j;
-    s32 idx;
+    u16 idx;
 
     gMsgGlyphList2Count = 0;
     for (j = 0; j < 100; j++)
         gMsgGlyphList2[j] = 0;
     gUnk_030069D0 = 0;
-    idx = base + slot;
     goto check;
 process:
     if (mode == 1)
@@ -401,9 +399,8 @@ process:
     if (++slot > 3)
         return;
 load:
-    idx = base + slot;
 check:
-    if (gGameState[idx].unkE != 0)
+    if (gGameState[idx = base + slot].unkE != 0)
         goto process;
     if (++slot <= 2)
         goto load;

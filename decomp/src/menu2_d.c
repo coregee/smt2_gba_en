@@ -142,51 +142,22 @@ void sub_080D4918(struct Task *task)
         sub_080AF178(0x1A, gUnknown_0815C110);
 }
 
-/* NONMATCHING: the zero for the stack arguments is materialised in r2 before the store. */
 // sub_080D4954 @ 0x080D4954
-#ifdef NONMATCHING
 void sub_080D4954(struct Task *task)
 {
     u16 *data = task->data.h;
+    u16 *dst;
+    u16 v;
+    u32 zero;
 
     Flag_Set(0x10C);
-    gUnk_0203DB28 = task->data.h[0];
-    *(u32 *)&data[4] = CharObj_Create(0, 0x1C1, 0x50, 4, 0, 0);
+    /* written through a pointer, with the zero for the stack arguments set before the store */
+    dst = &gUnk_0203DB28;
+    v = data[0];
+    zero = 0;
+    *dst = v;
+    *(u32 *)&data[4] = CharObj_Create(0, 0x1C1, 0x50, 4, zero, zero);
 }
-#else
-NAKED
-void sub_080D4954(struct Task *task)
-{
-    asm_unified(
-        "    push {r4, r5, lr}\n"
-        "    sub sp, #8\n"
-        "    adds r4, r0, #0\n"
-        "    adds r5, r4, #0\n"
-        "    adds r5, #0x24\n"
-        "    movs r0, #0x86\n"
-        "    lsls r0, r0, #1\n"
-        "    bl Flag_Set\n"
-        "    ldr r1, .L080D4988\n"
-        "    ldrh r0, [r4, #0x24]\n"
-        "    movs r2, #0\n"
-        "    strh r0, [r1]\n"
-        "    ldr r1, .L080D498C\n"
-        "    str r2, [sp]\n"
-        "    str r2, [sp, #4]\n"
-        "    movs r0, #0\n"
-        "    movs r2, #0x50\n"
-        "    movs r3, #4\n"
-        "    bl CharObj_Create\n"
-        "    str r0, [r5, #8]\n"
-        "    add sp, #8\n"
-        "    pop {r4, r5}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L080D4988: .4byte 0x0203DB28 @ EWRAM+0x3DB28\n"
-        ".L080D498C: .4byte 0x000001C1\n"
-    );
-}
-#endif
 
 // sub_080D4990 @ 0x080D4990
 void sub_080D4990(void)

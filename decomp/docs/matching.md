@@ -64,3 +64,10 @@ void Func(...)
   (`ident++; ... ident = ID_NUMBER;`): old_agbcc deletes both stores as redundant, and that is
   what leaves the loaded ident in `r3`.
 - `gNumMusicPlayers` is an absolute symbol whose *address* is the player count (4).
+
+## Register pins
+
+Four matching functions use GNU `register T x asm("rN")` pins (`dungeonmap_b.c`, `fieldbg_a.c`,
+`fieldevent_f.c`, `game_k.c`), each with a comment. They are a last resort, used only where no
+plain source shape reproduced the original allocation; they count as matching because the
+build proves the bytes, but they are less likely to be the original source than the rest.

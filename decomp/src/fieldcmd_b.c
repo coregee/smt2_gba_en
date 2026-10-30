@@ -346,18 +346,16 @@ void sub_080B9A24(struct Task *task)
 }
 
 // Elevator_DrawFloorLabel @ 0x080B9A4C
-#ifdef NONMATCHING
 /* Draws the floor label ("<n>F" or "B<n>F", one or two digits) of menu row `row`. */
 void Elevator_DrawFloorLabel(struct Task *task, struct MapHeader *floor, u32 row)
 {
     u16 count = Elevator_GetFloorCount(task);
     u16 y = count * 13 - (u16)(row * 13 + 10);
-    u16 n;
     u8 *dig;
 
     if (floor->floor < 0)
     {
-        n = floor->floor;
+        u16 n = floor->floor;
         n = -n;
         dig = NumberToDigits(n);
         Text_DrawSpriteString(gUnknown_08165674, 0, 0, 0x9C, y, 0xC);
@@ -375,7 +373,7 @@ void Elevator_DrawFloorLabel(struct Task *task, struct MapHeader *floor, u32 row
     }
     else
     {
-        n = floor->floor;
+        u16 n = floor->floor;
         dig = NumberToDigits(n);
         if (n > 9)
         {
@@ -390,168 +388,6 @@ void Elevator_DrawFloorLabel(struct Task *task, struct MapHeader *floor, u32 row
         }
     }
 }
-#else
-NAKED
-void Elevator_DrawFloorLabel(struct Task *task, struct MapHeader *floor, u32 row)
-{
-    asm_unified(
-        ".L080B9A4C:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    sub sp, #8\n"
-        "    adds r5, r1, #0\n"
-        "    adds r4, r2, #0\n"
-        "    bl Elevator_GetFloorCount\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    movs r2, #0xd\n"
-        "    adds r1, r0, #0\n"
-        "    muls r1, r2, r1\n"
-        "    adds r0, r4, #0\n"
-        "    muls r0, r2, r0\n"
-        "    adds r0, #0xa\n"
-        "    subs r1, r1, r0\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r6, r1, #0x10\n"
-        "    adds r7, r6, #0\n"
-        "    movs r1, #6\n"
-        "    ldrsh r0, [r5, r1]\n"
-        "    cmp r0, #0\n"
-        "    bge .L080B9B18\n"
-        "    ldrh r4, [r5, #6]\n"
-        "    rsbs r4, r4, #0\n"
-        "    lsls r4, r4, #0x10\n"
-        "    lsrs r4, r4, #0x10\n"
-        "    adds r0, r4, #0\n"
-        "    bl NumberToDigits\n"
-        "    adds r5, r0, #0\n"
-        "    ldr r0, .L080B9ADC\n"
-        "    str r6, [sp]\n"
-        "    movs r7, #0xc\n"
-        "    str r7, [sp, #4]\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0x9c\n"
-        "    bl Text_DrawSpriteString\n"
-        "    cmp r4, #9\n"
-        "    bls .L080B9AE8\n"
-        "    ldr r4, .L080B9AE0\n"
-        "    ldrb r0, [r5, #1]\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r0, r0, r4\n"
-        "    ldrh r0, [r0]\n"
-        "    str r6, [sp]\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0xb4\n"
-        "    bl FontSprite_DrawGlyph\n"
-        "    ldrb r0, [r5]\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r0, r0, r4\n"
-        "    ldrh r0, [r0]\n"
-        "    str r6, [sp]\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0xc0\n"
-        "    bl FontSprite_DrawGlyph\n"
-        "    ldr r0, .L080B9AE4\n"
-        "    str r6, [sp]\n"
-        "    str r7, [sp, #4]\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0xcc\n"
-        "    bl Text_DrawSpriteString\n"
-        "    b .L080B9B94\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080B9ADC: .4byte gUnknown_08165674\n"
-        ".L080B9AE0: .4byte gUnknown_0816567E\n"
-        ".L080B9AE4: .4byte gUnknown_0816567A\n"
-        ".L080B9AE8:\n"
-        "    ldr r1, .L080B9B10\n"
-        "    ldrb r0, [r5]\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r0, r0, r1\n"
-        "    ldrh r0, [r0]\n"
-        "    str r6, [sp]\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0xb4\n"
-        "    bl FontSprite_DrawGlyph\n"
-        "    ldr r0, .L080B9B14\n"
-        "    str r6, [sp]\n"
-        "    str r7, [sp, #4]\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0xc0\n"
-        "    bl Text_DrawSpriteString\n"
-        "    b .L080B9B94\n"
-        ".L080B9B10: .4byte gUnknown_0816567E\n"
-        ".L080B9B14: .4byte gUnknown_0816567A\n"
-        ".L080B9B18:\n"
-        "    ldrh r4, [r5, #6]\n"
-        "    adds r0, r4, #0\n"
-        "    bl NumberToDigits\n"
-        "    adds r5, r0, #0\n"
-        "    cmp r4, #9\n"
-        "    bls .L080B9B6C\n"
-        "    ldr r4, .L080B9B64\n"
-        "    ldrb r0, [r5, #1]\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r0, r0, r4\n"
-        "    ldrh r0, [r0]\n"
-        "    str r6, [sp]\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0x9c\n"
-        "    bl FontSprite_DrawGlyph\n"
-        "    ldrb r0, [r5]\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r0, r0, r4\n"
-        "    ldrh r0, [r0]\n"
-        "    str r6, [sp]\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0xa8\n"
-        "    bl FontSprite_DrawGlyph\n"
-        "    ldr r0, .L080B9B68\n"
-        "    str r6, [sp]\n"
-        "    movs r1, #0xc\n"
-        "    str r1, [sp, #4]\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0xb4\n"
-        "    bl Text_DrawSpriteString\n"
-        "    b .L080B9B94\n"
-        ".L080B9B64: .4byte gUnknown_0816567E\n"
-        ".L080B9B68: .4byte gUnknown_0816567A\n"
-        ".L080B9B6C:\n"
-        "    ldr r1, .L080B9B9C\n"
-        "    ldrb r0, [r5]\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r0, r0, r1\n"
-        "    ldrh r0, [r0]\n"
-        "    str r7, [sp]\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0x9c\n"
-        "    bl FontSprite_DrawGlyph\n"
-        "    ldr r0, .L080B9BA0\n"
-        "    str r7, [sp]\n"
-        "    movs r1, #0xc\n"
-        "    str r1, [sp, #4]\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0xa8\n"
-        "    bl Text_DrawSpriteString\n"
-        ".L080B9B94:\n"
-        "    add sp, #8\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L080B9B9C: .4byte gUnknown_0816567E\n"
-        ".L080B9BA0: .4byte gUnknown_0816567A\n"
-    );
-}
-#endif
 
 // Elevator_DrawMenu @ 0x080B9BA4
 void Elevator_DrawMenu(struct Task *task)
