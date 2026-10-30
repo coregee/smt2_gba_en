@@ -6,190 +6,83 @@ struct Stats8
     u32 a, b;
 };
 
-// Battle_InitEnemyUnit @ 0x080F0200
+struct EnemyUnit
+{
+    u8 name[0xC];
+    u8 slot;            /* 0x0C */
+    u8 race;            /* 0x0D */
+    u16 flags;          /* 0x0E */
+    u16 unk10;
+    u16 id;             /* 0x12 */
+    s16 level;          /* 0x14 */
+    u8 unk16;
+    u8 unk17;
+    u16 hp;             /* 0x18 */
+    u16 maxHp;
+    u16 mp;             /* 0x1C */
+    u16 maxMp;
+    u8 filler20[8];
+    struct Stats8 cur;  /* 0x28 */
+    u8 filler30[0x10];
+    u8 stats[8];        /* 0x40 */
+    u8 derived[0x10];   /* 0x48 */
+    u16 unk58;
+    u8 filler5A[3];
+    u8 skills[32];      /* 0x5D */
+};
+
+struct EnemyRecord
+{
+    s8 level;
+    u8 race;
+    u16 hp;
+    u16 mp;
+    u8 stats[6];
+    u8 unkC;
+    u8 fillerD[4];
+    u8 skills[0x11];    /* 0x11 */
+    u8 name[1];         /* 0x22 */
+};
+
 /* Fills enemy unit slot from demon record id. */
-#ifdef NONMATCHING
+// Battle_InitEnemyUnit @ 0x080F0200
 void Battle_InitEnemyUnit(s32 slot, s32 id)
 {
     struct BattleFlow *b = BFLOW;
-    u8 *u = (u8 *)&b->units[slot];
-    u8 *rec = Demon_GetRecord(id);
+    struct EnemyUnit *u = (struct EnemyUnit *)&b->units[slot];
+    struct EnemyRecord *rec = (struct EnemyRecord *)Demon_GetRecord(id);
     u32 zero;
     s32 i, j;
-    u8 *skills;
 
     zero = 0;
     CpuSet(&zero, u, 0x05000020);
-    u[0xC] = slot + 0x10;
-    *(u16 *)(u + 0x12) = id;
-    *(u16 *)(u + 0xE) = 0x8000;
-    *(s16 *)(u + 0x14) = (s8)rec[0];
-    *(u16 *)(u + 0x18) = *(u16 *)(rec + 2);
-    *(u16 *)(u + 0x1A) = *(u16 *)(rec + 2);
-    *(u16 *)(u + 0x1C) = *(u16 *)(rec + 4);
-    *(u16 *)(u + 0x1E) = *(u16 *)(rec + 4);
-    u[0xD] = rec[1];
-    *(u16 *)(u + 0x58) = rec[0xC] << 8;
-    u[0x17] = 10;
-    u[0x16] = 10;
-    u[0x40] = rec[6];
-    u[0x41] = rec[7];
-    u[0x42] = rec[8];
-    u[0x43] = rec[9];
-    u[0x44] = rec[0xA];
-    u[0x45] = rec[0xB];
-    *(struct Stats8 *)(u + 0x28) = *(struct Stats8 *)(u + 0x40);
-    *(u16 *)(u + 0x58) = rec[0xC] << 8;
-    skills = u + 0x5D;
+    u->slot = slot + 0x10;
+    u->id = id;
+    u->flags = 0x8000;
+    u->level = rec->level;
+    u->hp = rec->hp;
+    u->maxHp = rec->hp;
+    u->mp = rec->mp;
+    u->maxMp = rec->mp;
+    u->race = rec->race;
+    u->unk58 = rec->unkC << 8;
+    u->unk17 = 10;
+    u->unk16 = 10;
+    u->stats[0] = rec->stats[0];
+    u->stats[1] = rec->stats[1];
+    u->stats[2] = rec->stats[2];
+    u->stats[3] = rec->stats[3];
+    u->stats[4] = rec->stats[4];
+    u->stats[5] = rec->stats[5];
+    u->cur = *(struct Stats8 *)u->stats;
+    u->unk58 = rec->unkC << 8;
     for (i = 0; i < 32; i++)
-        skills[i] |= 0xFF;
-    {
-        u8 *src = rec + 0x11;
-
-        for (i = 0, j = 0; j < 7; i++, j++)
-            skills[i] = src[j];
-    }
-    Stats_CalcDerived(u[0xD], u + 0x40, u + 0x48);
-    Name_Encode(rec + 0x22, u);
+        u->skills[i] |= 0xFF;
+    for (j = 0, i = 0; i < 7; j++, i++)
+        u->skills[j] = rec->skills[i];
+    Stats_CalcDerived(u->race, u->stats, u->derived);
+    Name_Encode(rec->name, (u8 *)u);
 }
-#else
-NAKED void Battle_InitEnemyUnit(s32 slot, s32 id)
-{
-    asm_unified(
-        ".L080F0200:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sb\n"
-        "    mov r6, r8\n"
-        "    push {r6, r7}\n"
-        "    sub sp, #4\n"
-        "    adds r4, r0, #0\n"
-        "    adds r5, r1, #0\n"
-        "    ldr r1, .L080F0304\n"
-        "    lsls r0, r4, #7\n"
-        "    movs r2, #0x9a\n"
-        "    lsls r2, r2, #4\n"
-        "    adds r0, r0, r2\n"
-        "    adds r6, r0, r1\n"
-        "    lsls r0, r5, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    bl Demon_GetRecord\n"
-        "    adds r7, r0, #0\n"
-        "    movs r0, #0\n"
-        "    str r0, [sp]\n"
-        "    ldr r2, .L080F0308\n"
-        "    mov r0, sp\n"
-        "    adds r1, r6, #0\n"
-        "    bl CpuSet\n"
-        "    adds r4, #0x10\n"
-        "    strb r4, [r6, #0xc]\n"
-        "    strh r5, [r6, #0x12]\n"
-        "    movs r0, #0x80\n"
-        "    lsls r0, r0, #8\n"
-        "    strh r0, [r6, #0xe]\n"
-        "    movs r0, #0\n"
-        "    ldrsb r0, [r7, r0]\n"
-        "    strh r0, [r6, #0x14]\n"
-        "    ldrh r0, [r7, #2]\n"
-        "    strh r0, [r6, #0x18]\n"
-        "    ldrh r0, [r7, #2]\n"
-        "    strh r0, [r6, #0x1a]\n"
-        "    ldrh r0, [r7, #4]\n"
-        "    strh r0, [r6, #0x1c]\n"
-        "    ldrh r0, [r7, #4]\n"
-        "    strh r0, [r6, #0x1e]\n"
-        "    ldrb r0, [r7, #1]\n"
-        "    strb r0, [r6, #0xd]\n"
-        "    ldrb r0, [r7, #0xc]\n"
-        "    lsls r0, r0, #8\n"
-        "    adds r2, r6, #0\n"
-        "    adds r2, #0x58\n"
-        "    strh r0, [r2]\n"
-        "    movs r0, #0xa\n"
-        "    strb r0, [r6, #0x17]\n"
-        "    strb r0, [r6, #0x16]\n"
-        "    ldrb r1, [r7, #6]\n"
-        "    adds r0, r6, #0\n"
-        "    adds r0, #0x40\n"
-        "    strb r1, [r0]\n"
-        "    ldrb r0, [r7, #7]\n"
-        "    adds r1, r6, #0\n"
-        "    adds r1, #0x41\n"
-        "    strb r0, [r1]\n"
-        "    ldrb r0, [r7, #8]\n"
-        "    adds r1, #1\n"
-        "    strb r0, [r1]\n"
-        "    ldrb r0, [r7, #9]\n"
-        "    adds r1, #1\n"
-        "    strb r0, [r1]\n"
-        "    ldrb r1, [r7, #0xa]\n"
-        "    adds r0, r6, #0\n"
-        "    adds r0, #0x44\n"
-        "    strb r1, [r0]\n"
-        "    ldrb r0, [r7, #0xb]\n"
-        "    adds r1, r6, #0\n"
-        "    adds r1, #0x45\n"
-        "    strb r0, [r1]\n"
-        "    ldr r0, [r6, #0x40]\n"
-        "    ldr r1, [r6, #0x44]\n"
-        "    str r0, [r6, #0x28]\n"
-        "    str r1, [r6, #0x2c]\n"
-        "    ldrb r0, [r7, #0xc]\n"
-        "    lsls r0, r0, #8\n"
-        "    strh r0, [r2]\n"
-        "    movs r3, #0\n"
-        "    adds r2, #5\n"
-        "    movs r4, #0xff\n"
-        "    adds r5, r2, #0\n"
-        ".L080F02AA:\n"
-        "    adds r1, r2, r3\n"
-        "    ldrb r0, [r1]\n"
-        "    orrs r0, r4\n"
-        "    strb r0, [r1]\n"
-        "    adds r3, #1\n"
-        "    cmp r3, #0x1f\n"
-        "    ble .L080F02AA\n"
-        "    movs r4, #0\n"
-        "    movs r3, #0\n"
-        "    movs r0, #0x40\n"
-        "    adds r0, r0, r6\n"
-        "    mov sb, r0\n"
-        "    movs r2, #0x48\n"
-        "    adds r2, r2, r6\n"
-        "    mov ip, r2\n"
-        "    movs r0, #0x22\n"
-        "    adds r0, r0, r7\n"
-        "    mov r8, r0\n"
-        "    adds r2, r5, #0\n"
-        "    adds r5, r7, #0\n"
-        "    adds r5, #0x11\n"
-        ".L080F02D4:\n"
-        "    adds r0, r2, r4\n"
-        "    adds r1, r5, r3\n"
-        "    ldrb r1, [r1]\n"
-        "    strb r1, [r0]\n"
-        "    adds r4, #1\n"
-        "    adds r3, #1\n"
-        "    cmp r3, #6\n"
-        "    ble .L080F02D4\n"
-        "    ldrb r0, [r6, #0xd]\n"
-        "    mov r1, sb\n"
-        "    mov r2, ip\n"
-        "    bl Stats_CalcDerived\n"
-        "    mov r0, r8\n"
-        "    adds r1, r6, #0\n"
-        "    bl Name_Encode\n"
-        "    add sp, #4\n"
-        "    pop {r3, r4}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L080F0304: .4byte 0x0203C200 @ EWRAM+0x3C200\n"
-        ".L080F0308: .4byte 0x05000020 @ PLTT+0x20\n"
-    );
-}
-#endif
 
 // sub_080F030C @ 0x080F030C
 u16 sub_080F030C(u16 a, u16 b)

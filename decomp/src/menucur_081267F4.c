@@ -412,16 +412,18 @@ void sub_08126D50(u8 id, u8 parts)
     sub_080E5668(sub_08126F84);
 }
 
+/* Copies graphics (parts bits 1 and 2 add two more blocks) and 0x40 map entries to two
+   buffers, then fades in palette gUnknown_08772514. */
+extern u16 gUnk_03001AB4[];
+extern u16 gUnk_03002E10[];
+
 // sub_08126E4C @ 0x08126E4C
-#ifdef NONMATCHING
 void sub_08126E4C(u8 unused, u8 parts)
 {
-    u16 *dst = (u16 *)0x03001AB4;
+    u16 *dst = gUnk_03001AB4;
     u16 *dst2 = (u16 *)0x0200E294;
-    const u16 *src = gUnknown_08771ED4;
+    u16 *src = (u16 *)gUnknown_08771ED4;
     const u8 *gfx = gUnknown_08770ED4;
-    const u16 *pal = gUnknown_08772514;
-    u16 *palDst = (u16 *)0x03002E10;
     u8 i;
 
     CpuFastSet(gfx, (u8 *)dst - 0x800, 0x200);
@@ -429,108 +431,20 @@ void sub_08126E4C(u8 unused, u8 parts)
         CpuFastSet(gfx + 0x9A0, (u8 *)dst - 0x1920, 0x20);
     if (parts & 4)
         CpuFastSet(gfx + 0xA40, (u8 *)dst - 0x1880, 0x20);
-    for (i = 0; i < 0x40; i++)
-        *dst++ = *dst2++ = *src++;
-    Palette_CopyWithEffect(3, pal, palDst, 0x20, 0x20);
+    i = 0;
+    {
+        u16 *pal = (u16 *)gUnknown_08772514;
+        u16 *palDst = gUnk_03002E10;
+
+        for (; i < 0x40; i++)
+            *dst++ = *dst2++ = *src++;
+        dst = pal;
+        src = palDst;
+    }
+    Palette_CopyWithEffect(3, dst, src, 0x20, 0x20);
     Palette_MarkDirty();
     VBlankTask_AddCounted(sub_08126FEC, 1);
 }
-#else
-NAKED
-void sub_08126E4C(u8 unused, u8 parts)
-{
-    asm_unified(
-        ".L08126E4C:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, r8\n"
-        "    push {r7}\n"
-        "    sub sp, #4\n"
-        "    lsls r1, r1, #0x18\n"
-        "    lsrs r1, r1, #0x18\n"
-        "    mov r8, r1\n"
-        "    ldr r4, .L08126EEC\n"
-        "    ldr r7, .L08126EF0\n"
-        "    ldr r5, .L08126EF4\n"
-        "    ldr r6, .L08126EF8\n"
-        "    ldr r0, .L08126EFC\n"
-        "    adds r1, r4, r0\n"
-        "    movs r2, #0x80\n"
-        "    lsls r2, r2, #2\n"
-        "    adds r0, r6, #0\n"
-        "    bl CpuFastSet\n"
-        "    movs r0, #2\n"
-        "    mov r1, r8\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    beq .L08126E8A\n"
-        "    movs r2, #0x9a\n"
-        "    lsls r2, r2, #4\n"
-        "    adds r0, r6, r2\n"
-        "    ldr r2, .L08126F00\n"
-        "    adds r1, r4, r2\n"
-        "    movs r2, #0x20\n"
-        "    bl CpuFastSet\n"
-        ".L08126E8A:\n"
-        "    movs r0, #4\n"
-        "    mov r1, r8\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    beq .L08126EA4\n"
-        "    movs r2, #0xa4\n"
-        "    lsls r2, r2, #4\n"
-        "    adds r0, r6, r2\n"
-        "    ldr r2, .L08126F04\n"
-        "    adds r1, r4, r2\n"
-        "    movs r2, #0x20\n"
-        "    bl CpuFastSet\n"
-        ".L08126EA4:\n"
-        "    movs r1, #0\n"
-        "    ldr r2, .L08126F08\n"
-        "    ldr r3, .L08126F0C\n"
-        ".L08126EAA:\n"
-        "    ldrh r0, [r5]\n"
-        "    strh r0, [r7]\n"
-        "    strh r0, [r4]\n"
-        "    adds r5, #2\n"
-        "    adds r7, #2\n"
-        "    adds r4, #2\n"
-        "    adds r0, r1, #1\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r1, r0, #0x18\n"
-        "    cmp r1, #0x3f\n"
-        "    bls .L08126EAA\n"
-        "    adds r4, r2, #0\n"
-        "    adds r5, r3, #0\n"
-        "    movs r0, #0x20\n"
-        "    str r0, [sp]\n"
-        "    movs r0, #3\n"
-        "    adds r1, r4, #0\n"
-        "    adds r2, r5, #0\n"
-        "    movs r3, #0x20\n"
-        "    bl Palette_CopyWithEffect\n"
-        "    bl Palette_MarkDirty\n"
-        "    ldr r0, .L08126F10\n"
-        "    movs r1, #1\n"
-        "    bl VBlankTask_AddCounted\n"
-        "    add sp, #4\n"
-        "    pop {r3}\n"
-        "    mov r8, r3\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L08126EEC: .4byte 0x03001AB4 @ IWRAM+0x1AB4\n"
-        ".L08126EF0: .4byte 0x0200E294 @ EWRAM+0xE294\n"
-        ".L08126EF4: .4byte gUnknown_08771ED4\n"
-        ".L08126EF8: .4byte gUnknown_08770ED4\n"
-        ".L08126EFC: .4byte 0xFFFFF800\n"
-        ".L08126F00: .4byte 0xFFFFE6E0\n"
-        ".L08126F04: .4byte 0xFFFFE780\n"
-        ".L08126F08: .4byte gUnknown_08772514\n"
-        ".L08126F0C: .4byte 0x03002E10 @ IWRAM+0x2E10\n"
-        ".L08126F10: .4byte sub_08126FEC\n"
-    );
-}
-#endif
 
 // sub_08126F14 @ 0x08126F14
 void sub_08126F14(void)

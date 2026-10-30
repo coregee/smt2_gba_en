@@ -317,9 +317,7 @@ void NameEntry_Backspace(struct MenuTask *task)
     NameEntry_RenderName(task);
 }
 
-/* NONMATCHING: the original keeps (keys & 0x20) as a u16 in r2 and reuses it as the 0 stored on Right at column 10; everything else matches. */
 // NameEntry_HandleInput @ 0x080D1828
-#ifdef NONMATCHING
 void NameEntry_HandleInput(struct MenuTask *task)
 {
     struct SaveMenu *menu = &gMenuState;
@@ -389,75 +387,81 @@ void NameEntry_HandleInput(struct MenuTask *task)
                 moved = TRUE;
             }
         }
-        else if (gRepeatedKeys & 0x20)
+        else
         {
-            if (menu->unk04 != 0)
+            /* left held as s16: it is also the zero stored by the right-key branch */
+            s16 left = gRepeatedKeys & 0x20;
+
+            if (left)
             {
-                menu->unk04--;
-                moved = TRUE;
-                if (menu->unk04 == 5)
-                    menu->unk04 = 4;
-            }
-            else
-            {
-                menu->unk0A = 0;
-                menu->u.name.menuCursor = menu->cursor;
-                menu->unk02 = 1;
-                moved = TRUE;
-            }
-        }
-        else if (gRepeatedKeys & 0x10)
-        {
-            if (menu->unk04 != 10)
-            {
-                menu->unk04++;
-                if (menu->unk04 == 5)
-                    menu->unk04 = 6;
-            }
-            else
-            {
-                menu->unk0A = 0;
-                menu->u.name.menuCursor = menu->cursor;
-                menu->unk02 = 1;
-            }
-            moved = TRUE;
-        }
-        else if (gRepeatedKeys & 0x200)
-        {
-            if (menu->cursor != 0)
-            {
-                menu->cursor = 0;
-                moved = TRUE;
-            }
-            else if (menu->unk08 > 2)
-            {
-                menu->unk08 -= 3;
-                moved = TRUE;
-            }
-            else
-            {
-                if (menu->unk08 != 0)
+                if (menu->unk04 != 0)
+                {
+                    menu->unk04--;
                     moved = TRUE;
-                menu->unk08 = 0;
-            }
-        }
-        else if (gRepeatedKeys & 0x100)
-        {
-            if (menu->cursor != 3)
-            {
-                menu->cursor = 3;
-                moved = TRUE;
-            }
-            else if (menu->cursor + menu->unk08 + 4 < numRows - 1)
-            {
-                menu->unk08 += 4;
-                moved = TRUE;
-            }
-            else
-            {
-                if (menu->unk08 != numRows - 4)
+                    if (menu->unk04 == 5)
+                        menu->unk04 = 4;
+                }
+                else
+                {
+                    menu->unk0A = 0;
+                    menu->u.name.menuCursor = menu->cursor;
+                    menu->unk02 = 1;
                     moved = TRUE;
-                menu->unk08 = numRows - 4;
+                }
+            }
+            else if (gRepeatedKeys & 0x10)
+            {
+                if (menu->unk04 != 10)
+                {
+                    menu->unk04++;
+                    if (menu->unk04 == 5)
+                        menu->unk04 = 6;
+                }
+                else
+                {
+                    menu->unk0A = left;
+                    menu->u.name.menuCursor = menu->cursor;
+                    menu->unk02 = 1;
+                }
+                moved = TRUE;
+            }
+            else if (gRepeatedKeys & 0x200)
+            {
+                if (menu->cursor != 0)
+                {
+                    menu->cursor = 0;
+                    moved = TRUE;
+                }
+                else if (menu->unk08 > 2)
+                {
+                    menu->unk08 -= 3;
+                    moved = TRUE;
+                }
+                else
+                {
+                    if (menu->unk08 != 0)
+                        moved = TRUE;
+                    menu->unk08 = 0;
+                }
+            }
+            else if (gRepeatedKeys & 0x100)
+            {
+                if (menu->cursor != 3)
+                {
+                    menu->cursor = 3;
+                    moved = TRUE;
+                }
+                else if (menu->cursor + menu->unk08 + 4 < numRows - 1)
+                {
+                    menu->unk08 += 4;
+                    moved = TRUE;
+                }
+                else
+                {
+                    if (menu->unk08 != numRows - 4)
+                        moved = TRUE;
+                    menu->unk08 = numRows - 4;
+                }
             }
         }
     }
@@ -493,10 +497,15 @@ void NameEntry_HandleInput(struct MenuTask *task)
         else if (gRepeatedKeys & 0x40)
         {
             if (menu->u.name.menuCursor != 0)
+            {
                 menu->u.name.menuCursor--;
+                moved = TRUE;
+            }
             else
+            {
                 menu->u.name.menuCursor = 3;
-            moved = TRUE;
+                moved = TRUE;
+            }
         }
         else if (gRepeatedKeys & 0x80)
         {
@@ -524,389 +533,6 @@ void NameEntry_HandleInput(struct MenuTask *task)
     if (moved == TRUE)
         Sound_Play(0x64);
 }
-#else
-NAKED
-void NameEntry_HandleInput(struct MenuTask *task)
-{
-    asm_unified(
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    adds r6, r0, #0\n"
-        "    ldr r4, .L080D185C\n"
-        "    movs r3, #0x19\n"
-        "    movs r5, #0\n"
-        "    strh r5, [r6, #0x1c]\n"
-        "    ldrh r0, [r4, #0xe]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D1860\n"
-        "    subs r0, #1\n"
-        "    strh r0, [r4, #0xe]\n"
-        "    lsls r0, r0, #0x10\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D1846\n"
-        "    b .L080D1AD0\n"
-        ".L080D1846:\n"
-        "    ldrh r1, [r4, #0x10]\n"
-        "    cmp r1, #1\n"
-        "    beq .L080D184E\n"
-        "    b .L080D1AD0\n"
-        ".L080D184E:\n"
-        "    strh r5, [r4, #0xa]\n"
-        "    movs r0, #3\n"
-        "    strh r0, [r4, #0xc]\n"
-        "    strh r1, [r4, #2]\n"
-        "    strh r5, [r4, #0x10]\n"
-        "    b .L080D1AD0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080D185C: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
-        ".L080D1860:\n"
-        "    ldrh r0, [r4, #2]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D1868\n"
-        "    b .L080D19FA\n"
-        ".L080D1868:\n"
-        "    ldr r2, .L080D18B4\n"
-        "    ldrh r1, [r2]\n"
-        "    movs r7, #1\n"
-        "    adds r0, r7, #0\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D18C4\n"
-        "    movs r0, #0x65\n"
-        "    bl Sound_Play\n"
-        "    ldr r2, .L080D18B8\n"
-        "    ldrh r0, [r4, #6]\n"
-        "    ldrh r1, [r4, #8]\n"
-        "    adds r0, r0, r1\n"
-        "    movs r1, #0xb\n"
-        "    muls r0, r1, r0\n"
-        "    ldrh r1, [r4, #4]\n"
-        "    adds r0, r0, r1\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r0, r0, r2\n"
-        "    ldrh r0, [r0]\n"
-        "    bl sub_080C03A8\n"
-        "    adds r1, r4, #0\n"
-        "    adds r1, #0x1a\n"
-        "    ldrh r2, [r4, #0x14]\n"
-        "    adds r1, r1, r2\n"
-        "    strb r0, [r1]\n"
-        "    adds r0, r6, #0\n"
-        "    bl NameEntry_RenderName\n"
-        "    ldrh r0, [r4, #0x14]\n"
-        "    cmp r0, #7\n"
-        "    beq .L080D18BC\n"
-        "    adds r0, #1\n"
-        "    strh r0, [r4, #0x14]\n"
-        "    b .L080D18BE\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080D18B4: .4byte 0x030031B8 @ IWRAM+0x31B8\n"
-        ".L080D18B8: .4byte gNameEntryCharGrid\n"
-        ".L080D18BC:\n"
-        "    strh r7, [r4, #0x10]\n"
-        ".L080D18BE:\n"
-        "    movs r0, #7\n"
-        "    strh r0, [r4, #0xe]\n"
-        "    b .L080D1AC6\n"
-        ".L080D18C4:\n"
-        "    ldrh r1, [r2]\n"
-        "    movs r0, #2\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D18D0\n"
-        "    b .L080D1A4A\n"
-        ".L080D18D0:\n"
-        "    ldrh r1, [r2]\n"
-        "    movs r0, #8\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D18EA\n"
-        "    movs r0, #0x65\n"
-        "    bl Sound_Play\n"
-        "    strh r5, [r4, #0xa]\n"
-        "    movs r0, #3\n"
-        "    strh r0, [r4, #0xc]\n"
-        "    strh r7, [r4, #2]\n"
-        "    b .L080D1AC6\n"
-        ".L080D18EA:\n"
-        "    ldr r0, .L080D1904\n"
-        "    ldrh r1, [r0]\n"
-        "    movs r0, #0x40\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D1916\n"
-        "    ldrh r0, [r4, #6]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D1908\n"
-        "    subs r0, #1\n"
-        "    strh r0, [r4, #6]\n"
-        "    b .L080D1AC4\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080D1904: .4byte 0x03003964 @ IWRAM+0x3964\n"
-        ".L080D1908:\n"
-        "    ldrh r0, [r4, #8]\n"
-        "    cmp r0, #0\n"
-        "    bne .L080D1910\n"
-        "    b .L080D1AC6\n"
-        ".L080D1910:\n"
-        "    subs r0, #1\n"
-        "    strh r0, [r4, #8]\n"
-        "    b .L080D1AC4\n"
-        ".L080D1916:\n"
-        "    movs r0, #0x80\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D193A\n"
-        "    ldrh r0, [r4, #6]\n"
-        "    cmp r0, #3\n"
-        "    beq .L080D192A\n"
-        "    adds r0, #1\n"
-        "    strh r0, [r4, #6]\n"
-        "    b .L080D1AC4\n"
-        ".L080D192A:\n"
-        "    ldrh r1, [r4, #8]\n"
-        "    adds r0, r1, #4\n"
-        "    cmp r0, #0x18\n"
-        "    ble .L080D1934\n"
-        "    b .L080D1AC6\n"
-        ".L080D1934:\n"
-        "    adds r0, r1, #1\n"
-        "    strh r0, [r4, #8]\n"
-        "    b .L080D1AC4\n"
-        ".L080D193A:\n"
-        "    movs r0, #0x20\n"
-        "    ands r0, r1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r2, r0, #0x10\n"
-        "    cmp r2, #0\n"
-        "    beq .L080D196C\n"
-        "    ldrh r0, [r4, #4]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D1962\n"
-        "    subs r0, #1\n"
-        "    strh r0, [r4, #4]\n"
-        "    movs r5, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    cmp r0, #5\n"
-        "    beq .L080D195C\n"
-        "    b .L080D1AC6\n"
-        ".L080D195C:\n"
-        "    movs r0, #4\n"
-        "    strh r0, [r4, #4]\n"
-        "    b .L080D1AC6\n"
-        ".L080D1962:\n"
-        "    strh r5, [r4, #0xa]\n"
-        "    ldrh r0, [r4, #6]\n"
-        "    strh r0, [r4, #0xc]\n"
-        "    strh r7, [r4, #2]\n"
-        "    b .L080D1AC4\n"
-        ".L080D196C:\n"
-        "    movs r0, #0x10\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D1998\n"
-        "    ldrh r0, [r4, #4]\n"
-        "    cmp r0, #0xa\n"
-        "    beq .L080D198E\n"
-        "    adds r0, #1\n"
-        "    strh r0, [r4, #4]\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    cmp r0, #5\n"
-        "    beq .L080D1988\n"
-        "    b .L080D1AC4\n"
-        ".L080D1988:\n"
-        "    movs r0, #6\n"
-        "    strh r0, [r4, #4]\n"
-        "    b .L080D1AC4\n"
-        ".L080D198E:\n"
-        "    strh r2, [r4, #0xa]\n"
-        "    ldrh r0, [r4, #6]\n"
-        "    strh r0, [r4, #0xc]\n"
-        "    strh r7, [r4, #2]\n"
-        "    b .L080D1AC4\n"
-        ".L080D1998:\n"
-        "    movs r0, #0x80\n"
-        "    lsls r0, r0, #2\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D19C4\n"
-        "    ldrh r2, [r4, #6]\n"
-        "    cmp r2, #0\n"
-        "    beq .L080D19AC\n"
-        "    strh r5, [r4, #6]\n"
-        "    b .L080D1AC4\n"
-        ".L080D19AC:\n"
-        "    ldrh r0, [r4, #8]\n"
-        "    adds r1, r0, #0\n"
-        "    cmp r1, #2\n"
-        "    bls .L080D19BA\n"
-        "    subs r0, #3\n"
-        "    strh r0, [r4, #8]\n"
-        "    b .L080D1AC4\n"
-        ".L080D19BA:\n"
-        "    cmp r1, #0\n"
-        "    beq .L080D19C0\n"
-        "    movs r5, #1\n"
-        ".L080D19C0:\n"
-        "    strh r2, [r4, #8]\n"
-        "    b .L080D1AC6\n"
-        ".L080D19C4:\n"
-        "    movs r0, #0x80\n"
-        "    lsls r0, r0, #1\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D1AC6\n"
-        "    ldrh r0, [r4, #6]\n"
-        "    cmp r0, #3\n"
-        "    beq .L080D19DA\n"
-        "    movs r0, #3\n"
-        "    strh r0, [r4, #6]\n"
-        "    b .L080D1AC4\n"
-        ".L080D19DA:\n"
-        "    ldrh r0, [r4, #6]\n"
-        "    ldrh r2, [r4, #8]\n"
-        "    adds r0, r0, r2\n"
-        "    adds r0, #4\n"
-        "    subs r1, r3, #1\n"
-        "    cmp r0, r1\n"
-        "    bge .L080D19EE\n"
-        "    adds r0, r2, #4\n"
-        "    strh r0, [r4, #8]\n"
-        "    b .L080D1AC4\n"
-        ".L080D19EE:\n"
-        "    subs r1, r3, #4\n"
-        "    cmp r2, r1\n"
-        "    beq .L080D19F6\n"
-        "    movs r5, #1\n"
-        ".L080D19F6:\n"
-        "    strh r1, [r4, #8]\n"
-        "    b .L080D1AC6\n"
-        ".L080D19FA:\n"
-        "    ldr r2, .L080D1A20\n"
-        "    ldrh r1, [r2]\n"
-        "    movs r7, #1\n"
-        "    adds r0, r7, #0\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D1A40\n"
-        "    movs r0, #0x65\n"
-        "    bl Sound_Play\n"
-        "    ldrh r0, [r4, #0xa]\n"
-        "    cmp r0, #0\n"
-        "    bne .L080D1AC6\n"
-        "    ldrh r0, [r4, #0xc]\n"
-        "    cmp r0, #0\n"
-        "    bne .L080D1A24\n"
-        "    strh r5, [r4, #8]\n"
-        "    b .L080D1AC6\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080D1A20: .4byte 0x030031B8 @ IWRAM+0x31B8\n"
-        ".L080D1A24:\n"
-        "    cmp r0, #1\n"
-        "    bne .L080D1A2E\n"
-        "    movs r0, #0xa\n"
-        "    strh r0, [r4, #8]\n"
-        "    b .L080D1AC6\n"
-        ".L080D1A2E:\n"
-        "    cmp r0, #2\n"
-        "    bne .L080D1A38\n"
-        "    movs r0, #0x14\n"
-        "    strh r0, [r4, #8]\n"
-        "    b .L080D1AC6\n"
-        ".L080D1A38:\n"
-        "    cmp r0, #3\n"
-        "    bne .L080D1AC6\n"
-        "    strh r7, [r6, #0x1c]\n"
-        "    b .L080D1AC6\n"
-        ".L080D1A40:\n"
-        "    ldrh r1, [r2]\n"
-        "    movs r0, #2\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D1A52\n"
-        ".L080D1A4A:\n"
-        "    adds r0, r6, #0\n"
-        "    bl NameEntry_Backspace\n"
-        "    b .L080D1AC6\n"
-        ".L080D1A52:\n"
-        "    ldrh r1, [r2]\n"
-        "    movs r0, #8\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D1A6A\n"
-        "    movs r0, #0x65\n"
-        "    bl Sound_Play\n"
-        "    strh r5, [r4, #0xa]\n"
-        "    movs r0, #3\n"
-        "    strh r0, [r4, #0xc]\n"
-        "    b .L080D1AC6\n"
-        ".L080D1A6A:\n"
-        "    ldr r0, .L080D1A84\n"
-        "    ldrh r1, [r0]\n"
-        "    movs r0, #0x40\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D1A8E\n"
-        "    ldrh r0, [r4, #0xc]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D1A88\n"
-        "    subs r0, #1\n"
-        "    strh r0, [r4, #0xc]\n"
-        "    b .L080D1AC4\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080D1A84: .4byte 0x03003964 @ IWRAM+0x3964\n"
-        ".L080D1A88:\n"
-        "    movs r0, #3\n"
-        "    strh r0, [r4, #0xc]\n"
-        "    b .L080D1AC4\n"
-        ".L080D1A8E:\n"
-        "    movs r0, #0x80\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D1AA6\n"
-        "    ldrh r0, [r4, #0xc]\n"
-        "    cmp r0, #3\n"
-        "    beq .L080D1AA2\n"
-        "    adds r0, #1\n"
-        "    strh r0, [r4, #0xc]\n"
-        "    b .L080D1AC4\n"
-        ".L080D1AA2:\n"
-        "    strh r5, [r4, #0xc]\n"
-        "    b .L080D1AC4\n"
-        ".L080D1AA6:\n"
-        "    movs r0, #0x20\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D1AB4\n"
-        "    movs r0, #0xa\n"
-        "    strh r0, [r4, #4]\n"
-        "    b .L080D1ABE\n"
-        ".L080D1AB4:\n"
-        "    movs r0, #0x10\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D1AC6\n"
-        "    strh r5, [r4, #4]\n"
-        ".L080D1ABE:\n"
-        "    ldrh r0, [r4, #0xc]\n"
-        "    strh r0, [r4, #6]\n"
-        "    strh r5, [r4, #2]\n"
-        ".L080D1AC4:\n"
-        "    movs r5, #1\n"
-        ".L080D1AC6:\n"
-        "    cmp r5, #1\n"
-        "    bne .L080D1AD0\n"
-        "    movs r0, #0x64\n"
-        "    bl Sound_Play\n"
-        ".L080D1AD0:\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // Name_Equals8 @ 0x080D1AD8
 /* Compares two 8-byte names; returns 0 when equal. */

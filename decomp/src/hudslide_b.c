@@ -374,6 +374,8 @@ void Hud_DrawGaugeValue(u32 cur, u32 alt, u8 *canvas)
 void Hud_DrawGauge(u16 slot, u16 kind, u16 x, u16 y, u16 max, u16 cur)
 {
     u16 t = 7;
+    s32 full = 46;              /* gauge length in pixels */
+    u8 n = 4;                   /* middle tiles */
     u16 fill;
     u32 *tiles;
     u16 *last;
@@ -382,9 +384,9 @@ void Hud_DrawGauge(u16 slot, u16 kind, u16 x, u16 y, u16 max, u16 cur)
     u8 *canvas;
 
     if (cur <= max)
-        fill = cur * 46 / max;
+        fill = cur * full / max;
     else
-        fill = 46;
+        fill = full;
     if (kind == 0)
     {
         tiles = (u32 *)(gUnk_0200E8D8 + slot * 0x180);
@@ -403,7 +405,7 @@ void Hud_DrawGauge(u16 slot, u16 kind, u16 x, u16 y, u16 max, u16 cur)
             tile = 7;
         tiles = sub_080C8148(gUnknown_0834A6EC[tile], tiles);
         t += 8;
-        for (i = 0; i < 4; i++)
+        for (i = 0; i < n; i++)
         {
             if (fill > t)
                 tile = 8;
@@ -414,12 +416,12 @@ void Hud_DrawGauge(u16 slot, u16 kind, u16 x, u16 y, u16 max, u16 cur)
             tiles = sub_080C8148(gUnknown_0834A70C[tile], tiles);
             t += 8;
         }
-        if (fill == 46)
+        if (fill == full)
             tile = 7;
-        else if (fill < 46 - 7)
+        else if (fill < full - 7)
             tile = 0;
         else
-            tile = fill + 7 - 46;
+            tile = fill + 7 - full;
         sub_080C8148(gUnknown_0834A730[tile], tiles);
         if (kind == 0)
             canvas = gUnk_0200F1D8 + slot * 0x100;

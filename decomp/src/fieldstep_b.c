@@ -67,12 +67,12 @@ void MiniView_SampleSquare(u16 x, u16 y, u16 col, u16 row)
 
 // MiniView_SampleAhead @ 0x080C54D4
 /* Samples the 3x5 squares ahead of the player into gMiniViewCells. */
-#ifdef NONMATCHING
 void MiniView_SampleAhead(u32 dir)
 {
     u16 x = gFieldState.x;
     u16 y = gFieldState.y;
     u16 row, col;
+    u16 h = 5, w = 3;           /* rows and columns sampled */
 
     DmaFill32(3, 0, gMiniViewCells, 0xB4);
     switch (dir)
@@ -94,9 +94,9 @@ void MiniView_SampleAhead(u32 dir)
         y += 1;
         break;
     }
-    for (row = 0; row < 5; row++)
+    for (row = 0; row < h; row++)
     {
-        for (col = 0; col < 3; col++)
+        for (col = 0; col < w; col++)
         {
             switch (dir)
             {
@@ -116,159 +116,6 @@ void MiniView_SampleAhead(u32 dir)
         }
     }
 }
-#else
-NAKED
-void MiniView_SampleAhead(u32 dir)
-{
-    asm_unified(
-        ".L080C54D4:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sl\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6, r7}\n"
-        "    sub sp, #8\n"
-        "    mov r8, r0\n"
-        "    ldr r0, .L080C5510\n"
-        "    ldrh r7, [r0, #0x12]\n"
-        "    ldrh r6, [r0, #0x14]\n"
-        "    movs r0, #0\n"
-        "    str r0, [sp]\n"
-        "    ldr r1, .L080C5514\n"
-        "    mov r0, sp\n"
-        "    str r0, [r1]\n"
-        "    ldr r0, .L080C5518\n"
-        "    str r0, [r1, #4]\n"
-        "    ldr r0, .L080C551C\n"
-        "    str r0, [r1, #8]\n"
-        "    ldr r0, [r1, #8]\n"
-        "    mov r1, r8\n"
-        "    cmp r1, #1\n"
-        "    beq .L080C552A\n"
-        "    cmp r1, #1\n"
-        "    blo .L080C5520\n"
-        "    cmp r1, #2\n"
-        "    beq .L080C5534\n"
-        "    cmp r1, #3\n"
-        "    beq .L080C553E\n"
-        "    b .L080C554A\n"
-        ".L080C5510: .4byte 0x03004550 @ IWRAM+0x4550\n"
-        ".L080C5514: .4byte 0x040000D4 @ REG_DMA3SAD\n"
-        ".L080C5518: .4byte 0x0200AF08 @ EWRAM+0xAF08\n"
-        ".L080C551C: .4byte 0x8500002D\n"
-        ".L080C5520:\n"
-        "    subs r0, r7, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r7, r0, #0x10\n"
-        "    subs r0, r6, #2\n"
-        "    b .L080C5546\n"
-        ".L080C552A:\n"
-        "    adds r0, r7, #2\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r7, r0, #0x10\n"
-        "    subs r0, r6, #1\n"
-        "    b .L080C5546\n"
-        ".L080C5534:\n"
-        "    adds r0, r7, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r7, r0, #0x10\n"
-        "    adds r0, r6, #2\n"
-        "    b .L080C5546\n"
-        ".L080C553E:\n"
-        "    subs r0, r7, #2\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r7, r0, #0x10\n"
-        "    adds r0, r6, #1\n"
-        ".L080C5546:\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r6, r0, #0x10\n"
-        ".L080C554A:\n"
-        "    movs r5, #0\n"
-        "    cmp r5, #5\n"
-        "    bhs .L080C55D0\n"
-        ".L080C5550:\n"
-        "    movs r4, #0\n"
-        "    adds r2, r5, #1\n"
-        "    str r2, [sp, #4]\n"
-        "    cmp r4, #3\n"
-        "    bhs .L080C55C6\n"
-        "    adds r0, r6, r5\n"
-        "    lsls r0, r0, #0x10\n"
-        "    mov sl, r0\n"
-        "    subs r0, r7, r5\n"
-        "    lsls r0, r0, #0x10\n"
-        "    mov sb, r0\n"
-        ".L080C5566:\n"
-        "    mov r0, r8\n"
-        "    cmp r0, #1\n"
-        "    beq .L080C5586\n"
-        "    cmp r0, #1\n"
-        "    blo .L080C557A\n"
-        "    cmp r0, #2\n"
-        "    beq .L080C5592\n"
-        "    cmp r0, #3\n"
-        "    beq .L080C55A8\n"
-        "    b .L080C55BC\n"
-        ".L080C557A:\n"
-        "    adds r0, r7, r4\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    mov r2, sl\n"
-        "    lsrs r1, r2, #0x10\n"
-        "    b .L080C559E\n"
-        ".L080C5586:\n"
-        "    adds r1, r6, r4\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    mov r2, sb\n"
-        "    lsrs r0, r2, #0x10\n"
-        "    b .L080C559E\n"
-        ".L080C5592:\n"
-        "    subs r0, r7, r4\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    subs r1, r6, r5\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        ".L080C559E:\n"
-        "    adds r2, r4, #0\n"
-        "    adds r3, r5, #0\n"
-        "    bl MiniView_SampleSquare\n"
-        "    b .L080C55BC\n"
-        ".L080C55A8:\n"
-        "    adds r0, r7, r5\n"
-        "    lsls r0, r0, #0x10\n"
-        "    subs r1, r6, r4\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    adds r2, r4, #0\n"
-        "    adds r3, r5, #0\n"
-        "    bl MiniView_SampleSquare\n"
-        ".L080C55BC:\n"
-        "    adds r0, r4, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    cmp r4, #3\n"
-        "    blo .L080C5566\n"
-        ".L080C55C6:\n"
-        "    ldr r1, [sp, #4]\n"
-        "    lsls r0, r1, #0x10\n"
-        "    lsrs r5, r0, #0x10\n"
-        "    cmp r5, #5\n"
-        "    blo .L080C5550\n"
-        ".L080C55D0:\n"
-        "    add sp, #8\n"
-        "    pop {r3, r4, r5}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    mov sl, r5\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-    );
-}
-#endif
 
 // sub_080C55E0 @ 0x080C55E0
 void sub_080C55E0(void)
@@ -563,10 +410,16 @@ u32 KeyItem_IsObtainable(u16 id)
         ok = sub_080C2A84(0);
         break;
     case 2:
-        ok = ANY_HERO() && Flag_Test(0x23);
+        if (!ANY_HERO())
+            return FALSE;
+        ok = Flag_Test(0x23);
         break;
     case 3:
-        ok = sub_080C2A84(0) && Combatant_GetAlignment(0) == 2 && Flag_Test(0x4E);
+        if (!sub_080C2A84(0))
+            return FALSE;
+        if (Combatant_GetAlignment(0) != 2)
+            return FALSE;
+        ok = Flag_Test(0x4E);
         break;
     case 4:
         ok = sub_080C2A84(2);
@@ -575,32 +428,55 @@ u32 KeyItem_IsObtainable(u16 id)
         ok = sub_080C2A84(0);
         break;
     case 6:
-        ok = ANY_HERO() && Flag_Test(0x1E);
+        if (!ANY_HERO())
+            return FALSE;
+        ok = Flag_Test(0x1E);
         break;
     case 7:
         ok = sub_080C2A84(2);
         break;
     case 8:
-        ok = sub_080C2A84(2) && Combatant_GetAlignment(0) == 0 && Flag_Test(0x71);
+        if (!sub_080C2A84(2))
+            return FALSE;
+        if (Combatant_GetAlignment(0) != 0)
+            return FALSE;
+        ok = Flag_Test(0x71);
         break;
     case 9:
     case 10:
         ok = TRUE;
         break;
     case 11:
-        ok = ANY_HERO() && Combatant_GetAlignment(0) == 0;
-        break;
+        if (!ANY_HERO())
+            return FALSE;
+        if (Combatant_GetAlignment(0) != 0)
+            return FALSE;
+        return TRUE;
     case 12:
-        ok = ANY_HERO() && Combatant_GetAlignment(0) == 2 && Flag_Test(0x5D);
+        if (!ANY_HERO())
+            return FALSE;
+        if (Combatant_GetAlignment(0) != 2)
+            return FALSE;
+        ok = Flag_Test(0x5D);
         break;
     case 13:
-        ok = sub_080C2A84(1) && Flag_Test(0x23);
+        if (!sub_080C2A84(1))
+            return FALSE;
+        ok = Flag_Test(0x23);
         break;
     case 14:
-        ok = ANY_HERO() && Combatant_GetAlignment(0) == 0 && Flag_Test(0x5D);
+        if (!ANY_HERO())
+            return FALSE;
+        if (Combatant_GetAlignment(0) != 0)
+            return FALSE;
+        ok = Flag_Test(0x5D);
         break;
     case 15:
-        ok = ANY_HERO() && Combatant_GetAlignment(0) == 1 && Flag_Test(0x5D);
+        if (!ANY_HERO())
+            return FALSE;
+        if (Combatant_GetAlignment(0) != 1)
+            return FALSE;
+        ok = Flag_Test(0x5D);
         break;
     case 16:
         ok = TRUE;
@@ -645,10 +521,14 @@ u32 KeyItem_IsObtainable(u16 id)
         ok = ANY_HERO();
         break;
     case 32:
-        ok = ANY_HERO() && Flag_Test(0x55);
+        if (!ANY_HERO())
+            return FALSE;
+        ok = Flag_Test(0x55);
         break;
     case 33:
-        ok = ANY_HERO() && Flag_Test(0xC9);
+        if (!ANY_HERO())
+            return FALSE;
+        ok = Flag_Test(0xC9);
         break;
     case 34:
         ok = ANY_HERO();

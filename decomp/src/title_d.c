@@ -3,12 +3,13 @@
 
 /* Staff-roll style scroll: four sprites spaced 0x40 apart rise with a 16-bit position kept
    big-endian in task bytes 0x30/0x31. */
-/* NONMATCHING: the y arguments are computed before the sprite pointer is loaded and the two position bytes load through one incremented pointer (scheduling) */
 // sub_080D74D8 @ 0x080D74D8
-#ifdef NONMATCHING
 void sub_080D74D8(struct Task *task)
 {
-    u16 pos = (task->data.raw[0xC] << 8) | task->data.raw[0xD];
+    u8 hi = task->data.raw[0xC];
+    u8 lo = task->data.raw[0xD];
+    u16 pos = (hi << 8) | lo;
+    u8 *p;
 
     if (task->data.raw[1] != 0)
     {
@@ -30,163 +31,30 @@ void sub_080D74D8(struct Task *task)
         pos++;
     }
     if (pos < 0x80)
-        Sprite_Draw(gUnknown_0813ECB4, 0, 0, 0, 0, 0x78, 0xA0 - pos);
+    {
+        s16 y = 0xA0 - pos;
+        Sprite_Draw(gUnknown_0813ECB4, 0, 0, 0, 0, 0x78, y);
+    }
     if ((u16)(pos - 0x40) < 0x80)
-        Sprite_Draw(gUnknown_0813ECD0, 0, 0, 0, 0, 0x78, 0xE0 - pos);
+    {
+        s16 y = 0xE0 - pos;
+        Sprite_Draw(gUnknown_0813ECD0, 0, 0, 0, 0, 0x78, y);
+    }
     if ((u16)(pos - 0x80) < 0x80)
-        Sprite_Draw(gUnknown_0813ECEC, 0, 0, 0, 0, 0x78, 0x120 - pos);
+    {
+        s16 y = 0x120 - pos;
+        Sprite_Draw(gUnknown_0813ECEC, 0, 0, 0, 0, 0x78, y);
+    }
     if ((u16)(pos - 0xC0) < 0x76)
-        Sprite_Draw(gUnknown_0813ED2C, 0, 0, 0, 0, 0x78, 0x160 - pos);
-    task->data.raw[0xC] = pos >> 8;
-    task->data.raw[0xD] = pos;
+    {
+        s16 y = 0x160 - pos;
+        Sprite_Draw(gUnknown_0813ED2C, 0, 0, 0, 0, 0x78, y);
+    }
+    hi = pos >> 8;
+    p = &task->data.raw[0xC];
+    *p++ = hi;
+    *p = pos;
 }
-#else
-NAKED
-void sub_080D74D8(struct Task *task)
-{
-    asm_unified(
-        "    push {r4, r5, lr}\n"
-        "    sub sp, #0xc\n"
-        "    adds r5, r0, #0\n"
-        "    adds r0, #0x30\n"
-        "    ldrb r1, [r0]\n"
-        "    adds r0, #1\n"
-        "    ldrb r0, [r0]\n"
-        "    lsls r4, r1, #8\n"
-        "    orrs r4, r0\n"
-        "    adds r1, r5, #0\n"
-        "    adds r1, #0x25\n"
-        "    ldrb r0, [r1]\n"
-        "    cmp r0, #0\n"
-        "    bne .L080D74FE\n"
-        "    adds r1, r5, #0\n"
-        "    adds r1, #0x27\n"
-        "    ldrb r0, [r1]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D7504\n"
-        ".L080D74FE:\n"
-        "    subs r0, #1\n"
-        "    strb r0, [r1]\n"
-        "    b .L080D75D2\n"
-        ".L080D7504:\n"
-        "    adds r1, r5, #0\n"
-        "    adds r1, #0x26\n"
-        "    ldrb r0, [r1]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D7514\n"
-        "    subs r0, #1\n"
-        "    strb r0, [r1]\n"
-        "    b .L080D751E\n"
-        ".L080D7514:\n"
-        "    movs r0, #6\n"
-        "    strb r0, [r1]\n"
-        "    adds r0, r4, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        ".L080D751E:\n"
-        "    cmp r4, #0x7f\n"
-        "    bhi .L080D7540\n"
-        "    movs r1, #0xa0\n"
-        "    subs r1, r1, r4\n"
-        "    ldr r0, .L080D75DC\n"
-        "    movs r2, #0\n"
-        "    str r2, [sp]\n"
-        "    movs r2, #0x78\n"
-        "    str r2, [sp, #4]\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    str r1, [sp, #8]\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0\n"
-        "    bl Sprite_Draw\n"
-        ".L080D7540:\n"
-        "    adds r0, r4, #0\n"
-        "    subs r0, #0x40\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    cmp r0, #0x7f\n"
-        "    bhi .L080D756A\n"
-        "    movs r1, #0xe0\n"
-        "    subs r1, r1, r4\n"
-        "    ldr r0, .L080D75E0\n"
-        "    movs r2, #0\n"
-        "    str r2, [sp]\n"
-        "    movs r2, #0x78\n"
-        "    str r2, [sp, #4]\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    str r1, [sp, #8]\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0\n"
-        "    bl Sprite_Draw\n"
-        ".L080D756A:\n"
-        "    adds r0, r4, #0\n"
-        "    subs r0, #0x80\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    cmp r0, #0x7f\n"
-        "    bhi .L080D7598\n"
-        "    movs r0, #0x90\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r1, r0, #0\n"
-        "    subs r1, r1, r4\n"
-        "    ldr r0, .L080D75E4\n"
-        "    movs r2, #0\n"
-        "    str r2, [sp]\n"
-        "    movs r2, #0x78\n"
-        "    str r2, [sp, #4]\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    str r1, [sp, #8]\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0\n"
-        "    bl Sprite_Draw\n"
-        ".L080D7598:\n"
-        "    adds r0, r4, #0\n"
-        "    subs r0, #0xc0\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    cmp r0, #0x75\n"
-        "    bhi .L080D75C6\n"
-        "    movs r0, #0xb0\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r1, r0, #0\n"
-        "    subs r1, r1, r4\n"
-        "    ldr r0, .L080D75E8\n"
-        "    movs r2, #0\n"
-        "    str r2, [sp]\n"
-        "    movs r2, #0x78\n"
-        "    str r2, [sp, #4]\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    str r1, [sp, #8]\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0\n"
-        "    bl Sprite_Draw\n"
-        ".L080D75C6:\n"
-        "    lsrs r1, r4, #8\n"
-        "    adds r0, r5, #0\n"
-        "    adds r0, #0x30\n"
-        "    strb r1, [r0]\n"
-        "    adds r0, #1\n"
-        "    strb r4, [r0]\n"
-        ".L080D75D2:\n"
-        "    add sp, #0xc\n"
-        "    pop {r4, r5}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080D75DC: .4byte gUnknown_0813ECB4\n"
-        ".L080D75E0: .4byte gUnknown_0813ECD0\n"
-        ".L080D75E4: .4byte gUnknown_0813ECEC\n"
-        ".L080D75E8: .4byte gUnknown_0813ED2C\n"
-    );
-}
-#endif
 
 // sub_080D75EC @ 0x080D75EC
 void sub_080D75EC(struct Task *task)

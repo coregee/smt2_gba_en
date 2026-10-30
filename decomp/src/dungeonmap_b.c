@@ -161,7 +161,9 @@ void sub_080C8E64(void)
     }
     else
     {
-        const u16 *buf = &gPaletteBuffer[0xD1];
+        const u16 *buf = gPaletteBuffer;
+
+        buf += 0xD1;
 
         COPY16(dst, buf);
     }

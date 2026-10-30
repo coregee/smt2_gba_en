@@ -286,7 +286,7 @@ address	mode	size	name	confidence	state	file
 080B018C	thumb	60			c	src/field_c.c
 080B01C8	thumb	60			c	src/field_c.c
 080B0204	thumb	66	View_IsSideOpen	probable	c	src/field_c.c
-080B0248	thumb	88	View_GetWall	probable	nonmatching	src/field_c.c
+080B0248	thumb	88	View_GetWall	probable	c	src/field_c.c
 080B02A0	thumb	176	Field_Step	probable	c	src/field_c.c
 080B0350	thumb	108			c	src/field_c.c
 080B03BC	thumb	256			nonmatching	src/field_c.c
@@ -639,7 +639,7 @@ address	mode	size	name	confidence	state	file
 080B95BC	thumb	44			c	src/fieldcmd_b.c
 080B95E8	thumb	20			c	src/fieldcmd_b.c
 080B95FC	thumb	144			c	src/fieldcmd_b.c
-080B968C	thumb	132	Location_GetNameCellFromCoords	tentative	nonmatching	src/fieldcmd_b.c
+080B968C	thumb	132	Location_GetNameCellFromCoords	tentative	c	src/fieldcmd_b.c
 080B9710	thumb	16	Elevator_GetFloorTable	probable	c	src/fieldcmd_b.c
 080B9720	thumb	22	Elevator_GetFloorRef	probable	c	src/fieldcmd_b.c
 080B9738	thumb	24	Elevator_GetFloor	probable	c	src/fieldcmd_b.c
@@ -1277,7 +1277,7 @@ address	mode	size	name	confidence	state	file
 080C5320	thumb	208	Encounter_IsAllowed	probable	c	src/fieldstep_b.c
 080C53F0	thumb	2			c	src/fieldstep_b.c
 080C53F4	thumb	224	MiniView_SampleSquare	probable	c	src/fieldstep_b.c
-080C54D4	thumb	268	MiniView_SampleAhead	probable	nonmatching	src/fieldstep_b.c
+080C54D4	thumb	268	MiniView_SampleAhead	probable	c	src/fieldstep_b.c
 080C55E0	thumb	36			c	src/fieldstep_b.c
 080C5604	thumb	260	MiniView_Draw	probable	nonmatching	src/fieldstep_b.c
 080C5708	thumb	100	MiniView_Clear	probable	nonmatching	src/fieldstep_b.c
@@ -1339,7 +1339,7 @@ address	mode	size	name	confidence	state	file
 080C6AD8	thumb	104			c	src/hud_b.c
 080C6B40	thumb	104			nonmatching	src/hud_b.c
 080C6BA8	thumb	56			c	src/hud_b.c
-080C6BE0	thumb	592	Hud_DrawMemberPanel	probable	nonmatching	src/hud_b.c
+080C6BE0	thumb	592	Hud_DrawMemberPanel	probable	c	src/hud_b.c
 080C6E30	thumb	36			c	src/hud_b.c
 080C6E54	thumb	36			c	src/hud_b.c
 080C6E78	thumb	136	Party_BuildMemberNameTiles	tentative	c	src/hud_b.c
@@ -1403,7 +1403,7 @@ address	mode	size	name	confidence	state	file
 080C8718	thumb	84			c	src/dungeonmap_a.c
 080C876C	thumb	36			c	src/dungeonmap_a.c
 080C8790	thumb	28			c	src/dungeonmap_a.c
-080C87AC	thumb	128			nonmatching	src/dungeonmap_a.c
+080C87AC	thumb	128			c	src/dungeonmap_a.c
 080C882C	thumb	42			c	src/dungeonmap_a.c
 080C8858	thumb	56			c	src/dungeonmap_a.c
 080C8890	thumb	22			c	src/dungeonmap_a.c
@@ -1676,7 +1676,7 @@ address	mode	size	name	confidence	state	file
 080D15B0	thumb	44			c	src/menu_b.c
 080D15DC	thumb	496	NameEntry_DrawGrid	tentative	nonmatching	src/menu_c.c
 080D17CC	thumb	92	NameEntry_Backspace	probable	c	src/menu_c.c
-080D1828	thumb	686	NameEntry_HandleInput	tentative	nonmatching	src/menu_c.c
+080D1828	thumb	686	NameEntry_HandleInput	tentative	c	src/menu_c.c
 080D1AD8	thumb	78	Name_Equals8	probable	c	src/menu_c.c
 080D1B28	thumb	368	NameEntry_ValidateName	probable	c	src/menu_c.c
 080D1C98	thumb	72			c	src/menu_c.c
@@ -1730,7 +1730,7 @@ address	mode	size	name	confidence	state	file
 080D3758	thumb	24			c	src/menu2_a.c
 080D3770	thumb	76			c	src/menu2_a.c
 080D37BC	thumb	276	CasinoPrize_DrawRows	probable	c	src/menu2_a.c
-080D38D0	thumb	376	CasinoPrize_HandleInput	probable	nonmatching	src/menu2_b.c
+080D38D0	thumb	376	CasinoPrize_HandleInput	probable	c	src/menu2_b.c
 080D3A48	thumb	48			c	src/menu2_b.c
 080D3A78	thumb	6			c	src/menu2_b.c
 080D3A80	thumb	32			c	src/menu2_b.c
@@ -1867,7 +1867,7 @@ address	mode	size	name	confidence	state	file
 080D739C	thumb	80			c	src/title_c.c
 080D73EC	thumb	136			nonmatching	src/title_c.c
 080D7474	thumb	100			c	src/title_c.c
-080D74D8	thumb	276			nonmatching	src/title_d.c
+080D74D8	thumb	276			c	src/title_d.c
 080D75EC	thumb	18			c	src/title_d.c
 080D7600	thumb	88			c	src/title_d.c
 080D7658	thumb	96			c	src/title_d.c
@@ -2106,8 +2106,8 @@ address	mode	size	name	confidence	state	file
 080DAB88	thumb	68			c	src/vision_a.c
 080DABCC	thumb	128	Vision_BuildList	probable	nonmatching	src/vision_a.c
 080DAC4C	thumb	36	Vision_CountListed	probable	c	src/vision_a.c
-080DAC70	thumb	392			nonmatching	src/vision_a.c
-080DADF8	thumb	344	Vision_DrawItemList	tentative	nonmatching	src/vision_a.c
+080DAC70	thumb	392			c	src/vision_a.c
+080DADF8	thumb	344	Vision_DrawItemList	tentative	c	src/vision_a.c
 080DAF50	thumb	156	Vision_ComposePrompt	tentative	c	src/vision_a.c
 080DAFEC	thumb	20			c	src/vision_a.c
 080DB000	thumb	148			c	src/vision_a.c
@@ -2137,17 +2137,17 @@ address	mode	size	name	confidence	state	file
 080DBA04	thumb	24			c	src/dict_b.c
 080DBA1C	thumb	656	Dict_HandleListInput	probable	nonmatching	src/dict_input_a.c
 080DBCAC	thumb	48			c	src/dict_c.c
-080DBCDC	thumb	424			nonmatching	src/dict_c.c
+080DBCDC	thumb	424			c	src/dict_c.c
 080DBE84	thumb	24			c	src/dict_c.c
 080DBE9C	thumb	224			c	src/dict_c.c
-080DBF7C	thumb	292			nonmatching	src/dict_c.c
+080DBF7C	thumb	292			c	src/dict_c.c
 080DC0A0	thumb	16			c	src/dict_c.c
 080DC0B0	thumb	62			c	src/dict_c.c
 080DC0F0	thumb	232			c	src/dict_c.c
 080DC1D8	thumb	216			c	src/dict_c.c
-080DC2B0	thumb	360			nonmatching	src/dict_d.c
+080DC2B0	thumb	360			c	src/dict_d.c
 080DC418	thumb	72			c	src/dict_d.c
-080DC460	thumb	360			nonmatching	src/dict_d.c
+080DC460	thumb	360			c	src/dict_d.c
 080DC5C8	thumb	78			c	src/dict_d.c
 080DC618	thumb	140			c	src/dict_d.c
 080DC6A4	thumb	36			c	src/dict_d.c
@@ -2762,7 +2762,7 @@ address	mode	size	name	confidence	state	file
 080F0194	thumb	68			c	src/battle_080EFE60.c
 080F01D8	thumb	20			c	src/battle_080EFE60.c
 080F01EC	thumb	20			c	src/battle_080EFE60.c
-080F0200	thumb	268	Battle_InitEnemyUnit	probable	nonmatching	src/battle_080F0200.c
+080F0200	thumb	268	Battle_InitEnemyUnit	probable	c	src/battle_080F0200.c
 080F030C	thumb	54			c	src/battle_080F0200.c
 080F0344	thumb	72			c	src/battle_080F0200.c
 080F038C	thumb	74			c	src/battle_080F0200.c
@@ -3007,7 +3007,7 @@ address	mode	size	name	confidence	state	file
 08126D1C	thumb	24			c	src/menucur_081267F4.c
 08126D34	thumb	28			c	src/menucur_081267F4.c
 08126D50	thumb	252			c	src/menucur_081267F4.c
-08126E4C	thumb	200			nonmatching	src/menucur_081267F4.c
+08126E4C	thumb	200			c	src/menucur_081267F4.c
 08126F14	thumb	56			c	src/menucur_081267F4.c
 08126F4C	thumb	56			c	src/menucur_081267F4.c
 08126F84	thumb	104			c	src/menucur_08126F84.c
@@ -4195,7 +4195,7 @@ address	mode	size	name	confidence	state	file
 08153FC8	thumb	112			c	src/fusionlist_a.c
 08154038	thumb	60			c	src/fusionlist_a.c
 08154074	thumb	68	Fusion_SortMaterials	probable	c	src/fusionlist_a.c
-081540B8	thumb	596	Fusion_GetPairIcon	probable	nonmatching	src/fusionlist_a.c
+081540B8	thumb	596	Fusion_GetPairIcon	probable	c	src/fusionlist_a.c
 0815430C	thumb	56	Fusion_FindListSlot	probable	c	src/fusionlist_a.c
 08154344	thumb	70	Stock_FindSlotByDemonId	probable	c	src/fusionlist_a.c
 0815438C	thumb	90			c	src/fusionlist_a.c
@@ -4325,13 +4325,13 @@ address	mode	size	name	confidence	state	file
 08158CA4	thumb	24			c	src/fusioncalc_a.c
 08158CBC	thumb	76			c	src/fusioncalc_a.c
 08158D08	thumb	24			c	src/fusioncalc_a.c
-08158D20	thumb	224			nonmatching	src/fusioncalc_a.c
+08158D20	thumb	224			c	src/fusioncalc_a.c
 08158E00	thumb	82			c	src/fusioncalc_a.c
 08158E54	thumb	36	Fusion_SetNoResult	probable	c	src/fusioncalc_a.c
 08158E78	thumb	86			nonmatching	src/fusioncalc_a.c
 08158ED0	thumb	120			c	src/fusioncalc_a.c
 08158F48	thumb	92			c	src/fusioncalc_a.c
-08158FA4	thumb	242			nonmatching	src/fusioncalc_a.c
+08158FA4	thumb	242			c	src/fusioncalc_a.c
 08159098	thumb	52			c	src/fusioncalc_a.c
 081590CC	thumb	120			c	src/fusioncalc_a.c
 08159144	thumb	24			c	src/fusioncalc_a.c
@@ -4347,7 +4347,7 @@ address	mode	size	name	confidence	state	file
 08159690	thumb	96	Fusion_RankUp	probable	c	src/fusioncalc_a.c
 081596F0	thumb	588	Fusion_CalcThree	probable	c	src/fusioncalc_b.c
 0815993C	thumb	94			c	src/fusioncalc_b.c
-0815999C	thumb	196			nonmatching	src/fusioncalc_b.c
+0815999C	thumb	196			c	src/fusioncalc_b.c
 08159A60	thumb	410	Fusion_ThreeTwoRace8	probable	nonmatching	src/fusioncalc_d.c
 08159BFC	thumb	340	Fusion_ThreeRace8	probable	nonmatching	src/fusioncalc_d.c
 08159D50	thumb	160	Fusion_ThreeHighRaceLast	probable	c	src/fusioncalc_d.c
@@ -4358,7 +4358,7 @@ address	mode	size	name	confidence	state	file
 0815A150	thumb	222	Fusion_ThreeRace16	probable	c	src/fusioncalc_d.c
 0815A230	thumb	194	Fusion_ThreeTwoRace16	probable	c	src/fusioncalc_d.c
 0815A2F4	thumb	24	Fusion_ThreeAllRace16	probable	c	src/fusioncalc_d.c
-0815A30C	thumb	868	Fusion_ThreeNormal	probable	nonmatching	src/fusioncalc_d.c
+0815A30C	thumb	868	Fusion_ThreeNormal	probable	c	src/fusioncalc_d.c
 0815A670	thumb	128	Fusion_ThreeFallback	probable	c	src/fusioncalc_d.c
 0815A6F0	thumb	684	Fusion_BuildResultSkills	probable	nonmatching	src/fusioncalc_e.c
 0815A99C	thumb	148	Fusion_BuildSkillsNoClass	probable	c	src/fusioncalc_e.c
@@ -4375,12 +4375,12 @@ address	mode	size	name	confidence	state	file
 0815AF00	thumb	176	Fusion_CalcItemThree	probable	c	src/fusioncalc_f.c
 0815AFB0	thumb	218	Fusion_CalcItemDemon	probable	nonmatching	src/fusioncalc_f.c
 0815B08C	thumb	144	Fusion_CalcItemPair	probable	c	src/fusioncalc_f.c
-0815B11C	thumb	300	Fusion_RollAccident	probable	nonmatching	src/fusioncalc_f.c
+0815B11C	thumb	300	Fusion_RollAccident	probable	c	src/fusioncalc_f.c
 0815B248	thumb	2			c	src/fusioncalc_f.c
 0815B24C	thumb	20	Fusion_FindKeptMaterial	probable	c	src/fusioncalc_f.c
 0815B260	thumb	404	Fusion_CheckResult	probable	nonmatching	src/fusioncalc_f.c
 0815B3F4	thumb	190	Fusion_ApplyResult	probable	c	src/fusioncalc_f.c
-0815B4B4	thumb	880	Fusion_IsRandomResult	probable	nonmatching	src/fusioncalc_f.c
+0815B4B4	thumb	880	Fusion_IsRandomResult	probable	c	src/fusioncalc_f.c
 0815B824	thumb	64			c	src/fusioncalc_c.c
 0815B864	thumb	28			c	src/fusioncalc_c.c
 0815B880	thumb	2			c	src/fusioncalc_c.c

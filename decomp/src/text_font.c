@@ -13,18 +13,21 @@
 #ifdef NONMATCHING
 u8 *Font_GetGlyphBitmap(u16 code)
 {
-    const u8 *glyph = gFontBankTable[code >> 8].glyphs;
+    u32 bank = code >> 8;
+    const u8 *glyph = gFontBankTable[bank].glyphs;
     const u32 *src;
     u8 *dst;
     u32 i;
+    u32 w;
+    u8 *buf;
 
     glyph += ((code & 0xFF) >> 4) * 0x400 + (code & 0xF) * 0x20;
     src = (const u32 *)glyph;
     dst = gGlyphBitmap;
 
-    for (i = 0; i < 8; i++)
+    for (i = 0, buf = dst; i < 8; i++)
     {
-        u32 w = *src++;
+        w = *src++;
 
         EXPAND_2BPP_BYTE(dst, w);
         w >>= 8;
@@ -36,10 +39,10 @@ u8 *Font_GetGlyphBitmap(u16 code)
     }
 
     src = (const u32 *)(glyph + 0x200);
-    dst = gGlyphBitmap + 0x400;
+    dst = buf + 0x400;
     for (i = 0; i < 8; i++)
     {
-        u32 w = *src++;
+        w = *src++;
 
         EXPAND_2BPP_BYTE(dst, w);
         w >>= 8;
@@ -50,7 +53,7 @@ u8 *Font_GetGlyphBitmap(u16 code)
         EXPAND_2BPP_BYTE(dst, w);
     }
 
-    return gGlyphBitmap;
+    return dst - 0x440;
 }
 #else
 NAKED
@@ -1436,39 +1439,61 @@ u16 Color_ApplyEffect(u16 color)
     if (sub_080C2C70() == 0)
         return color;
 
-    r = color & 0x1F;
-    g = (color & 0x3E0) >> 5;
-    b = (color & 0x7C00) >> 10;
-
     if (sub_080C2C70() == 1)
     {
-        s16 pr = gColorEffect.r;
-        s16 pg = gColorEffect.g;
-        s16 pb = gColorEffect.b;
+        u16 pr, pg, pb;
 
-        if (pr > 0)
-            dr = COLOR_FX_STEP(31 - r, pr);
-        else if (pr < 0)
-            dr = COLOR_FX_STEP(r, (u16)-pr);
-        if (pg > 0)
-            dg = COLOR_FX_STEP(31 - g, pg) << 5;
-        else if (pg < 0)
-            dg = COLOR_FX_STEP(g, (u16)-pg) << 5;
-        if (pb > 0)
-            db = (COLOR_FX_STEP(31 - b, pb) << 10) & 0xFC00;
-        else if (pb < 0)
-            db = (COLOR_FX_STEP(b, (u16)-pb) << 10) & 0xFC00;
+        pg = gColorEffect.g;
+        pb = gColorEffect.b;
+        r = color & 0x1F;
+        g = (color & 0x3E0) >> 5;
+        b = (color & 0x7C00) >> 10;
+        pr = gColorEffect.r;
+        if (gColorEffect.r > 0)
+        {
+            dr = ((31 - r) << 16) * pr / 0x1F00;
+            dr = (dr + 0x80) >> 8;
+        }
+        else if (gColorEffect.r < 0)
+        {
+            dr = -pr;
+            dr = (((u16)((r << 16) * dr / 0x1F00) << 8) + 0x8000) >> 16;
+        }
+        if ((s16)pg > 0)
+        {
+            dg = gColorEffect.g;
+            dg = ((31 - g) << 16) * dg / 0x1F00;
+            dg = ((dg + 0x80) >> 8) << 5;
+        }
+        else if ((s16)pg < 0)
+        {
+            dg = -gColorEffect.g;
+            dg = (g << 16) * dg / 0x1F00;
+            dg = ((dg + 0x80) >> 8) << 5;
+        }
+        if ((s16)pb > 0)
+        {
+            db = gColorEffect.b;
+            db = ((31 - b) << 16) * db / 0x1F00;
+            db = ((db + 0x80) >> 8) << 10;
+        }
+        else if ((s16)pb < 0)
+        {
+            db = -gColorEffect.b;
+            db = (b << 16) * db / 0x1F00;
+            db = ((db + 0x80) >> 8) << 10;
+        }
 
         if (color & 0x1F)
         {
-            if (pr > 0)
+            if ((s16)pr > 0)
             {
                 if ((color & 0x1F) + dr > 30)
                     color |= 0x1F;
                 else
                     color += dr;
             }
-            else if (pr < 0)
+            else if ((s16)pr < 0)
             {
                 if (dr < (color & 0x1F))
                     color -= dr;
@@ -1478,14 +1503,14 @@ u16 Color_ApplyEffect(u16 color)
         }
         if (color & 0x3E0)
         {
-            if (pg > 0)
+            if ((s16)pg > 0)
             {
                 if ((color & 0x3E0) + dg > 0x3DF)
                     color |= 0x3E0;
                 else
                     color += dg;
             }
-            else if (pg < 0)
+            else if ((s16)pg < 0)
             {
                 if (dg < (color & 0x3E0))
                     color -= dg;
@@ -1495,14 +1520,14 @@ u16 Color_ApplyEffect(u16 color)
         }
         if (color & 0x7C00)
         {
-            if (pb > 0)
+            if ((s16)pb > 0)
             {
                 if ((color & 0x7C00) + db > 0x7BFF)
                     color |= 0x7C00;
                 else
                     color += db;
             }
-            else if (pb < 0)
+            else if ((s16)pb < 0)
             {
                 if (db < (color & 0x7C00))
                     color -= db;
@@ -1518,6 +1543,9 @@ u16 Color_ApplyEffect(u16 color)
 
         if (gColorEffect.desat == 0)
             return color;
+        r = color & 0x1F;
+        g = (color & 0x3E0) >> 5;
+        b = (color & 0x7C00) >> 10;
 
         max = r;
         if (g >= max) max = g;

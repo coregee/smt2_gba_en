@@ -126,12 +126,10 @@ u32 sub_0815993C(void)
 /* One race-8 material: fuse the other two, shift the result down a rank, then fuse it with
    the third. */
 // sub_0815999C @ 0x0815999C
-#ifdef NONMATCHING
 u32 sub_0815999C(void)
 {
     struct FusionCalc *c = &gUnk_0203B868;
-    u8 *rp;
-    u8 race;
+    struct FusionCalc *w;
     u8 t;
     u16 *p0;
     u16 *p1;
@@ -140,155 +138,43 @@ u32 sub_0815999C(void)
     u16 b;
     u16 d;
 
-    rp = &c->race[0];
-    race = *rp;
-    if (race == 8)
+    if (c->race[0] == 8)
     {
         t = c->ids[2];
         c->ids[2] = c->ids[0];
         c->ids[0] = t;
         t = c->race[2];
-        c->race[2] = race;
-        *rp = t;
+        c->race[2] = c->race[0];
+        c->race[0] = t;
     }
-    else
+    else if (c->race[1] == 8)
     {
-        rp = &c->race[1];
-        race = *rp;
-        if (race == 8)
-        {
-            t = c->ids[2];
-            c->ids[2] = c->ids[1];
-            c->ids[1] = t;
-            t = c->race[2];
-            c->race[2] = race;
-            *rp = t;
-        }
+        t = c->ids[2];
+        c->ids[2] = c->ids[1];
+        c->ids[1] = t;
+        t = c->race[2];
+        c->race[2] = c->race[1];
+        c->race[1] = t;
     }
-    p0 = &c->ids[0];
+    w = &gUnk_0203B868;
+    p0 = &w->ids[0];
     a = *p0;
-    p1 = &c->ids[1];
+    p1 = &w->ids[1];
     b = *p1;
-    p2 = &c->ids[2];
+    p2 = &w->ids[2];
     d = *p2;
     sub_08158A34();
     *p0 = a;
     *p1 = b;
     *p2 = d;
-    if (c->resRace != 0xFF)
+    if (w->resRace != 0xFF)
     {
-        Fusion_RankDown(c->result, 1);
-        *p0 = c->result;
+        Fusion_RankDown(w->result, 1);
+        *p0 = w->result;
         *p1 = *p2;
         sub_08158A34();
-        if (c->resRace != 0xFF)
+        if (w->resRace != 0xFF)
             return sub_08158CBC();
     }
     return sub_08158E00();
 }
-#else
-NAKED
-u32 sub_0815999C(void)
-{
-    asm_unified(
-        ".L0815999C:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sl\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6, r7}\n"
-        "    ldr r0, .L081599CC\n"
-        "    adds r5, r0, #0\n"
-        "    adds r5, #0x96\n"
-        "    ldrb r4, [r5]\n"
-        "    adds r7, r0, #0\n"
-        "    cmp r4, #8\n"
-        "    bne .L081599D0\n"
-        "    adds r2, r7, #0\n"
-        "    adds r2, #0x94\n"
-        "    ldrb r3, [r2]\n"
-        "    adds r1, r7, #0\n"
-        "    adds r1, #0x90\n"
-        "    ldrh r0, [r1]\n"
-        "    strh r0, [r2]\n"
-        "    strh r3, [r1]\n"
-        "    adds r0, r7, #0\n"
-        "    adds r0, #0x98\n"
-        "    b .L081599EC\n"
-        "    .byte 0x00, 0x00\n"
-        ".L081599CC: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L081599D0:\n"
-        "    adds r5, r7, #0\n"
-        "    adds r5, #0x97\n"
-        "    ldrb r4, [r5]\n"
-        "    cmp r4, #8\n"
-        "    bne .L081599F2\n"
-        "    adds r0, r7, #0\n"
-        "    adds r0, #0x94\n"
-        "    ldrb r3, [r0]\n"
-        "    adds r2, r7, #0\n"
-        "    adds r2, #0x92\n"
-        "    ldrh r1, [r2]\n"
-        "    strh r1, [r0]\n"
-        "    strh r3, [r2]\n"
-        "    adds r0, #4\n"
-        ".L081599EC:\n"
-        "    ldrb r3, [r0]\n"
-        "    strb r4, [r0]\n"
-        "    strb r3, [r5]\n"
-        ".L081599F2:\n"
-        "    movs r0, #0x90\n"
-        "    adds r0, r0, r7\n"
-        "    mov sb, r0\n"
-        "    ldrh r6, [r0]\n"
-        "    movs r1, #0x92\n"
-        "    adds r1, r1, r7\n"
-        "    mov sl, r1\n"
-        "    ldrh r5, [r1]\n"
-        "    movs r0, #0x94\n"
-        "    adds r0, r0, r7\n"
-        "    mov r8, r0\n"
-        "    ldrh r4, [r0]\n"
-        "    bl sub_08158A34\n"
-        "    mov r1, sb\n"
-        "    strh r6, [r1]\n"
-        "    mov r0, sl\n"
-        "    strh r5, [r0]\n"
-        "    mov r1, r8\n"
-        "    strh r4, [r1]\n"
-        "    adds r5, r7, #0\n"
-        "    adds r5, #0xa2\n"
-        "    ldrb r0, [r5]\n"
-        "    cmp r0, #0xff\n"
-        "    beq .L08159A4E\n"
-        "    adds r4, r7, #0\n"
-        "    adds r4, #0xa0\n"
-        "    ldrh r0, [r4]\n"
-        "    movs r1, #1\n"
-        "    bl Fusion_RankDown\n"
-        "    ldrh r0, [r4]\n"
-        "    mov r1, sb\n"
-        "    strh r0, [r1]\n"
-        "    mov r1, r8\n"
-        "    ldrh r0, [r1]\n"
-        "    mov r1, sl\n"
-        "    strh r0, [r1]\n"
-        "    bl sub_08158A34\n"
-        "    ldrb r0, [r5]\n"
-        "    cmp r0, #0xff\n"
-        "    beq .L08159A4E\n"
-        "    bl sub_08158CBC\n"
-        "    b .L08159A52\n"
-        ".L08159A4E:\n"
-        "    bl sub_08158E00\n"
-        ".L08159A52:\n"
-        "    pop {r3, r4, r5}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    mov sl, r5\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-    );
-}
-#endif

@@ -327,166 +327,43 @@ u32 sub_08158D08(void)
 
 /* Checks the result found: must be valid and differ from the materials. */
 // sub_08158D20 @ 0x08158D20
-#ifdef NONMATCHING
 u32 sub_08158D20(void)
 {
     struct FusionCalc *c = &gUnk_0203B868;
 
-    c->result = *(u8 *)&c->result;
+    c->result &= 0xFF;
     Demon_GetRaceAndAlign(c->result, (u8 *)&c->unkA3, &c->resRace);
     if (!sub_0815BA28(c->result))
     {
         c->result = 0xFF;
         c->resRace = 0xFF;
         c->unkA3 = -1;
-        goto fail;
+        gUnk_0203B868.unkA6 = 0x40;
+        return 0;
     }
     c->ids[0] = c->orig[0];
     c->ids[1] = c->orig[1];
     c->ids[2] = c->orig[2];
     if (c->unkA4 & 0x80)
-        goto ok;
+        return 1;
     if (c->unkA8 != 0 && c->result == c->ids[2])
     {
         c->result = 0xFF;
         c->resRace = 0xFF;
         c->unkA3 = -1;
-        goto fail;
+        gUnk_0203B868.unkA6 = 0x40;
+        return 0;
     }
-    if (gUnk_0203B868.result != gUnk_0203B868.ids[1] && gUnk_0203B868.result != gUnk_0203B868.ids[0])
-        goto ok;
-    gUnk_0203B868.result = 0xFF;
-    gUnk_0203B868.resRace = 0xFF;
-    gUnk_0203B868.unkA3 = -1;
-fail:
-    gUnk_0203B868.unkA6 = 0x40;
-    return 0;
-ok:
+    if (gUnk_0203B868.result == gUnk_0203B868.ids[1] || gUnk_0203B868.result == gUnk_0203B868.ids[0])
+    {
+        gUnk_0203B868.result = 0xFF;
+        gUnk_0203B868.resRace = 0xFF;
+        gUnk_0203B868.unkA3 = -1;
+        gUnk_0203B868.unkA6 = 0x40;
+        return 0;
+    }
     return 1;
 }
-#else
-NAKED
-u32 sub_08158D20(void)
-{
-    asm_unified(
-        ".L08158D20:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, r8\n"
-        "    push {r7}\n"
-        "    ldr r4, .L08158D64\n"
-        "    adds r5, r4, #0\n"
-        "    adds r5, #0xa0\n"
-        "    movs r0, #0xff\n"
-        "    mov r8, r0\n"
-        "    ldrb r0, [r5]\n"
-        "    strh r0, [r5]\n"
-        "    ldrh r0, [r5]\n"
-        "    adds r7, r4, #0\n"
-        "    adds r7, #0xa3\n"
-        "    adds r6, r4, #0\n"
-        "    adds r6, #0xa2\n"
-        "    adds r1, r7, #0\n"
-        "    adds r2, r6, #0\n"
-        "    bl Demon_GetRaceAndAlign\n"
-        "    ldrh r0, [r5]\n"
-        "    bl sub_0815BA28\n"
-        "    cmp r0, #0\n"
-        "    bne .L08158D68\n"
-        "    mov r0, r8\n"
-        "    strh r0, [r5]\n"
-        "    movs r0, #0xff\n"
-        "    strb r0, [r6]\n"
-        "    movs r0, #1\n"
-        "    rsbs r0, r0, #0\n"
-        "    strb r0, [r7]\n"
-        "    adds r1, r4, #0\n"
-        "    b .L08158DE6\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08158D64: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L08158D68:\n"
-        "    adds r0, r4, #0\n"
-        "    adds r0, #0x8a\n"
-        "    ldrh r1, [r0]\n"
-        "    adds r0, #6\n"
-        "    strh r1, [r0]\n"
-        "    subs r0, #4\n"
-        "    ldrh r0, [r0]\n"
-        "    adds r1, r4, #0\n"
-        "    adds r1, #0x92\n"
-        "    strh r0, [r1]\n"
-        "    adds r0, r4, #0\n"
-        "    adds r0, #0x8e\n"
-        "    ldrh r2, [r0]\n"
-        "    adds r0, #6\n"
-        "    strh r2, [r0]\n"
-        "    adds r0, #0x10\n"
-        "    ldrb r1, [r0]\n"
-        "    movs r0, #0x80\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    bne .L08158DF4\n"
-        "    adds r0, r4, #0\n"
-        "    adds r0, #0xa8\n"
-        "    ldrh r0, [r0]\n"
-        "    cmp r0, #0\n"
-        "    beq .L08158DB8\n"
-        "    ldrh r1, [r5]\n"
-        "    lsls r0, r2, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    cmp r1, r0\n"
-        "    bne .L08158DB8\n"
-        "    mov r0, r8\n"
-        "    strh r0, [r5]\n"
-        "    movs r0, #0xff\n"
-        "    strb r0, [r6]\n"
-        "    movs r0, #1\n"
-        "    rsbs r0, r0, #0\n"
-        "    strb r0, [r7]\n"
-        "    adds r1, r4, #0\n"
-        "    b .L08158DE6\n"
-        ".L08158DB8:\n"
-        "    ldr r1, .L08158DF0\n"
-        "    adds r3, r1, #0\n"
-        "    adds r3, #0xa0\n"
-        "    adds r0, r1, #0\n"
-        "    adds r0, #0x92\n"
-        "    ldrh r2, [r3]\n"
-        "    ldrh r0, [r0]\n"
-        "    cmp r2, r0\n"
-        "    beq .L08158DD4\n"
-        "    adds r0, r1, #0\n"
-        "    adds r0, #0x90\n"
-        "    ldrh r0, [r0]\n"
-        "    cmp r2, r0\n"
-        "    bne .L08158DF4\n"
-        ".L08158DD4:\n"
-        "    movs r0, #0xff\n"
-        "    strh r0, [r3]\n"
-        "    adds r2, r1, #0\n"
-        "    adds r2, #0xa2\n"
-        "    strb r0, [r2]\n"
-        "    adds r2, #1\n"
-        "    movs r0, #1\n"
-        "    rsbs r0, r0, #0\n"
-        "    strb r0, [r2]\n"
-        ".L08158DE6:\n"
-        "    adds r1, #0xa6\n"
-        "    movs r0, #0x40\n"
-        "    strb r0, [r1]\n"
-        "    movs r0, #0\n"
-        "    b .L08158DF6\n"
-        ".L08158DF0: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L08158DF4:\n"
-        "    movs r0, #1\n"
-        ".L08158DF6:\n"
-        "    pop {r3}\n"
-        "    mov r8, r3\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-    );
-}
-#endif
 
 // sub_08158E00 @ 0x08158E00
 u32 sub_08158E00(void)
@@ -656,7 +533,6 @@ u32 sub_08158F48(u32 race)
 
 /* A demon and an element: the element shifts the demon within its race. */
 // sub_08158FA4 @ 0x08158FA4
-#ifdef NONMATCHING
 u32 sub_08158FA4(void)
 {
     struct FusionCalc *c = &gUnk_0203B868;
@@ -665,6 +541,7 @@ u32 sub_08158FA4(void)
     u8 other;
     const u8 *olv;
     s32 sum;
+    struct FusionCalc *w;
 
     if (c->race[0] <= 0x1A)
     {
@@ -684,28 +561,29 @@ u32 sub_08158FA4(void)
         other = c->ids[0];
         olv = &c->level[0];
     }
+    w = &gUnk_0203B868;
     if (*olv > lv)
     {
-        if ((c->level[0] + c->level[1]) & 1)
+        if ((w->level[0] + w->level[1]) & 1)
             return sub_08158CA4();
         Fusion_RankDown(other, 1);
         return sub_08158D08();
     }
-    c->result = id;
-    sum = c->level[0] + c->level[1];
+    w->result = id;
+    sum = w->level[0] + w->level[1];
     if (sum % 7 == 0)
     {
-        Fusion_RankDown(c->result, 2);
+        Fusion_RankDown(w->result, 2);
         return sub_08158D08();
     }
     if (sum % 5 == 0)
     {
-        Fusion_RankDown(c->result, 1);
+        Fusion_RankDown(w->result, 1);
         return sub_08158D08();
     }
     if (sum % 3 == 0)
     {
-        Fusion_RankUp(c->result, 1);
+        Fusion_RankUp(w->result, 1);
         return sub_08158D08();
     }
     if (sum & 1)
@@ -713,130 +591,6 @@ u32 sub_08158FA4(void)
     Fusion_RankDown(other, 1);
     return sub_08158D08();
 }
-#else
-NAKED
-u32 sub_08158FA4(void)
-{
-    asm_unified(
-        ".L08158FA4:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    ldr r1, .L08158FC8\n"
-        "    adds r0, r1, #0\n"
-        "    adds r0, #0x96\n"
-        "    ldrb r0, [r0]\n"
-        "    adds r2, r1, #0\n"
-        "    cmp r0, #0x1a\n"
-        "    bhi .L08158FCC\n"
-        "    adds r0, r2, #0\n"
-        "    adds r0, #0x90\n"
-        "    ldrb r3, [r0]\n"
-        "    adds r0, #0xc\n"
-        "    ldrb r1, [r0]\n"
-        "    subs r0, #0xa\n"
-        "    ldrb r6, [r0]\n"
-        "    adds r0, #0xb\n"
-        "    b .L08158FEC\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08158FC8: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L08158FCC:\n"
-        "    adds r0, r2, #0\n"
-        "    adds r0, #0x97\n"
-        "    ldrb r0, [r0]\n"
-        "    cmp r0, #0x1a\n"
-        "    bls .L08158FDC\n"
-        "    bl sub_08159098\n"
-        "    b .L08159090\n"
-        ".L08158FDC:\n"
-        "    adds r0, r2, #0\n"
-        "    adds r0, #0x92\n"
-        "    ldrb r3, [r0]\n"
-        "    adds r0, #0xb\n"
-        "    ldrb r1, [r0]\n"
-        "    subs r0, #0xd\n"
-        "    ldrb r6, [r0]\n"
-        "    adds r0, #0xc\n"
-        ".L08158FEC:\n"
-        "    ldrb r0, [r0]\n"
-        "    cmp r0, r1\n"
-        "    bls .L08159016\n"
-        "    adds r0, r2, #0\n"
-        "    adds r0, #0x9c\n"
-        "    ldrb r0, [r0]\n"
-        "    adds r1, r2, #0\n"
-        "    adds r1, #0x9d\n"
-        "    ldrb r1, [r1]\n"
-        "    adds r0, r0, r1\n"
-        "    movs r1, #1\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    bne .L0815908C\n"
-        "    adds r0, r6, #0\n"
-        "    movs r1, #1\n"
-        "    bl Fusion_RankDown\n"
-        "    bl sub_08158D08\n"
-        "    b .L08159090\n"
-        ".L08159016:\n"
-        "    adds r5, r2, #0\n"
-        "    adds r5, #0xa0\n"
-        "    strh r3, [r5]\n"
-        "    adds r0, r2, #0\n"
-        "    adds r0, #0x9c\n"
-        "    ldrb r1, [r0]\n"
-        "    adds r0, #1\n"
-        "    ldrb r0, [r0]\n"
-        "    adds r4, r1, r0\n"
-        "    adds r0, r4, #0\n"
-        "    movs r1, #7\n"
-        "    bl __modsi3\n"
-        "    cmp r0, #0\n"
-        "    bne .L08159042\n"
-        "    ldrh r0, [r5]\n"
-        "    movs r1, #2\n"
-        "    bl Fusion_RankDown\n"
-        "    bl sub_08158D08\n"
-        "    b .L08159090\n"
-        ".L08159042:\n"
-        "    adds r0, r4, #0\n"
-        "    movs r1, #5\n"
-        "    bl __modsi3\n"
-        "    cmp r0, #0\n"
-        "    bne .L0815905C\n"
-        "    ldrh r0, [r5]\n"
-        "    movs r1, #1\n"
-        "    bl Fusion_RankDown\n"
-        "    bl sub_08158D08\n"
-        "    b .L08159090\n"
-        ".L0815905C:\n"
-        "    adds r0, r4, #0\n"
-        "    movs r1, #3\n"
-        "    bl __modsi3\n"
-        "    cmp r0, #0\n"
-        "    bne .L08159076\n"
-        "    ldrh r0, [r5]\n"
-        "    movs r1, #1\n"
-        "    bl Fusion_RankUp\n"
-        "    bl sub_08158D08\n"
-        "    b .L08159090\n"
-        ".L08159076:\n"
-        "    movs r0, #1\n"
-        "    ands r4, r0\n"
-        "    cmp r4, #0\n"
-        "    bne .L0815908C\n"
-        "    adds r0, r6, #0\n"
-        "    movs r1, #1\n"
-        "    bl Fusion_RankDown\n"
-        "    bl sub_08158D08\n"
-        "    b .L08159090\n"
-        ".L0815908C:\n"
-        "    bl sub_08158CA4\n"
-        ".L08159090:\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // sub_08159098 @ 0x08159098
 u32 sub_08159098(void)
@@ -889,7 +643,6 @@ u32 sub_0815915C(void)
     u16 a;
     u16 b;
     u32 x;
-    u16 x3;
     u32 want;
     s32 k;
     s32 j;
@@ -912,17 +665,18 @@ u32 sub_0815915C(void)
     x = sub_0815B958(a) & 3;
     if (x != 0)
         x = 1;
-    x3 = x * 3;
-    want = gUnknown_087F160B[(sub_0815B958(b) & 3) + x3] & 3;
+    a = x * 3;
+    k = (sub_0815B958(b) & 3) + a;
+    want = 3;
+    want &= gUnknown_087F160B[k];
     for (k = 0; k <= 0x1F; k++)
     {
         for (j = 0; j <= 999; j++)
         {
-            u32 r = sub_08159144();
-
-            if (r != 0xFF)
+            x = sub_08159144();
+            if (x != 0xFF)
             {
-                gUnk_0203B868.result = r;
+                gUnk_0203B868.result = x;
                 if (sub_0815BA28(gUnk_0203B868.result) && gUnk_0203B868.result != gUnk_0203B868.ids[0]
                  && gUnk_0203B868.result != gUnk_0203B868.ids[1])
                     break;
@@ -1118,6 +872,7 @@ u32 sub_081592AC(void)
     u8 dr;
     const u8 *p;
     s32 v;
+    s32 m;
 
     if (c->race[0] == 8)
     {
@@ -1131,7 +886,8 @@ u32 sub_081592AC(void)
         d = c->ids[0];
         dr = c->race[0];
     }
-    p = &gUnknown_087F1611[((e - 0x32) >> 1) + dr * 4];
+    v = (e - 0x32) >> 1;
+    p = &gUnknown_087F1611[dr * 4 + v];
     if (*p == 0xFF)
     {
         Fusion_SetNoResult();
@@ -1141,18 +897,17 @@ u32 sub_081592AC(void)
     v = *p;
     if (!(e & 1))
         v >>= 4;
-    if (v & 3)
+    m = 3;
+    m &= v;
+    if (m)
     {
-        v &= 3;
-        Fusion_RankDown(d, v);
-        v++;
-        gUnk_0203B868.unkA4 |= v;
+        Fusion_RankDown(d, v &= 3);
+        gUnk_0203B868.unkA4 |= ++v;
         gUnk_0203B868.unkA6 = (gUnk_0203B868.unkA6 & 0xF0) | v;
     }
     else
     {
-        v &= 0xF;
-        Fusion_RankUp(d, v + 1);
+        Fusion_RankUp(d, (v &= 0xF) + 1);
         gUnk_0203B868.unkA4 |= 1;
         gUnk_0203B868.unkA6 = (gUnk_0203B868.unkA6 & 0xF0) | 1;
     }
@@ -1351,7 +1106,7 @@ s16 sub_081594B4(u16 level)
     c->candLv[0] = -1;
     c->candLv[1] = -1;
     c->candLv[2] = -1;
-    k = c->unkA3 * 3;
+    k = (u8)c->unkA3 * 3;
     cnt = 0;
     while (gUnknown_087F1961[k] != 0xFF)
     {
@@ -1484,6 +1239,7 @@ s16 sub_081594B4(u16 level)
 s16 sub_08159568(u16 level)
 {
     struct FusionCalc *c = &gUnk_0203B868;
+    struct FusionCalc *w;
     u32 i;
 
     c->candLv[0] = Demon_GetLevel(c->cand[0]);
@@ -1493,20 +1249,21 @@ s16 sub_08159568(u16 level)
         if (c->cand[2] != 0xFF)
             c->candLv[2] = Demon_GetLevel(c->cand[2]);
     }
-    if (c->candLv[1] < c->candLv[0])
+    w = &gUnk_0203B868;
+    if (w->candLv[1] < w->candLv[0])
         sub_08159604(1, 0);
-    if (c->candLv[2] < c->candLv[1])
+    if (w->candLv[2] < w->candLv[1])
         sub_08159604(2, 1);
-    if (c->candLv[1] < c->candLv[0])
+    if (w->candLv[1] < w->candLv[0])
         sub_08159604(1, 0);
     i = 0;
-    if (c->candLv[0] < level && c->candLv[1] != 0xFF)
+    if (w->candLv[0] < level && w->candLv[1] != 0xFF)
     {
         i = 1;
-        if (c->candLv[1] < level && c->candLv[2] != 0xFF)
+        if (w->candLv[1] < level && w->candLv[2] != 0xFF)
         {
             i = 2;
-            if (c->candLv[2] < level)
+            if (w->candLv[2] < level)
                 return -1;
         }
     }

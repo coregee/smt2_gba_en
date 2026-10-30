@@ -781,7 +781,8 @@ u32 sub_080B8160(const u16 *p)
 void sub_080B8174(void)
 {
     u16 v = 0xC;
-    u16 dir = gFieldState.unk02;
+    struct FieldState *fs = &gFieldState;
+    u32 dir = fs->unk02;
     u32 wall = View_GetWall(0, 0, 0);
 
     if (wall == 3)
@@ -792,15 +793,15 @@ void sub_080B8174(void)
     {
         if (wall == 2)
         {
-            gFieldState.unk0A = v;
+            fs->unk0A = v;
             sub_080B2030(0xC, dir, 3);
         }
         else
         {
-            gFieldState.unk0A = v;
+            fs->unk0A = v;
             sub_080B2030(0xC, dir, 2);
         }
-        gFieldState.unk46 = 1;
+        fs->unk46 = 1;
     }
 }
 #else

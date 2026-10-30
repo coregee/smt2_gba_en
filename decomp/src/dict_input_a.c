@@ -118,13 +118,16 @@ void Dict_HandleListInput(struct Task *task)
         }
         else if ((gRepeatedKeys & 0x200) && n > 6)
         {
-            u16 row = d->unk0C;
+            u32 row = d->unk0C;
             u16 scroll = d->unk0E;
+            u16 t = row;
 
-            if (row != 0)
+            if (t != 0)
                 d->unk0C = 0;
+            else if (scroll > 4)
+                d->unk0E = scroll - 5;
             else
-                d->unk0E = scroll > 4 ? scroll - 5 : 0;
+                d->unk0E = t;
             if (row != d->unk0C || scroll != d->unk0E)
             {
                 moved = 1;
@@ -136,7 +139,7 @@ void Dict_HandleListInput(struct Task *task)
             u16 row = d->unk0C;
             u16 scroll = d->unk0E;
 
-            if (row != 5)
+            if (d->unk0C != 5)
                 d->unk0C = 5;
             else if (row + scroll + 6 < n - 1)
                 d->unk0E = scroll + 6;

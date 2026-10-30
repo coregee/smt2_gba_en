@@ -85,11 +85,13 @@ bool32 View_IsSideOpen(u16 dir)
    gViewCells, which only works because EWRAM mirrors every 256 KB
    (0xFFFF * 0x6C and 0xFFFF * 12 are both -size modulo 0x40000). */
 // View_GetWall @ 0x080B0248
-#ifdef NONMATCHING
 u32 View_GetWall(u16 dir, u16 dx, u16 dy)
 {
-    const struct ViewCell *cell = &gViewCells[5 + dy][4 + dx];
+    const struct ViewCell *cell;
     u16 wall;
+
+    cell = &gViewCells[5 + dy][4];
+    cell = &cell[dx];
 
     switch (dir)
     {
@@ -112,66 +114,6 @@ u32 View_GetWall(u16 dir, u16 dx, u16 dy)
         return wall;
     return 0;
 }
-#else
-NAKED
-u32 View_GetWall(u16 dir, u16 dx, u16 dy)
-{
-    asm_unified(
-        ".L080B0248:\n"
-        "    push {r4, lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r3, r0, #0x10\n"
-        "    adds r4, r3, #0\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    lsls r2, r2, #0x10\n"
-        "    lsrs r2, r2, #0x10\n"
-        "    movs r0, #0x6c\n"
-        "    muls r2, r0, r2\n"
-        "    ldr r0, .L080B0278\n"
-        "    adds r2, r2, r0\n"
-        "    lsls r0, r1, #1\n"
-        "    adds r0, r0, r1\n"
-        "    lsls r0, r0, #2\n"
-        "    adds r2, r2, r0\n"
-        "    cmp r3, #1\n"
-        "    beq .L080B028A\n"
-        "    cmp r3, #1\n"
-        "    bgt .L080B027C\n"
-        "    cmp r3, #0\n"
-        "    beq .L080B0286\n"
-        "    b .L080B0298\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080B0278: .4byte 0x0200AD54 @ EWRAM+0xAD54\n"
-        ".L080B027C:\n"
-        "    cmp r4, #2\n"
-        "    beq .L080B028E\n"
-        "    cmp r4, #3\n"
-        "    beq .L080B0292\n"
-        "    b .L080B0298\n"
-        ".L080B0286:\n"
-        "    ldrh r0, [r2, #4]\n"
-        "    b .L080B0294\n"
-        ".L080B028A:\n"
-        "    ldrh r0, [r2, #6]\n"
-        "    b .L080B0294\n"
-        ".L080B028E:\n"
-        "    ldrh r0, [r2, #8]\n"
-        "    b .L080B0294\n"
-        ".L080B0292:\n"
-        "    ldrh r0, [r2, #0xa]\n"
-        ".L080B0294:\n"
-        "    cmp r0, #0\n"
-        "    bne .L080B029A\n"
-        ".L080B0298:\n"
-        "    movs r0, #0\n"
-        ".L080B029A:\n"
-        "    pop {r4}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-    );
-}
-#endif
 
 /* Steps one square in direction dir (clamped to the map) and marks it visited;
    gUnk_03003FF4 = 1 when the step was taken. */

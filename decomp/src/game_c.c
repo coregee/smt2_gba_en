@@ -122,7 +122,8 @@ void sub_080B1BDC(void)
 // Field_HandleInput @ 0x080B1C18
 #ifdef NONMATCHING
 /* Field input: events under the player, menu/map keys, then movement from the D-pad. */
-void Field_HandleInput(u16 keys)
+/* keys is volatile in the original: it is kept on the stack and re-read at every test. */
+void Field_HandleInput(vu16 keys)
 {
     u16 dest = 0xFFFF;
     u16 dir = gFieldState.unk02;
@@ -131,6 +132,7 @@ void Field_HandleInput(u16 keys)
     struct FieldEvent *ev;
     u16 id;
     u16 unused;
+    u32 r;
 
     Automap_SetVisited(gFieldState.unk12, gFieldState.unk14);
     if (gFieldState.unk40 == 0 && gFieldState.unk3E == 0
@@ -142,7 +144,7 @@ void Field_HandleInput(u16 keys)
         gFieldState.unk40 = sub_080B828C();
         return;
     }
-    if (sub_080B1B58() == 1)
+    if ((r = sub_080B1B58()) == 1)
     {
         if (gFieldState.unk3A & 1)
         {
@@ -865,101 +867,115 @@ wait:
    destination x is shifted by the view scroll (unk28) and clipped to columns 8..0xE7. */
 void FieldView_BlitPixels(const struct ViewBlit *b)
 {
-    u32 srcX = b->srcX;
-    u32 srcY = b->srcY;
-    u32 dstX = b->dstX;
-    u32 dstY = b->dstY;
-    u32 w = b->w;
+    u16 srcX = b->srcX;
+    u16 srcY = b->srcY;
+    u16 dstX = b->dstX;
+    u16 dstY = b->dstY;
+    u16 w = b->w;
     u16 h = b->h;
-    u32 dir = b->dir;
+    u16 dir = b->dir;
     const u8 *src = *b->src;
     u8 *dst = b->dst;
-    u32 cut;
     u16 row, col;
-    u32 sx, dx, next;
-    u8 pix, *p;
+    u16 sx, dx;
+    u8 pix, v, *p;
 
     gUnk_030045F4 = 1;
     if (gUnk_03004614 != 0x4A || gUnk_03004514 != 4)
     {
-        dstX = (u16)(dstX + gFieldState.unk28);
+        dstX = dstX + gFieldState.unk28;
         if (dir == 1)
         {
             if ((s16)dstX < 8)
             {
-                cut = (u16)(8 - dstX);
-                dstX = (u16)(dstX + cut);
-                srcX = (u16)(srcX + cut);
-                w = (u16)(w - cut);
+                u16 cut = 8 - dstX;
+                dstX = dstX + cut;
+                srcX = srcX + cut;
+                w = w - cut;
             }
             else if (dstX + w > 0xE8)
             {
-                w = (u16)(w - (u16)(dstX + w - 0xE8));
+                u16 cut = dstX + w - 0xE8;
+                w = w - cut;
             }
         }
         else
         {
             if ((s16)(dstX - w) < 8)
             {
-                w = (u16)(w - (u16)(8 - (dstX - w)));
+                u16 cut = 8 - (dstX - w);
+                w = w - cut;
             }
             else if (dstX > 0xE8)
             {
-                cut = (u16)(dstX - 0xE8);
-                dstX = (u16)(dstX - cut);
-                srcX = (u16)(srcX + cut);
-                w = (u16)(w - cut);
+                u16 cut = dstX - 0xE8;
+                dstX = dstX - cut;
+                srcX = srcX + cut;
+                w = w - cut;
             }
         }
     }
-    if (w == 0 || (s16)w < 0)
-        return;
-    for (row = 0; row < h; row++)
+    if ((s16)w > 0)
     {
-        sx = srcX;
-        dx = dstX;
-        for (col = 0; col < w; col += 2)
+        for (row = 0; row < h; row++)
         {
-            pix = src[(srcY >> 3) * 0x400 + (sx >> 3) * 0x20 + (srcY & 7) * 4 + ((sx & 7) >> 1)];
-            if (!(dx & 1))
+            sx = srcX;
+            dx = dstX;
+            for (col = 0; col < w; )
             {
-                p = &dst[(dstY >> 3) * 0x400 + (dx >> 3) * 0x20 + (dstY & 7) * 4 + ((dx & 7) >> 1)];
-                if (!(*p & 0xF))
+                if (!(dx & 1))
                 {
-                    *p |= pix & 0xF;
-                    gUnk_030045F4 = 1;
+                    pix = ((const u8 (*)[0x400])src)[srcY >> 3][(u16)(sx >> 3) * 0x20 + ((srcY & 7) * 4 + ((sx & 7) >> 1))];
+                    p = dst + (dstY >> 3) * 0x400 + (u16)(dx >> 3) * 0x20 + (dstY & 7) * 4 + ((dx & 7) >> 1);
+                    v = *p;
+                    if (!(v & 0xF))
+                    {
+                        v |= pix & 0xF;
+                        gUnk_030045F4 = 1;
+                    }
+                    *p = v;
+                    dx = dx + dir;
+                    p = dst + (dstY >> 3) * 0x400 + (u16)(dx >> 3) * 0x20 + (dstY & 7) * 4 + ((dx & 7) >> 1);
+                    v = *p;
+                    if (!(v & 0xF0))
+                    {
+                        v |= pix & 0xF0;
+                        gUnk_030045F4 = 1;
+                    }
+                    *p = v;
                 }
-                next = (u16)(dx + dir);
-                p = &dst[(dstY >> 3) * 0x400 + (next >> 3) * 0x20 + (dstY & 7) * 4 + ((next & 7) >> 1)];
-                if (!(*p & 0xF0))
+                else
                 {
-                    *p |= pix & 0xF0;
-                    gUnk_030045F4 = 1;
+                    pix = ((const u8 (*)[0x400])src)[srcY >> 3][(u16)(sx >> 3) * 0x20 + ((srcY & 7) * 4 + ((sx & 7) >> 1))];
+                    p = dst + (dstY >> 3) * 0x400 + (u16)(dx >> 3) * 0x20 + (dstY & 7) * 4 + ((dx & 7) >> 1);
+                    v = *p;
+                    if (!(v & 0xF0))
+                    {
+                        v |= (pix & 0xF) << 4;
+                        gUnk_030045F4 = 1;
+                    }
+                    *p = v;
+                    dx = dx + dir;
+                    p = dst + (dstY >> 3) * 0x400 + (u16)(dx >> 3) * 0x20 + (dstY & 7) * 4 + ((dx & 7) >> 1);
+                    v = *p;
+                    if (!(v & 0xF))
+                    {
+                        v |= pix >> 4;
+                        gUnk_030045F4 = 1;
+                    }
+                    *p = v;
                 }
+                sx++;
+                col++;
+                sx++;
+                dx = dx + dir;
+                col++;
             }
-            else
-            {
-                p = &dst[(dstY >> 3) * 0x400 + (dx >> 3) * 0x20 + (dstY & 7) * 4 + ((dx & 7) >> 1)];
-                if (!(*p & 0xF0))
-                {
-                    *p |= pix << 4;
-                    gUnk_030045F4 = 1;
-                }
-                next = (u16)(dx + dir);
-                p = &dst[(dstY >> 3) * 0x400 + (next >> 3) * 0x20 + (dstY & 7) * 4 + ((next & 7) >> 1)];
-                if (!(*p & 0xF))
-                {
-                    *p |= pix >> 4;
-                    gUnk_030045F4 = 1;
-                }
-            }
-            sx = (u16)(sx + 2);
-            dx = (u16)(next + dir);
+            srcY++;
+            dstY++;
         }
-        srcY = (u16)(srcY + 1);
-        dstY = (u16)(dstY + 1);
+        gFieldState.unk2C = 0;
     }
-    gFieldState.unk2C = 0;
 }
 #else
 NAKED
@@ -1341,105 +1357,127 @@ void FieldView_BlitPixels(const struct ViewBlit *b)
 // FieldView_BlitTiles @ 0x080B23D0
 #ifdef NONMATCHING
 /* Copies whole 8x8 tiles of a view layer into the tile buffer (dir = 1), or mirrored
-   (each 4bpp row reversed nibble by nibble), with the same x clipping as FieldView_BlitPixels.
-   unk2C counts the frames since the last change (0 -> 1 -> 2 -> 3 -> 0). */
+   (each 4bpp row reversed nibble by nibble, tiles right to left), with the same x clipping
+   as FieldView_BlitPixels. unk2C counts the frames since the last change (0 -> 1 -> 2 -> 3 -> 0). */
+#define MIRROR_ROW(v) (((v) << 28 & 0xF0000000) | ((v) << 20 & 0x0F000000) | ((v) << 12 & 0x00F00000) \
+                     | ((v) << 4 & 0x000F0000) | ((v) >> 4 & 0xF000) | ((v) >> 12 & 0xF00)        \
+                     | ((v) >> 20 & 0xF0) | ((v) >> 28 & 0xF))
 void FieldView_BlitTiles(const struct ViewBlit *b)
 {
-    u16 w = b->w;
-    u32 cols = w >> 3;
-    u32 rows = b->h >> 3;
-    u16 dstX = gFieldState.unk28 + b->dstX;
-    u32 x = dstX;
-    u32 srcOff = ((b->srcX >> 3) & 0x7FF) * 0x20;
-    u32 dstOff = ((dstX >> 3) & 0x7FF) * 0x20;
-    const u8 *src = *b->src;
-    u8 *dst = b->dst;
+    u32 w;
+    u32 cols;
+    u32 h;
+    u16 rows;
+    u16 dstX;
+    u16 r, c;
+    u16 srcOff;
+    u16 dstOff;
+    const u8 *src;
+    u8 *dst;
+    u16 dir;
     s32 cut;
-    u32 r, c, v;
+    s32 t;
     const u32 *s;
     u32 *d;
+    u32 v;
+    const u8 *srow;
+    u8 *drow;
 
+    w = b->w;
+    cols = w >> 3;
+    h = b->h;
+    rows = h >> 3;
+    dstX = b->dstX + gFieldState.unk28;
+    srcOff = (b->srcX >> 3) << 5;
+    dstOff = (dstX >> 3) << 5;
+    src = *b->src;
+    dst = b->dst;
     if (w & 7)
         cols++;
-    if (b->h & 7)
+    if (h & 7)
         rows++;
-    if ((s16)b->dir == 1)
+    if (b->dir == 1)
     {
         if ((s16)dstX < 8)
         {
-            cut = (s16)(8 - x) / 8;
-            dstOff = (u16)(dstOff + cut * 0x20);
-            srcOff = (u16)(srcOff + cut * 0x20);
-            cols -= cut;
+            t = (s16)(8 - dstX);
+            cut = t / 8;
+            dstOff += cut * 0x20;
+            srcOff += cut * 0x20;
+            cols = (u16)(cols - cut);
         }
-        else
+        else if ((s32)(dstX + w) > 0xE8)
         {
-            x += w;
-            if (x < 0xE9)
-                goto draw;
-            cols -= (s16)(x - 0xE8) / 8;
+            cols = (u16)(cols - (s16)(dstX + w - 0xE8) / 8);
         }
     }
     else
     {
-        cut = x - w;
-        if ((s16)cut < 8)
+        t = dstX - w;
+        if ((s16)t < 8)
         {
-            cols -= (s16)(8 - cut) / 8;
+            cols = (u16)(cols - (s16)(8 - t) / 8);
         }
-        else
+        else if (dstX > 0xE8)
         {
-            if (x < 0xE9)
-                goto draw;
-            cut = (s16)(x - 0xE8) / 8;
-            dstOff = (u16)(dstOff - cut * 0x20);
-            srcOff = (u16)(srcOff + cut * 0x20);
-            cols -= cut;
+            t = (s16)(dstX - 0xE8);
+            cut = t / 8;
+            dstOff -= cut * 0x20;
+            srcOff += cut * 0x20;
+            cols = (u16)(cols - cut);
         }
     }
-    cols = (u16)cols;
-draw:
     if ((s16)cols <= 0)
         return;
-    for (r = 0; r < rows; r++)
+    if (b->dir == 1)
     {
-        s = (const u32 *)(src + ((b->srcY + r * 8) >> 3) * 0x400 + srcOff);
-        d = (u32 *)(dst + ((b->dstY + r * 8) >> 3) * 0x400 + dstOff);
-        for (c = 0; c < cols; c++)
+        for (r = 0; r < rows; r++)
         {
-            if ((s16)b->dir == 1)
+            srow = src + ((b->srcY + r * 8) >> 3) * 0x400;
+            drow = dst + ((b->dstY + r * 8) >> 3) * 0x400;
+            s = (const u32 *)(srow + srcOff);
+            d = (u32 *)(drow + dstOff);
+            for (c = 0; c < cols; c++)
             {
-                d[0] = s[0];
-                d[1] = s[1];
-                d[2] = s[2];
-                d[3] = s[3];
-                d[4] = s[4];
-                d[5] = s[5];
-                d[6] = s[6];
-                d[7] = s[7];
-                d += 8;
+                *d++ = *s++;
+                *d++ = *s++;
+                *d++ = *s++;
+                *d++ = *s++;
+                *d++ = *s++;
+                *d++ = *s++;
+                *d++ = *s++;
+                *d++ = *s++;
             }
-            else
+        }
+    }
+    else
+    {
+        for (r = 0; r < rows; r++)
+        {
+            srow = src + ((b->srcY + r * 8) >> 3) * 0x400;
+            drow = dst + ((b->dstY + r * 8) >> 3) * 0x400;
+            s = (const u32 *)(srow + srcOff);
+            d = (u32 *)(drow + dstOff);
+            for (c = 0; c < cols; c++)
             {
-                u32 i;
-
-                for (i = 0; i < 8; i++)
-                {
-                    v = s[i];
-                    d[i] = v << 28 | (v & 0xF0) << 20 | (v & 0xF00) << 12 | (v & 0xF000) << 4
-                         | (v >> 4 & 0xF000) | (v >> 12 & 0xF00) | (v >> 20 & 0xF0) | v >> 28;
-                }
-                d -= 8;
+                v = *s++; *d++ = MIRROR_ROW(v);
+                v = *s++; *d++ = MIRROR_ROW(v);
+                v = *s++; *d++ = MIRROR_ROW(v);
+                v = *s++; *d++ = MIRROR_ROW(v);
+                v = *s++; *d++ = MIRROR_ROW(v);
+                v = *s++; *d++ = MIRROR_ROW(v);
+                v = *s++; *d++ = MIRROR_ROW(v);
+                v = *s++; *d++ = MIRROR_ROW(v);
+                d -= 16;
             }
-            s += 8;
         }
     }
     if (gFieldState.unk2C == 0)
-        gFieldState.unk2C = 1;
-    else if (gFieldState.unk2C < 3)
         gFieldState.unk2C++;
-    else
+    else if (gFieldState.unk2C > 2)
         gFieldState.unk2C = 0;
+    else
+        gFieldState.unk2C++;
 }
 #else
 NAKED

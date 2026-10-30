@@ -194,13 +194,15 @@ void sub_0812C284(struct Task *task)
 void sub_0812C2E4(struct Task *task)
 {
     struct C127Block *blk = C127_BLOCK;
+    u16 skill;
+    s32 r;
 
     task->result = 0;
     switch (task->pad1E)
     {
     case 0:
     {
-        u16 skill = BCMD->skill;
+        skill = BCMD->skill;
 
         sub_080EA210();
         if ((u16)(skill - 0x3E) <= 1)
@@ -213,17 +215,18 @@ void sub_0812C2E4(struct Task *task)
         break;
     }
     case 1:
-        if (BattleMsg_IsDone() == 1)
+        r = BattleMsg_IsDone();
+        if (r != 1)
+            break;
+        sub_080ED6DC(BCMD->who, BCMD->skill);
+        ((void (*)(s32, u16 *, const u16 *, u8))sub_0812E780)(BCMD->who, blk->unkF30, gUnknown_08124D5E, 0);
+        sub_080F4410(BCMD->who);
+        task->pad1E = 4;
+        r = BCMD->unk0;
+        if (r != 0)
         {
-            sub_080ED6DC(BCMD->who, BCMD->skill);
-            sub_0812E780(BCMD->who, blk->unkF30, gUnknown_08124D5E, 0);
-            sub_080F4410(BCMD->who);
-            task->pad1E = 4;
-            if (BCMD->unk0 != 0)
-            {
-                task->result = 1;
-                task->pad1E = 0xFF;
-            }
+            task->result = 1;
+            task->pad1E = 0xFF;
         }
         break;
     case 6:
@@ -247,7 +250,8 @@ void sub_0812C2E4(struct Task *task)
         break;
     }
     case 4:
-        if (BattleMsg_IsDone() != 1)
+        r = BattleMsg_IsDone();
+        if (r != 1)
             break;
     case 5:
         BattleMenu_Reset();
@@ -274,7 +278,8 @@ void sub_0812C2E4(struct Task *task)
         {
             task->result = 1;
             task->pad1E = 0;
-            if ((u16)(BCMD->skill - 0x3E) <= 1)
+            skill = BCMD->skill;
+            if ((u16)(skill - 0x3E) <= 1)
                 task->pad1E = 0xFE;
         }
         break;

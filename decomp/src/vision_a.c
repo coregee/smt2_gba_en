@@ -202,7 +202,6 @@ u32 Vision_CountListed(void)
 
 /* Vision list input: 6 visible rows, d->unk02 is the first row shown; L/R page. */
 // sub_080DAC70 @ 0x080DAC70
-#ifdef NONMATCHING
 void sub_080DAC70(struct Task *task)
 {
     struct C0d9Menu *d = (struct C0d9Menu *)&task->data;
@@ -210,15 +209,15 @@ void sub_080DAC70(struct Task *task)
     u16 *list = gUnk_0203B454;
     u16 count = Vision_CountListed();
     u16 rows;
+    u32 zero = 0;
 
     ms->listTask = task;
     ms->listOnFrame = task->onFrame;
-    task->result = 0;
-    task->unk1E = 0;
+    task->result = zero;
+    task->unk1E = zero;
+    rows = count;
     if (count > 5)
         rows = 6;
-    else
-        rows = count;
     if (gKeysNew & 1)
     {
         if (sub_080C2734(list[task->data.h[0] + d->unk02]))
@@ -272,20 +271,20 @@ void sub_080DAC70(struct Task *task)
         }
         else if ((gRepeatedKeys & 0x200) && count > 6)
         {
-            u16 cursor = task->data.h[0];
+            u32 cursor = task->data.h[0];
             u16 top = d->unk02;
+            u16 t = cursor;
 
-            if (cursor != 0)
+            if (t != 0)
             {
                 task->data.h[0] = down;
             }
             else
             {
-                u16 t = cursor;
-
                 if (top > 4)
-                    t = top - 5;
-                d->unk02 = t;
+                    d->unk02 = top - 5;
+                else
+                    d->unk02 = t;
             }
             if (cursor != d->cursor || top != d->unk02)
                 Sound_Play(0x64);
@@ -296,9 +295,9 @@ void sub_080DAC70(struct Task *task)
             u16 cursor = d->cursor;
             u16 top = d->unk02;
 
-            if (cursor != 5)
+            if (d->cursor != 5)
                 d->cursor = 5;
-            else if (d->cursor + d->unk02 + 6 < count - 1)
+            else if (cursor + top + 6 < count - 1)
                 d->unk02 = top + 6;
             else
                 d->unk02 = count - 6;
@@ -308,236 +307,22 @@ void sub_080DAC70(struct Task *task)
         }
     }
 }
-#else
-NAKED
-void sub_080DAC70(struct Task *task)
-{
-    asm_unified(
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, r8\n"
-        "    push {r7}\n"
-        "    adds r5, r0, #0\n"
-        "    adds r6, r5, #0\n"
-        "    adds r6, #0x24\n"
-        "    ldr r4, .L080DACDC\n"
-        "    ldr r0, .L080DACE0\n"
-        "    mov r8, r0\n"
-        "    bl Vision_CountListed\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r7, r0, #0x10\n"
-        "    movs r1, #0\n"
-        "    str r5, [r4, #0x7c]\n"
-        "    adds r4, #0x84\n"
-        "    ldr r0, [r5, #0x20]\n"
-        "    str r0, [r4]\n"
-        "    strh r1, [r5, #0x1c]\n"
-        "    strh r1, [r5, #0x1e]\n"
-        "    mov ip, r7\n"
-        "    cmp r7, #5\n"
-        "    bls .L080DACA2\n"
-        "    movs r1, #6\n"
-        "    mov ip, r1\n"
-        ".L080DACA2:\n"
-        "    ldr r2, .L080DACE4\n"
-        "    ldrh r1, [r2]\n"
-        "    movs r4, #1\n"
-        "    adds r0, r4, #0\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    beq .L080DACF0\n"
-        "    ldrh r0, [r5, #0x24]\n"
-        "    ldrh r1, [r6, #2]\n"
-        "    adds r0, r0, r1\n"
-        "    lsls r0, r0, #1\n"
-        "    add r0, r8\n"
-        "    ldrh r0, [r0]\n"
-        "    bl sub_080C2734\n"
-        "    cmp r0, #0\n"
-        "    beq .L080DACE8\n"
-        "    movs r0, #0xc0\n"
-        "    lsls r0, r0, #1\n"
-        "    bl Font_ResetGlyphSpriteCache\n"
-        "    ldrh r0, [r6, #2]\n"
-        "    ldrh r1, [r5, #0x24]\n"
-        "    adds r0, r0, r1\n"
-        "    adds r0, #1\n"
-        "    strh r0, [r5, #0x1e]\n"
-        "    movs r0, #0x65\n"
-        "    b .L080DACFC\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080DACDC: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
-        ".L080DACE0: .4byte 0x0203B454 @ EWRAM+0x3B454\n"
-        ".L080DACE4: .4byte 0x030031B8 @ IWRAM+0x31B8\n"
-        ".L080DACE8:\n"
-        "    movs r0, #0x66\n"
-        "    bl Sound_Play\n"
-        "    b .L080DADEE\n"
-        ".L080DACF0:\n"
-        "    ldrh r1, [r2]\n"
-        "    movs r0, #2\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    beq .L080DAD04\n"
-        "    movs r0, #0x66\n"
-        ".L080DACFC:\n"
-        "    bl Sound_Play\n"
-        "    strh r4, [r5, #0x1c]\n"
-        "    b .L080DADEE\n"
-        ".L080DAD04:\n"
-        "    ldr r1, .L080DAD24\n"
-        "    ldrh r2, [r1]\n"
-        "    movs r0, #0x40\n"
-        "    ands r0, r2\n"
-        "    cmp r0, #0\n"
-        "    beq .L080DAD34\n"
-        "    ldrh r0, [r5, #0x24]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080DAD28\n"
-        "    subs r0, #1\n"
-        ".L080DAD18:\n"
-        "    strh r0, [r5, #0x24]\n"
-        "    movs r0, #0x64\n"
-        "    bl Sound_Play\n"
-        "    b .L080DAD9A\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080DAD24: .4byte 0x03003964 @ IWRAM+0x3964\n"
-        ".L080DAD28:\n"
-        "    ldrh r0, [r6, #2]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080DAD9A\n"
-        "    subs r0, #1\n"
-        "    strh r0, [r6, #2]\n"
-        "    b .L080DAD94\n"
-        ".L080DAD34:\n"
-        "    movs r0, #0x80\n"
-        "    ands r0, r2\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r3, r0, #0x10\n"
-        "    cmp r3, #0\n"
-        "    beq .L080DAD64\n"
-        "    ldrh r1, [r5, #0x24]\n"
-        "    mov r0, ip\n"
-        "    subs r0, #1\n"
-        "    cmp r1, r0\n"
-        "    beq .L080DAD4E\n"
-        "    adds r0, r1, #1\n"
-        "    b .L080DAD18\n"
-        ".L080DAD4E:\n"
-        "    cmp r1, #5\n"
-        "    bne .L080DAD9A\n"
-        "    ldrh r2, [r6, #2]\n"
-        "    adds r0, r1, r2\n"
-        "    adds r0, #1\n"
-        "    subs r1, r7, #1\n"
-        "    cmp r0, r1\n"
-        "    bgt .L080DAD9A\n"
-        "    adds r0, r2, #1\n"
-        "    strh r0, [r6, #2]\n"
-        "    b .L080DAD94\n"
-        ".L080DAD64:\n"
-        "    movs r0, #0x80\n"
-        "    lsls r0, r0, #2\n"
-        "    ands r0, r2\n"
-        "    cmp r0, #0\n"
-        "    beq .L080DADA4\n"
-        "    cmp r7, #6\n"
-        "    bls .L080DADA4\n"
-        "    ldrh r2, [r5, #0x24]\n"
-        "    ldrh r1, [r6, #2]\n"
-        "    adds r0, r2, #0\n"
-        "    cmp r0, #0\n"
-        "    beq .L080DAD80\n"
-        "    strh r3, [r5, #0x24]\n"
-        "    b .L080DAD88\n"
-        ".L080DAD80:\n"
-        "    cmp r1, #4\n"
-        "    bls .L080DAD86\n"
-        "    subs r0, r1, #5\n"
-        ".L080DAD86:\n"
-        "    strh r0, [r6, #2]\n"
-        ".L080DAD88:\n"
-        "    ldrh r0, [r6]\n"
-        "    cmp r2, r0\n"
-        "    bne .L080DAD94\n"
-        "    ldrh r6, [r6, #2]\n"
-        "    cmp r1, r6\n"
-        "    beq .L080DAD9A\n"
-        ".L080DAD94:\n"
-        "    movs r0, #0x64\n"
-        "    bl Sound_Play\n"
-        ".L080DAD9A:\n"
-        "    movs r0, #0xc0\n"
-        "    lsls r0, r0, #1\n"
-        "    bl Font_ResetGlyphSpriteCache\n"
-        "    b .L080DADEE\n"
-        ".L080DADA4:\n"
-        "    ldrh r1, [r1]\n"
-        "    movs r0, #0x80\n"
-        "    lsls r0, r0, #1\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    beq .L080DADEE\n"
-        "    cmp r7, #6\n"
-        "    bls .L080DADEE\n"
-        "    ldrh r2, [r6]\n"
-        "    ldrh r3, [r6, #2]\n"
-        "    cmp r2, #5\n"
-        "    beq .L080DADC2\n"
-        "    movs r0, #5\n"
-        "    strh r0, [r6]\n"
-        "    b .L080DADD4\n"
-        ".L080DADC2:\n"
-        "    adds r0, r2, r3\n"
-        "    adds r0, #6\n"
-        "    subs r1, r7, #1\n"
-        "    cmp r0, r1\n"
-        "    bge .L080DADD0\n"
-        "    adds r0, r3, #6\n"
-        "    b .L080DADD2\n"
-        ".L080DADD0:\n"
-        "    subs r0, r7, #6\n"
-        ".L080DADD2:\n"
-        "    strh r0, [r6, #2]\n"
-        ".L080DADD4:\n"
-        "    ldrh r1, [r6]\n"
-        "    cmp r2, r1\n"
-        "    bne .L080DADE0\n"
-        "    ldrh r6, [r6, #2]\n"
-        "    cmp r3, r6\n"
-        "    beq .L080DADE6\n"
-        ".L080DADE0:\n"
-        "    movs r0, #0x64\n"
-        "    bl Sound_Play\n"
-        ".L080DADE6:\n"
-        "    movs r0, #0xc0\n"
-        "    lsls r0, r0, #1\n"
-        "    bl Font_ResetGlyphSpriteCache\n"
-        ".L080DADEE:\n"
-        "    pop {r3}\n"
-        "    mov r8, r3\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-    );
-}
-#endif
 
 /* Draws the six visible rows of vision names (8 glyphs each), the count seen and the
    scroll arrows. */
 // Vision_DrawItemList @ 0x080DADF8
-#ifdef NONMATCHING
 void Vision_DrawItemList(struct Task *task)
 {
     struct C0d9Menu *d = (struct C0d9Menu *)&task->data;
     u16 count = Vision_CountListed();
     u16 x = 0x6C;
     u16 y = 0x10;
-    u32 row, i, n;
+    u32 i, j, n;
 
     Sprite_Draw(gUnknown_0800853C, 0, 7, 0, 0x100, 0x6A, task->data.h[0] * 12 + 17);
-    for (row = 0; row < 6; row++)
+    for (i = 0; i < 6; i++)
     {
-        u16 id = gUnk_0203B454[d->unk02 + row];
+        u16 id = ((u16 *)0x0203B454)[d->unk02 + i];
 
         if (id != 0)
         {
@@ -547,8 +332,8 @@ void Vision_DrawItemList(struct Task *task)
                 name = (const u16 *)(Action_GetRecord(id) + 0xC);
             else
                 name = gUnknown_085829BC;
-            for (i = 0; i < 8; i++)
-                FontSprite_DrawGlyph(name[i], 0, 0, x + i * 12, y + row * 12);
+            for (j = 0; j < 8; j++)
+                FontSprite_DrawGlyph(name[j], 0, 0, x + j * 12, y + i * 12);
         }
     }
     for (n = 0, i = 0; i < 46; i++)
@@ -562,183 +347,6 @@ void Vision_DrawItemList(struct Task *task)
     if (d->unk02 + 6 <= count - 1)
         sub_080C4AB0(6, 1, x + 0x60, y + 0x4C);
 }
-#else
-NAKED
-void Vision_DrawItemList(struct Task *task)
-{
-    asm_unified(
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sl\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6, r7}\n"
-        "    sub sp, #0x1c\n"
-        "    adds r4, r0, #0\n"
-        "    adds r0, #0x24\n"
-        "    str r0, [sp, #0xc]\n"
-        "    bl Vision_CountListed\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    str r0, [sp, #0x10]\n"
-        "    ldr r0, .L080DAE80\n"
-        "    movs r1, #0x80\n"
-        "    lsls r1, r1, #1\n"
-        "    str r1, [sp]\n"
-        "    movs r1, #0x6a\n"
-        "    str r1, [sp, #4]\n"
-        "    ldrh r2, [r4, #0x24]\n"
-        "    lsls r1, r2, #1\n"
-        "    adds r1, r1, r2\n"
-        "    lsls r1, r1, #0x12\n"
-        "    movs r2, #0x88\n"
-        "    lsls r2, r2, #0xd\n"
-        "    adds r1, r1, r2\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    str r1, [sp, #8]\n"
-        "    movs r1, #0\n"
-        "    movs r2, #7\n"
-        "    movs r3, #0\n"
-        "    bl Sprite_Draw\n"
-        "    movs r0, #0\n"
-        "    mov r8, r0\n"
-        "    movs r1, #0x10\n"
-        "    lsls r1, r1, #0x10\n"
-        "    str r1, [sp, #0x18]\n"
-        ".L080DAE46:\n"
-        "    ldr r2, [sp, #0xc]\n"
-        "    ldrh r0, [r2, #2]\n"
-        "    add r0, r8\n"
-        "    lsls r0, r0, #1\n"
-        "    ldr r1, .L080DAE84\n"
-        "    adds r0, r0, r1\n"
-        "    ldrh r4, [r0]\n"
-        "    movs r2, #0x6c\n"
-        "    adds r2, #0x25\n"
-        "    mov sl, r2\n"
-        "    movs r0, #0x10\n"
-        "    adds r0, #0x5a\n"
-        "    mov sb, r0\n"
-        "    ldr r1, [sp, #0x10]\n"
-        "    subs r1, #1\n"
-        "    str r1, [sp, #0x14]\n"
-        "    cmp r4, #0\n"
-        "    beq .L080DAEC4\n"
-        "    adds r0, r4, #0\n"
-        "    bl sub_080C2734\n"
-        "    cmp r0, #0\n"
-        "    beq .L080DAE88\n"
-        "    adds r0, r4, #0\n"
-        "    bl Action_GetRecord\n"
-        "    adds r0, #0xc\n"
-        "    b .L080DAE8A\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080DAE80: .4byte gUnknown_0800853C\n"
-        ".L080DAE84: .4byte 0x0203B454 @ EWRAM+0x3B454\n"
-        ".L080DAE88:\n"
-        "    ldr r0, .L080DAF4C\n"
-        ".L080DAE8A:\n"
-        "    movs r6, #0\n"
-        "    movs r2, #0x6c\n"
-        "    adds r2, #0x25\n"
-        "    mov sl, r2\n"
-        "    movs r1, #0x10\n"
-        "    adds r1, #0x5a\n"
-        "    mov sb, r1\n"
-        "    ldr r2, [sp, #0x10]\n"
-        "    subs r2, #1\n"
-        "    str r2, [sp, #0x14]\n"
-        "    ldr r1, [sp, #0x18]\n"
-        "    lsrs r7, r1, #0x10\n"
-        "    movs r2, #0x6c\n"
-        "    lsls r5, r2, #0x10\n"
-        "    adds r4, r0, #0\n"
-        ".L080DAEA8:\n"
-        "    ldrh r0, [r4]\n"
-        "    lsrs r3, r5, #0x10\n"
-        "    str r7, [sp]\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    bl FontSprite_DrawGlyph\n"
-        "    movs r0, #0xc0\n"
-        "    lsls r0, r0, #0xc\n"
-        "    adds r5, r5, r0\n"
-        "    adds r4, #2\n"
-        "    adds r6, #1\n"
-        "    cmp r6, #7\n"
-        "    bls .L080DAEA8\n"
-        ".L080DAEC4:\n"
-        "    ldr r1, [sp, #0x18]\n"
-        "    movs r2, #0xc0\n"
-        "    lsls r2, r2, #0xc\n"
-        "    adds r1, r1, r2\n"
-        "    str r1, [sp, #0x18]\n"
-        "    movs r0, #1\n"
-        "    add r8, r0\n"
-        "    mov r1, r8\n"
-        "    cmp r1, #5\n"
-        "    bls .L080DAE46\n"
-        "    movs r4, #0\n"
-        "    mov r8, r4\n"
-        ".L080DAEDC:\n"
-        "    movs r0, #0x96\n"
-        "    lsls r0, r0, #1\n"
-        "    add r0, r8\n"
-        "    bl sub_080C2734\n"
-        "    cmp r0, #0\n"
-        "    beq .L080DAEEC\n"
-        "    adds r4, #1\n"
-        ".L080DAEEC:\n"
-        "    movs r2, #1\n"
-        "    add r8, r2\n"
-        "    mov r0, r8\n"
-        "    cmp r0, #0x2d\n"
-        "    bls .L080DAEDC\n"
-        "    mov r2, sl\n"
-        "    mov r3, sb\n"
-        "    adds r0, r4, #0\n"
-        "    movs r1, #0x2b\n"
-        "    bl Sprite_DrawFraction\n"
-        "    ldr r1, [sp, #0xc]\n"
-        "    ldrh r0, [r1, #2]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080DAF1E\n"
-        "    movs r2, #0x6c\n"
-        "    adds r2, #0x60\n"
-        "    movs r3, #0x10\n"
-        "    subs r3, #4\n"
-        "    lsls r3, r3, #0x10\n"
-        "    lsrs r3, r3, #0x10\n"
-        "    movs r0, #6\n"
-        "    movs r1, #1\n"
-        "    bl sub_080C4A4C\n"
-        ".L080DAF1E:\n"
-        "    ldr r2, [sp, #0xc]\n"
-        "    ldrh r0, [r2, #2]\n"
-        "    adds r0, #6\n"
-        "    ldr r1, [sp, #0x14]\n"
-        "    cmp r0, r1\n"
-        "    bgt .L080DAF3A\n"
-        "    movs r2, #0x6c\n"
-        "    adds r2, #0x60\n"
-        "    movs r3, #0x10\n"
-        "    adds r3, #0x4c\n"
-        "    movs r0, #6\n"
-        "    movs r1, #1\n"
-        "    bl sub_080C4AB0\n"
-        ".L080DAF3A:\n"
-        "    add sp, #0x1c\n"
-        "    pop {r3, r4, r5}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    mov sl, r5\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080DAF4C: .4byte gUnknown_085829BC\n"
-    );
-}
-#endif
 
 /* "<name>" + gUnknown_08009534 on one line, gUnknown_08009540 below (vision names stop at
    8 glyphs or a 0). */

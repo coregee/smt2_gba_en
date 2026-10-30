@@ -22,7 +22,9 @@ s32 Battle_FinishDamage(u8 *a, u8 *d, s32 power)
     human = *(s16 *)(a + 0x12) & 0x8000;
     if (!human)
         k = 8 - k;
-    r = k * 2 + (s8)a[0x45] + (s8)a[0x44];
+    r = k * 2;
+    r += (s8)a[0x45];
+    r += (s8)a[0x44];
     if (!human)
         k = Demon_GetRecord(*(u16 *)(a + 0x12))[0x18];
     else
@@ -33,14 +35,13 @@ s32 Battle_FinishDamage(u8 *a, u8 *d, s32 power)
     {
         if (Random_Byte() >= r)
         {
-            u32 rr = Random_Byte();
-
-            if (rr <= 3)
+            k = Random_Byte();  /* k is reused for the crit roll and the result */
+            if ((u32)k <= 3)
             {
                 power *= 3;
                 b->unk11B0 = 1;
             }
-            else if (rr <= 15)
+            else if ((u32)k <= 15)
             {
                 power *= 2;
                 b->unk11B0 = 2;
@@ -49,14 +50,13 @@ s32 Battle_FinishDamage(u8 *a, u8 *d, s32 power)
     }
     if ((s8)d[0x17] == 9)
         power /= 2;
-    {
-        s32 cut = ((Random_Byte() & 0x1F) * power) >> 7;
-        s32 left = power - cut;
-
-        if (left == 0 || (left & 0x8000))
-            left = Random_Byte() & 1;
-        power = left;
-    }
+    /* r is reused for the random cut */
+    r = (Random_Byte() & 0x1F) * power;
+    r = (u32)r >> 7;
+    k = power - r;
+    if (k == 0 || (k & 0x8000))
+        k = Random_Byte() & 1;
+    power = k;
     if (power <= 0)
         power = 1;
     if (*(u16 *)(d + 0x10) & 0x4000)

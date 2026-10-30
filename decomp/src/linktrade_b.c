@@ -1163,6 +1163,7 @@ void LinkTrade_Execute(void)
     struct C0cdLinkData *me = &gLink.rec[0];
     struct C0cdLinkData *o = me + 1;
     u16 i, j;
+    u16 count, id;
 
     if ((me->unk20 & 3) == 3 && (o->unk20 & 3) == 3)
     {
@@ -1195,8 +1196,8 @@ void LinkTrade_Execute(void)
     {
         for (i = 0; i < 5; i++)
         {
-            u16 id = me->offers[i].id;
-            u16 count = me->offers[i].count;
+            id = me->offers[i].id;
+            count = me->offers[i].count;
 
             if (id != 0xFFFF)
             {
@@ -1208,8 +1209,8 @@ void LinkTrade_Execute(void)
         }
         for (i = 0; i < 5; i++)
         {
-            u16 id = o->offers[i].id;
-            u16 count = o->offers[i].count;
+            id = o->offers[i].id;
+            count = o->offers[i].count;
 
             if (id != 0xFFFF)
             {
@@ -1249,7 +1250,12 @@ void LinkTrade_Execute(void)
         }
         Party_FixOrderAfterTrade();
     }
-    SaveSlot_Write(*(u32 *)((u8 *)&gGameState + 0x18B0), &gGameState);
+    {
+        u8 *gs = (u8 *)&gGameState;
+        u32 off = 0x18B0;
+
+        SaveSlot_Write(*(u32 *)(gs + off), &gGameState);
+    }
 }
 #else
 NAKED

@@ -65,21 +65,20 @@ void sub_0815B884(u16 a, u16 b, u16 c, u16 *out, u16 *out2)
 u32 sub_0815B8F8(u16 id, u16 a)
 {
     u16 i = 0;
-    const u8 *t = gUnknown_087F1D01;
 
-    while (t[i] != 0xFF)
+    while (gUnknown_087F1D01[i] != 0xFF)
     {
-        if (id == t[i])
-        {
-            if (t[i + 1] != 0 && Flag_Test(t[i + 1]))
-                return 1;
-            return 0;
-        }
+        if (id == gUnknown_087F1D01[i])
+            goto found;
         i += 2;
     }
     if (a == 0 && !sub_0815BA7C(id))
         return 0;
     return 1;
+found:
+    if (gUnknown_087F1D01[i + 1] != 0 && Flag_Test(gUnknown_087F1D01[i + 1]))
+        return 1;
+    return 0;
 }
 #else
 NAKED
@@ -201,20 +200,18 @@ u16 Demon_GetRace(u16 id)
 u32 sub_0815BA28(u16 id)
 {
     u16 i = 0;
-    const u8 *t;
 
     if (id > 0xFE)
         return 0;
-    t = gUnknown_087F1D22;
-    while (t[i] != 0xFF)
+    while (gUnknown_087F1D22[i] != 0xFF)
     {
-        if (id == t[i])
+        if (id == gUnknown_087F1D22[i])
             goto found;
         i += 2;
     }
     return 1;
 found:
-    if (t[i + 1] == 0 || !Flag_Test(t[i + 1]))
+    if (gUnknown_087F1D22[i + 1] == 0 || !Flag_Test(gUnknown_087F1D22[i + 1]))
         return 0;
     return 1;
 }

@@ -107,7 +107,6 @@ void sub_080B95FC(void)
 }
 
 // Location_GetNameCellFromCoords @ 0x080B968C
-#ifdef NONMATCHING
 /* Returns the location-name cell for map/floor at x,y: temporarily switches the current
    map (0x03004614/0x03004514) so sub_080C1F50 converts the coordinates. */
 u16 *Location_GetNameCellFromCoords(u16 map, u16 floor, u16 x, u16 y)
@@ -120,83 +119,12 @@ u16 *Location_GetNameCellFromCoords(u16 map, u16 floor, u16 x, u16 y)
     gUnk_03004614 = map;
     gUnk_03004514 = floor;
     sub_080C1F50(x, y, &cx, &cy);
-    cell = (u16 *)&gUnknown_080A54AC[(((cy >> 2) & 3) + (cy >> 4) * 32 + (cx >> 4) * 4) * 64
-                                     + ((cx >> 2) & 3) * 16];
+    cell = (u16 *)&gUnknown_080A54AC[((cy / 4 & 3) + (cy / 16) * 32 + (cx / 16) * 4) * 64
+                                     + (cx / 4 & 3) * 16];
     gUnk_03004614 = oldMap;
     gUnk_03004514 = oldFloor;
     return cell;
 }
-#else
-NAKED
-u16 *Location_GetNameCellFromCoords(u16 map, u16 floor, u16 x, u16 y)
-{
-    asm_unified(
-        ".L080B968C:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6}\n"
-        "    sub sp, #4\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    lsls r2, r2, #0x10\n"
-        "    lsrs r2, r2, #0x10\n"
-        "    lsls r3, r3, #0x10\n"
-        "    lsrs r3, r3, #0x10\n"
-        "    ldr r6, .L080B9704\n"
-        "    ldrh r4, [r6]\n"
-        "    mov sb, r4\n"
-        "    ldr r5, .L080B9708\n"
-        "    ldrh r4, [r5]\n"
-        "    mov r8, r4\n"
-        "    str r0, [r6]\n"
-        "    str r1, [r5]\n"
-        "    mov r4, sp\n"
-        "    adds r4, #2\n"
-        "    adds r0, r2, #0\n"
-        "    adds r1, r3, #0\n"
-        "    mov r2, sp\n"
-        "    adds r3, r4, #0\n"
-        "    bl sub_080C1F50\n"
-        "    ldrh r1, [r4]\n"
-        "    lsrs r0, r1, #2\n"
-        "    movs r3, #3\n"
-        "    ands r0, r3\n"
-        "    lsrs r1, r1, #4\n"
-        "    lsls r1, r1, #5\n"
-        "    adds r0, r0, r1\n"
-        "    mov r1, sp\n"
-        "    ldrh r2, [r1]\n"
-        "    lsrs r1, r2, #4\n"
-        "    lsls r1, r1, #2\n"
-        "    adds r0, r0, r1\n"
-        "    lsls r0, r0, #6\n"
-        "    lsrs r2, r2, #2\n"
-        "    ands r2, r3\n"
-        "    lsls r2, r2, #4\n"
-        "    adds r0, r0, r2\n"
-        "    lsls r0, r0, #1\n"
-        "    ldr r1, .L080B970C\n"
-        "    adds r0, r0, r1\n"
-        "    mov r1, sb\n"
-        "    str r1, [r6]\n"
-        "    mov r4, r8\n"
-        "    str r4, [r5]\n"
-        "    add sp, #4\n"
-        "    pop {r3, r4}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        ".L080B9704: .4byte 0x03004614 @ IWRAM+0x4614\n"
-        ".L080B9708: .4byte 0x03004514 @ IWRAM+0x4514\n"
-        ".L080B970C: .4byte gUnknown_080A54AC\n"
-    );
-}
-#endif
 
 // Elevator_GetFloorTable @ 0x080B9710
 const struct FloorTable *Elevator_GetFloorTable(struct FloorMenu *m)
@@ -429,7 +357,8 @@ void Elevator_DrawFloorLabel(struct Task *task, struct MapHeader *floor, u32 row
 
     if (floor->floor < 0)
     {
-        n = -floor->floor;
+        n = floor->floor;
+        n = -n;
         dig = NumberToDigits(n);
         Text_DrawSpriteString(gUnknown_08165674, 0, 0, 0x9C, y, 0xC);
         if (n > 9)

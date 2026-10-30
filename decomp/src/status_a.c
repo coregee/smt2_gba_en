@@ -342,8 +342,10 @@ void Status_BuildList(void)
         for (i = 0; i < 16; i++)
         {
             if (gGameState.members[i].unkE != 0)
+            {
                 list[n] = i;
                 n++;
+            }
         }
         st->count = n;
         break;
@@ -377,8 +379,10 @@ void Status_BuildList(void)
         for (i = 0; i < 4; i++)
         {
             if (gGameState.members[i].unkE != 0)
+            {
                 list[n] = i;
                 n++;
+            }
         }
         st->count = n;
         break;

@@ -79,55 +79,63 @@ extern const u8 gUnknown_087F1A23[];   /* [alignment of the first][0x16] -> resu
    materials share an element type ((id - 0x32) & 3) both shift the first one's rank by their
    table 0x087F1611 values (0 counts as -1); otherwise the first two are fused, the result
    moves one rank down and is fused with the third. */
-/* NONMATCHING: register allocation and block order of the opening swap differ. */
+/* NONMATCHING: close; the 0 -> -1 test of each table value is compared on a copy in the
+   original (and not folded to 0xFFFF), plus a few registers. */
 // Fusion_ThreeTwoRace8 @ 0x08159A60
 #ifdef NONMATCHING
 u32 Fusion_ThreeTwoRace8(void)
 {
     struct FusionWork *c = &sCalc;
-    u8 *p;
-    u8 r;
+    struct FusionWork *w;
     u8 t;
-    s16 a;
-    s16 b;
+    int a;
+    int b;
     u16 va;
     u16 vb;
     s16 d;
     u16 x;
+    int k;
     u16 y;
     u16 z;
 
-    if ((r = *(p = &c->race[1])) != 8)
+    if (c->race[1] != 8)
     {
         t = c->ids[0];
         c->ids[0] = c->ids[1];
         c->ids[1] = t;
-        goto swap_race;
+        t = c->race[0];
+        c->race[0] = c->race[1];
+        c->race[1] = t;
     }
-    if ((r = *(p = &c->race[2])) != 8)
+    else if (c->race[2] != 8)
     {
         t = c->ids[0];
         c->ids[0] = c->ids[2];
         c->ids[2] = t;
-    swap_race:
         t = c->race[0];
-        c->race[0] = r;
-        *p = t;
+        c->race[0] = c->race[2];
+        c->race[2] = t;
     }
-    a = c->ids[1] - 0x32;
-    b = c->ids[2] - 0x32;
-    if ((a & 3) == (b & 3))
+    w = &sCalc;
+    a = sCalc.ids[1] - 0x32;
+    if ((a & 3) == ((b = w->ids[2] - 0x32) & 3))
     {
-        u8 race = c->race[0];
+        u8 race = w->race[0];
+        s16 s;
 
-        va = gUnknown_087F1611[a / 2 + race * 4];
-        if (!(a & 1))
+        s = a;
+
+        k = s / 2 + race * 4;
+        va = gUnknown_087F1611[k];
+        if (!(s & 1))
             va >>= 4;
         va &= 0xF;
         if (va == 0)
             va--;
-        vb = gUnknown_087F1611[b / 2 + race * 4];
-        if (!(b & 1))
+        s = b;
+        k = s / 2 + race * 4;
+        vb = gUnknown_087F1611[k];
+        if (!(s & 1))
             vb >>= 4;
         vb &= 0xF;
         if (vb == 0)
@@ -135,34 +143,34 @@ u32 Fusion_ThreeTwoRace8(void)
         d = (s16)va + (s16)vb + 1;
         if (d < 0)
         {
-            Fusion_RankUp(c->ids[0], -d);
+            Fusion_RankUp(w->ids[0], -d);
             return sub_08158CBC();
         }
         if (d > 0)
         {
-            Fusion_RankDown(c->ids[0], d);
+            Fusion_RankDown(w->ids[0], d);
             return sub_08158CBC();
         }
-        c->result = c->ids[0];
+        w->result = w->ids[0];
         return sub_08158CBC();
     }
-    t = c->ids[0];
-    c->ids[0] = c->ids[2];
-    c->ids[2] = t;
-    x = c->ids[0];
-    y = c->ids[1];
-    z = c->ids[2];
+    t = w->ids[0];
+    w->ids[0] = w->ids[2];
+    w->ids[2] = t;
+    x = w->ids[0];
+    y = w->ids[1];
+    z = w->ids[2];
     sub_08158A34();
-    c->ids[0] = x;
-    c->ids[1] = y;
-    c->ids[2] = z;
-    if (c->resRace == 0xFF)
+    w->ids[0] = x;
+    w->ids[1] = y;
+    w->ids[2] = z;
+    if (w->resRace == 0xFF)
         return sub_08158E00();
-    Fusion_RankDown(c->result, 1);
-    c->ids[0] = c->result;
-    c->ids[1] = c->ids[2];
+    Fusion_RankDown(w->result, 1);
+    w->ids[0] = w->result;
+    w->ids[1] = w->ids[2];
     sub_08158A34();
-    if (c->resRace == 0xFF)
+    if (w->resRace == 0xFF)
         return sub_08158E00();
     return sub_08158CBC();
 }
@@ -955,21 +963,29 @@ u32 Fusion_ThreeAllRace16(void)
     return sub_08158CBC();
 }
 
+/* Swap materials a and b (race, alignment, level, id); t and h are the caller's temporaries. */
+#define SWAP_MATERIAL(a, b)                                                    \
+    {                                                                          \
+        t = sCalc.race[a]; sCalc.race[a] = sCalc.race[b]; sCalc.race[b] = t;     \
+        t = sCalc.align[a]; sCalc.align[a] = sCalc.align[b]; sCalc.align[b] = t; \
+        t = sCalc.level[a]; sCalc.level[a] = sCalc.level[b]; sCalc.level[b] = t; \
+        h = sCalc.ids[a]; sCalc.ids[a] = sCalc.ids[b]; sCalc.ids[b] = h;         \
+    }
+
+
 /* Ordinary three-material fusion. Sorts the materials by level, high first (equal levels: lower
    id first). Unless all three share an alignment, the last two alignments pick a column of
    table 0x087F1993 and the first one's alignment the race (table 0x087F1A23); the result is
    the first demon of that race at or above the mean level + 4 x (number of materials of race
    0-0xC) - 4. A race 0xFF there is an accident: a random allowed demon below the hero's level.
    Same alignment or no column: Fusion_ThreeFallback. */
-/* NONMATCHING: duplicated swap blocks and counter arithmetic not reproduced. */
 // Fusion_ThreeNormal @ 0x0815A30C
-#ifdef NONMATCHING
 u32 Fusion_ThreeNormal(void)
 {
-    u16 n = 0;
-    u16 lv;
+    s16 n = 0;
+    s16 lv;
     u8 t;
-    u16 h;
+    u32 h;
     u8 col;
     u32 r;
     u16 id;
@@ -981,510 +997,69 @@ u32 Fusion_ThreeNormal(void)
     if (sCalc.race[2] <= 0xC)
         n++;
     n = n * 4 - 4;
-    lv = (s16)((sCalc.level[0] + sCalc.level[1] + sCalc.level[2]) / 3) + (s16)n;
-    if (sCalc.level[2] > sCalc.level[1]
-     || (sCalc.level[2] == sCalc.level[1] && sCalc.ids[2] < sCalc.ids[1]))
     {
-        t = sCalc.race[2]; sCalc.race[2] = sCalc.race[1]; sCalc.race[1] = t;
-        t = sCalc.align[2]; sCalc.align[2] = sCalc.align[1]; sCalc.align[1] = t;
-        t = sCalc.level[2]; sCalc.level[2] = sCalc.level[1]; sCalc.level[1] = t;
-        h = sCalc.ids[2]; sCalc.ids[2] = sCalc.ids[1]; sCalc.ids[1] = h;
+        s16 mean = (sCalc.level[0] + sCalc.level[1] + sCalc.level[2]) / 3;
+        lv = mean + n;
     }
-    if (sCalc.level[1] > sCalc.level[0]
-     || (sCalc.level[1] == sCalc.level[0] && sCalc.ids[1] < sCalc.ids[0]))
+
+    /* Sort by level, high first; equal levels: lower id first. The swap is written out twice. */
+    if (sCalc.level[2] > sCalc.level[1])
+        SWAP_MATERIAL(2, 1)
+    else if (sCalc.level[2] == sCalc.level[1] && sCalc.ids[2] < sCalc.ids[1])
+        SWAP_MATERIAL(2, 1)
+    if (sCalc.level[1] > sCalc.level[0])
+        SWAP_MATERIAL(1, 0)
+    else if (sCalc.level[1] == sCalc.level[0] && sCalc.ids[1] < sCalc.ids[0])
+        SWAP_MATERIAL(1, 0)
+    if (sCalc.level[2] > sCalc.level[1])
+        SWAP_MATERIAL(2, 1)
+    else if (sCalc.level[2] == sCalc.level[1] && sCalc.ids[2] < sCalc.ids[1])
+        SWAP_MATERIAL(2, 1)
+
+    if (sCalc.align[0] == sCalc.align[1] && sCalc.align[0] == sCalc.align[2])
+        return Fusion_ThreeFallback();
+    Demon_GetRaceAndAlign(sCalc.ids[1], &sCalc.align[1], &sCalc.race[1]);
+    Demon_GetRaceAndAlign(sCalc.ids[2], &sCalc.align[2], &sCalc.race[2]);
+    h = sCalc.align[1] * 12 + sCalc.align[2];   /* h reused as the table index */
+    col = gUnknown_087F1993[h];
+    if (col == 0xFF)
+        return Fusion_ThreeFallback();
+    Demon_GetRaceAndAlign(sCalc.ids[0], &sCalc.align[0], &sCalc.race[0]);
+    h = col + sCalc.align[0] * 0x16;
+    sCalc.resRace = gUnknown_087F1A23[h];
+    if (sCalc.resRace != 0xFF)
     {
-        t = sCalc.race[1]; sCalc.race[1] = sCalc.race[0]; sCalc.race[0] = t;
-        t = sCalc.align[1]; sCalc.align[1] = sCalc.align[0]; sCalc.align[0] = t;
-        t = sCalc.level[1]; sCalc.level[1] = sCalc.level[0]; sCalc.level[0] = t;
-        h = sCalc.ids[1]; sCalc.ids[1] = sCalc.ids[0]; sCalc.ids[0] = h;
+    next_level:
+        if (Fusion_FindRaceDemonByLevel(lv) >= 0)
+            return sub_08158CBC();
+        lv++;
+        goto next_level;
     }
-    if (sCalc.level[2] > sCalc.level[1]
-     || (sCalc.level[2] == sCalc.level[1] && sCalc.ids[2] < sCalc.ids[1]))
+
+    /* Accident: a random allowed demon below the hero's level. */
+    sCalc.unkA4 |= 8;
+    sCalc.unkA6 = (sCalc.unkA6 & 3) | 0x30;
+    for (;;)
     {
-        t = sCalc.race[2]; sCalc.race[2] = sCalc.race[1]; sCalc.race[1] = t;
-        t = sCalc.align[2]; sCalc.align[2] = sCalc.align[1]; sCalc.align[1] = t;
-        t = sCalc.level[2]; sCalc.level[2] = sCalc.level[1]; sCalc.level[1] = t;
-        h = sCalc.ids[2]; sCalc.ids[2] = sCalc.ids[1]; sCalc.ids[1] = h;
-    }
-    if (sCalc.align[0] != sCalc.align[1] || sCalc.align[0] != sCalc.align[2])
-    {
-        Demon_GetRaceAndAlign(sCalc.ids[1], &sCalc.align[1], &sCalc.race[1]);
-        Demon_GetRaceAndAlign(sCalc.ids[2], &sCalc.align[2], &sCalc.race[2]);
-        col = gUnknown_087F1993[sCalc.align[1] * 12 + sCalc.align[2]];
-        if (col != 0xFF)
+        id = sub_08159144();
+        if (id == 0xFF)
+            continue;
+        sCalc.result = id;
+        if (!sub_0815BA28(sCalc.result))
+            continue;
         {
-            Demon_GetRaceAndAlign(sCalc.ids[0], &sCalc.align[0], &sCalc.race[0]);
-            sCalc.resRace = gUnknown_087F1A23[col + sCalc.align[0] * 0x16];
-            if (sCalc.resRace != 0xFF)
-            {
-                while (Fusion_FindRaceDemonByLevel(lv) < 0)
-                    lv++;
-                return sub_08158CBC();
-            }
-            sCalc.unkA4 |= 8;
-            sCalc.unkA6 = (sCalc.unkA6 & 3) | 0x30;
-            for (;;)
-            {
-                id = sub_08159144();
-                if (id == 0xFF)
-                    continue;
-                sCalc.result = id;
-                if (!sub_0815BA28(sCalc.result))
-                    continue;
-                if (Demon_GetLevel(sCalc.result) >= gGameState.members[0].level)
-                    continue;
-                r = sub_08158CBC();
-                if (r == 0)
-                    continue;
-                if (sCalc.result > 0xFE)
-                    continue;
-                return r;
-            }
+            u8 level = Demon_GetLevel(sCalc.result);
+            if (level >= gGameState.members[0].level)
+                continue;
         }
+        r = sub_08158CBC();
+        if (r == 0)
+            continue;
+        if (sCalc.result > 0xFE)
+            continue;
+        return r;
     }
-    return Fusion_ThreeFallback();
 }
-#else
-NAKED
-u32 Fusion_ThreeNormal(void)
-{
-    asm_unified(
-        ".L0815A30C:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sl\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6, r7}\n"
-        "    sub sp, #8\n"
-        "    movs r7, #0\n"
-        "    ldr r1, .L0815A3D0\n"
-        "    adds r0, r1, #0\n"
-        "    adds r0, #0x96\n"
-        "    ldrb r0, [r0]\n"
-        "    adds r6, r1, #0\n"
-        "    cmp r0, #0xc\n"
-        "    bhi .L0815A32A\n"
-        "    movs r7, #1\n"
-        ".L0815A32A:\n"
-        "    ldr r0, .L0815A3D4\n"
-        "    ldrb r0, [r0]\n"
-        "    mov r8, r0\n"
-        "    mov r1, r8\n"
-        "    cmp r1, #0xc\n"
-        "    bhi .L0815A340\n"
-        "    lsls r0, r7, #0x10\n"
-        "    movs r1, #0x80\n"
-        "    lsls r1, r1, #9\n"
-        "    adds r0, r0, r1\n"
-        "    lsrs r7, r0, #0x10\n"
-        ".L0815A340:\n"
-        "    adds r3, r6, #0\n"
-        "    adds r3, #0x98\n"
-        "    ldrb r0, [r3]\n"
-        "    cmp r0, #0xc\n"
-        "    bhi .L0815A354\n"
-        "    lsls r0, r7, #0x10\n"
-        "    movs r1, #0x80\n"
-        "    lsls r1, r1, #9\n"
-        "    adds r0, r0, r1\n"
-        "    lsrs r7, r0, #0x10\n"
-        ".L0815A354:\n"
-        "    lsls r0, r7, #0x12\n"
-        "    ldr r1, .L0815A3D8\n"
-        "    adds r0, r0, r1\n"
-        "    lsrs r7, r0, #0x10\n"
-        "    adds r0, r6, #0\n"
-        "    adds r0, #0x9c\n"
-        "    ldrb r0, [r0]\n"
-        "    movs r1, #0x9d\n"
-        "    adds r1, r1, r6\n"
-        "    mov sl, r1\n"
-        "    ldrb r5, [r1]\n"
-        "    adds r0, r0, r5\n"
-        "    movs r1, #0x9e\n"
-        "    adds r1, r1, r6\n"
-        "    mov sb, r1\n"
-        "    ldrb r4, [r1]\n"
-        "    adds r0, r0, r4\n"
-        "    movs r1, #3\n"
-        "    str r3, [sp, #4]\n"
-        "    bl __divsi3\n"
-        "    lsls r0, r0, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    lsls r1, r7, #0x10\n"
-        "    asrs r1, r1, #0x10\n"
-        "    adds r0, r0, r1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    str r0, [sp]\n"
-        "    ldr r3, [sp, #4]\n"
-        "    cmp r4, r5\n"
-        "    bls .L0815A3DC\n"
-        "    ldrb r2, [r3]\n"
-        "    mov r0, r8\n"
-        "    strb r0, [r3]\n"
-        "    ldr r1, .L0815A3D4\n"
-        "    strb r2, [r1]\n"
-        "    adds r3, r6, #0\n"
-        "    adds r3, #0x9b\n"
-        "    ldrb r2, [r3]\n"
-        "    adds r1, r6, #0\n"
-        "    adds r1, #0x9a\n"
-        "    ldrb r0, [r1]\n"
-        "    strb r0, [r3]\n"
-        "    strb r2, [r1]\n"
-        "    mov r0, sb\n"
-        "    ldrb r2, [r0]\n"
-        "    mov r1, sl\n"
-        "    ldrb r0, [r1]\n"
-        "    mov r1, sb\n"
-        "    strb r0, [r1]\n"
-        "    mov r0, sl\n"
-        "    strb r2, [r0]\n"
-        "    adds r1, r6, #0\n"
-        "    adds r1, #0x94\n"
-        "    ldrh r2, [r1]\n"
-        "    subs r3, #9\n"
-        "    ldrh r0, [r3]\n"
-        "    strh r0, [r1]\n"
-        "    strh r2, [r3]\n"
-        "    b .L0815A420\n"
-        "    .byte 0x00, 0x00\n"
-        ".L0815A3D0: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L0815A3D4: .4byte 0x0203B8FF @ EWRAM+0x3B8FF\n"
-        ".L0815A3D8: .4byte 0xFFFC0000\n"
-        ".L0815A3DC:\n"
-        "    cmp r4, r5\n"
-        "    bne .L0815A420\n"
-        "    adds r4, r6, #0\n"
-        "    adds r4, #0x94\n"
-        "    adds r7, r6, #0\n"
-        "    adds r7, #0x92\n"
-        "    ldrh r5, [r7]\n"
-        "    ldrh r0, [r4]\n"
-        "    cmp r0, r5\n"
-        "    bhs .L0815A420\n"
-        "    ldrb r2, [r3]\n"
-        "    mov r1, r8\n"
-        "    strb r1, [r3]\n"
-        "    ldr r0, .L0815A46C\n"
-        "    strb r2, [r0]\n"
-        "    adds r3, r6, #0\n"
-        "    adds r3, #0x9b\n"
-        "    ldrb r2, [r3]\n"
-        "    adds r1, r6, #0\n"
-        "    adds r1, #0x9a\n"
-        "    ldrb r0, [r1]\n"
-        "    strb r0, [r3]\n"
-        "    strb r2, [r1]\n"
-        "    mov r1, sb\n"
-        "    ldrb r2, [r1]\n"
-        "    mov r1, sl\n"
-        "    ldrb r0, [r1]\n"
-        "    mov r1, sb\n"
-        "    strb r0, [r1]\n"
-        "    mov r0, sl\n"
-        "    strb r2, [r0]\n"
-        "    ldrh r2, [r4]\n"
-        "    strh r5, [r4]\n"
-        "    strh r2, [r7]\n"
-        ".L0815A420:\n"
-        "    movs r1, #0x9d\n"
-        "    adds r1, r1, r6\n"
-        "    mov ip, r1\n"
-        "    movs r0, #0x9c\n"
-        "    adds r0, r0, r6\n"
-        "    mov r8, r0\n"
-        "    ldrb r4, [r0]\n"
-        "    ldrb r1, [r1]\n"
-        "    adds r0, r4, #0\n"
-        "    cmp r1, r0\n"
-        "    bls .L0815A470\n"
-        "    adds r3, r6, #0\n"
-        "    adds r3, #0x97\n"
-        "    ldrb r2, [r3]\n"
-        "    adds r1, r6, #0\n"
-        "    adds r1, #0x96\n"
-        "    ldrb r0, [r1]\n"
-        "    strb r0, [r3]\n"
-        "    strb r2, [r1]\n"
-        "    adds r3, #3\n"
-        "    ldrb r2, [r3]\n"
-        "    adds r1, #3\n"
-        "    ldrb r0, [r1]\n"
-        "    strb r0, [r3]\n"
-        "    strb r2, [r1]\n"
-        "    mov r1, ip\n"
-        "    ldrb r2, [r1]\n"
-        "    strb r4, [r1]\n"
-        "    mov r0, r8\n"
-        "    strb r2, [r0]\n"
-        "    subs r3, #8\n"
-        "    ldrh r2, [r3]\n"
-        "    adds r1, r6, #0\n"
-        "    adds r1, #0x90\n"
-        "    ldrh r0, [r1]\n"
-        "    strh r0, [r3]\n"
-        "    strh r2, [r1]\n"
-        "    b .L0815A4B4\n"
-        ".L0815A46C: .4byte 0x0203B8FF @ EWRAM+0x3B8FF\n"
-        ".L0815A470:\n"
-        "    cmp r1, r0\n"
-        "    bne .L0815A4B4\n"
-        "    adds r5, r6, #0\n"
-        "    adds r5, #0x92\n"
-        "    movs r1, #0x90\n"
-        "    adds r1, r1, r6\n"
-        "    mov sb, r1\n"
-        "    ldrh r7, [r1]\n"
-        "    ldrh r0, [r5]\n"
-        "    cmp r0, r7\n"
-        "    bhs .L0815A4B4\n"
-        "    adds r3, r6, #0\n"
-        "    adds r3, #0x97\n"
-        "    ldrb r2, [r3]\n"
-        "    adds r1, r6, #0\n"
-        "    adds r1, #0x96\n"
-        "    ldrb r0, [r1]\n"
-        "    strb r0, [r3]\n"
-        "    strb r2, [r1]\n"
-        "    adds r3, #3\n"
-        "    ldrb r2, [r3]\n"
-        "    adds r1, #3\n"
-        "    ldrb r0, [r1]\n"
-        "    strb r0, [r3]\n"
-        "    strb r2, [r1]\n"
-        "    mov r0, ip\n"
-        "    ldrb r2, [r0]\n"
-        "    strb r4, [r0]\n"
-        "    mov r1, r8\n"
-        "    strb r2, [r1]\n"
-        "    ldrh r2, [r5]\n"
-        "    strh r7, [r5]\n"
-        "    mov r0, sb\n"
-        "    strh r2, [r0]\n"
-        ".L0815A4B4:\n"
-        "    movs r1, #0x9e\n"
-        "    adds r1, r1, r6\n"
-        "    mov ip, r1\n"
-        "    movs r0, #0x9d\n"
-        "    adds r0, r0, r6\n"
-        "    mov r8, r0\n"
-        "    ldrb r4, [r0]\n"
-        "    ldrb r1, [r1]\n"
-        "    adds r0, r4, #0\n"
-        "    cmp r1, r0\n"
-        "    bls .L0815A500\n"
-        "    adds r1, r6, #0\n"
-        "    adds r1, #0x98\n"
-        "    ldrb r2, [r1]\n"
-        "    adds r3, r6, #0\n"
-        "    adds r3, #0x97\n"
-        "    ldrb r0, [r3]\n"
-        "    strb r0, [r1]\n"
-        "    strb r2, [r3]\n"
-        "    adds r3, #4\n"
-        "    ldrb r2, [r3]\n"
-        "    adds r1, #2\n"
-        "    ldrb r0, [r1]\n"
-        "    strb r0, [r3]\n"
-        "    strb r2, [r1]\n"
-        "    mov r1, ip\n"
-        "    ldrb r2, [r1]\n"
-        "    strb r4, [r1]\n"
-        "    mov r0, r8\n"
-        "    strb r2, [r0]\n"
-        "    adds r1, r6, #0\n"
-        "    adds r1, #0x94\n"
-        "    ldrh r2, [r1]\n"
-        "    subs r3, #9\n"
-        "    ldrh r0, [r3]\n"
-        "    strh r0, [r1]\n"
-        "    strh r2, [r3]\n"
-        "    b .L0815A546\n"
-        ".L0815A500:\n"
-        "    cmp r1, r0\n"
-        "    bne .L0815A546\n"
-        "    adds r5, r6, #0\n"
-        "    adds r5, #0x94\n"
-        "    movs r1, #0x92\n"
-        "    adds r1, r1, r6\n"
-        "    mov sb, r1\n"
-        "    ldrh r7, [r1]\n"
-        "    ldrh r0, [r5]\n"
-        "    cmp r0, r7\n"
-        "    bhs .L0815A546\n"
-        "    adds r0, r6, #0\n"
-        "    adds r0, #0x98\n"
-        "    ldrb r2, [r0]\n"
-        "    adds r3, r6, #0\n"
-        "    adds r3, #0x97\n"
-        "    ldrb r1, [r3]\n"
-        "    strb r1, [r0]\n"
-        "    strb r2, [r3]\n"
-        "    adds r3, #4\n"
-        "    ldrb r2, [r3]\n"
-        "    adds r1, r6, #0\n"
-        "    adds r1, #0x9a\n"
-        "    ldrb r0, [r1]\n"
-        "    strb r0, [r3]\n"
-        "    strb r2, [r1]\n"
-        "    mov r0, ip\n"
-        "    ldrb r2, [r0]\n"
-        "    strb r4, [r0]\n"
-        "    mov r1, r8\n"
-        "    strb r2, [r1]\n"
-        "    ldrh r2, [r5]\n"
-        "    strh r7, [r5]\n"
-        "    mov r0, sb\n"
-        "    strh r2, [r0]\n"
-        ".L0815A546:\n"
-        "    adds r0, r6, #0\n"
-        "    adds r0, #0x99\n"
-        "    adds r1, r6, #0\n"
-        "    adds r1, #0x9a\n"
-        "    ldrb r2, [r0]\n"
-        "    ldrb r1, [r1]\n"
-        "    cmp r2, r1\n"
-        "    bne .L0815A55E\n"
-        "    adds r0, #2\n"
-        "    ldrb r0, [r0]\n"
-        "    cmp r2, r0\n"
-        "    beq .L0815A59E\n"
-        ".L0815A55E:\n"
-        "    adds r7, r6, #0\n"
-        "    adds r0, r7, #0\n"
-        "    adds r0, #0x92\n"
-        "    ldrh r0, [r0]\n"
-        "    adds r5, r7, #0\n"
-        "    adds r5, #0x9a\n"
-        "    adds r2, r7, #0\n"
-        "    adds r2, #0x97\n"
-        "    adds r1, r5, #0\n"
-        "    bl Demon_GetRaceAndAlign\n"
-        "    adds r0, r7, #0\n"
-        "    adds r0, #0x94\n"
-        "    ldrh r0, [r0]\n"
-        "    adds r4, r7, #0\n"
-        "    adds r4, #0x9b\n"
-        "    adds r2, r7, #0\n"
-        "    adds r2, #0x98\n"
-        "    adds r1, r4, #0\n"
-        "    bl Demon_GetRaceAndAlign\n"
-        "    ldrb r1, [r5]\n"
-        "    lsls r0, r1, #1\n"
-        "    adds r0, r0, r1\n"
-        "    lsls r0, r0, #2\n"
-        "    ldrb r4, [r4]\n"
-        "    adds r2, r0, r4\n"
-        "    ldr r0, .L0815A5A4\n"
-        "    adds r0, r2, r0\n"
-        "    ldrb r5, [r0]\n"
-        "    cmp r5, #0xff\n"
-        "    bne .L0815A5A8\n"
-        ".L0815A59E:\n"
-        "    bl Fusion_ThreeFallback\n"
-        "    b .L0815A658\n"
-        ".L0815A5A4: .4byte gUnknown_087F1993\n"
-        ".L0815A5A8:\n"
-        "    adds r0, r7, #0\n"
-        "    adds r0, #0x90\n"
-        "    ldrh r0, [r0]\n"
-        "    adds r4, r7, #0\n"
-        "    adds r4, #0x99\n"
-        "    adds r2, r7, #0\n"
-        "    adds r2, #0x96\n"
-        "    adds r1, r4, #0\n"
-        "    bl Demon_GetRaceAndAlign\n"
-        "    ldrb r1, [r4]\n"
-        "    movs r0, #0x16\n"
-        "    muls r0, r1, r0\n"
-        "    adds r2, r5, r0\n"
-        "    ldr r0, .L0815A5EC\n"
-        "    adds r0, r2, r0\n"
-        "    ldrb r0, [r0]\n"
-        "    adds r1, r7, #0\n"
-        "    adds r1, #0xa2\n"
-        "    strb r0, [r1]\n"
-        "    cmp r0, #0xff\n"
-        "    beq .L0815A5FC\n"
-        ".L0815A5D4:\n"
-        "    ldr r1, [sp]\n"
-        "    lsls r4, r1, #0x10\n"
-        "    lsrs r0, r4, #0x10\n"
-        "    bl Fusion_FindRaceDemonByLevel\n"
-        "    lsls r0, r0, #0x10\n"
-        "    cmp r0, #0\n"
-        "    blt .L0815A5F0\n"
-        "    bl sub_08158CBC\n"
-        "    b .L0815A658\n"
-        "    .byte 0x00, 0x00\n"
-        ".L0815A5EC: .4byte gUnknown_087F1A23\n"
-        ".L0815A5F0:\n"
-        "    movs r1, #0x80\n"
-        "    lsls r1, r1, #9\n"
-        "    adds r0, r4, r1\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    str r0, [sp]\n"
-        "    b .L0815A5D4\n"
-        ".L0815A5FC:\n"
-        "    adds r2, r6, #0\n"
-        "    adds r2, #0xa4\n"
-        "    ldrb r0, [r2]\n"
-        "    movs r1, #8\n"
-        "    orrs r0, r1\n"
-        "    strb r0, [r2]\n"
-        "    adds r2, #2\n"
-        "    ldrb r1, [r2]\n"
-        "    movs r0, #3\n"
-        "    ands r0, r1\n"
-        "    movs r1, #0x30\n"
-        "    orrs r0, r1\n"
-        "    strb r0, [r2]\n"
-        ".L0815A616:\n"
-        "    bl sub_08159144\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r1, r0, #0x10\n"
-        "    cmp r1, #0xff\n"
-        "    beq .L0815A616\n"
-        "    ldr r0, .L0815A668\n"
-        "    adds r4, r0, #0\n"
-        "    adds r4, #0xa0\n"
-        "    strh r1, [r4]\n"
-        "    ldrh r0, [r4]\n"
-        "    bl sub_0815BA28\n"
-        "    cmp r0, #0\n"
-        "    beq .L0815A616\n"
-        "    ldrh r0, [r4]\n"
-        "    bl Demon_GetLevel\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r0, r0, #0x18\n"
-        "    ldr r1, .L0815A66C\n"
-        "    ldrb r1, [r1, #0xd]\n"
-        "    cmp r0, r1\n"
-        "    bhs .L0815A616\n"
-        "    bl sub_08158CBC\n"
-        "    adds r1, r0, #0\n"
-        "    cmp r1, #0\n"
-        "    beq .L0815A616\n"
-        "    ldrh r0, [r4]\n"
-        "    cmp r0, #0xfe\n"
-        "    bhi .L0815A616\n"
-        "    adds r0, r1, #0\n"
-        ".L0815A658:\n"
-        "    add sp, #8\n"
-        "    pop {r3, r4, r5}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    mov sl, r5\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        ".L0815A668: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L0815A66C: .4byte 0x030046C0 @ IWRAM+0x46C0\n"
-    );
-}
-#endif
 
 /* Fallback of Fusion_ThreeNormal: the third and second materials are fused, then the result with
    the first; the final result moves one rank down. */

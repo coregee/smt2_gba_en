@@ -190,12 +190,11 @@ void sub_080C8790(struct Task *t)
 }
 
 // sub_080C87AC @ 0x080C87AC
-#ifdef NONMATCHING
 void sub_080C87AC(struct Task *t)
 {
     struct C0c6CursorData *d = (struct C0c6CursorData *)t->data.raw;
-    u16 x = ((const u16 (*)[2])gUnknown_0834A750)[d->pos][0];
-    u16 y = ((const u16 (*)[2])gUnknown_0834A750)[d->pos][1];
+    u16 x = gUnknown_0834A750[d->pos].x;
+    u16 y = (&gUnknown_0834A750[0].y)[d->pos * 2];
 
     if (d->kind == 0)
         Sprite_Draw(gUnknown_080013DC, 9, 0, 1, 0x280, x, y);
@@ -206,76 +205,6 @@ void sub_080C87AC(struct Task *t)
     else if (d->kind == 3)
         Sprite_Draw(gUnknown_08001454, 9, 0, 1, 0x280, x, y);
 }
-#else
-NAKED
-void sub_080C87AC(struct Task *t)
-{
-    asm_unified(
-        "    push {r4, r5, lr}\n"
-        "    sub sp, #0xc\n"
-        "    ldr r3, .L080C87D0\n"
-        "    ldrh r1, [r0, #0x24]\n"
-        "    lsls r1, r1, #2\n"
-        "    adds r2, r1, r3\n"
-        "    ldrh r4, [r2]\n"
-        "    adds r5, r4, #0\n"
-        "    adds r3, #2\n"
-        "    adds r1, r1, r3\n"
-        "    ldrh r2, [r1]\n"
-        "    adds r3, r2, #0\n"
-        "    ldrh r0, [r0, #0x26]\n"
-        "    cmp r0, #0\n"
-        "    bne .L080C87D8\n"
-        "    ldr r0, .L080C87D4\n"
-        "    b .L080C87EA\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C87D0: .4byte gUnknown_0834A750\n"
-        ".L080C87D4: .4byte gUnknown_080013DC\n"
-        ".L080C87D8:\n"
-        "    cmp r0, #1\n"
-        "    bne .L080C87E4\n"
-        "    ldr r0, .L080C87E0\n"
-        "    b .L080C87EA\n"
-        ".L080C87E0: .4byte gUnknown_0800143C\n"
-        ".L080C87E4:\n"
-        "    cmp r0, #2\n"
-        "    bne .L080C8804\n"
-        "    ldr r0, .L080C8800\n"
-        ".L080C87EA:\n"
-        "    movs r1, #0xa0\n"
-        "    lsls r1, r1, #2\n"
-        "    str r1, [sp]\n"
-        "    str r4, [sp, #4]\n"
-        "    str r2, [sp, #8]\n"
-        "    movs r1, #9\n"
-        "    movs r2, #0\n"
-        "    movs r3, #1\n"
-        "    bl Sprite_Draw\n"
-        "    b .L080C881E\n"
-        ".L080C8800: .4byte gUnknown_08001424\n"
-        ".L080C8804:\n"
-        "    cmp r0, #3\n"
-        "    bne .L080C881E\n"
-        "    ldr r0, .L080C8828\n"
-        "    movs r1, #0xa0\n"
-        "    lsls r1, r1, #2\n"
-        "    str r1, [sp]\n"
-        "    str r5, [sp, #4]\n"
-        "    str r3, [sp, #8]\n"
-        "    movs r1, #9\n"
-        "    movs r2, #0\n"
-        "    movs r3, #1\n"
-        "    bl Sprite_Draw\n"
-        ".L080C881E:\n"
-        "    add sp, #0xc\n"
-        "    pop {r4, r5}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C8828: .4byte gUnknown_08001454\n"
-    );
-}
-#endif
 
 // sub_080C882C @ 0x080C882C
 /* Task wait: result 1 after d->limit frames. */

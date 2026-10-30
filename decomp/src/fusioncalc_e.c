@@ -77,27 +77,26 @@ extern const u8 gUnknown_087F1A23[];   /* [alignment of the first][0x16] -> resu
 /* Builds the result's skill list (skills[], 0xFF ends): its own skills of its class
    (record byte 0x1E & 0xF), then skills of that class inherited from the materials, sorted,
    up to 6; without any own skills of its class, Fusion_BuildSkillsNoClass. */
-/* NONMATCHING: register allocation of the first loop (spilled list counter) differs. */
+/* NONMATCHING: close; registers of the nA / inherit[] pointers and of the last sort loop differ. */
 // Fusion_BuildResultSkills @ 0x0815A6F0
 #ifdef NONMATCHING
 void Fusion_BuildResultSkills(void)
 {
-    u16 id = sCalc.result;
-    u16 i;
+    u16 i = sCalc.result;
     u16 n;
     u16 k;
-    u8 s;
+    u32 s;
 
-    sCalc.skillKind = ((u8 *)Demon_GetRecord(id))[0x1E] & 0xF;
+    sCalc.skillKind = ((u8 *)Demon_GetRecord(i))[0x1E] & 0xF;
     sCalc.innate[0] = 0xFF;
     sCalc.innate[1] = 0xFF;
     sCalc.others[0] = 0xFF;
     sCalc.others[1] = 0xFF;
     sCalc.nA = 0;
     sCalc.nB = 0;
-    for (i = 0; i < 6; i++)
+    for (n = 0; n < 6; n++)
     {
-        sCalc.skill = Demon_GetRecord(id)->skills[i];
+        sCalc.skill = Demon_GetRecord(i)->skills[n];
         if (sCalc.skill == 0xFF)
             continue;
         if (sCalc.skill >= 0x40 || (k = Skill_GetClass(sCalc.skill)) == 0xF || k != sCalc.skillKind)
@@ -147,7 +146,7 @@ void Fusion_BuildResultSkills(void)
     while (n != 6)
     {
         s = sCalc.inherit[i];
-        if (s == 0xFF)
+        if ((s & 0xFF) == 0xFF)
         {
             Fusion_AppendMaterialSkills(i, n);
             return;
@@ -155,9 +154,12 @@ void Fusion_BuildResultSkills(void)
         gUnk_0203B918[n] = s;
         gUnk_0203B918[n + 1] |= 0xFF;
         i++;
-        SkillList_SortAscending(gUnk_0203B918);
-        for (n = 0; gUnk_0203B918[n] != 0xFF; n++)
-            ;
+        {
+            u8 *p = gUnk_0203B918;
+            SkillList_SortAscending(p);
+            for (n = 0; p[n] != 0xFF; n++)
+                ;
+        }
     }
     sCalc.skills[n] = 0xFF;
     sub_0815AAC4();
