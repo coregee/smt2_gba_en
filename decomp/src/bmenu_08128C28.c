@@ -287,20 +287,17 @@ void sub_08129068(struct Task *task)
         BattleMenu_SetMode(4, gUnknown_08777FE0[blk->list[c->row]]);
     Sprite_Draw(gUnknown_08000E58, 0, 0, 0, 0, 0x58, top + c->row * 12);
     j = 0;
-    i = 0;
-    while (1)
+    for (i = 0; i < 6; i++)
     {
         v = blk->list[i];
         if (v == 0xFFFF)
-            break;
-        y = top + (j * 12 + 4);
-        Sprite_DrawSingle(gUnknown_08777F60[v], 0, 0, 0, 0, 0x5C, y);
+            goto out;
+        Sprite_DrawSingle(gUnknown_08777F60[v], 0, 0, 0, 0, 0x5C, y = (j * 12 + 4) + top);
         Sprite_DrawSingle(gUnknown_08777F68[v], 0, 0, 0, 0, 0x7C, y);
         j++;
-        i++;
-        if (i >= 6)
-            break;
     }
+out:
+    ;
 }
 #else
 NAKED

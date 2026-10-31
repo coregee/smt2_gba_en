@@ -608,9 +608,7 @@ void sub_080D2D58(void)
 /* Page 0 of a two-page description is drawn glyph by glyph up to the second 0x300 line break;
    page 1 starts after it. Neither loop stops at 0x0000/0x0301, so a two-page description must
    contain two 0x300 codes. */
-/* NONMATCHING: control flow matches; x/y/line height get different registers. */
 // Item_RenderDescription @ 0x080D2D80
-#ifdef NONMATCHING
 void Item_RenderDescription(u32 arg0)
 {
     struct StatusMenu *menu = STATUS_MENU;
@@ -619,6 +617,7 @@ void Item_RenderDescription(u32 arg0)
     u16 x, y;
     u32 lineH;
     u16 n;
+    u16 left;
 
     CpuSet(&zero, gUnk_0200F874, 0x05000400);
     sub_080D1F0C();
@@ -674,12 +673,13 @@ void Item_RenderDescription(u32 arg0)
                 else if (menu->page == 0)
                 {
                     n = 0;
+                    left = 9;
                     if (*desc != 0x300)
                         goto draw;
                     n = 1;
                     do
                     {
-                        x = 9;
+                        x = left;
                         y += lineH;
                         desc++;
                         while (*desc != 0x300)
@@ -694,15 +694,16 @@ void Item_RenderDescription(u32 arg0)
                 }
                 else
                 {
-                    n = 0;
+                    u16 lines = 0;
+
                     if (*desc == 0x300)
-                        n = 1;
-                    do
-                    {
-                        do
-                            desc++;
-                        while (*desc != 0x300);
-                    } while (++n != 2);
+                        lines = 1;
+                skip:
+                    desc++;
+                    if (*desc != 0x300)
+                        goto skip;
+                    if (++lines != 2)
+                        goto skip;
                     desc++;
                     Text_DrawString(desc, gUnk_0200F874, x, y, lineH);
                 }
@@ -711,200 +712,3 @@ void Item_RenderDescription(u32 arg0)
         sub_080D1F0C();
     }
 }
-#else
-NAKED
-void Item_RenderDescription(u32 arg0)
-{
-    asm_unified(
-        ".L080D2D80:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sb\n"
-        "    mov r6, r8\n"
-        "    push {r6, r7}\n"
-        "    sub sp, #8\n"
-        "    adds r6, r0, #0\n"
-        "    ldr r5, .L080D2DCC\n"
-        "    movs r4, #0\n"
-        "    str r4, [sp, #4]\n"
-        "    ldr r0, .L080D2DD0\n"
-        "    mov sb, r0\n"
-        "    ldr r2, .L080D2DD4\n"
-        "    add r0, sp, #4\n"
-        "    mov r1, sb\n"
-        "    bl CpuSet\n"
-        "    bl sub_080D1F0C\n"
-        "    ldr r0, .L080D2DD8\n"
-        "    str r4, [r0]\n"
-        "    ldrh r0, [r5]\n"
-        "    cmp r0, #0\n"
-        "    bne .L080D2DB0\n"
-        "    b .L080D2EF4\n"
-        ".L080D2DB0:\n"
-        "    cmp r0, #2\n"
-        "    bne .L080D2DE0\n"
-        "    ldr r0, .L080D2DDC\n"
-        "    movs r1, #0x99\n"
-        "    movs r2, #2\n"
-        "    movs r3, #0\n"
-        "    bl SmallFont_DrawAscii\n"
-        "    bl sub_080D2D58\n"
-        "    bl sub_080D1F0C\n"
-        "    b .L080D2EF4\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080D2DCC: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
-        ".L080D2DD0: .4byte 0x0200F874 @ EWRAM+0xF874\n"
-        ".L080D2DD4: .4byte 0x05000400\n"
-        ".L080D2DD8: .4byte 0x03003BB4 @ IWRAM+0x3BB4\n"
-        ".L080D2DDC: .4byte gUnknown_084F3140\n"
-        ".L080D2DE0:\n"
-        "    cmp r0, #3\n"
-        "    bne .L080D2DF0\n"
-        "    adds r0, r6, #0\n"
-        "    bl Menu_DrawItemNameTriple\n"
-        "    bl sub_080D1F0C\n"
-        "    b .L080D2EF4\n"
-        ".L080D2DF0:\n"
-        "    cmp r0, #4\n"
-        "    bne .L080D2E00\n"
-        "    adds r0, r6, #0\n"
-        "    bl Menu_DrawSkillRowTriple\n"
-        "    bl sub_080D1F0C\n"
-        "    b .L080D2EF4\n"
-        ".L080D2E00:\n"
-        "    ldrh r0, [r5, #4]\n"
-        "    cmp r0, #0xcf\n"
-        "    bhi .L080D2E38\n"
-        "    ldrh r0, [r5, #2]\n"
-        "    cmp r0, #1\n"
-        "    beq .L080D2E26\n"
-        "    cmp r0, #1\n"
-        "    bgt .L080D2E16\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D2E20\n"
-        "    b .L080D2EF0\n"
-        ".L080D2E16:\n"
-        "    cmp r0, #2\n"
-        "    beq .L080D2E2C\n"
-        "    cmp r0, #3\n"
-        "    beq .L080D2E32\n"
-        "    b .L080D2EF0\n"
-        ".L080D2E20:\n"
-        "    bl StatsPage_DrawLabelGrid\n"
-        "    b .L080D2EF0\n"
-        ".L080D2E26:\n"
-        "    bl StatsPage_DrawBaseStats\n"
-        "    b .L080D2EF0\n"
-        ".L080D2E2C:\n"
-        "    bl StatsPage_DrawDerivedStats\n"
-        "    b .L080D2EF0\n"
-        ".L080D2E32:\n"
-        "    bl StatsPage_DrawDerivedStats2\n"
-        "    b .L080D2EF0\n"
-        ".L080D2E38:\n"
-        "    ldrh r0, [r5, #4]\n"
-        "    bl Action_GetRecord\n"
-        "    ldr r4, [r0, #0x1c]\n"
-        "    movs r6, #9\n"
-        "    movs r7, #0\n"
-        "    movs r1, #0xc\n"
-        "    mov r8, r1\n"
-        "    cmp r4, #0\n"
-        "    beq .L080D2EF0\n"
-        "    ldrh r0, [r5, #0x12]\n"
-        "    cmp r0, #1\n"
-        "    bhi .L080D2E62\n"
-        "    str r1, [sp]\n"
-        "    adds r0, r4, #0\n"
-        "    mov r1, sb\n"
-        "    movs r2, #9\n"
-        "    movs r3, #0\n"
-        "    bl Text_DrawString\n"
-        "    b .L080D2EF0\n"
-        ".L080D2E62:\n"
-        "    ldrh r0, [r5, #0x10]\n"
-        "    cmp r0, #0\n"
-        "    bne .L080D2EB8\n"
-        "    movs r5, #0\n"
-        "    movs r0, #9\n"
-        "    mov sb, r0\n"
-        "    ldrh r1, [r4]\n"
-        "    movs r0, #0xc0\n"
-        "    lsls r0, r0, #2\n"
-        "    cmp r1, r0\n"
-        "    bne .L080D2E88\n"
-        "    movs r5, #1\n"
-        ".L080D2E7A:\n"
-        "    mov r6, sb\n"
-        "    mov r1, r8\n"
-        "    adds r0, r7, r1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r7, r0, #0x10\n"
-        "    adds r4, #2\n"
-        "    b .L080D2E9E\n"
-        ".L080D2E88:\n"
-        "    ldrh r0, [r4]\n"
-        "    ldr r1, .L080D2EB4\n"
-        "    adds r2, r6, #0\n"
-        "    adds r3, r7, #0\n"
-        "    bl Font_DrawGlyph\n"
-        "    adds r4, #2\n"
-        "    mov r1, r8\n"
-        "    adds r0, r6, r1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r6, r0, #0x10\n"
-        ".L080D2E9E:\n"
-        "    ldrh r1, [r4]\n"
-        "    movs r0, #0xc0\n"
-        "    lsls r0, r0, #2\n"
-        "    cmp r1, r0\n"
-        "    bne .L080D2E88\n"
-        "    adds r0, r5, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r5, r0, #0x10\n"
-        "    cmp r5, #2\n"
-        "    bne .L080D2E7A\n"
-        "    b .L080D2EF0\n"
-        ".L080D2EB4: .4byte 0x0200F874 @ EWRAM+0xF874\n"
-        ".L080D2EB8:\n"
-        "    movs r2, #0\n"
-        "    ldrh r1, [r4]\n"
-        "    movs r0, #0xc0\n"
-        "    lsls r0, r0, #2\n"
-        "    mov r3, sb\n"
-        "    cmp r1, r0\n"
-        "    bne .L080D2EC8\n"
-        "    movs r2, #1\n"
-        ".L080D2EC8:\n"
-        "    adds r4, #2\n"
-        "    ldrh r1, [r4]\n"
-        "    movs r0, #0xc0\n"
-        "    lsls r0, r0, #2\n"
-        "    cmp r1, r0\n"
-        "    bne .L080D2EC8\n"
-        "    adds r0, r2, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r2, r0, #0x10\n"
-        "    cmp r2, #2\n"
-        "    bne .L080D2EC8\n"
-        "    adds r4, #2\n"
-        "    mov r0, r8\n"
-        "    str r0, [sp]\n"
-        "    adds r0, r4, #0\n"
-        "    adds r1, r3, #0\n"
-        "    adds r2, r6, #0\n"
-        "    adds r3, r7, #0\n"
-        "    bl Text_DrawString\n"
-        ".L080D2EF0:\n"
-        "    bl sub_080D1F0C\n"
-        ".L080D2EF4:\n"
-        "    add sp, #8\n"
-        "    pop {r3, r4}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif

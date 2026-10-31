@@ -266,7 +266,7 @@ address	mode	size	name	confidence	state	file
 080AF280	thumb	60			c	src/field_b.c
 080AF2BC	thumb	42			c	src/field_b.c
 080AF2E8	thumb	24			c	src/field_b.c
-080AF300	thumb	252			nonmatching	src/field_b.c
+080AF300	thumb	252			c	src/field_b.c
 080AF3FC	thumb	186			c	src/field_b.c
 080AF4B8	thumb	52	Automap_SetVisitedRaw	probable	c	src/field_b.c
 080AF4EC	thumb	76	Automap_SetVisited	probable	c	src/field_b.c
@@ -277,7 +277,7 @@ address	mode	size	name	confidence	state	file
 080AF68C	thumb	88	Automap_IsVisitedUnchecked	probable	c	src/field_b.c
 080AF6E4	thumb	20			c	src/field_b.c
 080AF6F8	thumb	50			c	src/field_b.c
-080AF72C	thumb	188			nonmatching	src/field_b.c
+080AF72C	thumb	188			c	src/field_b.c
 080AF7E8	thumb	116			c	src/field_b.c
 080AF85C	thumb	116			c	src/field_b.c
 080AF8D0	thumb	2124	Field_CheckCellEvents	probable	nonmatching	src/fieldcheck_a.c
@@ -370,7 +370,7 @@ address	mode	size	name	confidence	state	file
 080B3BA4	thumb	68			c	src/game_h.c
 080B3BE8	thumb	76			c	src/game_h.c
 080B3C34	thumb	40			c	src/game_h.c
-080B3C5C	thumb	480	BgPicture_LoadPiece	probable	nonmatching	src/game_h.c
+080B3C5C	thumb	480	BgPicture_LoadPiece	probable	c	src/game_h.c
 080B3E3C	thumb	64	BgPicture_BeginLoad	probable	c	src/game_i.c
 080B3E7C	thumb	14			c	src/game_i.c
 080B3E8C	thumb	20			c	src/game_i.c
@@ -393,7 +393,7 @@ address	mode	size	name	confidence	state	file
 080B47CC	thumb	134	Automap_BuildAroundPlayer	probable	nonmatching	src/automap_a.c
 080B4854	thumb	512	Automap_BuildIconMap	probable	c	src/automap_a.c
 080B4A54	thumb	80	Automap_HasCells	probable	c	src/automap_a.c
-080B4AA4	thumb	180	Automap_DrawTilemap	probable	nonmatching	src/automap_a.c
+080B4AA4	thumb	180	Automap_DrawTilemap	probable	c	src/automap_a.c
 080B4B58	thumb	36			c	src/automap_a.c
 080B4B7C	thumb	36			c	src/automap_a.c
 080B4BA0	thumb	36			c	src/automap_a.c
@@ -1279,7 +1279,7 @@ address	mode	size	name	confidence	state	file
 080C53F4	thumb	224	MiniView_SampleSquare	probable	c	src/fieldstep_b.c
 080C54D4	thumb	268	MiniView_SampleAhead	probable	c	src/fieldstep_b.c
 080C55E0	thumb	36			c	src/fieldstep_b.c
-080C5604	thumb	260	MiniView_Draw	probable	nonmatching	src/fieldstep_b.c
+080C5604	thumb	260	MiniView_Draw	probable	c	src/fieldstep_b.c
 080C5708	thumb	100	MiniView_Clear	probable	c	src/fieldstep_b.c
 080C576C	thumb	72			c	src/fieldstep_b.c
 080C57B4	thumb	24			c	src/fieldstep_b.c
@@ -1454,7 +1454,7 @@ address	mode	size	name	confidence	state	file
 080C93E0	thumb	36			c	src/status_a.c
 080C9404	thumb	14			c	src/status_a.c
 080C9414	thumb	104			c	src/status_a.c
-080C947C	thumb	464	Status_BuildList	probable	nonmatching	src/status_a.c
+080C947C	thumb	464	Status_BuildList	probable	c	src/status_a.c
 080C964C	thumb	36			c	src/status_a.c
 080C9670	thumb	12			c	src/status_a.c
 080C967C	thumb	12			c	src/status_a.c
@@ -1707,7 +1707,7 @@ address	mode	size	name	confidence	state	file
 080D2C44	thumb	192	Menu_DrawSkillRowTriple	tentative	c	src/menu_d.c
 080D2D04	thumb	84	Action_CountDescriptionBreaks	probable	c	src/menu_d.c
 080D2D58	thumb	40			c	src/menu_d.c
-080D2D80	thumb	386	Item_RenderDescription	tentative	nonmatching	src/menu_d.c
+080D2D80	thumb	386	Item_RenderDescription	tentative	c	src/menu_d.c
 080D2F04	thumb	92			nonmatching	src/menu2_a.c
 080D2F60	thumb	528			c	src/menu2_a.c
 080D3170	thumb	136			c	src/menu2_a.c
@@ -2525,8 +2525,8 @@ address	mode	size	name	confidence	state	file
 080EA314	thumb	104	BattleMsg_FitWindow	probable	c	src/battlemsgwin_a.c
 080EA37C	thumb	378	BattleMenu_SetMode	tentative	c	src/btext_menu.c
 080EA4F8	thumb	48	BattleMenu_SetModeAutoClose	probable	c	src/btext_menu.c
-080EA528	thumb	14	BattleMenu_Reset	probable	nonmatching	src/btext_menu.c
-080EA538	thumb	1020	BattleMsg_Update	probable	nonmatching	src/btext_menu.c
+080EA528	thumb	14	BattleMenu_Reset	probable	c	src/btext_menu.c
+080EA538	thumb	1020	BattleMsg_Update	probable	c	src/btext_menu.c
 080EA934	thumb	46	BattleMsg_IsDone	probable	c	src/btext_menu2.c
 080EA964	thumb	64	BattleMsg_Close	probable	c	src/btext_menu2.c
 080EA9A4	thumb	68			c	src/btext_menu2.c
@@ -2678,7 +2678,7 @@ address	mode	size	name	confidence	state	file
 080EE028	thumb	228			c	src/battle_080EDB6C.c
 080EE10C	thumb	476	Battle_BuildTargetList	probable	c	src/battle_080EDB6C.c
 080EE2E8	thumb	980	Battle_BuildActionTargets	probable	nonmatching	src/battle_080EE2E8.c
-080EE6BC	thumb	340	Battle_FinishDamage	probable	nonmatching	src/battle_080EE6BC.c
+080EE6BC	thumb	340	Battle_FinishDamage	probable	c	src/battle_080EE6BC.c
 080EE810	thumb	82			c	src/battle_080EE6BC.c
 080EE864	thumb	404	Battle_PhysicalDamage	probable	c	src/battle_080EE6BC.c
 080EE9F8	thumb	412	Battle_SkillDamage	probable	nonmatching	src/battle_080EE6BC.c
@@ -3090,7 +3090,7 @@ address	mode	size	name	confidence	state	file
 08129EFC	thumb	20			c	src/bmenu_08129D08.c
 08129F10	thumb	44			c	src/bmenu_08129D08.c
 08129F3C	thumb	30			c	src/bmenu_08129D08.c
-08129F5C	thumb	128			nonmatching	src/bmenu_08129D08.c
+08129F5C	thumb	128			c	src/bmenu_08129D08.c
 08129FDC	thumb	32			c	src/bmenu_08129D08.c
 08129FFC	thumb	160			c	src/bmenu_08129D08.c
 0812A09C	thumb	32			c	src/bmenu_08129D08.c
@@ -4000,7 +4000,7 @@ address	mode	size	name	confidence	state	file
 081492DC	thumb	40			c	src/casino_keno_c.c
 08149304	thumb	40			c	src/casino_keno_c.c
 0814932C	thumb	8			c	src/casino_keno_c.c
-08149334	thumb	160			nonmatching	src/casino_keno_c.c
+08149334	thumb	160			c	src/casino_keno_c.c
 081493D4	thumb	60	Casino_GetCountStep	probable	c	src/casino_keno_c.c
 08149410	thumb	132	Keno_PayOut	probable	c	src/casino_keno_c.c
 08149494	thumb	36			c	src/casino_keno_c.c
@@ -4072,7 +4072,7 @@ address	mode	size	name	confidence	state	file
 0814CB90	thumb	166			c	src/casino_codebreaker_b.c
 0814CC38	thumb	216			nonmatching	src/casino_codebreaker_b.c
 0814CD10	thumb	96			c	src/casino_codebreaker_b.c
-0814CD70	thumb	288			nonmatching	src/casino_codebreaker_b.c
+0814CD70	thumb	288			c	src/casino_codebreaker_b.c
 0814CE90	thumb	18			c	src/casino_codebreaker_b.c
 0814CEA4	thumb	18			c	src/casino_codebreaker_b.c
 0814CEB8	thumb	18			c	src/casino_codebreaker_b.c
@@ -4124,7 +4124,7 @@ address	mode	size	name	confidence	state	file
 08151EB4	thumb	56	FieldMap_GetArea	probable	c	src/c151_08151EB4.c
 08151EEC	thumb	236			c	src/c151_08151EB4.c
 08151FD8	thumb	68			c	src/c151_08151EB4.c
-0815201C	thumb	872			nonmatching	src/worldmap_a.c
+0815201C	thumb	872			c	src/worldmap_a.c
 08152384	thumb	68	WorldMap_StartWindowRaster	probable	c	src/worldmap_a.c
 081523C8	thumb	88	WorldMap_WindowRasterIrq	probable	c	src/worldmap_a.c
 08152420	thumb	32	WorldMap_InstallWindowRaster	probable	c	src/worldmap_a.c

@@ -206,9 +206,9 @@ void sub_0814932C(struct Task *task, u32 n)
 
 /* Shows the payout as six digits. */
 // sub_08149334 @ 0x08149334
-#ifdef NONMATCHING
 void sub_08149334(void)
 {
+    struct C145Grid *s = gGrid;
     u16 x = 0x4C;
     u16 y0 = 0x44;
     u16 y;
@@ -219,7 +219,7 @@ void sub_08149334(void)
 
     Sprite_Draw(gUnknown_081519B4, 0, 0, 0, 0, x, y0);
     n = 6;
-    d = NumberToDigits(gGrid->payout);
+    d = NumberToDigits(s->payout);
     i = n - 1;
     for (k = 0; k < n; k++)
     {
@@ -229,91 +229,8 @@ void sub_08149334(void)
         i--;
         x += 8;
     }
-    { u16 st = 5; gGrid->state = st; }
+    s->state = 5;
 }
-#else
-NAKED
-void sub_08149334(void)
-{
-    asm_unified(
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sl\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6, r7}\n"
-        "    sub sp, #0xc\n"
-        "    movs r4, #0x4c\n"
-        "    movs r2, #0x44\n"
-        "    ldr r0, .L081493C8\n"
-        "    movs r1, #0\n"
-        "    str r1, [sp]\n"
-        "    str r4, [sp, #4]\n"
-        "    str r2, [sp, #8]\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0\n"
-        "    bl Sprite_Draw\n"
-        "    movs r0, #6\n"
-        "    mov sl, r0\n"
-        "    ldr r1, .L081493CC\n"
-        "    movs r2, #0x89\n"
-        "    lsls r2, r2, #2\n"
-        "    adds r0, r1, r2\n"
-        "    ldr r0, [r0]\n"
-        "    bl NumberToDigits\n"
-        "    adds r7, r0, #0\n"
-        "    movs r5, #5\n"
-        "    movs r6, #0\n"
-        "    ldr r0, .L081493D0\n"
-        "    mov sb, r0\n"
-        "    movs r1, #0x4a\n"
-        "    mov r8, r1\n"
-        ".L08149376:\n"
-        "    adds r0, r7, r5\n"
-        "    ldrb r0, [r0]\n"
-        "    lsls r0, r0, #2\n"
-        "    add r0, sb\n"
-        "    ldr r0, [r0]\n"
-        "    movs r1, #0\n"
-        "    str r1, [sp]\n"
-        "    adds r1, r4, #0\n"
-        "    adds r1, #0x14\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    str r1, [sp, #4]\n"
-        "    mov r2, r8\n"
-        "    str r2, [sp, #8]\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0\n"
-        "    bl Sprite_Draw\n"
-        "    subs r0, r5, #1\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r5, r0, #0x18\n"
-        "    adds r0, r4, #0\n"
-        "    adds r0, #8\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    adds r6, #1\n"
-        "    cmp r6, sl\n"
-        "    blo .L08149376\n"
-        "    movs r0, #5\n"
-        "    ldr r1, .L081493CC\n"
-        "    strh r0, [r1]\n"
-        "    add sp, #0xc\n"
-        "    pop {r3, r4, r5}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    mov sl, r5\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L081493C8: .4byte gUnknown_081519B4\n"
-        ".L081493CC: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
-        ".L081493D0: .4byte gUnknown_0879CE24\n"
-    );
-}
-#endif
 
 /* Coins moved per frame while A is held: the largest power of ten not above n. */
 // Casino_GetCountStep @ 0x081493D4

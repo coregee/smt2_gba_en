@@ -345,7 +345,7 @@ u32 sub_080EDE70(void)
     s16 r;
     s32 a, b;
     s16 d;
-    u32 m;
+    u16 m;
     s32 v;
 
     if (!(BattleFlags_Get() & 0x20))
@@ -354,7 +354,8 @@ u32 sub_080EDE70(void)
         a = sub_080F43A4(5) / 2 + sub_080F43A4(4) + r;
         b = sub_080F43E0(5) / 2 + sub_080F43E0(4) + (((r ^ 0xF) - 7) & 0xFF);
         d = a - b;
-        v = m = d & 0x7FFF;
+        v = d & 0x7FFF;
+        m = v;
         if (m == 0)
             return 0;
         if (d < 0)

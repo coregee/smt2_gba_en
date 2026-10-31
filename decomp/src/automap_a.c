@@ -369,11 +369,11 @@ u32 Automap_HasCells(void)
 
 // Automap_DrawTilemap @ 0x080B4AA4
 /* Draws the automap cells into the BG tilemap at 0x02000000 (column 0 left empty). */
-#ifdef NONMATCHING
 void Automap_DrawTilemap(void)
 {
     u16 w = 28, h = 11;
     u16 x, y;
+    u16 (*bg)[32] = gUnk_02000000; /* base in a variable: the hoisted row address adds into it */
 
     sub_080B447C();
     for (y = 0; y < h; y++)
@@ -382,7 +382,7 @@ void Automap_DrawTilemap(void)
         {
             if (gAutomapCells[y][x].flags != 0)
             {
-                u16 *row = gUnk_02000000[y];
+                u16 *row = bg[y];
                 u16 *dst = &row[x + 1];
                 u16 tile = sub_080B4448(&gAutomapCells[y][x]);
 
@@ -396,103 +396,6 @@ void Automap_DrawTilemap(void)
     Automap_BuildIconMap();
     VBlankTask_AddCounted(sub_080B5084, 1);
 }
-#else
-NAKED
-void Automap_DrawTilemap(void)
-{
-    asm_unified(
-        ".L080B4AA4:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sl\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6, r7}\n"
-        "    sub sp, #4\n"
-        "    movs r0, #0x1c\n"
-        "    mov sl, r0\n"
-        "    bl sub_080B447C\n"
-        "    movs r1, #0\n"
-        ".L080B4ABA:\n"
-        "    movs r6, #0\n"
-        "    adds r2, r1, #1\n"
-        "    mov sb, r2\n"
-        "    cmp r6, sl\n"
-        "    bhs .L080B4B2E\n"
-        "    ldr r3, .L080B4B10\n"
-        "    lsls r0, r1, #6\n"
-        "    ldr r4, .L080B4B14\n"
-        "    adds r4, r4, r0\n"
-        "    mov r8, r4\n"
-        "    lsls r0, r1, #2\n"
-        "    adds r0, r0, r1\n"
-        "    lsls r0, r0, #2\n"
-        "    adds r0, r0, r1\n"
-        "    lsls r7, r0, #4\n"
-        ".L080B4AD8:\n"
-        "    lsls r1, r6, #1\n"
-        "    adds r0, r1, r6\n"
-        "    lsls r2, r0, #2\n"
-        "    adds r0, r2, r7\n"
-        "    adds r4, r0, r3\n"
-        "    ldrh r0, [r4]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080B4B24\n"
-        "    adds r0, r1, #2\n"
-        "    mov r1, r8\n"
-        "    adds r5, r1, r0\n"
-        "    adds r0, r2, r3\n"
-        "    adds r0, r7, r0\n"
-        "    str r3, [sp]\n"
-        "    bl sub_080B4448\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r2, r0, #0x10\n"
-        "    ldrh r0, [r4]\n"
-        "    movs r4, #0x80\n"
-        "    lsls r4, r4, #8\n"
-        "    adds r1, r4, #0\n"
-        "    ands r0, r1\n"
-        "    ldr r3, [sp]\n"
-        "    cmp r0, #0\n"
-        "    bne .L080B4B18\n"
-        "    strh r2, [r5]\n"
-        "    b .L080B4B24\n"
-        ".L080B4B10: .4byte 0x02005000 @ EWRAM+0x5000\n"
-        ".L080B4B14: .4byte 0x02000000 @ EWRAM\n"
-        ".L080B4B18:\n"
-        "    movs r0, #0xc0\n"
-        "    lsls r0, r0, #7\n"
-        "    adds r1, r0, #0\n"
-        "    adds r0, r2, #0\n"
-        "    orrs r0, r1\n"
-        "    strh r0, [r5]\n"
-        ".L080B4B24:\n"
-        "    adds r0, r6, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r6, r0, #0x10\n"
-        "    cmp r6, sl\n"
-        "    blo .L080B4AD8\n"
-        ".L080B4B2E:\n"
-        "    mov r1, sb\n"
-        "    lsls r0, r1, #0x10\n"
-        "    lsrs r1, r0, #0x10\n"
-        "    cmp r1, #0xb\n"
-        "    blo .L080B4ABA\n"
-        "    bl Automap_BuildIconMap\n"
-        "    ldr r0, .L080B4B54\n"
-        "    movs r1, #1\n"
-        "    bl VBlankTask_AddCounted\n"
-        "    add sp, #4\n"
-        "    pop {r3, r4, r5}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    mov sl, r5\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L080B4B54: .4byte sub_080B5084\n"
-    );
-}
-#endif
 
 // sub_080B4B58 @ 0x080B4B58
 void sub_080B4B58(void)

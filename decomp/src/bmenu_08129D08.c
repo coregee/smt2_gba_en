@@ -132,10 +132,9 @@ void sub_08129F3C(struct Task *task)
 
 /* Returns the selected demon to the stock: message names the party slot it held. */
 // sub_08129F5C @ 0x08129F5C
-#ifdef NONMATCHING
-/* The loop test is written twice (entry and loop); cross-jumping merges the two compares, as in
-   the original. 6 lines off: blk/order swap r5/r6 (blk + 0x2D0 gives blk a STACK_REG
-   preference, so it gets no REG_EQUIV live-length doubling and outranks order). */
+/* Finds the party slot whose member is the selected list entry. The first test is written
+   before the loop (jump2 shares its compare with the loop's), and the loop is a real do/while
+   entered at its body: loop-depth weighting gives order/list the priority they have. */
 void sub_08129F5C(struct Task *task)
 {
     struct C127Block *blk = C127_BLOCK;
@@ -156,85 +155,19 @@ void sub_08129F5C(struct Task *task)
     }
     tmpl = gUnknown_08124182;
     goto done;
-loop:
-    i++;
-    if (i > 5)
-        goto done;
-    if (*(s8 *)((u32)i + (u32)order) != *(u16 *)((u32)list + (task->pad1E << 1)))
-        goto loop;
+    do
+    {
+    loop:
+        i++;
+        if (i > 5)
+            break;
+    } while (*(s8 *)((u32)i + (u32)order) != *(u16 *)((u32)list + (task->pad1E << 1)));
 done:
     BattleMenu_SetMode(3, Battle_BuildNamePrependText(i, tmpl));
     Party_Remove(blk->list[task->pad1E], 0);
     Party_FixFormation();
     sub_081269B0(2);
 }
-#else
-NAKED
-void sub_08129F5C(struct Task *task)
-{
-    asm_unified(
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    adds r4, r0, #0\n"
-        "    ldr r6, .L08129F80\n"
-        "    movs r2, #0\n"
-        "    ldr r0, .L08129F84\n"
-        "    movs r1, #0xa2\n"
-        "    lsls r1, r1, #4\n"
-        "    adds r5, r0, r1\n"
-        "    movs r1, #0\n"
-        "    ldrsb r1, [r5, r1]\n"
-        "    ldrh r0, [r4, #0x1e]\n"
-        "    lsls r0, r0, #1\n"
-        "    movs r7, #0xb4\n"
-        "    lsls r7, r7, #2\n"
-        "    adds r3, r6, r7\n"
-        "    adds r0, r0, r3\n"
-        "    ldr r7, .L08129F88\n"
-        "    b .L08129FA2\n"
-        ".L08129F80: .4byte 0x0203C200 @ EWRAM+0x3C200\n"
-        ".L08129F84: .4byte 0x030046C0 @ IWRAM+0x46C0\n"
-        ".L08129F88: .4byte gUnknown_08124182\n"
-        ".L08129F8C:\n"
-        "    adds r0, r2, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r2, r0, #0x10\n"
-        "    cmp r2, #5\n"
-        "    bhi .L08129FA8\n"
-        "    adds r0, r2, r5\n"
-        "    movs r1, #0\n"
-        "    ldrsb r1, [r0, r1]\n"
-        "    ldrh r0, [r4, #0x1e]\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r0, r3, r0\n"
-        ".L08129FA2:\n"
-        "    ldrh r0, [r0]\n"
-        "    cmp r1, r0\n"
-        "    bne .L08129F8C\n"
-        ".L08129FA8:\n"
-        "    adds r0, r2, #0\n"
-        "    adds r1, r7, #0\n"
-        "    bl Battle_BuildNamePrependText\n"
-        "    adds r1, r0, #0\n"
-        "    movs r0, #3\n"
-        "    bl BattleMenu_SetMode\n"
-        "    ldrh r1, [r4, #0x1e]\n"
-        "    lsls r1, r1, #1\n"
-        "    movs r2, #0xb4\n"
-        "    lsls r2, r2, #2\n"
-        "    adds r0, r6, r2\n"
-        "    adds r0, r0, r1\n"
-        "    ldrh r0, [r0]\n"
-        "    movs r1, #0\n"
-        "    bl Party_Remove\n"
-        "    bl Party_FixFormation\n"
-        "    movs r0, #2\n"
-        "    bl sub_081269B0\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-    );
-}
-#endif
 
 // sub_08129FDC @ 0x08129FDC
 void sub_08129FDC(void)

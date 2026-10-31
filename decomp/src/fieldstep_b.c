@@ -3,6 +3,7 @@
 
 /* gMiniViewCells as a symbol: the cast-address macro allocates the row/column pieces differently. */
 extern struct C0c2ViewCell gUnk_0200AF08[][3];
+extern u8 gUnk_0200DFD4[];
 
 // Encounter_IsAllowed @ 0x080C5320
 /* Whether random encounters may happen here. */
@@ -125,19 +126,18 @@ void sub_080C55E0(void)
 
 // MiniView_Draw @ 0x080C5604
 /* Draws the small 3x5 view of the squares ahead (tilemap columns 25-27, rows 6-10). */
-#ifdef NONMATCHING
-extern u8 gUnk_0200DFD4[];
 void MiniView_Draw(void)
 {
     u16 row, col, i;
+    u8 *lb = gUnk_0200DFD4; /* a variable base: `lb + off` keeps the base as the first operand */
 
     MiniView_SampleAhead(gFieldState.facing);
     for (row = 0; row < 5; row++)
     {
         for (col = 0; col < 3; col++)
         {
-            struct C0c2ViewCell *cell = &gMiniViewCells[row][col];
-            u16 *line = (u16 *)(gUnk_0200DFD4 + ((row + 6) << 6));
+            struct C0c2ViewCell *cell = &gUnk_0200AF08[row][col]; /* gMiniViewCells */
+            u16 *line = (u16 *)(lb + ((row + 6) << 6));
             u16 *dst = &line[col + 25];
 
             if (cell->valid == 1)
@@ -163,137 +163,6 @@ void MiniView_Draw(void)
     gUnk_03000038 = 0x1F;
     VBlankTask_AddCounted(sub_080C55E0, 1);
 }
-#else
-NAKED
-void MiniView_Draw(void)
-{
-    asm_unified(
-        ".L080C5604:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sl\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6, r7}\n"
-        "    sub sp, #0xc\n"
-        "    ldr r0, .L080C5674\n"
-        "    ldrh r0, [r0, #2]\n"
-        "    bl MiniView_SampleAhead\n"
-        "    movs r2, #0\n"
-        ".L080C561A:\n"
-        "    movs r3, #0\n"
-        "    lsls r0, r2, #3\n"
-        "    adds r1, r2, #6\n"
-        "    adds r4, r2, #1\n"
-        "    mov sl, r4\n"
-        "    adds r0, r0, r2\n"
-        "    lsls r0, r0, #2\n"
-        "    mov sb, r0\n"
-        "    lsls r1, r1, #6\n"
-        "    ldr r0, .L080C5678\n"
-        "    adds r0, r0, r1\n"
-        "    mov r8, r0\n"
-        ".L080C5632:\n"
-        "    lsls r2, r3, #1\n"
-        "    adds r0, r2, r3\n"
-        "    lsls r0, r0, #2\n"
-        "    ldr r1, .L080C567C\n"
-        "    adds r0, r0, r1\n"
-        "    mov r1, sb\n"
-        "    adds r4, r1, r0\n"
-        "    adds r2, #0x32\n"
-        "    mov r0, r8\n"
-        "    adds r6, r0, r2\n"
-        "    ldrh r0, [r4]\n"
-        "    cmp r0, #1\n"
-        "    bne .L080C5680\n"
-        "    movs r2, #0\n"
-        "    adds r5, r3, #1\n"
-        "    adds r3, r4, #4\n"
-        "    movs r7, #2\n"
-        ".L080C5654:\n"
-        "    lsls r0, r2, #1\n"
-        "    adds r1, r3, r0\n"
-        "    ldrh r0, [r1]\n"
-        "    cmp r0, #3\n"
-        "    bne .L080C5660\n"
-        "    strh r7, [r1]\n"
-        ".L080C5660:\n"
-        "    adds r0, r2, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r2, r0, #0x10\n"
-        "    cmp r2, #3\n"
-        "    bls .L080C5654\n"
-        "    adds r0, r4, #0\n"
-        "    bl sub_080B4448\n"
-        "    strh r0, [r6]\n"
-        "    b .L080C568A\n"
-        ".L080C5674: .4byte 0x03004550 @ IWRAM+0x4550\n"
-        ".L080C5678: .4byte 0x0200DFD4 @ EWRAM+0xDFD4\n"
-        ".L080C567C: .4byte 0x0200AF08 @ EWRAM+0xAF08\n"
-        ".L080C5680:\n"
-        "    movs r1, #0xed\n"
-        "    lsls r1, r1, #2\n"
-        "    adds r0, r1, #0\n"
-        "    strh r0, [r6]\n"
-        "    adds r5, r3, #1\n"
-        ".L080C568A:\n"
-        "    lsls r0, r5, #0x10\n"
-        "    lsrs r3, r0, #0x10\n"
-        "    cmp r3, #2\n"
-        "    bls .L080C5632\n"
-        "    mov r4, sl\n"
-        "    lsls r0, r4, #0x10\n"
-        "    lsrs r2, r0, #0x10\n"
-        "    cmp r2, #4\n"
-        "    bls .L080C561A\n"
-        "    ldr r0, .L080C56EC\n"
-        "    movs r1, #0\n"
-        "    str r1, [sp]\n"
-        "    movs r1, #0xd0\n"
-        "    str r1, [sp, #4]\n"
-        "    movs r1, #0x40\n"
-        "    str r1, [sp, #8]\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0\n"
-        "    bl Sprite_Draw\n"
-        "    ldr r1, .L080C56F0\n"
-        "    movs r0, #0xe0\n"
-        "    strb r0, [r1]\n"
-        "    ldr r1, .L080C56F4\n"
-        "    movs r0, #0xc8\n"
-        "    strb r0, [r1]\n"
-        "    ldr r1, .L080C56F8\n"
-        "    movs r0, #0x58\n"
-        "    strb r0, [r1]\n"
-        "    ldr r1, .L080C56FC\n"
-        "    movs r0, #0x30\n"
-        "    strb r0, [r1]\n"
-        "    ldr r1, .L080C5700\n"
-        "    movs r0, #0x1f\n"
-        "    strb r0, [r1]\n"
-        "    ldr r0, .L080C5704\n"
-        "    movs r1, #1\n"
-        "    bl VBlankTask_AddCounted\n"
-        "    add sp, #0xc\n"
-        "    pop {r3, r4, r5}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    mov sl, r5\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C56EC: .4byte gUnknown_080008C0\n"
-        ".L080C56F0: .4byte 0x03000030 @ IWRAM+0x30\n"
-        ".L080C56F4: .4byte 0x03000031 @ IWRAM+0x31\n"
-        ".L080C56F8: .4byte 0x03000034 @ IWRAM+0x34\n"
-        ".L080C56FC: .4byte 0x03000035 @ IWRAM+0x35\n"
-        ".L080C5700: .4byte 0x03000038 @ IWRAM+0x38\n"
-        ".L080C5704: .4byte sub_080C55E0\n"
-    );
-}
-#endif
 
 // MiniView_Clear @ 0x080C5708
 void MiniView_Clear(void)

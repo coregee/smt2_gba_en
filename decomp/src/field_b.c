@@ -318,7 +318,6 @@ void sub_080AF2E8(void)
 }
 
 // sub_080AF300 @ 0x080AF300
-#ifdef NONMATCHING
 void sub_080AF300(void)
 {
     sub_080C3818(1);
@@ -327,151 +326,44 @@ void sub_080AF300(void)
     View_BuildCells(gFieldState.unk02, 0);
     if (Palette_IsBg13Black() == 1)
     {
-    other:
         sub_080AF2E8();
         return;
     }
     if (View_GetWall(0, 0, 0) == 1 && View_GetWall(1, 0, 0) == 1 && View_GetWall(3, 0, 0) == 1)
     {
         if (!Flag_Test(0x101))
-            goto enter;
-        goto other;
-    }
-    if (View_GetWall(0, 0, 0) == 3)
-    {
-        if (sub_080AF2BC() != 1 || sub_080B78DC() != 0)
-            goto other;
-        if (!Flag_Test(0x101))
         {
             Task_Create(gUnknown_0816499C, 0xFFFF);
             Field_SetState(0x1A);
-            return;
         }
-        goto other;
+        else
+            sub_080AF2E8();
+        return;
+    }
+    if (View_GetWall(0, 0, 0) == 3)
+    {
+        if (sub_080AF2BC() == 1 && sub_080B78DC() == 0 && !Flag_Test(0x101))
+        {
+            Task_Create(gUnknown_0816499C, 0xFFFF);
+            Field_SetState(0x1A);
+        }
+        else
+            sub_080AF2E8();
+        return;
     }
     if (View_GetWall(0, 0, 0) == 2 && sub_080B78DC() == 0)
     {
-        if (sub_080AF2BC() != 1 || Flag_Test(0x101))
-            goto other;
-    enter:
-        Task_Create(gUnknown_0816499C, 0xFFFF);
-        Field_SetState(0x1A);
+        if (sub_080AF2BC() == 1 && !Flag_Test(0x101))
+        {
+            Task_Create(gUnknown_0816499C, 0xFFFF);
+            Field_SetState(0x1A);
+        }
+        else
+            sub_080AF2E8();
         return;
     }
     sub_080AF2E8();
 }
-#else
-NAKED
-void sub_080AF300(void)
-{
-    asm_unified(
-        ".L080AF300:\n"
-        "    push {lr}\n"
-        "    movs r0, #1\n"
-        "    bl sub_080C3818\n"
-        "    ldr r0, .L080AF338\n"
-        "    ldrh r0, [r0]\n"
-        "    ldr r1, .L080AF33C\n"
-        "    ldrh r1, [r1]\n"
-        "    bl sub_080AD608\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    bl Music_Play\n"
-        "    bl sub_080AE234\n"
-        "    ldr r0, .L080AF340\n"
-        "    ldrh r0, [r0, #2]\n"
-        "    movs r1, #0\n"
-        "    bl View_BuildCells\n"
-        "    bl Palette_IsBg13Black\n"
-        "    cmp r0, #1\n"
-        "    bne .L080AF344\n"
-        ".L080AF332:\n"
-        "    bl sub_080AF2E8\n"
-        "    b .L080AF3F8\n"
-        ".L080AF338: .4byte 0x03004614 @ IWRAM+0x4614\n"
-        ".L080AF33C: .4byte 0x03004514 @ IWRAM+0x4514\n"
-        ".L080AF340: .4byte 0x03004550 @ IWRAM+0x4550\n"
-        ".L080AF344:\n"
-        "    movs r0, #0\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    bl View_GetWall\n"
-        "    cmp r0, #1\n"
-        "    bne .L080AF380\n"
-        "    movs r0, #1\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    bl View_GetWall\n"
-        "    cmp r0, #1\n"
-        "    bne .L080AF380\n"
-        "    movs r0, #3\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    bl View_GetWall\n"
-        "    cmp r0, #1\n"
-        "    bne .L080AF380\n"
-        "    ldr r0, .L080AF37C\n"
-        "    bl Flag_Test\n"
-        "    cmp r0, #0\n"
-        "    beq .L080AF3D8\n"
-        "    b .L080AF332\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080AF37C: .4byte 0x00000101\n"
-        ".L080AF380:\n"
-        "    movs r0, #0\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    bl View_GetWall\n"
-        "    cmp r0, #3\n"
-        "    bne .L080AF3B0\n"
-        "    bl sub_080AF2BC\n"
-        "    cmp r0, #1\n"
-        "    bne .L080AF332\n"
-        "    bl sub_080B78DC\n"
-        "    cmp r0, #0\n"
-        "    bne .L080AF332\n"
-        "    ldr r0, .L080AF3AC\n"
-        "    bl Flag_Test\n"
-        "    cmp r0, #0\n"
-        "    beq .L080AF3D8\n"
-        "    b .L080AF332\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080AF3AC: .4byte 0x00000101\n"
-        ".L080AF3B0:\n"
-        "    movs r0, #0\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    bl View_GetWall\n"
-        "    cmp r0, #2\n"
-        "    bne .L080AF3F4\n"
-        "    bl sub_080B78DC\n"
-        "    cmp r0, #0\n"
-        "    bne .L080AF3F4\n"
-        "    bl sub_080AF2BC\n"
-        "    cmp r0, #1\n"
-        "    bne .L080AF332\n"
-        "    ldr r0, .L080AF3E8\n"
-        "    bl Flag_Test\n"
-        "    cmp r0, #0\n"
-        "    bne .L080AF332\n"
-        ".L080AF3D8:\n"
-        "    ldr r0, .L080AF3EC\n"
-        "    ldr r1, .L080AF3F0\n"
-        "    bl Task_Create\n"
-        "    movs r0, #0x1a\n"
-        "    bl Field_SetState\n"
-        "    b .L080AF3F8\n"
-        ".L080AF3E8: .4byte 0x00000101\n"
-        ".L080AF3EC: .4byte gUnknown_0816499C\n"
-        ".L080AF3F0: .4byte 0x0000FFFF\n"
-        ".L080AF3F4:\n"
-        "    bl sub_080AF2E8\n"
-        ".L080AF3F8:\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-    );
-}
-#endif
 
 // sub_080AF3FC @ 0x080AF3FC
 void sub_080AF3FC(void)
@@ -701,12 +593,10 @@ void sub_080AF6F8(u32 a, const u32 *b, u32 c)
    (ev[4] nibbles, one per direction), 0 when the entry's side mask blocks the step just
    taken, else 1. */
 // sub_080AF72C @ 0x080AF72C
-#ifdef NONMATCHING
 s32 sub_080AF72C(const u16 *ev)
 {
     const u16 *ent = (const u16 *)FieldMap_FindRecord(FieldMap_CellRecordsRel(0, 0), 0x24);
     u16 x, y, prevX, prevY;
-    u16 sides;
 
     if (ent == NULL)
         return 1;
@@ -714,11 +604,11 @@ s32 sub_080AF72C(const u16 *ev)
     y = gFieldState.unk14;
     prevX = gFieldState.unk16;
     prevY = gFieldState.unk18;
-    sides = ev[4];
-    if (((sides & 0xF000) && gFieldState.unk02 == 0)
-     || ((sides & 0x0F00) && gFieldState.unk02 == 1)
-     || ((sides & 0x00F0) && gFieldState.unk02 == 2)
-     || ((sides & 0x000F) && gFieldState.unk02 == 3))
+    /* ev[4] read at each test (one cse'd load), not held in a variable */
+    if (((ev[4] & 0xF000) && gFieldState.unk02 == 0)
+     || ((ev[4] & 0x0F00) && gFieldState.unk02 == 1)
+     || ((ev[4] & 0x00F0) && gFieldState.unk02 == 2)
+     || ((ev[4] & 0x000F) && gFieldState.unk02 == 3))
         return 2;
     if (x == prevX && y < prevY)
     {
@@ -742,116 +632,6 @@ s32 sub_080AF72C(const u16 *ev)
     }
     return 1;
 }
-#else
-NAKED
-s32 sub_080AF72C(const u16 *ev)
-{
-    asm_unified(
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, r8\n"
-        "    push {r7}\n"
-        "    mov r8, r0\n"
-        "    movs r0, #0\n"
-        "    movs r1, #0\n"
-        "    bl FieldMap_CellRecordsRel\n"
-        "    movs r1, #0x24\n"
-        "    bl FieldMap_FindRecord\n"
-        "    adds r3, r0, #0\n"
-        "    cmp r3, #0\n"
-        "    beq .L080AF7DC\n"
-        "    ldr r1, .L080AF798\n"
-        "    ldrh r7, [r1, #0x12]\n"
-        "    ldrh r5, [r1, #0x14]\n"
-        "    ldrh r6, [r1, #0x16]\n"
-        "    ldrh r4, [r1, #0x18]\n"
-        "    mov r0, r8\n"
-        "    ldrh r2, [r0, #8]\n"
-        "    movs r0, #0xf0\n"
-        "    lsls r0, r0, #8\n"
-        "    ands r0, r2\n"
-        "    cmp r0, #0\n"
-        "    beq .L080AF766\n"
-        "    ldrh r0, [r1, #2]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080AF792\n"
-        ".L080AF766:\n"
-        "    movs r0, #0xf0\n"
-        "    lsls r0, r0, #4\n"
-        "    ands r0, r2\n"
-        "    cmp r0, #0\n"
-        "    beq .L080AF776\n"
-        "    ldrh r0, [r1, #2]\n"
-        "    cmp r0, #1\n"
-        "    beq .L080AF792\n"
-        ".L080AF776:\n"
-        "    movs r0, #0xf0\n"
-        "    ands r0, r2\n"
-        "    cmp r0, #0\n"
-        "    beq .L080AF784\n"
-        "    ldrh r0, [r1, #2]\n"
-        "    cmp r0, #2\n"
-        "    beq .L080AF792\n"
-        ".L080AF784:\n"
-        "    movs r0, #0xf\n"
-        "    ands r0, r2\n"
-        "    cmp r0, #0\n"
-        "    beq .L080AF79C\n"
-        "    ldrh r0, [r1, #2]\n"
-        "    cmp r0, #3\n"
-        "    bne .L080AF79C\n"
-        ".L080AF792:\n"
-        "    movs r0, #2\n"
-        "    b .L080AF7DE\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080AF798: .4byte 0x03004550 @ IWRAM+0x4550\n"
-        ".L080AF79C:\n"
-        "    cmp r7, r6\n"
-        "    bne .L080AF7B6\n"
-        "    cmp r5, r4\n"
-        "    bhs .L080AF7AC\n"
-        "    ldrh r1, [r3, #2]\n"
-        "    movs r0, #0x80\n"
-        "    lsls r0, r0, #5\n"
-        "    b .L080AF7D2\n"
-        ".L080AF7AC:\n"
-        "    cmp r5, r4\n"
-        "    bls .L080AF7B6\n"
-        "    ldrh r1, [r3, #2]\n"
-        "    movs r0, #0x10\n"
-        "    b .L080AF7D2\n"
-        ".L080AF7B6:\n"
-        "    cmp r7, r6\n"
-        "    bhs .L080AF7C4\n"
-        "    cmp r5, r4\n"
-        "    bne .L080AF7C4\n"
-        "    ldrh r1, [r3, #2]\n"
-        "    movs r0, #1\n"
-        "    b .L080AF7D2\n"
-        ".L080AF7C4:\n"
-        "    cmp r7, r6\n"
-        "    bls .L080AF7DC\n"
-        "    cmp r5, r4\n"
-        "    bne .L080AF7DC\n"
-        "    ldrh r1, [r3, #2]\n"
-        "    movs r0, #0x80\n"
-        "    lsls r0, r0, #1\n"
-        ".L080AF7D2:\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    beq .L080AF7DC\n"
-        "    movs r0, #0\n"
-        "    b .L080AF7DE\n"
-        ".L080AF7DC:\n"
-        "    movs r0, #1\n"
-        ".L080AF7DE:\n"
-        "    pop {r3}\n"
-        "    mov r8, r3\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-    );
-}
-#endif
 
 // sub_080AF7E8 @ 0x080AF7E8
 void sub_080AF7E8(u32 a, const u32 *b, u32 c)

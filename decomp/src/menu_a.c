@@ -32,19 +32,24 @@ u32 GameState_TestFlag(struct GameState *save, u32 bit)
 void SaveScreen_DrawLocationName(struct GameState *state, u16 mode, u16 x, u16 y)
 {
     u16 *str;
-    u16 i = 0;
-    u16 ty = y - 4;
+    u16 i;
+    u16 cx;
+    u16 ty;
+
+    cx = x;
+    ty = y - 4;
 
     if (mode != 3 && !GameState_TestFlag(state, 0x163) && GameState_TestFlag(state, 0xEE))
         str = gUnknown_084F20A8;
     else
         str = Location_GetNameCellFromCoords(state->unkA32, state->unkA34, state->unkA2E, state->unkA30);
 
+    i = 0;
     while (*str != 0 && *str != 0x301 && *str != 0x57)
     {
-        Font_DrawGlyphTinted(*str, gUnk_0200F874, x, ty, 8);
+        Font_DrawGlyphTinted(*str, gUnk_0200F874, cx, ty, 8);
         str++;
-        x += 12;
+        cx += 12;
         i++;
         if (i > 15)
             break;

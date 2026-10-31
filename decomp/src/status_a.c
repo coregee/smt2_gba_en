@@ -225,7 +225,6 @@ void sub_080C9414(void)
 // Status_BuildList @ 0x080C947C
 /* Builds the list of combatants the status screen pages through (gStatusList; bit 15 marks
    a demon id) for the screen mode. */
-#ifdef NONMATCHING
 void Status_BuildList(void)
 {
     struct C0c6Status *st = &gMenuState;
@@ -251,28 +250,28 @@ void Status_BuildList(void)
         st->count = n;
         break;
     case 1:
-        i = 0;
-        goto check;
-    body:
-        if (!Flag_Test(0xB6))
+        for (i = 0; i <= 0xFF && (v = sub_0812ACCC(i)) != 0xFFFF; i++)
         {
-            if (v & 0x8000)
-                goto next;
+            if (!Flag_Test(0xB6))
+            {
+                if (v & 0x8000)
+                    continue;
+                list[n] = v + 0x8000;
+                n++;
+                n2++;
+            }
+            else if (!(v & 0x8000))
+            {
+                list[n] = v + 0x8000;
+                n++;
+                n2++;
+            }
+            else
+            {
+                list[n] = v | 0x8000;
+                n++;
+            }
         }
-        else if (v & 0x8000)
-            goto or;
-        list[n] = v + 0x8000;
-        n++;
-        n2++;
-        goto next;
-    or:
-        list[n] = v | 0x8000;
-        n++;
-    next:
-        i++;
-    check:
-        if (i <= 0xFF && (v = sub_0812ACCC(i)) != 0xFFFF)
-            goto body;
         st->count = n;
         st->count2 = n2;
         break;
@@ -317,241 +316,6 @@ void Status_BuildList(void)
     st->unk1C = 0;
     st->unk1E = 0;
 }
-#else
-NAKED
-void Status_BuildList(void)
-{
-    asm_unified(
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sb\n"
-        "    mov r6, r8\n"
-        "    push {r6, r7}\n"
-        "    ldr r7, .L080C94B0\n"
-        "    ldr r0, .L080C94B4\n"
-        "    mov sb, r0\n"
-        "    movs r5, #0\n"
-        "    mov r8, r5\n"
-        "    ldr r0, .L080C94B8\n"
-        "    ldr r1, .L080C94BC\n"
-        "    bl LZ77UnCompWram\n"
-        "    ldr r0, .L080C94C0\n"
-        "    movs r1, #1\n"
-        "    bl VBlankTask_AddCounted\n"
-        "    ldrh r0, [r7]\n"
-        "    cmp r0, #0xa\n"
-        "    bls .L080C94A6\n"
-        "    b .L080C9622\n"
-        ".L080C94A6:\n"
-        "    lsls r0, r0, #2\n"
-        "    ldr r1, .L080C94C4\n"
-        "    adds r0, r0, r1\n"
-        "    ldr r0, [r0]\n"
-        "    mov pc, r0\n"
-        ".L080C94B0: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
-        ".L080C94B4: .4byte 0x0203B554 @ EWRAM+0x3B554\n"
-        ".L080C94B8: .4byte gUnknown_081B5870\n"
-        ".L080C94BC: .4byte 0x0200F874 @ EWRAM+0xF874\n"
-        ".L080C94C0: .4byte sub_080C93E0\n"
-        ".L080C94C4: .4byte gUnknown_080C94C8\n"
-        "    .global gUnknown_080C94C8\n"
-        "gUnknown_080C94C8:\n"
-        ".L080C94C8: @ jump table\n"
-        "    .4byte .L080C94F4\n"
-        "    .4byte .L080C9520\n"
-        "    .4byte .L080C9622\n"
-        "    .4byte .L080C9598\n"
-        "    .4byte .L080C95C4\n"
-        "    .4byte .L080C95C4\n"
-        "    .4byte .L080C95F4\n"
-        "    .4byte .L080C9622\n"
-        "    .4byte .L080C960C\n"
-        "    .4byte .L080C960C\n"
-        "    .4byte .L080C960C\n"
-        ".L080C94F4:\n"
-        "    movs r6, #0\n"
-        "    ldr r1, .L080C951C\n"
-        ".L080C94F8:\n"
-        "    lsls r0, r6, #7\n"
-        "    adds r0, r0, r1\n"
-        "    ldrh r0, [r0, #0xe]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080C950E\n"
-        "    lsls r0, r5, #1\n"
-        "    add r0, sb\n"
-        "    strh r6, [r0]\n"
-        "    adds r0, r5, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r5, r0, #0x10\n"
-        ".L080C950E:\n"
-        "    adds r0, r6, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r6, r0, #0x10\n"
-        "    cmp r6, #0xf\n"
-        "    bls .L080C94F8\n"
-        "    strh r5, [r7, #0x24]\n"
-        "    b .L080C9622\n"
-        ".L080C951C: .4byte 0x030046C0 @ IWRAM+0x46C0\n"
-        ".L080C9520:\n"
-        "    movs r6, #0\n"
-        "    b .L080C9576\n"
-        ".L080C9524:\n"
-        "    movs r0, #0xb6\n"
-        "    bl Flag_Test\n"
-        "    cmp r0, #0\n"
-        "    bne .L080C953C\n"
-        "    movs r1, #0x80\n"
-        "    lsls r1, r1, #8\n"
-        "    adds r0, r4, #0\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    bne .L080C9570\n"
-        "    b .L080C9548\n"
-        ".L080C953C:\n"
-        "    movs r1, #0x80\n"
-        "    lsls r1, r1, #8\n"
-        "    adds r0, r4, #0\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    bne .L080C9562\n"
-        ".L080C9548:\n"
-        "    lsls r0, r5, #1\n"
-        "    add r0, sb\n"
-        "    adds r1, r4, r1\n"
-        "    strh r1, [r0]\n"
-        "    adds r0, r5, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r5, r0, #0x10\n"
-        "    mov r0, r8\n"
-        "    adds r0, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    mov r8, r0\n"
-        "    b .L080C9570\n"
-        ".L080C9562:\n"
-        "    lsls r0, r5, #1\n"
-        "    add r0, sb\n"
-        "    orrs r4, r1\n"
-        "    strh r4, [r0]\n"
-        "    adds r0, r5, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r5, r0, #0x10\n"
-        ".L080C9570:\n"
-        "    adds r0, r6, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r6, r0, #0x10\n"
-        ".L080C9576:\n"
-        "    cmp r6, #0xff\n"
-        "    bhi .L080C958A\n"
-        "    adds r0, r6, #0\n"
-        "    bl sub_0812ACCC\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    ldr r0, .L080C9594\n"
-        "    cmp r4, r0\n"
-        "    bne .L080C9524\n"
-        ".L080C958A:\n"
-        "    strh r5, [r7, #0x24]\n"
-        "    mov r1, r8\n"
-        "    strh r1, [r7, #0x26]\n"
-        "    b .L080C9622\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C9594: .4byte 0x0000FFFF\n"
-        ".L080C9598:\n"
-        "    movs r6, #0\n"
-        "    ldr r1, .L080C95C0\n"
-        ".L080C959C:\n"
-        "    lsls r0, r6, #7\n"
-        "    adds r0, r0, r1\n"
-        "    ldrh r0, [r0, #0xe]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080C95B2\n"
-        "    lsls r0, r5, #1\n"
-        "    add r0, sb\n"
-        "    strh r6, [r0]\n"
-        "    adds r0, r5, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r5, r0, #0x10\n"
-        ".L080C95B2:\n"
-        "    adds r0, r6, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r6, r0, #0x10\n"
-        "    cmp r6, #3\n"
-        "    bls .L080C959C\n"
-        "    strh r5, [r7, #0x24]\n"
-        "    b .L080C9622\n"
-        ".L080C95C0: .4byte 0x030046C0 @ IWRAM+0x46C0\n"
-        ".L080C95C4:\n"
-        "    ldrh r0, [r7, #2]\n"
-        "    lsls r0, r0, #7\n"
-        "    ldr r1, .L080C95EC\n"
-        "    adds r0, r0, r1\n"
-        "    adds r1, r7, #0\n"
-        "    adds r1, #0xd4\n"
-        "    ldr r2, .L080C95F0\n"
-        "    bl CpuSet\n"
-        "    ldrh r0, [r7, #2]\n"
-        "    mov r2, sb\n"
-        "    strh r0, [r2]\n"
-        "    movs r1, #0\n"
-        "    movs r0, #1\n"
-        "    strh r0, [r7, #0x24]\n"
-        "    strh r1, [r7, #2]\n"
-        "    bl sub_080C9414\n"
-        "    b .L080C9622\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C95EC: .4byte 0x030046C0 @ IWRAM+0x46C0\n"
-        ".L080C95F0: .4byte 0x04000020 @ REG_BG2PA\n"
-        ".L080C95F4:\n"
-        "    ldr r1, .L080C9608\n"
-        "    movs r2, #0x80\n"
-        "    lsls r2, r2, #8\n"
-        "    adds r0, r2, #0\n"
-        "    ldrh r1, [r1, #6]\n"
-        "    adds r0, r0, r1\n"
-        "    mov r1, sb\n"
-        "    strh r0, [r1]\n"
-        "    b .L080C961A\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C9608: .4byte 0x0203B854 @ EWRAM+0x3B854\n"
-        ".L080C960C:\n"
-        "    movs r2, #0x80\n"
-        "    lsls r2, r2, #8\n"
-        "    adds r0, r2, #0\n"
-        "    ldrh r1, [r7, #2]\n"
-        "    adds r0, r0, r1\n"
-        "    mov r2, sb\n"
-        "    strh r0, [r2]\n"
-        ".L080C961A:\n"
-        "    movs r1, #0\n"
-        "    movs r0, #1\n"
-        "    strh r0, [r7, #0x24]\n"
-        "    strh r1, [r7, #2]\n"
-        ".L080C9622:\n"
-        "    movs r4, #0\n"
-        "    strh r4, [r7, #0x10]\n"
-        "    ldrh r0, [r7, #2]\n"
-        "    bl sub_080C9388\n"
-        "    cmp r0, #1\n"
-        "    bne .L080C9634\n"
-        "    strh r0, [r7, #0x16]\n"
-        "    b .L080C9636\n"
-        ".L080C9634:\n"
-        "    strh r4, [r7, #0x16]\n"
-        ".L080C9636:\n"
-        "    movs r1, #0\n"
-        "    movs r0, #1\n"
-        "    strh r0, [r7, #0x18]\n"
-        "    strh r1, [r7, #0x1c]\n"
-        "    strh r1, [r7, #0x1e]\n"
-        "    pop {r3, r4}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-    );
-}
-#endif
 
 // sub_080C964C @ 0x080C964C
 u32 sub_080C964C(u16 which)

@@ -173,7 +173,7 @@ void LocationBanner_Update(struct Task *task)
 {
     struct BannerData *d = (struct BannerData *)task->data;
     const u8 *s = gUnknown_08163444[d->index];
-    u32 len, i;
+    u32 i; /* first the name length, then the letter index */
     u32 x;
 
     if (--d->timer == 0)
@@ -182,15 +182,12 @@ void LocationBanner_Update(struct Task *task)
         if (d->shown != 10)
             d->shown++;
     }
-    for (len = 0; *s != ' '; s++)
-        len++;
-    x = ((8 - len) * 8 >> 1) + 0x57;
+    for (i = 0; *s != ' '; s++)
+        i++;
+    x = ((8 - i) * 8 >> 1) + 0x57;
     s = gUnknown_08163444[d->index];
     for (i = 0; i < d->shown && *s != ' '; i++, s++)
-    {
-        Sprite_DrawSingle(gUnknown_08163638, 0, 0, 0, i, x, 0x15);
-        x += 8;
-    }
+        Sprite_DrawSingle(gUnknown_08163638, 0, 0, 0, i, x + i * 8, 0x15);
     if (gFieldState.unk00 == 1)
         task->result = 0;
     else

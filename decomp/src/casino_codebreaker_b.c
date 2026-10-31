@@ -465,17 +465,16 @@ u8 sub_0814CD10(u8 mask, u8 row)
    first are left unpaired (also in unk60); unk61/unk71 = unpaired positions of the first,
    unk72 = unpaired positions of the second. */
 // sub_0814CD70 @ 0x0814CD70
-#ifdef NONMATCHING
 u8 sub_0814CD70(u8 rowA, u8 rowB)
 {
     struct C14aCodeBreaker *s = GY;
-    u16 i, j;
+    u16 i, j, k;
     u8 usedA, usedB, n;
 
-    for (i = 0; i < s->digits; i++)
+    for (k = 0; k < s->digits; k++)
     {
-        s->guessA[i] = s->board[rowA + i].symbol;
-        s->guessB[i] = s->board[rowB + i].symbol;
+        s->guessA[k] = s->board[rowA + k].symbol;
+        s->guessB[k] = s->board[rowB + k].symbol;
     }
     i = 0;
     usedA = 0;
@@ -502,164 +501,6 @@ u8 sub_0814CD70(u8 rowA, u8 rowB)
     s->unk60 = s->digits - n;
     return s->unk60;
 }
-#else
-NAKED
-u8 sub_0814CD70(u8 rowA, u8 rowB)
-{
-    asm_unified(
-        ".L0814CD70:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sl\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6, r7}\n"
-        "    sub sp, #0x18\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r5, r0, #0x18\n"
-        "    lsls r1, r1, #0x18\n"
-        "    lsrs r4, r1, #0x18\n"
-        "    ldr r0, .L0814CE40\n"
-        "    mov ip, r0\n"
-        "    movs r2, #0\n"
-        "    mov r3, ip\n"
-        "    adds r3, #0x2f\n"
-        "    ldrb r1, [r3]\n"
-        "    cmp r2, r1\n"
-        "    bhs .L0814CDC4\n"
-        "    mov r7, ip\n"
-        "    adds r7, #0x67\n"
-        "    mov r6, ip\n"
-        "    adds r6, #0x6c\n"
-        ".L0814CD9C:\n"
-        "    adds r1, r7, r2\n"
-        "    adds r0, r5, r2\n"
-        "    lsls r0, r0, #2\n"
-        "    add r0, ip\n"
-        "    adds r0, #0x78\n"
-        "    ldrb r0, [r0]\n"
-        "    strb r0, [r1]\n"
-        "    adds r1, r6, r2\n"
-        "    adds r0, r4, r2\n"
-        "    lsls r0, r0, #2\n"
-        "    add r0, ip\n"
-        "    adds r0, #0x78\n"
-        "    ldrb r0, [r0]\n"
-        "    strb r0, [r1]\n"
-        "    adds r0, r2, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r2, r0, #0x10\n"
-        "    ldrb r0, [r3]\n"
-        "    cmp r2, r0\n"
-        "    blo .L0814CD9C\n"
-        ".L0814CDC4:\n"
-        "    movs r1, #0\n"
-        "    mov sb, r1\n"
-        "    movs r2, #0\n"
-        "    str r2, [sp]\n"
-        "    mov sl, r2\n"
-        "    mov r0, ip\n"
-        "    adds r0, #0x2f\n"
-        "    adds r6, r0, #0\n"
-        "    mov r2, ip\n"
-        "    adds r2, #0x61\n"
-        "    str r2, [sp, #0x14]\n"
-        "    adds r2, #0x10\n"
-        "    str r2, [sp, #4]\n"
-        "    adds r2, #1\n"
-        "    str r2, [sp, #8]\n"
-        "    subs r2, #0x12\n"
-        "    str r2, [sp, #0x10]\n"
-        "    ldrb r2, [r0]\n"
-        "    cmp sl, r2\n"
-        "    bhs .L0814CE60\n"
-        ".L0814CDEC:\n"
-        "    movs r3, #0\n"
-        "    adds r2, r1, #1\n"
-        "    str r2, [sp, #0xc]\n"
-        "    ldrb r0, [r0]\n"
-        "    cmp r3, r0\n"
-        "    bhs .L0814CE52\n"
-        "    ldr r0, .L0814CE44\n"
-        "    mov r8, r0\n"
-        "    mov r0, ip\n"
-        "    adds r0, #0x6c\n"
-        "    adds r5, r0, r1\n"
-        "    mov r2, r8\n"
-        "    adds r7, r1, r2\n"
-        "    ldrb r4, [r6]\n"
-        ".L0814CE08:\n"
-        "    mov r1, r8\n"
-        "    adds r0, r3, r1\n"
-        "    ldrb r2, [r0]\n"
-        "    adds r0, r2, #0\n"
-        "    mov r1, sb\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    bne .L0814CE48\n"
-        "    mov r0, ip\n"
-        "    adds r0, #0x67\n"
-        "    adds r0, r0, r3\n"
-        "    ldrb r1, [r5]\n"
-        "    ldrb r0, [r0]\n"
-        "    cmp r1, r0\n"
-        "    bne .L0814CE48\n"
-        "    mov r0, sb\n"
-        "    orrs r0, r2\n"
-        "    mov sb, r0\n"
-        "    ldrb r0, [r7]\n"
-        "    ldr r1, [sp]\n"
-        "    orrs r1, r0\n"
-        "    str r1, [sp]\n"
-        "    mov r0, sl\n"
-        "    adds r0, #1\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r0, r0, #0x18\n"
-        "    mov sl, r0\n"
-        "    b .L0814CE52\n"
-        ".L0814CE40: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
-        ".L0814CE44: .4byte gUnknown_0879F05C\n"
-        ".L0814CE48:\n"
-        "    adds r0, r3, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r3, r0, #0x10\n"
-        "    cmp r3, r4\n"
-        "    blo .L0814CE08\n"
-        ".L0814CE52:\n"
-        "    ldr r2, [sp, #0xc]\n"
-        "    lsls r0, r2, #0x10\n"
-        "    lsrs r1, r0, #0x10\n"
-        "    adds r0, r6, #0\n"
-        "    ldrb r2, [r6]\n"
-        "    cmp r1, r2\n"
-        "    blo .L0814CDEC\n"
-        ".L0814CE60:\n"
-        "    mov r1, sb\n"
-        "    mvns r0, r1\n"
-        "    ldr r2, [sp, #0x14]\n"
-        "    strb r0, [r2]\n"
-        "    ldr r1, [sp, #4]\n"
-        "    strb r0, [r1]\n"
-        "    ldr r2, [sp]\n"
-        "    mvns r0, r2\n"
-        "    ldr r1, [sp, #8]\n"
-        "    strb r0, [r1]\n"
-        "    ldrb r0, [r6]\n"
-        "    mov r2, sl\n"
-        "    subs r0, r0, r2\n"
-        "    ldr r1, [sp, #0x10]\n"
-        "    strb r0, [r1]\n"
-        "    ldrb r0, [r1]\n"
-        "    add sp, #0x18\n"
-        "    pop {r3, r4, r5}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    mov sl, r5\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-    );
-}
-#endif
 
 // sub_0814CE90 @ 0x0814CE90
 void sub_0814CE90(u8 mask, u8 value)
