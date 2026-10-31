@@ -26,9 +26,7 @@ u32 GameState_TestFlag(struct GameState *save, u32 bit)
     return (save->flags[bit >> 3] >> (bit & 7)) & 1;
 }
 
-/* NONMATCHING: only the order of the x/y zero-extensions in the prologue differs. */
 // SaveScreen_DrawLocationName @ 0x080D035C
-#ifdef NONMATCHING
 void SaveScreen_DrawLocationName(struct GameState *state, u16 mode, u16 x, u16 y)
 {
     u16 *str;
@@ -37,7 +35,9 @@ void SaveScreen_DrawLocationName(struct GameState *state, u16 mode, u16 x, u16 y
     u16 ty;
 
     cx = x;
-    ty = y - 4;
+    /* Two statements: the extra RTL insn lengthens cx's live range so i outranks it for r5. */
+    ty = y;
+    ty += -4;
 
     if (mode != 3 && !GameState_TestFlag(state, 0x163) && GameState_TestFlag(state, 0xEE))
         str = gUnknown_084F20A8;
@@ -55,111 +55,6 @@ void SaveScreen_DrawLocationName(struct GameState *state, u16 mode, u16 x, u16 y
             break;
     }
 }
-#else
-NAKED
-void SaveScreen_DrawLocationName(struct GameState *state, u16 mode, u16 x, u16 y)
-{
-    asm_unified(
-        ".L080D035C:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, r8\n"
-        "    push {r7}\n"
-        "    sub sp, #4\n"
-        "    adds r4, r0, #0\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    lsls r2, r2, #0x10\n"
-        "    lsls r3, r3, #0x10\n"
-        "    lsrs r6, r2, #0x10\n"
-        "    ldr r0, .L080D0398\n"
-        "    adds r3, r3, r0\n"
-        "    lsrs r3, r3, #0x10\n"
-        "    mov r8, r3\n"
-        "    cmp r1, #3\n"
-        "    beq .L080D03A4\n"
-        "    ldr r1, .L080D039C\n"
-        "    adds r0, r4, #0\n"
-        "    bl GameState_TestFlag\n"
-        "    cmp r0, #0\n"
-        "    bne .L080D03A4\n"
-        "    adds r0, r4, #0\n"
-        "    movs r1, #0xee\n"
-        "    bl GameState_TestFlag\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D03A4\n"
-        "    ldr r4, .L080D03A0\n"
-        "    b .L080D03C4\n"
-        ".L080D0398: .4byte 0xFFFC0000\n"
-        ".L080D039C: .4byte 0x00000163\n"
-        ".L080D03A0: .4byte gUnknown_084F20A8\n"
-        ".L080D03A4:\n"
-        "    ldr r1, .L080D0418\n"
-        "    adds r0, r4, r1\n"
-        "    ldrh r0, [r0]\n"
-        "    ldr r2, .L080D041C\n"
-        "    adds r1, r4, r2\n"
-        "    ldrh r1, [r1]\n"
-        "    ldr r3, .L080D0420\n"
-        "    adds r2, r4, r3\n"
-        "    ldrh r2, [r2]\n"
-        "    movs r5, #0xa3\n"
-        "    lsls r5, r5, #4\n"
-        "    adds r3, r4, r5\n"
-        "    ldrh r3, [r3]\n"
-        "    bl Location_GetNameCellFromCoords\n"
-        "    adds r4, r0, #0\n"
-        ".L080D03C4:\n"
-        "    movs r5, #0\n"
-        "    ldrh r0, [r4]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D040A\n"
-        "    ldr r1, .L080D0424\n"
-        "    cmp r0, r1\n"
-        "    beq .L080D040A\n"
-        "    cmp r0, #0x57\n"
-        "    beq .L080D040A\n"
-        "    adds r7, r1, #0\n"
-        ".L080D03D8:\n"
-        "    ldrh r0, [r4]\n"
-        "    movs r1, #8\n"
-        "    str r1, [sp]\n"
-        "    ldr r1, .L080D0428\n"
-        "    adds r2, r6, #0\n"
-        "    mov r3, r8\n"
-        "    bl Font_DrawGlyphTinted\n"
-        "    adds r4, #2\n"
-        "    adds r0, r6, #0\n"
-        "    adds r0, #0xc\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r6, r0, #0x10\n"
-        "    adds r0, r5, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r5, r0, #0x10\n"
-        "    cmp r5, #0xf\n"
-        "    bhi .L080D040A\n"
-        "    ldrh r0, [r4]\n"
-        "    cmp r0, #0\n"
-        "    beq .L080D040A\n"
-        "    cmp r0, r7\n"
-        "    beq .L080D040A\n"
-        "    cmp r0, #0x57\n"
-        "    bne .L080D03D8\n"
-        ".L080D040A:\n"
-        "    add sp, #4\n"
-        "    pop {r3}\n"
-        "    mov r8, r3\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080D0418: .4byte 0x00000A32\n"
-        ".L080D041C: .4byte 0x00000A34\n"
-        ".L080D0420: .4byte 0x00000A2E\n"
-        ".L080D0424: .4byte 0x00000301\n"
-        ".L080D0428: .4byte 0x0200F874 @ EWRAM+0xF874\n"
-    );
-}
-#endif
 
 // SaveScreen_DrawTokenString @ 0x080D042C
 void SaveScreen_DrawTokenString(u16 *str, u16 y)

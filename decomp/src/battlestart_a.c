@@ -526,29 +526,14 @@ bool32 sub_080E54D4(void)
 }
 
 // sub_080E54F0 @ 0x080E54F0
-#ifdef NONMATCHING
-void sub_080E54F0(u16 song)
+u32 sub_080E54F0(u16 song)
 {
+    /* Declared with a return value but returns none: the incoming r0 stays
+       live to the end, which is why the original moves song to r2. */
     struct C15cBattle *b = BB;
 
     b->unk118A = song;
 }
-#else
-NAKED
-void sub_080E54F0(u16 song)
-{
-    asm_unified(
-        "    adds r2, r0, #0\n"
-        "    ldr r1, .L080E54FC\n"
-        "    ldr r3, .L080E5500\n"
-        "    adds r1, r1, r3\n"
-        "    strh r2, [r1]\n"
-        "    bx lr\n"
-        ".L080E54FC: .4byte 0x0203C200 @ EWRAM+0x3C200\n"
-        ".L080E5500: .4byte 0x0000118A\n"
-    );
-}
-#endif
 
 // sub_080E5504 @ 0x080E5504
 void sub_080E5504(void)

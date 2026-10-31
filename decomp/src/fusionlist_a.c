@@ -351,7 +351,6 @@ void sub_081543E8(struct FusionMenu *f, u16 sel, u16 y)
 
 /* 1 when demon id can still be picked in the current fusion step. */
 // sub_081544AC @ 0x081544AC
-#ifdef NONMATCHING
 u32 sub_081544AC(u16 id)
 {
     struct FusionMenu *f;
@@ -386,30 +385,30 @@ u32 sub_081544AC(u16 id)
     if (f->mode == 2 && f->sel == 1)
     {
         v = Fusion_GetPairIcon(f->picks[0]->demonId, Fusion_FindListSlot(id));
-        if ((v & 0xF) == 6 || (v & 0xF) == 8)
-            return 0;
-        return 1;
+        if ((v & 0xF) != 6 && (v & 0xF) != 8)
+            return 1;
+        return 0;
     }
     if (f->mode == 3 && f->sel == 2)
     {
         v = Fusion_GetPairIcon(f->picks[1]->demonId, Fusion_FindListSlot(id));
-        if ((v & 0xF) == 6 || (v & 0xF) == 8)
-            return 0;
-        return 1;
+        if ((v & 0xF) != 6 && (v & 0xF) != 8)
+            return 1;
+        return 0;
     }
     if (f->mode == 4 && f->sel == 1)
     {
         v = Fusion_GetPairIcon(gUnk_0203B854[0], Fusion_FindListSlot(id));
-        if ((v & 0xF) == 6 || (v & 0xF) == 8)
-            return 0;
-        return 1;
+        if ((v & 0xF) != 6 && (v & 0xF) != 8)
+            return 1;
+        return 0;
     }
     if (f->mode == 1 && f->sel == 1)
     {
         v = Fusion_GetPairIcon(gUnk_0203B854[0], Stock_FindSlotByDemonId(id));
-        if ((v & 0xF) == 6 || (v & 0xF) == 8)
-            return 0;
-        return 1;
+        if ((v & 0xF) != 6 && (v & 0xF) != 8)
+            return 1;
+        return 0;
     }
     if (f->mode == 5 && f->sel == 2)
     {
@@ -421,250 +420,6 @@ u32 sub_081544AC(u16 id)
     }
     return 1;
 }
-#else
-NAKED
-u32 sub_081544AC(u16 id)
-{
-    asm_unified(
-        ".L081544AC:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r6, r0, #0x10\n"
-        "    bl Fusion_CountList\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r7, r0, #0x10\n"
-        "    ldr r5, .L081544F8\n"
-        "    ldrh r0, [r5]\n"
-        "    cmp r0, #2\n"
-        "    bne .L081544FC\n"
-        "    ldrh r0, [r5, #8]\n"
-        "    cmp r0, #0\n"
-        "    bne .L081544FC\n"
-        "    movs r4, #0\n"
-        "    cmp r4, r7\n"
-        "    blo .L081544D0\n"
-        "    b .L08154678\n"
-        ".L081544D0:\n"
-        "    adds r0, r6, #0\n"
-        "    adds r1, r4, #0\n"
-        "    bl Fusion_GetPairIcon\n"
-        "    lsls r0, r0, #0x18\n"
-        "    movs r1, #0xf0\n"
-        "    lsls r1, r1, #0x14\n"
-        "    ands r1, r0\n"
-        "    lsrs r1, r1, #0x18\n"
-        "    cmp r1, #6\n"
-        "    beq .L081544EC\n"
-        "    cmp r1, #8\n"
-        "    beq .L081544EC\n"
-        "    b .L08154684\n"
-        ".L081544EC:\n"
-        "    adds r0, r4, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    cmp r4, r7\n"
-        "    blo .L081544D0\n"
-        "    b .L08154678\n"
-        ".L081544F8: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
-        ".L081544FC:\n"
-        "    ldrh r0, [r5]\n"
-        "    adds r1, r0, #0\n"
-        "    cmp r1, #3\n"
-        "    bne .L08154554\n"
-        "    ldrh r0, [r5, #8]\n"
-        "    cmp r0, #1\n"
-        "    bne .L0815454E\n"
-        "    movs r4, #0\n"
-        "    cmp r4, r7\n"
-        "    blo .L08154512\n"
-        "    b .L08154678\n"
-        ".L08154512:\n"
-        "    lsls r1, r4, #2\n"
-        "    adds r0, r5, #0\n"
-        "    adds r0, #0x1c\n"
-        "    adds r0, r0, r1\n"
-        "    ldr r0, [r0]\n"
-        "    ldrh r0, [r0, #0x12]\n"
-        "    bl Fusion_FindListSlot\n"
-        "    adds r1, r0, #0\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    adds r0, r6, #0\n"
-        "    bl Fusion_GetPairIcon\n"
-        "    lsls r0, r0, #0x18\n"
-        "    movs r1, #0xf0\n"
-        "    lsls r1, r1, #0x14\n"
-        "    ands r1, r0\n"
-        "    lsrs r1, r1, #0x18\n"
-        "    cmp r1, #6\n"
-        "    beq .L08154542\n"
-        "    cmp r1, #8\n"
-        "    beq .L08154542\n"
-        "    b .L08154684\n"
-        ".L08154542:\n"
-        "    adds r0, r4, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    cmp r4, r7\n"
-        "    blo .L08154512\n"
-        "    b .L08154678\n"
-        ".L0815454E:\n"
-        "    cmp r0, #0\n"
-        "    bne .L08154554\n"
-        "    b .L08154684\n"
-        ".L08154554:\n"
-        "    lsls r0, r1, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    cmp r0, #2\n"
-        "    bne .L0815458E\n"
-        "    ldrh r0, [r5, #8]\n"
-        "    cmp r0, #1\n"
-        "    bne .L0815458E\n"
-        "    ldr r0, [r5, #0x4c]\n"
-        "    ldrh r4, [r0, #0x12]\n"
-        "    adds r0, r6, #0\n"
-        "    bl Fusion_FindListSlot\n"
-        "    adds r1, r0, #0\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    adds r0, r4, #0\n"
-        "    bl Fusion_GetPairIcon\n"
-        "    lsls r0, r0, #0x18\n"
-        "    movs r1, #0xf0\n"
-        "    lsls r1, r1, #0x14\n"
-        "    ands r1, r0\n"
-        "    lsrs r1, r1, #0x18\n"
-        "    cmp r1, #6\n"
-        "    beq .L08154678\n"
-        "    cmp r1, #8\n"
-        "    beq .L0815458C\n"
-        "    b .L08154684\n"
-        ".L0815458C:\n"
-        "    b .L08154678\n"
-        ".L0815458E:\n"
-        "    lsls r0, r1, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    cmp r0, #3\n"
-        "    bne .L081545C6\n"
-        "    ldrh r0, [r5, #8]\n"
-        "    cmp r0, #2\n"
-        "    bne .L081545C6\n"
-        "    ldr r0, [r5, #0x50]\n"
-        "    ldrh r4, [r0, #0x12]\n"
-        "    adds r0, r6, #0\n"
-        "    bl Fusion_FindListSlot\n"
-        "    adds r1, r0, #0\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    adds r0, r4, #0\n"
-        "    bl Fusion_GetPairIcon\n"
-        "    lsls r0, r0, #0x18\n"
-        "    movs r1, #0xf0\n"
-        "    lsls r1, r1, #0x14\n"
-        "    ands r1, r0\n"
-        "    lsrs r1, r1, #0x18\n"
-        "    cmp r1, #6\n"
-        "    beq .L08154678\n"
-        "    cmp r1, #8\n"
-        "    bne .L08154684\n"
-        "    b .L08154678\n"
-        ".L081545C6:\n"
-        "    lsls r0, r1, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    cmp r0, #4\n"
-        "    bne .L08154604\n"
-        "    ldrh r0, [r5, #8]\n"
-        "    cmp r0, #1\n"
-        "    bne .L08154604\n"
-        "    ldr r0, .L08154600\n"
-        "    ldrh r4, [r0]\n"
-        "    adds r0, r6, #0\n"
-        "    bl Fusion_FindListSlot\n"
-        "    adds r1, r0, #0\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    adds r0, r4, #0\n"
-        "    bl Fusion_GetPairIcon\n"
-        "    lsls r0, r0, #0x18\n"
-        "    movs r1, #0xf0\n"
-        "    lsls r1, r1, #0x14\n"
-        "    ands r1, r0\n"
-        "    lsrs r1, r1, #0x18\n"
-        "    cmp r1, #6\n"
-        "    beq .L08154678\n"
-        "    cmp r1, #8\n"
-        "    bne .L08154684\n"
-        "    b .L08154678\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08154600: .4byte 0x0203B854 @ EWRAM+0x3B854\n"
-        ".L08154604:\n"
-        "    lsls r0, r1, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    cmp r0, #1\n"
-        "    bne .L08154640\n"
-        "    ldrh r0, [r5, #8]\n"
-        "    cmp r0, #1\n"
-        "    bne .L08154640\n"
-        "    ldr r0, .L0815463C\n"
-        "    ldrh r4, [r0]\n"
-        "    adds r0, r6, #0\n"
-        "    bl Stock_FindSlotByDemonId\n"
-        "    adds r1, r0, #0\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    adds r0, r4, #0\n"
-        "    bl Fusion_GetPairIcon\n"
-        "    lsls r0, r0, #0x18\n"
-        "    movs r1, #0xf0\n"
-        "    lsls r1, r1, #0x14\n"
-        "    ands r1, r0\n"
-        "    lsrs r1, r1, #0x18\n"
-        "    cmp r1, #6\n"
-        "    beq .L08154678\n"
-        "    cmp r1, #8\n"
-        "    bne .L08154684\n"
-        "    b .L08154678\n"
-        ".L0815463C: .4byte 0x0203B854 @ EWRAM+0x3B854\n"
-        ".L08154640:\n"
-        "    lsls r0, r1, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    cmp r0, #5\n"
-        "    bne .L08154684\n"
-        "    ldrh r0, [r5, #8]\n"
-        "    cmp r0, #2\n"
-        "    bne .L08154684\n"
-        "    ldr r4, .L0815467C\n"
-        "    ldrh r0, [r4]\n"
-        "    bl Fusion_GetDemonByIndex\n"
-        "    ldr r5, .L08154680\n"
-        "    adds r1, r5, #0\n"
-        "    adds r1, #0x90\n"
-        "    strh r0, [r1]\n"
-        "    ldrh r0, [r4, #2]\n"
-        "    bl Fusion_GetDemonByIndex\n"
-        "    adds r1, r5, #0\n"
-        "    adds r1, #0x92\n"
-        "    strh r0, [r1]\n"
-        "    adds r0, r5, #0\n"
-        "    adds r0, #0x94\n"
-        "    strh r6, [r0]\n"
-        "    bl Fusion_CalcItem\n"
-        "    cmp r0, #0\n"
-        "    bne .L08154684\n"
-        ".L08154678:\n"
-        "    movs r0, #0\n"
-        "    b .L08154686\n"
-        ".L0815467C: .4byte 0x0203B854 @ EWRAM+0x3B854\n"
-        ".L08154680: .4byte 0x0203B868 @ EWRAM+0x3B868\n"
-        ".L08154684:\n"
-        "    movs r0, #1\n"
-        ".L08154686:\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-    );
-}
-#endif
 
 // sub_0815468C @ 0x0815468C
 void sub_0815468C(void)
@@ -734,19 +489,17 @@ ok:
 void Fusion_DrawDemonName(u16 id, u16 x, u16 y, u16 tint)
 {
     s8 *rec = Demon_GetRecord(id);
-    u16 *name;
     u16 i;
 
     Race_GetName(rec[0]);
     i = 0;
-    name = (u16 *)(rec + 0x22);
-    for (; i < 8 && name[i] != 0; i++)
+    for (; i < 8 && ((u16 *)(rec + 0x22))[i] != 0; i++)
     {
         if (id == 0xFF)
             continue;
         if (rec[0] != 0x2C)
         {
-            sub_08153FC8(name[i], gUnk_0200F874, i * 10 + x, y, tint);
+            sub_08153FC8(((u16 *)(rec + 0x22))[i], gUnk_0200F874, i * 10 + x, y, tint);
             if (i == 0)
                 Fusion_DrawLevel((u8)rec[1], 0xE0, y + 5, tint);
         }
@@ -991,9 +744,9 @@ void Fusion_DrawListRow(struct FusionMenu *f, u16 row, u16 y)
     if (!sub_081544AC(m->demonId))
         tint = 2;
     Canvas_BlitOrTinted(&gUnknown_087E13E4[row * 32], gUnk_0200F874, 0, 3, 0, y, 8, 13, 4);
-    name = (u16 *)(rec + 0x22);
     for (i = 0; i < 3; i++)
         Font_DrawGlyphTinted(race[i], gUnk_0200F874, i * 12 + 10, y, tint);
+    name = (u16 *)(rec + 0x22);
     for (i = 0; i < 8 && name[i] != 0; i++)
     {
         if (rec[0] != 0x2C)
@@ -1021,13 +774,13 @@ void Fusion_DrawListRow(struct FusionMenu *f, u16 row, u16 y)
     {
         if (f->sel == 0)
             goto pair;
-        SUB_0815B884(gUnk_0203B854[0], 0xFFFF, m->demonId, &out[0], b = &out[1]);
+        SUB_0815B884(gUnk_0203B854[0], 0xFFFF, m->demonId, &out[0], a = &out[1]);
         gUnk_0203B854[3] = out[0];
         Fusion_DrawDemonName(out[0], 0x7C, y, 0);
         if (out[0] == 0xFF)
             return;
         Font_DrawGlyphTinted(0x115, gUnk_0200F874, 0xCE, y, 0);
-        Fusion_DrawLevel(Inventory_GetCount(*b), 0xDA, y + 3, 0);
+        Fusion_DrawLevel(Inventory_GetCount(*a), 0xDA, y + 3, 0);
     }
     else if (f->mode == 4)
     {
@@ -1699,404 +1452,78 @@ void sub_08154EEC(void)
 
 /* Column headers (RACE, NAME, RESULT, LV) and the slot numbers of the fusion list. */
 // Fusion_DrawListHeader @ 0x08154F4C
-#ifdef NONMATCHING
 void Fusion_DrawListHeader(void)
 {
     struct FusionMenu *f;
     u16 n = Fusion_CountList();
-    u16 i, j;
-    const u8 *label;
-    u16 x;
+    u16 i;
 
     f = &sFusion;
     SmallFont_DrawAsciiTinted(gUnknown_087E1C2C, gUnk_0200F874, 10, 0x44, 4, 8);
     SmallFont_DrawAsciiTinted(gUnknown_087E1C34, gUnk_0200F874, 0x32, 0x44, 4, 8);
     if (f->mode == 1)
     {
-        if (f->sel == 0)
+        if (f->sel != 0)
+            SmallFont_DrawAsciiTinted(gUnknown_087E1C3C, gUnk_0200F874, 0x82, 0x44, 4, 8);
+        else
         {
             n = Stock_CountLiving();
-            for (i = 0; i < n; i = j)
-            {
-                j = i + 1;
-                sub_08153F8C(j, gUnk_0200F874, i * 6 + 0x96, 0x44, 0);
-            }
-            return;
+            for (i = 0; i < n; i++)
+                sub_08153F8C(i + 1, gUnk_0200F874, i * 6 + 0x96, 0x44, 0);
         }
-        label = gUnknown_087E1C3C;
-        goto draw82;
     }
-    if (f->mode == 4)
+    else if (f->mode == 4)
     {
-        if (f->sel == 0)
+        if (f->sel != 0)
+            SmallFont_DrawAsciiTinted(gUnknown_087E1C3C, gUnk_0200F874, 0x82, 0x44, 4, 8);
+        else
         {
-            for (i = 0; i < n; i = j)
-            {
-                j = i + 1;
-                sub_08153F8C(j, gUnk_0200F874, i * 6 + 0x96, 0x44, 0);
-            }
-            return;
+            for (i = 0; i < n; i++)
+                sub_08153F8C(i + 1, gUnk_0200F874, i * 6 + 0x96, 0x44, 0);
         }
-        label = gUnknown_087E1C3C;
-        goto draw82;
     }
-    if (f->mode == 5)
+    else if (f->mode == 5)
     {
         if (f->sel == 2)
-        {
-            label = gUnknown_087E1C3C;
-            goto draw82;
-        }
-        if (f->sel == 1)
+            SmallFont_DrawAsciiTinted(gUnknown_087E1C3C, gUnk_0200F874, 0x82, 0x44, 4, 8);
+        else if (f->sel == 1)
         {
             n = Stock_CountLiving();
-            for (i = 0; i < n; i = j)
-            {
-                j = i + 1;
-                sub_08153F8C(j, gUnk_0200F874, i * 6 + 0x96, 0x44, 0);
-            }
+            for (i = 0; i < n; i++)
+                sub_08153F8C(i + 1, gUnk_0200F874, i * 6 + 0x96, 0x44, 0);
         }
-        return;
     }
-    if (f->mode == 2)
+    else if (f->mode == 2)
     {
         if (f->sel == 0)
         {
             SmallFont_DrawAsciiTinted(gUnknown_087E1C44, gUnk_0200F874, 0x82, 0x44, 4, 8);
-            for (i = 0; i < n; i = j)
-            {
-                j = i + 1;
-                sub_08153F8C(j, gUnk_0200F874, i * 6 + 0x96, 0x44, 0);
-            }
-            return;
+            for (i = 0; i < n; i++)
+                sub_08153F8C(i + 1, gUnk_0200F874, i * 6 + 0x96, 0x44, 0);
         }
-        SmallFont_DrawAsciiTinted(gUnknown_087E1C3C, gUnk_0200F874, 0x82, 0x44, 4, 8);
-        label = gUnknown_087E1C44;
-        x = 0xE0;
-        goto draw;
-    }
-    if (f->mode != 3)
-        return;
-    if (f->sel == 0)
-    {
-        label = gUnknown_087E1C44;
-        goto draw82;
-    }
-    if (f->sel == 1)
-    {
-        SmallFont_DrawAsciiTinted(gUnknown_087E1C44, gUnk_0200F874, 0x82, 0x44, 4, 8);
-        for (i = 0; i < n; i = j)
+        else
         {
-            j = i + 1;
-            sub_08153F8C(j, gUnk_0200F874, i * 6 + 0x96, 0x44, 0);
+            SmallFont_DrawAsciiTinted(gUnknown_087E1C3C, gUnk_0200F874, 0x82, 0x44, 4, 8);
+            SmallFont_DrawAsciiTinted(gUnknown_087E1C44, gUnk_0200F874, 0xE0, 0x44, 4, 8);
         }
     }
-    else if (f->sel == 2)
+    else if (f->mode == 3)
     {
-        SmallFont_DrawAsciiTinted(gUnknown_087E1C3C, gUnk_0200F874, 0x82, 0x44, 4, 8);
-        SmallFont_DrawAsciiTinted(gUnknown_087E1C44, gUnk_0200F874, 0xE0, 0x44, 4, 8);
+        if (f->sel == 0)
+            SmallFont_DrawAsciiTinted(gUnknown_087E1C44, gUnk_0200F874, 0x82, 0x44, 4, 8);
+        else if (f->sel == 1)
+        {
+            SmallFont_DrawAsciiTinted(gUnknown_087E1C44, gUnk_0200F874, 0x82, 0x44, 4, 8);
+            for (i = 0; i < n; i++)
+                sub_08153F8C(i + 1, gUnk_0200F874, i * 6 + 0x96, 0x44, 0);
+        }
+        else if (f->sel == 2)
+        {
+            SmallFont_DrawAsciiTinted(gUnknown_087E1C3C, gUnk_0200F874, 0x82, 0x44, 4, 8);
+            SmallFont_DrawAsciiTinted(gUnknown_087E1C44, gUnk_0200F874, 0xE0, 0x44, 4, 8);
+        }
     }
-    return;
-draw82:
-    x = 0x82;
-draw:
-    SmallFont_DrawAsciiTinted(label, gUnk_0200F874, x, 0x44, 4, 8);
 }
-#else
-NAKED
-void Fusion_DrawListHeader(void)
-{
-    asm_unified(
-        ".L08154F4C:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, r8\n"
-        "    push {r7}\n"
-        "    sub sp, #8\n"
-        "    bl Fusion_CountList\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r5, r0, #0x10\n"
-        "    ldr r7, .L08154F94\n"
-        "    ldr r0, .L08154F98\n"
-        "    ldr r1, .L08154F9C\n"
-        "    mov r8, r1\n"
-        "    movs r4, #4\n"
-        "    str r4, [sp]\n"
-        "    movs r6, #8\n"
-        "    str r6, [sp, #4]\n"
-        "    movs r2, #0xa\n"
-        "    movs r3, #0x44\n"
-        "    bl SmallFont_DrawAsciiTinted\n"
-        "    ldr r0, .L08154FA0\n"
-        "    str r4, [sp]\n"
-        "    str r6, [sp, #4]\n"
-        "    mov r1, r8\n"
-        "    movs r2, #0x32\n"
-        "    movs r3, #0x44\n"
-        "    bl SmallFont_DrawAsciiTinted\n"
-        "    ldrh r0, [r7]\n"
-        "    cmp r0, #1\n"
-        "    bne .L08154FE8\n"
-        "    ldrh r0, [r7, #8]\n"
-        "    cmp r0, #0\n"
-        "    beq .L08154FA8\n"
-        "    ldr r0, .L08154FA4\n"
-        "    b .L08155110\n"
-        ".L08154F94: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
-        ".L08154F98: .4byte gUnknown_087E1C2C\n"
-        ".L08154F9C: .4byte 0x0200F874 @ EWRAM+0xF874\n"
-        ".L08154FA0: .4byte gUnknown_087E1C34\n"
-        ".L08154FA4: .4byte gUnknown_087E1C3C\n"
-        ".L08154FA8:\n"
-        "    bl Stock_CountLiving\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r5, r0, #0x10\n"
-        "    movs r0, #0\n"
-        "    cmp r0, r5\n"
-        "    blo .L08154FB8\n"
-        "    b .L08155194\n"
-        ".L08154FB8:\n"
-        "    adds r4, r0, #1\n"
-        "    lsls r4, r4, #0x10\n"
-        "    lsrs r4, r4, #0x10\n"
-        "    lsls r2, r0, #1\n"
-        "    adds r2, r2, r0\n"
-        "    lsls r2, r2, #0x11\n"
-        "    movs r0, #0x96\n"
-        "    lsls r0, r0, #0x10\n"
-        "    adds r2, r2, r0\n"
-        "    lsrs r2, r2, #0x10\n"
-        "    movs r0, #0\n"
-        "    str r0, [sp]\n"
-        "    adds r0, r4, #0\n"
-        "    ldr r1, .L08154FE4\n"
-        "    movs r3, #0x44\n"
-        "    bl sub_08153F8C\n"
-        "    adds r0, r4, #0\n"
-        "    cmp r0, r5\n"
-        "    blo .L08154FB8\n"
-        "    b .L08155194\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08154FE4: .4byte 0x0200F874 @ EWRAM+0xF874\n"
-        ".L08154FE8:\n"
-        "    cmp r0, #4\n"
-        "    bne .L08155034\n"
-        "    ldrh r0, [r7, #8]\n"
-        "    cmp r0, #0\n"
-        "    beq .L08154FFC\n"
-        "    ldr r0, .L08154FF8\n"
-        "    b .L08155110\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08154FF8: .4byte gUnknown_087E1C3C\n"
-        ".L08154FFC:\n"
-        "    movs r0, #0\n"
-        "    cmp r0, r5\n"
-        "    blo .L08155004\n"
-        "    b .L08155194\n"
-        ".L08155004:\n"
-        "    adds r4, r0, #1\n"
-        "    lsls r4, r4, #0x10\n"
-        "    lsrs r4, r4, #0x10\n"
-        "    lsls r2, r0, #1\n"
-        "    adds r2, r2, r0\n"
-        "    lsls r2, r2, #0x11\n"
-        "    movs r1, #0x96\n"
-        "    lsls r1, r1, #0x10\n"
-        "    adds r2, r2, r1\n"
-        "    lsrs r2, r2, #0x10\n"
-        "    movs r0, #0\n"
-        "    str r0, [sp]\n"
-        "    adds r0, r4, #0\n"
-        "    ldr r1, .L08155030\n"
-        "    movs r3, #0x44\n"
-        "    bl sub_08153F8C\n"
-        "    adds r0, r4, #0\n"
-        "    cmp r0, r5\n"
-        "    blo .L08155004\n"
-        "    b .L08155194\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08155030: .4byte 0x0200F874 @ EWRAM+0xF874\n"
-        ".L08155034:\n"
-        "    cmp r0, #5\n"
-        "    bne .L0815508C\n"
-        "    ldrh r0, [r7, #8]\n"
-        "    cmp r0, #2\n"
-        "    bne .L08155048\n"
-        "    ldr r0, .L08155044\n"
-        "    b .L08155110\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08155044: .4byte gUnknown_087E1C3C\n"
-        ".L08155048:\n"
-        "    cmp r0, #1\n"
-        "    beq .L0815504E\n"
-        "    b .L08155194\n"
-        ".L0815504E:\n"
-        "    bl Stock_CountLiving\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r5, r0, #0x10\n"
-        "    movs r0, #0\n"
-        "    cmp r0, r5\n"
-        "    blo .L0815505E\n"
-        "    b .L08155194\n"
-        ".L0815505E:\n"
-        "    adds r4, r0, #1\n"
-        "    lsls r4, r4, #0x10\n"
-        "    lsrs r4, r4, #0x10\n"
-        "    lsls r2, r0, #1\n"
-        "    adds r2, r2, r0\n"
-        "    lsls r2, r2, #0x11\n"
-        "    movs r0, #0x96\n"
-        "    lsls r0, r0, #0x10\n"
-        "    adds r2, r2, r0\n"
-        "    lsrs r2, r2, #0x10\n"
-        "    movs r0, #0\n"
-        "    str r0, [sp]\n"
-        "    adds r0, r4, #0\n"
-        "    ldr r1, .L08155088\n"
-        "    movs r3, #0x44\n"
-        "    bl sub_08153F8C\n"
-        "    adds r0, r4, #0\n"
-        "    cmp r0, r5\n"
-        "    blo .L0815505E\n"
-        "    b .L08155194\n"
-        ".L08155088: .4byte 0x0200F874 @ EWRAM+0xF874\n"
-        ".L0815508C:\n"
-        "    cmp r0, #2\n"
-        "    bne .L08155104\n"
-        "    ldrh r0, [r7, #8]\n"
-        "    cmp r0, #0\n"
-        "    bne .L081550E0\n"
-        "    ldr r0, .L081550D8\n"
-        "    str r4, [sp]\n"
-        "    str r6, [sp, #4]\n"
-        "    mov r1, r8\n"
-        "    movs r2, #0x82\n"
-        "    movs r3, #0x44\n"
-        "    bl SmallFont_DrawAsciiTinted\n"
-        "    movs r0, #0\n"
-        "    cmp r0, r5\n"
-        "    bhs .L08155194\n"
-        ".L081550AC:\n"
-        "    adds r4, r0, #1\n"
-        "    lsls r4, r4, #0x10\n"
-        "    lsrs r4, r4, #0x10\n"
-        "    lsls r2, r0, #1\n"
-        "    adds r2, r2, r0\n"
-        "    lsls r2, r2, #0x11\n"
-        "    movs r1, #0x96\n"
-        "    lsls r1, r1, #0x10\n"
-        "    adds r2, r2, r1\n"
-        "    lsrs r2, r2, #0x10\n"
-        "    movs r0, #0\n"
-        "    str r0, [sp]\n"
-        "    adds r0, r4, #0\n"
-        "    ldr r1, .L081550DC\n"
-        "    movs r3, #0x44\n"
-        "    bl sub_08153F8C\n"
-        "    adds r0, r4, #0\n"
-        "    cmp r0, r5\n"
-        "    blo .L081550AC\n"
-        "    b .L08155194\n"
-        "    .byte 0x00, 0x00\n"
-        ".L081550D8: .4byte gUnknown_087E1C44\n"
-        ".L081550DC: .4byte 0x0200F874 @ EWRAM+0xF874\n"
-        ".L081550E0:\n"
-        "    ldr r0, .L081550FC\n"
-        "    str r4, [sp]\n"
-        "    str r6, [sp, #4]\n"
-        "    mov r1, r8\n"
-        "    movs r2, #0x82\n"
-        "    movs r3, #0x44\n"
-        "    bl SmallFont_DrawAsciiTinted\n"
-        "    ldr r0, .L08155100\n"
-        "    str r4, [sp]\n"
-        "    str r6, [sp, #4]\n"
-        "    mov r1, r8\n"
-        "    movs r2, #0xe0\n"
-        "    b .L08155118\n"
-        ".L081550FC: .4byte gUnknown_087E1C3C\n"
-        ".L08155100: .4byte gUnknown_087E1C44\n"
-        ".L08155104:\n"
-        "    cmp r0, #3\n"
-        "    bne .L08155194\n"
-        "    ldrh r0, [r7, #8]\n"
-        "    cmp r0, #0\n"
-        "    bne .L08155124\n"
-        "    ldr r0, .L08155120\n"
-        ".L08155110:\n"
-        "    str r4, [sp]\n"
-        "    str r6, [sp, #4]\n"
-        "    mov r1, r8\n"
-        "    movs r2, #0x82\n"
-        ".L08155118:\n"
-        "    movs r3, #0x44\n"
-        "    bl SmallFont_DrawAsciiTinted\n"
-        "    b .L08155194\n"
-        ".L08155120: .4byte gUnknown_087E1C44\n"
-        ".L08155124:\n"
-        "    cmp r0, #1\n"
-        "    bne .L08155170\n"
-        "    ldr r0, .L08155168\n"
-        "    str r4, [sp]\n"
-        "    str r6, [sp, #4]\n"
-        "    mov r1, r8\n"
-        "    movs r2, #0x82\n"
-        "    movs r3, #0x44\n"
-        "    bl SmallFont_DrawAsciiTinted\n"
-        "    movs r0, #0\n"
-        "    cmp r0, r5\n"
-        "    bhs .L08155194\n"
-        ".L0815513E:\n"
-        "    adds r4, r0, #1\n"
-        "    lsls r4, r4, #0x10\n"
-        "    lsrs r4, r4, #0x10\n"
-        "    lsls r2, r0, #1\n"
-        "    adds r2, r2, r0\n"
-        "    lsls r2, r2, #0x11\n"
-        "    movs r0, #0x96\n"
-        "    lsls r0, r0, #0x10\n"
-        "    adds r2, r2, r0\n"
-        "    lsrs r2, r2, #0x10\n"
-        "    movs r0, #0\n"
-        "    str r0, [sp]\n"
-        "    adds r0, r4, #0\n"
-        "    ldr r1, .L0815516C\n"
-        "    movs r3, #0x44\n"
-        "    bl sub_08153F8C\n"
-        "    adds r0, r4, #0\n"
-        "    cmp r0, r5\n"
-        "    blo .L0815513E\n"
-        "    b .L08155194\n"
-        ".L08155168: .4byte gUnknown_087E1C44\n"
-        ".L0815516C: .4byte 0x0200F874 @ EWRAM+0xF874\n"
-        ".L08155170:\n"
-        "    cmp r0, #2\n"
-        "    bne .L08155194\n"
-        "    ldr r0, .L081551A0\n"
-        "    str r4, [sp]\n"
-        "    str r6, [sp, #4]\n"
-        "    mov r1, r8\n"
-        "    movs r2, #0x82\n"
-        "    movs r3, #0x44\n"
-        "    bl SmallFont_DrawAsciiTinted\n"
-        "    ldr r0, .L081551A4\n"
-        "    str r4, [sp]\n"
-        "    str r6, [sp, #4]\n"
-        "    mov r1, r8\n"
-        "    movs r2, #0xe0\n"
-        "    movs r3, #0x44\n"
-        "    bl SmallFont_DrawAsciiTinted\n"
-        ".L08155194:\n"
-        "    add sp, #8\n"
-        "    pop {r3}\n"
-        "    mov r8, r3\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L081551A0: .4byte gUnknown_087E1C3C\n"
-        ".L081551A4: .4byte gUnknown_087E1C44\n"
-    );
-}
-#endif
 
 /* Redraws the six visible rows of the fusion list from row top. */
 // Fusion_DrawList @ 0x081551A8

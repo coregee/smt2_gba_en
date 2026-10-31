@@ -1054,13 +1054,14 @@ void Compendium_BuildList(struct Task *task, u32 page, u32 row, u32 setCursor)
     u16 *list = gStatusList;
     s32 first = 0;
     u32 found = 0;
-    u16 fill = 0xFFFF;
+    u16 end = 0xFFFF;
+    u16 fill = end;
     u32 i;
     u16 n;
     u16 j;
     u16 id;
-    const u16 *p;
-    u16 level;
+    u16 *p;
+    u32 level;
     u16 lo;
     u16 hi;
 
@@ -1076,11 +1077,16 @@ void Compendium_BuildList(struct Task *task, u32 page, u32 row, u32 setCursor)
     else if (page == 1)
     {
         n = 0;
-        for (i = 0; i <= 0xFE; i++)
+        i = 0;
+        {
+            const u16 *t = gUnknown_087E3204;
+            row = (u32)&t[row];
+        }
+        for (; i <= 0xFE; i++)
         {
             if (sub_080C28CC(i))
             {
-                if (Demon_GetRecord(i)->race == gUnknown_087E3204[row])
+                if (Demon_GetRecord(i)->race == *(const u16 *)row)
                 {
                     list[n] = i;
                     if (!found)
@@ -1100,85 +1106,99 @@ void Compendium_BuildList(struct Task *task, u32 page, u32 row, u32 setCursor)
     else if (page == 2)
     {
         u32 got = 0;
+        u16 k = 0;
 
-        n = 0;
         j = 0;
         id = gUnknown_08585C34[0].id;
-        if (id != fill)
+        if (id != end)
         {
-            do
+            for (;;)
             {
                 if (sub_080C28CC(id))
                 {
                     u16 align;
 
                     *list = id;
-                    align = gUnknown_08585C34[j].align;
+                    align = (&gUnknown_08585C34[0].align)[j * 2];
                     if (align != row)
-                        *list = id | 0x8000;
+                    {
+                        id |= 0x8000;
+                        *list = id;
+                    }
                     list++;
                     if (!got && align == row)
                     {
-                        first = n;
+                        first = k;
                         got = 1;
                     }
-                    n++;
+                    k++;
                 }
-                j++;
-                if (j > 0x17B)
+                if (++j > 0x17B || (id = gUnknown_08585C34[j].id) == 0xFFFF)
                     break;
-                id = gUnknown_08585C34[j].id;
-            } while (id != 0xFFFF);
+            }
         }
     }
     else if (page == 3)
     {
-        p = sub_080C9210(2);
-        level = row + 1;
-        for (; *p != fill; p += 2)
+        p = (u16 *)sub_080C9210(2);
         {
-            if (sub_080C28CC(*p))
-                *list++ = *p;
+            /* the first entry is read before level is computed */
+            u16 v = *p;
+
+            level = row + 1;
+            if (v != end)
+            {
+                do
+                {
+                    if (sub_080C28CC(*p))
+                        *list++ = *p;
+                    p += 2;
+                } while (*p != 0xFFFF);
+            }
         }
         list = gStatusList;
         for (i = 0; i <= 0x17B; i++)
         {
             u8 lv;
 
-            if (list[i] == 0xFFFF)
+            if (list[i] != 0xFFFF)
+            {
+                hi = (row + 1) * 10 - 1;
+                lv = Demon_GetRecord(list[i] & 0x7FFF)->level;
+                lo = row == 0 ? 1 : row * 10;
+                if (hi > 100)
+                    hi = 200;
+                if (lv >= lo && lv <= hi)
+                {
+                    first = (u16)i;
+                    break;
+                }
+            }
+            else
             {
                 first = 0;
-                break;
-            }
-            hi = level * 10 - 1;
-            lv = Demon_GetRecord(list[i] & 0x7FFF)->level;
-            lo = row == 0 ? 1 : row * 10;
-            if (hi > 100)
-                hi = 200;
-            if (lv >= lo && lv <= hi)
-            {
-                first = (u16)i;
                 break;
             }
         }
         i = 0;
         hi = level * 10;
-        if (*list != 0xFFFF)
+        p = list;
+        while (*p != 0xFFFF)
         {
-            do
+            if (hi > 100)
+                hi = 200;
+            if (Demon_GetRecord(*p & 0x7FFF)->level < hi)
             {
-                if (hi > 100)
-                    hi = 200;
-                if (Demon_GetRecord(*list & 0x7FFF)->level >= hi)
-                    *list |= 0x8000;
-                else if (row != 0 && Demon_GetRecord(*list & 0x7FFF)->level < row * 10)
-                    *list |= 0x8000;
-                list++;
-                i++;
-                if (i > 0x17B)
-                    break;
-                hi = level * 10;
-            } while (*list != 0xFFFF);
+                if (row != 0 && Demon_GetRecord(*p & 0x7FFF)->level < row * 10)
+                    *p |= 0x8000;
+            }
+            else
+                *p |= 0x8000;
+            p++;
+            i++;
+            if (i > 0x17B)
+                break;
+            hi = level * 10;
         }
     }
     if (setCursor == 1)
@@ -1193,6 +1213,7 @@ void Compendium_BuildList(struct Task *task, u32 page, u32 row, u32 setCursor)
         if (count <= 6)
         {
             *cur = first;
+            *top = 0;
         }
         else if (first > count - 7)
         {

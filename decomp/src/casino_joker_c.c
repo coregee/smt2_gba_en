@@ -115,15 +115,11 @@ void sub_08145998(struct Task *task, u32 arg)
 }
 
 // sub_081459B4 @ 0x081459B4
-#ifdef NONMATCHING
 void sub_081459B4(struct Task *task)
 {
     struct CasinoState *s = gCasino;
     struct C145TaskData *d = (struct C145TaskData *)&task->data;
-    const u32 (*t4)[4];
-    const u32 (*t5)[5];
     u32 v;
-    u32 row, col;
 
     if (task->data.h[0] == 9)
     {
@@ -134,126 +130,24 @@ void sub_081459B4(struct Task *task)
         switch (d->h2)
         {
         case 0:
-            t4 = gUnknown_0879B804;
-            goto four;
+            v = gUnknown_0879B804[s->unk98 - 1][d->h0 - 5];
+            break;
         case 3:
-            t4 = gUnknown_0879B704;
-            goto four;
+            v = gUnknown_0879B704[s->unk98 - 1][d->h0 - 5];
+            break;
         case 4:
-            t4 = gUnknown_0879B784;
-        four:
-            col = d->h0 - 5;
-            row = s->unk98 - 1;
-            v = *(const u32 *)(col * 4 + row * 16 + (u32)t4);
+            v = gUnknown_0879B784[s->unk98 - 1][d->h0 - 5];
             break;
         case 1:
-            t5 = gUnknown_0879B5C4;
-            goto five;
+            v = gUnknown_0879B5C4[s->unk98 - 1][d->h0 - 4];
+            break;
         case 2:
-            t5 = gUnknown_0879B664;
-        five:
-            col = d->h0 - 4;
-            row = s->unk98 - 1;
-            v = ((const u32 *)t5)[row * 5 + col];
+            v = gUnknown_0879B664[s->unk98 - 1][d->h0 - 4];
             break;
         }
     }
     d->w8 = v;
 }
-#else
-NAKED
-void sub_081459B4(struct Task *task)
-{
-    asm_unified(
-        "    push {r4, r5, lr}\n"
-        "    ldr r5, .L081459D0\n"
-        "    adds r4, r0, #0\n"
-        "    adds r4, #0x24\n"
-        "    ldrh r0, [r0, #0x24]\n"
-        "    cmp r0, #9\n"
-        "    bne .L081459D8\n"
-        "    ldr r1, .L081459D4\n"
-        "    adds r0, r5, #0\n"
-        "    adds r0, #0x98\n"
-        "    ldr r0, [r0]\n"
-        "    lsls r0, r0, #2\n"
-        "    adds r0, r0, r1\n"
-        "    b .L08145A50\n"
-        ".L081459D0: .4byte 0x0203A454 @ EWRAM+0x3A454\n"
-        ".L081459D4: .4byte gUnknown_0879B5A0\n"
-        ".L081459D8:\n"
-        "    ldrh r0, [r4, #2]\n"
-        "    cmp r0, #4\n"
-        "    bhi .L08145A52\n"
-        "    lsls r0, r0, #2\n"
-        "    ldr r1, .L081459E8\n"
-        "    adds r0, r0, r1\n"
-        "    ldr r0, [r0]\n"
-        "    mov pc, r0\n"
-        ".L081459E8: .4byte gUnknown_081459EC\n"
-        "    .global gUnknown_081459EC\n"
-        "gUnknown_081459EC:\n"
-        ".L081459EC: @ jump table\n"
-        "    .4byte .L08145A00\n"
-        "    .4byte .L08145A30\n"
-        "    .4byte .L08145A38\n"
-        "    .4byte .L08145A08\n"
-        "    .4byte .L08145A10\n"
-        ".L08145A00:\n"
-        "    ldr r2, .L08145A04\n"
-        "    b .L08145A12\n"
-        ".L08145A04: .4byte gUnknown_0879B804\n"
-        ".L08145A08:\n"
-        "    ldr r2, .L08145A0C\n"
-        "    b .L08145A12\n"
-        ".L08145A0C: .4byte gUnknown_0879B704\n"
-        ".L08145A10:\n"
-        "    ldr r2, .L08145A2C\n"
-        ".L08145A12:\n"
-        "    ldrh r1, [r4]\n"
-        "    subs r1, #5\n"
-        "    lsls r1, r1, #2\n"
-        "    adds r0, r5, #0\n"
-        "    adds r0, #0x98\n"
-        "    ldr r0, [r0]\n"
-        "    subs r0, #1\n"
-        "    lsls r0, r0, #4\n"
-        "    adds r1, r1, r0\n"
-        "    adds r1, r1, r2\n"
-        "    ldr r1, [r1]\n"
-        "    b .L08145A52\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08145A2C: .4byte gUnknown_0879B784\n"
-        ".L08145A30:\n"
-        "    ldr r3, .L08145A34\n"
-        "    b .L08145A3A\n"
-        ".L08145A34: .4byte gUnknown_0879B5C4\n"
-        ".L08145A38:\n"
-        "    ldr r3, .L08145A5C\n"
-        ".L08145A3A:\n"
-        "    ldrh r2, [r4]\n"
-        "    subs r2, #4\n"
-        "    adds r0, r5, #0\n"
-        "    adds r0, #0x98\n"
-        "    ldr r1, [r0]\n"
-        "    subs r1, #1\n"
-        "    lsls r0, r1, #2\n"
-        "    adds r0, r0, r1\n"
-        "    adds r0, r0, r2\n"
-        "    lsls r0, r0, #2\n"
-        "    adds r0, r0, r3\n"
-        ".L08145A50:\n"
-        "    ldr r1, [r0]\n"
-        ".L08145A52:\n"
-        "    str r1, [r4, #8]\n"
-        "    pop {r4, r5}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08145A5C: .4byte gUnknown_0879B664\n"
-    );
-}
-#endif
 
 // sub_08145A60 @ 0x08145A60
 void sub_08145A60(struct Task *task)

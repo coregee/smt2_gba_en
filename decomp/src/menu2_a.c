@@ -7,17 +7,19 @@
 #ifdef NONMATCHING
 void sub_080D2F04(u16 id, u16 x, u16 y)
 {
-    u16 *name;
+    /* name is held as an integer: with a pointer-typed base loop.c
+       eliminates the counter i (the original keeps `cmp i, #7`). */
+    u32 name;
     u32 i;
 
     if (id != 0xFFFF)
     {
-        name = (u16 *)(Demon_GetRecord(id) + 0x22);
-        for (i = 0; i < 8 && *name != 0; i++)
-        {
-            FontSprite_DrawGlyph(*name, 0, 0, x + i * 12, y);
-            name++;
-        }
+        u8 *rec = Demon_GetRecord(id);
+
+        i = 0;
+        name = (u32)(rec + 0x22);
+        for (; i < 8 && ((u16 *)name)[i] != 0; i++)
+            FontSprite_DrawGlyph(((u16 *)name)[i], 0, 0, x + i * 12, y);
     }
 }
 #else

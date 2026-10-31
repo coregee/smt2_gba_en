@@ -130,9 +130,13 @@ void Field_UpdateFrame(void)
     u32 kind;
     const u16 *m;
 
-    fs.unk38 = gUnk_030031D0;
-    fs.unk3A = gKeysNew;
-    fs.unk3C = gRepeatedKeys;
+    {
+        volatile struct FieldState *keys = &gFieldState;
+
+        keys->unk38 = gUnk_030031D0;
+        keys->unk3A = gKeysNew;
+        keys->unk3C = gRepeatedKeys;
+    }
     if (gUnk_03003FF8 != 0)
     {
         Map_LoadGraphicsStep(gUnk_03004614, gUnk_03004514);
@@ -206,9 +210,13 @@ void Field_UpdateFrame(void)
                 return;
             }
             /* scripted walk: as if UP were held */
-            fs.unk3A = 0;
-            fs.unk38 = 0x40;
-            fs.unk3C = 0;
+            {
+                volatile struct FieldState *keys = &gFieldState;
+
+                keys->unk3A = 0;
+                keys->unk38 = 0x40;
+                keys->unk3C = 0;
+            }
         }
         Field_HandleInput(fs.unk38);
         break;
@@ -307,10 +315,17 @@ void Field_UpdateFrame(void)
             if (rec != NULL)
             {
                 /* one script per facing direction */
-                script = rec->scripts[fs.unk02];
-                rec = (const struct FieldRec *)FieldMap_FindRecord(recs, 0x1A);
-                if (rec != NULL)
-                    sub_080B011C(rec->arg);
+                const struct FieldRec *r1A;
+
+                {
+                    u32 k = fs.unk02 * 4;
+                    const void *const *s = rec->scripts;
+
+                    script = *(const void **)((u32)s + k);
+                }
+                r1A = (const struct FieldRec *)FieldMap_FindRecord(recs, 0x1A);
+                if (r1A != NULL)
+                    sub_080B011C(r1A->arg);
             }
             else if (ev != NULL && flag != 0xFFFF && sub_080C2480(flag) != 1)
             {

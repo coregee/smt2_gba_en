@@ -405,7 +405,11 @@ bool32 sub_08127E98(u16 id)
     return 0;
 }
 
-/* Draws up to five rows of C127_BLOCK->list starting at `start`, one row per frame. */
+/* Draws up to five rows of C127_BLOCK->list starting at `start`, one row per frame.
+   Mode 5 packs the first index (low byte) and the highlighted id (high byte) in `start`. */
+/* NONMATCHING: 11 instructions left, all scratch-register choices: the mode-5 entry index
+   (r1 instead of r0) and loop 0xFFFF (r2 instead of r0), and the reload register of the
+   hoisted &gGameState in mode 8 (r0 instead of r2). */
 // BattleMenu_DrawListPage @ 0x08127EAC
 #ifdef NONMATCHING
 void BattleMenu_DrawListPage(u8 mode, u16 start)
@@ -495,29 +499,28 @@ void BattleMenu_DrawListPage(u8 mode, u16 start)
     case 5:
         lo = 0xFF;
         lo &= start;
-        start >>= 8;
+        {
+        u16 hi = start >> 8;
+
         i = 0;
-        while ((v = blk->list[(lo + i) * 2]) != 0xFFFF)
+        while ((v = blk->list[(i + lo) * 2]) != 0xFFFF)
         {
             if (v < 0x80)
-                rec = Item_GetRecord(v) + 0x14;
+                str = (u16 *)(Item_GetRecord(v) + 0x14);
             else if (v < 0xD0)
-                rec = Equipment_GetRecord36_MidRange(v) + 0x14;
+                str = (u16 *)(Equipment_GetRecord36_MidRange(v) + 0x14);
             else if (v < 0xFF)
-                rec = Action_GetRecord(v) + 0xC;
-            else
-                goto keep;
-            str = (u16 *)rec;
-        keep:
+                str = (u16 *)(Action_GetRecord(v) + 0xC);
             tint = 0;
-            if (v == start)
+            if (v == hi)
                 tint = 2;
             sub_08127394(str, i, tint);
-            sub_0812756C(blk->list[(lo + i) * 2 + 1], i, tint);
+            sub_0812756C(blk->list[(i + lo) * 2 + 1], i, tint);
             VBlankTask_AddCounted(sub_08127E04, 1);
             i++;
             if (i > 4)
                 break;
+        }
         }
         break;
     case 6:
@@ -557,19 +560,27 @@ void BattleMenu_DrawListPage(u8 mode, u16 start)
         }
         break;
     case 8:
-        i = 0;
-        while ((v = blk->list[i + start]) != 0xFFFF)
         {
-            rec = sub_080BF5C0(v);
+        u32 id;
+
+        i = 0;
+        while ((id = blk->list[i + start]) != 0xFFFF)
+        {
+            rec = sub_080BF5C0(id);
             sub_081272CC((u16 *)(rec + 6), i);
-            if (sub_08127E98(v) == 1)
-                sub_081277AC(gGameState.members[(u16)gGameState.order[blk->unk691]].maxHp * rec[3] / 100, i);
+            if (sub_08127E98(id) == 1)
+            {
+                u16 k = gGameState.order[blk->unk691];
+
+                sub_081277AC(rec[3] * gGameState.members[k].maxHp / 100, i);
+            }
             else
                 sub_08127678(rec[3], i);
             VBlankTask_AddCounted(sub_08127E04, 1);
             i++;
             if (i > 4)
                 break;
+        }
         }
         break;
     }

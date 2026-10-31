@@ -73,7 +73,7 @@ address	mode	size	name	confidence	state	file
 080AB184	thumb	34	PalFade_AllDone	probable	c	src/sys_palette.c
 080AB1A8	thumb	26			c	src/sys_palette.c
 080AB1C4	thumb	140	Tilemap_OffsetRect	probable	c	src/sys_tilemap.c
-080AB250	thumb	164	Tilemap_CopyRectSkipZero	probable	nonmatching	src/sys_tilemap.c
+080AB250	thumb	164	Tilemap_CopyRectSkipZero	probable	c	src/sys_tilemap.c
 080AB2F4	thumb	154	Tilemap_CopyRect	probable	c	src/sys_tilemap.c
 080AB390	thumb	166	Tilemap_CopyRectStride	probable	c	src/sys_tilemap.c
 080AB438	thumb	100	Tilemap_FillRect	probable	c	src/sys_tilemap.c
@@ -280,7 +280,7 @@ address	mode	size	name	confidence	state	file
 080AF72C	thumb	188			c	src/field_b.c
 080AF7E8	thumb	116			c	src/field_b.c
 080AF85C	thumb	116			c	src/field_b.c
-080AF8D0	thumb	2124	Field_CheckCellEvents	probable	nonmatching	src/fieldcheck_a.c
+080AF8D0	thumb	2124	Field_CheckCellEvents	probable	c	src/fieldcheck_a.c
 080B011C	thumb	60			c	src/field_c.c
 080B0158	thumb	52			c	src/field_c.c
 080B018C	thumb	60			c	src/field_c.c
@@ -390,7 +390,7 @@ address	mode	size	name	confidence	state	file
 080B449C	thumb	372	Automap_CellToScreen	probable	c	src/automap_a.c
 080B4610	thumb	92	Automap_DrawMarkerSprite	probable	c	src/automap_a.c
 080B466C	thumb	352	Automap_DrawSprites	probable	c	src/automap_a.c
-080B47CC	thumb	134	Automap_BuildAroundPlayer	probable	nonmatching	src/automap_a.c
+080B47CC	thumb	134	Automap_BuildAroundPlayer	probable	c	src/automap_a.c
 080B4854	thumb	512	Automap_BuildIconMap	probable	c	src/automap_a.c
 080B4A54	thumb	80	Automap_HasCells	probable	c	src/automap_a.c
 080B4AA4	thumb	180	Automap_DrawTilemap	probable	c	src/automap_a.c
@@ -1351,21 +1351,21 @@ address	mode	size	name	confidence	state	file
 080C700C	thumb	44			c	src/hudslide_a.c
 080C7038	thumb	28			c	src/hudslide_a.c
 080C7054	thumb	28			c	src/hudslide_a.c
-080C7070	thumb	380	Hud_SlidePartyPanel	probable	nonmatching	src/hudslide_a.c
+080C7070	thumb	380	Hud_SlidePartyPanel	probable	c	src/hudslide_a.c
 080C71EC	thumb	44			c	src/hudslide_a.c
 080C7218	thumb	28			c	src/hudslide_a.c
 080C7234	thumb	56			c	src/hudslide_a.c
 080C726C	thumb	424			c	src/hudslide_a.c
 080C7414	thumb	28			c	src/hudslide_a.c
 080C7430	thumb	44			c	src/hudslide_a.c
-080C745C	thumb	464			nonmatching	src/hudslide_a.c
+080C745C	thumb	464			c	src/hudslide_a.c
 080C762C	thumb	28			c	src/hudslide_a.c
 080C7648	thumb	28			c	src/hudslide_a.c
 080C7664	thumb	80			c	src/hudslide_a.c
-080C76B4	thumb	404			nonmatching	src/hudslide_a.c
+080C76B4	thumb	404			c	src/hudslide_a.c
 080C7848	thumb	28			c	src/hudslide_a.c
 080C7864	thumb	28			c	src/hudslide_a.c
-080C7880	thumb	588			nonmatching	src/hudslide_a.c
+080C7880	thumb	588			c	src/hudslide_a.c
 080C7ACC	thumb	20			c	src/hudslide_a.c
 080C7AE0	thumb	16			c	src/hudslide_a.c
 080C7AF0	thumb	12			c	src/hudslide_a.c
@@ -1380,7 +1380,7 @@ address	mode	size	name	confidence	state	file
 080C7DD0	thumb	82	Hud_RenderSpriteText	probable	c	src/hudslide_b.c
 080C7E24	thumb	108	Hud_RenderGlyphTiles	probable	c	src/hudslide_b.c
 080C7E90	thumb	34			c	src/hudslide_b.c
-080C7EB4	thumb	72			nonmatching	src/hudslide_b.c
+080C7EB4	thumb	72			c	src/hudslide_b.c
 080C7EFC	thumb	104	Hud_UploadMoonTiles	probable	c	src/hudslide_b.c
 080C7F64	thumb	108			c	src/hudslide_b.c
 080C7FD0	thumb	120			c	src/hudslide_b.c
@@ -1631,7 +1631,7 @@ address	mode	size	name	confidence	state	file
 080D0264	thumb	36			c	src/options_a.c
 080D0288	thumb	182	Menu_DrawCombatantName8px	tentative	c	src/menu_a.c
 080D0340	thumb	28	GameState_TestFlag	probable	c	src/menu_a.c
-080D035C	thumb	208	SaveScreen_DrawLocationName	tentative	nonmatching	src/menu_a.c
+080D035C	thumb	208	SaveScreen_DrawLocationName	tentative	c	src/menu_a.c
 080D042C	thumb	108	SaveScreen_DrawTokenString	tentative	c	src/menu_a.c
 080D0498	thumb	476	SaveScreen_DrawSlot	probable	c	src/menu_a.c
 080D0674	thumb	72			c	src/menu_b.c
@@ -2409,7 +2409,7 @@ address	mode	size	name	confidence	state	file
 080E51FC	thumb	34			c	src/battlestart_a.c
 080E5220	thumb	692			c	src/battlestart_a.c
 080E54D4	thumb	26			c	src/battlestart_a.c
-080E54F0	thumb	20			nonmatching	src/battlestart_a.c
+080E54F0	thumb	20			c	src/battlestart_a.c
 080E5504	thumb	36			c	src/battlestart_a.c
 080E5528	thumb	148			c	src/battlestart_a.c
 080E55BC	thumb	84			c	src/battlestart_a.c
@@ -2670,10 +2670,10 @@ address	mode	size	name	confidence	state	file
 080EDB04	thumb	40			c	src/battle_080ED5B4.c
 080EDB2C	thumb	62			c	src/battle_080ED5B4.c
 080EDB6C	thumb	94	Battle_SortEntriesInsertion	probable	c	src/battle_080EDB6C.c
-080EDBCC	thumb	334	Battle_SortEntriesQuick	probable	nonmatching	src/battle_080EDB6C.c
+080EDBCC	thumb	334	Battle_SortEntriesQuick	probable	c	src/battle_080EDB6C.c
 080EDD1C	thumb	112	Battle_RollSpeed	probable	c	src/battle_080EDB6C.c
 080EDD8C	thumb	228	Battle_BuildActionOrder	probable	c	src/battle_080EDB6C.c
-080EDE70	thumb	156			nonmatching	src/battle_080EDB6C.c
+080EDE70	thumb	156			c	src/battle_080EDB6C.c
 080EDF0C	thumb	282			c	src/battle_080EDB6C.c
 080EE028	thumb	228			c	src/battle_080EDB6C.c
 080EE10C	thumb	476	Battle_BuildTargetList	probable	c	src/battle_080EDB6C.c
@@ -3590,7 +3590,7 @@ address	mode	size	name	confidence	state	file
 08139040	thumb	60	ScriptOp_408	probable	c	src/scriptops_402.c
 0813907C	thumb	16	ScriptOpAlt_408	probable	c	src/scriptops_402.c
 0813908C	thumb	192	ScriptOp_409	probable	c	src/scriptops_402.c
-0813914C	thumb	872	CasinoPrize_DrawList	tentative	nonmatching	src/casinoprize_a.c
+0813914C	thumb	872	CasinoPrize_DrawList	tentative	c	src/casinoprize_a.c
 081394B4	thumb	80	CasinoPrize_GetSet	probable	c	src/casinoprize_a.c
 08139504	thumb	16	ScriptOpAlt_409	probable	c	src/casinoprize_a.c
 08139514	thumb	252	ScriptOp_40A	probable	c	src/casinoprize_a.c
@@ -3935,7 +3935,7 @@ address	mode	size	name	confidence	state	file
 0814590C	thumb	38			c	src/casino_joker_c.c
 08145934	thumb	98			c	src/casino_joker_c.c
 08145998	thumb	28			c	src/casino_joker_c.c
-081459B4	thumb	172			nonmatching	src/casino_joker_c.c
+081459B4	thumb	172			c	src/casino_joker_c.c
 08145A60	thumb	76			c	src/casino_joker_c.c
 08145AAC	thumb	132			c	src/casino_joker_c.c
 08145B30	thumb	48			c	src/casino_joker_c.c
@@ -4200,7 +4200,7 @@ address	mode	size	name	confidence	state	file
 08154344	thumb	70	Stock_FindSlotByDemonId	probable	c	src/fusionlist_a.c
 0815438C	thumb	90			c	src/fusionlist_a.c
 081543E8	thumb	194			c	src/fusionlist_a.c
-081544AC	thumb	480			nonmatching	src/fusionlist_a.c
+081544AC	thumb	480			c	src/fusionlist_a.c
 0815468C	thumb	12			c	src/fusionlist_a.c
 08154698	thumb	28			c	src/fusionlist_a.c
 081546B4	thumb	36			c	src/fusionlist_a.c
@@ -4215,7 +4215,7 @@ address	mode	size	name	confidence	state	file
 08154A38	thumb	1160	Fusion_DrawListRow	probable	nonmatching	src/fusionlist_a.c
 08154EC0	thumb	44			c	src/fusionlist_a.c
 08154EEC	thumb	96			c	src/fusionlist_a.c
-08154F4C	thumb	604	Fusion_DrawListHeader	probable	nonmatching	src/fusionlist_a.c
+08154F4C	thumb	604	Fusion_DrawListHeader	probable	c	src/fusionlist_a.c
 081551A8	thumb	80	Fusion_DrawList	probable	c	src/fusionlist_a.c
 081551F8	thumb	240			c	src/fusionlist_b.c
 081552E8	thumb	140			c	src/fusionlist_b.c

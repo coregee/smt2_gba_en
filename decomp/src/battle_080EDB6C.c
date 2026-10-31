@@ -18,10 +18,10 @@ void Battle_SortEntriesInsertion(u16 lo, u16 hi, struct SortEntry *a)
     }
 }
 
-// Battle_SortEntriesQuick @ 0x080EDBCC
-#ifdef NONMATCHING
 /* Quicksort (descending by key) with an explicit stack; runs of up to 10 entries are left
-   for the insertion sort at the end. */
+   for the insertion sort at the end. The pop/partition loop is a do-while entered at its
+   middle: the loop notes weight r, sp and a the way the original register choice needs. */
+// Battle_SortEntriesQuick @ 0x080EDBCC
 void Battle_SortEntriesQuick(u16 lo, u16 n, struct SortEntry *a)
 {
     u16 stackHi[32];
@@ -35,244 +35,58 @@ void Battle_SortEntriesQuick(u16 lo, u16 n, struct SortEntry *a)
     if (r - l > 10)
         goto partition;
     goto done;
-pop:
-    sp--;
-    l = stackLo[sp];
-    r = stackHi[sp];
-partition:
+    do
     {
-        s32 pivot = a[(l + r) / 2].key;
-        u32 i = l - 1;
-        u32 j = r + 1;
+        sp--;
+        l = stackLo[sp];
+        r = stackHi[sp];
+    partition:
+        {
+            s32 pivot = a[(l + r) / 2].key;
+            u32 i = l - 1;
+            u32 j = r + 1;
 
-        for (;;)
-        {
-            while (a[++i].key > pivot)
-                ;
-            while (a[--j].key < pivot)
-                ;
-            if (i >= j)
-                break;
+            for (;;)
             {
-                struct SortEntry t = a[i];
-                a[i] = a[j];
-                a[j] = t;
+                while (a[++i].key > pivot)
+                    ;
+                while (a[--j].key < pivot)
+                    ;
+                if (i >= j)
+                    break;
+                {
+                    struct SortEntry t = a[i];
+                    a[i] = a[j];
+                    a[j] = t;
+                }
+            }
+            if (i - l > r - j)
+            {
+                if (i - l > 10)
+                {
+                    stackLo[sp] = l;
+                    stackHi[sp] = i - 1;
+                    sp++;
+                }
+                l = j + 1;
+            }
+            else
+            {
+                if (r - j > 10)
+                {
+                    stackLo[sp] = j + 1;
+                    stackHi[sp] = r;
+                    sp++;
+                }
+                r = i - 1;
             }
         }
-        if (i - l > r - j)
-        {
-            if (i - l > 10)
-            {
-                stackLo[sp] = l;
-                stackHi[sp] = i - 1;
-                sp++;
-            }
-            l = j + 1;
-        }
-        else
-        {
-            if (r - j > 10)
-            {
-                stackLo[sp] = j + 1;
-                stackHi[sp] = r;
-                sp++;
-            }
-            r = i - 1;
-        }
-    }
-    if (r - l > 10)
-        goto partition;
-    if (sp != 0)
-        goto pop;
+        if (r - l > 10)
+            goto partition;
+    } while (sp != 0);
 done:
     Battle_SortEntriesInsertion(lo, n, a);
 }
-#else
-NAKED void Battle_SortEntriesQuick(u16 lo, u16 n, struct SortEntry *a)
-{
-    asm_unified(
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sl\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6, r7}\n"
-        "    sub sp, #0x88\n"
-        "    mov sb, r2\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    str r0, [sp, #0x80]\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    mov sl, r1\n"
-        "    str r0, [sp, #0x84]\n"
-        "    adds r1, r0, #0\n"
-        "    add r1, sl\n"
-        "    subs r1, #1\n"
-        "    lsls r1, r1, #0x10\n"
-        "    movs r0, #0\n"
-        "    mov r8, r0\n"
-        "    lsrs r2, r1, #0x10\n"
-        "    mov ip, r2\n"
-        "    asrs r1, r1, #0x10\n"
-        "    ldr r3, [sp, #0x84]\n"
-        "    lsls r0, r3, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    subs r1, r1, r0\n"
-        "    cmp r1, #0xa\n"
-        "    bgt .L080EDC22\n"
-        "    b .L080EDD00\n"
-        ".L080EDC08:\n"
-        "    movs r7, #1\n"
-        "    rsbs r7, r7, #0\n"
-        "    add r8, r7\n"
-        "    add r0, sp, #0x40\n"
-        "    mov r2, r8\n"
-        "    lsls r1, r2, #1\n"
-        "    adds r0, r0, r1\n"
-        "    ldrh r0, [r0]\n"
-        "    str r0, [sp, #0x84]\n"
-        "    mov r3, sp\n"
-        "    adds r0, r3, r1\n"
-        "    ldrh r0, [r0]\n"
-        "    mov ip, r0\n"
-        ".L080EDC22:\n"
-        "    ldr r7, [sp, #0x84]\n"
-        "    lsls r3, r7, #0x10\n"
-        "    asrs r3, r3, #0x10\n"
-        "    mov r0, ip\n"
-        "    lsls r2, r0, #0x10\n"
-        "    asrs r2, r2, #0x10\n"
-        "    adds r0, r3, r2\n"
-        "    lsrs r1, r0, #0x1f\n"
-        "    adds r0, r0, r1\n"
-        "    asrs r0, r0, #1\n"
-        "    lsls r0, r0, #2\n"
-        "    add r0, sb\n"
-        "    movs r1, #2\n"
-        "    ldrsh r6, [r0, r1]\n"
-        "    subs r4, r3, #1\n"
-        "    adds r5, r2, #1\n"
-        "    lsls r0, r5, #2\n"
-        "    mov r2, sb\n"
-        "    adds r3, r0, r2\n"
-        "    lsls r0, r4, #2\n"
-        "    adds r2, r0, r2\n"
-        "    b .L080EDC56\n"
-        ".L080EDC4E:\n"
-        "    ldr r1, [r2]\n"
-        "    ldr r0, [r3]\n"
-        "    str r0, [r2]\n"
-        "    str r1, [r3]\n"
-        ".L080EDC56:\n"
-        "    adds r2, #4\n"
-        "    adds r4, #1\n"
-        "    movs r7, #2\n"
-        "    ldrsh r0, [r2, r7]\n"
-        "    cmp r0, r6\n"
-        "    ble .L080EDC74\n"
-        "    lsls r1, r4, #2\n"
-        "    add r1, sb\n"
-        ".L080EDC66:\n"
-        "    adds r1, #4\n"
-        "    adds r2, #4\n"
-        "    adds r4, #1\n"
-        "    movs r7, #2\n"
-        "    ldrsh r0, [r1, r7]\n"
-        "    cmp r0, r6\n"
-        "    bgt .L080EDC66\n"
-        ".L080EDC74:\n"
-        "    lsls r1, r5, #2\n"
-        "    add r1, sb\n"
-        ".L080EDC78:\n"
-        "    subs r1, #4\n"
-        "    subs r3, #4\n"
-        "    subs r5, #1\n"
-        "    movs r7, #2\n"
-        "    ldrsh r0, [r1, r7]\n"
-        "    cmp r0, r6\n"
-        "    blt .L080EDC78\n"
-        "    cmp r4, r5\n"
-        "    blo .L080EDC4E\n"
-        "    ldr r1, [sp, #0x84]\n"
-        "    lsls r0, r1, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    subs r1, r4, r0\n"
-        "    mov r2, ip\n"
-        "    lsls r0, r2, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    subs r0, r0, r5\n"
-        "    cmp r1, r0\n"
-        "    bls .L080EDCC4\n"
-        "    cmp r1, #0xa\n"
-        "    bls .L080EDCBA\n"
-        "    add r0, sp, #0x40\n"
-        "    mov r3, r8\n"
-        "    lsls r1, r3, #1\n"
-        "    adds r0, r0, r1\n"
-        "    add r7, sp, #0x84\n"
-        "    ldrh r7, [r7]\n"
-        "    strh r7, [r0]\n"
-        "    .2byte 0x4469 @ add r1, sp, r1\n"
-        "    subs r0, r4, #1\n"
-        "    strh r0, [r1]\n"
-        "    movs r0, #1\n"
-        "    add r8, r0\n"
-        ".L080EDCBA:\n"
-        "    adds r0, r5, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    str r0, [sp, #0x84]\n"
-        "    b .L080EDCE8\n"
-        ".L080EDCC4:\n"
-        "    cmp r0, #0xa\n"
-        "    bls .L080EDCE0\n"
-        "    add r1, sp, #0x40\n"
-        "    mov r3, r8\n"
-        "    lsls r2, r3, #1\n"
-        "    adds r1, r1, r2\n"
-        "    adds r0, r5, #1\n"
-        "    strh r0, [r1]\n"
-        "    mov r7, sp\n"
-        "    adds r0, r7, r2\n"
-        "    mov r1, ip\n"
-        "    strh r1, [r0]\n"
-        "    movs r2, #1\n"
-        "    add r8, r2\n"
-        ".L080EDCE0:\n"
-        "    subs r0, r4, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    mov ip, r0\n"
-        ".L080EDCE8:\n"
-        "    mov r3, ip\n"
-        "    lsls r1, r3, #0x10\n"
-        "    asrs r1, r1, #0x10\n"
-        "    ldr r7, [sp, #0x84]\n"
-        "    lsls r0, r7, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    subs r1, r1, r0\n"
-        "    cmp r1, #0xa\n"
-        "    bgt .L080EDC22\n"
-        "    mov r0, r8\n"
-        "    cmp r0, #0\n"
-        "    bne .L080EDC08\n"
-        ".L080EDD00:\n"
-        "    ldr r0, [sp, #0x80]\n"
-        "    mov r1, sl\n"
-        "    mov r2, sb\n"
-        "    bl Battle_SortEntriesInsertion\n"
-        "    add sp, #0x88\n"
-        "    pop {r3, r4, r5}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    mov sl, r5\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // Battle_RollSpeed @ 0x080EDD1C
 s32 Battle_RollSpeed(s32 who)
@@ -340,22 +154,22 @@ void Battle_BuildActionOrder(void)
 }
 
 // sub_080EDE70 @ 0x080EDE70
-#ifdef NONMATCHING
 u32 sub_080EDE70(void)
 {
     s16 r;
     s32 a, b;
-    s16 d;
+    s32 d;
     u16 m;
-    s32 v;
+    u32 v;
 
     if (!(BattleFlags_Get() & 0x20))
     {
         r = (u16)sub_080EDB04();
         a = sub_080F43A4(5) / 2 + sub_080F43A4(4) + r;
         b = sub_080F43E0(5) / 2 + sub_080F43E0(4) + (((r ^ 0xF) - 7) & 0xFF);
-        d = a - b;
-        v = d & 0x7FFF;
+        d = (s16)(a - b);
+        m = d;
+        v = m & 0x7FFF;
         m = v;
         if (m == 0)
             return 0;
@@ -368,89 +182,6 @@ u32 sub_080EDE70(void)
     }
     return 0x8000;
 }
-#else
-NAKED u32 sub_080EDE70(void)
-{
-    asm_unified(
-        ".L080EDE70:\n"
-        "    push {r4, r5, r6, lr}\n"
-        "    bl BattleFlags_Get\n"
-        "    movs r1, #0x20\n"
-        "    ands r1, r0\n"
-        "    cmp r1, #0\n"
-        "    bne .L080EDF02\n"
-        "    bl sub_080EDB04\n"
-        "    adds r4, r0, #0\n"
-        "    lsls r4, r4, #0x10\n"
-        "    lsrs r4, r4, #0x10\n"
-        "    movs r0, #5\n"
-        "    bl sub_080F43A4\n"
-        "    adds r6, r0, #0\n"
-        "    movs r0, #4\n"
-        "    bl sub_080F43A4\n"
-        "    lsrs r1, r6, #0x1f\n"
-        "    adds r6, r6, r1\n"
-        "    asrs r6, r6, #1\n"
-        "    adds r6, r6, r0\n"
-        "    lsls r4, r4, #0x10\n"
-        "    asrs r4, r4, #0x10\n"
-        "    adds r6, r6, r4\n"
-        "    movs r0, #5\n"
-        "    bl sub_080F43E0\n"
-        "    adds r5, r0, #0\n"
-        "    movs r0, #4\n"
-        "    bl sub_080F43E0\n"
-        "    lsrs r1, r5, #0x1f\n"
-        "    adds r5, r5, r1\n"
-        "    asrs r5, r5, #1\n"
-        "    adds r5, r5, r0\n"
-        "    movs r0, #0xf\n"
-        "    eors r4, r0\n"
-        "    subs r4, #7\n"
-        "    movs r0, #0xff\n"
-        "    ands r4, r0\n"
-        "    adds r5, r5, r4\n"
-        "    subs r6, r6, r5\n"
-        "    lsls r6, r6, #0x10\n"
-        "    asrs r4, r6, #0x10\n"
-        "    ldr r1, .L080EDEF4\n"
-        "    lsrs r6, r6, #0x10\n"
-        "    ands r6, r1\n"
-        "    adds r0, r6, #0\n"
-        "    cmp r0, #0\n"
-        "    beq .L080EDEF0\n"
-        "    cmp r4, #0\n"
-        "    bge .L080EDEE0\n"
-        "    eors r0, r1\n"
-        "    adds r6, r0, #1\n"
-        ".L080EDEE0:\n"
-        "    bl Random_Byte\n"
-        "    movs r1, #0x3f\n"
-        "    ands r1, r0\n"
-        "    lsls r0, r6, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    cmp r1, r0\n"
-        "    blo .L080EDEF8\n"
-        ".L080EDEF0:\n"
-        "    movs r0, #0\n"
-        "    b .L080EDF06\n"
-        ".L080EDEF4: .4byte 0x00007FFF\n"
-        ".L080EDEF8:\n"
-        "    cmp r4, #0\n"
-        "    bge .L080EDF02\n"
-        "    movs r0, #0xc0\n"
-        "    lsls r0, r0, #8\n"
-        "    b .L080EDF06\n"
-        ".L080EDF02:\n"
-        "    movs r0, #0x80\n"
-        "    lsls r0, r0, #8\n"
-        ".L080EDF06:\n"
-        "    pop {r4, r5, r6}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-    );
-}
-#endif
 
 // sub_080EDF0C @ 0x080EDF0C
 u32 sub_080EDF0C(void)

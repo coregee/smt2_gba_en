@@ -333,16 +333,24 @@ void JokerStars_MoveReel(u16 reel, s32 speed)
     u32 v = p->v + speed;
     s32 hi;
     s32 n;
+    s32 k;
 
     p->v = v;
     hi = (s32)v >> 16;
     if (hi < 0)
-        n = hi + 480;
+    {
+        k = 480;
+        n = hi + k;
+    }
     else if (hi > 479)
-        n = 480 - hi;
+    {
+        k = 480;
+        n = k;
+        n -= hi;
+    }
     else
         return;
-    p->v = (v & 0xFFFF) | (n << 16);
+    p->v = (n << 16) | (v & 0xFFFF);
 }
 #else
 NAKED

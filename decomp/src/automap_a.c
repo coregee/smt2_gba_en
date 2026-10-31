@@ -160,109 +160,41 @@ void Automap_DrawSprites(void)
 }
 
 // Automap_BuildAroundPlayer @ 0x080B47CC
-#ifdef NONMATCHING
 void Automap_BuildAroundPlayer(void)
 {
     u16 dir = sub_080B447C();
+    u16 x, y;
 
     if (!sub_080C2BF0())
     {
         if (gFieldState.unk1C < 12)
             Automap_Build(dir, gFieldState.unk1A / 2, gFieldState.unk1C / 2);
         else
-            Automap_Build(dir, gFieldState.unk1A / 2, gFieldState.unk14);
+        {
+            x = gFieldState.unk1A / 2;
+            y = gFieldState.unk14;
+            Automap_Build(dir, x, y);
+        }
     }
     else if ((dir == 0 || dir == 2) && gFieldState.unk1C < 12)
         Automap_Build(dir, gFieldState.unk1A / 2, gFieldState.unk1C / 2);
     else if (gFieldState.unk1A < 12 && gFieldState.unk1C < 12)
         Automap_Build(dir, gFieldState.unk1A / 2, gFieldState.unk1C / 2);
-    else if (dir == 0 || dir == 2)
-        Automap_Build(dir, gFieldState.unk1A / 2, gFieldState.unk14);
     else
-        Automap_Build(dir, gFieldState.unk12, gFieldState.unk1C / 2);
+    {
+        if (dir == 0 || dir == 2)
+        {
+            x = gFieldState.unk1A / 2;
+            y = gFieldState.unk14;
+        }
+        else
+        {
+            x = gFieldState.unk12;
+            y = gFieldState.unk1C / 2;
+        }
+        Automap_Build(dir, x, y);
+    }
 }
-#else
-NAKED
-void Automap_BuildAroundPlayer(void)
-{
-    asm_unified(
-        ".L080B47CC:\n"
-        "    push {r4, lr}\n"
-        "    bl sub_080B447C\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    bl sub_080C2BF0\n"
-        "    lsls r0, r0, #0x10\n"
-        "    cmp r0, #0\n"
-        "    bne .L080B47F4\n"
-        "    ldr r2, .L080B47F0\n"
-        "    ldrh r0, [r2, #0x1c]\n"
-        "    cmp r0, #0xb\n"
-        "    bls .L080B4820\n"
-        "    ldrh r0, [r2, #0x1a]\n"
-        "    lsrs r1, r0, #1\n"
-        "    ldrh r2, [r2, #0x14]\n"
-        "    b .L080B4828\n"
-        ".L080B47F0: .4byte 0x03004550 @ IWRAM+0x4550\n"
-        ".L080B47F4:\n"
-        "    cmp r4, #0\n"
-        "    beq .L080B47FE\n"
-        "    ldr r2, .L080B4810\n"
-        "    cmp r4, #2\n"
-        "    bne .L080B4814\n"
-        ".L080B47FE:\n"
-        "    ldr r0, .L080B4810\n"
-        "    ldrh r1, [r0, #0x1c]\n"
-        "    adds r2, r0, #0\n"
-        "    cmp r1, #0xb\n"
-        "    bhi .L080B4814\n"
-        "    ldrh r1, [r2, #0x1a]\n"
-        "    lsrs r1, r1, #1\n"
-        "    ldrh r2, [r2, #0x1c]\n"
-        "    b .L080B4826\n"
-        ".L080B4810: .4byte 0x03004550 @ IWRAM+0x4550\n"
-        ".L080B4814:\n"
-        "    ldrh r0, [r2, #0x1a]\n"
-        "    cmp r0, #0xb\n"
-        "    bhi .L080B4830\n"
-        "    ldrh r0, [r2, #0x1c]\n"
-        "    cmp r0, #0xb\n"
-        "    bhi .L080B4830\n"
-        ".L080B4820:\n"
-        "    ldrh r1, [r2, #0x1a]\n"
-        "    lsrs r1, r1, #1\n"
-        "    adds r2, r0, #0\n"
-        ".L080B4826:\n"
-        "    lsrs r2, r2, #1\n"
-        ".L080B4828:\n"
-        "    adds r0, r4, #0\n"
-        "    bl Automap_Build\n"
-        "    b .L080B484C\n"
-        ".L080B4830:\n"
-        "    cmp r4, #0\n"
-        "    beq .L080B4838\n"
-        "    cmp r4, #2\n"
-        "    bne .L080B4840\n"
-        ".L080B4838:\n"
-        "    ldrh r0, [r2, #0x1a]\n"
-        "    lsrs r1, r0, #1\n"
-        "    ldrh r2, [r2, #0x14]\n"
-        "    b .L080B4846\n"
-        ".L080B4840:\n"
-        "    ldrh r1, [r2, #0x12]\n"
-        "    ldrh r0, [r2, #0x1c]\n"
-        "    lsrs r2, r0, #1\n"
-        ".L080B4846:\n"
-        "    adds r0, r4, #0\n"
-        "    bl Automap_Build\n"
-        ".L080B484C:\n"
-        "    pop {r4}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // Automap_BuildIconMap @ 0x080B4854
 /* Fills gBgPictureBuffer (32 columns per row) with the automap icon of every map square,

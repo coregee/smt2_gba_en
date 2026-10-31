@@ -97,67 +97,20 @@ u32 sub_080C7E90(void)
 }
 
 // sub_080C7EB4 @ 0x080C7EB4
-#ifdef NONMATCHING
 void sub_080C7EB4(const void *src, void *dst)
 {
     u16 *d = dst;
     u32 pos = gHud->unk32;
-    u16 n = sub_080C7E90();
     u32 i;
+    u16 n = sub_080C7E90();
 
     for (i = 0; i < n; i++)
     {
-        *d = Color_ApplyEffect(*((const u16 *)src - pos));
+        d[-i] = Color_ApplyEffect(*((const u16 *)src - pos));
         if (++pos == n)
             pos = 0;
-        d--;
     }
 }
-#else
-NAKED
-void sub_080C7EB4(const void *src, void *dst)
-{
-    asm_unified(
-        ".L080C7EB4:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, r8\n"
-        "    push {r7}\n"
-        "    mov r8, r0\n"
-        "    adds r5, r1, #0\n"
-        "    ldr r0, .L080C7EF8\n"
-        "    ldrh r4, [r0, #0x32]\n"
-        "    bl sub_080C7E90\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r7, r0, #0x10\n"
-        "    movs r6, #0\n"
-        "    cmp r6, r7\n"
-        "    bhs .L080C7EEE\n"
-        ".L080C7ED0:\n"
-        "    lsls r0, r4, #1\n"
-        "    mov r1, r8\n"
-        "    subs r0, r1, r0\n"
-        "    ldrh r0, [r0]\n"
-        "    bl Color_ApplyEffect\n"
-        "    strh r0, [r5]\n"
-        "    adds r4, #1\n"
-        "    cmp r4, r7\n"
-        "    bne .L080C7EE6\n"
-        "    movs r4, #0\n"
-        ".L080C7EE6:\n"
-        "    subs r5, #2\n"
-        "    adds r6, #1\n"
-        "    cmp r6, r7\n"
-        "    blo .L080C7ED0\n"
-        ".L080C7EEE:\n"
-        "    pop {r3}\n"
-        "    mov r8, r3\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L080C7EF8: .4byte 0x0200E7D4 @ EWRAM+0xE7D4\n"
-    );
-}
-#endif
 
 // Hud_UploadMoonTiles @ 0x080C7EFC
 /* Uploads the moon sprite tiles for the current phase and animation frame. */
