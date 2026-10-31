@@ -65,14 +65,12 @@ void Func(...)
   what leaves the loaded ident in `r3`.
 - `gNumMusicPlayers` is an absolute symbol whose *address* is the player count (4).
 
-## Register pins
+## Register pins and dead stores
 
-Twelve matching functions use GNU `register T x asm("rN")` pins (`battle_080F57F4.c`,
-`charsprite_a.c`, `compendium_a.c`, `dungeonmap_b.c`, `fieldbg_a.c`, `fieldevent_f.c`,
-`game_k.c`, `link_a.c`, `menu_b.c`, `msgwin_qtyinput.c`, `vm_run.c`, `vm_wait.c`), each with a
-comment. They are a last resort, used only where no
-plain source shape reproduced the original allocation; they count as matching because the
-build proves the bytes, but they are less likely to be the original source than the rest.
+Twelve matching functions use GNU `register T x asm("rN")` pins and six use a dead store to steer
+register allocation; `docs/status.md` lists them. Each is commented. They are a last resort, used
+only where no plain source shape reproduced the original allocation; they count as matching
+because the build proves the bytes, but they are less likely to be the original source.
 
 Patterns that turned NONMATCHING functions into matches, and known dead ends, are collected in
 `docs/matching-tricks.md`.

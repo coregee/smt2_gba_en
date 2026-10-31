@@ -2512,7 +2512,7 @@ address	mode	size	name	confidence	state	file
 080E90AC	thumb	324			c	src/battleslots_a.c
 080E91F0	thumb	124			c	src/battleslots_a.c
 080E926C	thumb	430			nonmatching	src/battleslots_a.c
-080E941C	thumb	860			nonmatching	src/battleturn_a.c
+080E941C	thumb	860			c	src/battleturn_a.c
 080E9778	thumb	32			c	src/battleturn_a.c
 080E9798	thumb	114			c	src/battleturn_a.c
 080E980C	thumb	100			c	src/battleturn_a.c
@@ -2782,7 +2782,7 @@ address	mode	size	name	confidence	state	file
 080F1788	thumb	54			c	src/battle_080F1788.c
 080F17C0	thumb	2336	Battle_ResolveActionStep	probable	nonmatching	src/battle_080F17C0.c
 080F20E0	thumb	468	Battle_ReflectAction	probable	c	src/battle_080F17C0.c
-080F22B4	thumb	572	Battle_ApplyDamage	probable	nonmatching	src/battle_080F17C0.c
+080F22B4	thumb	572	Battle_ApplyDamage	probable	c	src/battle_080F17C0.c
 080F24F0	thumb	36	Combatant_AddHp	probable	c	src/battle_080F24F0.c
 080F2514	thumb	696	Battle_CastSupportSkill	probable	nonmatching	src/battle_080F2514.c
 080F27CC	thumb	764	Battle_UseItem	probable	c	src/battle_080F2514.c
