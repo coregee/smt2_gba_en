@@ -30,60 +30,61 @@ void Battle_SortEntriesQuick(u16 lo, u16 n, struct SortEntry *a)
     s32 sp;
 
     l = lo;
-    r = lo + n - 1;
+    r = l + n - 1;
     sp = 0;
     if (r - l > 10)
+        goto partition;
+    goto done;
+pop:
+    sp--;
+    l = stackLo[sp];
+    r = stackHi[sp];
+partition:
     {
-        do
-        {
-            do
-            {
-                s32 pivot = a[(l + r) / 2].key;
-                u32 i = l - 1;
-                u32 j = r + 1;
+        s32 pivot = a[(l + r) / 2].key;
+        u32 i = l - 1;
+        u32 j = r + 1;
 
-                for (;;)
-                {
-                    while (a[++i].key > pivot)
-                        ;
-                    while (a[--j].key < pivot)
-                        ;
-                    if (i >= j)
-                        break;
-                    {
-                        struct SortEntry t = a[i];
-                        a[i] = a[j];
-                        a[j] = t;
-                    }
-                }
-                if (i - l > r - j)
-                {
-                    if (i - l > 10)
-                    {
-                        stackLo[sp] = l;
-                        stackHi[sp] = i - 1;
-                        sp++;
-                    }
-                    l = j + 1;
-                }
-                else
-                {
-                    if (r - j > 10)
-                    {
-                        stackLo[sp] = j + 1;
-                        stackHi[sp] = r;
-                        sp++;
-                    }
-                    r = i - 1;
-                }
-            } while (r - l > 10);
-            if (sp == 0)
+        for (;;)
+        {
+            while (a[++i].key > pivot)
+                ;
+            while (a[--j].key < pivot)
+                ;
+            if (i >= j)
                 break;
-            sp--;
-            l = stackLo[sp];
-            r = stackHi[sp];
-        } while (1);
+            {
+                struct SortEntry t = a[i];
+                a[i] = a[j];
+                a[j] = t;
+            }
+        }
+        if (i - l > r - j)
+        {
+            if (i - l > 10)
+            {
+                stackLo[sp] = l;
+                stackHi[sp] = i - 1;
+                sp++;
+            }
+            l = j + 1;
+        }
+        else
+        {
+            if (r - j > 10)
+            {
+                stackLo[sp] = j + 1;
+                stackHi[sp] = r;
+                sp++;
+            }
+            r = i - 1;
+        }
     }
+    if (r - l > 10)
+        goto partition;
+    if (sp != 0)
+        goto pop;
+done:
     Battle_SortEntriesInsertion(lo, n, a);
 }
 #else

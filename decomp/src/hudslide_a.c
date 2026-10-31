@@ -58,9 +58,9 @@ void sub_080C7054(void)
 
 /* The HUD panels slide in (state 1) and out (state 2) one tile per 'timer' frames. Each slide
    function clears the panel's rectangle, copies the visible part of the panel tilemap (32 tiles
-   wide; first visible column col, row row) to (x, y) and queues the upload. The original keeps
-   every constant of these functions in its own register and never folds row * 32, which no
-   spelling tried so far reproduces. */
+   wide; first visible column col, row row) to (x, y) and queues the upload. The position update
+   is written in both arms of an if/else: the join label ends cse's block, so col/row/x/y are
+   not known constants at the copy (they stay in registers and row * 32 is not folded). */
 
 // Hud_SlidePartyPanel @ 0x080C7070
 /* The party panel (top left, 7x3) slides in from the left. */
@@ -73,22 +73,27 @@ void Hud_SlidePartyPanel(u16 *state, u16 *timer, u16 *step)
     u16 w = 7;
     u16 h = 3;
     u16 cx;
+    const u16 *src;
 
     if (*state == 1)
     {
         Tilemap_FillRect(0, gWindowTilemapBuffer, 0, 0, 8, h);
         if (x < *step)
         {
+            w -= (u16)(*step - 1);
             col = *step - 1;
-            w -= col;
+            x -= *step;
         }
-        x -= *step;
+        else
+            x -= *step;
         if (w != 0)
         {
+            src = (const u16 *)gUnknown_081B8270;
             cx = x;
+            src += row * 32 + col;
             if ((s16)cx < 0)
                 cx = 0;
-            Tilemap_CopyRectSkipZero(&((const u16 *)gUnknown_081B8270)[row * 32 + col], gWindowTilemapBuffer,
+            Tilemap_CopyRectSkipZero(src, gWindowTilemapBuffer,
                                      0, 0, cx, 0, w, h);
         }
         else
@@ -105,16 +110,20 @@ void Hud_SlidePartyPanel(u16 *state, u16 *timer, u16 *step)
         Tilemap_FillRect(0, gWindowTilemapBuffer, 0, 0, 8, h);
         if (x < *step)
         {
+            w -= (u16)(*step - 1);
             col = *step - 1;
-            w -= col;
+            x -= *step;
         }
-        x -= *step;
+        else
+            x -= *step;
         if ((s16)w > 0)
         {
+            src = (const u16 *)gUnknown_081B8270;
             cx = x;
+            src += row * 32 + col;
             if ((s16)cx < 0)
                 cx = 0;
-            Tilemap_CopyRectSkipZero(&((const u16 *)gUnknown_081B8270)[row * 32 + col], gWindowTilemapBuffer,
+            Tilemap_CopyRectSkipZero(src, gWindowTilemapBuffer,
                                      0, 0, cx, 0, w, h);
             if (*step == 0)
                 *state = 0;
@@ -364,7 +373,6 @@ void sub_080C7234(void)
 // sub_080C726C @ 0x080C726C
 /* The facing panel (4x2 at column 13) slides down from the top; while gGameState.unkAC0 is 1
    it does not slide out (and is not drawn). */
-#ifdef NONMATCHING
 void sub_080C726C(void)
 {
     u16 col = 0;
@@ -374,6 +382,7 @@ void sub_080C726C(void)
     u16 w = 4;
     u16 h = 2;
     u16 cy;
+    const u16 *src;
 
     if (gHud->state[2] == 1)
     {
@@ -381,15 +390,19 @@ void sub_080C726C(void)
         if (y < gHud->step[2])
         {
             h -= gHud->step[2];
-            row = gHud->step[2];
+            row = y + gHud->step[2];
+            y -= gHud->step[2];
         }
-        y = -gHud->step[2];
+        else
+            y -= gHud->step[2];
         if (h != 0)
         {
+            src = (const u16 *)gUnknown_081B92B0;
             cy = y;
+            src += row * 32 + col;
             if ((s16)cy < 0)
                 cy = 0;
-            Tilemap_CopyRectSkipZero(&((const u16 *)gUnknown_081B92B0)[row * 32 + col], gWindowTilemapBuffer,
+            Tilemap_CopyRectSkipZero(src, gWindowTilemapBuffer,
                                      0, 0, x, cy, w, h);
         }
         else
@@ -409,15 +422,19 @@ void sub_080C726C(void)
         if (y < gHud->step[2])
         {
             h -= gHud->step[2];
-            row = gHud->step[2];
+            row = y + gHud->step[2];
+            y -= gHud->step[2];
         }
-        y = -gHud->step[2];
+        else
+            y -= gHud->step[2];
         if ((s16)h > 0)
         {
+            src = (const u16 *)gUnknown_081B92B0;
             cy = y;
+            src += row * 32 + col;
             if ((s16)cy < 0)
                 cy = 0;
-            Tilemap_CopyRectSkipZero(&((const u16 *)gUnknown_081B92B0)[row * 32 + col], gWindowTilemapBuffer,
+            Tilemap_CopyRectSkipZero(src, gWindowTilemapBuffer,
                                      0, 0, x, cy, w, h);
             if (gHud->step[2] == 0)
                 gHud->state[2] = 0;
@@ -431,222 +448,10 @@ void sub_080C726C(void)
     }
     if (gHud->state[2] != 3)
         Sprite_Draw(gUnknown_0834A214[gFieldState.facing], 0, 0, 0, 0, x * 8 + 8, y * 8 + 5);
+    /* Dead store: needed to match. It keeps cy live to the end, which makes cse use cy
+       (not y) as the canonical register of the pair, so the clamp tests cy. */
+    cy = 0;
 }
-#else
-NAKED
-void sub_080C726C(void)
-{
-    asm_unified(
-        ".L080C726C:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sl\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6, r7}\n"
-        "    sub sp, #0x10\n"
-        "    movs r0, #0\n"
-        "    mov sl, r0\n"
-        "    movs r7, #0\n"
-        "    movs r1, #0xd\n"
-        "    mov sb, r1\n"
-        "    movs r6, #0\n"
-        "    movs r2, #4\n"
-        "    mov r8, r2\n"
-        "    movs r4, #2\n"
-        "    ldr r5, .L080C72EC\n"
-        "    ldrh r0, [r5, #4]\n"
-        "    cmp r0, #1\n"
-        "    bne .L080C7320\n"
-        "    ldr r1, .L080C72F0\n"
-        "    str r2, [sp]\n"
-        "    str r4, [sp, #4]\n"
-        "    movs r0, #0\n"
-        "    movs r2, #0xd\n"
-        "    movs r3, #0\n"
-        "    bl Tilemap_FillRect\n"
-        "    ldrh r1, [r5, #0x14]\n"
-        "    adds r2, r1, #0\n"
-        "    cmp r6, r2\n"
-        "    bhs .L080C72B2\n"
-        "    subs r0, r4, r1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    adds r7, r2, #0\n"
-        ".L080C72B2:\n"
-        "    rsbs r0, r1, #0\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r6, r0, #0x10\n"
-        "    cmp r4, #0\n"
-        "    beq .L080C72F8\n"
-        "    ldr r3, .L080C72F4\n"
-        "    adds r2, r6, #0\n"
-        "    lsls r0, r7, #5\n"
-        "    add r0, sl\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r3, r0, r3\n"
-        "    lsls r0, r2, #0x10\n"
-        "    cmp r0, #0\n"
-        "    bge .L080C72D0\n"
-        "    movs r2, #0\n"
-        ".L080C72D0:\n"
-        "    ldr r1, .L080C72F0\n"
-        "    mov r0, sb\n"
-        "    str r0, [sp]\n"
-        "    str r2, [sp, #4]\n"
-        "    mov r2, r8\n"
-        "    str r2, [sp, #8]\n"
-        "    str r4, [sp, #0xc]\n"
-        "    adds r0, r3, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0\n"
-        "    bl Tilemap_CopyRectSkipZero\n"
-        "    b .L080C72FE\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C72EC: .4byte 0x0200E7D4 @ EWRAM+0xE7D4\n"
-        ".L080C72F0: .4byte 0x0200DFD4 @ EWRAM+0xDFD4\n"
-        ".L080C72F4: .4byte gUnknown_081B92B0\n"
-        ".L080C72F8:\n"
-        "    ldr r1, .L080C731C\n"
-        "    movs r0, #3\n"
-        "    strh r0, [r1, #4]\n"
-        ".L080C72FE:\n"
-        "    bl sub_080C6764\n"
-        "    ldr r1, .L080C731C\n"
-        "    ldrh r0, [r1, #0x24]\n"
-        "    subs r0, #1\n"
-        "    strh r0, [r1, #0x24]\n"
-        "    lsls r0, r0, #0x10\n"
-        "    cmp r0, #0\n"
-        "    bne .L080C73B2\n"
-        "    movs r0, #1\n"
-        "    strh r0, [r1, #0x24]\n"
-        "    ldrh r0, [r1, #0x14]\n"
-        "    adds r0, #1\n"
-        "    b .L080C73B0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C731C: .4byte 0x0200E7D4 @ EWRAM+0xE7D4\n"
-        ".L080C7320:\n"
-        "    cmp r0, #2\n"
-        "    bne .L080C73B2\n"
-        "    ldr r0, .L080C73FC\n"
-        "    movs r1, #0xac\n"
-        "    lsls r1, r1, #4\n"
-        "    adds r0, r0, r1\n"
-        "    ldrh r0, [r0]\n"
-        "    cmp r0, #1\n"
-        "    beq .L080C73EC\n"
-        "    ldr r1, .L080C7400\n"
-        "    mov r2, r8\n"
-        "    str r2, [sp]\n"
-        "    str r4, [sp, #4]\n"
-        "    movs r0, #0\n"
-        "    movs r2, #0xd\n"
-        "    movs r3, #0\n"
-        "    bl Tilemap_FillRect\n"
-        "    ldrh r1, [r5, #0x14]\n"
-        "    adds r2, r1, #0\n"
-        "    cmp r6, r2\n"
-        "    bhs .L080C7354\n"
-        "    subs r0, r4, r1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r4, r0, #0x10\n"
-        "    adds r7, r2, #0\n"
-        ".L080C7354:\n"
-        "    rsbs r0, r1, #0\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r6, r0, #0x10\n"
-        "    lsls r0, r4, #0x10\n"
-        "    cmp r0, #0\n"
-        "    ble .L080C7396\n"
-        "    ldr r3, .L080C7404\n"
-        "    adds r2, r6, #0\n"
-        "    lsls r0, r7, #5\n"
-        "    add r0, sl\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r3, r0, r3\n"
-        "    lsls r0, r2, #0x10\n"
-        "    cmp r0, #0\n"
-        "    bge .L080C7374\n"
-        "    movs r2, #0\n"
-        ".L080C7374:\n"
-        "    ldr r1, .L080C7400\n"
-        "    mov r0, sb\n"
-        "    str r0, [sp]\n"
-        "    str r2, [sp, #4]\n"
-        "    mov r2, r8\n"
-        "    str r2, [sp, #8]\n"
-        "    str r4, [sp, #0xc]\n"
-        "    adds r0, r3, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0\n"
-        "    bl Tilemap_CopyRectSkipZero\n"
-        "    ldr r1, .L080C7408\n"
-        "    ldrh r0, [r1, #0x14]\n"
-        "    cmp r0, #0\n"
-        "    bne .L080C7396\n"
-        "    strh r0, [r1, #4]\n"
-        ".L080C7396:\n"
-        "    bl sub_080C6764\n"
-        "    ldr r1, .L080C7408\n"
-        "    ldrh r0, [r1, #0x24]\n"
-        "    subs r0, #1\n"
-        "    strh r0, [r1, #0x24]\n"
-        "    lsls r0, r0, #0x10\n"
-        "    cmp r0, #0\n"
-        "    bne .L080C73B2\n"
-        "    movs r0, #1\n"
-        "    strh r0, [r1, #0x24]\n"
-        "    ldrh r0, [r1, #0x14]\n"
-        "    subs r0, #1\n"
-        ".L080C73B0:\n"
-        "    strh r0, [r1, #0x14]\n"
-        ".L080C73B2:\n"
-        "    ldr r0, .L080C7408\n"
-        "    ldrh r0, [r0, #4]\n"
-        "    cmp r0, #3\n"
-        "    beq .L080C73EC\n"
-        "    ldr r1, .L080C740C\n"
-        "    ldr r0, .L080C7410\n"
-        "    ldrh r0, [r0, #2]\n"
-        "    lsls r0, r0, #2\n"
-        "    adds r0, r0, r1\n"
-        "    ldr r0, [r0]\n"
-        "    movs r1, #0\n"
-        "    str r1, [sp]\n"
-        "    mov r2, sb\n"
-        "    lsls r1, r2, #0x13\n"
-        "    movs r2, #0x80\n"
-        "    lsls r2, r2, #0xc\n"
-        "    adds r1, r1, r2\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    str r1, [sp, #4]\n"
-        "    lsls r1, r6, #3\n"
-        "    adds r1, #5\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    str r1, [sp, #8]\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0\n"
-        "    bl Sprite_Draw\n"
-        ".L080C73EC:\n"
-        "    add sp, #0x10\n"
-        "    pop {r3, r4, r5}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    mov sl, r5\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        ".L080C73FC: .4byte 0x030046C0 @ IWRAM+0x46C0\n"
-        ".L080C7400: .4byte 0x0200DFD4 @ EWRAM+0xDFD4\n"
-        ".L080C7404: .4byte gUnknown_081B92B0\n"
-        ".L080C7408: .4byte 0x0200E7D4 @ EWRAM+0xE7D4\n"
-        ".L080C740C: .4byte gUnknown_0834A214\n"
-        ".L080C7410: .4byte 0x03004550 @ IWRAM+0x4550\n"
-    );
-}
-#endif
 
 // sub_080C7414 @ 0x080C7414
 void sub_080C7414(void)
@@ -685,6 +490,7 @@ void sub_080C745C(void)
     u16 h = 2;
     u16 pal;
     u16 cx;
+    const u16 *src;
 
     if (gHud->state[3] == 1)
     {
@@ -693,14 +499,18 @@ void sub_080C745C(void)
         {
             w -= gHud->step[3];
             col = gHud->step[3];
+            x += gHud->step[3];
         }
-        x = gHud->step[3] + 0x15;
+        else
+            x += gHud->step[3];
         if (w != 0)
         {
+            src = (const u16 *)gUnknown_081B8170;
             cx = x;
+            src += row * 32 + col;
             if ((s16)cx < 0)
                 cx = 0;
-            Tilemap_CopyRectSkipZero(&((const u16 *)gUnknown_081B8170)[row * 32 + col], gWindowTilemapBuffer,
+            Tilemap_CopyRectSkipZero(src, gWindowTilemapBuffer,
                                      0, 0, cx, y, w, h);
         }
         else
@@ -719,14 +529,18 @@ void sub_080C745C(void)
         {
             w -= gHud->step[3];
             col = gHud->step[3];
+            x += gHud->step[3];
         }
-        x = gHud->step[3] + 0x15;
+        else
+            x += gHud->step[3];
         if ((s16)w > 0)
         {
+            src = (const u16 *)gUnknown_081B8170;
             cx = x;
+            src += row * 32 + col;
             if ((s16)cx < 0)
                 cx = 0;
-            Tilemap_CopyRectSkipZero(&((const u16 *)gUnknown_081B8170)[row * 32 + col], gWindowTilemapBuffer,
+            Tilemap_CopyRectSkipZero(src, gWindowTilemapBuffer,
                                      0, 0, cx, y, w, h);
             if (gHud->step[3] == 0)
                 gHud->state[3] = 0;
@@ -750,6 +564,8 @@ void sub_080C745C(void)
         Sprite_Draw(gUnknown_080007FC, 0, pal, 0, 0, x * 8 + 2, 5);
         sub_080C7FD0(Magnetite_Get(), x * 8 + 8, 5, 0, pal);
     }
+    /* Dead store: keeps cx live to the end so that cse tests cx, not x, in the clamp. */
+    cx = 0;
 }
 #else
 NAKED
@@ -1031,6 +847,7 @@ void sub_080C76B4(void)
     u16 w = 8;
     u16 h = 2;
     u16 cx;
+    const u16 *src;
 
     if (gHud->state[4] == 1)
     {
@@ -1040,14 +857,18 @@ void sub_080C76B4(void)
         {
             w -= gHud->step[4];
             col = gHud->step[4];
+            x += gHud->step[4];
         }
-        x = gHud->step[4] + 0x15;
+        else
+            x += gHud->step[4];
         if (w != 0)
         {
+            src = (const u16 *)gUnknown_081B8170;
             cx = x;
+            src += row * 32 + col;
             if ((s16)cx < 0)
                 cx = 0;
-            Tilemap_CopyRectSkipZero(&((const u16 *)gUnknown_081B8170)[row * 32 + col], gWindowTilemapBuffer,
+            Tilemap_CopyRectSkipZero(src, gWindowTilemapBuffer,
                                      0, 0, cx, y, w, h);
         }
         else
@@ -1066,14 +887,18 @@ void sub_080C76B4(void)
         {
             w -= gHud->step[4];
             col = gHud->step[4];
+            x += gHud->step[4];
         }
-        x = gHud->step[4] + 0x15;
+        else
+            x += gHud->step[4];
         if ((s16)w > 0)
         {
+            src = (const u16 *)gUnknown_081B8170;
             cx = x;
+            src += row * 32 + col;
             if ((s16)cx < 0)
                 cx = 0;
-            Tilemap_CopyRectSkipZero(&((const u16 *)gUnknown_081B8170)[row * 32 + col], gWindowTilemapBuffer,
+            Tilemap_CopyRectSkipZero(src, gWindowTilemapBuffer,
                                      0, 0, cx, y, w, h);
             if (gHud->step[4] == 0)
                 gHud->state[4] = 0;
@@ -1087,6 +912,8 @@ void sub_080C76B4(void)
     }
     if (gHud->state[4] != 3)
         sub_080C7664(x, y, gGameState.money);
+    /* Dead store: keeps cx live to the end so that cse tests cx, not x, in the clamp. */
+    cx = 0;
 }
 #else
 NAKED
@@ -1332,6 +1159,7 @@ void sub_080C7880(void)
     u16 h = 6;
     u16 rot;
     u16 cx;
+    const u16 *src;
 
     if (gHud->state[6] == 1)
     {
@@ -1340,14 +1168,18 @@ void sub_080C7880(void)
         {
             w -= gHud->step[6];
             col = gHud->step[6];
+            x += gHud->step[6];
         }
-        x = gHud->step[6] + 0x16;
+        else
+            x += gHud->step[6];
         if (w != 0)
         {
+            src = (const u16 *)gUnknown_081B7170;
             cx = x;
+            src += row * 32 + col;
             if ((s16)cx < 0)
                 cx = 0;
-            Tilemap_CopyRectSkipZero(&((const u16 *)gUnknown_081B7170)[row * 32 + col], gWindowTilemapBuffer,
+            Tilemap_CopyRectSkipZero(src, gWindowTilemapBuffer,
                                      0, 0, cx, y, w, h);
         }
         else
@@ -1366,14 +1198,18 @@ void sub_080C7880(void)
         {
             w -= gHud->step[6];
             col = gHud->step[6];
+            x += gHud->step[6];
         }
-        x = gHud->step[6] + 0x16;
+        else
+            x += gHud->step[6];
         if ((s16)w > 0)
         {
+            src = (const u16 *)gUnknown_081B7170;
             cx = x;
+            src += row * 32 + col;
             if ((s16)cx < 0)
                 cx = 0;
-            Tilemap_CopyRectSkipZero(&((const u16 *)gUnknown_081B7170)[row * 32 + col], gWindowTilemapBuffer,
+            Tilemap_CopyRectSkipZero(src, gWindowTilemapBuffer,
                                      0, 0, cx, y, w, h);
             if (gHud->step[6] == 0)
                 gHud->state[6] = 0;
@@ -1394,6 +1230,8 @@ void sub_080C7880(void)
         Sprite_Draw(gUnknown_0834A3CC[(rot + 2) & 3], 1, 0, 1, 0, x * 8 + 0x16, 0x1E);
         Sprite_Draw(gUnknown_0834A3CC[(rot + 3) & 3], 1, 0, 1, 0, x * 8 + 0xA, 0x12);
     }
+    /* Dead store: keeps cx live to the end so that cse tests cx, not x, in the clamp. */
+    cx = 0;
 }
 #else
 NAKED
@@ -1716,7 +1554,6 @@ u16 sub_080C7AF0(void)
 
 // sub_080C7AFC @ 0x080C7AFC
 /* Panel 7 (6x8 at column 23, row 3, tilemap gUnknown_0834A3DC) slides in from the right. */
-#ifdef NONMATCHING
 void sub_080C7AFC(void)
 {
     u16 col = 0;
@@ -1724,7 +1561,9 @@ void sub_080C7AFC(void)
     u16 y = 3;
     u16 w = 6;
     u16 h = 8;
-    u16 x;
+    u16 x = 0x17;
+    u16 cx;
+    const u16 *src;
 
     if (gHud->state[7] == 1)
     {
@@ -1733,13 +1572,18 @@ void sub_080C7AFC(void)
         {
             w -= gHud->step[7];
             col = gHud->step[7];
+            x += gHud->step[7];
         }
-        x = gHud->step[7] + 0x17;
+        else
+            x += gHud->step[7];
         if (w != 0)
         {
-            if ((s16)x < 0)
-                x = 0;
-            Tilemap_CopyRectSkipZero(&gUnknown_0834A3DC[row * 32 + col], gWindowTilemapBuffer, 0, 0, x, y, w, h);
+            src = gUnknown_0834A3DC;
+            cx = x;
+            src += row * 32 + col;
+            if ((s16)cx < 0)
+                cx = 0;
+            Tilemap_CopyRectSkipZero(src, gWindowTilemapBuffer, 0, 0, cx, y, w, h);
         }
         else
             gHud->state[7] = 3;
@@ -1757,13 +1601,18 @@ void sub_080C7AFC(void)
         {
             w -= gHud->step[7];
             col = gHud->step[7];
+            x += gHud->step[7];
         }
-        x = gHud->step[7] + 0x17;
+        else
+            x += gHud->step[7];
         if ((s16)w > 0)
         {
-            if ((s16)x < 0)
-                x = 0;
-            Tilemap_CopyRectSkipZero(&gUnknown_0834A3DC[row * 32 + col], gWindowTilemapBuffer, 0, 0, x, y, w, h);
+            src = gUnknown_0834A3DC;
+            cx = x;
+            src += row * 32 + col;
+            if ((s16)cx < 0)
+                cx = 0;
+            Tilemap_CopyRectSkipZero(src, gWindowTilemapBuffer, 0, 0, cx, y, w, h);
             if (gHud->step[7] == 0)
                 gHud->state[7] = 0;
         }
@@ -1775,190 +1624,6 @@ void sub_080C7AFC(void)
         }
     }
 }
-#else
-NAKED
-void sub_080C7AFC(void)
-{
-    asm_unified(
-        ".L080C7AFC:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sb\n"
-        "    mov r6, r8\n"
-        "    push {r6, r7}\n"
-        "    sub sp, #0x10\n"
-        "    movs r6, #0\n"
-        "    mov r8, r6\n"
-        "    movs r0, #3\n"
-        "    mov sb, r0\n"
-        "    movs r5, #6\n"
-        "    movs r7, #8\n"
-        "    ldr r4, .L080C7B40\n"
-        "    ldrh r0, [r4, #0xe]\n"
-        "    cmp r0, #1\n"
-        "    bne .L080C7BB4\n"
-        "    ldr r1, .L080C7B44\n"
-        "    str r7, [sp]\n"
-        "    str r7, [sp, #4]\n"
-        "    movs r0, #0\n"
-        "    movs r2, #0x17\n"
-        "    movs r3, #3\n"
-        "    bl Tilemap_FillRect\n"
-        "    ldrh r1, [r4, #0x1e]\n"
-        "    adds r0, r1, #0\n"
-        "    adds r0, #0x1d\n"
-        "    cmp r0, #0x1e\n"
-        "    ble .L080C7B48\n"
-        "    subs r0, r5, r1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r5, r0, #0x10\n"
-        "    adds r6, r1, #0\n"
-        "    adds r0, r6, #0\n"
-        "    b .L080C7B4A\n"
-        ".L080C7B40: .4byte 0x0200E7D4 @ EWRAM+0xE7D4\n"
-        ".L080C7B44: .4byte 0x0200DFD4 @ EWRAM+0xDFD4\n"
-        ".L080C7B48:\n"
-        "    adds r0, r1, #0\n"
-        ".L080C7B4A:\n"
-        "    adds r0, #0x17\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r1, r0, #0x10\n"
-        "    cmp r5, #0\n"
-        "    beq .L080C7B8C\n"
-        "    ldr r3, .L080C7B84\n"
-        "    adds r2, r1, #0\n"
-        "    mov r1, r8\n"
-        "    lsls r0, r1, #5\n"
-        "    adds r0, r0, r6\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r3, r0, r3\n"
-        "    lsls r0, r2, #0x10\n"
-        "    cmp r0, #0\n"
-        "    bge .L080C7B6A\n"
-        "    movs r2, #0\n"
-        ".L080C7B6A:\n"
-        "    ldr r1, .L080C7B88\n"
-        "    str r2, [sp]\n"
-        "    mov r0, sb\n"
-        "    str r0, [sp, #4]\n"
-        "    str r5, [sp, #8]\n"
-        "    str r7, [sp, #0xc]\n"
-        "    adds r0, r3, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0\n"
-        "    bl Tilemap_CopyRectSkipZero\n"
-        "    b .L080C7B92\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C7B84: .4byte gUnknown_0834A3DC\n"
-        ".L080C7B88: .4byte 0x0200DFD4 @ EWRAM+0xDFD4\n"
-        ".L080C7B8C:\n"
-        "    ldr r1, .L080C7BB0\n"
-        "    movs r0, #3\n"
-        "    strh r0, [r1, #0xe]\n"
-        ".L080C7B92:\n"
-        "    bl sub_080C6764\n"
-        "    ldr r1, .L080C7BB0\n"
-        "    ldrh r0, [r1, #0x2e]\n"
-        "    subs r0, #1\n"
-        "    strh r0, [r1, #0x2e]\n"
-        "    lsls r0, r0, #0x10\n"
-        "    cmp r0, #0\n"
-        "    bne .L080C7C44\n"
-        "    movs r0, #1\n"
-        "    strh r0, [r1, #0x2e]\n"
-        "    ldrh r0, [r1, #0x1e]\n"
-        "    adds r0, #1\n"
-        "    b .L080C7C42\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C7BB0: .4byte 0x0200E7D4 @ EWRAM+0xE7D4\n"
-        ".L080C7BB4:\n"
-        "    cmp r0, #2\n"
-        "    bne .L080C7C44\n"
-        "    ldr r1, .L080C7BE0\n"
-        "    str r7, [sp]\n"
-        "    str r7, [sp, #4]\n"
-        "    movs r0, #0\n"
-        "    movs r2, #0x17\n"
-        "    movs r3, #3\n"
-        "    bl Tilemap_FillRect\n"
-        "    ldrh r1, [r4, #0x1e]\n"
-        "    adds r0, r1, #0\n"
-        "    adds r0, #0x1d\n"
-        "    cmp r0, #0x1e\n"
-        "    ble .L080C7BE4\n"
-        "    subs r0, r5, r1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r5, r0, #0x10\n"
-        "    adds r6, r1, #0\n"
-        "    adds r0, r6, #0\n"
-        "    b .L080C7BE6\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C7BE0: .4byte 0x0200DFD4 @ EWRAM+0xDFD4\n"
-        ".L080C7BE4:\n"
-        "    adds r0, r1, #0\n"
-        ".L080C7BE6:\n"
-        "    adds r0, #0x17\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r1, r0, #0x10\n"
-        "    lsls r0, r5, #0x10\n"
-        "    cmp r0, #0\n"
-        "    ble .L080C7C28\n"
-        "    ldr r3, .L080C7C54\n"
-        "    adds r2, r1, #0\n"
-        "    mov r1, r8\n"
-        "    lsls r0, r1, #5\n"
-        "    adds r0, r0, r6\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r3, r0, r3\n"
-        "    lsls r0, r2, #0x10\n"
-        "    cmp r0, #0\n"
-        "    bge .L080C7C08\n"
-        "    movs r2, #0\n"
-        ".L080C7C08:\n"
-        "    ldr r1, .L080C7C58\n"
-        "    str r2, [sp]\n"
-        "    mov r0, sb\n"
-        "    str r0, [sp, #4]\n"
-        "    str r5, [sp, #8]\n"
-        "    str r7, [sp, #0xc]\n"
-        "    adds r0, r3, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0\n"
-        "    bl Tilemap_CopyRectSkipZero\n"
-        "    ldr r1, .L080C7C5C\n"
-        "    ldrh r0, [r1, #0x1e]\n"
-        "    cmp r0, #0\n"
-        "    bne .L080C7C28\n"
-        "    strh r0, [r1, #0xe]\n"
-        ".L080C7C28:\n"
-        "    bl sub_080C6764\n"
-        "    ldr r1, .L080C7C5C\n"
-        "    ldrh r0, [r1, #0x2e]\n"
-        "    subs r0, #1\n"
-        "    strh r0, [r1, #0x2e]\n"
-        "    lsls r0, r0, #0x10\n"
-        "    cmp r0, #0\n"
-        "    bne .L080C7C44\n"
-        "    movs r0, #1\n"
-        "    strh r0, [r1, #0x2e]\n"
-        "    ldrh r0, [r1, #0x1e]\n"
-        "    subs r0, #1\n"
-        ".L080C7C42:\n"
-        "    strh r0, [r1, #0x1e]\n"
-        ".L080C7C44:\n"
-        "    add sp, #0x10\n"
-        "    pop {r3, r4}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C7C54: .4byte gUnknown_0834A3DC\n"
-        ".L080C7C58: .4byte 0x0200DFD4 @ EWRAM+0xDFD4\n"
-        ".L080C7C5C: .4byte 0x0200E7D4 @ EWRAM+0xE7D4\n"
-    );
-}
-#endif
 
 // sub_080C7C60 @ 0x080C7C60
 void sub_080C7C60(void)

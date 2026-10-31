@@ -3,44 +3,48 @@
 
 // Hud_Init @ 0x080C65E8
 /* Sets up the field HUD state (gHudState) and its tilemap. */
-#ifdef NONMATCHING
 void Hud_Init(void)
 {
-    u16 *hud = gHudState;
+    u16 *hud;
+    u16 y, w, h, nine;
+    u16 *buf;   /* y, w, h and buf are the first panel's rectangle, reused for the HUD values */
 
-    DmaFill16(3, 0, hud, 0x74);
+    DmaFill16(3, 0, gHudState, 0x74);
+    hud = gHudState;
+    y = 0;
     hud[0xC] = 8;
-    hud[4] = 3;
-    hud[0xE] = 7;
-    hud[6] = 3;
-    hud[0xF] = 7;
-    hud[7] = 3;
-    hud[9] = 9;
-    hud[1] = 3;
-    DmaFill16(3, 0, gWindowTilemapBuffer, 0x800);
+    hud[4] = h = 3;
+    hud[0xE] = w = 7;
+    hud[6] = h;
+    hud[0xF] = w;
+    hud[7] = h;
+    hud[9] = nine = 9;
+    hud[1] = h;
+    DmaFill16(3, y, gWindowTilemapBuffer, 0x800);
+    buf = gWindowTilemapBuffer;
     if (sub_080C8AF8(*(u16 *)&gUnk_03004614) == 1)
     {
-        Tilemap_CopyRectSkipZero(gUnknown_081B8270, gWindowTilemapBuffer, 0, 0, 1, 0, 7, 3);
+        Tilemap_CopyRectSkipZero(gUnknown_081B8270, buf, 0, 0, 1, y, w, h);
         if (gGameState.unkAC0 != 1)
         {
-            Tilemap_CopyRectSkipZero(gUnknown_081B92B0, gWindowTilemapBuffer, 0, 0, 0xD, 0, 4, 2);
+            Tilemap_CopyRectSkipZero(gUnknown_081B92B0, buf, 0, 0, 0xD, y, 4, 2);
         }
         else
         {
-            hud[0xA] = 3;
-            hud[2] = 3;
+            hud[0xA] = h;
+            hud[2] = h;
         }
         Tilemap_CopyRectSkipZero(gUnknown_081B8170, gWindowTilemapBuffer, 0, 0, 0x15, 0, 8, 2);
         sub_080C6558();
     }
     else
     {
-        hud[8] = 9;
-        hud[0] = 3;
-        hud[0xA] = 3;
-        hud[2] = 3;
-        hud[0xB] = 9;
-        hud[3] = 3;
+        hud[8] = nine;
+        hud[0] = h;
+        hud[0xA] = h;
+        hud[2] = h;
+        hud[0xB] = nine;
+        hud[3] = h;
         hud[0x18] = 1;
     }
     sub_080C65A4();
@@ -51,160 +55,6 @@ void Hud_Init(void)
     sub_080C8440();
     sub_080C65C8();
 }
-#else
-NAKED
-void Hud_Init(void)
-{
-    asm_unified(
-        ".L080C65E8:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sb\n"
-        "    mov r6, r8\n"
-        "    push {r6, r7}\n"
-        "    sub sp, #0x18\n"
-        "    add r1, sp, #0x10\n"
-        "    movs r0, #0\n"
-        "    strh r0, [r1]\n"
-        "    ldr r1, .L080C6688\n"
-        "    add r0, sp, #0x10\n"
-        "    str r0, [r1]\n"
-        "    ldr r4, .L080C668C\n"
-        "    str r4, [r1, #4]\n"
-        "    ldr r0, .L080C6690\n"
-        "    str r0, [r1, #8]\n"
-        "    ldr r0, [r1, #8]\n"
-        "    movs r2, #0\n"
-        "    mov sb, r2\n"
-        "    movs r0, #8\n"
-        "    strh r0, [r4, #0x18]\n"
-        "    movs r5, #3\n"
-        "    strh r5, [r4, #8]\n"
-        "    movs r7, #7\n"
-        "    strh r7, [r4, #0x1c]\n"
-        "    strh r5, [r4, #0xc]\n"
-        "    strh r7, [r4, #0x1e]\n"
-        "    strh r5, [r4, #0xe]\n"
-        "    movs r6, #9\n"
-        "    strh r6, [r4, #0x12]\n"
-        "    strh r5, [r4, #2]\n"
-        "    add r0, sp, #0x10\n"
-        "    mov r2, sb\n"
-        "    strh r2, [r0]\n"
-        "    str r0, [r1]\n"
-        "    ldr r0, .L080C6694\n"
-        "    mov r8, r0\n"
-        "    str r0, [r1, #4]\n"
-        "    ldr r0, .L080C6698\n"
-        "    str r0, [r1, #8]\n"
-        "    ldr r0, [r1, #8]\n"
-        "    ldr r0, .L080C669C\n"
-        "    ldrh r0, [r0]\n"
-        "    bl sub_080C8AF8\n"
-        "    adds r1, r0, #0\n"
-        "    cmp r1, #1\n"
-        "    bne .L080C66DC\n"
-        "    ldr r0, .L080C66A0\n"
-        "    str r1, [sp]\n"
-        "    mov r1, sb\n"
-        "    str r1, [sp, #4]\n"
-        "    str r7, [sp, #8]\n"
-        "    str r5, [sp, #0xc]\n"
-        "    mov r1, r8\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0\n"
-        "    bl Tilemap_CopyRectSkipZero\n"
-        "    ldr r0, .L080C66A4\n"
-        "    movs r2, #0xac\n"
-        "    lsls r2, r2, #4\n"
-        "    adds r0, r0, r2\n"
-        "    ldrh r0, [r0]\n"
-        "    cmp r0, #1\n"
-        "    beq .L080C66AC\n"
-        "    ldr r0, .L080C66A8\n"
-        "    movs r1, #0xd\n"
-        "    str r1, [sp]\n"
-        "    mov r1, sb\n"
-        "    str r1, [sp, #4]\n"
-        "    movs r1, #4\n"
-        "    str r1, [sp, #8]\n"
-        "    movs r1, #2\n"
-        "    str r1, [sp, #0xc]\n"
-        "    mov r1, r8\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0\n"
-        "    bl Tilemap_CopyRectSkipZero\n"
-        "    b .L080C66B0\n"
-        ".L080C6688: .4byte 0x040000D4 @ REG_DMA3SAD\n"
-        ".L080C668C: .4byte 0x0200E7D4 @ EWRAM+0xE7D4\n"
-        ".L080C6690: .4byte 0x8100003A\n"
-        ".L080C6694: .4byte 0x0200DFD4 @ EWRAM+0xDFD4\n"
-        ".L080C6698: .4byte 0x81000400\n"
-        ".L080C669C: .4byte 0x03004614 @ IWRAM+0x4614\n"
-        ".L080C66A0: .4byte gUnknown_081B8270\n"
-        ".L080C66A4: .4byte 0x030046C0 @ IWRAM+0x46C0\n"
-        ".L080C66A8: .4byte gUnknown_081B92B0\n"
-        ".L080C66AC:\n"
-        "    strh r5, [r4, #0x14]\n"
-        "    strh r5, [r4, #4]\n"
-        ".L080C66B0:\n"
-        "    ldr r0, .L080C66D4\n"
-        "    ldr r1, .L080C66D8\n"
-        "    movs r2, #0x15\n"
-        "    str r2, [sp]\n"
-        "    movs r2, #0\n"
-        "    str r2, [sp, #4]\n"
-        "    movs r2, #8\n"
-        "    str r2, [sp, #8]\n"
-        "    movs r2, #2\n"
-        "    str r2, [sp, #0xc]\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0\n"
-        "    bl Tilemap_CopyRectSkipZero\n"
-        "    bl sub_080C6558\n"
-        "    b .L080C66EC\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C66D4: .4byte gUnknown_081B8170\n"
-        ".L080C66D8: .4byte 0x0200DFD4 @ EWRAM+0xDFD4\n"
-        ".L080C66DC:\n"
-        "    strh r6, [r4, #0x10]\n"
-        "    strh r5, [r4]\n"
-        "    strh r5, [r4, #0x14]\n"
-        "    strh r5, [r4, #4]\n"
-        "    strh r6, [r4, #0x16]\n"
-        "    strh r5, [r4, #6]\n"
-        "    movs r0, #1\n"
-        "    strh r0, [r4, #0x30]\n"
-        ".L080C66EC:\n"
-        "    bl sub_080C65A4\n"
-        "    bl Hud_UploadMoonTiles\n"
-        "    bl Party_BuildMemberNameTiles\n"
-        "    bl Hud_LoadAllMemberFaces\n"
-        "    movs r0, #0\n"
-        "    str r0, [sp, #0x14]\n"
-        "    ldr r1, .L080C6728\n"
-        "    add r0, sp, #0x14\n"
-        "    str r0, [r1]\n"
-        "    ldr r0, .L080C672C\n"
-        "    str r0, [r1, #4]\n"
-        "    ldr r0, .L080C6730\n"
-        "    str r0, [r1, #8]\n"
-        "    ldr r0, [r1, #8]\n"
-        "    bl sub_080C8440\n"
-        "    bl sub_080C65C8\n"
-        "    add sp, #0x18\n"
-        "    pop {r3, r4}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080C6728: .4byte 0x040000D4 @ REG_DMA3SAD\n"
-        ".L080C672C: .4byte 0x0200E8D8 @ EWRAM+0xE8D8\n"
-        ".L080C6730: .4byte 0x850003C0\n"
-    );
-}
-#endif
 
 // sub_080C6734 @ 0x080C6734
 void sub_080C6734(void)

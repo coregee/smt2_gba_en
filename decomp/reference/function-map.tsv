@@ -1330,7 +1330,7 @@ address	mode	size	name	confidence	state	file
 080C6558	thumb	76			c	src/fieldbg_a.c
 080C65A4	thumb	36			c	src/fieldbg_a.c
 080C65C8	thumb	32			c	src/fieldbg_a.c
-080C65E8	thumb	332	Hud_Init	probable	nonmatching	src/hud_a.c
+080C65E8	thumb	332	Hud_Init	probable	c	src/hud_a.c
 080C6734	thumb	48			c	src/hud_a.c
 080C6764	thumb	60			c	src/hud_a.c
 080C67A0	thumb	32			c	src/hud_a.c
@@ -1355,7 +1355,7 @@ address	mode	size	name	confidence	state	file
 080C71EC	thumb	44			c	src/hudslide_a.c
 080C7218	thumb	28			c	src/hudslide_a.c
 080C7234	thumb	56			c	src/hudslide_a.c
-080C726C	thumb	424			nonmatching	src/hudslide_a.c
+080C726C	thumb	424			c	src/hudslide_a.c
 080C7414	thumb	28			c	src/hudslide_a.c
 080C7430	thumb	44			c	src/hudslide_a.c
 080C745C	thumb	464			nonmatching	src/hudslide_a.c
@@ -1369,7 +1369,7 @@ address	mode	size	name	confidence	state	file
 080C7ACC	thumb	20			c	src/hudslide_a.c
 080C7AE0	thumb	16			c	src/hudslide_a.c
 080C7AF0	thumb	12			c	src/hudslide_a.c
-080C7AFC	thumb	356			nonmatching	src/hudslide_a.c
+080C7AFC	thumb	356			c	src/hudslide_a.c
 080C7C60	thumb	52			c	src/hudslide_a.c
 080C7C94	thumb	28			c	src/hudslide_a.c
 080C7CB0	thumb	12			c	src/hudslide_a.c
@@ -2104,7 +2104,7 @@ address	mode	size	name	confidence	state	file
 080DAB04	thumb	36			c	src/vision_a.c
 080DAB28	thumb	96	Vision_ApplyReceivedFlags	probable	c	src/vision_a.c
 080DAB88	thumb	68			c	src/vision_a.c
-080DABCC	thumb	128	Vision_BuildList	probable	nonmatching	src/vision_a.c
+080DABCC	thumb	128	Vision_BuildList	probable	c	src/vision_a.c
 080DAC4C	thumb	36	Vision_CountListed	probable	c	src/vision_a.c
 080DAC70	thumb	392			c	src/vision_a.c
 080DADF8	thumb	344	Vision_DrawItemList	tentative	c	src/vision_a.c
@@ -2483,7 +2483,7 @@ address	mode	size	name	confidence	state	file
 080E832C	thumb	304			c	src/battlesprite_a.c
 080E845C	thumb	32			c	src/battlesprite_a.c
 080E847C	thumb	274			c	src/battlesprite_a.c
-080E8590	thumb	292			nonmatching	src/battlesprite_a.c
+080E8590	thumb	292			c	src/battlesprite_a.c
 080E86B4	thumb	132			c	src/battlesprite_a.c
 080E8738	thumb	392			c	src/battlesprite_a.c
 080E88C0	thumb	360			c	src/battlesprite_a.c
@@ -2787,7 +2787,7 @@ address	mode	size	name	confidence	state	file
 080F2514	thumb	696	Battle_CastSupportSkill	probable	nonmatching	src/battle_080F2514.c
 080F27CC	thumb	764	Battle_UseItem	probable	c	src/battle_080F2514.c
 080F2AC8	thumb	468			c	src/battle_080F2AC8.c
-080F2C9C	thumb	174			nonmatching	src/battle_080F2AC8.c
+080F2C9C	thumb	174			c	src/battle_080F2AC8.c
 080F2D4C	thumb	352			nonmatching	src/battle_080F2AC8.c
 080F2EAC	thumb	104	Battle_PickEnemySupportTarget	probable	c	src/battle_080F2AC8.c
 080F2F14	thumb	80	Battle_GetLastOrderIndex	probable	c	src/battle_080F2AC8.c
@@ -3054,7 +3054,7 @@ address	mode	size	name	confidence	state	file
 08128F28	thumb	56			c	src/bmenu_08128C28.c
 08128F60	thumb	206			c	src/bmenu_08128C28.c
 08129030	thumb	54			c	src/bmenu_08128C28.c
-08129068	thumb	428			nonmatching	src/bmenu_08128C28.c
+08129068	thumb	428			c	src/bmenu_08128C28.c
 08129214	thumb	22			c	src/bmenu_08128C28.c
 0812922C	thumb	106			c	src/bmenu_08128C28.c
 08129298	thumb	82			c	src/bmenu_08128C28.c
@@ -3299,7 +3299,7 @@ address	mode	size	name	confidence	state	file
 0812F188	thumb	16			c	src/msgwin_a.c
 0812F198	thumb	76	MsgWindow_SaveGlyphs	probable	c	src/msgwin_a.c
 0812F1E4	thumb	208	MsgWindow_RestoreGlyphs	probable	c	src/msgwin_a.c
-0812F2B4	thumb	664	MsgWindow_DrawItemList	probable	nonmatching	src/msgwin_list.c
+0812F2B4	thumb	664	MsgWindow_DrawItemList	probable	c	src/msgwin_list.c
 0812F54C	thumb	3082	MsgWindow_ItemListInput	probable	c	src/msgwin_list.c
 08130158	thumb	44			c	src/msgwin_b.c
 08130184	thumb	84			c	src/msgwin_b.c
@@ -3947,7 +3947,7 @@ address	mode	size	name	confidence	state	file
 08145C98	thumb	48	JokerStars_CheckAllStars	probable	c	src/casino_joker_c.c
 08145CC8	thumb	380	JokerStars_CheckLine	probable	c	src/casino_joker_c.c
 08145E44	thumb	256	Baccarat_Init	probable	c	src/casino_baccarat_a.c
-08145F44	thumb	4024	Baccarat_Update	probable	nonmatching	src/casino_baccarat_main.c
+08145F44	thumb	4024	Baccarat_Update	probable	c	src/casino_baccarat_main.c
 08146EFC	thumb	72			c	src/casino_baccarat_b.c
 08146F44	thumb	132			c	src/casino_baccarat_b.c
 08146FC8	thumb	352	Baccarat_DrawNumber8	probable	c	src/casino_baccarat_b.c

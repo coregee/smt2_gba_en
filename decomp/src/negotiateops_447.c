@@ -70,25 +70,30 @@ void ScriptOp_447(void)
     }
     else if (test == 1)
     {
-        u16 race = INT_CALL(Demon_GetRace)(gUnk_0203DB7C);
-        u32 m;
+        u16 k;
 
-        if (race > 0x1A)
+        c = INT_CALL(Demon_GetRace)(gUnk_0203DB7C);
+        if (c > 0x1A)
             goto jump2;
-        m = 0xFF;
-        m &= INT_CALL(Demon_GetField)(gUnk_0203DB7C, 0xB);
-        if (m > 0x6F)
         {
-            if (m <= 0x8F)
+            u32 f = INT_CALL(Demon_GetField)(gUnk_0203DB7C, 0xB);
+
+            k = 0xFF;
+            c = k;
+            c &= f;
+        }
+        if (c > 0x6F)
+        {
+            if (c <= 0x8F)
                 return;
             v = sub_080C0794(0) >> 8;
-            v &= 0xFF;
-            if (v > 0x6F)
-                return;
-            goto jump2;
+            v &= k;
+            if (v <= 0x6F)
+                goto jump2;
+            return;
         }
         v = sub_080C0794(0) >> 8;
-        v &= 0xFF;
+        v &= k;
         if (v <= 0x8F)
             return;
         goto jump2;
@@ -99,9 +104,9 @@ void ScriptOp_447(void)
 
         if (gUnk_0203DB86 != 0)
             return;
-        for (; i < cap; i++)
+        for (who = 0; who < cap; who++)
         {
-            if (!Combatant_IsUsed(i + 4))
+            if (!Combatant_IsUsed(who + 4))
                 return;
         }
         goto jump;
@@ -301,11 +306,10 @@ void ScriptOp_447(void)
     }
     else if (test == 19)
     {
-        u32 need = ((u16)(INT_CALL(Demon_GetField)(gUnk_0203DB7C, 0x1B) & 0xFF) >> 1) + 1;
-
-        if (Magnetite_Get() < need)
+        i = ((u16)(INT_CALL(Demon_GetField)(gUnk_0203DB7C, 0x1B) & 0xFF) >> 1) + 1;
+        if (Magnetite_Get() < (u32)i)
             goto jump2;
-        Magnetite_Add(-need);
+        Magnetite_Add(-i);
         return;
     }
     else if (test == 20)

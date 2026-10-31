@@ -238,14 +238,13 @@ void sub_08129030(struct Task *task, u32 mode)
 }
 
 // sub_08129068 @ 0x08129068
-#ifdef NONMATCHING
 void sub_08129068(struct Task *task)
 {
     struct C127Block *blk = C127_BLOCK;
     u32 top = 12;
     u8 n = blk->unk44->data.raw[0];
     struct MenuCursor *c;
-    u8 row, changed;
+    u8 row;
     u8 i, j;
     u16 v;
     s32 y;
@@ -257,7 +256,7 @@ void sub_08129068(struct Task *task)
     c = sub_08126D1C(1);
     row = c->row;
     sub_08126A08(1);
-    changed = (c->row ^ row) != 0;
+    row = (c->row ^ row) != 0;  /* row is reused as the "cursor moved" flag */
     task->pad1E = 0;
     task->result = 0;
     if (gKeysNew & 2)
@@ -283,7 +282,7 @@ void sub_08129068(struct Task *task)
             BattleMenu_SetMode(4, gUnknown_08777FE0[blk->list[c->row]]);
         }
     }
-    if (changed == 1 && blk->unk7E0 == 4)
+    if (row == 1 && blk->unk7E0 == 4)
         BattleMenu_SetMode(4, gUnknown_08777FE0[blk->list[c->row]]);
     Sprite_Draw(gUnknown_08000E58, 0, 0, 0, 0, 0x58, top + c->row * 12);
     j = 0;
@@ -292,227 +291,14 @@ void sub_08129068(struct Task *task)
         v = blk->list[i];
         if (v == 0xFFFF)
             goto out;
-        Sprite_DrawSingle(gUnknown_08777F60[v], 0, 0, 0, 0, 0x5C, y = (j * 12 + 4) + top);
-        Sprite_DrawSingle(gUnknown_08777F68[v], 0, 0, 0, 0, 0x7C, y);
+        Sprite_DrawSingle(gUnknown_08777F60[v], 0, 0, 0, 0, 0x5C, (y = j * 12 + 4, top + y));
+        /* gUnknown_08777F68 is the second half of each 16-byte entry */
+        Sprite_DrawSingle(gUnknown_08777F60[v] + 8, 0, 0, 0, 0, 0x7C, top + y);
         j++;
     }
 out:
     ;
 }
-#else
-NAKED
-void sub_08129068(struct Task *task)
-{
-    asm_unified(
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, sl\n"
-        "    mov r6, sb\n"
-        "    mov r5, r8\n"
-        "    push {r5, r6, r7}\n"
-        "    sub sp, #0x10\n"
-        "    adds r4, r0, #0\n"
-        "    ldr r0, .L081290CC\n"
-        "    mov r8, r0\n"
-        "    movs r1, #0xc\n"
-        "    str r1, [sp, #0xc]\n"
-        "    ldr r0, [r0, #0x44]\n"
-        "    adds r0, #0x24\n"
-        "    ldrb r0, [r0]\n"
-        "    cmp r0, #2\n"
-        "    bne .L0812908C\n"
-        "    movs r2, #0xe\n"
-        "    str r2, [sp, #0xc]\n"
-        ".L0812908C:\n"
-        "    cmp r0, #6\n"
-        "    bne .L08129094\n"
-        "    movs r0, #0xa\n"
-        "    str r0, [sp, #0xc]\n"
-        ".L08129094:\n"
-        "    movs r0, #1\n"
-        "    bl sub_08126D1C\n"
-        "    adds r5, r0, #0\n"
-        "    ldrb r6, [r5, #0x18]\n"
-        "    movs r0, #1\n"
-        "    bl sub_08126A08\n"
-        "    ldrh r1, [r5, #0x18]\n"
-        "    eors r1, r6\n"
-        "    rsbs r0, r1, #0\n"
-        "    orrs r0, r1\n"
-        "    lsrs r6, r0, #0x1f\n"
-        "    movs r0, #0\n"
-        "    strh r0, [r4, #0x1e]\n"
-        "    strh r0, [r4, #0x1c]\n"
-        "    ldr r2, .L081290D0\n"
-        "    ldrh r1, [r2]\n"
-        "    movs r0, #2\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    beq .L081290D4\n"
-        "    movs r0, #0xff\n"
-        "    strh r0, [r4, #0x1e]\n"
-        "    movs r0, #1\n"
-        "    strh r0, [r4, #0x1c]\n"
-        "    b .L08129130\n"
-        "    .byte 0x00, 0x00\n"
-        ".L081290CC: .4byte 0x0203C200 @ EWRAM+0x3C200\n"
-        ".L081290D0: .4byte 0x030031B8 @ IWRAM+0x31B8\n"
-        ".L081290D4:\n"
-        "    ldrh r1, [r2]\n"
-        "    movs r2, #1\n"
-        "    adds r0, r2, #0\n"
-        "    ands r0, r1\n"
-        "    cmp r0, #0\n"
-        "    beq .L081290F4\n"
-        "    ldrh r0, [r5, #0x18]\n"
-        "    lsls r0, r0, #1\n"
-        "    movs r1, #0xb4\n"
-        "    lsls r1, r1, #2\n"
-        "    add r1, r8\n"
-        "    adds r0, r0, r1\n"
-        "    ldrh r0, [r0]\n"
-        "    strh r0, [r4, #0x1e]\n"
-        "    strh r2, [r4, #0x1c]\n"
-        "    b .L08129130\n"
-        ".L081290F4:\n"
-        "    ldrb r0, [r5]\n"
-        "    cmp r0, #6\n"
-        "    bne .L08129130\n"
-        "    movs r0, #0xfc\n"
-        "    lsls r0, r0, #3\n"
-        "    add r0, r8\n"
-        "    ldrb r0, [r0]\n"
-        "    cmp r0, #4\n"
-        "    bne .L08129110\n"
-        "    bl BattleMenu_Reset\n"
-        "    bl BattleMsg_Close\n"
-        "    b .L08129130\n"
-        ".L08129110:\n"
-        "    bl sub_080EA210\n"
-        "    ldr r2, .L08129200\n"
-        "    ldrh r0, [r5, #0x18]\n"
-        "    lsls r0, r0, #1\n"
-        "    movs r1, #0xb4\n"
-        "    lsls r1, r1, #2\n"
-        "    add r1, r8\n"
-        "    adds r0, r0, r1\n"
-        "    ldrh r0, [r0]\n"
-        "    lsls r0, r0, #2\n"
-        "    adds r0, r0, r2\n"
-        "    ldr r1, [r0]\n"
-        "    movs r0, #4\n"
-        "    bl BattleMenu_SetMode\n"
-        ".L08129130:\n"
-        "    cmp r6, #1\n"
-        "    bne .L0812915C\n"
-        "    movs r0, #0xfc\n"
-        "    lsls r0, r0, #3\n"
-        "    add r0, r8\n"
-        "    ldrb r0, [r0]\n"
-        "    cmp r0, #4\n"
-        "    bne .L0812915C\n"
-        "    ldr r2, .L08129200\n"
-        "    ldrh r1, [r5, #0x18]\n"
-        "    lsls r1, r1, #1\n"
-        "    movs r0, #0xb4\n"
-        "    lsls r0, r0, #2\n"
-        "    add r0, r8\n"
-        "    adds r0, r0, r1\n"
-        "    ldrh r0, [r0]\n"
-        "    lsls r0, r0, #2\n"
-        "    adds r0, r0, r2\n"
-        "    ldr r1, [r0]\n"
-        "    movs r0, #4\n"
-        "    bl BattleMenu_SetMode\n"
-        ".L0812915C:\n"
-        "    ldr r0, .L08129204\n"
-        "    movs r1, #0\n"
-        "    str r1, [sp]\n"
-        "    movs r1, #0x58\n"
-        "    str r1, [sp, #4]\n"
-        "    ldrh r2, [r5, #0x18]\n"
-        "    lsls r1, r2, #1\n"
-        "    adds r1, r1, r2\n"
-        "    lsls r1, r1, #2\n"
-        "    ldr r2, [sp, #0xc]\n"
-        "    adds r1, r2, r1\n"
-        "    lsls r1, r1, #0x10\n"
-        "    lsrs r1, r1, #0x10\n"
-        "    str r1, [sp, #8]\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0\n"
-        "    bl Sprite_Draw\n"
-        "    movs r7, #0\n"
-        "    movs r6, #0\n"
-        "    ldr r0, .L08129208\n"
-        "    mov sl, r0\n"
-        "    mov sb, r6\n"
-        ".L0812918C:\n"
-        "    lsls r1, r6, #1\n"
-        "    movs r0, #0xb4\n"
-        "    lsls r0, r0, #2\n"
-        "    add r0, r8\n"
-        "    adds r0, r0, r1\n"
-        "    ldrh r5, [r0]\n"
-        "    ldr r1, .L0812920C\n"
-        "    cmp r5, r1\n"
-        "    beq .L081291EE\n"
-        "    lsls r5, r5, #4\n"
-        "    mov r2, sl\n"
-        "    adds r0, r5, r2\n"
-        "    mov r1, sb\n"
-        "    str r1, [sp]\n"
-        "    movs r1, #0x5c\n"
-        "    str r1, [sp, #4]\n"
-        "    lsls r4, r7, #1\n"
-        "    adds r4, r4, r7\n"
-        "    lsls r4, r4, #2\n"
-        "    adds r4, #4\n"
-        "    ldr r2, [sp, #0xc]\n"
-        "    adds r4, r2, r4\n"
-        "    str r4, [sp, #8]\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0\n"
-        "    bl Sprite_DrawSingle\n"
-        "    ldr r0, .L08129210\n"
-        "    adds r5, r5, r0\n"
-        "    mov r1, sb\n"
-        "    str r1, [sp]\n"
-        "    movs r0, #0x7c\n"
-        "    str r0, [sp, #4]\n"
-        "    str r4, [sp, #8]\n"
-        "    adds r0, r5, #0\n"
-        "    movs r1, #0\n"
-        "    movs r2, #0\n"
-        "    movs r3, #0\n"
-        "    bl Sprite_DrawSingle\n"
-        "    adds r0, r7, #1\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r7, r0, #0x18\n"
-        "    adds r0, r6, #1\n"
-        "    lsls r0, r0, #0x18\n"
-        "    lsrs r6, r0, #0x18\n"
-        "    cmp r6, #5\n"
-        "    bls .L0812918C\n"
-        ".L081291EE:\n"
-        "    add sp, #0x10\n"
-        "    pop {r3, r4, r5}\n"
-        "    mov r8, r3\n"
-        "    mov sb, r4\n"
-        "    mov sl, r5\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r0}\n"
-        "    bx r0\n"
-        "    .byte 0x00, 0x00\n"
-        ".L08129200: .4byte gUnknown_08777FE0\n"
-        ".L08129204: .4byte gUnknown_08000E58\n"
-        ".L08129208: .4byte gUnknown_08777F60\n"
-        ".L0812920C: .4byte 0x0000FFFF\n"
-        ".L08129210: .4byte gUnknown_08777F68\n"
-    );
-}
-#endif
 
 // sub_08129214 @ 0x08129214
 void sub_08129214(struct Task *task, u32 value)

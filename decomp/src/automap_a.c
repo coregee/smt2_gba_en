@@ -168,18 +168,18 @@ void Automap_BuildAroundPlayer(void)
     if (!sub_080C2BF0())
     {
         if (gFieldState.unk1C < 12)
-            Automap_Build(dir, gFieldState.unk1A >> 1, gFieldState.unk1C >> 1);
+            Automap_Build(dir, gFieldState.unk1A / 2, gFieldState.unk1C / 2);
         else
-            Automap_Build(dir, gFieldState.unk1A >> 1, gFieldState.unk14);
+            Automap_Build(dir, gFieldState.unk1A / 2, gFieldState.unk14);
     }
     else if ((dir == 0 || dir == 2) && gFieldState.unk1C < 12)
-        Automap_Build(dir, gFieldState.unk1A >> 1, gFieldState.unk1C >> 1);
+        Automap_Build(dir, gFieldState.unk1A / 2, gFieldState.unk1C / 2);
     else if (gFieldState.unk1A < 12 && gFieldState.unk1C < 12)
-        Automap_Build(dir, gFieldState.unk1A >> 1, gFieldState.unk1C >> 1);
+        Automap_Build(dir, gFieldState.unk1A / 2, gFieldState.unk1C / 2);
     else if (dir == 0 || dir == 2)
-        Automap_Build(dir, gFieldState.unk1A >> 1, gFieldState.unk14);
+        Automap_Build(dir, gFieldState.unk1A / 2, gFieldState.unk14);
     else
-        Automap_Build(dir, gFieldState.unk12, gFieldState.unk1C >> 1);
+        Automap_Build(dir, gFieldState.unk12, gFieldState.unk1C / 2);
 }
 #else
 NAKED

@@ -242,9 +242,14 @@ void ScriptOp_Substitute(void)
         {
             const u16 (*t)[10];
 
+            /* t[gUnk_0203DB72][k]: the original adds k * 2 and the row offset before the base */
             i = 0;
             t = (const u16 (*)[10])gUnknown_0878F9CC;
-            c = t[gUnk_0203DB72][1];
+            {
+                s32 k = i + 1;
+
+                c = *(const u16 *)(((k << 1) + gUnk_0203DB72 * 20) + (u32)t);
+            }
             while (c != 0x301)
             {
                 gScriptSubstBuf[i] = c;
@@ -254,7 +259,7 @@ void ScriptOp_Substitute(void)
                 {
                     s32 k = i + 1;
 
-                    c = t[gUnk_0203DB72][k];
+                    c = *(const u16 *)(((k << 1) + gUnk_0203DB72 * 20) + (u32)t);
                 }
             }
             break;

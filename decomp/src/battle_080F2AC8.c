@@ -32,7 +32,6 @@ void sub_080F2AC8(void)
 }
 
 // sub_080F2C9C @ 0x080F2C9C
-#ifdef NONMATCHING
 s32 sub_080F2C9C(s16 who)
 {
     u16 list[8];
@@ -44,7 +43,7 @@ s32 sub_080F2C9C(s16 who)
         for (i = 16; i < 24; i++)
         {
             if (Combatant_IsUsed(i) && !Combatant_IsDead(i))
-                {
+            {
                 list[n] = i;
                 n++;
             }
@@ -56,111 +55,15 @@ s32 sub_080F2C9C(s16 who)
         {
             s16 id = sub_080F40EC(i);
             if (id != -1 && !Combatant_IsDead(id))
-                {
+            {
                 list[n] = id;
                 n++;
             }
         }
     }
-    return (s16)list[Random_Byte() % n];
+    /* volatile read: the original loads the u16 and sign-extends it with shifts (no ldrsh) */
+    return (s16)*(vu16 *)&list[Random_Byte() % n];
 }
-#else
-NAKED
-s32 sub_080F2C9C(s16 who)
-{
-    asm_unified(
-        ".L080F2C9C:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    mov r7, r8\n"
-        "    push {r7}\n"
-        "    sub sp, #0x10\n"
-        "    movs r7, #0\n"
-        "    lsls r0, r0, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    cmp r0, #0xf\n"
-        "    bgt .L080F2CE8\n"
-        "    movs r6, #0x10\n"
-        ".L080F2CB0:\n"
-        "    lsls r4, r6, #0x10\n"
-        "    asrs r5, r4, #0x10\n"
-        "    adds r0, r5, #0\n"
-        "    bl Combatant_IsUsed\n"
-        "    cmp r0, #0\n"
-        "    beq .L080F2CD8\n"
-        "    adds r0, r5, #0\n"
-        "    bl Combatant_IsDead\n"
-        "    cmp r0, #0\n"
-        "    bne .L080F2CD8\n"
-        "    lsls r0, r7, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    lsls r1, r0, #1\n"
-        "    .2byte 0x4469 @ add r1, sp, r1\n"
-        "    strh r6, [r1]\n"
-        "    adds r0, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r7, r0, #0x10\n"
-        ".L080F2CD8:\n"
-        "    movs r1, #0x80\n"
-        "    lsls r1, r1, #9\n"
-        "    adds r0, r4, r1\n"
-        "    lsrs r6, r0, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    cmp r0, #0x17\n"
-        "    ble .L080F2CB0\n"
-        "    b .L080F2D28\n"
-        ".L080F2CE8:\n"
-        "    movs r6, #0\n"
-        "    movs r0, #1\n"
-        "    rsbs r0, r0, #0\n"
-        "    mov r8, r0\n"
-        ".L080F2CF0:\n"
-        "    lsls r4, r6, #0x10\n"
-        "    asrs r0, r4, #0x10\n"
-        "    bl sub_080F40EC\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r5, r0, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    cmp r0, r8\n"
-        "    beq .L080F2D1A\n"
-        "    bl Combatant_IsDead\n"
-        "    cmp r0, #0\n"
-        "    bne .L080F2D1A\n"
-        "    lsls r0, r7, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    lsls r1, r0, #1\n"
-        "    .2byte 0x4469 @ add r1, sp, r1\n"
-        "    strh r5, [r1]\n"
-        "    adds r0, #1\n"
-        "    lsls r0, r0, #0x10\n"
-        "    lsrs r7, r0, #0x10\n"
-        ".L080F2D1A:\n"
-        "    movs r1, #0x80\n"
-        "    lsls r1, r1, #9\n"
-        "    adds r0, r4, r1\n"
-        "    lsrs r6, r0, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    cmp r0, #5\n"
-        "    ble .L080F2CF0\n"
-        ".L080F2D28:\n"
-        "    bl Random_Byte\n"
-        "    lsls r1, r7, #0x10\n"
-        "    asrs r1, r1, #0x10\n"
-        "    bl __umodsi3\n"
-        "    lsls r0, r0, #1\n"
-        "    .2byte 0x4468 @ add r0, sp, r0\n"
-        "    ldrh r0, [r0]\n"
-        "    lsls r0, r0, #0x10\n"
-        "    asrs r0, r0, #0x10\n"
-        "    add sp, #0x10\n"
-        "    pop {r3}\n"
-        "    mov r8, r3\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-        "    .byte 0x00, 0x00\n"
-    );
-}
-#endif
 
 // sub_080F2D4C @ 0x080F2D4C
 /* Picks a random skill for each able enemy unit (u->unk17 = action kind, unk5C = skill). */

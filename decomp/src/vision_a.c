@@ -73,7 +73,6 @@ void sub_080DAB88(void)
 /* Fills gUnk_0203B454 with vision ids (300..): mode 0 the ones seen, otherwise all except
    310, 338 and 342. Returns the count. */
 // Vision_BuildList @ 0x080DABCC
-#ifdef NONMATCHING
 u16 Vision_BuildList(u32 all)
 {
     u16 *list = gUnk_0203B454;
@@ -97,7 +96,8 @@ u16 Vision_BuildList(u32 all)
     }
     else
     {
-        for (i = 0; i < 46; i++)
+        u32 lim = 46;
+        for (i = 0; i < lim; i++)
         {
             u32 id = i + 300;
 
@@ -110,81 +110,6 @@ u16 Vision_BuildList(u32 all)
     }
     return n;
 }
-#else
-NAKED
-u16 Vision_BuildList(u32 all)
-{
-    asm_unified(
-        ".L080DABCC:\n"
-        "    push {r4, r5, r6, r7, lr}\n"
-        "    sub sp, #4\n"
-        "    adds r4, r0, #0\n"
-        "    ldr r6, .L080DAC08\n"
-        "    movs r7, #0\n"
-        "    str r7, [sp]\n"
-        "    ldr r2, .L080DAC0C\n"
-        "    mov r0, sp\n"
-        "    adds r1, r6, #0\n"
-        "    bl CpuSet\n"
-        "    cmp r4, #0\n"
-        "    bne .L080DAC10\n"
-        "    movs r5, #0\n"
-        ".L080DABE8:\n"
-        "    movs r0, #0x96\n"
-        "    lsls r0, r0, #1\n"
-        "    adds r4, r5, r0\n"
-        "    adds r0, r4, #0\n"
-        "    bl sub_080C2734\n"
-        "    cmp r0, #0\n"
-        "    beq .L080DABFE\n"
-        "    strh r4, [r6]\n"
-        "    adds r6, #2\n"
-        "    adds r7, #1\n"
-        ".L080DABFE:\n"
-        "    adds r5, #1\n"
-        "    cmp r5, #0x3f\n"
-        "    bls .L080DABE8\n"
-        "    b .L080DAC40\n"
-        "    .byte 0x00, 0x00\n"
-        ".L080DAC08: .4byte 0x0203B454 @ EWRAM+0x3B454\n"
-        ".L080DAC0C: .4byte 0x05000040 @ PLTT+0x40\n"
-        ".L080DAC10:\n"
-        "    movs r0, #0x2e\n"
-        "    mov ip, r0\n"
-        "    movs r5, #0\n"
-        "    movs r4, #0x96\n"
-        "    lsls r4, r4, #1\n"
-        "    movs r3, #0x9b\n"
-        "    lsls r3, r3, #1\n"
-        "    movs r2, #0xa9\n"
-        "    lsls r2, r2, #1\n"
-        "    movs r1, #0xab\n"
-        "    lsls r1, r1, #1\n"
-        ".L080DAC26:\n"
-        "    adds r0, r5, r4\n"
-        "    cmp r0, r3\n"
-        "    beq .L080DAC3A\n"
-        "    cmp r0, r2\n"
-        "    beq .L080DAC3A\n"
-        "    cmp r0, r1\n"
-        "    beq .L080DAC3A\n"
-        "    strh r0, [r6]\n"
-        "    adds r6, #2\n"
-        "    adds r7, #1\n"
-        ".L080DAC3A:\n"
-        "    adds r5, #1\n"
-        "    cmp r5, ip\n"
-        "    blo .L080DAC26\n"
-        ".L080DAC40:\n"
-        "    lsls r0, r7, #0x10\n"
-        "    lsrs r0, r0, #0x10\n"
-        "    add sp, #4\n"
-        "    pop {r4, r5, r6, r7}\n"
-        "    pop {r1}\n"
-        "    bx r1\n"
-    );
-}
-#endif
 
 // Vision_CountListed @ 0x080DAC4C
 u32 Vision_CountListed(void)

@@ -756,10 +756,9 @@ void CodeBreaker_UpdateNotes(void)
     if (s->unk43 != 0 && s->unk42 == 0)
         sub_0814C7A8(0xFF);
 
-    cur = s->row / 5;
-    if (cur != 0)
+    if ((u8)(s->row / 5) != 0)
     {
-        s->tot[0] = s->rowTotal[cur];
+        s->tot[0] = s->rowTotal[(u8)(s->row / 5)];
         if (s->row != 0)
             s->prevRow = s->row - 5;
         /* compare the current row with every earlier one */
@@ -813,7 +812,7 @@ void CodeBreaker_UpdateNotes(void)
                             m = sub_0814CD10(~s->unk61, s->row);
                             sub_0814CEB8(m, 0xFF);
                         }
-                        if (s->unk60 == 3 && (*(u16 *)s->tot & lo) == 0x203)
+                        if (s->unk60 == 3 && (lo &= *(u16 *)s->tot) == 0x203)
                         {
                             m = sub_0814CD10(~s->unk61, s->row);
                             sub_0814CEB8(m, 1);

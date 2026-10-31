@@ -37,6 +37,7 @@ void CasinoPrize_DrawList(u16 first)
     u16 *name;
     u32 price;
     s16 d;
+    s32 row;
 
     set = CasinoPrize_GetSet();
     gMsgGlyphCount = 0;
@@ -104,8 +105,18 @@ void CasinoPrize_DrawList(u16 first)
         {
             if (out[j] != 0xFFFF)
             {
-                QUEUE_GLYPH_CK(out[j], n * 10 + 0x8D, gUnknown_08790390[gUnk_03006844 + (i - first)]);
+                u16 c = gMsgGlyphCount;
+
+                k = c * 4;
+                gMsgGlyphQueue[k++] = out[j];
+                gMsgGlyphQueue[k++] = n * 10 + 0x8D;
+                row = i - first;
+                gMsgGlyphQueue[k++] = gUnknown_08790390[gUnk_03006844 + row];
+                gMsgGlyphQueue[k] = 0;
+                gMsgGlyphCount = c + 1;
                 n++;
+                if (gMsgGlyphCount > 0x3F)
+                    gMsgGlyphCount = 0x3F;
             }
         }
         QUEUE_GLYPH_CK(0xFC8, n * 10 + 0x8F, gUnknown_08790390[gUnk_03006844 + (i - first)]);
